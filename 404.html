@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head hexo-theme='https://volantis.js.org/#2.2.0'>
+<head hexo-theme="https://volantis.js.org/#2.2.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -10,7 +10,7 @@
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-  <meta name="HandheldFriendly" content="True" >
+  <meta name="HandheldFriendly" content="True">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -24,6 +24,10 @@
   
 
   <!-- import meta -->
+  
+    
+      <meta name="theme-color" content="#FFFFFF">
+    
   
 
   <!-- link -->
@@ -47,10 +51,16 @@
 
   <!-- import link -->
   
+  
+  <link rel="shortcut icon" type="image/x-icon" sizes="16x16 32x32 48x48 64x64" href="/assets/favicon/favicon.ico">
+  <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/assets/favicon/favicon_180.png">
+  <link rel="mask-icon" color="#1BC3FB" href="/assets/favicon/favicon_180.png">
+  <link rel="manifest" href="/manifest.json">
+  
 
   
     
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.2.0.2/css/style.css">
 
   
 
@@ -71,45 +81,40 @@
 </div>
 <header class="l_header shadow blur">
 
-  <div class='wrapper'>
-    <div class='nav-sub container--flex'>
+  <div class="wrapper">
+    <div class="nav-sub container--flex">
       <a class="logo flat-box"></a>
-      <ul class='switcher h-list'>
-        <li><a class="s-comment flat-btn fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+      <ul class="switcher h-list">
+        <li><a class="s-comment flat-btn fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
         
-          <li><a class="s-toc flat-btn fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+          <li><a class="s-toc flat-btn fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
         
       </ul>
     </div>
 		<div class="nav-main container container--flex">
       
         
-        <a class="logo flat-box" target="_self" href='/'>
+        <a class="logo flat-box" target="_self" href="/">
           
           
           
           
-            VOLANTIS <b><sup style='color:#3AA757'>2.2.0</sup></b>
+            VOLANTIS <b><sup style="color:#3AA757">2.2.0</sup></b>
           
         </a>
       
 
-			<div class='menu navigation'>
-				<ul class='h-list'>
+			<div class="menu navigation">
+				<ul class="h-list">
           
           
           
             
             
               <li>
-                <a class="flat-box" href=/
+                <a class="flat-box" href="/" id="home">
                   
-                  
-                  
-                    id="home"
-                  >
-                  
-                    <i class='fas fa-rss fa-fw'></i>
+                    <i class="fas fa-rss fa-fw"></i>
                   
                   博客
                 </a>
@@ -121,14 +126,9 @@
             
             
               <li>
-                <a class="flat-box" href=/categories/
+                <a class="flat-box" href="/categories/" id="categories">
                   
-                  
-                  
-                    id="categories"
-                  >
-                  
-                    <i class='fas fa-folder-open fa-fw'></i>
+                    <i class="fas fa-folder-open fa-fw"></i>
                   
                   分类
                 </a>
@@ -140,14 +140,9 @@
             
             
               <li>
-                <a class="flat-box" href=/tags/
+                <a class="flat-box" href="/tags/" id="tags">
                   
-                  
-                  
-                    id="tags"
-                  >
-                  
-                    <i class='fas fa-tags fa-fw'></i>
+                    <i class="fas fa-tags fa-fw"></i>
                   
                   标签
                 </a>
@@ -159,14 +154,9 @@
             
             
               <li>
-                <a class="flat-box" href=/archives/
+                <a class="flat-box" href="/archives/" id="archives">
                   
-                  
-                  
-                    id="archives"
-                  >
-                  
-                    <i class='fas fa-archive fa-fw'></i>
+                    <i class="fas fa-archive fa-fw"></i>
                   
                   归档
                 </a>
@@ -178,14 +168,9 @@
             
             
               <li>
-                <a class="flat-box" href=/friends/
+                <a class="flat-box" href="/friends/" id="friends">
                   
-                  
-                  
-                    id="friends"
-                  >
-                  
-                    <i class='fas fa-link fa-fw'></i>
+                    <i class="fas fa-link fa-fw"></i>
                   
                   友链
                 </a>
@@ -197,17 +182,112 @@
             
             
               <li>
-                <a class="flat-box" href=/about/
+                <a class="flat-box" href="/about/" id="about">
                   
-                  
-                  
-                    id="about"
-                  >
-                  
-                    <i class='fas fa-info-circle fa-fw'></i>
+                    <i class="fas fa-info-circle fa-fw"></i>
                   
                   关于
                 </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box">
+                  
+                    <i class="fas fa-ellipsis-v fa-fw"></i>
+                  
+                  更多
+                </a>
+                
+                  <ul class="submenu">
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/contributors/" id="contributors">
+                  
+                  特别感谢
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box">
+                  
+                  有疑问？
+                </a>
+                
+                  <ul class="submenu">
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/faqs/" id="faqs">
+                  
+                  看 FAQ
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="https://github.com/666WXY666/" id="https:githubcom666WXY666" rel="external nofollow noopener noreferrer" target="_blank">
+                  
+                  看 我的Github主页
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="https://github.com/666WXY666/666WXY666.github.io/" id="https:githubcom666WXY666666WXY666githubio" rel="external nofollow noopener noreferrer" target="_blank">
+                  
+                  看 本站源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="https://github.com/666WXY666/666WXY666.github.io/issues/" id="https:githubcom666WXY666666WXY666githubioissues" rel="external nofollow noopener noreferrer" target="_blank">
+                  
+                  提 Issue
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                  </ul>
                 
               </li>
             
@@ -220,16 +300,16 @@
         <div class="m_search">
           <form name="searchform" class="form u-search-form">
             <i class="icon fas fa-search fa-fw"></i>
-            <input type="text" class="input u-search-input" placeholder="搜索" />
+            <input type="text" class="input u-search-input" placeholder="搜索">
           </form>
         </div>
       
 
-			<ul class='switcher h-list'>
+			<ul class="switcher h-list">
 				
-					<li><a class="s-search flat-btn fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+					<li><a class="s-search flat-btn fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
 				
-				<li><a class="s-menu flat-btn fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				<li><a class="s-menu flat-btn fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a></li>
 			</ul>
 		</div>
 	</div>
@@ -238,86 +318,98 @@
   
   
     <li>
-      <a class="flat-box" href=/
+      <a class="flat-box" href="/" id="home">
         
-        
-        
-          id="home"
-        >
-        
-          <i class='fas fa-rss fa-fw'></i>
+          <i class="fas fa-rss fa-fw"></i>
         
         博客
       </a>
     </li>
   
     <li>
-      <a class="flat-box" href=/categories/
+      <a class="flat-box" href="/categories/" id="categories">
         
-        
-        
-          id="categories"
-        >
-        
-          <i class='fas fa-folder-open fa-fw'></i>
+          <i class="fas fa-folder-open fa-fw"></i>
         
         分类
       </a>
     </li>
   
     <li>
-      <a class="flat-box" href=/tags/
+      <a class="flat-box" href="/tags/" id="tags">
         
-        
-        
-          id="tags"
-        >
-        
-          <i class='fas fa-tags fa-fw'></i>
+          <i class="fas fa-tags fa-fw"></i>
         
         标签
       </a>
     </li>
   
     <li>
-      <a class="flat-box" href=/archives/
+      <a class="flat-box" href="/archives/" id="archives">
         
-        
-        
-          id="archives"
-        >
-        
-          <i class='fas fa-archive fa-fw'></i>
+          <i class="fas fa-archive fa-fw"></i>
         
         归档
       </a>
     </li>
   
     <li>
-      <a class="flat-box" href=/friends/
+      <a class="flat-box" href="/friends/" id="friends">
         
-        
-        
-          id="friends"
-        >
-        
-          <i class='fas fa-link fa-fw'></i>
+          <i class="fas fa-link fa-fw"></i>
         
         友链
       </a>
     </li>
   
     <li>
-      <a class="flat-box" href=/about/
+      <a class="flat-box" href="/about/" id="about">
         
-        
-        
-          id="about"
-        >
-        
-          <i class='fas fa-info-circle fa-fw'></i>
+          <i class="fas fa-info-circle fa-fw"></i>
         
         关于
+      </a>
+    </li>
+  
+    <li>
+      <a class="flat-box">
+        
+        hr
+      </a>
+    </li>
+  
+    <li>
+      <a class="flat-box" href="/contributors/" id="contributors">
+        
+        特别感谢
+      </a>
+    </li>
+  
+    <li>
+      <a class="flat-box" href="/faqs/" id="faqs">
+        
+        看 FAQ
+      </a>
+    </li>
+  
+    <li>
+      <a class="flat-box" href="https://github.com/666WXY666/" id="https:githubcom666WXY666" rel="external nofollow noopener noreferrer" target="_blank">
+        
+        看 我的Github主页
+      </a>
+    </li>
+  
+    <li>
+      <a class="flat-box" href="https://github.com/666WXY666/666WXY666.github.io/" id="https:githubcom666WXY666666WXY666githubio" rel="external nofollow noopener noreferrer" target="_blank">
+        
+        看 本站源码
+      </a>
+    </li>
+  
+    <li>
+      <a class="flat-box" href="https://github.com/666WXY666/666WXY666.github.io/issues/" id="https:githubcom666WXY666666WXY666githubioissues" rel="external nofollow noopener noreferrer" target="_blank">
+        
+        提 Issue
       </a>
     </li>
   
@@ -327,18 +419,18 @@
 
 
   <div class="l_body nocover">
-    <div class='body-wrapper'>
+    <div class="body-wrapper">
       
 
-<div class='l_main no_sidebar'>
+<div class="l_main no_sidebar">
   
 
   
-    <article id="" class="post white-box shadow article-type-" itemscope itemprop="blogPost">
+    <article id class="post white-box shadow article-type-" itemscope itemprop="blogPost">
       
 
 
-  <section class='meta'>
+  <section class="meta">
     
     
     <div class="meta" id="header-meta">
@@ -354,16 +446,16 @@
 
 
       
-      <div class='new-meta-box'>
+      <div class="new-meta-box">
         
           
         
           
             
-<div class='new-meta-item author'>
-  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
-    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>Mr. X</p>
+<div class="new-meta-item author">
+  <a href="https://666wxy666.github.io/" target="_blank" rel="external nofollow noopener noreferrer">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/d570170f4f12e1ee829ca0e85a7dffeb77343a.svg" data-original="/img/avatar.jpg">
+    <p>王兴宇</p>
   </a>
 </div>
 
@@ -376,11 +468,29 @@
         
           
             <div class="new-meta-item date">
-  <a class='notlink'>
+  <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>发布于：2020年3月21日</p>
   </a>
 </div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：0字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：1分钟</p>
+    </a>
+  </div>
+
 
           
         
@@ -438,18 +548,7 @@
           
 
   
-    <meting-js
-      theme='#1BCDFC'
-      autoplay='false'
-      volume='0.7'
-      loop='all'
-      order='list'
-      fixed='false'
-      list-max-height='340px'
-      server='netease'
-      type='playlist'
-      id='3175833810'
-      list-folded='true'>
+    <meting-js theme="#1BCDFC" autoplay="false" volume="0.7" loop="all" order="list" fixed="false" list-max-height="340px" server="netease" type="playlist" id="3175833810" list-folded="true">
     </meting-js>
   
 
@@ -462,34 +561,22 @@
         <div class="social-wrapper">
           
             
-              <a href="/atom.xml"
-                class="social fas fa-rss flat-btn"
-                target="_blank"
-                rel="external nofollow noopener noreferrer">
+              <a href="/atom.xml" class="social fas fa-rss flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
               </a>
             
           
             
-              <a href="mailto:me@xaoxuu.com"
-                class="social fas fa-envelope flat-btn"
-                target="_blank"
-                rel="external nofollow noopener noreferrer">
+              <a href="mailto:1293739194@qq.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
               </a>
             
           
             
-              <a href="https://github.com/xaoxuu"
-                class="social fab fa-github flat-btn"
-                target="_blank"
-                rel="external nofollow noopener noreferrer">
+              <a href="https://github.com/666WXY666/" class="social fab fa-github flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
               </a>
             
           
             
-              <a href="https://music.163.com/#/user/home?id=63035382"
-                class="social fas fa-headphones-alt flat-btn"
-                target="_blank"
-                rel="external nofollow noopener noreferrer">
+              <a href="https://music.163.com/#/user/home?id=74040689" class="social fas fa-headphones-alt flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
               </a>
             
           
@@ -497,7 +584,7 @@
       
     
       
-        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
       
     
@@ -514,8 +601,8 @@
       
     
       
-        <div class='copyright'>
-        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+        <div class="copyright">
+        <p><a href="https://666wxy666.github.io/" target="_blank" rel="external nofollow noopener noreferrer">Copyright © 2017-2020 王兴宇</a></p>
 
         </div>
       
@@ -527,7 +614,7 @@
 
       <script>setLoadingBarProgress(60);</script>
     </div>
-    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
   </div>
   
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
@@ -628,7 +715,7 @@
 
 
   
-<script src="/js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.2.0.2/js/app.js"></script>
 
 
 
@@ -689,7 +776,7 @@
 
   <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 <script>
-  let LAZY_LOAD_IMAGE = "";
+  let LAZY_LOAD_IMAGE = "[object Object]";
   $(".article-entry").find("div.fancybox").find("img").each(function () {
       var element = document.createElement("a");
       $(element).attr("data-fancybox", "gallery");
@@ -712,5 +799,5 @@
 
 
   <script>setLoadingBarProgress(100);</script>
-</body>
+<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
 </html>
