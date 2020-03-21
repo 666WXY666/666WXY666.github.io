@@ -6,7 +6,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Hello World |  Hexo
+    my-first-blog |  Hexo
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -30,7 +30,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-hello-world" class="article article-type-post" itemscope
+  <article id="post-my-first-blog" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -38,7 +38,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Hello World
+  my-first-blog
 </h1>
   
 
@@ -47,8 +47,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/03/19/hello-world/" class="article-date">
-  <time datetime="2020-03-19T03:08:51.637Z" itemprop="datePublished">2020-03-19</time>
+      <a href="/2020/03/21/my-first-blog/" class="article-date">
+  <time datetime="2020-03-21T03:04:43.000Z" itemprop="datePublished">2020-03-21</time>
 </a>
       
       
@@ -58,7 +58,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">73字</span>
+            <span class="post-count">1.1k字</span>
         </span>
     </span>
 
@@ -67,7 +67,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1分钟</span>
+            <span class="post-count">4分钟</span>
         </span>
     </span>
 </div>
@@ -92,19 +92,111 @@
       
 
       
-      <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+      <h1 id="Linux上机作业1：正则表达式应用-实验报告"><a href="#Linux上机作业1：正则表达式应用-实验报告" class="headerlink" title="Linux上机作业1：正则表达式应用 实验报告"></a>Linux上机作业1：正则表达式应用 实验报告</h1><ul>
+<li><strong>学号：</strong>2017211335</li>
+<li><strong>姓名：</strong>王兴宇</li>
+<li><strong>QQ群昵称：</strong>140王兴宇</li>
+<li><strong>电子邮件地址：</strong><a href="mailto:1293739194@qq.com">1293739194@qq.com</a></li>
+</ul>
+<p>##目录：</p>
+<p>[toc]</p>
+<a id="more"></a>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>##一、题目要求：</p>
+<p>​        <strong>从因特网上搜索 Web 页，用 wget 获取网页，处理网页 html 文本数据，从中提取出当前时间点北京各监测站的 PM2.5 浓度，输出如下 CSV 格式数据：</strong><br><strong><em>2020 03 09 13:00:00, 海淀区万柳 ,73<br>2020 03 09 13:00:00, 昌平镇 ,67<br>2020 03 09 13:00:00, 奥体中心 ,66<br>2020 03 09 13:00:00, 海淀区万柳 ,73<br>2020 03 09 13:00:00, 昌平镇 ,73<br>2020 03 09 13:00:00, 奥体中心 ,75</em></strong><br>​        <strong>撰写实验报告，要求：写出对数据的分析和处理思路，列出各个处理步骤并给出解释。提交的 Word 版本电子版实验报告文件，请于 3 月 26 日 8:00前在北邮爱课堂平台提交。在文件的头部请给出学号、姓名、 qq群昵称和你的电子邮件地址。</strong></p>
+<p>##二、实验步骤：</p>
+<ol>
+<li><p>从因特网上搜索 Web 页，找到与含有北京各监测站的 PM2.5 浓度的网站，我找到了<strong><em>绿色呼吸网（<a href="http://www.pm25.com/city/beijing.html）" target="_blank" rel="noopener">http://www.pm25.com/city/beijing.html）</a></em></strong>，网站如下：</p>
+<img src="C:/Users/12937/Desktop/作业/Pictures/1.jpg" alt="" style="zoom: 35%;" />
+</li>
+<li><p>使用<strong><em>Xshell</em></strong>登录到Ubuntu服务器：</p>
+<img src="../../../../Pictures/2.jpg" alt="" style="zoom:35%;" />
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<img src="C:/Users/12937/Desktop/作业/Pictures/3.jpg" alt="" style="zoom:35%;" />
+</li>
+<li><p>使用<strong><em>wget</em></strong>命令获取该网页：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.pm25.com/city/beijing.html</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<img src="C:/Users/12937/Desktop/作业/Pictures/4.jpg" alt="" style="zoom: 80%;" />
+</li>
+<li><p>使用<strong><em>cat</em></strong>命令查看该网页的内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | more</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<img src="C:/Users/12937/Desktop/作业/Pictures/5.jpg" alt="" style="zoom: 36%;" />
+
+<p>我们关注的内容：</p>
+<p>​        ①数据更新的时间：</p>
+<img src="C:/Users/12937/Desktop/作业/Pictures/6.jpg" alt="" style="zoom: 67%;" />
+
+<p>​        ②各监测点PM2.5浓度数据：</p>
+<img src="C:/Users/12937/Desktop/作业/Pictures/7.jpg" alt="" style="zoom: 55%;" />
+</li>
+<li><p>发现时间的地方有个<strong><em>“更新时间：”</em></strong>，监测点名称的地方都有<strong><em>“pjadt_location”</em></strong>，而PM2.5浓度的地方都有<strong><em>“pjadt_pm25”</em></strong>。根据这个特性，先使用<strong><em>awk</em></strong>命令将需要的行保留下来。下面先进行编写<strong><em>1.awk</em></strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim 1.awk</span><br></pre></td></tr></table></figure>
+
+<img src="C:/Users/12937/Desktop/作业/Pictures/8.jpg" alt=""  />
+
+<p>运行以下命令，对所需行进行过滤：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | more</span><br></pre></td></tr></table></figure>
+
+<img src="C:/Users/12937/Desktop/作业/Pictures/9.jpg" alt="" style="zoom: 60%;" />
+
+<p>发现除了我们想要的行还多出了这几行：</p>
+<p><img src="C:/Users/12937/Desktop/%E4%BD%9C%E4%B8%9A/Pictures/10.jpg" alt=""></p>
+<p>经过观察，发现<strong><em>“PM2.5”</em></strong>浓度这一行与我们所需的行的区别是，我们所需的行有<strong><em>μg</em></strong>，而<strong><em>“PM2.5”</em></strong>浓度这一行没有：</p>
+<img src="C:/Users/12937/Desktop/作业/Pictures/11.jpg" alt="" style="zoom: 58%;" />
+
+<p>我们重新对<strong><em>“1.awk”</em></strong>进行编辑，直接将<strong><em>“监测站点”</em></strong>这一行排除，并且对<strong><em>“PM2.5”</em></strong>浓度这一行采用额外的过滤规则:</p>
+<p><img src="C:/Users/12937/Desktop/%E4%BD%9C%E4%B8%9A/Pictures/12.jpg" alt=""></p>
+<p>重新运行以下命令，对所需行进行过滤：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | more</span><br></pre></td></tr></table></figure>
+
+<img src="C:/Users/12937/Desktop/作业/Pictures/13.jpg" alt="" style="zoom:60%;" />
+
+<p>发现已经筛选出了所需要的行。</p>
+</li>
+<li><p>现在再利用<strong><em>sed</em></strong>命令将<strong><em>html标签”&lt;&gt;“</em></strong>中的内容和<strong><em>“更新时间：”</em></strong>这个无用的信息删除：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | sed -e 's/&lt;[^&lt;&gt;]*&gt;//g' -e 's/更新时间：//g' | more</span><br></pre></td></tr></table></figure>
+
+<img src="C:/Users/12937/Desktop/作业/Pictures/14.jpg" alt="" style="zoom:80%;" />
+
+<p>发现已经只剩余我们想要的数据。</p>
+</li>
+<li><p>但是这些数据不在同一行，且没有明显特征，无法进行<strong><em>awk</em></strong>命令，因此先使用<strong><em>tr</em></strong>命令将这些行合并为一行，以空格分隔：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | sed -e 's/&lt;[^&lt;&gt;]*&gt;//g' -e 's/更新时间：//g' | tr '\n' ' ' | more</span><br></pre></td></tr></table></figure>
+
+<img src="C:/Users/12937/Desktop/作业/Pictures/15.jpg" alt="" style="zoom:50%;" />
+</li>
+<li><p>最后利用<strong><em>awk</em></strong>命令将所需内容规格化输出即可，先编辑<strong><em>“2.awk”</em></strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim 2.awk</span><br></pre></td></tr></table></figure>
+
+<img src="C:/Users/12937/Desktop/作业/Pictures/16.jpg" alt="" style="zoom: 90%;" />
+
+<p>利用<strong><em>for</em></strong>循环输出，<strong><em>NF</em></strong>为列数，刚好循环$$(NF-2)/4$$次，第一个<strong><em>%s</em></strong>为<strong><em>日期</em></strong>，第二个<strong><em>%s</em></strong>为<strong><em>时间</em></strong>，第三个<strong><em>%s</em></strong>为<strong><em>监测点名称</em></strong>，第四个<strong><em>%s</em></strong>为<strong><em>PM2.5浓度</em></strong>，再运行以下<strong><em>awk</em></strong>命令，即可得到格式化的输出：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | sed -e 's/&lt;[^&lt;&gt;]*&gt;//g' -e 's/更新时间：//g' | tr '\n' ' ' | awk -f 2.awk  | more</span><br></pre></td></tr></table></figure>
+
+<img src="C:/Users/12937/Desktop/作业/Pictures/17.jpg" alt="" style="zoom:50%;" />
+
+<p>发现输出已经符合题目要求。</p>
+</li>
+<li><p>将结果重定向到文件<strong><em>“beijing.csv”</em></strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | sed -e 's/&lt;[^&lt;&gt;]*&gt;//g' -e 's/更新时间：//g' | tr '\n' ' ' | awk -f 2.awk  &gt; beijing.csv</span><br><span class="line">vim beijing.csv</span><br></pre></td></tr></table></figure>
+
+<img src="C:/Users/12937/Desktop/作业/Pictures/18.jpg" alt="" style="zoom:50%;" />
+
+<p><img src="C:/Users/12937/Desktop/%E4%BD%9C%E4%B8%9A/Pictures/19.jpg" alt=""></p>
+</li>
+<li><p>将<strong><em>beijing.csv</em></strong>发送到电脑，并将编码转为<strong><em>ANSI</em></strong>：</p>
+<img src="C:/Users/12937/Desktop/作业/Pictures/20.jpg" alt="" style="zoom:60%;" />
+</li>
+<li><p>由于不同时间的数据有所不同，因此我的过滤语句考虑了不同时间点的情况<strong><em>（北京一共有12个监测点，有时有的监测点没有数据，因此是只有11个监测点的数据）</em></strong>，直接运行以下命令就可以直接将数据导出为<strong><em>beijing.csv</em></strong>，以下为另一时间点的数据情况：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.pm25.com/city/beijing.html</span><br><span class="line">cat beijing.html | awk -f 1.awk | sed -e 's/&lt;[^&lt;&gt;]*&gt;//g' -e 's/更新时间：//g' | tr '\n' ' ' | awk -f 2.awk  &gt; beijing.csv</span><br></pre></td></tr></table></figure>
+
+<img src="C:/Users/12937/Desktop/作业/Pictures/21.jpg" alt="" style="zoom:60%;" />
+
+</li>
+</ol>
+<h2 id="三、实验总结"><a href="#三、实验总结" class="headerlink" title="三、实验总结"></a>三、实验总结</h2><p>​        经过本实验，我更加深刻地了解了<strong><em>Linux</em></strong>中的<strong><em>sed、tr、awk</em></strong>等各种处理命令，熟悉了<strong><em>正则表达式</em></strong>的应用，受益良多。</p>
 
       
       <!-- reward -->
@@ -174,13 +266,15 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/03/19/hello-world/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/03/21/my-first-blog/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
+
 
     </footer>
 
@@ -190,15 +284,11 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/03/21/my-first-blog/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            my-first-blog
-          
-        </div>
-      </a>
     
+      <a href="/2020/03/19/hello-world/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Hello World</div>
+      </a>
     
   </nav>
 
