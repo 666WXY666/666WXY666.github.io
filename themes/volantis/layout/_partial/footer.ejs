@@ -1,0 +1,72 @@
+<% if (theme.footer) { %>
+  <%
+  var layout = theme.footer.layout;
+  if (config.theme_config && config.theme_config.footer && config.theme_config.footer.layout) {
+    layout = config.theme_config.footer.layout;
+  }
+  %>
+  <footer class="clearfix">
+    <br><br>
+    <% layout.forEach(function(item){ %>
+      <% if (item == 'social') { %>
+        <br>
+        <div class="social-wrapper">
+          <% (theme.footer.social||[]).forEach(function(value){ %>
+            <% if (value.url && value.icon) { %>
+              <a href="<%= url_for(value.url) %>"
+                class="social <%- value.icon %> flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            <%}%>
+          <%})%>
+        </div>
+      <% } else if (item == 'aplayer') { %>
+        <div class="aplayer-container">
+          <%- partial('../_third-party/aplayer', {post: null, where: 'footer'}) %>
+        </div>
+      <% } else if (item == 'license') { %>
+        <div><%- markdown(__('footer.license')) %></div>
+	  <% } else if (item == 'runtime') { %>
+		<i class="fas fa-clock"></i>
+        <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+		<script>
+			var now = new Date(); 
+			function createtime() { 
+				var grt= new Date("02/10/2020 17:38:00");//建站时间，格式：月/日/年 时:分:秒
+				now.setTime(now.getTime()+250); 
+				days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+				hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+				if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+				mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+				seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+				snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+				document.getElementById("timeDate").innerHTML = "本站已成功存活了 "+dnum+" 天 "; 
+				document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+			} 
+		setInterval("createtime()",250);
+		</script>
+		<br>
+      <% } else if (item == 'info') { %>
+        <% if (theme.plugins.busuanzi) { %>
+		  <i class="fas fa-user"></i>
+		  <span id="busuanzi_container_site_uv" >总访客数：<span id="busuanzi_value_site_uv"></span> 人 | </span>
+		  <i class="fas fa-eye"></i>
+		  <span id="busuanzi_container_site_pv" >总阅读量：<span id="busuanzi_value_site_pv"></span> 次 | </span>
+		  <i class="fas fa-chart-area"></i>
+		  <span class="post-count">字数统计：<%= totalcount(site) %> 字</span>
+        <% } %>
+      <% } else if (item == 'copyright') { %>
+        <div class='copyright'>
+        <%- markdown(theme.footer.copyright) %>
+        </div>
+		<br>
+      <% } else { %>
+        <% if (item in theme.footer) { %>
+          <div><%- markdown(theme.footer[item]) %></div>
+        <% } %>
+      <% } %>
+    <% }) %>
+  </footer>
+<% } %>
+<script>setLoadingBarProgress(80);</script>
