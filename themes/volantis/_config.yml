@@ -144,16 +144,16 @@ navbar:
           - name: 有疑问？
             rows:
               - name: FAQ
-                icon: fas question-circle
+                icon: fas fa-question-circle
                 url: faqs/
               - name: 我的Github主页
-                icon: fas github
+                icon: fas fa-github
                 url: https://github.com/666WXY666/
               - name: 本站源码
-                icon: fas code
+                icon: fas fa-code
                 url: https://github.com/666WXY666/666WXY666.github.io/
               - name: 向我提问
-                icon: fas question
+                icon: fas fa-question
                 url: https://github.com/666WXY666/666WXY666.github.io/issues/
           - name: hr
           - name: 背景音乐
@@ -180,16 +180,16 @@ navbar:
         icon: fas fa-info-circle
         url: about/
       - name: FAQ
-        icon: fas question-circle
+        icon: fas fa-question-circle
         url: faqs/
       - name: 我的Github主页
-        icon: fas github
+        icon: fas fa-github
         url: https://github.com/666WXY666/
       - name: 本站源码
-        icon: fas code
+        icon: fas fa-code
         url: https://github.com/666WXY666/666WXY666.github.io/
       - name: 向我提问
-        icon: fas question
+        icon: fas fa-question
         url: https://github.com/666WXY666/666WXY666.github.io/issues/
   search: 搜索   # Search bar placeholder
 
