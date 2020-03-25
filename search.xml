@@ -5,8 +5,8 @@
     
     <entry>
       <title>Hello World</title>
-      <link href="/2020/03/24/test/"/>
-      <url>/2020/03/24/test/</url>
+      <link href="/2020/03/19/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
+      <url>/2020/03/19/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
       
         <content type="html"><![CDATA[<p>欢迎来到我的博客，这是我的第一篇测试博客文章。</p><a id="more"></a><p>如果有什么问题，欢迎到我的Github提问我。</p>]]></content>
       
@@ -24,30 +24,11 @@
       </categories>
       
       
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="/2020/03/19/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2TEST/"/>
-      <url>/2020/03/19/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2TEST/</url>
-      
-        <content type="html"><![CDATA[<p>欢迎来到我的博客，这是我的第一篇测试博客文章。</p><a id="more"></a><p>如果有什么问题，欢迎到我的Github提问我。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Linux </category>
-          
-          <category> 代码 </category>
-          
-          <category> C </category>
-          
-          <category> C++ </category>
-          
-      </categories>
-      
+        <tags>
+            
+            <tag> first </tag>
+            
+        </tags>
       
     </entry>
     
