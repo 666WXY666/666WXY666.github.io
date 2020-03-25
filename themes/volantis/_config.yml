@@ -147,7 +147,7 @@ navbar:
                 icon: fas fa-question-circle
                 url: faqs/
               - name: 我的Github主页
-                icon: fas fa-github
+                icon: fab fa-github
                 url: https://github.com/666WXY666/
               - name: 本站源码
                 icon: fas fa-code
@@ -183,7 +183,7 @@ navbar:
         icon: fas fa-question-circle
         url: faqs/
       - name: 我的Github主页
-        icon: fas fa-github
+        icon: fab fa-github
         url: https://github.com/666WXY666/
       - name: 本站源码
         icon: fas fa-code
