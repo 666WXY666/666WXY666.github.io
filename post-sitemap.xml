@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2020/03/24/test/</loc>
+        <lastmod>2020-03-24T13:24:21.245Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2020/03/19/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2TEST/</loc>
         <lastmod>2020-03-22T01:53:08.882Z</lastmod>
         <changefreq>weekly</changefreq>
