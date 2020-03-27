@@ -149,6 +149,9 @@ navbar:
               - name: 我的Github主页
                 icon: fab fa-github
                 url: https://github.com/666WXY666/
+              - name: 我的Gitee主页
+                icon: fab fa-git-alt
+                url: https://gitee.com/wxy_666
               - name: 本站源码
                 icon: fas fa-code
                 url: https://github.com/666WXY666/666WXY666.github.io/
@@ -185,6 +188,9 @@ navbar:
       - name: 我的Github主页
         icon: fab fa-github
         url: https://github.com/666WXY666/
+      - name: 我的Gitee主页
+        icon: fab fa-git-alt
+        url: https://gitee.com/wxy_666
       - name: 本站源码
         icon: fas fa-code
         url: https://github.com/666WXY666/666WXY666.github.io/
@@ -389,6 +395,8 @@ footer:
       url: mailto:1293739194@qq.com
     - icon: fab fa-github
       url: https://github.com/666WXY666/
+    - icon: fab fa-git-alt
+      url: https://gitee.com/wxy_666
     - icon: fas fa-headphones-alt
       url: https://music.163.com/#/user/home?id=74040689
   copyright: '[Copyright © 2020-2020 苇名一心](https://666wxy666.github.io/)'

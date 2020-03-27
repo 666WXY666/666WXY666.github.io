@@ -160,6 +160,7 @@ nofollow:
   enable: true
   exclude:
   - 666WXY666.github.io
+  - wxy_666.gitee.io
 
 # autoprefixer
 autoprefixer:
