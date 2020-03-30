@@ -10,8 +10,7 @@ keywords: '计算机,IT,学习交流,Blog,博客'
 author: '苇名一心'
 language: zh-CN
 timezone: ''
-favicon: /favicon.ico
-
+favicon: https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/favicon/favicon.ico
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://yoursite.com
@@ -150,7 +149,7 @@ sitemap:
 lazyload:
   enable: true
   onlypost: false
-  loadingImg: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/d570170f4f12e1ee829ca0e85a7dffeb77343a.svg
+  loadingImg: https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/placeholder.svg
 
 # npm install hexo-all-minifier --save
 all_minifier: true
