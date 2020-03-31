@@ -5,18 +5,18 @@ let aplayer = theme.plugins.aplayer;
   <% if (post && post.music) { %>
     <meting-js
       mini='true'
-      autoplay='<%- post.music.autoplay || aplayer.autoplay %>'
       volume='<%- post.music.volume || aplayer.volume %>'
       loop='<%- post.music.loop || aplayer.loop %>'
       order='<%- post.music.order || aplayer.order %>'
       server='<%- post.music.server || aplayer.server %>'
       type='<%- post.music.type || aplayer.type %>'
-      id='<%- post.music.id || aplayer.id %>'>
+	  autoplay='<%- post.music.autoplay || aplayer.autoplay %>'
+      id='<%- post.music.id || aplayer.id %>'
+	  preload='<%- post.music.preload || aplayer.preload %>'>
     </meting-js>
   <% } else { %>
     <meting-js
       theme='<%- aplayer.theme %>'
-      autoplay='<%- aplayer.autoplay %>'
       volume='<%- aplayer.volume %>'
       loop='<%- aplayer.loop %>'
       order='<%- aplayer.order %>'
@@ -24,8 +24,10 @@ let aplayer = theme.plugins.aplayer;
       list-max-height='<%- aplayer.list_max_height %>'
       server='<%- aplayer.server %>'
       type='<%- aplayer.type %>'
+	  autoplay='<%- aplayer.autoplay %>'
       id='<%- aplayer.id %>'
-      list-folded='<%- aplayer.list_folded %>'>
+      list-folded='<%- aplayer.list_folded %>'
+	  preload='<%- aplayer.preload %>'>
     </meting-js>
   <% } %>
 <% } %>

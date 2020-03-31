@@ -13,7 +13,7 @@ timezone: ''
 favicon: https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/favicon/favicon.ico
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://666wxy666.github.io/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -114,15 +114,6 @@ backup:
   repository:
     github: git@github.com:666WXY666/666WXY666.github.io.git,backup
 
-#RSS订阅
-plugin:
-- hexo-generator-feed
-#Feed Atom
-feed:
-type: atom
-path: atom.xml
-limit: 20
-
 # Security
 encrypt: # hexo-blog-encrypt
   enable: true
@@ -153,6 +144,32 @@ lazyload:
 
 # npm install hexo-all-minifier --save
 all_minifier: true
+
+html_minifier:
+  enable: true
+  ignore_error: false
+  exclude:
+  
+css_minifier:
+  enable: true
+  exclude: 
+    - '*.min.css'
+
+js_minifier:
+  enable: true
+  mangle: true
+  output:
+  compress:
+  exclude: 
+    - '*.min.js'
+
+image_minifier: 
+  enable: false # 图片不压缩
+  interlaced: false
+  multipass: false
+  optimizationLevel: 2
+  pngquant: false
+  progressive: false
 
 # hexo-autonofollow
 nofollow:
@@ -198,3 +215,10 @@ marked:
     enable: true
     exclude: []
     nofollow: true
+
+#RSS订阅
+#Feed Atom
+feed:
+type: atom
+path: atom.xml
+limit: 20
