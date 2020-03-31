@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>苇名一心的博客</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2020-03-30T10:31:34.641Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>苇名一心</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2020/03/19/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://yoursite.com/2020/03/19/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</id>
+    <published>2020-03-19T03:08:51.637Z</published>
+    <updated>2020-03-30T10:31:34.641Z</updated>
+    
+    <content type="html"><![CDATA[<p>欢迎来到我的博客，这是我的第一篇测试博客文章。</p><p><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/placeholder.svg" data-original="https://gitee.com/wxy_666/images/raw/master/6dfa4f8bf2744582.jpg" alt></p><a id="more"></a><p>如果有什么问题，欢迎到我的Github提问我。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;欢迎来到我的博客，这是我的第一篇测试博客文章。&lt;/p&gt;&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/placeholder.svg&quot; data-original=&quot;https://gitee.com/wxy_666/images/raw/master/6dfa4f8bf2744582.jpg&quot; alt&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    
+      <category term="代码" scheme="http://yoursite.com/categories/Linux/%E4%BB%A3%E7%A0%81/"/>
+    
+      <category term="C" scheme="http://yoursite.com/categories/C/"/>
+    
+      <category term="C++" scheme="http://yoursite.com/categories/C/C/"/>
+    
+    
+      <category term="first" scheme="http://yoursite.com/tags/first/"/>
+    
+  </entry>
+  
+</feed>
