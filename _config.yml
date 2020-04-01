@@ -129,7 +129,11 @@ encrypt:
   wrong_pass_message: 密码好像不太对呢, 请再试试。
   wrong_hash_message: 这篇文章不能被校验, 不过您还是能看看解密后的内容。
 
-baidu_analytics_key: 45fc7df4d5a3e7bff620693af669891e
+# 百度统计
+baidu_analytics_key: 93c49980dcbfb8920e167f85129d6917
+
+# 谷歌分析
+google_analytics_key: UA-162450234-2
 
 use_cdn: true
 
