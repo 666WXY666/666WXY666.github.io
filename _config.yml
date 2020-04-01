@@ -101,12 +101,14 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: volantis
 
+# hexo-deployer-git
 deploy:
   type: git
   repo: git@github.com:666WXY666/666WXY666.github.io.git
   branch: master
   message: "Github CI Auto Builder at {{ now('YYYY-MM-DD HH:mm:ss Z') }}"
 
+# hexo-git-backup
 backup:
   type: git
   theme: volantis
@@ -115,7 +117,8 @@ backup:
     github: git@github.com:666WXY666/666WXY666.github.io.git,backup
 
 # Security
-encrypt: # hexo-blog-encrypt
+# hexo-blog-encrypt
+encrypt:
   enable: true
   abstract: <p>这篇文章被加密了, 请输入密码查看。</p>
   message: 在这里输入正确的密码，才能查看这篇文章哦：
@@ -130,60 +133,76 @@ baidu_analytics_key: 45fc7df4d5a3e7bff620693af669891e
 
 use_cdn: true
 
-# https://github.com/ludoviclefevre/hexo-generator-seo-friendly-sitemap
+# 网站地图
+# npm install hexo-generator-sitemap --save
+# npm install hexo-generator-baidu-sitemap --save
 sitemap:
-  path: sitemap.xml
-  tag: false
-  category: false
+	path: sitemap.xml
+baidusitemap:
+	path: baidusitemap.xml
 
-# 图片懒加载  # hexo-lazyload-image    hexo-fs
+# 图片懒加载  
+# hexo-lazyload-image
 lazyload:
   enable: true
   onlypost: false
   loadingImg: https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/placeholder.svg
 
 # npm install hexo-all-minifier --save
+# 静态资源压缩
 all_minifier: true
 
-html_minifier:
+js_concator:
+  enable: false
+  bundle_path: '/js/bundle.js'
+  front: false
+  silent: false
+
+html_minifier:            # html压缩
   enable: true
   ignore_error: false
-  exclude:
-  
-css_minifier:
+  silent: false
+  exclude: 
+
+css_minifier:         # css压缩
   enable: true
+  silent: false
   exclude: 
     - '*.min.css'
 
-js_minifier:
+js_minifier:          # js压缩
   enable: true
   mangle: true
+  silent: false
   output:
   compress:
   exclude: 
     - '*.min.js'
 
-image_minifier: 
-  enable: false # 图片不压缩
+image_minifier:           # 图片压缩
+  enable: true
   interlaced: false
   multipass: false
   optimizationLevel: 2
   pngquant: false
   progressive: false
+  silent: false
+
 
 # hexo-autonofollow
 nofollow:
   enable: true
-  exclude:
-  - 666WXY666.github.io
-  - wxy_666.gitee.io
+  exclude: # 例外的链接，可将友情链接放置此处
+    - 666WXY666.github.io
+    - wxy_666.gitee.io
 
-# autoprefixer
+# hexo-autoprefixer
 autoprefixer:
   exclude:
-  - '*.min.css'
+    - '*.min.css'
 
 # offline config passed to sw-precache.
+# hexo-offline
 offline:
   maximumFileSizeToCacheInBytes: 10485760
   staticFileGlobs:
@@ -216,8 +235,9 @@ marked:
     exclude: []
     nofollow: true
 
-#RSS订阅
-#Feed Atom
+# RSS订阅
+# Feed Atom
+# hexo-generator-feed
 feed:
 type: atom
 path: atom.xml

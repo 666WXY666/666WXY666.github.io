@@ -15,10 +15,8 @@ meta:
 
 我的Gitee主页：[wxy_666](https://gitee.com/wxy_666/)
 
-我的微博：
-
 我的B站：[在下-苇名一心](https://space.bilibili.com/7429248)
 
 我的网易云：[在下-苇名一心](https://music.163.com/#/user/home?id=74040689)
 
-**欢迎联系我和我进行深入交流。**
+**欢迎关注我，与我联系。**
