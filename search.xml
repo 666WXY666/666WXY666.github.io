@@ -2,62 +2,6 @@
 <search> 
   
   
-    
-    <entry>
-      <title>Linux上机作业1：正则表达式应用 实验报告</title>
-      <link href="/2020/03/31/Linux%E4%B8%8A%E6%9C%BA%E4%BD%9C%E4%B8%9A1%EF%BC%9A%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%BA%94%E7%94%A8%20%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/"/>
-      <url>/2020/03/31/Linux%E4%B8%8A%E6%9C%BA%E4%BD%9C%E4%B8%9A1%EF%BC%9A%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%BA%94%E7%94%A8%20%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/</url>
-      
-        <content type="html"><![CDATA[<p><strong>本文是关于Linux中的文本处理三剑客（grep，sed，awk），以及正则表达式应用的一个样例，获取北京某时刻PM2.5的数据，然后进行处理，输出到csv文件中，并画图表展示。</strong></p><a id="more"></a><h1 id="Linux上机作业1：正则表达式应用-实验报告"><a href="#Linux上机作业1：正则表达式应用-实验报告" class="headerlink" title="Linux上机作业1：正则表达式应用 实验报告"></a>Linux上机作业1：正则表达式应用 实验报告</h1><h2 id="一、题目要求："><a href="#一、题目要求：" class="headerlink" title="一、题目要求："></a>一、题目要求：</h2><p>​ <strong>从因特网上搜索 Web 页，用 wget 获取网页，处理网页 html 文本数据，从中提取出当前时间点北京各监测站的 PM2.5 浓度，输出如下 CSV 格式数据：</strong><br><strong><em>2020 03 09 13:00:00, 海淀区万柳 ,73<br>2020 03 09 13:00:00, 昌平镇 ,67<br>2020 03 09 13:00:00, 奥体中心 ,66<br>2020 03 09 13:00:00, 海淀区万柳 ,73<br>2020 03 09 13:00:00, 昌平镇 ,73<br>2020 03 09 13:00:00, 奥体中心 ,75</em></strong><br>​ <strong>撰写实验报告，要求：写出对数据的分析和处理思路，列出各个处理步骤并给出解释。</strong></p><h2 id="二、实验步骤："><a href="#二、实验步骤：" class="headerlink" title="二、实验步骤："></a>二、实验步骤：</h2><ol><li><p>从因特网上搜索 Web 页，找到与含有北京各监测站的 PM2.5 浓度的网站，我找到了<strong><em>绿色呼吸网（<a href="http://www.pm25.com/city/beijing.html）" target="_blank" rel="external nofollow noopener noreferrer">http://www.pm25.com/city/beijing.html）</a></em></strong>，网站如下：</p><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/placeholder.svg" data-original="https://gitee.com/wxy_666/images/raw/master/20200331203352.jpg" alt="1" style="zoom:33%"></li><li><p>使用<strong><em>Xshell</em></strong>登录到Ubuntu服务器：</p><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/placeholder.svg" data-original="https://gitee.com/wxy_666/images/raw/master/20200331203420.jpg" alt="2" style="zoom:33%"> <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/placeholder.svg" data-original="https://gitee.com/wxy_666/images/raw/master/20200331203429.jpg" alt="3" style="zoom:33%"></li><li><p>使用<strong><em>wget</em></strong>命令获取该网页：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.pm25.com/city/beijing.html</span><br></pre></td></tr></table></figure><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/placeholder.svg" data-original="https://gitee.com/wxy_666/images/raw/master/20200331203525.jpg" alt="4" style="zoom:80%"></li><li><p>使用<strong><em>cat</em></strong>命令查看该网页的内容：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | more</span><br></pre></td></tr></table></figure><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/placeholder.svg" data-original="https://gitee.com/wxy_666/images/raw/master/20200331203554.jpg" alt="5" style="zoom:80%"><p>我们关注的内容：</p><p>​ ①数据更新的时间：</p><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/placeholder.svg" data-original="https://gitee.com/wxy_666/images/raw/master/20200331203608.jpg" alt="6" style="zoom:67%"><p>​ ②各监测点PM2.5浓度数据：</p><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/placeholder.svg" data-original="https://gitee.com/wxy_666/images/raw/master/20200331203617.jpg" alt="7" style="zoom:50%"></li><li><p>发现时间的地方有个<strong><em>“更新时间：”</em></strong>，监测点名称的地方都有<strong><em>“pjadt_location”</em></strong>，而PM2.5浓度的地方都有<strong><em>“pjadt_pm25”</em></strong>。根据这个特性，先使用<strong><em>awk</em></strong>命令将需要的行保留下来。下面先进行编写<strong><em>1.awk</em></strong>：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim 1.awk</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/placeholder.svg" data-original="https://gitee.com/wxy_666/images/raw/master/20200331203629.jpg" alt="8"></p><p>运行以下命令，对所需行进行过滤：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | more</span><br></pre></td></tr></table></figure><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/placeholder.svg" data-original="https://gitee.com/wxy_666/images/raw/master/20200331203639.jpg" alt="9" style="zoom:50%"><p>发现除了我们想要的行还多出了这几行：</p><p><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/placeholder.svg" data-original="https://gitee.com/wxy_666/images/raw/master/20200331203656.jpg" alt="10"></p><p>经过观察，发现<strong><em>“PM2.5”</em></strong>浓度这一行与我们所需的行的区别是，我们所需的行有<strong><em>μg</em></strong>，而<strong><em>“PM2.5”</em></strong>浓度这一行没有：</p><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/placeholder.svg" data-original="https://gitee.com/wxy_666/images/raw/master/20200331203705.jpg" alt="11" style="zoom:50%"><p>我们重新对<strong><em>“1.awk”</em></strong>进行编辑，直接将<strong><em>“监测站点”</em></strong>这一行排除，并且对<strong><em>“PM2.5”</em></strong>浓度这一行采用额外的过滤规则:</p><p><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/placeholder.svg" data-original="https://gitee.com/wxy_666/images/raw/master/20200331203718.jpg" alt="12"></p><p>重新运行以下命令，对所需行进行过滤：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | more</span><br></pre></td></tr></table></figure><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/placeholder.svg" data-original="https://gitee.com/wxy_666/images/raw/master/20200331203729.jpg" alt="13" style="zoom:50%"><p>发现已经筛选出了所需要的行。</p></li><li><p>现在再利用<strong><em>sed</em></strong>命令将<strong><em>html标签”&lt;&gt;“</em></strong>中的内容和<strong><em>“更新时间：”</em></strong>这个无用的信息删除：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | sed -e 's/&lt;[^&lt;&gt;]*&gt;//g' -e 's/更新时间：//g' | more</span><br></pre></td></tr></table></figure><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/placeholder.svg" data-original="https://gitee.com/wxy_666/images/raw/master/20200331203744.jpg" alt="14" style="zoom:50%"><p>发现已经只剩余我们想要的数据。</p></li><li><p>但是这些数据不在同一行，且没有明显特征，无法进行<strong><em>awk</em></strong>命令，因此先使用<strong><em>tr</em></strong>命令将这些行合并为一行，以空格分隔：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | sed -e 's/&lt;[^&lt;&gt;]*&gt;//g' -e 's/更新时间：//g' | tr '\n' ' ' | more</span><br></pre></td></tr></table></figure><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/placeholder.svg" data-original="https://gitee.com/wxy_666/images/raw/master/20200331203757.jpg" alt="15" style="zoom:50%"></li><li><p>最后利用<strong><em>awk</em></strong>命令将所需内容规格化输出即可，先编辑<strong><em>“2.awk”</em></strong>：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim 2.awk</span><br></pre></td></tr></table></figure><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/placeholder.svg" data-original="https://gitee.com/wxy_666/images/raw/master/20200331203807.jpg" alt="16" style="zoom:80%"><p>利用<strong><em>for</em></strong>循环输出，<strong><em>NF</em></strong>为列数，刚好循环$$(NF-2)/4$$次，第一个<strong><em>%s</em></strong>为<strong><em>日期</em></strong>，第二个<strong><em>%s</em></strong>为<strong><em>时间</em></strong>，第三个<strong><em>%s</em></strong>为<strong><em>监测点名称</em></strong>，第四个<strong><em>%s</em></strong>为<strong><em>PM2.5浓度</em></strong>，再运行以下<strong><em>awk</em></strong>命令，即可得到格式化的输出：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | sed -e 's/&lt;[^&lt;&gt;]*&gt;//g' -e 's/更新时间：//g' | tr '\n' ' ' | awk -f 2.awk  | more</span><br></pre></td></tr></table></figure><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/placeholder.svg" data-original="https://gitee.com/wxy_666/images/raw/master/20200331203819.jpg" alt="17" style="zoom:50%"><p>发现输出已经符合题目要求。</p></li><li><p>将结果重定向到文件<strong><em>“beijing.csv”</em></strong>：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | sed -e 's/&lt;[^&lt;&gt;]*&gt;//g' -e 's/更新时间：//g' | tr '\n' ' ' | awk -f 2.awk  &gt; beijing.csv</span><br><span class="line">vim beijing.csv</span><br></pre></td></tr></table></figure><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/placeholder.svg" data-original="https://gitee.com/wxy_666/images/raw/master/20200331203839.jpg" alt="18" style="zoom:50%"> <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/placeholder.svg" data-original="https://gitee.com/wxy_666/images/raw/master/20200331203853.jpg" alt="19" style="zoom:80%"></li><li><p>将<strong><em>beijing.csv</em></strong>发送到电脑，并将编码转为<strong><em>ANSI</em></strong>：</p></li></ol><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/placeholder.svg" data-original="https://gitee.com/wxy_666/images/raw/master/20200331203903.jpg" alt="20" style="zoom:67%"><ol start="11"><li><p>由于不同时间的数据有所不同，因此我的过滤语句考虑了不同时间点的情况<strong><em>（北京一共有12个监测点，有时有的监测点没有数据，因此是只有11个监测点的数据）</em></strong>，直接运行以下命令就可以直接将数据导出为<strong><em>beijing.csv</em></strong>，以下为另一时间点的数据情况：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.pm25.com/city/beijing.html</span><br><span class="line">cat beijing.html | awk -f 1.awk | sed -e 's/&lt;[^&lt;&gt;]*&gt;//g' -e 's/更新时间：//g' | tr '\n' ' ' | awk -f 2.awk  &gt; beijing.csv</span><br></pre></td></tr></table></figure><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/placeholder.svg" data-original="https://gitee.com/wxy_666/images/raw/master/20200331203916.jpg" alt="21" style="zoom:67%"></li></ol><h2 id="三、实验总结"><a href="#三、实验总结" class="headerlink" title="三、实验总结"></a>三、实验总结</h2><p>到此实验结束，本博客仅用于纪录本次linux实验用，转载请注明出处。希望对你的linux有所帮助。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Linux </category>
-          
-          <category> 上机实验 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Linux </tag>
-            
-            <tag> 实验 </tag>
-            
-            <tag> 正则表达式 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hello Blog</title>
-      <link href="/2020/03/19/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
-      <url>/2020/03/19/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
-      
-        <content type="html"><![CDATA[<p class="p center large">HELLO BLOG</p><p>欢迎来到我的博客，这是我的第一篇博客测试文章。</p><a id="more"></a><p>如果有什么问题，欢迎到我的Github提问我。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 其他 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> first </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
   
   
 </search>
