@@ -1,8 +1,8 @@
 ---
-title:  Linux上机作业1：正则表达式应用 实验报告
+title:  Linux上机实战1：正则表达式
 categories:
-  - [Linux,上机实验]
-tags: [Linux,实验,正则表达式]
+  - [Linux,上机实战]
+tags: [Linux,实战,正则表达式]
 music:
   server: tencent
   type: song
@@ -18,7 +18,7 @@ music:
 
 
 
-# Linux上机作业1：正则表达式应用 实验报告
+# Linux上机实战1：正则表达式
 
 
 
@@ -33,7 +33,7 @@ music:
 2020 03 09 13:00:00, 奥体中心 ,75***
 ​		**撰写实验报告，要求：写出对数据的分析和处理思路，列出各个处理步骤并给出解释。**
 
-## 二、实验步骤：
+## 二、详细步骤：
 
 1. 从因特网上搜索 Web 页，找到与含有北京各监测站的 PM2.5 浓度的网站，我找到了***绿色呼吸网（http://www.pm25.com/city/beijing.html）***，网站如下：
 
@@ -169,6 +169,6 @@ music:
 
     <img src="https://gitee.com/wxy_666/images/raw/master/20200331203916.jpg" alt="21" style="zoom:67%;" />
 
-## 三、实验总结
+## 三、总结
 
-到此实验结束，本博客仅用于纪录本次linux实验用，转载请注明出处。希望对你的linux有所帮助。
+本文以一个样例，详细介绍了Linux中的文本处理三剑客（grep，sed，awk），以及正则表达式的相关知识，希望对你的Linux学习有所帮助。
