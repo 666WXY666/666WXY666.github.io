@@ -14,17 +14,17 @@ links:
       textColor: '#fff'  # 卡片文字颜色
       tags: [标签1, 标签2]    # 标签
       desc: 描述文字
-  - group: 我的兄弟
+  - group: 好兄弟
     icon: fas fa-user-tie
-    desc: 好兄弟。
+    desc: 沙雕云集~
     items:
-    - name:     # 博客名
+    - name: 猴子捞月    # 博客名
       avatar:   # 头像链接
-      url:      # 博客链接
+      url: https://axinhouzilaoyue.gitee.io/     # 博客链接
       backgroundColor: '#3E74C9' # 卡片背景颜色
       textColor: '#fff'  # 卡片文字颜色
-      tags: [标签1, 标签2]    # 标签
-      desc: 描述文字
+      tags: [技术向, 随便写写]    # 标签
+      desc: 嘿嘿
 ---
 
 这里是我的朋友和一些大佬，感兴趣的就点进去看看吧！

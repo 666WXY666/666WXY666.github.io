@@ -4,8 +4,8 @@ info:
   version: '2.4.3' # This is theme's version.
   docs: https://volantis.js.org/ # This is theme's URL.
   cdn: # To use CDN, write 'use_cdn: true' in 'blog/_config.yml'.
-    css: https://cdn.jsdelivr.net/gh/666WXY666/cdn@6.1/css/style.css
-    js: https://cdn.jsdelivr.net/gh/666WXY666/cdn@6.1/js/app.js
+    css: https://cdn.jsdelivr.net/gh/666WXY666/cdn@6.2/css/style.css
+    js: https://cdn.jsdelivr.net/gh/666WXY666/cdn@6.2/js/app.js
 
 
 ############################### Style ###############################
@@ -74,7 +74,7 @@ style:
       weight: normal
       style: normal
     codefont:
-      fontfamily: 'FiraCode, Menlo, Monaco'
+      fontfamily: 'FiraCode, Menlo, UbuntuMono, Monaco'
       name: 'FiraCode'
       url: https://cdn.jsdelivr.net/gh/666WXY666/cdn/fonts/FiraCode/FiraCode-Regular.ttf
       weight: normal

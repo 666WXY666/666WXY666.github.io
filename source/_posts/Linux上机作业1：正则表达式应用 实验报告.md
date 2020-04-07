@@ -48,11 +48,11 @@ music:
 3. 使用***wget***命令获取该网页：
 
    ```shell
-   wget http://www.pm25.com/city/beijing.html
+wget http://www.pm25.com/city/beijing.html
    ```
 
    <img src="https://gitee.com/wxy_666/images/raw/master/20200331203525.jpg" alt="4" style="zoom: 80%;" />
-
+   
 4. 使用***cat***命令查看该网页的内容：
 
    ```shell
