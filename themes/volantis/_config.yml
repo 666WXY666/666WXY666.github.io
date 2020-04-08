@@ -1,11 +1,11 @@
 ############################### Theme Information ###############################
 info:
   name: Volantis # This is theme's name, not your blog's name.
-  version: '2.4.3' # This is theme's version.
+  version: '2.5.0-beta' # This is theme's version.
   docs: https://volantis.js.org/ # This is theme's URL.
   cdn: # To use CDN, write 'use_cdn: true' in 'blog/_config.yml'.
-    css: https://cdn.jsdelivr.net/gh/666WXY666/cdn@6.2/css/style.css
-    js: https://cdn.jsdelivr.net/gh/666WXY666/cdn@6.2/js/app.js
+    css: https://cdn.jsdelivr.net/gh/666WXY666/cdn@6.3/css/style.css
+    js: https://cdn.jsdelivr.net/gh/666WXY666/cdn@6.3/js/app.js
 
 
 ############################### Style ###############################
@@ -206,7 +206,7 @@ layout:
   # 文章布局，参数继承自 on_page
   on_post:
     # 文章页脚，自动在每一篇文章末尾添加
-    article_footer: [copyright, donate]
+    article_footer: [references, copyright, donate]
   # 其他的页面布局暂时等于 on_list
 
 
@@ -364,6 +364,15 @@ widget:
     images:
       - https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/qrcode/weixin.jpg
       - https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/qrcode/alipay.jpg
+  # ---------------------------------------
+  # references widget
+  references:
+    class: references # is subclass of list
+    display: [desktop, mobile] # [desktop, mobile]
+    header:
+      icon: fas fa-quote-left
+      title: 参考资料
+
   # You can add your own widget here or 'blog/source/_data/widget.yml'
   # class: text, list, grid, qrcode, page, ... see more at https://volantis.js.org/
 
