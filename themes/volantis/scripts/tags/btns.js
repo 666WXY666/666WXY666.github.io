@@ -2,7 +2,7 @@
 
 function postBtns(args, content) {
   return `<div class="btns ${args.join(' ')}">
-            ${hexo.render.renderSync({text: content, engine: 'markdown'}).split('\n').join('')}
+            ${content}
           </div>`;
 }
 
@@ -16,7 +16,7 @@ function postCell(args, content) {
     url = "href='" + url + "'"
   }
   let icon = ''
-  let img = 'https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/placeholder.svg'
+  let img = 'https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/large.svg'
   if (args.length > 2) {
     if (args[2].indexOf(' fa-') > -1) {
       icon = args[2].trim()
@@ -25,9 +25,9 @@ function postCell(args, content) {
     }
   }
   if (icon.length > 0) {
-    return `<p class='cell'><a ${url} title='${text}'><i class='${icon}'></i>${text}</a></p>`
+    return `<a ${url} title='${text}'><i class='${icon}'></i>${text}</a>`
   } else {
-    return `<p class='cell'><a ${url} title='${text}'><img src='${img}'>${text}</a></p>`
+    return `<a ${url} title='${text}'><img src='${img}'>${text}</a>`
   }
 }
 

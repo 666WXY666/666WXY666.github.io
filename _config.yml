@@ -150,7 +150,7 @@ baidusitemap:
 lazyload:
   enable: true
   onlypost: false
-  loadingImg: https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/placeholder.svg
+  loadingImg: https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/placeholder/large.svg
 
 # npm install hexo-all-minifier --save
 # 静态资源压缩
