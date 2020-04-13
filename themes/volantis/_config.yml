@@ -1,11 +1,11 @@
 ############################### Theme Information ###############################
 info:
   name: Volantis # This is theme's name, not your blog's name.
-  version: '2.6.0' # This is theme's version.
+  version: '2.6.1' # This is theme's version.
   docs: https://volantis.js.org/ # This is theme's URL.
   cdn: # To use CDN, write 'use_cdn: true' in 'blog/_config.yml'.
-    css: https://cdn.jsdelivr.net/gh/666WXY666/cdn@6.7/css/style.css
-    js: https://cdn.jsdelivr.net/gh/666WXY666/cdn@6.7/js/app.js
+    css: https://cdn.jsdelivr.net/gh/666WXY666/cdn@6.8/css/style.css
+    js: https://cdn.jsdelivr.net/gh/666WXY666/cdn@6.8/js/app.js
 
 
 ############################### Style ###############################
@@ -122,7 +122,7 @@ cover:
     home: true
     archive: true
     others: false # can be written in front-matter 'cover: true'
-  # logo: https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/logo/cover_logo.png
+  # logo: https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/logo/logo-round.png
   title: 苇名一心的博客
   subtitle: true
   search: # search bar placeholder
@@ -149,7 +149,7 @@ cover:
 # Navigation Bar
 navbar:
   logo: # choose [img] or [icon + title]
-    img: https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/logo/navbar_logo.png
+    img: https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/logo/logo-round.png
     icon:
     title:
   menu:
@@ -419,6 +419,10 @@ footer:
       url: https://github.com/666WXY666/
     - icon: fab fa-git-alt
       url: https://gitee.com/wxy_666
+    - icon: fas fa-bold
+      url: https://space.bilibili.com/7429248
+    - icon: fab fa-zhihu
+      url: https://www.zhihu.com/people/666wxy666
     - icon: fas fa-headphones-alt
       url: https://music.163.com/#/user/home?id=74040689
   copyright: '[Copyright © 2020-2020 苇名一心](https://666wxy666.github.io/)'

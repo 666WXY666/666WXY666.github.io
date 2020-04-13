@@ -17,6 +17,8 @@ meta:
 
 我的B站：[在下-苇名一心](https://space.bilibili.com/7429248)
 
+我的知乎：[苇名一心](https://www.zhihu.com/people/666wxy666)
+
 我的网易云：[在下-苇名一心](https://music.163.com/#/user/home?id=74040689)
 
 **欢迎关注我，与我联系。**
