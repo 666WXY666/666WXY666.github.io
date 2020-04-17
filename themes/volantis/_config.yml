@@ -4,8 +4,8 @@ info:
   version: '2.6.1' # This is theme's version.
   docs: https://volantis.js.org/ # This is theme's URL.
   cdn: # To use CDN, write 'use_cdn: true' in 'blog/_config.yml'.
-    css: https://cdn.jsdelivr.net/gh/666WXY666/cdn@6.8/css/style.css
-    js: https://cdn.jsdelivr.net/gh/666WXY666/cdn@6.8/js/app.js
+    css: https://cdn.jsdelivr.net/gh/666WXY666/cdn@6.9/css/style.css
+    js: https://cdn.jsdelivr.net/gh/666WXY666/cdn@6.9/js/app.js
 
 
 ############################### Style ###############################
@@ -43,8 +43,9 @@ style:
     h2: 48px # Spacing above H2 (only px unit)
     h3: 24px # Spacing above H3 (only px unit)
     h4: 16px # Spacing above H4 (only px unit)
-    paragraph: 1rem # Paragraph spacing between paragraphs
+    paragraph: .75rem # Paragraph spacing between paragraphs
     row: .5rem # Paragraph spacing between other elements
+    line_height: 1.75
   border_radius:
     card: 8px
     codeblock: 4px
