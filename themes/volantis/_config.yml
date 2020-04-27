@@ -568,9 +568,9 @@ comments:
     NoRecordIP: false # Do not record commenter IP.
     maxNest: 6 # Sub-comment maximum nesting depth.
     pageSize: 6 # Pagination size.
-    # Expression Url. 
+    # Expression Url.
     # https://github.com/MiniValine/MiniValine/blob/master/.github/FAQ.md#how-to-customize-emoticons
-    emoticonUrl: 
+    emoticonUrl:
       - https://cdn.jsdelivr.net/gh/MiniValine/Bilibilis@master
       - https://cdn.jsdelivr.net/npm/alus
 
@@ -620,9 +620,9 @@ rss: /atom.xml
 
 ############################### Theme Information ###############################
 info:
-  name: Volantis # This is theme's name. ⚠️ NOT FOR YOUR BLOG'S INFO. 这不是博客的信息，请勿修改。
-  version: '2.6.3' # This is theme's version. ⚠️ NOT FOR YOUR BLOG'S INFO. 这不是博客的信息，请勿修改。
-  docs: https://volantis.js.org/ # This is theme's URL. ⚠️ NOT FOR YOUR BLOG'S INFO. 这不是博客的信息，请勿修改。
+  name: Volantis # This is theme's name.
+  version: '2.6.5' # This is theme's version.
+  docs: https://volantis.js.org/ # This is theme's URL.
   cdn:
-    css: https://cdn.jsdelivr.net/gh/666WXY666/cdn@7.2/css/style.css
-    js: https://cdn.jsdelivr.net/gh/666WXY666/cdn@7.2/js/app.js
+    css: https://cdn.jsdelivr.net/gh/666WXY666/cdn@7.3/css/style.css
+    js: https://cdn.jsdelivr.net/gh/666WXY666/cdn@7.3/js/app.js
