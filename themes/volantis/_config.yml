@@ -59,20 +59,20 @@ style:
     logofont:
       fontfamily: '"Varela Round", "PingFang SC", "Microsoft YaHei", UbuntuMono, Helvetica, Arial'
       name: 'Varela Round'
-      url: https://cdn.jsdelivr.net/gh/666WXY666/cdn/fonts/VarelaRound/VarelaRound-Regular.ttf
+      url: https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/fonts/VarelaRound/VarelaRound-Regular.ttf
       weight: normal
       style: normal
     bodyfont:
       fontfamily: '"Varela Round", "PingFang SC", "Microsoft YaHei", UbuntuMono, Helvetica, Arial'
       name: 'Varela Round'
-      url: https://cdn.jsdelivr.net/gh/666WXY666/cdn/fonts/VarelaRound/VarelaRound-Regular.ttf
+      url: https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/fonts/VarelaRound/VarelaRound-Regular.ttf
       weight: normal
       style: normal
       offset: 0.1rem # Correct baseline for zh-CN
     codefont:
       fontfamily: 'FiraCode, Menlo, UbuntuMono, Monaco'
       name: 'FiraCode'
-      url: https://cdn.jsdelivr.net/gh/666WXY666/cdn/fonts/FiraCode/FiraCode-Regular.ttf
+      url: https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/fonts/FiraCode/FiraCode-Regular.ttf
       weight: normal
       style: normal
 # 我自定义的
@@ -115,7 +115,7 @@ cover:
     home: true
     archive: true
     others: false # can be written in front-matter 'cover: true'
-  # logo: https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/logo/logo-round.png
+  # logo: https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/logo-round.png
   title: 苇名一心的博客
   subtitle: true
   search: # search bar placeholder
@@ -142,7 +142,7 @@ cover:
 # Navigation Bar
 navbar:
   logo: # choose [img] or [icon + title]
-    img: https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/logo/logo-round.png
+    img: https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/logo-round.png
     icon:
     title:
   menu:
@@ -228,7 +228,7 @@ meta:
   title: # 暂无配置
   # 默认文章作者（可在front-matter中覆盖）
   author:
-    avatar: https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/avatar/avatar.jpg
+    avatar: https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg
     name: 苇名一心
     url: https://666wxy666.github.io/
   # 文章创建日期
@@ -260,15 +260,15 @@ meta:
   # 分享
   share:
     - id: qq
-      img: https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/logo/128/qq.png
+      img: https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/qq.png
     - id: qzone
-      img: https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/logo/128/qzone.png
+      img: https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/qzone.png
     - id: weibo
-      img: https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/logo/128/weibo.png
+      img: https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/weibo.png
     # - id: qrcode # 当id为qrcode时需要安装插件  npm i -S hexo-helper-qrcode
-    #   img: https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/logo/128/wechat.png
+    #   img: https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/wechat.png
     # - id: telegram
-    #   img: https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/logo/128/telegram.png
+    #   img: https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/telegram.png
   # 链接
   btns:
     edit:
@@ -308,7 +308,7 @@ widget:
   blogger:
     class: blogger
     display: [desktop, mobile] # [desktop, mobile]
-    avatar: https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/avatar/avatar.jpg
+    avatar: https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg
     shape: rectangle # circle, rectangle
     url: /about/
     title:
@@ -378,8 +378,8 @@ widget:
     height: 64px  # Automatic height if not set
     fancybox: true
     images:
-      - https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/qrcode/weixin.jpg
-      - https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/qrcode/alipay.jpg
+      - https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg
+      - https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg
   # ---------------------------------------
   # references widget
   references:
@@ -440,7 +440,7 @@ seo:
 plugins:
   ######## Plugins to improve loading speed:
   # Preload (The menu's url must end with ‘/’)
-  instant_page: https://cdn.jsdelivr.net/gh/666WXY666/cdn@7.5/js/instant_page.js
+  instant_page: https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/instant_page.js
 
   ######## Plugins to optimize the experience:
   # highlight.js
@@ -469,7 +469,7 @@ plugins:
 
   ######## Plugins for SEO:
   # Traffic statistics (very slow loading)
-  busuanzi: https://cdn.jsdelivr.net/gh/666WXY666/cdn@7.5/js/busuanzi.pure.mini.js
+  busuanzi: https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/busuanzi.pure.mini.js
 
   # npm i --save hexo-wordcount
   wordcount: true
@@ -481,7 +481,7 @@ plugins:
     js: https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js
 
   # Typing Effects
-  comment_typing: https://cdn.jsdelivr.net/gh/666WXY666/cdn@7.5/js/comment_typing.js
+  comment_typing: https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/comment_typing.js
 
   # Slide Background
   backstretch:
@@ -594,7 +594,7 @@ comments:
 search:
   enable: true
   service: hexo  # hexo, google, algolia, azure, baidu
-  js: https://cdn.jsdelivr.net/gh/666WXY666/cdn@7.5/js/search.js
+  js: https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/search.js
   google:
     apiKey:
     engineId:
@@ -609,9 +609,7 @@ search:
   baidu:
     apiId:
 
-############################### live2d看板娘 ###############################
-live2d:
-  enable: true
+
   
 ############################### RSS订阅 ###############################
 rss: /atom.xml
@@ -624,5 +622,5 @@ info:
   version: '2.6.5' # This is theme's version.
   docs: https://volantis.js.org/ # This is theme's URL.
   cdn:
-    css: https://cdn.jsdelivr.net/gh/666WXY666/cdn@7.5/css/style.css
-    js: https://cdn.jsdelivr.net/gh/666WXY666/cdn@7.5/js/app.js
+    css: https://cdn.jsdelivr.net/gh/666WXY666/cdn@8.4/css/style.css
+    js: https://cdn.jsdelivr.net/gh/666WXY666/cdn@8.4/js/app.js
