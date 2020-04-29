@@ -27,6 +27,8 @@ music:
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429101043.jpg" alt="2020-04-28_212629" style="zoom:80%;" />
 
+{% blockquote %}
+
 在Linux中，Shell会自动帮你进项一些替换，实际运行的命令其实是：
 
 ```shell
@@ -51,11 +53,17 @@ cp src/x.c src/y.c
 cp src/*.[ch] .
 ```
 
-我们显示地指定复制到‘.’（当前目录），就不会出现问题了。
+我们显示地指定复制到.（当前目录），就不会出现问题了。
+
+{% endblockquote %}
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429102232.jpg" alt="2020-04-28_212656" style="zoom:80%;" />
 
+{% blockquote %}
+
 这也是在Linux中很怪的地方，明明你不能写这个文件，但是你却可以删除，如果不加-f，删除只读文件时会有提示，但是加了-f就没有任何提示了。还有一点需要注意的是，如第6题所说，加了-f也不能删除无权限删除的文件。
+
+{% endblockquote %}
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429102450.jpg" alt="2020-04-28_212714" style="zoom:80%;" />
 
@@ -63,33 +71,55 @@ cp src/*.[ch] .
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429102659.jpg" alt="2020-04-28_212800" style="zoom: 80%;" />
 
+{% blockquote %}
+
 关于第10题，不像Windows，在Linux中这些后缀都是约定俗成的，只是为了做标记用，好区分而已，没有实际意义。
+
+{% endblockquote %}
 
 ## 六、Linux命令风格和文件系统
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429102845.jpg" alt="2020-04-28_213047" style="zoom:80%;" />
 
+{% blockquote %}
+
 这两个题都忽略了“符号链接”的作用。
+
+{% endblockquote %}
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429103011.jpg" alt="2020-04-28_213114" style="zoom:80%;" />
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429103030.jpg" alt="2020-04-28_213125" style="zoom:80%;" />
 
+{% blockquote %}
+
 这俩没啥好说的。
+
+{% endblockquote %}
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429103227.jpg" alt="2020-04-28_213133" style="zoom:80%;" />
 
+{% blockquote %}
+
 在Linux中，一般是-1代表失败，>=0的值代表成功。
+
+{% endblockquote %}
 
 ## 八、文件和目录的权限、Shell
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429103454.jpg" alt="2020-04-28_213341" style="zoom:80%;" />
 
+{% blockquote %}
+
 目录有执行权限（即x权限）意味着分析路径名过程中可检索该目录。
+
+{% endblockquote %}
 
 ## 九、替换、元字符和转义
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429103639.jpg" alt="2020-04-28_213427" style="zoom:80%;" />
+
+{% blockquote %}
 
 如果你是执行这个命令的操作员，估计你马上就心情不好了。由于拼错了单词，把DATABASE不小心写成了DATEBASE，灾难来了。未命名的变量被bash替换为空字符串，实际上你以root身份执行了最邪恶的一条命令：
 
@@ -111,8 +141,13 @@ rm -rf /*
    ```
 
    因为你的失误，会导致rm命令抱怨缺少参数而什么都不做，这个结果是可以接受的。
+   
+
+{% endblockquote %}
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429103652.jpg" alt="2020-04-28_213530" style="zoom:80%;" />
+
+{% blockquote %}
 
 在Linux中，目前我已知的Shell的元字符有：
 
@@ -135,6 +170,8 @@ echo *
 因此结果就很明显了：
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429104247.jpg" alt="2020-04-29_104233" style="zoom:80%;" />
+
+{% endblockquote %}
 
 
 
