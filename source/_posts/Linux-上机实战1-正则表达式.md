@@ -1,5 +1,5 @@
 ---
-title:  Linux上机实战1：正则表达式
+title:  Linux 上机实战1 正则表达式
 categories:
   - [Linux,上机实战]
 tags: [Linux,实战,正则表达式]
