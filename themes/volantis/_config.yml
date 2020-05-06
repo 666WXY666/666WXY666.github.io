@@ -440,7 +440,7 @@ seo:
 plugins:
   ######## Plugins to improve loading speed:
   # Preload (The menu's url must end with ‘/’)
-  instant_page: https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/instant_page.js
+  instant_page: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js
 
   ######## Plugins to optimize the experience:
   # highlight.js
@@ -469,7 +469,7 @@ plugins:
 
   ######## Plugins for SEO:
   # Traffic statistics (very slow loading)
-  busuanzi: https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/busuanzi.pure.mini.js
+  busuanzi: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js
 
   # npm i --save hexo-wordcount
   wordcount: true
@@ -481,7 +481,7 @@ plugins:
     js: https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js
 
   # Typing Effects
-  comment_typing: https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/comment_typing.js
+  comment_typing: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js
 
   # Slide Background
   backstretch:
@@ -534,6 +534,8 @@ comments:
   title: <i class='fas fa-comments'></i> 评论
   subtitle:
   service: valine # valine, minivaline, disqus, gitalk, livere
+  # Valine
+  # https://valine.js.org/
   valine:
     appId: NM0ViQjTChbCUYqHomzuJjPT-gzGzoHsz # your appId
     appKey: VvkTdJBscrl6AEDdfTc9f62b # your appKey
@@ -550,7 +552,7 @@ comments:
     visitor: true
     mathJax: false
   # MiniValine
-  # See: https://github.com/MiniValine/MiniValine
+  # https://github.com/MiniValine/MiniValine
   minivaline:
     appId: # Your leancloud application appid
     appKey: # Your leancloud application appkey
@@ -573,15 +575,27 @@ comments:
     emoticonUrl:
       - https://cdn.jsdelivr.net/gh/MiniValine/Bilibilis@master
       - https://cdn.jsdelivr.net/npm/alus
-
+  # Disqus
+  # https://disqus.com
   disqus:
     shortname:
+  # Gitalk
+  # https://gitalk.github.io/
   gitalk:
     clientID:
     clientSecret:
     repo:
     owner:
     admin: # []
+  # Vssue
+  # https://vssue.js.org/zh/
+  vssue:
+    owner:
+    repo:
+    clientId:
+    clientSecret:
+  # LiveRe
+  # https://www.livere.com
   livere:
     uid: 
 
@@ -594,7 +608,7 @@ comments:
 search:
   enable: true
   service: hexo  # hexo, google, algolia, azure, baidu
-  js: https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/search.js
+  js: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js
   google:
     apiKey:
     engineId:
@@ -622,5 +636,5 @@ info:
   version: '2.6.5' # This is theme's version.
   docs: https://volantis.js.org/ # This is theme's URL.
   cdn:
-    css: https://cdn.jsdelivr.net/gh/666WXY666/cdn@8.4/css/style.css
-    js: https://cdn.jsdelivr.net/gh/666WXY666/cdn@8.4/js/app.js
+    css: https://cdn.jsdelivr.net/gh/666WXY666/cdn@8.5/css/style.css
+    js: https://cdn.jsdelivr.net/gh/666WXY666/cdn@8.5/js/app.js
