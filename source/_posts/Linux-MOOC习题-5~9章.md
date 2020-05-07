@@ -183,5 +183,7 @@ echo *
 
 [Linux MOOC习题 5~9章](https://666wxy666.github.io/2020/04/29/Linux-MOOC习题-5~9章/)
 
+[Linux MOOC习题 10~章](https://666wxy666.github.io/2020/05/07/Linux-MOOC习题-10~章/)
+
 {% endfolding %}
 
