@@ -3,12 +3,6 @@ title:  Linux 拓展学习
 categories:
   - [Linux,拓展学习]
 tags: [Linux,拓展,难点]
-music:
-  server: tencent
-  type: song
-  id: 248464826
-  autoplay: true
-
 ---
 
 简单的写了一些Linux的课外拓展学习的相关知识和问题。

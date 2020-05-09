@@ -3,15 +3,9 @@ title: Linux MOOC习题 5~9章
 categories:
   - [Linux,习题]
 tags: [Linux,习题,易错点,网课,MOOC]
-music:
-  server: tencent
-  type: song
-  id: 1797389
-  autoplay: true
-
 ---
 
-自己随便整理了一下在学习Linux网课时遇到的一些习题，易错点之类的，接上文[Linux MOOC习题 1~4章](https://666wxy666.github.io/2020/04/28/Linux-MOOC习题-1~4章/)。
+自己随便整理了一下在学习Linux网课时遇到的一些习题，易错点之类的，接上文[Linux MOOC习题 1~4章](/2020/04/28/Linux-MOOC习题-1~4章/)。
 
 
 
@@ -19,7 +13,7 @@ music:
 
 
 
-***PS：第七章是上机实验，第一次上机实验详见我的另一篇文章：[Linux 上机实战1 正则表达式](https://666wxy666.github.io/2020/03/31/Linux-上机实战1-正则表达式/)，第二次的实验因为是提交阶段暂不公开，后面可能会发。***
+***PS：第七章是上机实验，第一次上机实验和第二次的实验因为是提交阶段暂不公开，后面可能会发。***
 
 ## 五、文件管理和目录管理
 
@@ -179,11 +173,11 @@ echo *
 
 所有的习题：
 
-[Linux MOOC习题 1~4章](https://666wxy666.github.io/2020/04/28/Linux-MOOC习题-1~4章/)
+[Linux MOOC习题 1~4章](/2020/04/28/Linux-MOOC习题-1~4章/)
 
-[Linux MOOC习题 5~9章](https://666wxy666.github.io/2020/04/29/Linux-MOOC习题-5~9章/)
+[Linux MOOC习题 5~9章](/2020/04/29/Linux-MOOC习题-5~9章/)
 
-[Linux MOOC习题 10~章](https://666wxy666.github.io/2020/05/07/Linux-MOOC习题-10~章/)
+[Linux MOOC习题 10~章](/2020/05/07/Linux-MOOC习题-10~章/)
 
 {% endfolding %}
 

@@ -3,11 +3,6 @@ title: Linux MOOC习题 1~4章
 categories:
   - [Linux,习题]
 tags: [Linux,习题,易错点,网课,MOOC]
-music:
-  server: tencent
-  type: song
-  id: 1797389
-  autoplay: true
 ---
 
 自己随便整理了一下在学习Linux网课时遇到的一些习题，易错点之类的。
@@ -229,11 +224,11 @@ diff一般用于比较文本文件。
 
 所有的习题：
 
-[Linux MOOC习题 1~4章](https://666wxy666.github.io/2020/04/28/Linux-MOOC习题-1~4章/)
+[Linux MOOC习题 1~4章](/2020/04/28/Linux-MOOC习题-1~4章/)
 
-[Linux MOOC习题 5~9章](https://666wxy666.github.io/2020/04/29/Linux-MOOC习题-5~9章/)
+[Linux MOOC习题 5~9章](/2020/04/29/Linux-MOOC习题-5~9章/)
 
-[Linux MOOC习题 10~章](https://666wxy666.github.io/2020/05/07/Linux-MOOC习题-10~章/)
+[Linux MOOC习题 10~章](/2020/05/07/Linux-MOOC习题-10~章/)
 
 {% endfolding %}
 

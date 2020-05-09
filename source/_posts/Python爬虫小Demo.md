@@ -3,11 +3,6 @@ title:  Python爬虫小Demo：学堂在线课程
 categories:
   - [Python,爬虫]
 tags: [Python,爬虫,数据处理,学堂在线,课程]
-music:
-  server: tencent
-  type: song
-  id: 234572023
-  autoplay: true
 ---
 
 
