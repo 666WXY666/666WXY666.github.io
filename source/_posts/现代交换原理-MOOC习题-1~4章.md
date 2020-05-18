@@ -18,8 +18,6 @@ mathjax: true
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200507105053.jpg" alt="2020-05-07_104537" style="zoom:80%;" />
 
-
-
 <img src="https://gitee.com/wxy_666/images/raw/master/20200507105117.jpg" alt="2020-05-07_104811" style="zoom:80%;" />
 
 {% blockquote %}
@@ -108,33 +106,61 @@ $N\times{N}$的Banyan网络需要$k=\log_2{N}$级，如果要使用$2\times{2}$�
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200507120505.jpg" alt="2020-05-07_120218" style="zoom:80%;" />
 
+{% blockquote %}
 
+常识知识。
+
+{% endblockquote %}
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200507120512.jpg" alt="2020-05-07_120231" style="zoom:80%;" />
 
+{% blockquote %}
 
+示意图：
+
+<img src="https://gitee.com/wxy_666/images/raw/master/20200518151446.jpg" alt="3" style="zoom: 50%;" />
+
+B+C->A：
+
+<img src="https://gitee.com/wxy_666/images/raw/master/20200518151822.jpg" alt="第3章 电路交换" style="zoom: 50%;" />
+
+{% endblockquote %}
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200507120522.jpg" alt="2020-05-07_120244" style="zoom:80%;" />
 
-
-
 <img src="https://gitee.com/wxy_666/images/raw/master/20200507120530.jpg" alt="2020-05-07_120310" style="zoom:80%;" />
-
-
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200507120538.jpg" alt="2020-05-07_120324" style="zoom:80%;" />
 
+{% blockquote %}
 
+这三个题都是基础知识。
+
+{% endblockquote %}
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200507120551.jpg" alt="2020-05-07_120336" style="zoom:80%;" />
 
+{% blockquote %}
 
+直连？应该是可以实现不经过交换设备的语音通信。
+
+{% endblockquote %}
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200507120610.jpg" alt="2020-05-07_120432" style="zoom:80%;" />
 
+{% blockquote %}
 
+用户模块的处理机与区域处理机相连，区域处理机又与其他区域处理机和中央处理机相连。
+
+{% endblockquote %}
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200507120618.jpg" alt="2020-05-07_120449" style="zoom:80%;" />
+
+{% blockquote %}
+
+周期级程序是按一定周期进行的各种扫描和驱动，例如200ms摘挂机扫描。开通业务应该是基本级程序负责。
+
+{% endblockquote %}
 
 
 
@@ -142,33 +168,78 @@ $N\times{N}$的Banyan网络需要$k=\log_2{N}$级，如果要使用$2\times{2}$�
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200507121042.jpg" alt="2020-05-07_120658" style="zoom:80%;" />
 
+{% blockquote %}
 
+TCP连接的建立不是路由器基本功能。
+
+{% endblockquote %}
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200507121049.jpg" alt="2020-05-07_120714" style="zoom:80%;" />
 
+{% blockquote %}
 
+ISDN全称是综合业务数字网，不需要支持模拟业务。
+
+{% endblockquote %}
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200507121056.jpg" alt="2020-05-07_120733" style="zoom:80%;" />
+
+{% blockquote %}
+
+ATM 适配层（AAL）主要负责百 ATM 层与高层之间的信元转发过程。从上层收到信息后，AAL 将数据分割成 ATM 信元；从 ATM 层收到信息后，AAL 必须重度新组合数据形成一专个上层能够辨识的格式。上述操作称之为分段与重组（SAR），它是 AAL 的主要任务。此外不同的 AAL 支持属不同的流量或服务类型。
+
+{% endblockquote %}
 
 
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200507121103.jpg" alt="2020-05-07_120808" style="zoom:80%;" />
 
+{% blockquote %}
 
+MPLS标记可以任意级，标记栈实现多级标记，Label可以有多个。
+
+{% endblockquote %}
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200507121110.jpg" alt="2020-05-07_120850" style="zoom:80%;" />
 
+{% blockquote %}
 
+A、MPLS和ATM和帧中继都是路由选择和数据转发分开进行，都是面向连接的，但是不需要为每一次通信业务都建立新的连接；而传统IP网是无连接的，路由选择和数据转发同时进行。
+
+B、MPLS和ATM都是虚连接，使用时连接，不需要时可以拆除连接，不是永久连接。
+
+C、MPLS使用的是Label标记方式的逻辑连接，ATM是VPI/VCI方式的逻辑连接，都是逻辑虚连接。
+
+D、MPLS通过LDP等协议，在LSR和LER、LSR和LSR之间完成标记信息的分发，形成与FEC对应的LSP路径。
+
+{% endblockquote %}
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200507121116.jpg" alt="2020-05-07_121004" style="zoom:80%;" />
 
+{% blockquote %}
 
+同上一个题的D选项。
+
+{% endblockquote %}
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200507121127.jpg" alt="2020-05-07_121012" style="zoom:80%;" />
 
+{% blockquote %}
 
+1. 入口LER接收分组，完成第三层功能，判定分组所属的FEC，并给分组加上标记形成MPLS标记分组。
+
+2. LSR依据分组上的标记以及标记转发表通过交换单元对其进行转发，不再进行任何第三层处理，也就是只处理标记部分，不处理IP分组头。
+3. 出口 LER 将分组中的标记去掉后转发至目的地。
+
+{% endblockquote %}
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200507121133.jpg" alt="2020-05-07_121029" style="zoom:80%;" />
+
+{% blockquote %}
+
+MPLS与ATM/FR类似，标记都是本地（逐段）有效的，需要路由器进行标记转换。
+
+{% endblockquote %}
 
 
 
@@ -177,6 +248,8 @@ $N\times{N}$的Banyan网络需要$k=\log_2{N}$级，如果要使用$2\times{2}$�
 所有的习题：
 
 [现代交换原理 MOOC习题 1~4章](/2020/05/07/现代交换原理-MOOC习题-1~4章/)
+
+[现代交换原理 MOOC习题 5~章](/2020/05/18/现代交换原理-MOOC习题-5~章/)
 
 {% endfolding %}
 
