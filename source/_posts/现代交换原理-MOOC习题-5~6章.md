@@ -1,5 +1,5 @@
 ---
-title: 现代交换原理 MOOC习题 5~章
+title: 现代交换原理 MOOC习题 5~6章
 categories:
   - [现代交换原理,习题]
 tags: [现代交换原理,习题,易错点,网课,MOOC]
@@ -78,13 +78,48 @@ mathjax: true
 
 
 
-{% folding 未完待续…… %}
+## 第六章 移动交换
 
-所有的习题：
+<img src="https://gitee.com/wxy_666/images/raw/master/20200531205352.jpg" alt="2020-05-31_205201" style="zoom:80%;" />
+
+{% blockquote %}
+
+MSC是移动交换中心，主要功能有：
+
+1. 信道的管理和分配；
+2. 呼叫的处理和控制；
+3. 用户位置信息的登记与管理；
+4. 越区切换和漫游的控制；
+5. 号码的登记和管理；
+6. 服务类型的鉴权；
+7. 用户的鉴权；
+8. 提供链路接口；
+
+{% endblockquote %}
+
+<img src="https://gitee.com/wxy_666/images/raw/master/20200531210710.jpg" alt="2020-05-31_205837" style="zoom:80%;" />
+
+<img src="https://gitee.com/wxy_666/images/raw/master/20200531210722.jpg" alt="2020-05-31_210158" style="zoom:80%;" />
+
+<img src="https://gitee.com/wxy_666/images/raw/master/20200531210742.jpg" alt="2020-05-31_210414" style="zoom:80%;" />
+
+<img src="https://gitee.com/wxy_666/images/raw/master/20200531210756.jpg" alt="2020-05-31_210611" style="zoom:80%;" />
+
+<img src="https://gitee.com/wxy_666/images/raw/master/20200531210809.jpg" alt="2020-05-31_210653" style="zoom:80%;" />
+
+{% blockquote %}
+
+相关签约信息及4G位置信息不是存在MME中，而是HSS。
+
+{% endblockquote %}
+
+
+
+{% folding 所有的习题： %}
 
 [现代交换原理 MOOC习题 1~4章](/2020/05/07/现代交换原理-MOOC习题-1~4章/)
 
-[现代交换原理 MOOC习题 5~章](/2020/05/18/现代交换原理-MOOC习题-5~章/)
+[现代交换原理 MOOC习题 5~6章](/2020/05/18/现代交换原理-MOOC习题-5~6章/)
 
 {% endfolding %}
 

@@ -1,11 +1,11 @@
 ---
-title: Linux MOOC习题 5~9章
+title: Linux MOOC习题 6~10章
 categories:
   - [Linux,习题]
 tags: [Linux,习题,易错点,网课,MOOC]
 ---
 
-自己随便整理了一下在学习Linux网课时遇到的一些习题，易错点之类的，接上文[Linux MOOC习题 1~4章](/2020/04/28/Linux-MOOC习题-1~4章/)。
+自己随便整理了一下在学习Linux网课时遇到的一些习题，易错点之类的，接上文[Linux MOOC习题 1~5章](/2020/04/28/Linux-MOOC习题-1~5章/)。
 
 
 
@@ -15,61 +15,7 @@ tags: [Linux,习题,易错点,网课,MOOC]
 
 ***PS：第七章是上机实验，第一次上机实验和第二次的实验因为是提交阶段暂不公开，后面可能会发。***
 
-## 五、文件管理和目录管理
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200429100515.jpg" alt="2020-04-28_212515" style="zoom:80%;" />
-
-<img src="https://gitee.com/wxy_666/images/raw/master/20200429101043.jpg" alt="2020-04-28_212629" style="zoom:80%;" />
-
-{% blockquote %}
-
-在Linux中，Shell会自动帮你进项一些替换，实际运行的命令其实是：
-
-```shell
-cp src/x.c src/xx.c src/xxx.c src/x.h src/xx.h src/xxx.h……
-```
-
-如果有好多.c和.h文件（超过两个），cp就会报错：
-
-{% note, cp: target 'xxx' is not a directory %}
-
-但是如果只有两个.c或.h文件，那么就会产生非常严重的后果，实际运行了下面的命令：
-
-```shell
-cp src/x.c src/y.c
-```
-
-这是非常危险的，这样y.c的内容会被x.c覆盖，这是我们不愿意看到的。
-
-那么应该用什么命令来实现题目的要求呢？
-
-```shell
-cp src/*.[ch] .
-```
-
-我们显示地指定复制到.（当前目录），就不会出现问题了。
-
-{% endblockquote %}
-
-<img src="https://gitee.com/wxy_666/images/raw/master/20200429102232.jpg" alt="2020-04-28_212656" style="zoom:80%;" />
-
-{% blockquote %}
-
-这也是在Linux中很怪的地方，明明你不能写这个文件，但是你却可以删除，如果不加-f，删除只读文件时会有提示，但是加了-f就没有任何提示了。还有一点需要注意的是，如第6题所说，加了-f也不能删除无权限删除的文件。
-
-{% endblockquote %}
-
-<img src="https://gitee.com/wxy_666/images/raw/master/20200429102450.jpg" alt="2020-04-28_212714" style="zoom:80%;" />
-
-<img src="https://gitee.com/wxy_666/images/raw/master/20200429102603.jpg" alt="2020-04-28_212737" style="zoom:80%;" />
-
-<img src="https://gitee.com/wxy_666/images/raw/master/20200429102659.jpg" alt="2020-04-28_212800" style="zoom: 80%;" />
-
-{% blockquote %}
-
-关于第10题，不像Windows，在Linux中这些后缀都是约定俗成的，只是为了做标记用，好区分而已，没有实际意义。
-
-{% endblockquote %}
 
 ## 六、Linux命令风格和文件系统
 
@@ -99,7 +45,7 @@ cp src/*.[ch] .
 
 {% endblockquote %}
 
-## 八、文件和目录的权限、Shell
+## 八、文件和目录的权限，Shell
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429103454.jpg" alt="2020-04-28_213341" style="zoom:80%;" />
 
@@ -109,7 +55,7 @@ cp src/*.[ch] .
 
 {% endblockquote %}
 
-## 九、替换、元字符和转义
+## 九、替换，元字符和转义
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429103639.jpg" alt="2020-04-28_213427" style="zoom:80%;" />
 
@@ -169,15 +115,38 @@ echo *
 
 
 
-{% folding 未完待续…… %}
+## 十、shell流程控制：条件，循环与函数
 
-所有的习题：
+<img src="https://gitee.com/wxy_666/images/raw/master/20200507100115.jpg" alt="2020-05-07_095339" style="zoom:80%;" />
 
-[Linux MOOC习题 1~4章](/2020/04/28/Linux-MOOC习题-1~4章/)
+{% blockquote %}
 
-[Linux MOOC习题 5~9章](/2020/04/29/Linux-MOOC习题-5~9章/)
+- B选项：明显的错误，`then`要么另起一行，要么前面加`;`。
+- C选项和D选项：都是没加`fi`，C选项还有其他的错误，这明显是和C语言之类的给混了。
 
-[Linux MOOC习题 10~章](/2020/05/07/Linux-MOOC习题-10~章/)
+{% endblockquote %}
+
+<img src="https://gitee.com/wxy_666/images/raw/master/20200507101924.jpg" alt="2020-05-07_095526" style="zoom:80%;" />
+
+
+
+<img src="https://gitee.com/wxy_666/images/raw/master/20200507102056.jpg" alt="2020-05-07_095602" style="zoom:80%;" />
+
+
+
+<img src="https://gitee.com/wxy_666/images/raw/master/20200507102115.jpg" alt="2020-05-07_095632" style="zoom:80%;" />
+
+
+
+
+
+{% folding 所有的习题： %}
+
+[Linux MOOC习题 1~5章](/2020/04/28/Linux-MOOC习题-1~5章/)
+
+[Linux MOOC习题 6~10章](/2020/04/29/Linux-MOOC习题-6~10章/)
+
+[Linux MOOC习题 11~15章](/2020/05/07/Linux-MOOC习题-11~15章/)
 
 {% endfolding %}
 
