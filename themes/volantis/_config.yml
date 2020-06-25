@@ -123,6 +123,9 @@ cover:
       - name: 博客
         icon: fas fa-rss
         url: /
+      - name: 说说
+        icon: fas fa-comments
+        url: shuoshuo/
       - name: 分类
         icon: fas fa-folder-open
         url: categories/
@@ -150,6 +153,9 @@ navbar:
     - name: 博客
       icon: fas fa-rss
       url: /
+    - name: 说说
+      icon: fas fa-comments
+      url: shuoshuo/
     - name: 分类
       icon: fas fa-folder-open
       url: categories/
@@ -519,7 +525,24 @@ plugins:
     list_max_height: 340px # list max height
     list_folded: true
 
-
+  # Artitalk https://artitalk.js.org
+  # 配置过程请参考：https://artitalk.js.org/doc.html
+  # 除appID和appKEY外均为选填项
+  Artitalk:
+    enable: true # true为开启，false为关闭
+    appID: O2XYIOn9EAIKNr5HayEBixXl-MdYXbMMI # your appID
+    appKEY: g1XtDO1m1wHerH2wbn0A08mk # your appKEY
+    # severurl:  #leancloud绑定的安全域名，使用国际版的话不需要填写
+    # slanguage: # 语言设置，zh为汉语，en为英语，es为西班牙语。默认为汉语
+    # per: #每页说说的显示数量
+    # placeholder1: #在编辑说说的输入框中的占位符
+    # placeholder2: #自定义头像url的输入框的占位符
+    # lazy: #加载动画的开关，1为开，0为关，默认为开
+    # bgimg: #说说输入框背景图片url
+    # color1: #说说背景颜色1&按钮颜色1
+    # color2: #说说背景颜色2&按钮颜色2
+    # color3: #说说字体颜色
+    
 
 
 ############################### Comments ###############################
@@ -529,9 +552,9 @@ comments:
   service: valine # valine, minivaline, disqus, gitalk, livere
   # Valine
   # https://valine.js.org/
-  valine:
-    appId: NM0ViQjTChbCUYqHomzuJjPT-gzGzoHsz # your appId
-    appKey: VvkTdJBscrl6AEDdfTc9f62b # your appKey
+  valine: # 请将 appId appKey 修改为自己的，否则评论数据是共享的。
+    appId: O2XYIOn9EAIKNr5HayEBixXl-MdYXbMMI # your appId
+    appKey: g1XtDO1m1wHerH2wbn0A08mk # your appKey
     js: https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js
     path: # All pages use the same path (share the same comments data)
     meta: nick,mail,link # valine comment header info
