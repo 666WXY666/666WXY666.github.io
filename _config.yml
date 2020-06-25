@@ -30,6 +30,8 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+  - baidu_verify_97Gzg6Ff3I.html
+  - baidu_verify_IqjfdcaHAu.html
   - README.md
   - manifest.json
   - start
