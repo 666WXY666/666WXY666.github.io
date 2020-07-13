@@ -116,7 +116,7 @@ backup:
   theme: volantis
   message: Backup My Blog
   repository:
-    github: git@github.com:666WXY666/blog-bak.git,master
+    github: git@github.com:666WXY666/blog-bak.git,backup
 
 # Security
 # hexo-blog-encrypt
