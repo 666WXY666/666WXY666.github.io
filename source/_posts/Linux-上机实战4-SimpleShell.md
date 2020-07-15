@@ -2,7 +2,7 @@
 title: Linux 上机实战4 SimpleShell
 categories:
   - [Linux,上机实战]
-tags: [Linux,实战,shell脚本程序]
+tags: [Linux,实战,Shell,C]
 
 ---
 
@@ -113,7 +113,21 @@ tags: [Linux,实战,shell脚本程序]
 
 <img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200521_220213.png" alt="Screenshot_20200521_220213" style="zoom:80%;" />
 
-## 四、附录
+
+
+## 四、项目地址
+
+本项目的源码、可执行程序均已经存放于我的Github，欢迎下载查看：
+
+{% btns rounded center grid1 %}
+
+{% cell 源码仓库, https://github.com/666WXY666/Linux_Projects/tree/master/%E7%AE%80%E5%8C%96%E7%9A%84Shell, fas fa-download %}
+
+{% endbtns %}
+
+
+
+## 五、附录
 
 ***PS:程序源码均有详细的注释***
 

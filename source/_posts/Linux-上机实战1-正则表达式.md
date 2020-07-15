@@ -2,7 +2,7 @@
 title: Linux 上机实战1 正则表达式
 categories:
   - [Linux,上机实战]
-tags: [Linux,实战,正则表达式]
+tags: [Linux,实战,正则表达式,C]
 ---
 
 **本文是关于Linux中的文本处理三剑客（grep，sed，awk），以及正则表达式应用的一个样例，获取北京某时刻PM2.5的数据，然后进行处理，输出到csv文件中，并画图表展示。**

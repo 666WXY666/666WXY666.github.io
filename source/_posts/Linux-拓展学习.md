@@ -2,7 +2,7 @@
 title:  Linux 拓展学习
 categories:
   - [Linux,拓展学习]
-tags: [Linux,拓展,难点]
+tags: [Linux,拓展,难点,C,Shell]
 ---
 
 简单的写了一些Linux的课外拓展学习的相关知识和问题。

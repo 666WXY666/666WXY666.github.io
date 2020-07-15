@@ -2,7 +2,7 @@
 title: Linux 上机实战2 遍历目录
 categories:
   - [Linux,上机实战]
-tags: [Linux,实战,ls,遍历目录]
+tags: [Linux,实战,ls,遍历目录,C]
 ---
 
 **本文是关于Linux中的ls的简化版，遍历目录小程序。**
@@ -260,7 +260,21 @@ tags: [Linux,实战,ls,遍历目录]
 
 等等情况，不再一一展示
 
-## 四、附录
+
+
+## 四、项目地址
+
+本项目的源码、可执行程序均已经存放于我的Github，欢迎下载查看：
+
+{% btns rounded center grid1 %}
+
+{% cell 源码仓库, https://github.com/666WXY666/Linux_Projects/tree/master/%E7%AE%80%E5%8C%96%E7%9A%84ls, fas fa-download %}
+
+{% endbtns %}
+
+
+
+## 五、附录
 
 ***PS:程序源码均有详细的注释***
 

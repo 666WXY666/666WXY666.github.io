@@ -2,7 +2,7 @@
 title: Linux 上机实战3 shell脚本程序设计
 categories:
   - [Linux,上机实战]
-tags: [Linux,实战,shell脚本程序]
+tags: [Linux,实战,Shell,脚本]
 ---
 
 **本文是关于Linux中的shell脚本程序设计，有几个小Demo。**
@@ -499,7 +499,17 @@ echo "$xxx"
 
 在实验中还熟悉了各种分支循环命令的使用，在shell中的printf格式化输出，并且复习了前面学习的正则表达式和grep、sed、awk文本处理三剑客，收获很大。
 
-## 五、附录
+## 五、项目地址
+
+本项目的源码、可执行程序均已经存放于我的Github，欢迎下载查看：
+
+{% btns rounded center grid1 %}
+
+{% cell 源码仓库, https://github.com/666WXY666/Linux_Projects/tree/master/Shell%E8%84%9A%E6%9C%AC%E7%A8%8B%E5%BA%8F, fas fa-download %}
+
+{% endbtns %}
+
+## 六、附录
 
 ### 1、net.sh
 
