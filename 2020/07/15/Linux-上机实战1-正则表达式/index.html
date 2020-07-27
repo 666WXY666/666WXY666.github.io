@@ -1,0 +1,1750 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme="https://volantis.js.org/#3.0-beta2">
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>Linux 上机实战1 正则表达式 - 苇名一心的博客</title>
+  
+    <meta name="keywords" content="C,Linux,实战,正则表达式">
+  
+
+  
+    <meta name="description" content="本文是关于Linux中的文本处理三剑客（grep，sed，awk），以及正则表达式应用的一个样例，获取北京某时刻PM2.5的数据，然后进行处理，输出到csv文件中，并画图表展示。">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="苇名一心的博客">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+    <link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/favicon/favicon.ico">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script>
+	setTimeout(function() {
+	  let script = document.createElement('script');
+	  script.src = "https://www.googletagmanager.com/gtag/js?id=UA-162450234-2";
+	  script.defer=true;
+	  document.body.appendChild(script);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-162450234-2');
+	}, 5000);
+    </script>
+  
+  
+    <!-- ba -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+	  setTimeout(function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?93c49980dcbfb8920e167f85129d6917";
+		hm.defer=true;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+	  }, 5000);
+    })();
+    </script>
+  
+</head>
+
+<body>
+  
+  
+  
+  <div class="cover-wrapper">
+    <cover class="cover post" style="display: none;">
+      <div class="cover-body">
+  <div class="a">
+    
+    
+      <p class="title">苇名一心的博客</p>
+    
+    
+      <div id="binft"></div>
+	  <script>
+		var binft = function (r) {
+		  function t() {
+			return b[Math.floor(Math.random() * b.length)]
+		  }  
+		  function e() {
+			return String.fromCharCode(94 * Math.random() + 33)
+		  }
+		  function n(r) {
+			for (var n = document.createDocumentFragment(), i = 0; r > i; i++) {
+			  var l = document.createElement("span");
+			  l.textContent = e(), l.style.color = t(), n.appendChild(l)
+			}
+			return n
+		  }
+		  function i() {
+			var t = o[c.skillI];
+			c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : "forward" === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = "backward", c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = "forward")), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d)
+		  }
+		  var l = "",
+		  o = ["「且随疾风前行,身后亦需留心」","「Follow the wind, but watch your back」","「死亡如风，常伴吾身」","「Death is like the wind, always by my side」","「长路漫漫，唯剑作伴」","「A sword's poor company for a long road」","「吾虽浪迹天涯，却未迷失本心」","「A wanderer isn't always lost」","「吾之初心，永世不忘」","「I will not forget who I am」","「树叶的一生，只是为了归根吧？」","「Is a leaf's only purpose to fall?」","「还是别出招了，反正是我赢」","「Don't start what I'll finish」","「一剑，一念」","「One blade, one purpose」"].map(function (r) {
+		  return r + ""
+		  }),
+		  a = 2,
+		  g = 1,
+		  s = 5,
+		  d = 75,
+		  b = ["rgb(110,64,170)", "rgb(150,61,179)", "rgb(191,60,175)", "rgb(228,65,157)", "rgb(254,75,131)", "rgb(255,94,99)", "rgb(255,120,71)", "rgb(251,150,51)", "rgb(226,183,47)", "rgb(198,214,60)", "rgb(175,240,91)", "rgb(127,246,88)", "rgb(82,246,103)", "rgb(48,239,130)", "rgb(29,223,163)", "rgb(26,199,194)", "rgb(35,171,216)", "rgb(54,140,225)", "rgb(76,110,219)", "rgb(96,84,200)"],
+		  c = {
+			text: "",
+			prefixP: -s,
+			skillI: 0,
+			skillP: 0,
+			direction: "forward",
+			delay: a,
+			step: g
+		  };
+		  i()
+		  };
+		  binft(document.getElementById('binft'));
+	  </script>
+    
+  </div>
+  <div class="b">
+    <div class="menu navigation focus">
+      <div class="list-h">
+        
+          
+            <a href="/" id="home">
+              <i class="fas fa-rss fa-fw"></i><p>博客</p>
+            </a>
+          
+            <a href="/shuoshuo/" id="shuoshuo">
+              <i class="fas fa-comments fa-fw"></i><p>说说</p>
+            </a>
+          
+            <a href="/categories/" id="categories">
+              <i class="fas fa-folder-open fa-fw"></i><p>分类</p>
+            </a>
+          
+            <a href="/tags/" id="tags">
+              <i class="fas fa-tags fa-fw"></i><p>标签</p>
+            </a>
+          
+            <a href="/archives/" id="archives">
+              <i class="fas fa-archive fa-fw"></i><p>归档</p>
+            </a>
+          
+            <a href="/friends/" id="friends">
+              <i class="fas fa-link fa-fw"></i><p>友链</p>
+            </a>
+          
+            <a href="/about/" id="about">
+              <i class="fas fa-info-circle fa-fw"></i><p>关于</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+      <div class="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+    </cover>
+    <header class="l_header shadow blur">
+  <div class="container">
+  <div class="wrapper">
+    <div class="nav-sub">
+      <p class="title"></p>
+      <ul class="switcher nav-list-h" id="pjax-header-nav-list">
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href="/">
+          
+            <img no-lazy class="logo" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/logo-round.png">
+          
+          
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="nav-list-h">
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/" id="home">
+                  <i class="fas fa-rss fa-fw"></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/shuoshuo/" id="shuoshuo">
+                  <i class="fas fa-comments fa-fw"></i>说说
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/categories/" id="categories">
+                  <i class="fas fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/tags/" id="tags">
+                  <i class="fas fa-tags fa-fw"></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href="/about/" id="about">
+                  <i class="fas fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box">
+                  <i class="fas fa-ellipsis-v fa-fw"></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="flat-box">
+                  有疑问？
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/faqs/" id="faqs">
+                  <i class="fas fa-question-circle fa-fw"></i>FAQ
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="https://github.com/666WXY666/" id="https:githubcom666WXY666" rel="external nofollow noopener noreferrer" target="_blank">
+                  <i class="fab fa-github fa-fw"></i>我的Github主页
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="https://gitee.com/wxy_666" id="https:giteecomwxy_666" rel="external nofollow noopener noreferrer" target="_blank">
+                  <i class="fab fa-git-alt fa-fw"></i>我的Gitee主页
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="https://github.com/666WXY666/666WXY666.github.io/" id="https:githubcom666WXY666666WXY666githubio" rel="external nofollow noopener noreferrer" target="_blank">
+                  <i class="fas fa-code fa-fw"></i>本站源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="https://github.com/666WXY666/666WXY666.github.io/issues/" id="https:githubcom666WXY666666WXY666githubioissues" rel="external nofollow noopener noreferrer" target="_blank">
+                  <i class="fas fa-question fa-fw"></i>向我提问
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              
+                <li>
+                  <a class="flat-box">
+                    <i class="fas fa-compact-disc fa-fw music fa-fw music"></i>背景音乐
+                  </a>
+                  <ul class="list-v">
+                    <li>
+                      <div class="aplayer-container">
+                        
+
+  
+    <meting-js theme="#1BCDFC" autoplay="true" volume="0.7" loop="all" order="list" fixed="false" list-max-height="340px" server="tencent" type="playlist" id="1930654125" list-folded="true">
+    </meting-js>
+  
+
+
+                      </div>
+                    </li>
+                  </ul>
+                </li><li>
+              
+            
+          
+                    
+                  </li></ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search...">
+        </form>
+      </div>
+
+			<ul class="switcher nav-list-h">
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/" id="home">
+                  <i class="fas fa-rss fa-fw"></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/shuoshuo/" id="shuoshuo">
+                  <i class="fas fa-comments fa-fw"></i>说说
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/categories/" id="categories">
+                  <i class="fas fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/tags/" id="tags">
+                  <i class="fas fa-tags fa-fw"></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href="/about/" id="about">
+                  <i class="fas fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box">
+                  <i class="fas fa-ellipsis-v fa-fw"></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="flat-box">
+                  有疑问？
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="/faqs/" id="faqs">
+                  <i class="fas fa-question-circle fa-fw"></i>FAQ
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="https://github.com/666WXY666/" id="https:githubcom666WXY666" rel="external nofollow noopener noreferrer" target="_blank">
+                  <i class="fab fa-github fa-fw"></i>我的Github主页
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="https://gitee.com/wxy_666" id="https:giteecomwxy_666" rel="external nofollow noopener noreferrer" target="_blank">
+                  <i class="fab fa-git-alt fa-fw"></i>我的Gitee主页
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="https://github.com/666WXY666/666WXY666.github.io/" id="https:githubcom666WXY666666WXY666githubio" rel="external nofollow noopener noreferrer" target="_blank">
+                  <i class="fas fa-code fa-fw"></i>本站源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="flat-box" href="https://github.com/666WXY666/666WXY666.github.io/issues/" id="https:githubcom666WXY666666WXY666githubioissues" rel="external nofollow noopener noreferrer" target="_blank">
+                  <i class="fas fa-question fa-fw"></i>向我提问
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  </div>
+  
+
+
+  <div class="l_body nocover">
+    <div class="body-wrapper" id="pjax-container">
+      
+        <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+
+
+<div id="pjax-data" style="display: none">
+  <div id="pjax-ispage">true</div>
+  <div id="pjax-pageTitle">Linux 上机实战1 正则表达式</div>
+  <div id="pjax-enable-cover">true</div>
+  <div id="pjax-permalink">https://666wxy666.github.io/2020/07/15/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%981-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</div>
+  
+  <div id="valine-path">none</div>
+  <div id="valine-placeholder">none</div>
+  
+  
+</div>
+
+
+<script>
+  // 处理封面 此时 jquery 还没加载
+  if ("none" == "none") { // 移除封面
+    document.getElementsByClassName('cover')[0].style.display = "none";
+    document.getElementsByClassName('l_body')[0].classList.add("nocover");
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show");
+  } else {
+    if ("none" == "blog") { // 半屏
+      document.getElementsByClassName('cover')[0].classList.remove("full");
+      document.getElementsByClassName('cover')[0].classList.add("half");
+      document.getElementsByClassName('scroll-down')[0].style.display = "none";
+    } else if ("none" == "docs") { // 全屏
+      document.getElementsByClassName('cover')[0].classList.remove("half");
+      document.getElementsByClassName('cover')[0].classList.add("full");
+      document.getElementsByClassName('scroll-down')[0].style.display = "";
+    }
+    document.getElementsByClassName('cover')[0].style.display = "";
+    document.getElementsByClassName('l_body', 'show')[0].classList.remove("nocover");
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.remove("show");
+  }
+</script>
+
+      
+      
+
+<div class="l_main">
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class="meta">
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/2020/07/15/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%981-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+      Linux 上机实战1 正则表达式
+    </a>
+  </h1>
+
+
+        
+        <div class="new-meta-box">
+          
+            
+          
+            
+              
+<div class="new-meta-item author">
+  <a href="https://666wxy666.github.io/" rel="nofollow">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg">
+    <p>苇名一心</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class="new-meta-item category">
+    <a href="/categories/Linux/%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%98/" rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>Linux/上机实战</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年7月15日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：1.1k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：4分钟</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+  <div class="new-meta-item browse valine">
+    <a class="notlink">
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="/2020/07/15/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%981-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="leancloud_visitors" data-flag-title="Linux 上机实战1 正则表达式">
+      <p>
+        <span class="leancloud-visitors-count"></span>
+      </p>
+      </span>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          
+          <p><strong>本文是关于Linux中的文本处理三剑客（grep，sed，awk），以及正则表达式应用的一个样例，获取北京某时刻PM2.5的数据，然后进行处理，输出到csv文件中，并画图表展示。</strong></p>
+<a id="more"></a>
+
+
+
+<h2 id="一、题目要求："><a href="#一、题目要求：" class="headerlink" title="一、题目要求："></a>一、题目要求：</h2><p>​        <strong>从因特网上搜索 Web 页，用 wget 获取网页，处理网页 html 文本数据，从中提取出当前时间点北京各监测站的 PM2.5 浓度，输出如下 CSV 格式数据：</strong><br><strong><em>2020 03 09 13:00:00, 海淀区万柳 ,73<br>2020 03 09 13:00:00, 昌平镇 ,67<br>2020 03 09 13:00:00, 奥体中心 ,66<br>2020 03 09 13:00:00, 海淀区万柳 ,73<br>2020 03 09 13:00:00, 昌平镇 ,73<br>2020 03 09 13:00:00, 奥体中心 ,75</em></strong><br>​        <strong>撰写实验报告，要求：写出对数据的分析和处理思路，列出各个处理步骤并给出解释。</strong></p>
+<h2 id="二、详细步骤："><a href="#二、详细步骤：" class="headerlink" title="二、详细步骤："></a>二、详细步骤：</h2><ol>
+<li><p>从因特网上搜索 Web 页，找到与含有北京各监测站的 PM2.5 浓度的网站，我找到了**<em><a href="http://www.pm25.com/city/beijing.html" target="_blank" rel="external nofollow noopener noreferrer">绿色呼吸网</a>**</em>，网站如下：</p>
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203352.jpg" alt="1" style="zoom:33%;">
+</li>
+<li><p>使用**<em>Xshell**</em>登录到Ubuntu服务器：</p>
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203420.jpg" alt="2" style="zoom:33%;">
+
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203429.jpg" alt="3" style="zoom:33%;">
+</li>
+<li><p>使用**<em>wget**</em>命令获取该网页：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.pm25.com/city/beijing.html</span><br></pre></td></tr></table></figure>
+
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203525.jpg" alt="4" style="zoom: 80%;">
+</li>
+<li><p>使用**<em>cat**</em>命令查看该网页的内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | more</span><br></pre></td></tr></table></figure>
+
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203554.jpg" alt="5" style="zoom:80%;">
+
+<p>我们关注的内容：</p>
+<p>​        ①数据更新的时间：</p>
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203608.jpg" alt="6" style="zoom:67%;">
+
+<p>​        ②各监测点PM2.5浓度数据：</p>
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203617.jpg" alt="7" style="zoom:50%;">
+</li>
+<li><p>发现时间的地方有个*<strong>“更新时间：”**<em>，监测点名称的地方都有</em></strong>“pjadt_location”*<strong>，而PM2.5浓度的地方都有**<em>“pjadt_pm25”</em></strong>。根据这个特性，先使用*<strong>awk**<em>命令将需要的行保留下来。下面先进行编写</em></strong>1.awk***：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim 1.awk</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/wxy_666/images/raw/master/20200331203629.jpg" alt="8"></p>
+<p>运行以下命令，对所需行进行过滤：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | more</span><br></pre></td></tr></table></figure>
+
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203639.jpg" alt="9" style="zoom:50%;">
+
+<p>发现除了我们想要的行还多出了这几行：</p>
+<p><img src="https://gitee.com/wxy_666/images/raw/master/20200331203656.jpg" alt="10"></p>
+<p>经过观察，发现*<strong>“PM2.5”**<em>浓度这一行与我们所需的行的区别是，我们所需的行有</em></strong>μg*<strong>，而**<em>“PM2.5”</em></strong>浓度这一行没有：</p>
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203705.jpg" alt="11" style="zoom:50%;">
+
+<p>我们重新对*<strong>“1.awk”**<em>进行编辑，直接将</em></strong>“监测站点”*<strong>这一行排除，并且对**<em>“PM2.5”</em></strong>浓度这一行采用额外的过滤规则:</p>
+<p><img src="https://gitee.com/wxy_666/images/raw/master/20200331203718.jpg" alt="12"></p>
+<p>重新运行以下命令，对所需行进行过滤：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | more</span><br></pre></td></tr></table></figure>
+
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203729.jpg" alt="13" style="zoom:50%;">
+
+<p>发现已经筛选出了所需要的行。</p>
+</li>
+<li><p>现在再利用*<strong>sed**<em>命令将</em></strong>html标签”&lt;&gt;“*<strong>中的内容和**<em>“更新时间：”</em></strong>这个无用的信息删除：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | sed -e 's/&lt;[^&lt;&gt;]*&gt;//g' -e 's/更新时间：//g' | more</span><br></pre></td></tr></table></figure>
+
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203744.jpg" alt="14" style="zoom:50%;">
+
+<p>发现已经只剩余我们想要的数据。</p>
+</li>
+<li><p>但是这些数据不在同一行，且没有明显特征，无法进行*<strong>awk**<em>命令，因此先使用</em></strong>tr***命令将这些行合并为一行，以空格分隔：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | sed -e 's/&lt;[^&lt;&gt;]*&gt;//g' -e 's/更新时间：//g' | tr '\n' ' ' | more</span><br></pre></td></tr></table></figure>
+
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203757.jpg" alt="15" style="zoom:50%;">
+</li>
+<li><p>最后利用*<strong>awk**<em>命令将所需内容规格化输出即可，先编辑</em></strong>“2.awk”***：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim 2.awk</span><br></pre></td></tr></table></figure>
+
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203807.jpg" alt="16" style="zoom:80%;">
+
+<p>利用*<strong>for**<em>循环输出，</em></strong>NF*<strong>为列数，刚好循环$$(NF-2)/4$$次，第一个**<em>%s</em></strong>为*<strong>日期**<em>，第二个</em></strong>%s*<strong>为**<em>时间</em></strong>，第三个*<strong>%s**<em>为</em></strong>监测点名称*<strong>，第四个**<em>%s</em></strong>为*<strong>PM2.5浓度**<em>，再运行以下</em></strong>awk***命令，即可得到格式化的输出：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | sed -e 's/&lt;[^&lt;&gt;]*&gt;//g' -e 's/更新时间：//g' | tr '\n' ' ' | awk -f 2.awk  | more</span><br></pre></td></tr></table></figure>
+
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203819.jpg" alt="17" style="zoom: 50%;">
+
+<p>发现输出已经符合题目要求。</p>
+</li>
+<li><p>将结果重定向到文件**<em>“beijing.csv”**</em>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | sed -e 's/&lt;[^&lt;&gt;]*&gt;//g' -e 's/更新时间：//g' | tr '\n' ' ' | awk -f 2.awk  &gt; beijing.csv</span><br><span class="line">vim beijing.csv</span><br></pre></td></tr></table></figure>
+
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203839.jpg" alt="18" style="zoom:50%;">
+
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203853.jpg" alt="19" style="zoom:80%;">
+</li>
+<li><p>将*<strong>beijing.csv**<em>发送到电脑，并将编码转为</em></strong>ANSI***：</p>
+</li>
+</ol>
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203903.jpg" alt="20" style="zoom: 67%;">
+
+<ol start="11">
+<li><p>由于不同时间的数据有所不同，因此我的过滤语句考虑了不同时间点的情况*<strong>（北京一共有12个监测点，有时有的监测点没有数据，因此是只有11个监测点的数据）**<em>，直接运行以下命令就可以直接将数据导出为</em></strong>beijing.csv***，以下为另一时间点的数据情况：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.pm25.com/city/beijing.html</span><br><span class="line">cat beijing.html | awk -f 1.awk | sed -e 's/&lt;[^&lt;&gt;]*&gt;//g' -e 's/更新时间：//g' | tr '\n' ' ' | awk -f 2.awk  &gt; beijing.csv</span><br></pre></td></tr></table></figure>
+
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203916.jpg" alt="21" style="zoom:67%;">
+
+</li>
+</ol>
+<h2 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h2><p>本文以一个样例，详细介绍了Linux中的文本处理三剑客（grep，sed，awk），以及正则表达式的相关知识，希望对你的Linux学习有所帮助。</p>
+
+          
+            <div class="article_footer">
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class="content">
+    
+      <blockquote>
+        
+          
+            <p>本文为博主「苇名一心」的原创文章</p>
+
+          
+        
+          
+            <p>内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href="https://666wxy666.github.io/2020/07/15/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%981-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">https://666wxy666.github.io/2020/07/15/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%981-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</a></p>
+          
+        
+          
+            <p>转载请附上原文出处链接及本声明</p>
+
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class="content article-entry">
+    
+      
+        <div class="fancybox"><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" height="64px"></div>
+      
+    
+      
+        <div class="fancybox"><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" height="64px"></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class="meta" id="footer-meta">
+    <div class="new-meta-box">
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-15T22:49:28+08:00">
+  <a class="notlink">
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年7月15日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/C/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>C</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Linux/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Linux</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%AE%9E%E6%88%98/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>实战</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>正则表达式</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：1.1k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：4分钟</p>
+    </a>
+  </div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://666wxy666.github.io/2020/07/15/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%981-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/&title=Linux 上机实战1 正则表达式 - 苇名一心的博客&summary=本文是关于Linux中的文本处理三剑客（grep，sed，awk），以及正则表达式应用的一个样例，获取北京某时刻PM2.5的数据，然后进行处理，输出到csv文件中，并画图表展示。" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://666wxy666.github.io/2020/07/15/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%981-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/&title=Linux 上机实战1 正则表达式 - 苇名一心的博客&summary=本文是关于Linux中的文本处理三剑客（grep，sed，awk），以及正则表达式应用的一个样例，获取北京某时刻PM2.5的数据，然后进行处理，输出到csv文件中，并画图表展示。" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://666wxy666.github.io/2020/07/15/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%981-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/&title=Linux 上机实战1 正则表达式 - 苇名一心的博客&summary=本文是关于Linux中的文本处理三剑客（grep，sed，awk），以及正则表达式应用的一个样例，获取北京某时刻PM2.5的数据，然后进行处理，输出到csv文件中，并画图表展示。" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class="prev" href="/2020/07/15/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%982-%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95/">
+                <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>Linux 上机实战2 遍历目录</p>
+                <p class="content">本文是关于Linux中的ls的简化版，遍历目录小程序。
+
+
+
+
+一、题目要求编程实现程序list.c，列表普通磁盘文件，包括文件名和文件大小。
+
+使用vi编辑文件，熟悉工具vi。
+使用Linux...</p>
+              </a>
+            
+            
+              <a class="next" href="/2020/07/15/Linux-MOOC%E4%B9%A0%E9%A2%98-6~10%E7%AB%A0/">
+                <p class="title">Linux MOOC习题 6~10章<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class="content">自己随便整理了一下在学习Linux网课时遇到的一些习题，易错点之类的，接上文Linux MOOC习题 1~5章。
+
+
+
+
+PS：第七章是上机实验。
+六、Linux命令风格和文件系统
+
+这两个题都...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class="fas fa-comments"></i> 评论</p>
+      
+      <section id="comments">
+        <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+      </section>
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+</div>
+<aside class="l_side">
+  
+  
+    
+    
+  
+
+  <section class="widget related_posts shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span class="name">相关文章</span>
+    
+  </header>
+
+
+    <div class="content">
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\2020\07\15\Linux-上机实战4-SimpleShell\" title="Linux 上机实战4 SimpleShell" rel="bookmark">Linux 上机实战4 SimpleShell</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\2020\07\15\Linux-上机实战2-遍历目录\" title="Linux 上机实战2 遍历目录" rel="bookmark">Linux 上机实战2 遍历目录</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\2020\07\15\Linux-拓展学习\" title="Linux 拓展学习" rel="bookmark">Linux 拓展学习</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\2020\07\15\Linux-上机实战3-shell脚本程序设计\" title="Linux 上机实战3 shell脚本程序设计" rel="bookmark">Linux 上机实战3 shell脚本程序设计</a></h3></div></li></ul>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、题目要求："><span class="toc-text">一、题目要求：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、详细步骤："><span class="toc-text">二、详细步骤：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、总结"><span class="toc-text">三、总结</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+    </div>
+    
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js theme="#1BCDFC" autoplay="true" volume="0.7" loop="all" order="list" fixed="false" list-max-height="340px" server="tencent" type="playlist" id="1930654125" list-folded="true">
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml" class="social fas fa-rss flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:1293739194@qq.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/666WXY666/" class="social fab fa-github flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://gitee.com/wxy_666" class="social fab fa-git-alt flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://space.bilibili.com/7429248" class="social fas fa-bold flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://www.zhihu.com/people/666wxy666" class="social fab fa-zhihu flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=74040689" class="social fas fa-headphones-alt flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+	  
+    
+      
+        <div class="copyright">
+        <p><a href="https://666wxy666.github.io/">Copyright © 2020-2020 苇名一心</a></p>
+
+        </div>
+		<br>
+      
+    
+      
+		<i class="fas fa-clock"></i>
+        <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+		<script>
+			var now = new Date(); 
+			function createtime() { 
+				var grt= new Date("02/10/2020 17:38:00");//建站时间，格式：月/日/年 时:分:秒
+				now.setTime(now.getTime()+250); 
+				days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+				hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+				if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+				mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+				seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+				snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+				document.getElementById("timeDate").innerHTML = "本站已成功存活了 "+dnum+" 天 "; 
+				document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+			} 
+		setInterval("createtime()",250);
+		</script>
+		<br>
+      
+    
+      
+        
+		  <i class="fas fa-user"></i>
+		  <span id="busuanzi_container_site_uv">总访客数：<span id="busuanzi_value_site_uv"></span> 人 | </span>
+		  <i class="fas fa-eye"></i>
+		  <span id="busuanzi_container_site_pv">总阅读量：<span id="busuanzi_value_site_pv"></span> 次 | </span>
+		  <i class="fas fa-chart-area"></i>
+		  <span class="post-count">字数统计：65k 字</span>
+        
+      
+    
+  </footer>
+
+
+    <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+  </div>
+  <div>
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg", "https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/wallpaper/abstract/BBC19066-E176-47C2-9D22-48C81EE5DF6B.jpeg", "https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/wallpaper/abstract/35F12181-F0E9-45BD-B134-37E4B4A660CF.jpeg", "https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg", "https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/wallpaper/abstract/67239FBB-E15D-4F4F-8EE8-0F1C9F3C4E7C.jpeg", "https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/wallpaper/abstract/B951AE18-D431-417F-B3FE-A382403FF21B.jpeg", "https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/wallpaper/abstract/2884F904-F1F3-479E-AE27-5EBC291B63B0.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('') {
+          $('').backstretch(
+            imgs,
+          {
+            duration: "60000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "60000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+<!-- 评论 （PS：只对 valine 做了 Pjax 兼容） -->
+
+  
+  
+<script src="/js/valine.js"></script>
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    var valinePath = $.trim($('#valine-path').text()) === "none" ?
+            window.location.pathname : $.trim($('#valine-path').text());
+
+    var valinePlaceholder = $.trim($('#valine-placeholder').text()) === "none" ?
+            "快来评论吧~" : $.trim($('#valine-placeholder').text());
+
+    var ALLPATH = '';
+    if(ALLPATH != '') valinePath = ALLPATH;
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: valinePlaceholder,
+      path: valinePath,
+      appId: "O2XYIOn9EAIKNr5HayEBixXl-MdYXbMMI",
+      appKey: "g1XtDO1m1wHerH2wbn0A08mk",
+      pageSize: '10',
+      avatar: 'robohash',
+      lang: 'zh-cn',
+      visitor: 'true',
+      highlight: 'true',
+      mathJax: 'false',
+      enableQQ: 'true',
+      requiredFields: requiredFields,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps
+    })
+  }
+
+  $(function () {
+    pjax_valine();
+  });
+</script>
+
+
+
+
+<!-- darkmodejs -->
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
+<!-- scrollreveal -->
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    function pjax_scrollrebeal() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '32px',
+        duration: '800',
+        interval: '20',
+        scale: '1',
+        easing: 'ease-out'
+      });
+    }
+
+    $(function () {
+      pjax_scrollrebeal();
+    });
+  </script>
+
+<!-- ******************************** -->
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+<!-- ******************************** -->
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+
+  
+    
+<script src="/js/search.js"></script>
+
+  
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function () {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+<!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <div class="loading-circle"><div id="loader-circle"></div></div>
+    <script>
+      window.ShowLoading = function() {
+        $(".loading-circle").css("display", "block");
+      };
+      window.HideLoading = function() {
+        $(".loading-circle").css("display", "none");
+      }
+    </script>
+  
+</div>
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = ["/shuoshuo/"];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+      
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      $.fancybox.close();    // 关闭弹窗
+      $('.nav-main').find('.list-v').not('.menu-phone').css("display","none"); // 移除小尾巴
+      $('.menu-phone.list-v').css("display","none"); // 移除小尾巴
+      $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
+      $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
+
+      $('.s-top').unbind('click');   // 解绑
+      $('.menu a').unbind('click');  // 解绑
+      $(window).unbind('resize');    // 解绑
+      $(window).unbind('scroll');    // 解绑
+      $(document).unbind('scroll');  // 解绑
+      $(document).unbind('click');   // 解绑
+      $('body').unbind('click');     // 解绑
+      window.ShowLoading();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+      // 
+      // _hmt.push(['_trackPageview', document.location.pathname]);
+      // 
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('config', 'UA-162450234-2', {'page_path': document.location.pathname});
+      
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+
+      try{
+        pjax_fancybox();
+        
+          
+          if ('') {
+            $('').backstretch("resize");
+          } else {
+            $.backstretch("resize");
+          }
+        
+        
+        
+          pjax_scrollrebeal();
+        
+        
+          pjax_initCopyCode();
+        
+        
+          pjax_valine();
+        
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+      window.HideLoading();
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.HideLoading();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+</body>
+</html>
+<!--单击显示文字-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/click_show_text.js"></script>
+<!--鼠标点击烟花爆炸效果-->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/fireworks.js"></script>
+<!--Live2D看板娘-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+<script src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/live2d/autoload.js"></script>
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/FunnyTitle.js"></script>
