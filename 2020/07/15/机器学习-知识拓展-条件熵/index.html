@@ -734,7 +734,7 @@
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：765字</p>
+      <p>字数：767字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -788,11 +788,33 @@
 
 
 <h2 id="一、问题："><a href="#一、问题：" class="headerlink" title="一、问题："></a>一、问题：</h2><p>假定数据库有𝑁个人，第𝑛个人的先验概率$\gamma_n$，有𝐾个问题，假定第𝑛个人对第𝑘个问题答案为“是”的概率为$a_{nk}$，请给出给定第𝑘个问题条件下，数据集的条件熵的计算公式。</p>
-<h2 id="二、解析"><a href="#二、解析" class="headerlink" title="二、解析"></a>二、解析</h2><p>原来的条件熵公式为：<br>$$<br>H(Y|X)=\sum_{x}{P(x)H(Y|X=x)}<br>$$<br>因为此题中X的取值只有两个即‘是’和‘否’，因此公式变为：<br>$$<br>H(Y|X)=P(X=是)H(Y|X=是)+P(X=否)H(Y|X=否)<br>$$<br>因此先计算对于第k个问题，X=‘是’的样本占总样本的概率P(X=是)和X=‘否’的样本占总样本的概率P(X=否)。</p>
-<p>分子为对于第k个问题回答为‘是’的个数即：<br>$$<br>\sum^{N}<em>{i=1}{(N\times\gamma_i\times a_{ik})}<br>$$<br>分母为总数N，因此P(X=是)：<br>$$<br>P(X=是)=\frac{\sum^{N}</em>{i=1}{(N\times\gamma_i\times a_{ik}})}{N}=\sum^{N}<em>{i=1}{(\gamma_i\times a_{ik})}<br>$$<br>同理，P(X=否)：<br>$$<br>P(X=否)=\frac{\sum^{N}</em>{i=1}{[N\times\gamma_i\times (1-a_{ik})}]}{N}=\sum^{N}<em>{i=1}{[\gamma_i\times (1-a_{ik})]}<br>$$<br>然后在计算对于第k个问题，X=‘是’的数据集上Y的信息熵和X=‘否’的数据集上Y的信息熵，也就是：<br>$$<br>H(Y|X=是)=-\sum^{N}</em>{j=1}{(p(x_j)\log p(x_j))}<br>$$</p>
+<h2 id="二、解析"><a href="#二、解析" class="headerlink" title="二、解析"></a>二、解析</h2><p>原来的条件熵公式为：</p>
+<p>$$<br>H(Y|X)=\sum_{x}{P(x)H(Y|X=x)}<br>$$</p>
+<p>因为此题中X的取值只有两个即‘是’和‘否’，因此公式变为：</p>
+<p>$$<br>H(Y|X)=P(X=是)H(Y|X=是)+P(X=否)H(Y|X=否)<br>$$</p>
+<p>因此先计算对于第k个问题，X=‘是’的样本占总样本的概率P(X=是)和X=‘否’的样本占总样本的概率P(X=否)。</p>
+<p>分子为对于第k个问题回答为‘是’的个数即：</p>
+<p>$$<br>\sum^{N}_{i=1}{(N\times\gamma_i\times a_{ik})}<br>$$</p>
+<p>分母为总数N，因此P(X=是)：</p>
+<p>$$<br>P(X=是)=\frac{\sum^{N}<em>{i=1}{(N\times\gamma_i\times a_{ik}})}{N}=\sum^{N}</em>{i=1}{(\gamma_i\times a_{ik})}<br>$$</p>
+<p>同理，P(X=否)：</p>
+<p>$$<br>P(X=否)=\frac{\sum^{N}<em>{i=1}{[N\times\gamma_i\times (1-a_{ik})}]}{N}=\sum^{N}</em>{i=1}{[\gamma_i\times (1-a_{ik})]}<br>$$</p>
+<p>然后在计算对于第k个问题，X=‘是’的数据集上Y的信息熵和X=‘否’的数据集上Y的信息熵，也就是：</p>
+<p>$$<br>H(Y|X=是)=-\sum^{N}_{j=1}{(p(x_j)\log p(x_j))}<br>$$</p>
 <p>$$<br>H(Y|X=否)=-\sum^{N}_{j=1}{(q(x_j)\log q(x_j))}<br>$$</p>
 <p>因此要先计算对于第k个问题，X=‘是’的时候，对应每个人‘j’的概率$p(x_j)$。</p>
-<p>分子为对于第k个问题，X=‘是’的时候，‘j’这个人的个数：<br>$$<br>N\times\gamma_j\times{a_{jk}}<br>$$<br>分母为对于第k个问题所有X=‘是’的个数，也就是上述的P(X=是)的分子：<br>$$<br>\sum^{N}<em>{i=1}{(N\times\gamma_i\times a_{ik})}<br>$$<br>或者写为：<br>$$<br>P(X=是)\times{N}<br>$$<br>因此$p(x_j)$：<br>$$<br>p(x_j)=\frac{N\times\gamma_j\times{a_{jk}}}{\sum^{N}</em>{i=1}{(N\times\gamma_i\times a_{ik}})}=\frac{\gamma_j\times{a_{jk}}}{\sum^{N}<em>{i=1}{(\gamma_i\times a_{ik})}}<br>$$<br>同理X=‘否’的时候，对应每个人‘j’的概率$q(x_j)$:<br>$$<br>q(x_j)=\frac{N\times\gamma_j\times{(1-a_{jk})}}{\sum^{N}</em>{i=1}{[N\times\gamma_i\times (1-a_{jk})}]}=\frac{\gamma_j\times{(1-a_{jk})}}{\sum^{N}<em>{i=1}{[\gamma_i\times (1-a_{jk})]}}<br>$$<br>综上所述，可以得出条件熵的最终公式为：<br>$$<br>\begin{align}<br>H(Y|X)=&amp;P(X=是)H(Y|X=是)+P(X=否)H(Y|X=否)\<br>=&amp;\sum^{N}</em>{i=1}{(\gamma_i\times a_{ik})}\times[-\sum^{N}<em>{j=1}{(p(x_j)\log p(x_j))}]\<br>&amp;+\sum^{N}</em>{i=1}{[\gamma_i\times (1-a_{ik})]}\times[-\sum^{N}<em>{j=1}{(q(x_j)\log q(x_j))}]\<br>=&amp;\sum^{N}</em>{i=1}{(\gamma_i\times a_{ik})}\times[-\sum^{N}<em>{j=1}{\left(\frac{\gamma_j\times{a_{jk}}}{\sum^{N}</em>{i=1}{(\gamma_i\times a_{ik})}}\log \frac{\gamma_j\times{a_{jk}}}{\sum^{N}<em>{i=1}{(\gamma_i\times a_{ik})}}\right)}]\<br>&amp;+\sum^{N}</em>{i=1}{[\gamma_i\times (1-a_{ik})]}\<br>&amp;\times[-\sum^{N}<em>{j=1}{\left(\frac{\gamma_j\times{(1-a_{jk})}}{\sum^{N}</em>{i=1}{[\gamma_i\times (1-a_{jk})]}}\log \frac{\gamma_j\times{(1-a_{jk})}}{\sum^{N}<em>{i=1}{[\gamma_i\times (1-a_{jk})]}}\right)}]\<br>=&amp;-\sum^{N}</em>{j=1}{\left(\gamma_j\times{a_{jk}}\times\log \frac{\gamma_j\times{a_{jk}}}{\sum^{N}<em>{i=1}{(\gamma_i\times a_{ik})}}\right)}\<br>&amp;-\sum^{N}</em>{j=1}{\left(\gamma_j\times{(1-a_{jk})}\times\log \frac{\gamma_j\times{(1-a_{jk})}}{\sum^{N}_{i=1}{[\gamma_i\times (1-a_{ik})]}}\right)}<br>\end{align}<br>$$</p>
+<p>分子为对于第k个问题，X=‘是’的时候，‘j’这个人的个数：</p>
+<p>$$<br>N\times\gamma_j\times{a_{jk}}<br>$$</p>
+<p>分母为对于第k个问题所有X=‘是’的个数，也就是上述的P(X=是)的分子：</p>
+<p>$$<br>\sum^{N}_{i=1}{(N\times\gamma_i\times a_{ik})}<br>$$</p>
+<p>或者写为：</p>
+<p>$$<br>P(X=是)\times{N}<br>$$</p>
+<p>因此$p(x_j)$：</p>
+<p>$$<br>p(x_j)=\frac{N\times\gamma_j\times{a_{jk}}}{\sum^{N}<em>{i=1}{(N\times\gamma_i\times a_{ik}})}=\frac{\gamma_j\times{a_{jk}}}{\sum^{N}</em>{i=1}{(\gamma_i\times a_{ik})}}<br>$$</p>
+<p>同理X=‘否’的时候，对应每个人‘j’的概率$q(x_j)$：</p>
+<p>$$<br>q(x_j)=\frac{N\times\gamma_j\times{(1-a_{jk})}}{\sum^{N}<em>{i=1}{[N\times\gamma_i\times (1-a_{jk})}]}=\frac{\gamma_j\times{(1-a_{jk})}}{\sum^{N}</em>{i=1}{[\gamma_i\times (1-a_{jk})]}}<br>$$</p>
+<p>综上所述，可以得出条件熵的最终公式为：</p>
+<p>$$<br>\begin{align}<br>H(Y|X)=&amp;P(X=是)H(Y|X=是)+P(X=否)H(Y|X=否)\<br>=&amp;\sum^{N}<em>{i=1}{(\gamma_i\times a_{ik})}\times[-\sum^{N}</em>{j=1}{(p(x_j)\log p(x_j))}]\<br>&amp;+\sum^{N}<em>{i=1}{[\gamma_i\times (1-a_{ik})]}\times[-\sum^{N}</em>{j=1}{(q(x_j)\log q(x_j))}]\<br>=&amp;\sum^{N}<em>{i=1}{(\gamma_i\times a_{ik})}\times[-\sum^{N}</em>{j=1}{\left(\frac{\gamma_j\times{a_{jk}}}{\sum^{N}<em>{i=1}{(\gamma_i\times a_{ik})}}\log \frac{\gamma_j\times{a_{jk}}}{\sum^{N}</em>{i=1}{(\gamma_i\times a_{ik})}}\right)}]\<br>&amp;+\sum^{N}<em>{i=1}{[\gamma_i\times (1-a_{ik})]}\<br>&amp;\times[-\sum^{N}</em>{j=1}{\left(\frac{\gamma_j\times{(1-a_{jk})}}{\sum^{N}<em>{i=1}{[\gamma_i\times (1-a_{jk})]}}\log \frac{\gamma_j\times{(1-a_{jk})}}{\sum^{N}</em>{i=1}{[\gamma_i\times (1-a_{jk})]}}\right)}]\<br>=&amp;-\sum^{N}<em>{j=1}{\left(\gamma_j\times{a_{jk}}\times\log \frac{\gamma_j\times{a_{jk}}}{\sum^{N}</em>{i=1}{(\gamma_i\times a_{ik})}}\right)}\<br>&amp;-\sum^{N}<em>{j=1}{\left(\gamma_j\times{(1-a_{jk})}\times\log \frac{\gamma_j\times{(1-a_{jk})}}{\sum^{N}</em>{i=1}{[\gamma_i\times (1-a_{ik})]}}\right)}<br>\end{align}<br>$$</p>
 
           
             <div class="article_footer">
@@ -884,10 +906,10 @@
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-15T22:49:28+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-27T17:25:04+08:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年7月15日</p>
+    <p>更新于：2020年7月27日</p>
   </a>
 </div>
 
@@ -911,7 +933,7 @@
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：765字</p>
+      <p>字数：767字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -968,21 +990,8 @@
         
           <div class="prev-next">
             
-              <a class="prev" href="/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-%E8%8A%B1%E5%8D%89%E8%AF%86%E5%88%AB/">
-                <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>机器学习 实验 花卉识别</p>
-                <p class="content">本文是机器学习人工智能实验，利用华为云ModelArts平台实现花卉分类识别。
-
-
-
-
-一、实验目的通过该实验，实现以下目标
-
-熟悉ModelArts平台，能够调用平台的简单物体识别算法进行物体...</p>
-              </a>
-            
-            
-              <a class="next" href="/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-%E5%86%B3%E7%AD%96%E6%A0%91/">
-                <p class="title">机器学习 实验 决策树<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+              <a class="prev" href="/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-%E5%86%B3%E7%AD%96%E6%A0%91/">
+                <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>机器学习 实验 决策树</p>
                 <p class="content">本文是关于20问读心游戏的决策树代码实现。
 
 
@@ -991,6 +1000,18 @@
 一、问题：以20问读心游戏为例，以ID3算法（即信息增益算法）为基础，构造并绘制决策树，最后可以进行简单的测试游玩.
 二、实验环境
 语言：Py...</p>
+              </a>
+            
+            
+              <a class="next" href="/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-RNN-%E4%B8%BAbaby%E8%B5%B7%E5%90%8D%E5%AD%97/">
+                <p class="title">机器学习 实验 RNN 为baby起名字<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class="content">本文是关于经典RNN的应用为baby起名字的代码实现。
+
+
+
+
+一、任务定义采用 RNN 为小 Baby 起个英文名字吧
+神经网络语言模型，即通过神经网络，计算一项自然语言（例如一条句子）的出现...</p>
               </a>
             
           </div>
