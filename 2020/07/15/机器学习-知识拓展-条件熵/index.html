@@ -734,13 +734,13 @@
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：767字</p>
+      <p>字数：577字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class="notlink">
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：3分钟</p>
+      <p>时长：2分钟</p>
     </a>
   </div>
 
@@ -796,9 +796,11 @@
 <p>分子为对于第k个问题回答为‘是’的个数即：</p>
 <p>$$<br>\sum^{N}_{i=1}{(N\times\gamma_i\times a_{ik})}<br>$$</p>
 <p>分母为总数N，因此P(X=是)：</p>
-<p>$$<br>P(X=是)=\frac{\sum^{N}<em>{i=1}{(N\times\gamma_i\times a_{ik}})}{N}=\sum^{N}</em>{i=1}{(\gamma_i\times a_{ik})}<br>$$</p>
+<p>$$<br>P(X=是)=\frac{\sum^{N}_{i=1}{(N\times\gamma_i\times a_{ik}})}{N}<br>$$</p>
+<p>$$<br>P(X=是)=\sum^{N}_{i=1}{(\gamma_i\times a_{ik})}<br>$$</p>
 <p>同理，P(X=否)：</p>
-<p>$$<br>P(X=否)=\frac{\sum^{N}<em>{i=1}{[N\times\gamma_i\times (1-a_{ik})}]}{N}=\sum^{N}</em>{i=1}{[\gamma_i\times (1-a_{ik})]}<br>$$</p>
+<p>$$<br>P(X=否)=\frac{\sum^{N}_{i=1}{[N\times\gamma_i\times (1-a_{ik})}]}{N}<br>$$</p>
+<p>$$<br>P(X=否)=\sum^{N}_{i=1}{[\gamma_i\times (1-a_{ik})]}<br>$$</p>
 <p>然后在计算对于第k个问题，X=‘是’的数据集上Y的信息熵和X=‘否’的数据集上Y的信息熵，也就是：</p>
 <p>$$<br>H(Y|X=是)=-\sum^{N}_{j=1}{(p(x_j)\log p(x_j))}<br>$$</p>
 <p>$$<br>H(Y|X=否)=-\sum^{N}_{j=1}{(q(x_j)\log q(x_j))}<br>$$</p>
@@ -810,12 +812,13 @@
 <p>或者写为：</p>
 <p>$$<br>P(X=是)\times{N}<br>$$</p>
 <p>因此$p(x_j)$：</p>
-<p>$$<br>p(x_j)=\frac{N\times\gamma_j\times{a_{jk}}}{\sum^{N}<em>{i=1}{(N\times\gamma_i\times a_{ik}})}=\frac{\gamma_j\times{a_{jk}}}{\sum^{N}</em>{i=1}{(\gamma_i\times a_{ik})}}<br>$$</p>
+<p>$$<br>p(x_j)=\frac{N\times\gamma_j\times{a_{jk}}}{\sum^{N}_{i=1}{(N\times\gamma_i\times a_{ik}})}<br>$$</p>
+<p>$$<br>p(x_j)=\frac{\gamma_j\times{a_{jk}}}{\sum^{N}_{i=1}{(\gamma_i\times a_{ik})}}<br>$$</p>
 <p>同理X=‘否’的时候，对应每个人‘j’的概率$q(x_j)$：</p>
-<p>$$<br>q(x_j)=\frac{N\times\gamma_j\times{(1-a_{jk})}}{\sum^{N}<em>{i=1}{[N\times\gamma_i\times (1-a_{jk})}]}=\frac{\gamma_j\times{(1-a_{jk})}}{\sum^{N}</em>{i=1}{[\gamma_i\times (1-a_{jk})]}}<br>$$</p>
+<p>$$<br>q(x_j)=\frac{N\times\gamma_j\times{(1-a_{jk})}}{\sum^{N}_{i=1}{[N\times\gamma_i\times (1-a_{jk})}]}<br>$$</p>
+<p>$$<br>q(x_j)=\frac{\gamma_j\times{(1-a_{jk})}}{\sum^{N}_{i=1}{[\gamma_i\times (1-a_{jk})]}}<br>$$</p>
 <p>综上所述，可以得出条件熵的最终公式为：</p>
-<p>$$<br>\begin{align}<br>H(Y|X)=&amp;P(X=是)H(Y|X=是)+P(X=否)H(Y|X=否)\<br>=&amp;\sum^{N}<em>{i=1}{(\gamma_i\times a_{ik})}\times[-\sum^{N}</em>{j=1}{(p(x_j)\log p(x_j))}]\<br>&amp;+\sum^{N}<em>{i=1}{[\gamma_i\times (1-a_{ik})]}\times[-\sum^{N}</em>{j=1}{(q(x_j)\log q(x_j))}]\<br>=&amp;\sum^{N}<em>{i=1}{(\gamma_i\times a_{ik})}\times[-\sum^{N}</em>{j=1}{\left(\frac{\gamma_j\times{a_{jk}}}{\sum^{N}<em>{i=1}{(\gamma_i\times a_{ik})}}\log \frac{\gamma_j\times{a_{jk}}}{\sum^{N}</em>{i=1}{(\gamma_i\times a_{ik})}}\right)}]\<br>&amp;+\sum^{N}<em>{i=1}{[\gamma_i\times (1-a_{ik})]}\<br>&amp;\times[-\sum^{N}</em>{j=1}{\left(\frac{\gamma_j\times{(1-a_{jk})}}{\sum^{N}<em>{i=1}{[\gamma_i\times (1-a_{jk})]}}\log \frac{\gamma_j\times{(1-a_{jk})}}{\sum^{N}</em>{i=1}{[\gamma_i\times (1-a_{jk})]}}\right)}]\<br>=&amp;-\sum^{N}<em>{j=1}{\left(\gamma_j\times{a_{jk}}\times\log \frac{\gamma_j\times{a_{jk}}}{\sum^{N}</em>{i=1}{(\gamma_i\times a_{ik})}}\right)}\<br>&amp;-\sum^{N}<em>{j=1}{\left(\gamma_j\times{(1-a_{jk})}\times\log \frac{\gamma_j\times{(1-a_{jk})}}{\sum^{N}</em>{i=1}{[\gamma_i\times (1-a_{ik})]}}\right)}<br>\end{align}<br>$$</p>
-
+<img src="https://gitee.com/wxy_666/images/raw/master/20200727180548.jpg" alt="2020-07-27_180446" style="zoom:80%;">
           
             <div class="article_footer">
               
@@ -906,7 +909,7 @@
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-27T17:25:04+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-27T18:06:08+08:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2020年7月27日</p>
@@ -933,13 +936,13 @@
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：767字</p>
+      <p>字数：577字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class="notlink">
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：3分钟</p>
+      <p>时长：2分钟</p>
     </a>
   </div>
 
@@ -1003,15 +1006,16 @@
               </a>
             
             
-              <a class="next" href="/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-RNN-%E4%B8%BAbaby%E8%B5%B7%E5%90%8D%E5%AD%97/">
-                <p class="title">机器学习 实验 RNN 为baby起名字<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class="content">本文是关于经典RNN的应用为baby起名字的代码实现。
+              <a class="next" href="/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-%E8%8A%B1%E5%8D%89%E8%AF%86%E5%88%AB/">
+                <p class="title">机器学习 实验 花卉识别<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class="content">本文是机器学习人工智能实验，利用华为云ModelArts平台实现花卉分类识别。
 
 
 
 
-一、任务定义采用 RNN 为小 Baby 起个英文名字吧
-神经网络语言模型，即通过神经网络，计算一项自然语言（例如一条句子）的出现...</p>
+一、实验目的通过该实验，实现以下目标
+
+熟悉ModelArts平台，能够调用平台的简单物体识别算法进行物体...</p>
               </a>
             
           </div>
@@ -1115,7 +1119,7 @@
 
 
     <div class="content">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\2020\07\15\Linux-拓展学习\" title="Linux 拓展学习" rel="bookmark">Linux 拓展学习</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\2020\07\15\机器学习-实验-DNN-手写识别\" title="机器学习 实验 DNN 手写识别" rel="bookmark">机器学习 实验 DNN 手写识别</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\2020\07\15\机器学习-实验-RNN-为baby起名字\" title="机器学习 实验 RNN 为baby起名字" rel="bookmark">机器学习 实验 RNN 为baby起名字</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\2020\07\15\机器学习-实验-K-Means聚类\" title="机器学习 实验 K-Means聚类" rel="bookmark">机器学习 实验 K-Means聚类</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\2020\07\15\Linux-拓展学习\" title="Linux 拓展学习" rel="bookmark">Linux 拓展学习</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\2020\07\15\机器学习-实验-DNN-手写识别\" title="机器学习 实验 DNN 手写识别" rel="bookmark">机器学习 实验 DNN 手写识别</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\2020\07\15\机器学习-实验-K-Means聚类\" title="机器学习 实验 K-Means聚类" rel="bookmark">机器学习 实验 K-Means聚类</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\2020\07\15\机器学习-实验-RNN-为baby起名字\" title="机器学习 实验 RNN 为baby起名字" rel="bookmark">机器学习 实验 RNN 为baby起名字</a></h3></div></li></ul>
     </div>
   </section>
 
@@ -1244,17 +1248,6 @@
 		setInterval("createtime()",250);
 		</script>
 		<br>
-      
-    
-      
-        
-		  <i class="fas fa-user"></i>
-		  <span id="busuanzi_container_site_uv">总访客数：<span id="busuanzi_value_site_uv"></span> 人 | </span>
-		  <i class="fas fa-eye"></i>
-		  <span id="busuanzi_container_site_pv">总阅读量：<span id="busuanzi_value_site_pv"></span> 次 | </span>
-		  <i class="fas fa-chart-area"></i>
-		  <span class="post-count">字数统计：65k 字</span>
-        
       
     
   </footer>

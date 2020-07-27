@@ -48,37 +48,6 @@
   </entry>
   
   <entry>
-    <title>计算机系统结构 实验 1和2遇到的问题</title>
-    <link href="https://666wxy666.github.io/2020/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-1%E5%92%8C2%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>https://666wxy666.github.io/2020/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-1%E5%92%8C2%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</id>
-    <published>2020-07-15T14:49:28.888Z</published>
-    <updated>2020-07-15T14:49:28.888Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文是关于计算机系统结构实验一（MIPS指令系统和MIPS体系结构）和实验二（流水线及流水线中的冲突），遇到的一些问题。</p><a id="more"></a><h2 id="一、关于字"><a href="#一、关于字" class="headerlink" title="一、关于字"></a>一、关于字</h2><p>B:byte 字节指令</p><p>H:half word 半字节指令</p><p>W:word 字节指令</p><h2 id="二、关于访存"><a href="#二、关于访存" class="headerlink" title="二、关于访存"></a>二、关于访存</h2><p>按字或半字访存，无论给定地址是字（半字）中的哪一个字节的地址，都会自动转换为该字（半字）的首字节的地址。例如：MIPS中字长4字节，32位（红色框）；半字2字节，16位（蓝色框）。无论你给定的是第一个红框里的7C(0x00000000)/00(0x00000001)/08(0x00000002)/24(0x00000003)的哪一的地址，只要是按字访存，都会自动转换为7C的地址0x00000000，取出的内容都是2408007C，**<em>一定要注意，这里是小端法存储**</em>。</p><ul><li><p>小端法：高内存地址放整数的高位，低内存地址放整数的低位，这种方式叫倒着放，术语叫小端对齐。电脑X86和手机ARM都是小端对齐的。</p></li><li><p>大端法：高内存地址放整数的低位，低内存地址放整数的高位，这种方式叫正着放，术语叫大端对齐。很多Unix服务器的cpu都是大端对齐的。</p></li></ul><p>大端和小端字节序不是由操作系统决定的，而是由cpu架构决定的。</p><img src="https://gitee.com/wxy_666/images/raw/master/20200419150741.png" alt="2020-04-19_150338" style="zoom:80%;"><h2 id="三、关于返回地址"><a href="#三、关于返回地址" class="headerlink" title="三、关于返回地址"></a>三、关于返回地址</h2><p>关于这里的**<em>返回地址**</em>，后面的所有其他跳转指令的返回地址均指的是：当前指令的下一条指令的地址，也就是跳转指令如果不跳转（分支失败）的下一条指令的地址。例如：当前的指令的地址是0x00000068，那么返回地址就是0x00000072。还要注意offset要左移两位并进行符号位扩展后才能与PC相加得到转移地址。这里左移两位的目的是，将offset*4，使之成为4的倍数。也就是说PC+offset&lt;&lt;2代表了PC的后offset+1（因为PC+offset&lt;&lt;2的PC已经+1了）条指令为转移指令。</p><img src="https://gitee.com/wxy_666/images/raw/master/20200419152615.png" alt="QQ图片20200419152549" style="zoom:80%;"><h2 id="四、关于定向技术"><a href="#四、关于定向技术" class="headerlink" title="四、关于定向技术"></a>四、关于定向技术</h2><p>在定向技术中，因为其采用的是静态指令调度。非运算类指令必须在 ID段 得到之前指令的定向数据。并不能像运算类执行一样在 EX段 得到定向数据；如图所示：</p><img src="https://gitee.com/wxy_666/images/raw/master/20200518210441.jpg" alt="307-实验二-第二组" style="zoom:80%;"><h2 id="五、关于STALL"><a href="#五、关于STALL" class="headerlink" title="五、关于STALL"></a>五、关于STALL</h2><p>“绿色<font color="red">ID</font>后跟绿色ID” 和 “绿色STALL后跟绿色ID”的区别：<br>绿色<font color="red">ID</font>表示该周期ID可以执行，但是存在RAW冲突，因此执行失败，因此紧接着要做绿色ID；<br>绿色STALL表示该周期由于上一条指令的红色STALL，导致该指令此周期停顿，下一周期执行绿色ID。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文是关于计算机系统结构实验一（MIPS指令系统和MIPS体系结构）和实验二（流水线及流水线中的冲突），遇到的一些问题。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="计算机系统结构" scheme="https://666wxy666.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="实验" scheme="https://666wxy666.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/%E5%AE%9E%E9%AA%8C/"/>
-    
-    
-      <category term="实验" scheme="https://666wxy666.github.io/tags/%E5%AE%9E%E9%AA%8C/"/>
-    
-      <category term="计算机系统结构" scheme="https://666wxy666.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="汇编" scheme="https://666wxy666.github.io/tags/%E6%B1%87%E7%BC%96/"/>
-    
-      <category term="MIPS" scheme="https://666wxy666.github.io/tags/MIPS/"/>
-    
-  </entry>
-  
-  <entry>
     <title>现代交换原理 MOOC习题 5~6章</title>
     <link href="https://666wxy666.github.io/2020/07/15/%E7%8E%B0%E4%BB%A3%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-MOOC%E4%B9%A0%E9%A2%98-5~6%E7%AB%A0/"/>
     <id>https://666wxy666.github.io/2020/07/15/%E7%8E%B0%E4%BB%A3%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-MOOC%E4%B9%A0%E9%A2%98-5~6%E7%AB%A0/</id>
@@ -108,6 +77,37 @@
       <category term="MOOC" scheme="https://666wxy666.github.io/tags/MOOC/"/>
     
       <category term="现代交换原理" scheme="https://666wxy666.github.io/tags/%E7%8E%B0%E4%BB%A3%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机系统结构 实验 1和2遇到的问题</title>
+    <link href="https://666wxy666.github.io/2020/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-1%E5%92%8C2%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>https://666wxy666.github.io/2020/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-1%E5%92%8C2%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</id>
+    <published>2020-07-15T14:49:28.888Z</published>
+    <updated>2020-07-15T14:49:28.888Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文是关于计算机系统结构实验一（MIPS指令系统和MIPS体系结构）和实验二（流水线及流水线中的冲突），遇到的一些问题。</p><a id="more"></a><h2 id="一、关于字"><a href="#一、关于字" class="headerlink" title="一、关于字"></a>一、关于字</h2><p>B:byte 字节指令</p><p>H:half word 半字节指令</p><p>W:word 字节指令</p><h2 id="二、关于访存"><a href="#二、关于访存" class="headerlink" title="二、关于访存"></a>二、关于访存</h2><p>按字或半字访存，无论给定地址是字（半字）中的哪一个字节的地址，都会自动转换为该字（半字）的首字节的地址。例如：MIPS中字长4字节，32位（红色框）；半字2字节，16位（蓝色框）。无论你给定的是第一个红框里的7C(0x00000000)/00(0x00000001)/08(0x00000002)/24(0x00000003)的哪一的地址，只要是按字访存，都会自动转换为7C的地址0x00000000，取出的内容都是2408007C，**<em>一定要注意，这里是小端法存储**</em>。</p><ul><li><p>小端法：高内存地址放整数的高位，低内存地址放整数的低位，这种方式叫倒着放，术语叫小端对齐。电脑X86和手机ARM都是小端对齐的。</p></li><li><p>大端法：高内存地址放整数的低位，低内存地址放整数的高位，这种方式叫正着放，术语叫大端对齐。很多Unix服务器的cpu都是大端对齐的。</p></li></ul><p>大端和小端字节序不是由操作系统决定的，而是由cpu架构决定的。</p><img src="https://gitee.com/wxy_666/images/raw/master/20200419150741.png" alt="2020-04-19_150338" style="zoom:80%;"><h2 id="三、关于返回地址"><a href="#三、关于返回地址" class="headerlink" title="三、关于返回地址"></a>三、关于返回地址</h2><p>关于这里的**<em>返回地址**</em>，后面的所有其他跳转指令的返回地址均指的是：当前指令的下一条指令的地址，也就是跳转指令如果不跳转（分支失败）的下一条指令的地址。例如：当前的指令的地址是0x00000068，那么返回地址就是0x00000072。还要注意offset要左移两位并进行符号位扩展后才能与PC相加得到转移地址。这里左移两位的目的是，将offset*4，使之成为4的倍数。也就是说PC+offset&lt;&lt;2代表了PC的后offset+1（因为PC+offset&lt;&lt;2的PC已经+1了）条指令为转移指令。</p><img src="https://gitee.com/wxy_666/images/raw/master/20200419152615.png" alt="QQ图片20200419152549" style="zoom:80%;"><h2 id="四、关于定向技术"><a href="#四、关于定向技术" class="headerlink" title="四、关于定向技术"></a>四、关于定向技术</h2><p>在定向技术中，因为其采用的是静态指令调度。非运算类指令必须在 ID段 得到之前指令的定向数据。并不能像运算类执行一样在 EX段 得到定向数据；如图所示：</p><img src="https://gitee.com/wxy_666/images/raw/master/20200518210441.jpg" alt="307-实验二-第二组" style="zoom:80%;"><h2 id="五、关于STALL"><a href="#五、关于STALL" class="headerlink" title="五、关于STALL"></a>五、关于STALL</h2><p>“绿色<font color="red">ID</font>后跟绿色ID” 和 “绿色STALL后跟绿色ID”的区别：<br>绿色<font color="red">ID</font>表示该周期ID可以执行，但是存在RAW冲突，因此执行失败，因此紧接着要做绿色ID；<br>绿色STALL表示该周期由于上一条指令的红色STALL，导致该指令此周期停顿，下一周期执行绿色ID。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文是关于计算机系统结构实验一（MIPS指令系统和MIPS体系结构）和实验二（流水线及流水线中的冲突），遇到的一些问题。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机系统结构" scheme="https://666wxy666.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="实验" scheme="https://666wxy666.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/%E5%AE%9E%E9%AA%8C/"/>
+    
+    
+      <category term="实验" scheme="https://666wxy666.github.io/tags/%E5%AE%9E%E9%AA%8C/"/>
+    
+      <category term="计算机系统结构" scheme="https://666wxy666.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="汇编" scheme="https://666wxy666.github.io/tags/%E6%B1%87%E7%BC%96/"/>
+    
+      <category term="MIPS" scheme="https://666wxy666.github.io/tags/MIPS/"/>
     
   </entry>
   
@@ -192,11 +192,11 @@
       <category term="杂项" scheme="https://666wxy666.github.io/categories/%E6%9D%82%E9%A1%B9/"/>
     
     
-      <category term="C" scheme="https://666wxy666.github.io/tags/C/"/>
-    
       <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
     
       <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
+    
+      <category term="C" scheme="https://666wxy666.github.io/tags/C/"/>
     
       <category term="Python" scheme="https://666wxy666.github.io/tags/Python/"/>
     
@@ -238,41 +238,6 @@
   </entry>
   
   <entry>
-    <title>机器学习 实验 花卉识别</title>
-    <link href="https://666wxy666.github.io/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-%E8%8A%B1%E5%8D%89%E8%AF%86%E5%88%AB/"/>
-    <id>https://666wxy666.github.io/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-%E8%8A%B1%E5%8D%89%E8%AF%86%E5%88%AB/</id>
-    <published>2020-07-15T14:49:28.886Z</published>
-    <updated>2020-07-27T07:44:02.142Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>本文是机器学习人工智能实验，利用华为云ModelArts平台实现花卉分类识别。</strong></p><a id="more"></a><h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><p>通过该实验，实现以下目标</p><ul><li>熟悉ModelArts平台，能够调用平台的简单物体识别算法进行物体检测；</li><li>熟悉ModelArts平台特征提取方法，提取数据集的视觉特征；</li><li>熟悉ModelArts的神经网络架构，改进架构算法，进行目标检测算法的设计与实现。</li><li>学会评价检测算法的基本方法，对所设计的算法进行评估。</li></ul><h2 id="二、实验环境"><a href="#二、实验环境" class="headerlink" title="二、实验环境"></a>二、实验环境</h2><p>ModelArts平台</p><h2 id="三、实验内容"><a href="#三、实验内容" class="headerlink" title="三、实验内容"></a>三、实验内容</h2><img src="https://gitee.com/wxy_666/images/raw/master/20200715111020.png" alt="1" style="zoom:80%;"><h2 id="四、实验步骤"><a href="#四、实验步骤" class="headerlink" title="四、实验步骤"></a>四、实验步骤</h2><p>由于时间久远，详细内容请前往Github项目查看实验报告。</p><h2 id="五、项目地址"><a href="#五、项目地址" class="headerlink" title="五、项目地址"></a>五、项目地址</h2><p>本项目的实验报告已经存放于我的Github，欢迎下载查看：</p><div class="btns rounded center grid1">            <a href="https://github.com/666WXY666/MiscellaneousProjects/tree/master/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-%E8%8A%B1%E5%8D%89%E8%AF%86%E5%88%AB" target="_blank" rel="external nofollow noopener noreferrer" title="源码仓库"><i class="fas fa-download"></i>源码仓库</a>          </div>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;本文是机器学习人工智能实验，利用华为云ModelArts平台实现花卉分类识别。&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="机器学习" scheme="https://666wxy666.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="实验" scheme="https://666wxy666.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%AE%9E%E9%AA%8C/"/>
-    
-    
-      <category term="机器学习" scheme="https://666wxy666.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="实验" scheme="https://666wxy666.github.io/tags/%E5%AE%9E%E9%AA%8C/"/>
-    
-      <category term="华为云" scheme="https://666wxy666.github.io/tags/%E5%8D%8E%E4%B8%BA%E4%BA%91/"/>
-    
-      <category term="人工智能" scheme="https://666wxy666.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
-      <category term="AI" scheme="https://666wxy666.github.io/tags/AI/"/>
-    
-      <category term="分类" scheme="https://666wxy666.github.io/tags/%E5%88%86%E7%B1%BB/"/>
-    
-  </entry>
-  
-  <entry>
     <title>机器学习 实验 决策树</title>
     <link href="https://666wxy666.github.io/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-%E5%86%B3%E7%AD%96%E6%A0%91/"/>
     <id>https://666wxy666.github.io/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-%E5%86%B3%E7%AD%96%E6%A0%91/</id>
@@ -308,9 +273,9 @@
     <link href="https://666wxy666.github.io/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%9F%A5%E8%AF%86%E6%8B%93%E5%B1%95-%E6%9D%A1%E4%BB%B6%E7%86%B5/"/>
     <id>https://666wxy666.github.io/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%9F%A5%E8%AF%86%E6%8B%93%E5%B1%95-%E6%9D%A1%E4%BB%B6%E7%86%B5/</id>
     <published>2020-07-15T14:49:28.886Z</published>
-    <updated>2020-07-27T09:25:04.785Z</updated>
+    <updated>2020-07-27T10:06:08.081Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文是关于条件熵的知识拓展。</p><a id="more"></a><h2 id="一、问题："><a href="#一、问题：" class="headerlink" title="一、问题："></a>一、问题：</h2><p>假定数据库有𝑁个人，第𝑛个人的先验概率$\gamma_n$，有𝐾个问题，假定第𝑛个人对第𝑘个问题答案为“是”的概率为$a_{nk}$，请给出给定第𝑘个问题条件下，数据集的条件熵的计算公式。</p><h2 id="二、解析"><a href="#二、解析" class="headerlink" title="二、解析"></a>二、解析</h2><p>原来的条件熵公式为：</p><p>$$<br>H(Y|X)=\sum_{x}{P(x)H(Y|X=x)}<br>$$</p><p>因为此题中X的取值只有两个即‘是’和‘否’，因此公式变为：</p><p>$$<br>H(Y|X)=P(X=是)H(Y|X=是)+P(X=否)H(Y|X=否)<br>$$</p><p>因此先计算对于第k个问题，X=‘是’的样本占总样本的概率P(X=是)和X=‘否’的样本占总样本的概率P(X=否)。</p><p>分子为对于第k个问题回答为‘是’的个数即：</p><p>$$<br>\sum^{N}_{i=1}{(N\times\gamma_i\times a_{ik})}<br>$$</p><p>分母为总数N，因此P(X=是)：</p><p>$$<br>P(X=是)=\frac{\sum^{N}<em>{i=1}{(N\times\gamma_i\times a_{ik}})}{N}=\sum^{N}</em>{i=1}{(\gamma_i\times a_{ik})}<br>$$</p><p>同理，P(X=否)：</p><p>$$<br>P(X=否)=\frac{\sum^{N}<em>{i=1}{[N\times\gamma_i\times (1-a_{ik})}]}{N}=\sum^{N}</em>{i=1}{[\gamma_i\times (1-a_{ik})]}<br>$$</p><p>然后在计算对于第k个问题，X=‘是’的数据集上Y的信息熵和X=‘否’的数据集上Y的信息熵，也就是：</p><p>$$<br>H(Y|X=是)=-\sum^{N}_{j=1}{(p(x_j)\log p(x_j))}<br>$$</p><p>$$<br>H(Y|X=否)=-\sum^{N}_{j=1}{(q(x_j)\log q(x_j))}<br>$$</p><p>因此要先计算对于第k个问题，X=‘是’的时候，对应每个人‘j’的概率$p(x_j)$。</p><p>分子为对于第k个问题，X=‘是’的时候，‘j’这个人的个数：</p><p>$$<br>N\times\gamma_j\times{a_{jk}}<br>$$</p><p>分母为对于第k个问题所有X=‘是’的个数，也就是上述的P(X=是)的分子：</p><p>$$<br>\sum^{N}_{i=1}{(N\times\gamma_i\times a_{ik})}<br>$$</p><p>或者写为：</p><p>$$<br>P(X=是)\times{N}<br>$$</p><p>因此$p(x_j)$：</p><p>$$<br>p(x_j)=\frac{N\times\gamma_j\times{a_{jk}}}{\sum^{N}<em>{i=1}{(N\times\gamma_i\times a_{ik}})}=\frac{\gamma_j\times{a_{jk}}}{\sum^{N}</em>{i=1}{(\gamma_i\times a_{ik})}}<br>$$</p><p>同理X=‘否’的时候，对应每个人‘j’的概率$q(x_j)$：</p><p>$$<br>q(x_j)=\frac{N\times\gamma_j\times{(1-a_{jk})}}{\sum^{N}<em>{i=1}{[N\times\gamma_i\times (1-a_{jk})}]}=\frac{\gamma_j\times{(1-a_{jk})}}{\sum^{N}</em>{i=1}{[\gamma_i\times (1-a_{jk})]}}<br>$$</p><p>综上所述，可以得出条件熵的最终公式为：</p><p>$$<br>\begin{align}<br>H(Y|X)=&amp;P(X=是)H(Y|X=是)+P(X=否)H(Y|X=否)\<br>=&amp;\sum^{N}<em>{i=1}{(\gamma_i\times a_{ik})}\times[-\sum^{N}</em>{j=1}{(p(x_j)\log p(x_j))}]\<br>&amp;+\sum^{N}<em>{i=1}{[\gamma_i\times (1-a_{ik})]}\times[-\sum^{N}</em>{j=1}{(q(x_j)\log q(x_j))}]\<br>=&amp;\sum^{N}<em>{i=1}{(\gamma_i\times a_{ik})}\times[-\sum^{N}</em>{j=1}{\left(\frac{\gamma_j\times{a_{jk}}}{\sum^{N}<em>{i=1}{(\gamma_i\times a_{ik})}}\log \frac{\gamma_j\times{a_{jk}}}{\sum^{N}</em>{i=1}{(\gamma_i\times a_{ik})}}\right)}]\<br>&amp;+\sum^{N}<em>{i=1}{[\gamma_i\times (1-a_{ik})]}\<br>&amp;\times[-\sum^{N}</em>{j=1}{\left(\frac{\gamma_j\times{(1-a_{jk})}}{\sum^{N}<em>{i=1}{[\gamma_i\times (1-a_{jk})]}}\log \frac{\gamma_j\times{(1-a_{jk})}}{\sum^{N}</em>{i=1}{[\gamma_i\times (1-a_{jk})]}}\right)}]\<br>=&amp;-\sum^{N}<em>{j=1}{\left(\gamma_j\times{a_{jk}}\times\log \frac{\gamma_j\times{a_{jk}}}{\sum^{N}</em>{i=1}{(\gamma_i\times a_{ik})}}\right)}\<br>&amp;-\sum^{N}<em>{j=1}{\left(\gamma_j\times{(1-a_{jk})}\times\log \frac{\gamma_j\times{(1-a_{jk})}}{\sum^{N}</em>{i=1}{[\gamma_i\times (1-a_{ik})]}}\right)}<br>\end{align}<br>$$</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文是关于条件熵的知识拓展。</p><a id="more"></a><h2 id="一、问题："><a href="#一、问题：" class="headerlink" title="一、问题："></a>一、问题：</h2><p>假定数据库有𝑁个人，第𝑛个人的先验概率$\gamma_n$，有𝐾个问题，假定第𝑛个人对第𝑘个问题答案为“是”的概率为$a_{nk}$，请给出给定第𝑘个问题条件下，数据集的条件熵的计算公式。</p><h2 id="二、解析"><a href="#二、解析" class="headerlink" title="二、解析"></a>二、解析</h2><p>原来的条件熵公式为：</p><p>$$<br>H(Y|X)=\sum_{x}{P(x)H(Y|X=x)}<br>$$</p><p>因为此题中X的取值只有两个即‘是’和‘否’，因此公式变为：</p><p>$$<br>H(Y|X)=P(X=是)H(Y|X=是)+P(X=否)H(Y|X=否)<br>$$</p><p>因此先计算对于第k个问题，X=‘是’的样本占总样本的概率P(X=是)和X=‘否’的样本占总样本的概率P(X=否)。</p><p>分子为对于第k个问题回答为‘是’的个数即：</p><p>$$<br>\sum^{N}_{i=1}{(N\times\gamma_i\times a_{ik})}<br>$$</p><p>分母为总数N，因此P(X=是)：</p><p>$$<br>P(X=是)=\frac{\sum^{N}_{i=1}{(N\times\gamma_i\times a_{ik}})}{N}<br>$$</p><p>$$<br>P(X=是)=\sum^{N}_{i=1}{(\gamma_i\times a_{ik})}<br>$$</p><p>同理，P(X=否)：</p><p>$$<br>P(X=否)=\frac{\sum^{N}_{i=1}{[N\times\gamma_i\times (1-a_{ik})}]}{N}<br>$$</p><p>$$<br>P(X=否)=\sum^{N}_{i=1}{[\gamma_i\times (1-a_{ik})]}<br>$$</p><p>然后在计算对于第k个问题，X=‘是’的数据集上Y的信息熵和X=‘否’的数据集上Y的信息熵，也就是：</p><p>$$<br>H(Y|X=是)=-\sum^{N}_{j=1}{(p(x_j)\log p(x_j))}<br>$$</p><p>$$<br>H(Y|X=否)=-\sum^{N}_{j=1}{(q(x_j)\log q(x_j))}<br>$$</p><p>因此要先计算对于第k个问题，X=‘是’的时候，对应每个人‘j’的概率$p(x_j)$。</p><p>分子为对于第k个问题，X=‘是’的时候，‘j’这个人的个数：</p><p>$$<br>N\times\gamma_j\times{a_{jk}}<br>$$</p><p>分母为对于第k个问题所有X=‘是’的个数，也就是上述的P(X=是)的分子：</p><p>$$<br>\sum^{N}_{i=1}{(N\times\gamma_i\times a_{ik})}<br>$$</p><p>或者写为：</p><p>$$<br>P(X=是)\times{N}<br>$$</p><p>因此$p(x_j)$：</p><p>$$<br>p(x_j)=\frac{N\times\gamma_j\times{a_{jk}}}{\sum^{N}_{i=1}{(N\times\gamma_i\times a_{ik}})}<br>$$</p><p>$$<br>p(x_j)=\frac{\gamma_j\times{a_{jk}}}{\sum^{N}_{i=1}{(\gamma_i\times a_{ik})}}<br>$$</p><p>同理X=‘否’的时候，对应每个人‘j’的概率$q(x_j)$：</p><p>$$<br>q(x_j)=\frac{N\times\gamma_j\times{(1-a_{jk})}}{\sum^{N}_{i=1}{[N\times\gamma_i\times (1-a_{jk})}]}<br>$$</p><p>$$<br>q(x_j)=\frac{\gamma_j\times{(1-a_{jk})}}{\sum^{N}_{i=1}{[\gamma_i\times (1-a_{jk})]}}<br>$$</p><p>综上所述，可以得出条件熵的最终公式为：</p><img src="https://gitee.com/wxy_666/images/raw/master/20200727180548.jpg" alt="2020-07-27_180446" style="zoom:80%;">]]></content>
     
     <summary type="html">
     
@@ -331,6 +296,41 @@
       <category term="知识" scheme="https://666wxy666.github.io/tags/%E7%9F%A5%E8%AF%86/"/>
     
       <category term="条件熵" scheme="https://666wxy666.github.io/tags/%E6%9D%A1%E4%BB%B6%E7%86%B5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>机器学习 实验 花卉识别</title>
+    <link href="https://666wxy666.github.io/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-%E8%8A%B1%E5%8D%89%E8%AF%86%E5%88%AB/"/>
+    <id>https://666wxy666.github.io/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-%E8%8A%B1%E5%8D%89%E8%AF%86%E5%88%AB/</id>
+    <published>2020-07-15T14:49:28.886Z</published>
+    <updated>2020-07-27T07:44:02.142Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>本文是机器学习人工智能实验，利用华为云ModelArts平台实现花卉分类识别。</strong></p><a id="more"></a><h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><p>通过该实验，实现以下目标</p><ul><li>熟悉ModelArts平台，能够调用平台的简单物体识别算法进行物体检测；</li><li>熟悉ModelArts平台特征提取方法，提取数据集的视觉特征；</li><li>熟悉ModelArts的神经网络架构，改进架构算法，进行目标检测算法的设计与实现。</li><li>学会评价检测算法的基本方法，对所设计的算法进行评估。</li></ul><h2 id="二、实验环境"><a href="#二、实验环境" class="headerlink" title="二、实验环境"></a>二、实验环境</h2><p>ModelArts平台</p><h2 id="三、实验内容"><a href="#三、实验内容" class="headerlink" title="三、实验内容"></a>三、实验内容</h2><img src="https://gitee.com/wxy_666/images/raw/master/20200715111020.png" alt="1" style="zoom:80%;"><h2 id="四、实验步骤"><a href="#四、实验步骤" class="headerlink" title="四、实验步骤"></a>四、实验步骤</h2><p>由于时间久远，详细内容请前往Github项目查看实验报告。</p><h2 id="五、项目地址"><a href="#五、项目地址" class="headerlink" title="五、项目地址"></a>五、项目地址</h2><p>本项目的实验报告已经存放于我的Github，欢迎下载查看：</p><div class="btns rounded center grid1">            <a href="https://github.com/666WXY666/MiscellaneousProjects/tree/master/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-%E8%8A%B1%E5%8D%89%E8%AF%86%E5%88%AB" target="_blank" rel="external nofollow noopener noreferrer" title="源码仓库"><i class="fas fa-download"></i>源码仓库</a>          </div>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;本文是机器学习人工智能实验，利用华为云ModelArts平台实现花卉分类识别。&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="机器学习" scheme="https://666wxy666.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="实验" scheme="https://666wxy666.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%AE%9E%E9%AA%8C/"/>
+    
+    
+      <category term="机器学习" scheme="https://666wxy666.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="实验" scheme="https://666wxy666.github.io/tags/%E5%AE%9E%E9%AA%8C/"/>
+    
+      <category term="华为云" scheme="https://666wxy666.github.io/tags/%E5%8D%8E%E4%B8%BA%E4%BA%91/"/>
+    
+      <category term="人工智能" scheme="https://666wxy666.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+      <category term="AI" scheme="https://666wxy666.github.io/tags/AI/"/>
+    
+      <category term="分类" scheme="https://666wxy666.github.io/tags/%E5%88%86%E7%B1%BB/"/>
     
   </entry>
   
