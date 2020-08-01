@@ -61,7 +61,7 @@
   
   
     
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/666WXY666/cdn@9.1/css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/666WXY666/cdn@9.2/css/style.css">
 
   
 
@@ -97,7 +97,9 @@
   
 </head>
 
-<body>
+
+<body oncontextmenu="return popMenu(event);">
+
   
   
   
@@ -227,7 +229,7 @@
             
             
               <li>
-                <a class="flat-box" href="/" id="home">
+                <a class="menuitem flat-box" href="/" id="home">
                   <i class="fas fa-rss fa-fw"></i>博客
                 </a>
                 
@@ -238,7 +240,7 @@
             
             
               <li>
-                <a class="flat-box" href="/shuoshuo/" id="shuoshuo">
+                <a class="menuitem flat-box" href="/shuoshuo/" id="shuoshuo">
                   <i class="fas fa-comments fa-fw"></i>说说
                 </a>
                 
@@ -249,7 +251,7 @@
             
             
               <li>
-                <a class="flat-box" href="/categories/" id="categories">
+                <a class="menuitem flat-box" href="/categories/" id="categories">
                   <i class="fas fa-folder-open fa-fw"></i>分类
                 </a>
                 
@@ -260,7 +262,7 @@
             
             
               <li>
-                <a class="flat-box" href="/tags/" id="tags">
+                <a class="menuitem flat-box" href="/tags/" id="tags">
                   <i class="fas fa-tags fa-fw"></i>标签
                 </a>
                 
@@ -271,7 +273,7 @@
             
             
               <li>
-                <a class="flat-box" href="/archives/" id="archives">
+                <a class="menuitem flat-box" href="/archives/" id="archives">
                   <i class="fas fa-archive fa-fw"></i>归档
                 </a>
                 
@@ -282,7 +284,7 @@
             
             
               <li>
-                <a class="flat-box" href="/friends/" id="friends">
+                <a class="menuitem flat-box" href="/friends/" id="friends">
                   <i class="fas fa-link fa-fw"></i>友链
                 </a>
                 
@@ -293,7 +295,7 @@
             
             
               <li>
-                <a class="flat-box" href="/about/" id="about">
+                <a class="menuitem flat-box" href="/about/" id="about">
                   <i class="fas fa-info-circle fa-fw"></i>关于
                 </a>
                 
@@ -304,7 +306,7 @@
             
             
               <li>
-                <a class="flat-box">
+                <a class="menuitem flat-box">
                   <i class="fas fa-ellipsis-v fa-fw"></i>更多
                 </a>
                 
@@ -313,7 +315,7 @@
                       
             
               <li>
-                <a class="flat-box">
+                <a class="menuitem flat-box">
                   有疑问？
                 </a>
                 
@@ -322,7 +324,7 @@
                       
             
               <li>
-                <a class="flat-box" href="/faqs/" id="faqs">
+                <a class="menuitem flat-box" href="/faqs/" id="faqs">
                   <i class="fas fa-question-circle fa-fw"></i>FAQ
                 </a>
                 
@@ -333,7 +335,7 @@
                       
             
               <li>
-                <a class="flat-box" href="https://github.com/666WXY666/" id="https:githubcom666WXY666" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box" href="https://github.com/666WXY666/" id="https:githubcom666WXY666" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fab fa-github fa-fw"></i>我的Github主页
                 </a>
                 
@@ -344,7 +346,7 @@
                       
             
               <li>
-                <a class="flat-box" href="https://gitee.com/wxy_666" id="https:giteecomwxy_666" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box" href="https://gitee.com/wxy_666" id="https:giteecomwxy_666" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fab fa-git-alt fa-fw"></i>我的Gitee主页
                 </a>
                 
@@ -355,7 +357,7 @@
                       
             
               <li>
-                <a class="flat-box" href="https://github.com/666WXY666/666WXY666.github.io/" id="https:githubcom666WXY666666WXY666githubio" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box" href="https://github.com/666WXY666/666WXY666.github.io/" id="https:githubcom666WXY666666WXY666githubio" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fas fa-code fa-fw"></i>本站源码
                 </a>
                 
@@ -366,7 +368,7 @@
                       
             
               <li>
-                <a class="flat-box" href="https://github.com/666WXY666/666WXY666.github.io/issues/" id="https:githubcom666WXY666666WXY666githubioissues" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box" href="https://github.com/666WXY666/666WXY666.github.io/issues/" id="https:githubcom666WXY666666WXY666githubioissues" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fas fa-question fa-fw"></i>向我提问
                 </a>
                 
@@ -390,7 +392,7 @@
             
               
                 <li>
-                  <a class="flat-box">
+                  <a class="menuitem flat-box">
                     <i class="fas fa-compact-disc fa-fw music fa-fw music"></i>背景音乐
                   </a>
                   <ul class="list-v">
@@ -399,7 +401,7 @@
                         
 
   
-    <meting-js theme="#1BCDFC" autoplay="true" volume="0.7" loop="all" order="list" fixed="false" list-max-height="340px" server="tencent" type="playlist" id="1930654125" list-folded="true">
+    <meting-js theme="#1BCDFC" autoplay="true" volume="0.7" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="1930654125" list-folded="true">
     </meting-js>
   
 
@@ -439,7 +441,7 @@
               
             
               <li>
-                <a class="flat-box" href="/" id="home">
+                <a class="menuitem flat-box" href="/" id="home">
                   <i class="fas fa-rss fa-fw"></i>博客
                 </a>
                 
@@ -450,7 +452,7 @@
               
             
               <li>
-                <a class="flat-box" href="/shuoshuo/" id="shuoshuo">
+                <a class="menuitem flat-box" href="/shuoshuo/" id="shuoshuo">
                   <i class="fas fa-comments fa-fw"></i>说说
                 </a>
                 
@@ -461,7 +463,7 @@
               
             
               <li>
-                <a class="flat-box" href="/categories/" id="categories">
+                <a class="menuitem flat-box" href="/categories/" id="categories">
                   <i class="fas fa-folder-open fa-fw"></i>分类
                 </a>
                 
@@ -472,7 +474,7 @@
               
             
               <li>
-                <a class="flat-box" href="/tags/" id="tags">
+                <a class="menuitem flat-box" href="/tags/" id="tags">
                   <i class="fas fa-tags fa-fw"></i>标签
                 </a>
                 
@@ -483,7 +485,7 @@
               
             
               <li>
-                <a class="flat-box" href="/archives/" id="archives">
+                <a class="menuitem flat-box" href="/archives/" id="archives">
                   <i class="fas fa-archive fa-fw"></i>归档
                 </a>
                 
@@ -494,7 +496,7 @@
               
             
               <li>
-                <a class="flat-box" href="/friends/" id="friends">
+                <a class="menuitem flat-box" href="/friends/" id="friends">
                   <i class="fas fa-link fa-fw"></i>友链
                 </a>
                 
@@ -505,7 +507,7 @@
               
             
               <li>
-                <a class="flat-box" href="/about/" id="about">
+                <a class="menuitem flat-box" href="/about/" id="about">
                   <i class="fas fa-info-circle fa-fw"></i>关于
                 </a>
                 
@@ -516,7 +518,7 @@
               
             
               <li>
-                <a class="flat-box">
+                <a class="menuitem flat-box">
                   <i class="fas fa-ellipsis-v fa-fw"></i>更多
                 </a>
                 
@@ -525,7 +527,7 @@
                       
             
               <li>
-                <a class="flat-box">
+                <a class="menuitem flat-box">
                   有疑问？
                 </a>
                 
@@ -534,7 +536,7 @@
                       
             
               <li>
-                <a class="flat-box" href="/faqs/" id="faqs">
+                <a class="menuitem flat-box" href="/faqs/" id="faqs">
                   <i class="fas fa-question-circle fa-fw"></i>FAQ
                 </a>
                 
@@ -545,7 +547,7 @@
                       
             
               <li>
-                <a class="flat-box" href="https://github.com/666WXY666/" id="https:githubcom666WXY666" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box" href="https://github.com/666WXY666/" id="https:githubcom666WXY666" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fab fa-github fa-fw"></i>我的Github主页
                 </a>
                 
@@ -556,7 +558,7 @@
                       
             
               <li>
-                <a class="flat-box" href="https://gitee.com/wxy_666" id="https:giteecomwxy_666" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box" href="https://gitee.com/wxy_666" id="https:giteecomwxy_666" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fab fa-git-alt fa-fw"></i>我的Gitee主页
                 </a>
                 
@@ -567,7 +569,7 @@
                       
             
               <li>
-                <a class="flat-box" href="https://github.com/666WXY666/666WXY666.github.io/" id="https:githubcom666WXY666666WXY666githubio" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box" href="https://github.com/666WXY666/666WXY666.github.io/" id="https:githubcom666WXY666666WXY666githubio" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fas fa-code fa-fw"></i>本站源码
                 </a>
                 
@@ -578,7 +580,7 @@
                       
             
               <li>
-                <a class="flat-box" href="https://github.com/666WXY666/666WXY666.github.io/issues/" id="https:githubcom666WXY666666WXY666githubioissues" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box" href="https://github.com/666WXY666/666WXY666.github.io/issues/" id="https:githubcom666WXY666666WXY666githubioissues" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fas fa-question fa-fw"></i>向我提问
                 </a>
                 
@@ -698,7 +700,7 @@
             
               
 <div class="new-meta-item author">
-  <a href="https://666wxy666.github.io/" rel="nofollow">
+  <a class="author" href="/" rel="nofollow">
     <img no-lazy src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg">
     <p>苇名一心</p>
   </a>
@@ -1341,18 +1343,17 @@
         
           <div class="prev-next">
             
-              <a class="prev" href="/2020/07/15/Linux-MOOC%E4%B9%A0%E9%A2%98-1~5%E7%AB%A0/">
-                <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>Linux MOOC习题 1~5章</p>
-                <p class="content">自己随便整理了一下在学习Linux网课时遇到的一些习题，易错点之类的。
+              <a class="prev" href="/2020/07/15/Linux-MOOC%E4%B9%A0%E9%A2%98-6~10%E7%AB%A0/">
+                <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>Linux MOOC习题 6~10章</p>
+                <p class="content">自己随便整理了一下在学习Linux网课时遇到的一些习题，易错点之类的，接上文Linux MOOC习题 1~5章。
 
 
 
 
-废话不多说，直接开始：
-PS：第一章是课程介绍。
-二、开始使用Linux和文本文件的处理
+PS：第七章是上机实验。
+六、Linux命令风格和文件系统
 
-第1题其实是很基础的问...</p>
+这两个题都...</p>
               </a>
             
             
@@ -1467,7 +1468,7 @@ PS：第一章是课程介绍。
 
 
     <div class="content">
-      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\2020\07\15\Linux-MOOC习题-6~10章\" title="Linux MOOC习题 6~10章" rel="bookmark">Linux MOOC习题 6~10章</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\2020\07\15\Linux-MOOC习题-1~5章\" title="Linux MOOC习题 1~5章" rel="bookmark">Linux MOOC习题 1~5章</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\2020\07\15\现代交换原理-MOOC习题-1~4章\" title="现代交换原理 MOOC习题 1~4章" rel="bookmark">现代交换原理 MOOC习题 1~4章</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\2020\07\15\现代交换原理-MOOC习题-5~6章\" title="现代交换原理 MOOC习题 5~6章" rel="bookmark">现代交换原理 MOOC习题 5~6章</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\2020\07\15\大数据-习题\" title="大数据 习题" rel="bookmark">大数据 习题</a></h3></div></li></ul>
+      <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\2020\07\15\Linux-MOOC习题-1~5章\" title="Linux MOOC习题 1~5章" rel="bookmark">Linux MOOC习题 1~5章</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\2020\07\15\Linux-MOOC习题-6~10章\" title="Linux MOOC习题 6~10章" rel="bookmark">Linux MOOC习题 6~10章</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\2020\07\15\现代交换原理-MOOC习题-1~4章\" title="现代交换原理 MOOC习题 1~4章" rel="bookmark">现代交换原理 MOOC习题 1~4章</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\2020\07\15\现代交换原理-MOOC习题-5~6章\" title="现代交换原理 MOOC习题 5~6章" rel="bookmark">现代交换原理 MOOC习题 5~6章</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="\2020\07\15\大数据-习题\" title="大数据 习题" rel="bookmark">大数据 习题</a></h3></div></li></ul>
     </div>
   </section>
 
@@ -1513,7 +1514,7 @@ PS：第一章是课程介绍。
           
 
   
-    <meting-js theme="#1BCDFC" autoplay="true" volume="0.7" loop="all" order="list" fixed="false" list-max-height="340px" server="tencent" type="playlist" id="1930654125" list-folded="true">
+    <meting-js theme="#1BCDFC" autoplay="true" volume="0.7" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="1930654125" list-folded="true">
     </meting-js>
   
 
@@ -1570,7 +1571,7 @@ PS：第一章是课程介绍。
     
       
         <div class="copyright">
-        <p><a href="https://666wxy666.github.io/">Copyright © 2020-2020 苇名一心</a></p>
+        <p><a href="/">Copyright © 2020-2020 苇名一心</a></p>
 
         </div>
 		<br>
@@ -1605,7 +1606,168 @@ PS：第一章是课程介绍。
   </div>
   <div>
     
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+      
+  
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default" onclick="menuCopy()" id="menu-copy">
+        <i class="fa fa-copy fa-fw"></i> 复制文本
+      </a>
+    </li>
+  
+        
+      
+        
+          <li class="navigation">
+            <a class="nav" onclick="history.back()"><i class="fa fa-arrow-left fa-fw"></i></a>
+            <a class="nav" onclick="history.forward()"><i class="fa fa-arrow-right fa-fw"></i></a>
+            <a class="nav" onclick="window.location.reload()"><i class="fa fa-redo fa-fw"></i></a>
+            <a class="nav fix-cursor-default" href="/"><i class="fa fa-home fa-fw"></i></a>
+          </li>
+        
+      
+        
+          <hr>
+        
+      
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default" href="/categories/" id="categories">
+        <i class="fas fa-folder-open fa-fw"></i> 分类
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default" href="/tags/" id="tags">
+        <i class="fas fa-tags fa-fw"></i> 标签
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default" href="/archives/" id="archives">
+        <i class="fas fa-archive fa-fw"></i> 归档
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default" href="/friends/" id="friends">
+        <i class="fas fa-link fa-fw"></i> 友链
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default" href="/about/" id="about">
+        <i class="fas fa-info-circle fa-fw"></i> 关于
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          <li class="music name">
+            <p class="nav music-title"></p>
+          </li>
+          <li class="music ctrl">
+            <a class="nav backward" onclick="aplayerBackward()"><i class="fa fa-step-backward fa-fw"></i></a>
+            <a class="nav toggle" onclick="aplayerToggle()"><i class="fa fa-play fa-fw"></i></a>
+            <a class="nav forward" onclick="aplayerForward()"><i class="fa fa-step-forward fa-fw"></i></a>
+          </li>
+          <li class="music volume">
+            <a class="nav volume">
+              <div class="aplayer-volume-bar-wrap">
+                <div class="aplayer-volume-bar fix-cursor-pointer">
+                  <div class="aplayer-volume"></div>
+                  <i class="left fa fa-volume-off fa-fw"></i>
+                  <i class="right fa fa-volume-up fa-fw"></i>
+                </div>
+              </div>
+            </a>
+          </li>
+        
+      
+    </ul>
+  </div>
+
+  <script>
+    window.document.oncontextmenu = function () {
+      return false;
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var copy = document.getElementById('menu-copy');
+      var select = window.getSelection().toString(); // 鼠标选中的文本
+      copy.style.display = select == "" ? "none" : "block";
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var mouseClientX = event.clientX;
+      var mouseClientY = event.clientY;
+      var menuWidth = menuContent.offsetWidth == 0 ? 150 : menuContent.offsetWidth;
+      var menuHeight = menuContent.offsetHeight == 0 ? 242 : menuContent.offsetHeight;
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      var showLeft = mouseClientX + menuWidth > screenWidth ? mouseClientX - menuWidth + 10 : mouseClientX;
+      var showTop = mouseClientY + menuHeight > screenHeight ? mouseClientY - menuHeight + 10 : mouseClientY;
+      mymenu.style.left = showLeft + "px"; // 获取鼠标位置
+      mymenu.style.top = showTop + "px";
+      mymenu.style.display = 'block';
+      if (true == true) {
+        // 如果有aplayer，初始化一下
+      	try {
+      		checkAPlayer();
+          updateTitle();
+      	} catch (error) {
+      		console.log(error);
+      	}
+      }
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
+    }
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function menuCopy() {
+      document.execCommand("Copy");
+    }
+  </script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
 
 
 
@@ -1667,6 +1829,11 @@ PS：第一章是课程介绍。
 
 
 
+  <script>
+    let APlayerController = new Object();
+    APlayerController.id = '1930654125';  // 设定全局音乐播放ID
+    APlayerController.volume = '0.7';
+  </script>
   
     
 <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
@@ -1676,9 +1843,13 @@ PS：第一章是课程介绍。
 <script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
 
   
+    
+<script src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@9.2/js/aplayer.js"></script>
+
+  
 
 
-<!-- 评论 （PS：只对 valine 做了 Pjax 兼容） -->
+
 
   
   
@@ -1816,23 +1987,6 @@ PS：第一章是课程介绍。
 
 <!-- scrollreveal -->
 
-  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
-  <script type="text/javascript">
-    function pjax_scrollrebeal() {
-      ScrollReveal().reveal('.l_main .reveal', {
-        distance: '32px',
-        duration: '800',
-        interval: '20',
-        scale: '1',
-        easing: 'ease-out'
-      });
-    }
-
-    $(function () {
-      pjax_scrollrebeal();
-    });
-  </script>
-
 <!-- ******************************** -->
 
 <!-- fancybox -->
@@ -1841,6 +1995,7 @@ PS：第一章是课程介绍。
   function pjax_fancybox() {
     $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
       var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
       $(element).attr("pjax-fancybox", "");  // 过滤 pjax
       $(element).attr("href", $(this).attr("src"));
       if ($(this).attr("data-original")) {
@@ -1884,7 +2039,7 @@ PS：第一章是课程介绍。
 
 
   
-<script src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@9.1/js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@9.2/js/app.js"></script>
 
 
 
@@ -1897,7 +2052,7 @@ PS：第一章是课程介绍。
 
 
 
-  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
 
 
 
@@ -1979,7 +2134,7 @@ PS：第一章是课程介绍。
           });
         }
       } catch (error) {}
-      
+
       window.subData = null; // 移除标题（用于一二级导航栏切换处）
       $.fancybox.close();    // 关闭弹窗
       $('.nav-main').find('.list-v').not('.menu-phone').css("display","none"); // 移除小尾巴
@@ -2033,8 +2188,6 @@ PS：第一章是课程介绍。
         
         
         
-          pjax_scrollrebeal();
-        
         
           pjax_initCopyCode();
         
@@ -2059,6 +2212,9 @@ PS：第一章是课程介绍。
 
     
   </div>
+  
+    <script src="https://cdn.jsdelivr.net/gh/inkss/common@master/hexo/js/cookie.min.js"></script>
+  
 </body>
 </html>
 <!--单击显示文字-->

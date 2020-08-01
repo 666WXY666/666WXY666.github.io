@@ -57,7 +57,7 @@
   
   
     
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/666WXY666/cdn@9.1/css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/666WXY666/cdn@9.2/css/style.css">
 
   
 
@@ -93,7 +93,9 @@
   
 </head>
 
-<body>
+
+<body oncontextmenu="return popMenu(event);">
+
   
   
   
@@ -223,7 +225,7 @@
             
             
               <li>
-                <a class="flat-box" href="/" id="home">
+                <a class="menuitem flat-box" href="/" id="home">
                   <i class="fas fa-rss fa-fw"></i>博客
                 </a>
                 
@@ -234,7 +236,7 @@
             
             
               <li>
-                <a class="flat-box" href="/shuoshuo/" id="shuoshuo">
+                <a class="menuitem flat-box" href="/shuoshuo/" id="shuoshuo">
                   <i class="fas fa-comments fa-fw"></i>说说
                 </a>
                 
@@ -245,7 +247,7 @@
             
             
               <li>
-                <a class="flat-box" href="/categories/" id="categories">
+                <a class="menuitem flat-box" href="/categories/" id="categories">
                   <i class="fas fa-folder-open fa-fw"></i>分类
                 </a>
                 
@@ -256,7 +258,7 @@
             
             
               <li>
-                <a class="flat-box" href="/tags/" id="tags">
+                <a class="menuitem flat-box" href="/tags/" id="tags">
                   <i class="fas fa-tags fa-fw"></i>标签
                 </a>
                 
@@ -267,7 +269,7 @@
             
             
               <li>
-                <a class="flat-box" href="/archives/" id="archives">
+                <a class="menuitem flat-box" href="/archives/" id="archives">
                   <i class="fas fa-archive fa-fw"></i>归档
                 </a>
                 
@@ -278,7 +280,7 @@
             
             
               <li>
-                <a class="flat-box" href="/friends/" id="friends">
+                <a class="menuitem flat-box" href="/friends/" id="friends">
                   <i class="fas fa-link fa-fw"></i>友链
                 </a>
                 
@@ -289,7 +291,7 @@
             
             
               <li>
-                <a class="flat-box" href="/about/" id="about">
+                <a class="menuitem flat-box" href="/about/" id="about">
                   <i class="fas fa-info-circle fa-fw"></i>关于
                 </a>
                 
@@ -300,7 +302,7 @@
             
             
               <li>
-                <a class="flat-box">
+                <a class="menuitem flat-box">
                   <i class="fas fa-ellipsis-v fa-fw"></i>更多
                 </a>
                 
@@ -309,7 +311,7 @@
                       
             
               <li>
-                <a class="flat-box">
+                <a class="menuitem flat-box">
                   有疑问？
                 </a>
                 
@@ -318,7 +320,7 @@
                       
             
               <li>
-                <a class="flat-box" href="/faqs/" id="faqs">
+                <a class="menuitem flat-box" href="/faqs/" id="faqs">
                   <i class="fas fa-question-circle fa-fw"></i>FAQ
                 </a>
                 
@@ -329,7 +331,7 @@
                       
             
               <li>
-                <a class="flat-box" href="https://github.com/666WXY666/" id="https:githubcom666WXY666" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box" href="https://github.com/666WXY666/" id="https:githubcom666WXY666" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fab fa-github fa-fw"></i>我的Github主页
                 </a>
                 
@@ -340,7 +342,7 @@
                       
             
               <li>
-                <a class="flat-box" href="https://gitee.com/wxy_666" id="https:giteecomwxy_666" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box" href="https://gitee.com/wxy_666" id="https:giteecomwxy_666" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fab fa-git-alt fa-fw"></i>我的Gitee主页
                 </a>
                 
@@ -351,7 +353,7 @@
                       
             
               <li>
-                <a class="flat-box" href="https://github.com/666WXY666/666WXY666.github.io/" id="https:githubcom666WXY666666WXY666githubio" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box" href="https://github.com/666WXY666/666WXY666.github.io/" id="https:githubcom666WXY666666WXY666githubio" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fas fa-code fa-fw"></i>本站源码
                 </a>
                 
@@ -362,7 +364,7 @@
                       
             
               <li>
-                <a class="flat-box" href="https://github.com/666WXY666/666WXY666.github.io/issues/" id="https:githubcom666WXY666666WXY666githubioissues" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box" href="https://github.com/666WXY666/666WXY666.github.io/issues/" id="https:githubcom666WXY666666WXY666githubioissues" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fas fa-question fa-fw"></i>向我提问
                 </a>
                 
@@ -386,7 +388,7 @@
             
               
                 <li>
-                  <a class="flat-box">
+                  <a class="menuitem flat-box">
                     <i class="fas fa-compact-disc fa-fw music fa-fw music"></i>背景音乐
                   </a>
                   <ul class="list-v">
@@ -395,7 +397,7 @@
                         
 
   
-    <meting-js theme="#1BCDFC" autoplay="true" volume="0.7" loop="all" order="list" fixed="false" list-max-height="340px" server="tencent" type="playlist" id="1930654125" list-folded="true">
+    <meting-js theme="#1BCDFC" autoplay="true" volume="0.7" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="1930654125" list-folded="true">
     </meting-js>
   
 
@@ -435,7 +437,7 @@
               
             
               <li>
-                <a class="flat-box" href="/" id="home">
+                <a class="menuitem flat-box" href="/" id="home">
                   <i class="fas fa-rss fa-fw"></i>博客
                 </a>
                 
@@ -446,7 +448,7 @@
               
             
               <li>
-                <a class="flat-box" href="/shuoshuo/" id="shuoshuo">
+                <a class="menuitem flat-box" href="/shuoshuo/" id="shuoshuo">
                   <i class="fas fa-comments fa-fw"></i>说说
                 </a>
                 
@@ -457,7 +459,7 @@
               
             
               <li>
-                <a class="flat-box" href="/categories/" id="categories">
+                <a class="menuitem flat-box" href="/categories/" id="categories">
                   <i class="fas fa-folder-open fa-fw"></i>分类
                 </a>
                 
@@ -468,7 +470,7 @@
               
             
               <li>
-                <a class="flat-box" href="/tags/" id="tags">
+                <a class="menuitem flat-box" href="/tags/" id="tags">
                   <i class="fas fa-tags fa-fw"></i>标签
                 </a>
                 
@@ -479,7 +481,7 @@
               
             
               <li>
-                <a class="flat-box" href="/archives/" id="archives">
+                <a class="menuitem flat-box" href="/archives/" id="archives">
                   <i class="fas fa-archive fa-fw"></i>归档
                 </a>
                 
@@ -490,7 +492,7 @@
               
             
               <li>
-                <a class="flat-box" href="/friends/" id="friends">
+                <a class="menuitem flat-box" href="/friends/" id="friends">
                   <i class="fas fa-link fa-fw"></i>友链
                 </a>
                 
@@ -501,7 +503,7 @@
               
             
               <li>
-                <a class="flat-box" href="/about/" id="about">
+                <a class="menuitem flat-box" href="/about/" id="about">
                   <i class="fas fa-info-circle fa-fw"></i>关于
                 </a>
                 
@@ -512,7 +514,7 @@
               
             
               <li>
-                <a class="flat-box">
+                <a class="menuitem flat-box">
                   <i class="fas fa-ellipsis-v fa-fw"></i>更多
                 </a>
                 
@@ -521,7 +523,7 @@
                       
             
               <li>
-                <a class="flat-box">
+                <a class="menuitem flat-box">
                   有疑问？
                 </a>
                 
@@ -530,7 +532,7 @@
                       
             
               <li>
-                <a class="flat-box" href="/faqs/" id="faqs">
+                <a class="menuitem flat-box" href="/faqs/" id="faqs">
                   <i class="fas fa-question-circle fa-fw"></i>FAQ
                 </a>
                 
@@ -541,7 +543,7 @@
                       
             
               <li>
-                <a class="flat-box" href="https://github.com/666WXY666/" id="https:githubcom666WXY666" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box" href="https://github.com/666WXY666/" id="https:githubcom666WXY666" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fab fa-github fa-fw"></i>我的Github主页
                 </a>
                 
@@ -552,7 +554,7 @@
                       
             
               <li>
-                <a class="flat-box" href="https://gitee.com/wxy_666" id="https:giteecomwxy_666" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box" href="https://gitee.com/wxy_666" id="https:giteecomwxy_666" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fab fa-git-alt fa-fw"></i>我的Gitee主页
                 </a>
                 
@@ -563,7 +565,7 @@
                       
             
               <li>
-                <a class="flat-box" href="https://github.com/666WXY666/666WXY666.github.io/" id="https:githubcom666WXY666666WXY666githubio" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box" href="https://github.com/666WXY666/666WXY666.github.io/" id="https:githubcom666WXY666666WXY666githubio" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fas fa-code fa-fw"></i>本站源码
                 </a>
                 
@@ -574,7 +576,7 @@
                       
             
               <li>
-                <a class="flat-box" href="https://github.com/666WXY666/666WXY666.github.io/issues/" id="https:githubcom666WXY666666WXY666githubioissues" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box" href="https://github.com/666WXY666/666WXY666.github.io/issues/" id="https:githubcom666WXY666666WXY666githubioissues" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fas fa-question fa-fw"></i>向我提问
                 </a>
                 
@@ -677,7 +679,7 @@
               </div>
               <div class="archive-item all-tags">
                 
-                <a href="/tags/AI/" style="font-size: 14px; color: #999">AI</a> <a href="/tags/C/" style="font-size: 20.25px; color: #6f6f6f">C</a> <a href="/tags/C/" style="font-size: 16.5px; color: #888">C++</a> <a href="/tags/C99/" style="font-size: 14px; color: #999">C99</a> <a href="/tags/DNN/" style="font-size: 14px; color: #999">DNN</a> <a href="/tags/HDFS/" style="font-size: 14px; color: #999">HDFS</a> <a href="/tags/Java/" style="font-size: 15.25px; color: #919191">Java</a> <a href="/tags/K-Means/" style="font-size: 14px; color: #999">K-Means</a> <a href="/tags/Kafka/" style="font-size: 15.25px; color: #919191">Kafka</a> <a href="/tags/Linux/" style="font-size: 22.75px; color: #5e5e5e">Linux</a> <a href="/tags/MIPS/" style="font-size: 17.75px; color: #808080">MIPS</a> <a href="/tags/MOOC/" style="font-size: 19px; color: #777">MOOC</a> <a href="/tags/MapReduce/" style="font-size: 14px; color: #999">MapReduce</a> <a href="/tags/Matplotlib/" style="font-size: 14px; color: #999">Matplotlib</a> <a href="/tags/Python/" style="font-size: 21.5px; color: #666">Python</a> <a href="/tags/QT/" style="font-size: 14px; color: #999">QT</a> <a href="/tags/RNN/" style="font-size: 14px; color: #999">RNN</a> <a href="/tags/Scala/" style="font-size: 16.5px; color: #888">Scala</a> <a href="/tags/Shell/" style="font-size: 16.5px; color: #888">Shell</a> <a href="/tags/Spark/" style="font-size: 19px; color: #777">Spark</a> <a href="/tags/Streaming/" style="font-size: 16.5px; color: #888">Streaming</a> <a href="/tags/Struct/" style="font-size: 14px; color: #999">Struct</a> <a href="/tags/first/" style="font-size: 14px; color: #999">first</a> <a href="/tags/iPython/" style="font-size: 14px; color: #999">iPython</a> <a href="/tags/ls/" style="font-size: 14px; color: #999">ls</a> <a href="/tags/%E4%B9%A0%E9%A2%98/" style="font-size: 20.25px; color: #6f6f6f">习题</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 14px; color: #999">人工智能</a> <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/" style="font-size: 14px; color: #999">决策树</a> <a href="/tags/%E5%88%86%E7%B1%BB/" style="font-size: 14px; color: #999">分类</a> <a href="/tags/%E5%8D%8E%E4%B8%BA%E4%BA%91/" style="font-size: 14px; color: #999">华为云</a> <a href="/tags/%E5%8D%95%E8%AF%8D%E8%AE%A1%E6%95%B0/" style="font-size: 16.5px; color: #888">单词计数</a> <a href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 14px; color: #999">可视化</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 20.25px; color: #6f6f6f">大数据</a> <a href="/tags/%E5%AD%A6%E5%A0%82%E5%9C%A8%E7%BA%BF/" style="font-size: 14px; color: #999">学堂在线</a> <a href="/tags/%E5%AE%9E%E6%88%98/" style="font-size: 24px; color: #555">实战</a> <a href="/tags/%E5%AE%9E%E9%AA%8C/" style="font-size: 24px; color: #555">实验</a> <a href="/tags/%E5%B0%8F%E6%B8%B8%E6%88%8F/" style="font-size: 14px; color: #999">小游戏</a> <a href="/tags/%E5%B7%A5%E7%A8%8B/" style="font-size: 15.25px; color: #919191">工程</a> <a href="/tags/%E6%89%8B%E5%86%99%E8%AF%86%E5%88%AB/" style="font-size: 14px; color: #999">手写识别</a> <a href="/tags/%E6%8B%93%E5%B1%95/" style="font-size: 15.25px; color: #919191">拓展</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" style="font-size: 14px; color: #999">数据处理</a> <a href="/tags/%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/" style="font-size: 14px; color: #999">日志分析</a> <a href="/tags/%E6%98%93%E9%94%99%E7%82%B9/" style="font-size: 20.25px; color: #6f6f6f">易错点</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 20.25px; color: #6f6f6f">机器学习</a> <a href="/tags/%E6%9D%A1%E4%BB%B6%E7%86%B5/" style="font-size: 14px; color: #999">条件熵</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 14px; color: #999">正则表达式</a> <a href="/tags/%E6%B1%87%E7%BC%96/" style="font-size: 17.75px; color: #808080">汇编</a> <a href="/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/" style="font-size: 16.5px; color: #888">流计算</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 14px; color: #999">爬虫</a> <a href="/tags/%E7%8E%B0%E4%BB%A3%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/" style="font-size: 15.25px; color: #919191">现代交换原理</a> <a href="/tags/%E7%9F%A5%E8%AF%86/" style="font-size: 14px; color: #999">知识</a> <a href="/tags/%E7%BD%91%E8%AF%BE/" style="font-size: 19px; color: #777">网课</a> <a href="/tags/%E8%81%9A%E7%B1%BB/" style="font-size: 14px; color: #999">聚类</a> <a href="/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/" style="font-size: 17.75px; color: #808080">计算机系统结构</a> <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 14px; color: #999">课程</a> <a href="/tags/%E8%B5%B7%E5%90%8D%E5%AD%97/" style="font-size: 14px; color: #999">起名字</a> <a href="/tags/%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95/" style="font-size: 14px; color: #999">遍历目录</a> <a href="/tags/%E9%9A%BE%E7%82%B9/" style="font-size: 15.25px; color: #919191">难点</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 14px; color: #999">项目</a>
+                <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/" rel="tag">AI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C99/" rel="tag">C99</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DNN/" rel="tag">DNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HDFS/" rel="tag">HDFS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/K-Means/" rel="tag">K-Means</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kafka/" rel="tag">Kafka</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MIPS/" rel="tag">MIPS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MOOC/" rel="tag">MOOC</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MapReduce/" rel="tag">MapReduce</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matplotlib/" rel="tag">Matplotlib</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QT/" rel="tag">QT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RNN/" rel="tag">RNN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scala/" rel="tag">Scala</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spark/" rel="tag">Spark</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Streaming/" rel="tag">Streaming</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Struct/" rel="tag">Struct</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/first/" rel="tag">first</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iPython/" rel="tag">iPython</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ls/" rel="tag">ls</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A0%E9%A2%98/" rel="tag">习题</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/" rel="tag">决策树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E7%B1%BB/" rel="tag">分类</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%8E%E4%B8%BA%E4%BA%91/" rel="tag">华为云</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E8%AF%8D%E8%AE%A1%E6%95%B0/" rel="tag">单词计数</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E5%A0%82%E5%9C%A8%E7%BA%BF/" rel="tag">学堂在线</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E6%88%98/" rel="tag">实战</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E9%AA%8C/" rel="tag">实验</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E6%B8%B8%E6%88%8F/" rel="tag">小游戏</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E7%A8%8B/" rel="tag">工程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%8B%E5%86%99%E8%AF%86%E5%88%AB/" rel="tag">手写识别</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8B%93%E5%B1%95/" rel="tag">拓展</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" rel="tag">数据处理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/" rel="tag">日志分析</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%98%93%E9%94%99%E7%82%B9/" rel="tag">易错点</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%A1%E4%BB%B6%E7%86%B5/" rel="tag">条件熵</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">正则表达式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B1%87%E7%BC%96/" rel="tag">汇编</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/" rel="tag">流计算</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8E%B0%E4%BB%A3%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/" rel="tag">现代交换原理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86/" rel="tag">知识</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E8%AF%BE/" rel="tag">网课</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%81%9A%E7%B1%BB/" rel="tag">聚类</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%84%9A%E6%9C%AC/" rel="tag">脚本</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/" rel="tag">计算机系统结构</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BE%E7%A8%8B/" rel="tag">课程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B5%B7%E5%90%8D%E5%AD%97/" rel="tag">起名字</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95/" rel="tag">遍历目录</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%BE%E7%82%B9/" rel="tag">难点</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a><span class="tag-list-count">1</span></li></ul>
               </div>
               <br>
               
@@ -709,7 +711,6 @@
 </aside>
 
 
-
     </div>
     
   
@@ -721,7 +722,7 @@
           
 
   
-    <meting-js theme="#1BCDFC" autoplay="true" volume="0.7" loop="all" order="list" fixed="false" list-max-height="340px" server="tencent" type="playlist" id="1930654125" list-folded="true">
+    <meting-js theme="#1BCDFC" autoplay="true" volume="0.7" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="1930654125" list-folded="true">
     </meting-js>
   
 
@@ -778,7 +779,7 @@
     
       
         <div class="copyright">
-        <p><a href="https://666wxy666.github.io/">Copyright © 2020-2020 苇名一心</a></p>
+        <p><a href="/">Copyright © 2020-2020 苇名一心</a></p>
 
         </div>
 		<br>
@@ -813,7 +814,168 @@
   </div>
   <div>
     
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+      
+  
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default" onclick="menuCopy()" id="menu-copy">
+        <i class="fa fa-copy fa-fw"></i> 复制文本
+      </a>
+    </li>
+  
+        
+      
+        
+          <li class="navigation">
+            <a class="nav" onclick="history.back()"><i class="fa fa-arrow-left fa-fw"></i></a>
+            <a class="nav" onclick="history.forward()"><i class="fa fa-arrow-right fa-fw"></i></a>
+            <a class="nav" onclick="window.location.reload()"><i class="fa fa-redo fa-fw"></i></a>
+            <a class="nav fix-cursor-default" href="/"><i class="fa fa-home fa-fw"></i></a>
+          </li>
+        
+      
+        
+          <hr>
+        
+      
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default" href="/categories/" id="categories">
+        <i class="fas fa-folder-open fa-fw"></i> 分类
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default" href="/tags/" id="tags">
+        <i class="fas fa-tags fa-fw"></i> 标签
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default" href="/archives/" id="archives">
+        <i class="fas fa-archive fa-fw"></i> 归档
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default" href="/friends/" id="friends">
+        <i class="fas fa-link fa-fw"></i> 友链
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default" href="/about/" id="about">
+        <i class="fas fa-info-circle fa-fw"></i> 关于
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          <li class="music name">
+            <p class="nav music-title"></p>
+          </li>
+          <li class="music ctrl">
+            <a class="nav backward" onclick="aplayerBackward()"><i class="fa fa-step-backward fa-fw"></i></a>
+            <a class="nav toggle" onclick="aplayerToggle()"><i class="fa fa-play fa-fw"></i></a>
+            <a class="nav forward" onclick="aplayerForward()"><i class="fa fa-step-forward fa-fw"></i></a>
+          </li>
+          <li class="music volume">
+            <a class="nav volume">
+              <div class="aplayer-volume-bar-wrap">
+                <div class="aplayer-volume-bar fix-cursor-pointer">
+                  <div class="aplayer-volume"></div>
+                  <i class="left fa fa-volume-off fa-fw"></i>
+                  <i class="right fa fa-volume-up fa-fw"></i>
+                </div>
+              </div>
+            </a>
+          </li>
+        
+      
+    </ul>
+  </div>
+
+  <script>
+    window.document.oncontextmenu = function () {
+      return false;
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var copy = document.getElementById('menu-copy');
+      var select = window.getSelection().toString(); // 鼠标选中的文本
+      copy.style.display = select == "" ? "none" : "block";
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var mouseClientX = event.clientX;
+      var mouseClientY = event.clientY;
+      var menuWidth = menuContent.offsetWidth == 0 ? 150 : menuContent.offsetWidth;
+      var menuHeight = menuContent.offsetHeight == 0 ? 242 : menuContent.offsetHeight;
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      var showLeft = mouseClientX + menuWidth > screenWidth ? mouseClientX - menuWidth + 10 : mouseClientX;
+      var showTop = mouseClientY + menuHeight > screenHeight ? mouseClientY - menuHeight + 10 : mouseClientY;
+      mymenu.style.left = showLeft + "px"; // 获取鼠标位置
+      mymenu.style.top = showTop + "px";
+      mymenu.style.display = 'block';
+      if (true == true) {
+        // 如果有aplayer，初始化一下
+      	try {
+      		checkAPlayer();
+          updateTitle();
+      	} catch (error) {
+      		console.log(error);
+      	}
+      }
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
+    }
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function menuCopy() {
+      document.execCommand("Copy");
+    }
+  </script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
 
 
 
@@ -875,6 +1037,11 @@
 
 
 
+  <script>
+    let APlayerController = new Object();
+    APlayerController.id = '1930654125';  // 设定全局音乐播放ID
+    APlayerController.volume = '0.7';
+  </script>
   
     
 <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
@@ -884,9 +1051,13 @@
 <script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
 
   
+    
+<script src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@9.2/js/aplayer.js"></script>
+
+  
 
 
-<!-- 评论 （PS：只对 valine 做了 Pjax 兼容） -->
+
 
   
   
@@ -1024,23 +1195,6 @@
 
 <!-- scrollreveal -->
 
-  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
-  <script type="text/javascript">
-    function pjax_scrollrebeal() {
-      ScrollReveal().reveal('.l_main .reveal', {
-        distance: '32px',
-        duration: '800',
-        interval: '20',
-        scale: '1',
-        easing: 'ease-out'
-      });
-    }
-
-    $(function () {
-      pjax_scrollrebeal();
-    });
-  </script>
-
 <!-- ******************************** -->
 
 <!-- fancybox -->
@@ -1049,6 +1203,7 @@
   function pjax_fancybox() {
     $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
       var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
       $(element).attr("pjax-fancybox", "");  // 过滤 pjax
       $(element).attr("href", $(this).attr("src"));
       if ($(this).attr("data-original")) {
@@ -1092,7 +1247,7 @@
 
 
   
-<script src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@9.1/js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@9.2/js/app.js"></script>
 
 
 
@@ -1105,7 +1260,7 @@
 
 
 
-  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
 
 
 
@@ -1187,7 +1342,7 @@
           });
         }
       } catch (error) {}
-      
+
       window.subData = null; // 移除标题（用于一二级导航栏切换处）
       $.fancybox.close();    // 关闭弹窗
       $('.nav-main').find('.list-v').not('.menu-phone').css("display","none"); // 移除小尾巴
@@ -1241,8 +1396,6 @@
         
         
         
-          pjax_scrollrebeal();
-        
         
           pjax_initCopyCode();
         
@@ -1267,6 +1420,9 @@
 
     
   </div>
+  
+    <script src="https://cdn.jsdelivr.net/gh/inkss/common@master/hexo/js/cookie.min.js"></script>
+  
 </body>
 </html>
 <!--单击显示文字-->

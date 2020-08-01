@@ -65,7 +65,7 @@
   
   
     
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/666WXY666/cdn@9.1/css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/666WXY666/cdn@9.2/css/style.css">
 
   
 
@@ -101,7 +101,9 @@
   
 </head>
 
-<body>
+
+<body oncontextmenu="return popMenu(event);">
+
   
   
   
@@ -231,7 +233,7 @@
             
             
               <li>
-                <a class="flat-box" href="/" id="home">
+                <a class="menuitem flat-box" href="/" id="home">
                   <i class="fas fa-rss fa-fw"></i>博客
                 </a>
                 
@@ -242,7 +244,7 @@
             
             
               <li>
-                <a class="flat-box" href="/shuoshuo/" id="shuoshuo">
+                <a class="menuitem flat-box" href="/shuoshuo/" id="shuoshuo">
                   <i class="fas fa-comments fa-fw"></i>说说
                 </a>
                 
@@ -253,7 +255,7 @@
             
             
               <li>
-                <a class="flat-box" href="/categories/" id="categories">
+                <a class="menuitem flat-box" href="/categories/" id="categories">
                   <i class="fas fa-folder-open fa-fw"></i>分类
                 </a>
                 
@@ -264,7 +266,7 @@
             
             
               <li>
-                <a class="flat-box" href="/tags/" id="tags">
+                <a class="menuitem flat-box" href="/tags/" id="tags">
                   <i class="fas fa-tags fa-fw"></i>标签
                 </a>
                 
@@ -275,7 +277,7 @@
             
             
               <li>
-                <a class="flat-box" href="/archives/" id="archives">
+                <a class="menuitem flat-box" href="/archives/" id="archives">
                   <i class="fas fa-archive fa-fw"></i>归档
                 </a>
                 
@@ -286,7 +288,7 @@
             
             
               <li>
-                <a class="flat-box" href="/friends/" id="friends">
+                <a class="menuitem flat-box" href="/friends/" id="friends">
                   <i class="fas fa-link fa-fw"></i>友链
                 </a>
                 
@@ -297,7 +299,7 @@
             
             
               <li>
-                <a class="flat-box" href="/about/" id="about">
+                <a class="menuitem flat-box" href="/about/" id="about">
                   <i class="fas fa-info-circle fa-fw"></i>关于
                 </a>
                 
@@ -308,7 +310,7 @@
             
             
               <li>
-                <a class="flat-box">
+                <a class="menuitem flat-box">
                   <i class="fas fa-ellipsis-v fa-fw"></i>更多
                 </a>
                 
@@ -317,7 +319,7 @@
                       
             
               <li>
-                <a class="flat-box">
+                <a class="menuitem flat-box">
                   有疑问？
                 </a>
                 
@@ -326,7 +328,7 @@
                       
             
               <li>
-                <a class="flat-box" href="/faqs/" id="faqs">
+                <a class="menuitem flat-box" href="/faqs/" id="faqs">
                   <i class="fas fa-question-circle fa-fw"></i>FAQ
                 </a>
                 
@@ -337,7 +339,7 @@
                       
             
               <li>
-                <a class="flat-box" href="https://github.com/666WXY666/" id="https:githubcom666WXY666" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box" href="https://github.com/666WXY666/" id="https:githubcom666WXY666" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fab fa-github fa-fw"></i>我的Github主页
                 </a>
                 
@@ -348,7 +350,7 @@
                       
             
               <li>
-                <a class="flat-box" href="https://gitee.com/wxy_666" id="https:giteecomwxy_666" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box" href="https://gitee.com/wxy_666" id="https:giteecomwxy_666" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fab fa-git-alt fa-fw"></i>我的Gitee主页
                 </a>
                 
@@ -359,7 +361,7 @@
                       
             
               <li>
-                <a class="flat-box" href="https://github.com/666WXY666/666WXY666.github.io/" id="https:githubcom666WXY666666WXY666githubio" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box" href="https://github.com/666WXY666/666WXY666.github.io/" id="https:githubcom666WXY666666WXY666githubio" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fas fa-code fa-fw"></i>本站源码
                 </a>
                 
@@ -370,7 +372,7 @@
                       
             
               <li>
-                <a class="flat-box" href="https://github.com/666WXY666/666WXY666.github.io/issues/" id="https:githubcom666WXY666666WXY666githubioissues" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box" href="https://github.com/666WXY666/666WXY666.github.io/issues/" id="https:githubcom666WXY666666WXY666githubioissues" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fas fa-question fa-fw"></i>向我提问
                 </a>
                 
@@ -394,7 +396,7 @@
             
               
                 <li>
-                  <a class="flat-box">
+                  <a class="menuitem flat-box">
                     <i class="fas fa-compact-disc fa-fw music fa-fw music"></i>背景音乐
                   </a>
                   <ul class="list-v">
@@ -403,7 +405,7 @@
                         
 
   
-    <meting-js theme="#1BCDFC" autoplay="true" volume="0.7" loop="all" order="list" fixed="false" list-max-height="340px" server="tencent" type="playlist" id="1930654125" list-folded="true">
+    <meting-js theme="#1BCDFC" autoplay="true" volume="0.7" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="1930654125" list-folded="true">
     </meting-js>
   
 
@@ -443,7 +445,7 @@
               
             
               <li>
-                <a class="flat-box" href="/" id="home">
+                <a class="menuitem flat-box" href="/" id="home">
                   <i class="fas fa-rss fa-fw"></i>博客
                 </a>
                 
@@ -454,7 +456,7 @@
               
             
               <li>
-                <a class="flat-box" href="/shuoshuo/" id="shuoshuo">
+                <a class="menuitem flat-box" href="/shuoshuo/" id="shuoshuo">
                   <i class="fas fa-comments fa-fw"></i>说说
                 </a>
                 
@@ -465,7 +467,7 @@
               
             
               <li>
-                <a class="flat-box" href="/categories/" id="categories">
+                <a class="menuitem flat-box" href="/categories/" id="categories">
                   <i class="fas fa-folder-open fa-fw"></i>分类
                 </a>
                 
@@ -476,7 +478,7 @@
               
             
               <li>
-                <a class="flat-box" href="/tags/" id="tags">
+                <a class="menuitem flat-box" href="/tags/" id="tags">
                   <i class="fas fa-tags fa-fw"></i>标签
                 </a>
                 
@@ -487,7 +489,7 @@
               
             
               <li>
-                <a class="flat-box" href="/archives/" id="archives">
+                <a class="menuitem flat-box" href="/archives/" id="archives">
                   <i class="fas fa-archive fa-fw"></i>归档
                 </a>
                 
@@ -498,7 +500,7 @@
               
             
               <li>
-                <a class="flat-box" href="/friends/" id="friends">
+                <a class="menuitem flat-box" href="/friends/" id="friends">
                   <i class="fas fa-link fa-fw"></i>友链
                 </a>
                 
@@ -509,7 +511,7 @@
               
             
               <li>
-                <a class="flat-box" href="/about/" id="about">
+                <a class="menuitem flat-box" href="/about/" id="about">
                   <i class="fas fa-info-circle fa-fw"></i>关于
                 </a>
                 
@@ -520,7 +522,7 @@
               
             
               <li>
-                <a class="flat-box">
+                <a class="menuitem flat-box">
                   <i class="fas fa-ellipsis-v fa-fw"></i>更多
                 </a>
                 
@@ -529,7 +531,7 @@
                       
             
               <li>
-                <a class="flat-box">
+                <a class="menuitem flat-box">
                   有疑问？
                 </a>
                 
@@ -538,7 +540,7 @@
                       
             
               <li>
-                <a class="flat-box" href="/faqs/" id="faqs">
+                <a class="menuitem flat-box" href="/faqs/" id="faqs">
                   <i class="fas fa-question-circle fa-fw"></i>FAQ
                 </a>
                 
@@ -549,7 +551,7 @@
                       
             
               <li>
-                <a class="flat-box" href="https://github.com/666WXY666/" id="https:githubcom666WXY666" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box" href="https://github.com/666WXY666/" id="https:githubcom666WXY666" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fab fa-github fa-fw"></i>我的Github主页
                 </a>
                 
@@ -560,7 +562,7 @@
                       
             
               <li>
-                <a class="flat-box" href="https://gitee.com/wxy_666" id="https:giteecomwxy_666" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box" href="https://gitee.com/wxy_666" id="https:giteecomwxy_666" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fab fa-git-alt fa-fw"></i>我的Gitee主页
                 </a>
                 
@@ -571,7 +573,7 @@
                       
             
               <li>
-                <a class="flat-box" href="https://github.com/666WXY666/666WXY666.github.io/" id="https:githubcom666WXY666666WXY666githubio" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box" href="https://github.com/666WXY666/666WXY666.github.io/" id="https:githubcom666WXY666666WXY666githubio" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fas fa-code fa-fw"></i>本站源码
                 </a>
                 
@@ -582,7 +584,7 @@
                       
             
               <li>
-                <a class="flat-box" href="https://github.com/666WXY666/666WXY666.github.io/issues/" id="https:githubcom666WXY666666WXY666githubioissues" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box" href="https://github.com/666WXY666/666WXY666.github.io/issues/" id="https:githubcom666WXY666666WXY666githubioissues" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fas fa-question fa-fw"></i>向我提问
                 </a>
                 
@@ -789,7 +791,7 @@
             
               
 <div class="new-meta-item author">
-  <a href="https://666wxy666.github.io/" rel="nofollow">
+  <a class="author" href="/" rel="nofollow">
     <img no-lazy src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg">
     <p>苇名一心</p>
   </a>
@@ -891,11 +893,9 @@
     </div>
     
       
-        <div class="button readmore">
-          <a href="/2020/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-%E6%8C%87%E4%BB%A4%E8%B0%83%E5%BA%A6%E4%B8%8E%E5%BB%B6%E8%BF%9F%E5%88%86%E6%94%AF/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
+        <a class="readmore" href="/2020/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-%E6%8C%87%E4%BB%A4%E8%B0%83%E5%BA%A6%E4%B8%8E%E5%BB%B6%E8%BF%9F%E5%88%86%E6%94%AF/">
+          阅读全文 <i class="fas fa-chevron-right"></i>
+        </a>
       
     
   </section>
@@ -932,7 +932,7 @@
             
               
 <div class="new-meta-item author">
-  <a href="https://666wxy666.github.io/" rel="nofollow">
+  <a class="author" href="/" rel="nofollow">
     <img no-lazy src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg">
     <p>苇名一心</p>
   </a>
@@ -1034,154 +1034,9 @@
     </div>
     
       
-        <div class="button readmore">
-          <a href="/2020/07/15/%E7%8E%B0%E4%BB%A3%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-MOOC%E4%B9%A0%E9%A2%98-5~6%E7%AB%A0/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class="post-wrapper">
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class="meta">
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-%E4%BD%BF%E7%94%A8MIPS%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%B3%95/">
-      计算机系统结构 实验 使用MIPS指令实现冒泡排序法
-    </a>
-  </h2>
-
-
-        
-        <div class="new-meta-box">
-          
-            
-          
-            
-              
-<div class="new-meta-item author">
-  <a href="https://666wxy666.github.io/" rel="nofollow">
-    <img no-lazy src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg">
-    <p>苇名一心</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class="new-meta-item category">
-    <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/%E5%AE%9E%E9%AA%8C/" rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>计算机系统结构/实验</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class="notlink">
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年7月15日</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class="notlink">
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：1.9k字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class="notlink">
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：7分钟</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-  <div class="new-meta-item browse valine">
-    <a class="notlink">
-      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-      
-      <span id="/2020/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-%E4%BD%BF%E7%94%A8MIPS%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%B3%95/" class="leancloud_visitors" data-flag-title="计算机系统结构 实验 使用MIPS指令实现冒泡排序法">
-      <p>
-        <span class="leancloud-visitors-count"></span>
-      </p>
-      </span>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-<div class="new-meta-item comments-count">
-  
-  <a href="/2020/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-%E4%BD%BF%E7%94%A8MIPS%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%B3%95/#comments">
-    <i class="fas fa-comment-dots fa-fw"></i>
-    <span class="valine-comment-count" data-xid="/2020/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-%E4%BD%BF%E7%94%A8MIPS%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%B3%95/">0</span>
-    <span class="leancloud-comments-count">&nbsp;</span>
-  </a>
-</div>
-
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文是关于计算机系统结构实验四，使用MIPS指令实现冒泡排序法。</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-%E4%BD%BF%E7%94%A8MIPS%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%B3%95/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
+        <a class="readmore" href="/2020/07/15/%E7%8E%B0%E4%BB%A3%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-MOOC%E4%B9%A0%E9%A2%98-5~6%E7%AB%A0/">
+          阅读全文 <i class="fas fa-chevron-right"></i>
+        </a>
       
     
   </section>
@@ -1218,7 +1073,7 @@
             
               
 <div class="new-meta-item author">
-  <a href="https://666wxy666.github.io/" rel="nofollow">
+  <a class="author" href="/" rel="nofollow">
     <img no-lazy src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg">
     <p>苇名一心</p>
   </a>
@@ -1320,11 +1175,150 @@
     </div>
     
       
-        <div class="button readmore">
-          <a href="/2020/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-1%E5%92%8C2%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
+        <a class="readmore" href="/2020/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-1%E5%92%8C2%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">
+          阅读全文 <i class="fas fa-chevron-right"></i>
+        </a>
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class="post-wrapper">
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class="meta">
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/2020/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-%E4%BD%BF%E7%94%A8MIPS%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%B3%95/">
+      计算机系统结构 实验 使用MIPS指令实现冒泡排序法
+    </a>
+  </h2>
+
+
+        
+        <div class="new-meta-box">
+          
+            
+          
+            
+              
+<div class="new-meta-item author">
+  <a class="author" href="/" rel="nofollow">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg">
+    <p>苇名一心</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class="new-meta-item category">
+    <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/%E5%AE%9E%E9%AA%8C/" rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>计算机系统结构/实验</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年7月15日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：1.9k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：7分钟</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+  <div class="new-meta-item browse valine">
+    <a class="notlink">
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="/2020/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-%E4%BD%BF%E7%94%A8MIPS%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%B3%95/" class="leancloud_visitors" data-flag-title="计算机系统结构 实验 使用MIPS指令实现冒泡排序法">
+      <p>
+        <span class="leancloud-visitors-count"></span>
+      </p>
+      </span>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+<div class="new-meta-item comments-count">
+  
+  <a href="/2020/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-%E4%BD%BF%E7%94%A8MIPS%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%B3%95/#comments">
+    <i class="fas fa-comment-dots fa-fw"></i>
+    <span class="valine-comment-count" data-xid="/2020/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-%E4%BD%BF%E7%94%A8MIPS%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%B3%95/">0</span>
+    <span class="leancloud-comments-count">&nbsp;</span>
+  </a>
+</div>
+
+
+            
+          
+            
+              
+
+            
+          
         </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文是关于计算机系统结构实验四，使用MIPS指令实现冒泡排序法。</p>
+      
+    </div>
+    
+      
+        <a class="readmore" href="/2020/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-%E4%BD%BF%E7%94%A8MIPS%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%B3%95/">
+          阅读全文 <i class="fas fa-chevron-right"></i>
+        </a>
       
     
   </section>
@@ -1361,7 +1355,7 @@
             
               
 <div class="new-meta-item author">
-  <a href="https://666wxy666.github.io/" rel="nofollow">
+  <a class="author" href="/" rel="nofollow">
     <img no-lazy src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg">
     <p>苇名一心</p>
   </a>
@@ -1463,11 +1457,9 @@
     </div>
     
       
-        <div class="button readmore">
-          <a href="/2020/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-%E4%BD%BF%E7%94%A8MIPS%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E6%B1%82%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E7%82%B9%E7%A7%AF/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
+        <a class="readmore" href="/2020/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-%E4%BD%BF%E7%94%A8MIPS%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E6%B1%82%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E7%82%B9%E7%A7%AF/">
+          阅读全文 <i class="fas fa-chevron-right"></i>
+        </a>
       
     
   </section>
@@ -1504,7 +1496,7 @@
             
               
 <div class="new-meta-item author">
-  <a href="https://666wxy666.github.io/" rel="nofollow">
+  <a class="author" href="/" rel="nofollow">
     <img no-lazy src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg">
     <p>苇名一心</p>
   </a>
@@ -1606,11 +1598,9 @@
     </div>
     
       
-        <div class="button readmore">
-          <a href="/2020/07/15/%E6%9D%82%E9%A1%B9%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE%E9%9B%86%E9%94%A6/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
+        <a class="readmore" href="/2020/07/15/%E6%9D%82%E9%A1%B9%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE%E9%9B%86%E9%94%A6/">
+          阅读全文 <i class="fas fa-chevron-right"></i>
+        </a>
       
     
   </section>
@@ -1647,7 +1637,7 @@
             
               
 <div class="new-meta-item author">
-  <a href="https://666wxy666.github.io/" rel="nofollow">
+  <a class="author" href="/" rel="nofollow">
     <img no-lazy src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg">
     <p>苇名一心</p>
   </a>
@@ -1749,11 +1739,9 @@
     </div>
     
       
-        <div class="button readmore">
-          <a href="/2020/07/15/%E7%8E%B0%E4%BB%A3%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-MOOC%E4%B9%A0%E9%A2%98-1~4%E7%AB%A0/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
+        <a class="readmore" href="/2020/07/15/%E7%8E%B0%E4%BB%A3%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-MOOC%E4%B9%A0%E9%A2%98-1~4%E7%AB%A0/">
+          阅读全文 <i class="fas fa-chevron-right"></i>
+        </a>
       
     
   </section>
@@ -1790,7 +1778,7 @@
             
               
 <div class="new-meta-item author">
-  <a href="https://666wxy666.github.io/" rel="nofollow">
+  <a class="author" href="/" rel="nofollow">
     <img no-lazy src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg">
     <p>苇名一心</p>
   </a>
@@ -1892,154 +1880,9 @@
     </div>
     
       
-        <div class="button readmore">
-          <a href="/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-%E8%8A%B1%E5%8D%89%E8%AF%86%E5%88%AB/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class="post-wrapper">
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class="meta">
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%9F%A5%E8%AF%86%E6%8B%93%E5%B1%95-%E6%9D%A1%E4%BB%B6%E7%86%B5/">
-      机器学习 知识拓展 条件熵
-    </a>
-  </h2>
-
-
-        
-        <div class="new-meta-box">
-          
-            
-          
-            
-              
-<div class="new-meta-item author">
-  <a href="https://666wxy666.github.io/" rel="nofollow">
-    <img no-lazy src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg">
-    <p>苇名一心</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class="new-meta-item category">
-    <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%9F%A5%E8%AF%86%E6%8B%93%E5%B1%95/" rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>机器学习/知识拓展</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class="notlink">
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年7月15日</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class="notlink">
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：577字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class="notlink">
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：2分钟</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-  <div class="new-meta-item browse valine">
-    <a class="notlink">
-      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-      
-      <span id="/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%9F%A5%E8%AF%86%E6%8B%93%E5%B1%95-%E6%9D%A1%E4%BB%B6%E7%86%B5/" class="leancloud_visitors" data-flag-title="机器学习 知识拓展 条件熵">
-      <p>
-        <span class="leancloud-visitors-count"></span>
-      </p>
-      </span>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-<div class="new-meta-item comments-count">
-  
-  <a href="/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%9F%A5%E8%AF%86%E6%8B%93%E5%B1%95-%E6%9D%A1%E4%BB%B6%E7%86%B5/#comments">
-    <i class="fas fa-comment-dots fa-fw"></i>
-    <span class="valine-comment-count" data-xid="/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%9F%A5%E8%AF%86%E6%8B%93%E5%B1%95-%E6%9D%A1%E4%BB%B6%E7%86%B5/">0</span>
-    <span class="leancloud-comments-count">&nbsp;</span>
-  </a>
-</div>
-
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文是关于条件熵的知识拓展。</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%9F%A5%E8%AF%86%E6%8B%93%E5%B1%95-%E6%9D%A1%E4%BB%B6%E7%86%B5/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
+        <a class="readmore" href="/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-%E8%8A%B1%E5%8D%89%E8%AF%86%E5%88%AB/">
+          阅读全文 <i class="fas fa-chevron-right"></i>
+        </a>
       
     
   </section>
@@ -2076,7 +1919,7 @@
             
               
 <div class="new-meta-item author">
-  <a href="https://666wxy666.github.io/" rel="nofollow">
+  <a class="author" href="/" rel="nofollow">
     <img no-lazy src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg">
     <p>苇名一心</p>
   </a>
@@ -2178,11 +2021,150 @@
     </div>
     
       
-        <div class="button readmore">
-          <a href="/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-%E5%86%B3%E7%AD%96%E6%A0%91/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
+        <a class="readmore" href="/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-%E5%86%B3%E7%AD%96%E6%A0%91/">
+          阅读全文 <i class="fas fa-chevron-right"></i>
+        </a>
+      
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class="post-wrapper">
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class="meta">
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%9F%A5%E8%AF%86%E6%8B%93%E5%B1%95-%E6%9D%A1%E4%BB%B6%E7%86%B5/">
+      机器学习 知识拓展 条件熵
+    </a>
+  </h2>
+
+
+        
+        <div class="new-meta-box">
+          
+            
+          
+            
+              
+<div class="new-meta-item author">
+  <a class="author" href="/" rel="nofollow">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg">
+    <p>苇名一心</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class="new-meta-item category">
+    <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%9F%A5%E8%AF%86%E6%8B%93%E5%B1%95/" rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>机器学习/知识拓展</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年7月15日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：577字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：2分钟</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+  <div class="new-meta-item browse valine">
+    <a class="notlink">
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%9F%A5%E8%AF%86%E6%8B%93%E5%B1%95-%E6%9D%A1%E4%BB%B6%E7%86%B5/" class="leancloud_visitors" data-flag-title="机器学习 知识拓展 条件熵">
+      <p>
+        <span class="leancloud-visitors-count"></span>
+      </p>
+      </span>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+<div class="new-meta-item comments-count">
+  
+  <a href="/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%9F%A5%E8%AF%86%E6%8B%93%E5%B1%95-%E6%9D%A1%E4%BB%B6%E7%86%B5/#comments">
+    <i class="fas fa-comment-dots fa-fw"></i>
+    <span class="valine-comment-count" data-xid="/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%9F%A5%E8%AF%86%E6%8B%93%E5%B1%95-%E6%9D%A1%E4%BB%B6%E7%86%B5/">0</span>
+    <span class="leancloud-comments-count">&nbsp;</span>
+  </a>
+</div>
+
+
+            
+          
+            
+              
+
+            
+          
         </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文是关于条件熵的知识拓展。</p>
+      
+    </div>
+    
+      
+        <a class="readmore" href="/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%9F%A5%E8%AF%86%E6%8B%93%E5%B1%95-%E6%9D%A1%E4%BB%B6%E7%86%B5/">
+          阅读全文 <i class="fas fa-chevron-right"></i>
+        </a>
       
     
   </section>
@@ -2499,8 +2481,8 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Mon Jul 27 2020 18:14:46 GMT+0800 (GMT+08:00)</div>
-            <div id="last-update-show">2020-07-27 日</div>
+            <div id="last-update" style="display: none;">Sat Aug 01 2020 21:20:58 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update-show">2020-08-01 日</div>
           
         </div>
         
@@ -2509,7 +2491,7 @@
           try {
             document.getElementById('last-update-show').innerHTML = moment(new Date(lastUpDate)).fromNow();
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2020-07-27 日';
+            document.getElementById('last-update-show').innerHTML = '2020-08-01 日';
           }
         </script>
         
@@ -2536,7 +2518,7 @@
           
 
   
-    <meting-js theme="#1BCDFC" autoplay="true" volume="0.7" loop="all" order="list" fixed="false" list-max-height="340px" server="tencent" type="playlist" id="1930654125" list-folded="true">
+    <meting-js theme="#1BCDFC" autoplay="true" volume="0.7" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="1930654125" list-folded="true">
     </meting-js>
   
 
@@ -2593,7 +2575,7 @@
     
       
         <div class="copyright">
-        <p><a href="https://666wxy666.github.io/">Copyright © 2020-2020 苇名一心</a></p>
+        <p><a href="/">Copyright © 2020-2020 苇名一心</a></p>
 
         </div>
 		<br>
@@ -2628,7 +2610,168 @@
   </div>
   <div>
     
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+      
+  
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default" onclick="menuCopy()" id="menu-copy">
+        <i class="fa fa-copy fa-fw"></i> 复制文本
+      </a>
+    </li>
+  
+        
+      
+        
+          <li class="navigation">
+            <a class="nav" onclick="history.back()"><i class="fa fa-arrow-left fa-fw"></i></a>
+            <a class="nav" onclick="history.forward()"><i class="fa fa-arrow-right fa-fw"></i></a>
+            <a class="nav" onclick="window.location.reload()"><i class="fa fa-redo fa-fw"></i></a>
+            <a class="nav fix-cursor-default" href="/"><i class="fa fa-home fa-fw"></i></a>
+          </li>
+        
+      
+        
+          <hr>
+        
+      
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default" href="/categories/" id="categories">
+        <i class="fas fa-folder-open fa-fw"></i> 分类
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default" href="/tags/" id="tags">
+        <i class="fas fa-tags fa-fw"></i> 标签
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default" href="/archives/" id="archives">
+        <i class="fas fa-archive fa-fw"></i> 归档
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default" href="/friends/" id="friends">
+        <i class="fas fa-link fa-fw"></i> 友链
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default" href="/about/" id="about">
+        <i class="fas fa-info-circle fa-fw"></i> 关于
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          <li class="music name">
+            <p class="nav music-title"></p>
+          </li>
+          <li class="music ctrl">
+            <a class="nav backward" onclick="aplayerBackward()"><i class="fa fa-step-backward fa-fw"></i></a>
+            <a class="nav toggle" onclick="aplayerToggle()"><i class="fa fa-play fa-fw"></i></a>
+            <a class="nav forward" onclick="aplayerForward()"><i class="fa fa-step-forward fa-fw"></i></a>
+          </li>
+          <li class="music volume">
+            <a class="nav volume">
+              <div class="aplayer-volume-bar-wrap">
+                <div class="aplayer-volume-bar fix-cursor-pointer">
+                  <div class="aplayer-volume"></div>
+                  <i class="left fa fa-volume-off fa-fw"></i>
+                  <i class="right fa fa-volume-up fa-fw"></i>
+                </div>
+              </div>
+            </a>
+          </li>
+        
+      
+    </ul>
+  </div>
+
+  <script>
+    window.document.oncontextmenu = function () {
+      return false;
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var copy = document.getElementById('menu-copy');
+      var select = window.getSelection().toString(); // 鼠标选中的文本
+      copy.style.display = select == "" ? "none" : "block";
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var mouseClientX = event.clientX;
+      var mouseClientY = event.clientY;
+      var menuWidth = menuContent.offsetWidth == 0 ? 150 : menuContent.offsetWidth;
+      var menuHeight = menuContent.offsetHeight == 0 ? 242 : menuContent.offsetHeight;
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      var showLeft = mouseClientX + menuWidth > screenWidth ? mouseClientX - menuWidth + 10 : mouseClientX;
+      var showTop = mouseClientY + menuHeight > screenHeight ? mouseClientY - menuHeight + 10 : mouseClientY;
+      mymenu.style.left = showLeft + "px"; // 获取鼠标位置
+      mymenu.style.top = showTop + "px";
+      mymenu.style.display = 'block';
+      if (true == true) {
+        // 如果有aplayer，初始化一下
+      	try {
+      		checkAPlayer();
+          updateTitle();
+      	} catch (error) {
+      		console.log(error);
+      	}
+      }
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
+    }
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function menuCopy() {
+      document.execCommand("Copy");
+    }
+  </script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
 
 
 
@@ -2690,6 +2833,11 @@
 
 
 
+  <script>
+    let APlayerController = new Object();
+    APlayerController.id = '1930654125';  // 设定全局音乐播放ID
+    APlayerController.volume = '0.7';
+  </script>
   
     
 <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
@@ -2699,9 +2847,13 @@
 <script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
 
   
+    
+<script src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@9.2/js/aplayer.js"></script>
+
+  
 
 
-<!-- 评论 （PS：只对 valine 做了 Pjax 兼容） -->
+
 
   
   
@@ -2839,23 +2991,6 @@
 
 <!-- scrollreveal -->
 
-  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
-  <script type="text/javascript">
-    function pjax_scrollrebeal() {
-      ScrollReveal().reveal('.l_main .reveal', {
-        distance: '32px',
-        duration: '800',
-        interval: '20',
-        scale: '1',
-        easing: 'ease-out'
-      });
-    }
-
-    $(function () {
-      pjax_scrollrebeal();
-    });
-  </script>
-
 <!-- ******************************** -->
 
 <!-- fancybox -->
@@ -2864,6 +2999,7 @@
   function pjax_fancybox() {
     $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
       var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
       $(element).attr("pjax-fancybox", "");  // 过滤 pjax
       $(element).attr("href", $(this).attr("src"));
       if ($(this).attr("data-original")) {
@@ -2907,7 +3043,7 @@
 
 
   
-<script src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@9.1/js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@9.2/js/app.js"></script>
 
 
 
@@ -2920,7 +3056,7 @@
 
 
 
-  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
 
 
 
@@ -3002,7 +3138,7 @@
           });
         }
       } catch (error) {}
-      
+
       window.subData = null; // 移除标题（用于一二级导航栏切换处）
       $.fancybox.close();    // 关闭弹窗
       $('.nav-main').find('.list-v').not('.menu-phone').css("display","none"); // 移除小尾巴
@@ -3056,8 +3192,6 @@
         
         
         
-          pjax_scrollrebeal();
-        
         
           pjax_initCopyCode();
         
@@ -3082,6 +3216,9 @@
 
     
   </div>
+  
+    <script src="https://cdn.jsdelivr.net/gh/inkss/common@master/hexo/js/cookie.min.js"></script>
+  
 </body>
 </html>
 <!--单击显示文字-->
