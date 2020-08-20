@@ -105,39 +105,6 @@
     
     
     <entry>
-      <title>计算机系统结构 实验 使用MIPS指令实现冒泡排序法</title>
-      <link href="/2020/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-%E4%BD%BF%E7%94%A8MIPS%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%B3%95/"/>
-      <url>/2020/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-%E4%BD%BF%E7%94%A8MIPS%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%B3%95/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文是关于计算机系统结构实验四，使用MIPS指令实现冒泡排序法。</p><a id="more"></a><h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><ol><li>掌握静态调度方法</li><li>增强汇编语言编程能力</li><li>学会使用模拟器中的定向功能进行优化</li></ol><h2 id="二、实验原理"><a href="#二、实验原理" class="headerlink" title="二、实验原理"></a>二、实验原理</h2><p>​        通过编写MIPS汇编程序，实现冒泡排序的功能。在模拟器MIPSsim上执行所写的汇编程序，查看结果，判断所写的汇编程序是否正确。然后观察时钟周期图窗口的执行过程和冲突的指令，查看统计窗口的信息，来判断定向前后和优化前后的执行效率高低。</p><h2 id="三、实验步骤及结果分析"><a href="#三、实验步骤及结果分析" class="headerlink" title="三、实验步骤及结果分析"></a>三、实验步骤及结果分析</h2><h3 id="1、自行编写一个实现冒泡排序的汇编程序，该程序要求可以实现对一维整数数组进行冒泡排序。"><a href="#1、自行编写一个实现冒泡排序的汇编程序，该程序要求可以实现对一维整数数组进行冒泡排序。" class="headerlink" title="1、自行编写一个实现冒泡排序的汇编程序，该程序要求可以实现对一维整数数组进行冒泡排序。"></a>1、自行编写一个实现冒泡排序的汇编程序，该程序要求可以实现对一维整数数组进行冒泡排序。</h3><p>冒泡排序算法的运作如下：</p><ol><li>比较相邻的元素。如果第一个比第二个大，就交换他们两个。</li><li>对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点， 最后的元素应该会是最大的数。</li><li>针对所有的元素重复以上的步骤，除了最后一个。</li><li>持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</li></ol><p>要求数组长度不得小于10</p><p><strong><em>PS：汇编程序见附录。</em></strong></p><h3 id="2、启动-MIPSsim。"><a href="#2、启动-MIPSsim。" class="headerlink" title="2、启动 MIPSsim。"></a>2、启动 MIPSsim。</h3><img src="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" alt="2020-05-07_175631" style="zoom: 50%;"><h3 id="3、载入自己编写的程序，观察流水线输出结果。"><a href="#3、载入自己编写的程序，观察流水线输出结果。" class="headerlink" title="3、载入自己编写的程序，观察流水线输出结果。"></a>3、载入自己编写的程序，观察流水线输出结果。</h3><p>载入的代码：</p><img src="https://gitee.com/wxy_666/images/raw/master/20200514192648.jpg" alt="2020-05-14_192636" style="zoom:80%;"><p>执行结果：</p><ul><li><p>内存中的数组</p><img src="https://gitee.com/wxy_666/images/raw/master/20200514192757.jpg" alt="2020-05-14_192747" style="zoom:80%;"><p>原数组是{5,4,11,3,7,1,10,6,8,9,2}，排序后是{1,2,3,4,5,6,7,8,9,10,11}，结果符合预期，说明编写的汇编程序正确。</p></li><li><p>部分时钟周期图</p><img src="https://gitee.com/wxy_666/images/raw/master/20200514211749.jpg" alt="2020-05-14_193022" style="zoom:80%;"><p>可以看到有非常多的停顿，主要是DSUB命令与BGTZ命令的RAW停顿，还有一些控制停顿。</p></li><li><p>统计</p><img src="https://gitee.com/wxy_666/images/raw/master/20200514211802.jpg" alt="2020-05-14_193232" style="zoom:80%;"><p>发现RAW停顿有417个周期，停顿次数非常多，可以进行优化。共执行了1076个周期，RAW停顿占周期总数的百分比为38.75465%，所有的停顿为537个周期，占周期总数的百分比为49.90706%，效率很低。<br>$$<br>吞吐率TP_1=\frac{538}{1076\Delta{t}}<br>$$</p><p>$$<br>加速比S_1=\frac{538\times{5\Delta{t}}}{1076\Delta{t}}={2.5}<br>$$</p></li></ul><h3 id="4、使用定向功能再次执行代码，与刚才执行结果进行比较，观察执行效率的不同。"><a href="#4、使用定向功能再次执行代码，与刚才执行结果进行比较，观察执行效率的不同。" class="headerlink" title="4、使用定向功能再次执行代码，与刚才执行结果进行比较，观察执行效率的不同。"></a>4、使用定向功能再次执行代码，与刚才执行结果进行比较，观察执行效率的不同。</h3><ul><li><p>内存中的数组</p><img src="https://gitee.com/wxy_666/images/raw/master/20200514193632.jpg" alt="2020-05-14_193627" style="zoom:80%;"><p>结果正确。</p></li><li><p>部分时钟周期图</p><img src="https://gitee.com/wxy_666/images/raw/master/20200514211946.jpg" alt="2020-05-14_193708" style="zoom:80%;"><p>在使用定向技术后，发现停顿明显减少。</p></li><li><p>统计</p><img src="https://gitee.com/wxy_666/images/raw/master/20200514211954.jpg" alt="2020-05-14_194050" style="zoom:80%;"><p>发现RAW停顿有175个周期，停顿周期数比没有定向技术时的417个少了很多；</p><p>共执行了834个周期，比没有定向技术时的1076个也少了很多；</p><p>RAW停顿占周期总数的百分比为20.98321%，较没有定向技术时的38.75465%也减少了很多；</p><p>所有的停顿为295个周期，占周期总数的百分比为35.3717%，较没有定向技术时的49.90706%也减少了很多；</p><p>$$<br>吞吐率TP_2=\frac{538}{834\Delta{t}}<br>$$</p><p>$$<br>加速比S_2=\frac{538\times{5\Delta{t}}}{834\Delta{t}}\approx{3.23}<br>$$<br>吞吐率和加速比是没有定向技术时的$\frac{1076}{834}\approx{1.29}$倍。</p></li></ul><h3 id="5、采用静态调度方法重排指令序列，减少相关，优化程序"><a href="#5、采用静态调度方法重排指令序列，减少相关，优化程序" class="headerlink" title="5、采用静态调度方法重排指令序列，减少相关，优化程序"></a>5、采用静态调度方法重排指令序列，减少相关，优化程序</h3><p>因为主要是DSUB命令与BGTZ命令的RAW停顿，分支指令的操作数需要用到前面的结果，因此将后面pass中执行的<code>ADDIU $r4, $r4, 1</code>和<code>DSUB $r8, $r2, $r4</code>拿到loop2中执行，从而减少RAW停顿。</p><p><strong><em>PS：静态调度后的汇编程序见附录。</em></strong></p><ul><li><p>载入代码</p><img src="https://gitee.com/wxy_666/images/raw/master/20200514205322.jpg" alt="2020-05-14_205303" style="zoom:80%;"></li><li><p>内存中的数组</p><img src="https://gitee.com/wxy_666/images/raw/master/20200514205458.jpg" alt="2020-05-14_205419" style="zoom:80%;"><p>结果正确。</p></li><li><p>部分时钟周期图</p><img src="https://gitee.com/wxy_666/images/raw/master/20200514212233.jpg" alt="2020-05-14_211607" style="zoom:80%;"><p>在使用静态调度后，发现停顿少了很多。</p></li><li><p>统计</p><img src="https://gitee.com/wxy_666/images/raw/master/20200514212255.jpg" alt="2020-05-14_211624" style="zoom:80%;"><p>发现RAW停顿有142个周期，停顿周期数比没有静态调度时的417个少了很多；</p><p>共执行了801个周期，比没有静态调度时的1076个也少了很多；</p><p>RAW停顿占周期总数的百分比为17.72784%，较没有静态调度时的38.75465%也减少了很多；</p><p>所有的停顿为262个周期，占周期总数的百分比为32.70911%，较没有静态调度时的49.90706%也减少了很多；</p><p>$$<br>吞吐率TP_3=\frac{538}{801\Delta{t}}<br>$$</p><p>$$<br>加速比S_3=\frac{538\times{5\Delta{t}}}{801\Delta{t}}\approx{3.36}<br>$$</p><p>吞吐率和加速比是没有静态调度时的$\frac{1076}{801}\approx{1.34}$倍。</p></li></ul><h3 id="6、对优化后的程序使用定向功能执行，与刚才执行结果进行比较，观察执行效率的不同。"><a href="#6、对优化后的程序使用定向功能执行，与刚才执行结果进行比较，观察执行效率的不同。" class="headerlink" title="6、对优化后的程序使用定向功能执行，与刚才执行结果进行比较，观察执行效率的不同。"></a>6、对优化后的程序使用定向功能执行，与刚才执行结果进行比较，观察执行效率的不同。</h3><ul><li><p>内存中的数组</p><img src="https://gitee.com/wxy_666/images/raw/master/20200514205458.jpg" alt="2020-05-14_205419" style="zoom:80%;"><p>结果正确。</p></li><li><p>部分时钟周期图</p><img src="https://gitee.com/wxy_666/images/raw/master/20200514212858.jpg" alt="2020-05-14_211701" style="zoom:80%;"><p>在使用静态调度和定向技术后，发现所有的RAW停顿几乎没有了，几乎只剩下了控制停顿。</p></li><li><p>统计</p><img src="https://gitee.com/wxy_666/images/raw/master/20200514212914.jpg" alt="2020-05-14_211714" style="zoom:80%;"><p>发现RAW停顿有10个周期，停顿周期数比没有静态调度和定向技术时的417个少了非常多；</p><p>共执行了669个周期，比没有静态调度和定向技术时的1076个也少了非常多；</p><p>RAW停顿占周期总数的百分比为1.494768%，较没有静态调度和定向技术时的38.75465%也减少了非常多；</p><p>所有的停顿为130个周期，占周期总数的百分比为19.43199%，较没有静态调度和定向技术时的49.90706%也减少了很多；</p><p>$$<br>吞吐率TP_4=\frac{538}{669\Delta{t}}<br>$$</p><p>$$<br>加速比S_4=\frac{538\times{5\Delta{t}}}{669\Delta{t}}\approx{4.02}<br>$$</p><p>吞吐率和加速比是没有静态调度和定向技术时的$\frac{1076}{669}\approx{1.61}$倍。</p></li></ul><h2 id="四、实验遇到的问题"><a href="#四、实验遇到的问题" class="headerlink" title="四、实验遇到的问题"></a>四、实验遇到的问题</h2><p>​        本次实验中遇到了一个问题，如果main到下一个标签（比如loop1）只有一行汇编代码，在载入程序时，loop1的基地址就会和main重合，变为0x00000000，这样就导致loop1被覆盖，使载入的程序与自己编写的汇编程序不符，产生错误或者结果出错。但是如果&gt;=2行汇编代码就不会有问题，我怀疑是MIPSsim程序的bug。</p><h2 id="五、附录"><a href="#五、附录" class="headerlink" title="五、附录"></a>五、附录</h2><h3 id="1、初始的汇编代码"><a href="#1、初始的汇编代码" class="headerlink" title="1、初始的汇编代码"></a>1、初始的汇编代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">.text</span><br><span class="line">main:</span><br><span class="line">ADDIU $r1, $r0, 11# 数组长度n&#x3D;11</span><br><span class="line">ADDIU $r2, $r1, -1# 外循环i&#x3D;n-1&#x3D;10</span><br><span class="line"></span><br><span class="line">loop1:</span><br><span class="line">ADDIU $r3, $r0, array# 数组起始地址</span><br><span class="line">ADDIU $r4, $r0, 0# 内循环j&#x3D;0</span><br><span class="line"></span><br><span class="line">loop2:</span><br><span class="line">LW $r5, 0($r3)# a[j]</span><br><span class="line">LW $r6, 4($r3)# a[j+1]</span><br><span class="line">DSUB $r7, $r6, $r5# a[j+1]-a[j]</span><br><span class="line">BGTZ $r7, pass# a[j+1]&gt;a[j]，不交换，跳到pass；</span><br><span class="line"></span><br><span class="line">SW $r6, 0($r3)# a[j+1]&lt;a[j]，交换</span><br><span class="line">SW $r5, 4($r3)</span><br><span class="line"></span><br><span class="line">pass:</span><br><span class="line">ADDIU $r4, $r4, 1# j++</span><br><span class="line">ADDIU $r3, $r3, 4# 取数组的下一个元素</span><br><span class="line">DSUB $r8, $r2, $r4# i-j</span><br><span class="line">BGTZ $r8, loop2# i&gt;j，跳转到loop2，继续内循环</span><br><span class="line"></span><br><span class="line">ADDIU $r2, $r2, -1# i--</span><br><span class="line">BGTZ $r2, loop1# i&gt;0，跳转到loop1，继续外循环</span><br><span class="line"></span><br><span class="line">TEQ $r0, $r0</span><br><span class="line"></span><br><span class="line">.data</span><br><span class="line">array: .word 5,4,11,3,7,1,10,6,8,9,2</span><br></pre></td></tr></table></figure><h3 id="2、经过静态调度后的汇编代码"><a href="#2、经过静态调度后的汇编代码" class="headerlink" title="2、经过静态调度后的汇编代码"></a>2、经过静态调度后的汇编代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">.text</span><br><span class="line">main:</span><br><span class="line">ADDIU $r1, $r0, 11# 数组长度n&#x3D;11</span><br><span class="line">ADDIU $r2, $r1, -1# 外循环i&#x3D;n-1&#x3D;10</span><br><span class="line"></span><br><span class="line">loop1:</span><br><span class="line">ADDIU $r3, $r0, array# 数组起始地址</span><br><span class="line">ADDIU $r4, $r0, 0# 内循环j&#x3D;0</span><br><span class="line"></span><br><span class="line">loop2:</span><br><span class="line">LW $r5, 0($r3)# a[j]</span><br><span class="line">LW $r6, 4($r3)# a[j+1]</span><br><span class="line">ADDIU $r4, $r4, 1# j++</span><br><span class="line">DSUB $r7, $r6, $r5# a[j+1]-a[j]</span><br><span class="line">DSUB $r8, $r2, $r4# i-j</span><br><span class="line">BGTZ $r7, pass# a[j+1]&gt;a[j]，不交换，跳到pass；</span><br><span class="line"></span><br><span class="line">SW $r6, 0($r3)# a[j+1]&lt;a[j]，交换</span><br><span class="line">SW $r5, 4($r3)</span><br><span class="line"></span><br><span class="line">pass:</span><br><span class="line">ADDIU $r3, $r3, 4# 取数组的下一个元素</span><br><span class="line">BGTZ $r8, loop2# i&gt;j，跳转到loop2，继续内循环</span><br><span class="line"></span><br><span class="line">ADDIU $r2, $r2, -1# i--</span><br><span class="line">BGTZ $r2, loop1# i&gt;0，跳转到loop1，继续外循环</span><br><span class="line"></span><br><span class="line">TEQ $r0, $r0</span><br><span class="line"></span><br><span class="line">.data</span><br><span class="line">array: .word 5,4,11,3,7,1,10,6,8,9,2</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> 计算机系统结构 </category>
-          
-          <category> 实验 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 实验 </tag>
-            
-            <tag> 计算机系统结构 </tag>
-            
-            <tag> 汇编 </tag>
-            
-            <tag> MIPS </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>计算机系统结构 实验 使用MIPS指令实现求两个数组的点积</title>
       <link href="/2020/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-%E4%BD%BF%E7%94%A8MIPS%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E6%B1%82%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E7%82%B9%E7%A7%AF/"/>
       <url>/2020/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-%E4%BD%BF%E7%94%A8MIPS%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E6%B1%82%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E7%82%B9%E7%A7%AF/</url>
@@ -171,31 +138,31 @@
     
     
     <entry>
-      <title>杂项工程项目集锦</title>
-      <link href="/2020/07/15/%E6%9D%82%E9%A1%B9%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE%E9%9B%86%E9%94%A6/"/>
-      <url>/2020/07/15/%E6%9D%82%E9%A1%B9%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE%E9%9B%86%E9%94%A6/</url>
+      <title>计算机系统结构 实验 使用MIPS指令实现冒泡排序法</title>
+      <link href="/2020/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-%E4%BD%BF%E7%94%A8MIPS%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%B3%95/"/>
+      <url>/2020/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-%E4%BD%BF%E7%94%A8MIPS%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%B3%95/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>本文是一些我曾经写过的项目工程集锦。</strong></p><a id="more"></a><p>这些项目的源码、可执行程序、报告等已经存放于我的Github，欢迎下载查看：</p><h2 id="1、Python爬虫、数据处理、数据分析、数据可视化"><a href="#1、Python爬虫、数据处理、数据分析、数据可视化" class="headerlink" title="1、Python爬虫、数据处理、数据分析、数据可视化"></a>1、Python爬虫、数据处理、数据分析、数据可视化</h2><div class="btns rounded center grid3">            <a class="button" href="https://github.com/666WXY666/MiscellaneousProjects/tree/master/Python/%E5%AD%A6%E6%A0%A1%E5%92%8C%E6%88%BF%E4%BB%B7%E7%88%AC%E8%99%AB%E5%B0%8F%E9%A1%B9%E7%9B%AE" target="_blank" rel="external nofollow noopener noreferrer" title="学校和房价爬虫小项目"><i class="fas fa-download"></i>学校和房价爬虫小项目</a><a class="button" href="https://github.com/666WXY666/MiscellaneousProjects/tree/master/Python/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%E5%B0%8F%E9%A1%B9%E7%9B%AE" target="_blank" rel="external nofollow noopener noreferrer" title="数据预处理小项目"><i class="fas fa-download"></i>数据预处理小项目</a><a class="button" href="https://github.com/666WXY666/MiscellaneousProjects/tree/master/Python/%E6%88%BF%E4%BB%B7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E9%A1%B9%E7%9B%AE" target="_blank" rel="external nofollow noopener noreferrer" title="房价数据分析小项目"><i class="fas fa-download"></i>房价数据分析小项目</a><a class="button" href="https://github.com/666WXY666/MiscellaneousProjects/tree/master/Python/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B0%8F%E9%A1%B9%E7%9B%AE" target="_blank" rel="external nofollow noopener noreferrer" title="数据可视化小项目"><i class="fas fa-download"></i>数据可视化小项目</a><a class="button" href="https://github.com/666WXY666/MiscellaneousProjects/tree/master/Python/%E4%BA%AC%E4%B8%9C%E6%B7%98%E5%AE%9D%E6%89%8B%E6%9C%BA%E7%88%AC%E8%99%AB%E5%88%86%E6%9E%90%E9%A1%B9%E7%9B%AE" target="_blank" rel="external nofollow noopener noreferrer" title="京东淘宝手机爬虫分析项目"><i class="fas fa-download"></i>京东淘宝手机爬虫分析项目</a>          </div>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文是关于计算机系统结构实验四，使用MIPS指令实现冒泡排序法。</p><a id="more"></a><h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><ol><li>掌握静态调度方法</li><li>增强汇编语言编程能力</li><li>学会使用模拟器中的定向功能进行优化</li></ol><h2 id="二、实验原理"><a href="#二、实验原理" class="headerlink" title="二、实验原理"></a>二、实验原理</h2><p>​        通过编写MIPS汇编程序，实现冒泡排序的功能。在模拟器MIPSsim上执行所写的汇编程序，查看结果，判断所写的汇编程序是否正确。然后观察时钟周期图窗口的执行过程和冲突的指令，查看统计窗口的信息，来判断定向前后和优化前后的执行效率高低。</p><h2 id="三、实验步骤及结果分析"><a href="#三、实验步骤及结果分析" class="headerlink" title="三、实验步骤及结果分析"></a>三、实验步骤及结果分析</h2><h3 id="1、自行编写一个实现冒泡排序的汇编程序，该程序要求可以实现对一维整数数组进行冒泡排序。"><a href="#1、自行编写一个实现冒泡排序的汇编程序，该程序要求可以实现对一维整数数组进行冒泡排序。" class="headerlink" title="1、自行编写一个实现冒泡排序的汇编程序，该程序要求可以实现对一维整数数组进行冒泡排序。"></a>1、自行编写一个实现冒泡排序的汇编程序，该程序要求可以实现对一维整数数组进行冒泡排序。</h3><p>冒泡排序算法的运作如下：</p><ol><li>比较相邻的元素。如果第一个比第二个大，就交换他们两个。</li><li>对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点， 最后的元素应该会是最大的数。</li><li>针对所有的元素重复以上的步骤，除了最后一个。</li><li>持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</li></ol><p>要求数组长度不得小于10</p><p><strong><em>PS：汇编程序见附录。</em></strong></p><h3 id="2、启动-MIPSsim。"><a href="#2、启动-MIPSsim。" class="headerlink" title="2、启动 MIPSsim。"></a>2、启动 MIPSsim。</h3><img src="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" alt="2020-05-07_175631" style="zoom: 50%;"><h3 id="3、载入自己编写的程序，观察流水线输出结果。"><a href="#3、载入自己编写的程序，观察流水线输出结果。" class="headerlink" title="3、载入自己编写的程序，观察流水线输出结果。"></a>3、载入自己编写的程序，观察流水线输出结果。</h3><p>载入的代码：</p><img src="https://gitee.com/wxy_666/images/raw/master/20200514192648.jpg" alt="2020-05-14_192636" style="zoom:80%;"><p>执行结果：</p><ul><li><p>内存中的数组</p><img src="https://gitee.com/wxy_666/images/raw/master/20200514192757.jpg" alt="2020-05-14_192747" style="zoom:80%;"><p>原数组是{5,4,11,3,7,1,10,6,8,9,2}，排序后是{1,2,3,4,5,6,7,8,9,10,11}，结果符合预期，说明编写的汇编程序正确。</p></li><li><p>部分时钟周期图</p><img src="https://gitee.com/wxy_666/images/raw/master/20200514211749.jpg" alt="2020-05-14_193022" style="zoom:80%;"><p>可以看到有非常多的停顿，主要是DSUB命令与BGTZ命令的RAW停顿，还有一些控制停顿。</p></li><li><p>统计</p><img src="https://gitee.com/wxy_666/images/raw/master/20200514211802.jpg" alt="2020-05-14_193232" style="zoom:80%;"><p>发现RAW停顿有417个周期，停顿次数非常多，可以进行优化。共执行了1076个周期，RAW停顿占周期总数的百分比为38.75465%，所有的停顿为537个周期，占周期总数的百分比为49.90706%，效率很低。<br>$$<br>吞吐率TP_1=\frac{538}{1076\Delta{t}}<br>$$</p><p>$$<br>加速比S_1=\frac{538\times{5\Delta{t}}}{1076\Delta{t}}={2.5}<br>$$</p></li></ul><h3 id="4、使用定向功能再次执行代码，与刚才执行结果进行比较，观察执行效率的不同。"><a href="#4、使用定向功能再次执行代码，与刚才执行结果进行比较，观察执行效率的不同。" class="headerlink" title="4、使用定向功能再次执行代码，与刚才执行结果进行比较，观察执行效率的不同。"></a>4、使用定向功能再次执行代码，与刚才执行结果进行比较，观察执行效率的不同。</h3><ul><li><p>内存中的数组</p><img src="https://gitee.com/wxy_666/images/raw/master/20200514193632.jpg" alt="2020-05-14_193627" style="zoom:80%;"><p>结果正确。</p></li><li><p>部分时钟周期图</p><img src="https://gitee.com/wxy_666/images/raw/master/20200514211946.jpg" alt="2020-05-14_193708" style="zoom:80%;"><p>在使用定向技术后，发现停顿明显减少。</p></li><li><p>统计</p><img src="https://gitee.com/wxy_666/images/raw/master/20200514211954.jpg" alt="2020-05-14_194050" style="zoom:80%;"><p>发现RAW停顿有175个周期，停顿周期数比没有定向技术时的417个少了很多；</p><p>共执行了834个周期，比没有定向技术时的1076个也少了很多；</p><p>RAW停顿占周期总数的百分比为20.98321%，较没有定向技术时的38.75465%也减少了很多；</p><p>所有的停顿为295个周期，占周期总数的百分比为35.3717%，较没有定向技术时的49.90706%也减少了很多；</p><p>$$<br>吞吐率TP_2=\frac{538}{834\Delta{t}}<br>$$</p><p>$$<br>加速比S_2=\frac{538\times{5\Delta{t}}}{834\Delta{t}}\approx{3.23}<br>$$<br>吞吐率和加速比是没有定向技术时的$\frac{1076}{834}\approx{1.29}$倍。</p></li></ul><h3 id="5、采用静态调度方法重排指令序列，减少相关，优化程序"><a href="#5、采用静态调度方法重排指令序列，减少相关，优化程序" class="headerlink" title="5、采用静态调度方法重排指令序列，减少相关，优化程序"></a>5、采用静态调度方法重排指令序列，减少相关，优化程序</h3><p>因为主要是DSUB命令与BGTZ命令的RAW停顿，分支指令的操作数需要用到前面的结果，因此将后面pass中执行的<code>ADDIU $r4, $r4, 1</code>和<code>DSUB $r8, $r2, $r4</code>拿到loop2中执行，从而减少RAW停顿。</p><p><strong><em>PS：静态调度后的汇编程序见附录。</em></strong></p><ul><li><p>载入代码</p><img src="https://gitee.com/wxy_666/images/raw/master/20200514205322.jpg" alt="2020-05-14_205303" style="zoom:80%;"></li><li><p>内存中的数组</p><img src="https://gitee.com/wxy_666/images/raw/master/20200514205458.jpg" alt="2020-05-14_205419" style="zoom:80%;"><p>结果正确。</p></li><li><p>部分时钟周期图</p><img src="https://gitee.com/wxy_666/images/raw/master/20200514212233.jpg" alt="2020-05-14_211607" style="zoom:80%;"><p>在使用静态调度后，发现停顿少了很多。</p></li><li><p>统计</p><img src="https://gitee.com/wxy_666/images/raw/master/20200514212255.jpg" alt="2020-05-14_211624" style="zoom:80%;"><p>发现RAW停顿有142个周期，停顿周期数比没有静态调度时的417个少了很多；</p><p>共执行了801个周期，比没有静态调度时的1076个也少了很多；</p><p>RAW停顿占周期总数的百分比为17.72784%，较没有静态调度时的38.75465%也减少了很多；</p><p>所有的停顿为262个周期，占周期总数的百分比为32.70911%，较没有静态调度时的49.90706%也减少了很多；</p><p>$$<br>吞吐率TP_3=\frac{538}{801\Delta{t}}<br>$$</p><p>$$<br>加速比S_3=\frac{538\times{5\Delta{t}}}{801\Delta{t}}\approx{3.36}<br>$$</p><p>吞吐率和加速比是没有静态调度时的$\frac{1076}{801}\approx{1.34}$倍。</p></li></ul><h3 id="6、对优化后的程序使用定向功能执行，与刚才执行结果进行比较，观察执行效率的不同。"><a href="#6、对优化后的程序使用定向功能执行，与刚才执行结果进行比较，观察执行效率的不同。" class="headerlink" title="6、对优化后的程序使用定向功能执行，与刚才执行结果进行比较，观察执行效率的不同。"></a>6、对优化后的程序使用定向功能执行，与刚才执行结果进行比较，观察执行效率的不同。</h3><ul><li><p>内存中的数组</p><img src="https://gitee.com/wxy_666/images/raw/master/20200514205458.jpg" alt="2020-05-14_205419" style="zoom:80%;"><p>结果正确。</p></li><li><p>部分时钟周期图</p><img src="https://gitee.com/wxy_666/images/raw/master/20200514212858.jpg" alt="2020-05-14_211701" style="zoom:80%;"><p>在使用静态调度和定向技术后，发现所有的RAW停顿几乎没有了，几乎只剩下了控制停顿。</p></li><li><p>统计</p><img src="https://gitee.com/wxy_666/images/raw/master/20200514212914.jpg" alt="2020-05-14_211714" style="zoom:80%;"><p>发现RAW停顿有10个周期，停顿周期数比没有静态调度和定向技术时的417个少了非常多；</p><p>共执行了669个周期，比没有静态调度和定向技术时的1076个也少了非常多；</p><p>RAW停顿占周期总数的百分比为1.494768%，较没有静态调度和定向技术时的38.75465%也减少了非常多；</p><p>所有的停顿为130个周期，占周期总数的百分比为19.43199%，较没有静态调度和定向技术时的49.90706%也减少了很多；</p><p>$$<br>吞吐率TP_4=\frac{538}{669\Delta{t}}<br>$$</p><p>$$<br>加速比S_4=\frac{538\times{5\Delta{t}}}{669\Delta{t}}\approx{4.02}<br>$$</p><p>吞吐率和加速比是没有静态调度和定向技术时的$\frac{1076}{669}\approx{1.61}$倍。</p></li></ul><h2 id="四、实验遇到的问题"><a href="#四、实验遇到的问题" class="headerlink" title="四、实验遇到的问题"></a>四、实验遇到的问题</h2><p>​        本次实验中遇到了一个问题，如果main到下一个标签（比如loop1）只有一行汇编代码，在载入程序时，loop1的基地址就会和main重合，变为0x00000000，这样就导致loop1被覆盖，使载入的程序与自己编写的汇编程序不符，产生错误或者结果出错。但是如果&gt;=2行汇编代码就不会有问题，我怀疑是MIPSsim程序的bug。</p><h2 id="五、附录"><a href="#五、附录" class="headerlink" title="五、附录"></a>五、附录</h2><h3 id="1、初始的汇编代码"><a href="#1、初始的汇编代码" class="headerlink" title="1、初始的汇编代码"></a>1、初始的汇编代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">.text</span><br><span class="line">main:</span><br><span class="line">ADDIU $r1, $r0, 11# 数组长度n&#x3D;11</span><br><span class="line">ADDIU $r2, $r1, -1# 外循环i&#x3D;n-1&#x3D;10</span><br><span class="line"></span><br><span class="line">loop1:</span><br><span class="line">ADDIU $r3, $r0, array# 数组起始地址</span><br><span class="line">ADDIU $r4, $r0, 0# 内循环j&#x3D;0</span><br><span class="line"></span><br><span class="line">loop2:</span><br><span class="line">LW $r5, 0($r3)# a[j]</span><br><span class="line">LW $r6, 4($r3)# a[j+1]</span><br><span class="line">DSUB $r7, $r6, $r5# a[j+1]-a[j]</span><br><span class="line">BGTZ $r7, pass# a[j+1]&gt;a[j]，不交换，跳到pass；</span><br><span class="line"></span><br><span class="line">SW $r6, 0($r3)# a[j+1]&lt;a[j]，交换</span><br><span class="line">SW $r5, 4($r3)</span><br><span class="line"></span><br><span class="line">pass:</span><br><span class="line">ADDIU $r4, $r4, 1# j++</span><br><span class="line">ADDIU $r3, $r3, 4# 取数组的下一个元素</span><br><span class="line">DSUB $r8, $r2, $r4# i-j</span><br><span class="line">BGTZ $r8, loop2# i&gt;j，跳转到loop2，继续内循环</span><br><span class="line"></span><br><span class="line">ADDIU $r2, $r2, -1# i--</span><br><span class="line">BGTZ $r2, loop1# i&gt;0，跳转到loop1，继续外循环</span><br><span class="line"></span><br><span class="line">TEQ $r0, $r0</span><br><span class="line"></span><br><span class="line">.data</span><br><span class="line">array: .word 5,4,11,3,7,1,10,6,8,9,2</span><br></pre></td></tr></table></figure><h3 id="2、经过静态调度后的汇编代码"><a href="#2、经过静态调度后的汇编代码" class="headerlink" title="2、经过静态调度后的汇编代码"></a>2、经过静态调度后的汇编代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">.text</span><br><span class="line">main:</span><br><span class="line">ADDIU $r1, $r0, 11# 数组长度n&#x3D;11</span><br><span class="line">ADDIU $r2, $r1, -1# 外循环i&#x3D;n-1&#x3D;10</span><br><span class="line"></span><br><span class="line">loop1:</span><br><span class="line">ADDIU $r3, $r0, array# 数组起始地址</span><br><span class="line">ADDIU $r4, $r0, 0# 内循环j&#x3D;0</span><br><span class="line"></span><br><span class="line">loop2:</span><br><span class="line">LW $r5, 0($r3)# a[j]</span><br><span class="line">LW $r6, 4($r3)# a[j+1]</span><br><span class="line">ADDIU $r4, $r4, 1# j++</span><br><span class="line">DSUB $r7, $r6, $r5# a[j+1]-a[j]</span><br><span class="line">DSUB $r8, $r2, $r4# i-j</span><br><span class="line">BGTZ $r7, pass# a[j+1]&gt;a[j]，不交换，跳到pass；</span><br><span class="line"></span><br><span class="line">SW $r6, 0($r3)# a[j+1]&lt;a[j]，交换</span><br><span class="line">SW $r5, 4($r3)</span><br><span class="line"></span><br><span class="line">pass:</span><br><span class="line">ADDIU $r3, $r3, 4# 取数组的下一个元素</span><br><span class="line">BGTZ $r8, loop2# i&gt;j，跳转到loop2，继续内循环</span><br><span class="line"></span><br><span class="line">ADDIU $r2, $r2, -1# i--</span><br><span class="line">BGTZ $r2, loop1# i&gt;0，跳转到loop1，继续外循环</span><br><span class="line"></span><br><span class="line">TEQ $r0, $r0</span><br><span class="line"></span><br><span class="line">.data</span><br><span class="line">array: .word 5,4,11,3,7,1,10,6,8,9,2</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
           
-          <category> 杂项 </category>
+          <category> 计算机系统结构 </category>
+          
+          <category> 实验 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> C++ </tag>
+            <tag> 实验 </tag>
             
-            <tag> 工程 </tag>
+            <tag> 计算机系统结构 </tag>
             
-            <tag> C </tag>
+            <tag> 汇编 </tag>
             
-            <tag> Python </tag>
-            
-            <tag> 项目 </tag>
+            <tag> MIPS </tag>
             
         </tags>
       
@@ -239,35 +206,31 @@
     
     
     <entry>
-      <title>机器学习 实验 花卉识别</title>
-      <link href="/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-%E8%8A%B1%E5%8D%89%E8%AF%86%E5%88%AB/"/>
-      <url>/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-%E8%8A%B1%E5%8D%89%E8%AF%86%E5%88%AB/</url>
+      <title>杂项工程项目集锦</title>
+      <link href="/2020/07/15/%E6%9D%82%E9%A1%B9%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE%E9%9B%86%E9%94%A6/"/>
+      <url>/2020/07/15/%E6%9D%82%E9%A1%B9%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE%E9%9B%86%E9%94%A6/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>本文是机器学习人工智能实验，利用华为云ModelArts平台实现花卉分类识别。</strong></p><a id="more"></a><h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><p>通过该实验，实现以下目标</p><ul><li>熟悉ModelArts平台，能够调用平台的简单物体识别算法进行物体检测；</li><li>熟悉ModelArts平台特征提取方法，提取数据集的视觉特征；</li><li>熟悉ModelArts的神经网络架构，改进架构算法，进行目标检测算法的设计与实现。</li><li>学会评价检测算法的基本方法，对所设计的算法进行评估。</li></ul><h2 id="二、实验环境"><a href="#二、实验环境" class="headerlink" title="二、实验环境"></a>二、实验环境</h2><p>ModelArts平台</p><h2 id="三、实验内容"><a href="#三、实验内容" class="headerlink" title="三、实验内容"></a>三、实验内容</h2><img src="https://gitee.com/wxy_666/images/raw/master/20200715111020.png" alt="1" style="zoom:80%;"><h2 id="四、实验步骤"><a href="#四、实验步骤" class="headerlink" title="四、实验步骤"></a>四、实验步骤</h2><p>由于时间久远，详细内容请前往Github项目查看实验报告。</p><h2 id="五、项目地址"><a href="#五、项目地址" class="headerlink" title="五、项目地址"></a>五、项目地址</h2><p>本项目的实验报告已经存放于我的Github，欢迎下载查看：</p><div class="btns rounded center grid1">            <a class="button" href="https://github.com/666WXY666/MiscellaneousProjects/tree/master/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-%E8%8A%B1%E5%8D%89%E8%AF%86%E5%88%AB" target="_blank" rel="external nofollow noopener noreferrer" title="源码仓库"><i class="fas fa-download"></i>源码仓库</a>          </div>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>本文是一些我曾经写过的项目工程集锦。</strong></p><a id="more"></a><p>这些项目的源码、可执行程序、报告等已经存放于我的Github，欢迎下载查看：</p><h2 id="1、Python爬虫、数据处理、数据分析、数据可视化"><a href="#1、Python爬虫、数据处理、数据分析、数据可视化" class="headerlink" title="1、Python爬虫、数据处理、数据分析、数据可视化"></a>1、Python爬虫、数据处理、数据分析、数据可视化</h2><div class="btns rounded center grid3">            <a class="button" href="https://github.com/666WXY666/MiscellaneousProjects/tree/master/Python/%E5%AD%A6%E6%A0%A1%E5%92%8C%E6%88%BF%E4%BB%B7%E7%88%AC%E8%99%AB%E5%B0%8F%E9%A1%B9%E7%9B%AE" target="_blank" rel="external nofollow noopener noreferrer" title="学校和房价爬虫小项目"><i class="fas fa-download"></i>学校和房价爬虫小项目</a><a class="button" href="https://github.com/666WXY666/MiscellaneousProjects/tree/master/Python/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%E5%B0%8F%E9%A1%B9%E7%9B%AE" target="_blank" rel="external nofollow noopener noreferrer" title="数据预处理小项目"><i class="fas fa-download"></i>数据预处理小项目</a><a class="button" href="https://github.com/666WXY666/MiscellaneousProjects/tree/master/Python/%E6%88%BF%E4%BB%B7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E9%A1%B9%E7%9B%AE" target="_blank" rel="external nofollow noopener noreferrer" title="房价数据分析小项目"><i class="fas fa-download"></i>房价数据分析小项目</a><a class="button" href="https://github.com/666WXY666/MiscellaneousProjects/tree/master/Python/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B0%8F%E9%A1%B9%E7%9B%AE" target="_blank" rel="external nofollow noopener noreferrer" title="数据可视化小项目"><i class="fas fa-download"></i>数据可视化小项目</a><a class="button" href="https://github.com/666WXY666/MiscellaneousProjects/tree/master/Python/%E4%BA%AC%E4%B8%9C%E6%B7%98%E5%AE%9D%E6%89%8B%E6%9C%BA%E7%88%AC%E8%99%AB%E5%88%86%E6%9E%90%E9%A1%B9%E7%9B%AE" target="_blank" rel="external nofollow noopener noreferrer" title="京东淘宝手机爬虫分析项目"><i class="fas fa-download"></i>京东淘宝手机爬虫分析项目</a>          </div>]]></content>
       
       
       <categories>
           
-          <category> 机器学习 </category>
-          
-          <category> 实验 </category>
+          <category> 杂项 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 机器学习 </tag>
+            <tag> C++ </tag>
             
-            <tag> 实验 </tag>
+            <tag> 工程 </tag>
             
-            <tag> 华为云 </tag>
+            <tag> C </tag>
             
-            <tag> 人工智能 </tag>
+            <tag> Python </tag>
             
-            <tag> AI </tag>
-            
-            <tag> 分类 </tag>
+            <tag> 项目 </tag>
             
         </tags>
       
@@ -334,6 +297,43 @@
             <tag> 知识 </tag>
             
             <tag> 条件熵 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>机器学习 实验 花卉识别</title>
+      <link href="/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-%E8%8A%B1%E5%8D%89%E8%AF%86%E5%88%AB/"/>
+      <url>/2020/07/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-%E8%8A%B1%E5%8D%89%E8%AF%86%E5%88%AB/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>本文是机器学习人工智能实验，利用华为云ModelArts平台实现花卉分类识别。</strong></p><a id="more"></a><h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><p>通过该实验，实现以下目标</p><ul><li>熟悉ModelArts平台，能够调用平台的简单物体识别算法进行物体检测；</li><li>熟悉ModelArts平台特征提取方法，提取数据集的视觉特征；</li><li>熟悉ModelArts的神经网络架构，改进架构算法，进行目标检测算法的设计与实现。</li><li>学会评价检测算法的基本方法，对所设计的算法进行评估。</li></ul><h2 id="二、实验环境"><a href="#二、实验环境" class="headerlink" title="二、实验环境"></a>二、实验环境</h2><p>ModelArts平台</p><h2 id="三、实验内容"><a href="#三、实验内容" class="headerlink" title="三、实验内容"></a>三、实验内容</h2><img src="https://gitee.com/wxy_666/images/raw/master/20200715111020.png" alt="1" style="zoom:80%;"><h2 id="四、实验步骤"><a href="#四、实验步骤" class="headerlink" title="四、实验步骤"></a>四、实验步骤</h2><p>由于时间久远，详细内容请前往Github项目查看实验报告。</p><h2 id="五、项目地址"><a href="#五、项目地址" class="headerlink" title="五、项目地址"></a>五、项目地址</h2><p>本项目的实验报告已经存放于我的Github，欢迎下载查看：</p><div class="btns rounded center grid1">            <a class="button" href="https://github.com/666WXY666/MiscellaneousProjects/tree/master/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-%E8%8A%B1%E5%8D%89%E8%AF%86%E5%88%AB" target="_blank" rel="external nofollow noopener noreferrer" title="源码仓库"><i class="fas fa-download"></i>源码仓库</a>          </div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 机器学习 </category>
+          
+          <category> 实验 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 机器学习 </tag>
+            
+            <tag> 实验 </tag>
+            
+            <tag> 华为云 </tag>
+            
+            <tag> 人工智能 </tag>
+            
+            <tag> AI </tag>
+            
+            <tag> 分类 </tag>
             
         </tags>
       
@@ -687,9 +687,9 @@
             
             <tag> 实战 </tag>
             
-            <tag> Python </tag>
-            
             <tag> 大数据 </tag>
+            
+            <tag> Python </tag>
             
             <tag> 可视化 </tag>
             
