@@ -155,7 +155,7 @@ window.addEventListener("load", () => {
 	"use strict";
 
 	if (!CSS.supports("clip-path", "circle(120px at center)") && !CSS.supports("-webkit-clip-path", "circle(120px at center)")) {
-		document.getElementById("stage").innerHTML = '<img src="../assets/screenshot-1.png">';
+		document.getElementById("stage").innerHTML = '<img src="../assets/screenshot-1.png" class="lazyload" data-srcset="../assets/screenshot-1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">';
 		return;
 	}
 

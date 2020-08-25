@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/3.0.0">
+<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.0.0-beta.2">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -71,19 +71,17 @@
 <link rel="stylesheet" href="/css/style.css">
 
   
-
   
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script>
 	setTimeout(function() {
-	  let script = document.createElement('script');
-	  script.src = "https://www.googletagmanager.com/gtag/js?id=UA-162450234-2";
-	  script.defer=true;
-	  document.body.appendChild(script);
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-162450234-2');
+  	  window.ga_tid = 'UA-162450234-2';
+ 	   (function() {
+ 	     var dga = document.createElement("script");
+ 	     dga.src = "https://rmt.dogedoge.com/fetch/public/ga.js";
+	      var s = document.getElementsByTagName("script")[0];
+	      s.parentNode.insertBefore(dga, s);
+	  })();
 	}, 5000);
     </script>
   
@@ -105,7 +103,7 @@
 </head>
 
 <body>
-  <header class="l_header auto shadow blur" style="opacity: 0">
+  <header class="l_header auto shadow floatable blur" style="opacity: 0">
   <div class="container">
   <div class="wrapper">
     <div class="nav-sub">
@@ -676,7 +674,7 @@
   
 
   
-    <article id="page" class="post white-box reveal md shadow article-type-page" itemscope itemprop="blogPost">
+    <article id="page" class="post white-box reveal md shadow floatable article-type-page" itemscope itemprop="blogPost">
       
 
 
@@ -784,31 +782,13 @@
       
         
           
-  <div class="new-meta-item wordcount">
-    <a class="notlink">
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：87字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class="notlink">
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：1分钟</p>
-    </a>
-  </div>
-
-
-        
-      
-        
-          
   <div class="new-meta-item share -mob-share-list">
   <div class="-mob-share-list share-body">
     
       
         <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://666wxy666.github.io/about/index.html&title=关于 - 苇名一心的博客&summary=" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/qq.png">
+            <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -816,7 +796,7 @@
       
         <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://666wxy666.github.io/about/index.html&title=关于 - 苇名一心的博客&summary=" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/qzone.png">
+            <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -824,7 +804,7 @@
       
         <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://666wxy666.github.io/about/index.html&title=关于 - 苇名一心的博客&summary=" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/weibo.png">
+            <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -849,7 +829,7 @@
   
     
 
-  <article class="post white-box reveal comments shadow">
+  <article class="post white-box reveal comments shadow floatable">
     <section class="article typo">
       <p ct><i class="fas fa-comments"></i> 评论</p>
       
@@ -875,10 +855,6 @@
 <aside class="l_side">
   
   
-    
-    
-
-  
 
   
     
@@ -886,7 +862,7 @@
 
 
 
-  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div">
+  <section class="widget toc-wrapper shadow floatable desktop mobile" id="toc-div">
     
   <header>
     
@@ -911,7 +887,7 @@
       </div>
       
   
-  <footer class="clearfix">
+  <footer class="footer clearfix">
     <br><br>
     
       
@@ -933,36 +909,43 @@
           
             
               <a href="/atom.xml" class="social fas fa-rss flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
               </a>
             
           
             
               <a href="mailto:1293739194@qq.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
               </a>
             
           
             
               <a href="https://github.com/666WXY666/" class="social fab fa-github flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
               </a>
             
           
             
               <a href="https://gitee.com/wxy_666" class="social fab fa-git-alt flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
               </a>
             
           
             
               <a href="https://space.bilibili.com/7429248" class="social fas fa-bold flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
               </a>
             
           
             
               <a href="https://www.zhihu.com/people/666wxy666" class="social fab fa-zhihu flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
               </a>
             
           
             
               <a href="https://music.163.com/#/user/home?id=74040689" class="social fas fa-headphones-alt flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
               </a>
             
           
@@ -1330,9 +1313,46 @@
 
 
 
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
 
 
-  <script async src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+
+<script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
 
 
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
@@ -1359,6 +1379,13 @@
       $(span).addClass("image-caption");
       $(span).text(caption); // 加描述
       $(this).after(span);  // 再套一层描述
+      // 背景层
+      var bgDiv = document.createElement("div");
+      $(bgDiv).addClass("bg");
+      if ($(this).attr('bg')) {
+        $(bgDiv).css('background', $(this).attr('bg'));
+      }
+      $(this).wrap(bgDiv); // 背景层
       $(this).wrap(element);  // 最后套 a 标签
     })
     $(".article-entry").find("img").fancybox({
@@ -1393,6 +1420,7 @@
         timelag = window.setTimeout(callback, seconds)
     }
     function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
         var copyHtml = '';
         copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
         copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
@@ -1516,6 +1544,7 @@
   }
 
   function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
     let pageUrl = $.trim($('#pjax-comment-path').text()) === "none" ? 
       decodeURI(window.location.pathname) : $.trim($('#pjax-comment-path').text());
     let pagePlaceholder = $.trim($('#pjax-comment-placeholder').text()) === "none" ?
@@ -1551,6 +1580,89 @@
 </script>
 
 
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5/lib/darkmode-js.min.js" aysc></script>
+
+<script type="text/javascript">
+function getClientHeight(){
+  var clientHeight=0;
+  if(document.body.clientHeight&&document.documentElement.clientHeight){
+  var clientHeight = (document.body.clientHeight<document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
+  }else{
+  var clientHeight = (document.body.clientHeight>document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
+  }
+  return clientHeight;
+}
+function supportCss3(style) {
+  var prefix = ['webkit', 'Moz', 'ms', 'o'],
+  i,
+  humpString = [],
+  htmlStyle = document.documentElement.style,
+  _toHumb = function (string) {
+  return string.replace(/-(\w)/g, function ($0, $1) {
+  return $1.toUpperCase();
+  });
+  };
+  for (i in prefix)
+  humpString.push(_toHumb(prefix[i] + '-' + style));
+  humpString.push(_toHumb(style));
+  for (i in humpString)
+  if (humpString[i] in htmlStyle) return true;
+  return false;
+};
+//配置信息
+var options = {
+  bottom: '100px',
+  right: '35px',
+  left: 'unset',
+  time: '0s',
+  mixColor: '#f4f4f4',
+  backgroundColor: '#f4f4f4',
+  buttonColorDark: '#bbb',
+  buttonColorLight: '#444',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+};
+// 卡片兼容处理 mix-blend-mode 与 effect: [blur] 冲突
+
+function pjax_darkmodejs(){
+  
+  if(!supportCss3('mix-blend-mode'))return;
+  var checkExist2 = setInterval(function() {
+     if (typeof jQuery == 'undefined'){return;}
+     clearInterval(checkExist2);
+     var TopFlag=getClientHeight();
+    $(window).scroll(function(){
+      var top = $(document).scrollTop();
+      if(top > TopFlag) {
+        $(".darkmode-layer").css("mix-blend-mode","normal");
+        $(".darkmode-layer").css("background-color","#222");
+      }else{
+        $(".darkmode-layer").css("mix-blend-mode","difference");
+        $(".darkmode-layer").css("background-color","");
+      }
+    })
+  }, 100);
+  
+}
+// mix-blend-mode support?
+if(supportCss3('mix-blend-mode')){
+  window.darkmode = new Darkmode(options);
+  
+  window.darkmode.showWidget();
+  
+  pjax_darkmodejs();
+}
+////////////////Development///////////////////////
+//////////////darkmode模式切换////////////////////
+//window.darkmode.toggle();                     //
+//////////////darkmode模式判断////////////////////
+//console.log(window.darkmode.isActivated())    //
+//////////////////////////////////////////////////
+</script>
 
 
 
@@ -1899,10 +2011,20 @@
         pjax_fancybox();
         
           
-          if ('.cover') {
-            $('.cover').backstretch("resize");
+          if ('.cover-backstretch') {
+            $('.cover-backstretch').backstretch("resize");
+            if($('.cover-wrapper').is(':hidden')){
+              $('.cover-backstretch').backstretch("pause");
+            }else{
+              $('.cover-backstretch').backstretch("next");
+            }
           } else {
             $.backstretch("resize");
+            if($('.cover-wrapper').is(':hidden')){
+              $.backstretch("pause");
+            }else{
+              $.backstretch("next");
+            }
           }
         
         
@@ -1918,6 +2040,8 @@
         
         
         
+        
+          pjax_darkmodejs();
         
       } catch (e) {
         console.log(e);

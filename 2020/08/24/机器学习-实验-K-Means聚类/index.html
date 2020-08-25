@@ -1,0 +1,2340 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.0.0-beta.2">
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>机器学习 实验 K-Means聚类 - 苇名一心的博客</title>
+  
+    <meta name="keywords" content="Python,机器学习,实验,K-Means,聚类">
+  
+
+  
+    <meta name="description" content="本文是关于经典聚类算法K-Means的代码实现。">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="苇名一心的博客">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+    <link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/666WXY666/cdn/img/favicon/favicon.ico">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script>
+	setTimeout(function() {
+  	  window.ga_tid = 'UA-162450234-2';
+ 	   (function() {
+ 	     var dga = document.createElement("script");
+ 	     dga.src = "https://rmt.dogedoge.com/fetch/public/ga.js";
+	      var s = document.getElementsByTagName("script")[0];
+	      s.parentNode.insertBefore(dga, s);
+	  })();
+	}, 5000);
+    </script>
+  
+  
+    <!-- ba -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+	  setTimeout(function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?93c49980dcbfb8920e167f85129d6917";
+		hm.defer=true;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+	  }, 5000);
+    })();
+    </script>
+  
+</head>
+
+<body>
+  <header class="l_header auto shadow floatable blur" style="opacity: 0">
+  <div class="container">
+  <div class="wrapper">
+    <div class="nav-sub">
+      <p class="title"></p>
+      <ul class="switcher nav-list-h m-phone" id="pjax-header-nav-list">
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href="/">
+          
+            <img no-lazy class="logo" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/logo-round.png">
+          
+          
+          
+        </a>
+      
+
+			<div class="menu navigation">
+				<ul class="nav-list-h m-pc">
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" id="home">
+                  <i class="fas fa-rss fa-fw"></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/shuoshuo/" id="shuoshuo">
+                  <i class="fas fa-comments fa-fw"></i>说说
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/" id="categories">
+                  <i class="fas fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/tags/" id="tags">
+                  <i class="fas fa-tags fa-fw"></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/about/" id="about">
+                  <i class="fas fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  <i class="fas fa-ellipsis-v fa-fw"></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  有疑问？
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/faqs/" id="faqs">
+                  <i class="fas fa-question-circle fa-fw"></i>FAQ
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/666WXY666/" id="https:githubcom666WXY666" rel="external nofollow noopener noreferrer" target="_blank">
+                  <i class="fab fa-github fa-fw"></i>我的Github主页
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://gitee.com/wxy_666" id="https:giteecomwxy_666" rel="external nofollow noopener noreferrer" target="_blank">
+                  <i class="fab fa-git-alt fa-fw"></i>我的Gitee主页
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/666WXY666/666WXY666.github.io/" id="https:githubcom666WXY666666WXY666githubio" rel="external nofollow noopener noreferrer" target="_blank">
+                  <i class="fas fa-code fa-fw"></i>本站源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/666WXY666/666WXY666.github.io/issues/" id="https:githubcom666WXY666666WXY666githubioissues" rel="external nofollow noopener noreferrer" target="_blank">
+                  <i class="fas fa-question fa-fw"></i>向我提问
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              
+                <li>
+                  <a class="menuitem flat-box">
+                    <i class="fas fa-compact-disc fa-fw music fa-fw music"></i>背景音乐
+                  </a>
+                  <ul class="list-v">
+                    <li>
+                      <div class="aplayer-container">
+                        
+
+  
+    <meting-js theme="#1BCDFC" autoplay="true" volume="0.7" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="1930654125" list-folded="true">
+    </meting-js>
+  
+
+
+                      </div>
+                    </li>
+                  </ul>
+                </li><li>
+              
+            
+          
+                    
+                  </li></ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search...">
+        </form>
+      </div>
+
+			<ul class="switcher nav-list-h m-phone">
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href="javascript:void(0)"></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href="javascript:void(0)"></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" id="home">
+                  <i class="fas fa-rss fa-fw"></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/shuoshuo/" id="shuoshuo">
+                  <i class="fas fa-comments fa-fw"></i>说说
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/" id="categories">
+                  <i class="fas fa-folder-open fa-fw"></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/tags/" id="tags">
+                  <i class="fas fa-tags fa-fw"></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" id="archives">
+                  <i class="fas fa-archive fa-fw"></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" id="friends">
+                  <i class="fas fa-link fa-fw"></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/about/" id="about">
+                  <i class="fas fa-info-circle fa-fw"></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  <i class="fas fa-ellipsis-v fa-fw"></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover">
+                  有疑问？
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="/faqs/" id="faqs">
+                  <i class="fas fa-question-circle fa-fw"></i>FAQ
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/666WXY666/" id="https:githubcom666WXY666" rel="external nofollow noopener noreferrer" target="_blank">
+                  <i class="fab fa-github fa-fw"></i>我的Github主页
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://gitee.com/wxy_666" id="https:giteecomwxy_666" rel="external nofollow noopener noreferrer" target="_blank">
+                  <i class="fab fa-git-alt fa-fw"></i>我的Gitee主页
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/666WXY666/666WXY666.github.io/" id="https:githubcom666WXY666666WXY666githubio" rel="external nofollow noopener noreferrer" target="_blank">
+                  <i class="fas fa-code fa-fw"></i>本站源码
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/666WXY666/666WXY666.github.io/issues/" id="https:githubcom666WXY666666WXY666githubioissues" rel="external nofollow noopener noreferrer" target="_blank">
+                  <i class="fas fa-question fa-fw"></i>向我提问
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <hr>
+            
+          
+                    
+                      
+            
+              
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  <div class="l_body">
+    <div class="l_cover">
+
+  
+  
+      <div class="cover-wrapper post focus" style="display: none;">
+        
+          <div class="cover-backstretch"></div>
+        
+        <div class="cover-body">
+  <div class="top">
+    
+    
+      <p class="title">苇名一心的博客</p>
+    
+    
+      <div id="binft"></div>
+	  <script>
+		var binft = function (r) {
+		  function t() {
+			return b[Math.floor(Math.random() * b.length)]
+		  }  
+		  function e() {
+			return String.fromCharCode(94 * Math.random() + 33)
+		  }
+		  function n(r) {
+			for (var n = document.createDocumentFragment(), i = 0; r > i; i++) {
+			  var l = document.createElement("span");
+			  l.textContent = e(), l.style.color = t(), n.appendChild(l)
+			}
+			return n
+		  }
+		  function i() {
+			var t = o[c.skillI];
+			c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : "forward" === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = "backward", c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = "forward")), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d)
+		  }
+		  var l = "",
+		  o = ["「且随疾风前行,身后亦需留心」","「Follow the wind, but watch your back」","「死亡如风，常伴吾身」","「Death is like the wind, always by my side」","「长路漫漫，唯剑作伴」","「A sword's poor company for a long road」","「吾虽浪迹天涯，却未迷失本心」","「A wanderer isn't always lost」","「吾之初心，永世不忘」","「I will not forget who I am」","「树叶的一生，只是为了归根吧？」","「Is a leaf's only purpose to fall?」","「还是别出招了，反正是我赢」","「Don't start what I'll finish」","「一剑，一念」","「One blade, one purpose」"].map(function (r) {
+		  return r + ""
+		  }),
+		  a = 2,
+		  g = 1,
+		  s = 5,
+		  d = 75,
+		  b = ["rgb(110,64,170)", "rgb(150,61,179)", "rgb(191,60,175)", "rgb(228,65,157)", "rgb(254,75,131)", "rgb(255,94,99)", "rgb(255,120,71)", "rgb(251,150,51)", "rgb(226,183,47)", "rgb(198,214,60)", "rgb(175,240,91)", "rgb(127,246,88)", "rgb(82,246,103)", "rgb(48,239,130)", "rgb(29,223,163)", "rgb(26,199,194)", "rgb(35,171,216)", "rgb(54,140,225)", "rgb(76,110,219)", "rgb(96,84,200)"],
+		  c = {
+			text: "",
+			prefixP: -s,
+			skillI: 0,
+			skillP: 0,
+			direction: "forward",
+			delay: a,
+			step: g
+		  };
+		  i()
+		  };
+		  binft(document.getElementById('binft'));
+	  </script>
+    
+  </div>
+  <div class="bottom">
+    <div class="menu navigation">
+      <div class="list-h">
+        
+          
+            <a href="/" id="home">
+              <i class="fas fa-rss fa-fw"></i><p>博客</p>
+            </a>
+          
+            <a href="/shuoshuo/" id="shuoshuo">
+              <i class="fas fa-comments fa-fw"></i><p>说说</p>
+            </a>
+          
+            <a href="/categories/" id="categories">
+              <i class="fas fa-folder-open fa-fw"></i><p>分类</p>
+            </a>
+          
+            <a href="/tags/" id="tags">
+              <i class="fas fa-tags fa-fw"></i><p>标签</p>
+            </a>
+          
+            <a href="/archives/" id="archives">
+              <i class="fas fa-archive fa-fw"></i><p>归档</p>
+            </a>
+          
+            <a href="/friends/" id="friends">
+              <i class="fas fa-link fa-fw"></i><p>友链</p>
+            </a>
+          
+            <a href="/about/" id="about">
+              <i class="fas fa-info-circle fa-fw"></i><p>关于</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+      </div>
+  
+
+</div>
+
+    <div class="safearea">
+      <div class="body-wrapper" id="pjax-container">
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+
+
+<div id="pjax-data" style="display: none">
+  <div id="pjax-ispage">true</div>
+  <div id="pjax-pageTitle">机器学习 实验 K-Means聚类</div>
+  <div id="pjax-enable-cover">true</div>
+  <div id="pjax-comment-path">none</div>
+  <div id="pjax-comment-placeholder">none</div>
+</div>
+
+
+<script>
+  // 处理封面 此时 jquery 还没加载
+  if ("none" == "none") { // 移除封面
+    document.getElementsByClassName('cover-wrapper')[0].style.display = "none";
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show");
+  } else {
+    if ("none" == "blog") { // 半屏
+      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'half');
+      document.getElementsByClassName('scroll-down')[0].style.display = "none";
+    } else if ("none" == "docs") { // 全屏
+      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'full');
+      document.getElementsByClassName('scroll-down')[0].style.display = "";
+    }
+    document.getElementsByClassName('cover-wrapper')[0].style.display = "";
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.remove("show");
+  }
+</script>
+
+
+        
+        
+
+<div class="l_main">
+  
+
+  
+    <article id="post" class="post white-box reveal md shadow floatable article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <div class="article-header">
+    
+      
+      <div class="article-meta" id="top">
+        
+        
+        
+          <h1 class="title">
+            <a href="/2020/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-K-Means%E8%81%9A%E7%B1%BB/">
+              机器学习 实验 K-Means聚类
+            </a>
+          </h1>
+        
+        <div class="new-meta-box">
+          
+            
+          
+            
+              
+<div class="new-meta-item author">
+  <a class="author" href="/" rel="nofollow">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg">
+    <p>苇名一心</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  <div class="new-meta-item category">
+    <a class="notlink">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><span class="sep"></span><a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%AE%9E%E9%AA%8C/">实验</a>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class="notlink">
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年8月24日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  <div class="new-meta-item browse leancloud">
+    <a class="notlink">
+      
+      <div id="lc-pv" data-title="机器学习 实验 K-Means聚类" data-path="/2020/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-K-Means%E8%81%9A%E7%B1%BB/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+            
+          
+        </div>
+      </div>
+    
+  </div>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          
+          <p>本文是关于经典聚类算法K-Means的代码实现。</p>
+<a id="more"></a>
+
+
+
+<h2 id="一、实验目标"><a href="#一、实验目标" class="headerlink" title="一、实验目标"></a>一、实验目标</h2><p>数据说明：目标是对 cluster.dat 里的数据进行聚类分析。其中，cluster.dat 包含了若干二维输入数据（但不包含其输出）。</p>
+<ul>
+<li><p>使用 K-means 模型进行聚类，尝试使用不同的类别个数 K，并分析聚类结果。 </p>
+</li>
+<li><p>按照 8:2 的比例随机将数据划分为训练集和测试集，至少尝试 3 个不同的 K 值，并画出不同 K 下的聚类结果，及不同模型在训练集和测试集上的损失。对结果进行讨论，发现能解释数据的最好的 K值。</p>
+</li>
+</ul>
+<h2 id="二、实验环境"><a href="#二、实验环境" class="headerlink" title="二、实验环境"></a>二、实验环境</h2><ul>
+<li>语言：Python 3.7（Anaconda3）</li>
+<li>IDE：PyCharm 2020.1.1 (Professional Edition)</li>
+<li>Packages：<ul>
+<li>numpy：1.18.1</li>
+<li>matplotlib：3.1.3</li>
+</ul>
+</li>
+</ul>
+<h2 id="三、算法原理"><a href="#三、算法原理" class="headerlink" title="三、算法原理"></a>三、算法原理</h2><p>聚类是一种典型无监督学习，K-means算法是聚类的经典算法。目标是将原始数据集划分为k个簇，最小化损失函数（目标函数）是：<br>$$<br>SSE=\sum_{n=1}^{N}\sum_{k=1}^{K}r_{nk}dist(x_n-\mu_k)<br>$$</p>
+<ul>
+<li>$\mu_k$表示簇$C_k$的中心点（或其他能代表$C_k$的点）。</li>
+<li>$x_n$被划分到簇$C_k$则$r_{nk}=1$，否则$r_{nk}=0$。</li>
+<li>目标是找到簇的中心点$\mu_k$及簇的划分$r_{nk}$使得目标函数SSE最小。</li>
+</ul>
+<p>要解决上述问题就需要遍历所有可能的簇划分，显然这是不合适的。K-means算法使用了贪心策略求一个近似解，具体步骤如下：</p>
+<ol>
+<li>将全部数据随机分为k类，计算每类的重心作为初始点。</li>
+<li>计算所有数据点与各个簇中心之间的距离，将数据点划到与它距离最近的簇中。</li>
+<li>根据簇中已有的样本点，重新计算簇中心（一般使用重心）。</li>
+<li>重复2、3，直到数据点的簇划分不在变化或者达到了规定的最大迭代次数。</li>
+</ol>
+<p>这是k-means算法的基本步骤，但是，这个算法有个很严重的问题，就是在将数据点划到与它距离最近的簇后，由于初始簇心选择不当，可能产生空簇，导致计算簇中心无法进行（簇的size=0，除数为0），我的解决方法是在计算簇心时，如果簇的size=0就先忽略，后面单独处理。计算完非空簇心后，依次选取与自己簇中心最远、次远……的点（因为距离自己的簇心越远，这个点分到该簇的概率越低）作为空簇的簇心，直到没有空簇，即所有的簇都有簇心，然后继续算法。</p>
+<h2 id="四、算法流程图"><a href="#四、算法流程图" class="headerlink" title="四、算法流程图"></a>四、算法流程图</h2><p>这只是算法函数（algorithm）和其他一些部分的流程图，不是整个程序的流程图，整个程序要更复杂。</p>
+<img src="https://gitee.com/wxy_666/images/raw/master/20200524095524.svg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200524095524.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="程序流程图" style="zoom: 67%;">
+
+<h2 id="五、实验结果及分析"><a href="#五、实验结果及分析" class="headerlink" title="五、实验结果及分析"></a>五、实验结果及分析</h2><ol>
+<li><p>输入k的范围是[2,10]，测试集所占比例为0.2，最大迭代次数为20。</p>
+<img src="https://gitee.com/wxy_666/images/raw/master/20200524104752.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200524104752.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-24_104724" style="zoom:50%;">
+</li>
+<li><p>聚类结果</p>
+<table>
+<thead>
+<tr>
+<th align="center">k=2</th>
+<th align="center">k=3</th>
+<th align="center">k=4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://gitee.com/wxy_666/images/raw/master/20200524104824.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200524104824.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-24_104436" style="zoom:67%;"></td>
+<td align="center"><img src="https://gitee.com/wxy_666/images/raw/master/20200524104838.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200524104838.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-24_104447" style="zoom:67%;"></td>
+<td align="center"><img src="https://gitee.com/wxy_666/images/raw/master/20200524104853.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200524104853.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-24_104456" style="zoom: 67%;"></td>
+</tr>
+<tr>
+<td align="center"><strong>k=5</strong></td>
+<td align="center"><strong>k=6</strong></td>
+<td align="center"><strong>k=7</strong></td>
+</tr>
+<tr>
+<td align="center"><img src="https://gitee.com/wxy_666/images/raw/master/20200524104910.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200524104910.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-24_104505" style="zoom:67%;"></td>
+<td align="center"><img src="https://gitee.com/wxy_666/images/raw/master/20200524104921.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200524104921.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-24_104521" style="zoom:67%;"></td>
+<td align="center"><img src="https://gitee.com/wxy_666/images/raw/master/20200524104933.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200524104933.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-24_104543" style="zoom:67%;"></td>
+</tr>
+<tr>
+<td align="center"><strong>k=8</strong></td>
+<td align="center"><strong>k=9</strong></td>
+<td align="center"><strong>k=10</strong></td>
+</tr>
+<tr>
+<td align="center"><img src="https://gitee.com/wxy_666/images/raw/master/20200524104954.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200524104954.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-24_104555" style="zoom:67%;"></td>
+<td align="center"><img src="https://gitee.com/wxy_666/images/raw/master/20200524105001.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200524105001.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-24_104607" style="zoom:67%;"></td>
+<td align="center"><img src="https://gitee.com/wxy_666/images/raw/master/20200524105008.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200524105008.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-24_104617" style="zoom:67%;"></td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<ol start="3">
+<li><p>k从2~10的数据集、训练集和测试集的SSE如图：</p>
+<img src="https://gitee.com/wxy_666/images/raw/master/20200524105029.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200524105029.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-24_104656" style="zoom: 67%;">
+</li>
+<li><p>可以发现k=2~4时SSE下降较快，k=4~10时下降较慢，由于我们的目标是使SSE减小，因此由图可以得出k=4为解释数据较好的k。并且在k=2时，重复实验甚至会出现完全不同的聚类结果，说明k=2太小。在k&gt;=6之后，SSE基本不下降，说明k再加大没有多大意义。</p>
+</li>
+</ol>
+<h2 id="六、附录"><a href="#六、附录" class="headerlink" title="六、附录"></a>六、附录</h2><p>kmeans.py：</p>
+<ol start="0">
+<li><p>基本配置、全局参数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">@Copyright: Copyright (c) 2020 苇名一心 All Rights Reserved.</span></span><br><span class="line"><span class="string">@Project: kmeans</span></span><br><span class="line"><span class="string">@Description: k-means算法</span></span><br><span class="line"><span class="string">@Version: 1.0</span></span><br><span class="line"><span class="string">@Author: 苇名一心</span></span><br><span class="line"><span class="string">@Date: 2020-05-22 21:25</span></span><br><span class="line"><span class="string">@LastEditors: 苇名一心</span></span><br><span class="line"><span class="string">@LastEditTime: 2020-05-22 21:25</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"></span><br><span class="line"><span class="comment">########################################################</span></span><br><span class="line"><span class="comment"># 全局变量</span></span><br><span class="line"><span class="comment">########################################################</span></span><br><span class="line"><span class="comment"># 显示中文标签</span></span><br><span class="line">plt.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]</span><br><span class="line"><span class="comment"># 显示负号</span></span><br><span class="line">plt.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 簇个数范围</span></span><br><span class="line">k_min = <span class="number">1</span></span><br><span class="line">k_max = <span class="number">1</span></span><br><span class="line">max_iteration = <span class="number">10</span>  <span class="comment"># 最大迭代次数</span></span><br><span class="line">test_rate = <span class="number">0.2</span>  <span class="comment"># 训练集所占比例</span></span><br><span class="line">all_point_num = <span class="number">0</span></span><br><span class="line">data_x = []  <span class="comment"># 点的x坐标列表</span></span><br><span class="line">data_y = []  <span class="comment"># 点的y坐标列表</span></span><br><span class="line">data_SSE_list = []  <span class="comment"># 数据集损失目标函数列表</span></span><br><span class="line">train_SSE_list = []  <span class="comment"># 训练集损失目标函数列表</span></span><br><span class="line">test_SSE_list = []  <span class="comment"># 测试集损失目标函数列表</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol>
+<li><p>读入数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">########################################################</span></span><br><span class="line"><span class="comment"># 读入数据</span></span><br><span class="line"><span class="comment">########################################################</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_data</span><span class="params">(path)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> all_point_num</span><br><span class="line">    <span class="keyword">global</span> test_rate</span><br><span class="line">    <span class="keyword">global</span> max_iteration</span><br><span class="line">    <span class="keyword">global</span> k_min</span><br><span class="line">    <span class="keyword">global</span> k_max</span><br><span class="line">    data = open(path)  <span class="comment"># 打开数据文件</span></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> data:</span><br><span class="line">        <span class="comment"># 将数据文件的每一行按空格分隔，分别添加到x,y列表</span></span><br><span class="line">        data_x.append(float(line.split()[<span class="number">0</span>]))</span><br><span class="line">        data_y.append(float(line.split()[<span class="number">1</span>]))</span><br><span class="line">        all_point_num += <span class="number">1</span></span><br><span class="line">    print(<span class="string">"请输入k的范围（空格分隔，例如2 5，代表闭区间[2,5]）："</span>, end=<span class="string">""</span>)</span><br><span class="line">    k_min, k_max = map(int, input().split())</span><br><span class="line">    <span class="keyword">if</span> k_min &gt; k_max <span class="keyword">or</span> k_min &lt; <span class="number">1</span> <span class="keyword">or</span> k_max &lt; <span class="number">1</span>:</span><br><span class="line">        print(<span class="string">"ERROR: 簇的个数输入错误！"</span>)</span><br><span class="line">        sys.exit(<span class="number">1</span>)</span><br><span class="line">    print(<span class="string">"请输入测试集所占比例："</span>, end=<span class="string">""</span>)</span><br><span class="line">    test_rate = float(input())</span><br><span class="line">    <span class="keyword">if</span> test_rate &lt; <span class="number">0</span> <span class="keyword">or</span> test_rate &gt; <span class="number">1</span>:</span><br><span class="line">        print(<span class="string">"ERROR: 测试集所占比例输入错误！"</span>)</span><br><span class="line">        sys.exit(<span class="number">1</span>)</span><br><span class="line">    print(<span class="string">"请输入最大迭代次数："</span>, end=<span class="string">""</span>)</span><br><span class="line">    max_iteration = int(input())</span><br><span class="line">    <span class="keyword">if</span> max_iteration &lt; <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">"ERROR: 最大迭代次数输入错误！"</span>)</span><br><span class="line">        sys.exit(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>算法计算</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">########################################################</span></span><br><span class="line"><span class="comment"># 算法</span></span><br><span class="line"><span class="comment">########################################################</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">algorithm</span><span class="params">(x, y, k)</span>:</span></span><br><span class="line">    <span class="comment"># 初始化</span></span><br><span class="line">    n = <span class="number">0</span>  <span class="comment"># 迭代次数</span></span><br><span class="line">    SSE = <span class="number">0</span>  <span class="comment"># 损失（目标）函数</span></span><br><span class="line">    point_array = np.array([x, y])  <span class="comment"># 生成点的numpy数组，例如三个点(1，-1),(2，-2),(3，-3)生成[[ 1  2  3 ][ -1 -2 -3 ]]</span></span><br><span class="line">    point_num = point_array.shape[<span class="number">1</span>]  <span class="comment"># 获取点的个数，所给的数据集为1000个点，取0.8为800个</span></span><br><span class="line">    <span class="comment"># 如果点的个数&lt;簇的个数，则报错异常退出</span></span><br><span class="line">    <span class="keyword">if</span> point_num &lt; k:</span><br><span class="line">        print(<span class="string">"ERROR: 点的个数&lt;簇的个数！"</span>)</span><br><span class="line">        sys.exit(<span class="number">1</span>)</span><br><span class="line">    distance = np.zeros(k)  <span class="comment"># 初始化k维0向量，用来存储这个点到的k个簇中心的距离</span></span><br><span class="line">    point_distance = np.zeros(point_num)  <span class="comment"># 初始化point_num维0向量，用来存储每个点到其簇中心的距离</span></span><br><span class="line">    center = np.zeros((<span class="number">2</span>, k))  <span class="comment"># 生成2*k的零矩阵，初始化k个簇的中心点，后面将先计算每个簇的重心作为初始簇中心</span></span><br><span class="line">    point_k1 = np.arange(<span class="number">0</span>, k, <span class="number">1</span>)  <span class="comment"># 先生成0~k-1的数组，保证每个簇至少有一个点</span></span><br><span class="line">    point_k2 = np.random.randint(<span class="number">0</span>, k, size=point_num - k)  <span class="comment"># 将剩下的点随机分到任意一个簇，返回长度为point_num-k的向量，每个为0~k-1的随机整数</span></span><br><span class="line">    point_k = np.concatenate((point_k1, point_k2))  <span class="comment"># 将前两个数组合成为一个</span></span><br><span class="line">    np.random.shuffle(point_k)  <span class="comment"># 最后再打乱一次point_k数组，保证随机性</span></span><br><span class="line">    point_k_bak = point_k.copy()  <span class="comment"># point_k的备份，用于判断前后两次迭代是否发生变化</span></span><br><span class="line">    <span class="comment"># 输出相关信息</span></span><br><span class="line">    print(<span class="string">"点个数为："</span>, point_num, sep=<span class="string">""</span>)</span><br><span class="line">    <span class="comment"># 开始K-means算法的迭代</span></span><br><span class="line">    <span class="comment"># 只要迭代次数没有超过最大迭代次数上限max_iteration并且两次迭代的结果还有变化，就继续迭代</span></span><br><span class="line">    <span class="keyword">while</span> n &lt;= max_iteration:</span><br><span class="line">        <span class="comment"># 计算每个簇的中心</span></span><br><span class="line">        size = np.bincount(point_k, minlength=k)  <span class="comment"># 计算每个簇的规模，k维向量，每一维为每个簇里点的个数</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(k):  <span class="comment"># 对于k个簇中的每一个簇i</span></span><br><span class="line">            <span class="comment"># 不是空簇，防止出现除数为0，空簇下面单独处理</span></span><br><span class="line">            <span class="keyword">if</span> size[i] != <span class="number">0</span>:</span><br><span class="line">                <span class="comment"># point_sum是一个二维向量，代表i簇中的所有点的x,y坐标值的和</span></span><br><span class="line">                point_sum = np.zeros(<span class="number">2</span>)  <span class="comment"># 初始化为0</span></span><br><span class="line">                <span class="comment"># 计算i簇中的所有点的x,y坐标值的和</span></span><br><span class="line">                <span class="keyword">for</span> point <span class="keyword">in</span> range(point_num):  <span class="comment"># 对于每一个点point</span></span><br><span class="line">                    <span class="keyword">if</span> point_k[point] == i:  <span class="comment"># 如果这个点point属于簇i</span></span><br><span class="line">                        point_sum = point_sum + point_array[:, point]  <span class="comment"># 将这个点的x,y坐标加到point_sum上</span></span><br><span class="line">                        <span class="comment"># note: array[:, i]就是取array的第i列，刚好就是这个点</span></span><br><span class="line">                <span class="comment"># 求平均数，因此要/这个簇中点的个数size[i]</span></span><br><span class="line">                <span class="comment"># 将计算出的簇中心存在center矩阵中的第i列，代表第i个簇的中心点</span></span><br><span class="line">                center[:, i] = point_sum / size[i]</span><br><span class="line">        <span class="comment"># 对所有的空簇单独处理</span></span><br><span class="line">        <span class="comment"># 处理方式为把与自己所在的簇中心距离最大的点作为空簇的簇中心</span></span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> np.where(size == <span class="number">0</span>)[<span class="number">0</span>]:</span><br><span class="line">            <span class="comment"># 将距离最大的点的所在簇改为空簇的簇号</span></span><br><span class="line">            point_k[np.argmax(point_distance)] = c</span><br><span class="line">            <span class="comment"># 将空簇中心改为这个点</span></span><br><span class="line">            center[:, c] = point_array[:, np.argmax(point_distance)]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 将每一个点分到与簇中心最近的簇</span></span><br><span class="line">        <span class="keyword">for</span> point <span class="keyword">in</span> range(point_num):  <span class="comment"># 对于每一个点point</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(k):  <span class="comment"># 对于k个簇中的每一个簇i</span></span><br><span class="line">                <span class="comment"># 计算该点point到该簇i的距离</span></span><br><span class="line">                <span class="comment"># note: 使用矩阵的2范式，来计算欧氏距离</span></span><br><span class="line">                <span class="comment">#  point_array[:, point] - center[:, i]得到向量[p_x-c_x, p_y-c_y]</span></span><br><span class="line">                <span class="comment">#  对该向量求2范式刚好是欧式距离sqrt((p_x-c_x)^2+(p_y-c_y)^2)</span></span><br><span class="line">                distance[i] = np.linalg.norm(point_array[:, point] - center[:, i])</span><br><span class="line">            <span class="comment"># 使用numpy的argmin()返回distance中最小值的下标，也就是点point到簇中心距离最小的簇</span></span><br><span class="line">            point_k[point] = np.argmin(distance)</span><br><span class="line">            <span class="comment"># 将该点到其簇中心的距离记录下来</span></span><br><span class="line">            point_distance[point] = distance[point_k[point]]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 迭代次数+1</span></span><br><span class="line">        n += <span class="number">1</span></span><br><span class="line">        <span class="comment"># 判断两次迭代是否有变化，没有变化就跳出迭代循环</span></span><br><span class="line">        <span class="keyword">if</span> (point_k == point_k_bak).all():</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="comment"># 将point_k备份</span></span><br><span class="line">        point_k_bak = point_k.copy()</span><br><span class="line">        <span class="comment"># 输出每次迭代目标函数值</span></span><br><span class="line">        SSE = np.sum(point_distance)</span><br><span class="line">        print(<span class="string">"n="</span>, n - <span class="number">1</span>, <span class="string">"，SSE="</span>, SSE, sep=<span class="string">""</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 输出相关信息</span></span><br><span class="line">    print(<span class="string">"总迭代次数为："</span>, n - <span class="number">1</span>, sep=<span class="string">""</span>)</span><br><span class="line">    print(<span class="string">"每个簇的中心："</span>, sep=<span class="string">""</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(k):</span><br><span class="line">        print(<span class="string">"("</span>, center[<span class="number">0</span>, i], <span class="string">","</span>, center[<span class="number">1</span>, i], <span class="string">")"</span>, sep=<span class="string">""</span>)</span><br><span class="line">    print(<span class="string">"==================================================="</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> SSE, point_k</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="3">
+<li><p>画图展示</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">########################################################</span></span><br><span class="line"><span class="comment"># 画图展示</span></span><br><span class="line"><span class="comment">########################################################</span></span><br><span class="line"><span class="comment"># 根据每个点所在的簇，获取点的颜色，返回一个列表</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_color_list</span><span class="params">(point_k, k)</span>:</span></span><br><span class="line">    <span class="comment"># 随机生成k个颜色</span></span><br><span class="line">    RGB = [<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>, <span class="string">'4'</span>, <span class="string">'5'</span>, <span class="string">'6'</span>, <span class="string">'7'</span>, <span class="string">'8'</span>, <span class="string">'9'</span>, <span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>, <span class="string">'E'</span>, <span class="string">'F'</span>]</span><br><span class="line">    colors = []</span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; k:</span><br><span class="line">        color = <span class="string">""</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">6</span>):</span><br><span class="line">            color += RGB[random.randint(<span class="number">0</span>, <span class="number">14</span>)]</span><br><span class="line">        <span class="comment"># 只有随机产生的颜色不相同，才加到colors中，颜色个数+1</span></span><br><span class="line">        <span class="keyword">if</span> <span class="string">"#"</span> + color <span class="keyword">not</span> <span class="keyword">in</span> colors <span class="keyword">and</span> color != <span class="string">"FFFFFF"</span>:</span><br><span class="line">            colors.append(<span class="string">"#"</span> + color)</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">    <span class="comment"># 对每个点，根据point_k中记录的点所在的簇，将颜色添加到列表中</span></span><br><span class="line">    color_list = []</span><br><span class="line">    <span class="keyword">for</span> c <span class="keyword">in</span> point_k:</span><br><span class="line">        color_list.append(colors[c])</span><br><span class="line">    <span class="keyword">return</span> color_list</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 画散点图展示聚类结果（数据集，训练集、测试集）</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show</span><span class="params">(x, y, result, x1, y1, result1, x2, y2, result2, k)</span>:</span></span><br><span class="line">    <span class="comment"># 数据集图</span></span><br><span class="line">    plt.subplot(<span class="number">131</span>)</span><br><span class="line">    <span class="comment"># 设置标题</span></span><br><span class="line">    plt.title(<span class="string">"K-Means数据集"</span>)</span><br><span class="line">    <span class="comment"># 绘制散点图</span></span><br><span class="line">    <span class="comment"># note: scatter函数支持传入颜色列表，对每一个点使用列表相应下标对应的颜色</span></span><br><span class="line">    plt.scatter(x, y, c=get_color_list(result, k))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 训练集图</span></span><br><span class="line">    plt.subplot(<span class="number">132</span>)</span><br><span class="line">    <span class="comment"># 设置标题</span></span><br><span class="line">    plt.title(<span class="string">"K-Means训练集"</span>)</span><br><span class="line">    <span class="comment"># 绘制散点图</span></span><br><span class="line">    plt.scatter(x1, y1, c=get_color_list(result1, k))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 测试集图</span></span><br><span class="line">    plt.subplot(<span class="number">133</span>)</span><br><span class="line">    <span class="comment"># 设置标题</span></span><br><span class="line">    plt.title(<span class="string">"K-Means测试集"</span>)</span><br><span class="line">    <span class="comment"># 绘制散点图</span></span><br><span class="line">    plt.scatter(x2, y2, c=get_color_list(result2, k))</span><br><span class="line">    <span class="comment"># 展示散点图</span></span><br><span class="line"></span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 画折线图展示SSE对比</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_SSE</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 设置标题</span></span><br><span class="line">    plt.title(<span class="string">"K-Means在不同k下的损失"</span>)</span><br><span class="line">    <span class="comment"># 设置x轴坐标</span></span><br><span class="line">    plt.xlim(k_min - <span class="number">1</span>, k_max + <span class="number">2</span>)</span><br><span class="line">    plt.xlabel(<span class="string">"k"</span>)  <span class="comment"># 设置x轴标注</span></span><br><span class="line">    plt.ylabel(<span class="string">"SSE"</span>)  <span class="comment"># 设置y轴标注</span></span><br><span class="line">    <span class="comment"># 绘制K-Means在不同k下训练集和测试集的损失</span></span><br><span class="line">    plt.plot(range(k_min, k_max + <span class="number">1</span>), data_SSE_list, lw=<span class="number">1</span>, c=<span class="string">'blue'</span>, marker=<span class="string">'v'</span>, ms=<span class="number">4</span>, label=<span class="string">'数据集'</span>)</span><br><span class="line">    plt.plot(range(k_min, k_max + <span class="number">1</span>), train_SSE_list, lw=<span class="number">1</span>, c=<span class="string">'red'</span>, marker=<span class="string">'s'</span>, ms=<span class="number">4</span>, label=<span class="string">'训练集'</span>)</span><br><span class="line">    plt.plot(range(k_min, k_max + <span class="number">1</span>), test_SSE_list, lw=<span class="number">1</span>, c=<span class="string">'green'</span>, marker=<span class="string">'o'</span>, label=<span class="string">'测试集'</span>)</span><br><span class="line">    plt.legend()  <span class="comment"># 图例</span></span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="4">
+<li><p>开始运行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">########################################################</span></span><br><span class="line"><span class="comment"># 开始运行</span></span><br><span class="line"><span class="comment">########################################################</span></span><br><span class="line"><span class="comment"># 读入数据</span></span><br><span class="line">read_data(<span class="string">"cluster.dat"</span>)</span><br><span class="line"><span class="comment"># 划分训练集和测试集</span></span><br><span class="line">train_x, test_x, train_y, test_y = train_test_split(data_x, data_y, test_size=test_rate, random_state=<span class="number">1</span>)</span><br><span class="line"><span class="comment"># 对k从2~5进行聚类</span></span><br><span class="line"><span class="keyword">for</span> k_num <span class="keyword">in</span> range(k_min, k_max + <span class="number">1</span>):</span><br><span class="line">    print(<span class="string">"###################################################"</span>)</span><br><span class="line">    print(<span class="string">"簇个数为："</span>, k_num, sep=<span class="string">""</span>)</span><br><span class="line">    <span class="comment"># 数据集</span></span><br><span class="line">    print(<span class="string">"数据集："</span>)</span><br><span class="line">    data_SSE, data_result = algorithm(data_x, data_y, k_num)</span><br><span class="line">    data_SSE_list.append(data_SSE)</span><br><span class="line">    <span class="comment"># 训练集</span></span><br><span class="line">    print(<span class="string">"训练集："</span>)</span><br><span class="line">    train_SSE, train_result = algorithm(train_x, train_y, k_num)</span><br><span class="line">    train_SSE_list.append(train_SSE)</span><br><span class="line">    <span class="comment"># 测试集</span></span><br><span class="line">    print(<span class="string">"测试集："</span>)</span><br><span class="line">    test_SSE, test_result = algorithm(test_y, test_y, k_num)</span><br><span class="line">    test_SSE_list.append(test_SSE)</span><br><span class="line">    <span class="comment"># 输出平均SSE</span></span><br><span class="line">    print(<span class="string">"数据集最终平均损失函数AVG_SSE："</span>, data_SSE / all_point_num)</span><br><span class="line">    print(<span class="string">"训练集最终平均损失函数AVG_SSE："</span>, train_SSE / (all_point_num * (<span class="number">1</span> - test_rate)))</span><br><span class="line">    print(<span class="string">"测试集最终平均损失函数AVG_SSE："</span>, test_SSE / (all_point_num * test_rate))</span><br><span class="line">    <span class="comment"># 画图</span></span><br><span class="line">    show(data_x, data_y, data_result, train_x, train_y, train_result, test_x, test_y, test_result, k_num)</span><br><span class="line"><span class="comment"># 画图展示SSE</span></span><br><span class="line">show_SSE()</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+
+          
+            
+            <div class="footer">
+              
+              
+                <div class="related_posts">
+                  <section class="header">
+                    <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
+                  </section>
+                  <section class="body">
+                    <div class="vlts-rps"><a class="item" href="\2020\08\24\机器学习-实验-DNN-手写识别\" title="机器学习 实验 DNN 手写识别" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200601103924.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200601103924.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">机器学习 实验 DNN 手写识别</span><span class="excerpt">本文是关于经典深度神经网络DNN的应用手写识别的思路样例。</span></a><a class="item" href="\2020\08\24\机器学习-实验-RNN-为baby起名字\" title="机器学习 实验 RNN 为baby起名字" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200605202820.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200605202820.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">机器学习 实验 RNN 为baby起名字</span><span class="excerpt">本文是关于经典RNN的应用为baby起名字的代码实现。</span></a><a class="item" href="\2020\08\24\机器学习-实验-决策树\" title="机器学习 实验 决策树" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200524143530.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200524143530.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">机器学习 实验 决策树</span><span class="excerpt">本文是关于20问读心游戏的决策树代码实现。</span></a><a class="item" href="\2020\08\24\机器学习-实验-花卉识别\" title="机器学习 实验 花卉识别" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200715111020.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200715111020.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">机器学习 实验 花卉识别</span><span class="excerpt">本文是机器学习人工智能实验，利用华为云ModelArts平台实现花卉分类识别。</span></a><a class="item" href="\2020\08\24\计算机系统结构-实验-1和2遇到的问题\" title="计算机系统结构 实验 1和2遇到的问题" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200419150741.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200419150741.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">计算机系统结构 实验 1和2遇到的问题</span><span class="excerpt">本文是关于计算机系统结构实验一（MIPS指令系统和MIPS体系结构）和实验二（流水线及流水线中的冲突），遇到的一些问题。</span></a></div>
+                  </section>
+                </div>
+              
+              
+                <div class="copyright">
+                  <blockquote>
+                    
+                      
+                        <p>本文为博主「苇名一心」的原创文章</p>
+
+                      
+                    
+                      
+                        <p>内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+                      
+                    
+                      
+                        <p>本文永久链接是：<a href="https://666wxy666.github.io/2020/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-K-Means%E8%81%9A%E7%B1%BB/">https://666wxy666.github.io/2020/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-K-Means%E8%81%9A%E7%B1%BB/</a></p>
+                      
+                    
+                      
+                        <p>转载请附上原文出处链接及本声明</p>
+
+                      
+                    
+                  </blockquote>
+                </div>
+              
+              
+                <div class="donate">
+                  <div class="imgs">
+                    
+                      <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+                    
+                      <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+                    
+                  </div>
+                </div>
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <div class="article-meta" id="bottom">
+    <div class="new-meta-box">
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-15T22:49:28+08:00">
+  <a class="notlink">
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年7月15日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Python/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Python</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>机器学习</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%AE%9E%E9%AA%8C/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>实验</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/K-Means/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>K-Means</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%81%9A%E7%B1%BB/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>聚类</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://666wxy666.github.io/2020/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-K-Means%E8%81%9A%E7%B1%BB/&title=机器学习 实验 K-Means聚类 - 苇名一心的博客&summary=本文是关于经典聚类算法K-Means的代码实现。" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://666wxy666.github.io/2020/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-K-Means%E8%81%9A%E7%B1%BB/&title=机器学习 实验 K-Means聚类 - 苇名一心的博客&summary=本文是关于经典聚类算法K-Means的代码实现。" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://666wxy666.github.io/2020/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-K-Means%E8%81%9A%E7%B1%BB/&title=机器学习 实验 K-Means聚类 - 苇名一心的博客&summary=本文是关于经典聚类算法K-Means的代码实现。" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class="prev" href="/2020/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-RNN-%E4%B8%BAbaby%E8%B5%B7%E5%90%8D%E5%AD%97/">
+                <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>机器学习 实验 RNN 为baby起名字</p>
+                <p class="content">本文是关于经典RNN的应用为baby起名字的代码实现。
+
+
+
+
+一、任务定义采用 RNN 为小 Baby 起个英文名字吧
+神经网络语言模型，即通过神经网络，计算一项自然语言（例如一条句子）的出现...</p>
+              </a>
+            
+            
+              <a class="next" href="/2020/08/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-DNN-%E6%89%8B%E5%86%99%E8%AF%86%E5%88%AB/">
+                <p class="title">机器学习 实验 DNN 手写识别<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class="content">本文是关于经典深度神经网络DNN的应用手写识别的思路样例。
+
+
+
+
+一、题目请描述一个深度神经网络模型解决实际问题的例子。
+包括问题描述，输入输出数据，训练、测试数据集，深度网络模型结构图，损失...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    
+
+  <article class="post white-box reveal comments shadow floatable">
+    <section class="article typo">
+      <p ct><i class="fas fa-comments"></i> 评论</p>
+      
+      <section id="comments">
+        <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+      </section>
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+  <script>
+  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.0/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    // 文章章节标题不能为 “MathJax” ，否则会报错。
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
+
+</div>
+<aside class="l_side">
+  
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow floatable desktop mobile" id="toc-div">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
+    
+  </header>
+
+
+    <div class="content">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、实验目标"><span class="toc-text">一、实验目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、实验环境"><span class="toc-text">二、实验环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、算法原理"><span class="toc-text">三、算法原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、算法流程图"><span class="toc-text">四、算法流程图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、实验结果及分析"><span class="toc-text">五、实验结果及分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、附录"><span class="toc-text">六、附录</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+      </div>
+      
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js theme="#1BCDFC" autoplay="true" volume="0.7" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="1930654125" list-folded="true">
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml" class="social fas fa-rss flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+              <a href="mailto:1293739194@qq.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+              <a href="https://github.com/666WXY666/" class="social fab fa-github flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+              <a href="https://gitee.com/wxy_666" class="social fab fa-git-alt flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+              <a href="https://space.bilibili.com/7429248" class="social fas fa-bold flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+              <a href="https://www.zhihu.com/people/666wxy666" class="social fab fa-zhihu flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=74040689" class="social fas fa-headphones-alt flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
+                
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+	  
+    
+      
+		<i class="fas fa-clock"></i>
+        <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+		<script>
+			var now = new Date(); 
+			function createtime() { 
+				var grt= new Date("02/10/2020 17:38:00");//建站时间，格式：月/日/年 时:分:秒
+				now.setTime(now.getTime()+250); 
+				days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+				hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+				if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+				mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+				seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+				snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+				document.getElementById("timeDate").innerHTML = "本站已成功存活了 "+dnum+" 天 "; 
+				document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+			} 
+		setInterval("createtime()",250);
+		</script>
+		<br>
+      
+    
+      
+        
+          <div><p><span id="lc-sv">本站总访问量为 <span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+</div>
+        
+      
+    
+      
+        <div class="copyright">
+        <p><a href="/">Copyright © 2020-2020 苇名一心</a></p>
+
+        </div>
+		<br>
+      
+    
+  </footer>
+
+
+      <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+    </div>
+  </div>
+  <div>
+    
+      
+  
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      <li class="option">
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-text" onclick="document.execCommand(" copy")"><i class="fa fa-copy fa-fw"></i>复制文本</a>
+        <hr id="hr-text">
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-href"><i class="fa fa-link fa-fw"></i>复制链接</a>
+        <a class="vlts-menu opt fix-cursor-default" id="menu-open-href"><i class="fa fa-arrow-circle-right fa-fw"></i>在新标签页打开</a>
+        <hr id="hr-href">
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-src"><i class="fa fa-image fa-fw"></i>复制图片地址</a>
+        <hr id="hr-src">
+      </li>
+      
+        <li class="navigation">
+          <a class="nav icon-only fix-cursor-default" onclick="history.back()"><i class="fa fa-arrow-left fa-fw"></i></a>
+          <a class="nav icon-only fix-cursor-default" onclick="history.forward()"><i class="fa fa-arrow-right fa-fw"></i></a>
+          <a class="nav icon-only fix-cursor-default" onclick="window.location.reload()"><i class="fa fa-redo fa-fw"></i></a>
+          <a class="nav icon-only fix-cursor-default" href="/"><i class="fa fa-home fa-fw"></i></a>
+        </li>
+      
+      <hr>
+      
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default" href="/categories/" id="categories">
+        <i class="fas fa-folder-open fa-fw"></i> 分类
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default" href="/tags/" id="tags">
+        <i class="fas fa-tags fa-fw"></i> 标签
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default" href="/archives/" id="archives">
+        <i class="fas fa-archive fa-fw"></i> 归档
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default" href="/friends/" id="friends">
+        <i class="fas fa-link fa-fw"></i> 友链
+      </a>
+    </li>
+  
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default" href="/about/" id="about">
+        <i class="fas fa-info-circle fa-fw"></i> 关于
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default" onclick="document.execCommand('print')">
+        <i class="fa fa-print fa-fw"></i> 打印页面
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          <li class="music name">
+            <p class="nav music-title fix-cursor-default"></p>
+          </li>
+          <li class="music ctrl">
+            <a class="nav icon-only backward fix-cursor-default" onclick="aplayerBackward()"><i class="fa fa-step-backward fa-fw"></i></a>
+            <a class="nav icon-only toggle fix-cursor-default" onclick="aplayerToggle()"><i class="fa fa-play fa-fw"></i></a>
+            <a class="nav icon-only forward fix-cursor-default" onclick="aplayerForward()"><i class="fa fa-step-forward fa-fw"></i></a>
+          </li>
+          <li class="music volume">
+            <a class="nav volume">
+              <div class="aplayer-volume-bar-wrap">
+                <div class="aplayer-volume-bar fix-cursor-pointer">
+                  <div class="aplayer-volume"></div>
+                  <i class="left fa fa-volume-off fa-fw"></i>
+                  <i class="right fa fa-volume-up fa-fw"></i>
+                </div>
+              </div>
+            </a>
+          </li>
+        
+      
+    </ul>
+  </div>
+
+  <script>
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey) return true;
+      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true;
+      return popMenu(event);
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+      mymenu.style.top = event.clientY + "px";
+      mymenu.style.display = 'block';
+      if (event.clientX * 2 > screenWidth) {
+        menuContent.classList.add('left');
+      } else {
+        menuContent.classList.remove('left');
+      }
+      if (event.clientY * 2 > screenHeight) {
+        menuContent.classList.add('top');
+      } else {
+        menuContent.classList.remove('top');
+      }
+
+      let hrText = document.getElementById('hr-text');
+      let hrSrc = document.getElementById('hr-src');
+      let hrHref = document.getElementById('hr-href');
+
+      // 选中图片
+      let copySrc = document.getElementById('menu-copy-src');
+      if (copySrc != undefined) {
+        if (event.target.currentSrc) {
+          copySrc.style.display = 'block';
+          copySrc.addEventListener("click", function (e) {
+            copyString(event.target.currentSrc);
+          },{once: true});
+          hrSrc.style.display = 'block';
+        } else {
+          copySrc.style.display = 'none';
+          hrSrc.style.display = 'none';
+        }
+      }
+
+      // 选中按钮
+      // 判断是不是按钮
+      let href = '';
+      if (event.path) {
+        for (i = 0; i < event.path.length; i++) {
+          if (event.path[i].href != undefined && event.path[i].href.length > 0) {
+            href = event.path[i].href;
+          }
+        }
+      }
+
+      let copyText = document.getElementById('menu-copy-text');
+      copyText.style.display = 'none';
+      hrText.style.display = 'none';
+      if (href.length == 0) {
+        // 选中文本
+        if (window.getSelection().toString()) {
+          copyText.style.display = 'block';
+          hrText.style.display = 'block';
+        }
+      }
+
+      // 在新标签页打开
+      let openHref = document.getElementById('menu-open-href');
+      if (openHref != undefined) {
+        if (href.length > 0) {
+          openHref.style.display = 'block';
+          openHref.addEventListener("click", function (e) {
+            window.open(href);
+          },{once: true});
+          hrHref.style.display = 'block';
+        } else {
+          openHref.style.display = 'none';
+          hrHref.style.display = 'none';
+        }
+      }
+      // 复制链接
+      let copyHref = document.getElementById('menu-copy-href');
+      if (copyHref != undefined) {
+        if (href.length > 0) {
+          copyHref.style.display = 'block';
+          copyHref.addEventListener("click", function (e) {
+            copyString(href);
+          },{once: true});
+        } else {
+          copyHref.style.display = 'none';
+        }
+      }
+
+      // 有音乐播放器
+      if (true == true && ('home,categories,tags,archives,hr,friends,about,hr,print,hr,music'||[]).includes('music')) {
+        // 如果有aplayer，初始化一下
+      	try {
+      		checkAPlayer();
+          updateTitle();
+      	} catch (error) {
+      		console.log(error);
+      	}
+      }
+
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
+    }
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function copyString(str) {
+      const input = document.createElement('input');
+      input.setAttribute('readonly', 'readonly');
+      document.body.appendChild(input);
+      input.setAttribute('value', str);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+    }
+    document.execCommand('click');
+  </script>
+
+
+    
+    <!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+
+
+<!-- optional -->
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover-backstretch') {
+          $('.cover-backstretch').backstretch(
+            imgs,
+          {
+            duration: "10000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "10000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  <script>
+  
+  var SEARCH_SERVICE = "hexo" || "hexo";
+  var ROOT = "/" || "/";
+  if (!ROOT.endsWith('/')) ROOT += '/';
+</script>
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+
+
+<script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".md").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      // 背景层
+      var bgDiv = document.createElement("div");
+      $(bgDiv).addClass("bg");
+      if ($(this).attr('bg')) {
+        $(bgDiv).css('background', $(this).attr('bg'));
+      }
+      $(this).wrap(bgDiv); // 背景层
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
+
+   <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+<script type="text/javascript">
+  function pjax_scrollrebeal() {
+    ScrollReveal().reveal('.l_main .reveal', {
+      distance: '32px',
+      duration: '800',
+      interval: '20',
+      scale: '1',
+      easing: 'ease-out'
+    });
+  }
+  $(function () {
+    pjax_scrollrebeal();
+  });
+</script>
+
+
+
+
+  <script>
+  let APlayerController = new Object();
+  APlayerController.id = '1930654125';  // 设定全局音乐播放ID
+  APlayerController.volume = '0.7';
+</script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+
+
+
+  
+<script src="/js/aplayer.js"></script>
+
+
+
+
+
+
+  
+  
+<script src="/js/valine.js"></script>
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+    let pageUrl = $.trim($('#pjax-comment-path').text()) === "none" ? 
+      decodeURI(window.location.pathname) : $.trim($('#pjax-comment-path').text());
+    let pagePlaceholder = $.trim($('#pjax-comment-placeholder').text()) === "none" ?
+      "快来评论吧~" : $.trim($('#pjax-comment-placeholder').text());
+
+    let ALLPATH = '';
+    if(ALLPATH != '') pageUrl = ALLPATH;
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: pagePlaceholder,
+      path: pageUrl,
+      appId: "O2XYIOn9EAIKNr5HayEBixXl-MdYXbMMI",
+      appKey: "g1XtDO1m1wHerH2wbn0A08mk",
+      pageSize: '10',
+      avatar: 'robohash',
+      lang: 'zh-cn',
+      visitor: 'true',
+      highlight: 'true',
+      mathJax: 'false',
+      enableQQ: 'true',
+      requiredFields: requiredFields,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps
+    })
+  }
+
+  $(function () {
+    pjax_valine();
+  });
+</script>
+
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5/lib/darkmode-js.min.js" aysc></script>
+
+<script type="text/javascript">
+function getClientHeight(){
+  var clientHeight=0;
+  if(document.body.clientHeight&&document.documentElement.clientHeight){
+  var clientHeight = (document.body.clientHeight<document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
+  }else{
+  var clientHeight = (document.body.clientHeight>document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
+  }
+  return clientHeight;
+}
+function supportCss3(style) {
+  var prefix = ['webkit', 'Moz', 'ms', 'o'],
+  i,
+  humpString = [],
+  htmlStyle = document.documentElement.style,
+  _toHumb = function (string) {
+  return string.replace(/-(\w)/g, function ($0, $1) {
+  return $1.toUpperCase();
+  });
+  };
+  for (i in prefix)
+  humpString.push(_toHumb(prefix[i] + '-' + style));
+  humpString.push(_toHumb(style));
+  for (i in humpString)
+  if (humpString[i] in htmlStyle) return true;
+  return false;
+};
+//配置信息
+var options = {
+  bottom: '100px',
+  right: '35px',
+  left: 'unset',
+  time: '0s',
+  mixColor: '#f4f4f4',
+  backgroundColor: '#f4f4f4',
+  buttonColorDark: '#bbb',
+  buttonColorLight: '#444',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+};
+// 卡片兼容处理 mix-blend-mode 与 effect: [blur] 冲突
+
+function pjax_darkmodejs(){
+  
+  if(!supportCss3('mix-blend-mode'))return;
+  var checkExist2 = setInterval(function() {
+     if (typeof jQuery == 'undefined'){return;}
+     clearInterval(checkExist2);
+     var TopFlag=getClientHeight();
+    $(window).scroll(function(){
+      var top = $(document).scrollTop();
+      if(top > TopFlag) {
+        $(".darkmode-layer").css("mix-blend-mode","normal");
+        $(".darkmode-layer").css("background-color","#222");
+      }else{
+        $(".darkmode-layer").css("mix-blend-mode","difference");
+        $(".darkmode-layer").css("background-color","");
+      }
+    })
+  }, 100);
+  
+}
+// mix-blend-mode support?
+if(supportCss3('mix-blend-mode')){
+  window.darkmode = new Darkmode(options);
+  
+  window.darkmode.showWidget();
+  
+  pjax_darkmodejs();
+}
+////////////////Development///////////////////////
+//////////////darkmode模式切换////////////////////
+//window.darkmode.toggle();                     //
+//////////////darkmode模式判断////////////////////
+//console.log(window.darkmode.isActivated())    //
+//////////////////////////////////////////////////
+</script>
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+
+  
+    
+<script src="/js/search.js"></script>
+
+  
+
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function () {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+
+
+
+
+
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'O2XYIOn9EAIKNr5HayEBixXl-MdYXbMMI',
+    app_key: 'g1XtDO1m1wHerH2wbn0A08mk',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'https://666wxy666.github.io' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'https://666wxy666.github.io' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'https://666wxy666.github.io' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              if (pv.getAttribute('data-path') == window.location.pathname) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == window.location.pathname) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+<!-- more -->
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+<!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <div class="loading-circle"><div id="loader-circle"></div></div>
+    <script>
+      window.ShowLoading = function() {
+        $(".loading-circle").css("display", "block");
+      };
+      window.HideLoading = function() {
+        $(".loading-circle").css("display", "none");
+      }
+    </script>
+  
+</div>
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = ["/shuoshuo/"];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      $.fancybox.close();    // 关闭弹窗
+      $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
+      $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      $('.s-top').unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+      window.ShowLoading();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+      // 
+      // _hmt.push(['_trackPageview', document.location.pathname]);
+      // 
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('config', 'UA-162450234-2', {'page_path': document.location.pathname});
+      
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+        pjax_fancybox();
+        
+          
+          if ('.cover-backstretch') {
+            $('.cover-backstretch').backstretch("resize");
+            if($('.cover-wrapper').is(':hidden')){
+              $('.cover-backstretch').backstretch("pause");
+            }else{
+              $('.cover-backstretch').backstretch("next");
+            }
+          } else {
+            $.backstretch("resize");
+            if($('.cover-wrapper').is(':hidden')){
+              $.backstretch("pause");
+            }else{
+              $.backstretch("next");
+            }
+          }
+        
+        
+        
+          pjax_scrollrebeal();
+        
+        
+          pjax_initCopyCode();
+        
+        
+          pjax_valine();
+        
+        
+        
+        
+        
+          pjax_darkmodejs();
+        
+      } catch (e) {
+        console.log(e);
+      }
+      window.HideLoading();
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.HideLoading();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+</body>
+</html>
+<!--单击显示文字-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/click_show_text.js"></script>
+<!--鼠标点击烟花爆炸效果-->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/fireworks.js"></script>
+<!--Live2D看板娘-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+<script src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/live2d/autoload.js"></script>
+<!--浏览器搞笑标题-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/FunnyTitle.js"></script>
