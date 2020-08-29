@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.0.0-beta.2">
+<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.0.0-rc.1">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -36,7 +36,7 @@
   <!-- link -->
   
     
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css">
 
   
   
@@ -647,8 +647,8 @@
   <div id="pjax-ispage">true</div>
   <div id="pjax-pageTitle">大数据实战 Spark Streaming 实时计算Kafka数据</div>
   <div id="pjax-enable-cover">true</div>
-  <div id="pjax-comment-path">none</div>
-  <div id="pjax-comment-placeholder">none</div>
+  <div id="pjax-comment-path"></div>
+  <div id="pjax-comment-placeholder"></div>
 </div>
 
 
@@ -658,10 +658,10 @@
     document.getElementsByClassName('cover-wrapper')[0].style.display = "none";
     document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show");
   } else {
-    if ("none" == "blog") { // 半屏
+    if ("none" == "half") { // 半屏
       document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'half');
       document.getElementsByClassName('scroll-down')[0].style.display = "none";
-    } else if ("none" == "docs") { // 全屏
+    } else if ("none" == "full") { // 全屏
       document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'full');
       document.getElementsByClassName('scroll-down')[0].style.display = "";
     }
@@ -675,29 +675,22 @@
         
 
 <div class="l_main">
+  <article class="article post white-box reveal md shadow floatable article-type-post" id="post" itemscope itemprop="blogPost">
   
-
-  
-    <article id="post" class="post white-box reveal md shadow floatable article-type-post" itemscope itemprop="blogPost">
-      
 
 
   <div class="article-header">
     
+    <div class="article-meta" id="top">
       
-      <div class="article-meta" id="top">
-        
-        
-        
-          <h1 class="title">
-            <a href="/2020/08/24/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Spark-Streaming-%E5%AE%9E%E6%97%B6%E8%AE%A1%E7%AE%97Kafka%E6%95%B0%E6%8D%AE/">
-              大数据实战 Spark Streaming 实时计算Kafka数据
-            </a>
-          </h1>
-        
+      
+      
+        <h1 class="title">
+          <a href="/2020/08/24/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Spark-Streaming-%E5%AE%9E%E6%97%B6%E8%AE%A1%E7%AE%97Kafka%E6%95%B0%E6%8D%AE/">
+            大数据实战 Spark Streaming 实时计算Kafka数据
+          </a>
+        </h1>
         <div class="new-meta-box">
-          
-            
           
             
               
@@ -749,16 +742,15 @@
             
           
         </div>
-      </div>
-    
+      
+    </div>
   </div>
 
 
-      <section class="article typo">
-        <div class="article-entry" itemprop="articleBody">
-          
-          
-          <p>本文是关于大数据通过Spark Streaming实现流计算Kafka数据进行单词计数。</p>
+  <div class="article-entry" itemprop="articleBody">
+    
+    
+    <p>本文是关于大数据通过Spark Streaming实现流计算Kafka数据进行单词计数。</p>
 <a id="more"></a>
 
 
@@ -884,62 +876,61 @@
 <h2 id="四、附录"><a href="#四、附录" class="headerlink" title="四、附录"></a>四、附录</h2><h3 id="kafka-streaming-scala"><a href="#kafka-streaming-scala" class="headerlink" title="kafka_streaming.scala"></a>kafka_streaming.scala</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.zkpk.lab</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.common.serialization.<span class="type">StringDeserializer</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.streaming.&#123;<span class="type">Seconds</span>, <span class="type">StreamingContext</span>&#125;</span><br><span class="line"><span class="keyword">import</span> org.apache.spark.<span class="type">SparkConf</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.streaming.kafka010._</span><br><span class="line"><span class="keyword">import</span> org.apache.spark.streaming.kafka010.<span class="type">LocationStrategies</span>.<span class="type">PreferConsistent</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.streaming.kafka010.<span class="type">ConsumerStrategies</span>.<span class="type">Subscribe</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">kafka_streaming</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>().setMaster(<span class="string">"local[2]"</span>).setAppName(<span class="string">"kafka_test"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> ssc = <span class="keyword">new</span> <span class="type">StreamingContext</span>(conf, <span class="type">Seconds</span>(<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> kafkaParams = <span class="type">Map</span>[<span class="type">String</span>, <span class="type">Object</span>](</span><br><span class="line">      <span class="string">"bootstrap.servers"</span> -&gt; <span class="string">"master:9092"</span>,</span><br><span class="line">      <span class="string">"key.deserializer"</span> -&gt; classOf[<span class="type">StringDeserializer</span>],</span><br><span class="line">      <span class="string">"value.deserializer"</span> -&gt; classOf[<span class="type">StringDeserializer</span>],</span><br><span class="line">      <span class="string">"group.id"</span> -&gt; <span class="string">"example"</span>,</span><br><span class="line">      <span class="string">"auto.offset.reset"</span> -&gt; <span class="string">"latest"</span>,</span><br><span class="line">      <span class="string">"enable.auto.commit"</span> -&gt; (<span class="literal">false</span>: java.lang.<span class="type">Boolean</span>)</span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">val</span> topics = <span class="type">List</span>(<span class="string">"test_kafka"</span>).toSet</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> stream = <span class="type">KafkaUtils</span>.createDirectStream</span><br><span class="line">      [<span class="type">String</span>,<span class="type">String</span>](</span><br><span class="line">        ssc,</span><br><span class="line">        <span class="type">PreferConsistent</span>,</span><br><span class="line">        <span class="type">Subscribe</span>[<span class="type">String</span>,<span class="type">String</span>](topics,kafkaParams)</span><br><span class="line">      )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> lines = stream.map(_.value)</span><br><span class="line">    <span class="keyword">val</span> words = lines.flatMap(_.split(<span class="string">" "</span>))</span><br><span class="line">    <span class="keyword">val</span> wordcounts = words.map((_,<span class="number">1</span>)).reduceByKey(_+_)</span><br><span class="line">    wordcounts.print()</span><br><span class="line"></span><br><span class="line">    ssc.start()</span><br><span class="line">    ssc.awaitTermination()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-          
-            
-            <div class="footer">
-              
-              
-                <div class="related_posts">
-                  <section class="header">
-                    <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
-                  </section>
-                  <section class="body">
-                    <div class="vlts-rps"><a class="item" href="\2020\08\24\大数据实战-Spark-自选日志分析\" title="大数据实战 Spark 自选日志分析" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200603145855.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603145855.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">大数据实战 Spark 自选日志分析</span><span class="excerpt">本文是关于大数据通过Java进行Spark编程实现自选日志处理分析。</span></a><a class="item" href="\2020\08\24\大数据实战-Spark-Java单词计数\" title="大数据实战 Spark Java单词计数" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200423203009.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200423203009.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">大数据实战 Spark Java单词计数</span><span class="excerpt">本文是关于大数据通过Spark实现Java单词计数。</span></a><a class="item" href="\2020\08\24\大数据实战-Spark-分析流量日志\" title="大数据实战 Spark 分析流量日志" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200603142941.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603142941.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">大数据实战 Spark 分析流量日志</span><span class="excerpt">本文是关于大数据通过Java进行Spark编程实现日志处理分析。</span></a><a class="item" href="\2020\08\24\大数据实战-Python可视化-Matplotlib可视化\" title="大数据实战 Python可视化 Matplotlib可视化" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200602123119.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123119.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">大数据实战 Python可视化 Matplotlib可视化</span><span class="excerpt">本文是关于大数据通过Python的Matplotlib实现数据可视化。</span></a></div>
-                  </section>
-                </div>
-              
-              
-                <div class="copyright">
-                  <blockquote>
-                    
-                      
-                        <p>本文为博主「苇名一心」的原创文章</p>
-
-                      
-                    
-                      
-                        <p>内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
-
-                      
-                    
-                      
-                        <p>本文永久链接是：<a href="https://666wxy666.github.io/2020/08/24/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Spark-Streaming-%E5%AE%9E%E6%97%B6%E8%AE%A1%E7%AE%97Kafka%E6%95%B0%E6%8D%AE/">https://666wxy666.github.io/2020/08/24/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Spark-Streaming-%E5%AE%9E%E6%97%B6%E8%AE%A1%E7%AE%97Kafka%E6%95%B0%E6%8D%AE/</a></p>
-                      
-                    
-                      
-                        <p>转载请附上原文出处链接及本声明</p>
-
-                      
-                    
-                  </blockquote>
-                </div>
-              
-              
-                <div class="donate">
-                  <div class="imgs">
-                    
-                      <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-                    
-                      <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-                    
-                  </div>
-                </div>
-              
-            </div>
-          
-        </div>
+    
+      
+      <div class="footer">
+        
         
           
+  <div class="related_posts">
+    <section class="header">
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
+    </section>
+    <section class="body">
+      <div class="vlts-rps"><a class="item" href="\2020\08\24\大数据实战-Spark-自选日志分析\" title="大数据实战 Spark 自选日志分析" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200603145855.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603145855.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">大数据实战 Spark 自选日志分析</span><span class="excerpt">本文是关于大数据通过Java进行Spark编程实现自选日志处理分析。</span></a><a class="item" href="\2020\08\24\大数据实战-Spark-Java单词计数\" title="大数据实战 Spark Java单词计数" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200423203009.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200423203009.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">大数据实战 Spark Java单词计数</span><span class="excerpt">本文是关于大数据通过Spark实现Java单词计数。</span></a><a class="item" href="\2020\08\24\大数据实战-Spark-分析流量日志\" title="大数据实战 Spark 分析流量日志" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200603142941.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603142941.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">大数据实战 Spark 分析流量日志</span><span class="excerpt">本文是关于大数据通过Java进行Spark编程实现日志处理分析。</span></a><a class="item" href="\2020\08\24\大数据实战-Python可视化-Matplotlib可视化\" title="大数据实战 Python可视化 Matplotlib可视化" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200602123119.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123119.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">大数据实战 Python可视化 Matplotlib可视化</span><span class="excerpt">本文是关于大数据通过Python的Matplotlib实现数据可视化。</span></a></div></section></div>
+        
+        
+          <div class="copyright">
+            <blockquote>
+              
+                
+                  <p>本文为博主「苇名一心」的原创文章</p>
+
+                
+              
+                
+                  <p>内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+                
+              
+                
+                  <p>本文永久链接是：<a href="https://666wxy666.github.io/2020/08/24/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Spark-Streaming-%E5%AE%9E%E6%97%B6%E8%AE%A1%E7%AE%97Kafka%E6%95%B0%E6%8D%AE/">https://666wxy666.github.io/2020/08/24/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Spark-Streaming-%E5%AE%9E%E6%97%B6%E8%AE%A1%E7%AE%97Kafka%E6%95%B0%E6%8D%AE/</a></p>
+                
+              
+                
+                  <p>转载请附上原文出处链接及本声明</p>
+
+                
+              
+            </blockquote>
+          </div>
+        
+        
+          <div class="donate">
+            <div class="imgs">
+              
+                <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+              
+                <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+              
+            </div>
+          </div>
+        
+      </div>
+    
+  </div>
+  
+    
 
 
   <div class="article-meta" id="bottom">
@@ -965,18 +956,13 @@
       
         
           
-
-        
-      
-        
-          
   <div class="new-meta-item share -mob-share-list">
   <div class="-mob-share-list share-body">
     
       
         <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://666wxy666.github.io/2020/08/24/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Spark-Streaming-%E5%AE%9E%E6%97%B6%E8%AE%A1%E7%AE%97Kafka%E6%95%B0%E6%8D%AE/&title=大数据实战 Spark Streaming 实时计算Kafka数据 - 苇名一心的博客&summary=本文是关于大数据通过Spark Streaming实现流计算Kafka数据进行单词计数。" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -984,7 +970,7 @@
       
         <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://666wxy666.github.io/2020/08/24/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Spark-Streaming-%E5%AE%9E%E6%97%B6%E8%AE%A1%E7%AE%97Kafka%E6%95%B0%E6%8D%AE/&title=大数据实战 Spark Streaming 实时计算Kafka数据 - 苇名一心的博客&summary=本文是关于大数据通过Spark Streaming实现流计算Kafka数据进行单词计数。" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -992,9 +978,13 @@
       
         <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://666wxy666.github.io/2020/08/24/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Spark-Streaming-%E5%AE%9E%E6%97%B6%E8%AE%A1%E7%AE%97Kafka%E6%95%B0%E6%8D%AE/&title=大数据实战 Spark Streaming 实时计算Kafka数据 - 苇名一心的博客&summary=本文是关于大数据通过Spark Streaming实现流计算Kafka数据进行单词计数。" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
+      
+    
+      
+    
       
     
   </div>
@@ -1008,13 +998,15 @@
   </div>
 
 
-        
-        
-          <div class="prev-next">
-            
-              <a class="prev" href="/2020/08/24/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Spark-%E5%88%86%E6%9E%90%E6%B5%81%E9%87%8F%E6%97%A5%E5%BF%97/">
-                <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>大数据实战 Spark 分析流量日志</p>
-                <p class="content">本文是关于大数据通过Java进行Spark编程实现日志处理分析。
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class="prev" href="/2020/08/24/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Spark-%E5%88%86%E6%9E%90%E6%B5%81%E9%87%8F%E6%97%A5%E5%BF%97/">
+          <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>大数据实战 Spark 分析流量日志</p>
+          <p class="content">本文是关于大数据通过Java进行Spark编程实现日志处理分析。
 
 
 
@@ -1024,12 +1016,12 @@
 系统版本：Centos 7.5
 Spark版本：Apache Spark 2.1.1
 E...</p>
-              </a>
-            
-            
-              <a class="next" href="/2020/08/24/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Spark-Java%E5%8D%95%E8%AF%8D%E8%AE%A1%E6%95%B0/">
-                <p class="title">大数据实战 Spark Java单词计数<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class="content">本文是关于大数据通过Spark实现Java单词计数。
+        </a>
+      
+      
+        <a class="next" href="/2020/08/24/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Spark-Java%E5%8D%95%E8%AF%8D%E8%AE%A1%E6%95%B0/">
+          <p class="title">大数据实战 Spark Java单词计数<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class="content">本文是关于大数据通过Spark实现Java单词计数。
 
 
 
@@ -1039,44 +1031,32 @@ E...</p>
 系统版本：Centos 7.5
 Spark版本：Apache Spark 2.1.1
 JDK版本： ...</p>
-              </a>
-            
-          </div>
-        
-      </section>
-    </article>
-  
-
-  
-    
-
-  <article class="post white-box reveal comments shadow floatable">
-    <section class="article typo">
-      <p ct><i class="fas fa-comments"></i> 评论</p>
+        </a>
       
-      <section id="comments">
-        <div id="valine_container" class="valine_thread">
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow floatable" id="comments">
+    <p ct><i class="fas fa-comments"></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
   <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-      </section>
-    </section>
   </article>
 
 
-  
 
 
-
-
-<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
 
 
 </div>
 <aside class="l_side">
   
-  
-
   
     
     
@@ -1147,6 +1127,14 @@ JDK版本： ...</p>
             
           
             
+          
+            
+          
+            
+          
+            
+          
+            
               <a href="https://gitee.com/wxy_666" class="social fab fa-git-alt flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
                 
               </a>
@@ -1168,6 +1156,14 @@ JDK版本： ...</p>
               <a href="https://music.163.com/#/user/home?id=74040689" class="social fas fa-headphones-alt flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
                 
               </a>
+            
+          
+            
+          
+            
+          
+            
+          
             
           
         </div>
@@ -1201,18 +1197,10 @@ JDK版本： ...</p>
       
     
       
-        
-          <div><p><span id="lc-sv">本站总访问量为 <span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
-</div>
-        
-      
-    
-      
         <div class="copyright">
         <p><a href="/">Copyright © 2020-2020 苇名一心</a></p>
 
         </div>
-		<br>
       
     
   </footer>
@@ -1477,105 +1465,6 @@ JDK版本： ...</p>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
 
-
-
-<!-- optional -->
-
-  
-  
-  
-    
-<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
-
-    <script type="text/javascript">
-      $(function(){
-        var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
-        if ('true' == 'true') {
-          function shuffle(arr){
-            /*From countercurrent-time*/
-            var n = arr.length;
-            while(n--) {
-              var index = Math.floor(Math.random() * n);
-              var temp = arr[index];
-              arr[index] = arr[n];
-              arr[n] = temp;
-            }
-          }
-          shuffle(imgs);
-        }
-        if ('.cover-backstretch') {
-          $('.cover-backstretch').backstretch(
-            imgs,
-          {
-            duration: "10000",
-            fade: "1500"
-          });
-        } else {
-          $.backstretch(
-            imgs,
-          {
-            duration: "10000",
-            fade: "1500"
-          });
-        }
-      });
-    </script>
-  
-
-
-
-  <script>
-  
-  var SEARCH_SERVICE = "hexo" || "hexo";
-  var ROOT = "/" || "/";
-  if (!ROOT.endsWith('/')) ROOT += '/';
-</script>
-
-
-
-
-  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
-<script>
-  // https://www.npmjs.com/package/vanilla-lazyload
-  // Set the options globally
-  // to make LazyLoad self-initialize
-  window.lazyLoadOptions = {
-    elements_selector: ".lazyload",
-    threshold: 0
-  };
-  // Listen to the initialization event
-  // and get the instance of LazyLoad
-  window.addEventListener(
-    "LazyLoad::Initialized",
-    function (event) {
-      window.lazyLoadInstance = event.detail.instance;
-    },
-    false
-  );
-  document.addEventListener('DOMContentLoaded', function () {
-    lazyLoadInstance.update();
-  });
-  document.addEventListener('pjax:complete', function () {
-    lazyLoadInstance.update();
-  });
-</script>
-
-
-
-
-
-
-<script>
-  window.FPConfig = {
-    delay: 0,
-    ignoreKeywords: [],
-    maxRPS: 5,
-    hoverDelay: 25
-  };
-</script>
-<script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
-
-
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 <script>
   function pjax_fancybox() {
@@ -1627,6 +1516,108 @@ JDK版本： ...</p>
     pjax_fancybox();
   });
 </script>
+
+
+<!-- internal -->
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover-backstretch') {
+          $('.cover-backstretch').backstretch(
+            imgs,
+          {
+            duration: "10000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "10000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+<!-- optional -->
+
+  <script>
+  
+  var SEARCH_SERVICE = "hexo" || "hexo";
+  var ROOT = "/" || "/";
+  if (!ROOT.endsWith('/')) ROOT += '/';
+</script>
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+  
+    <script>
+      window.FPConfig = {
+        delay: 0,
+        ignoreKeywords: [],
+        maxRPS: 5,
+        hoverDelay: 25
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+  
+
+
 
 
   <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
@@ -1684,22 +1675,6 @@ JDK版本： ...</p>
 </script>
 
 
-
-   <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
-<script type="text/javascript">
-  function pjax_scrollrebeal() {
-    ScrollReveal().reveal('.l_main .reveal', {
-      distance: '32px',
-      duration: '800',
-      interval: '20',
-      scale: '1',
-      easing: 'ease-out'
-    });
-  }
-  $(function () {
-    pjax_scrollrebeal();
-  });
-</script>
 
 
 
@@ -1766,20 +1741,21 @@ JDK版本： ...</p>
 
   function pjax_valine() {
     if(!document.querySelectorAll("#valine_container")[0])return;
-    let pageUrl = $.trim($('#pjax-comment-path').text()) === "none" ? 
-      decodeURI(window.location.pathname) : $.trim($('#pjax-comment-path').text());
-    let pagePlaceholder = $.trim($('#pjax-comment-placeholder').text()) === "none" ?
-      "快来评论吧~" : $.trim($('#pjax-comment-placeholder').text());
 
-    let ALLPATH = '';
-    if(ALLPATH != '') pageUrl = ALLPATH;
+    let pagePlaceholder = $.trim($('#pjax-comment-placeholder').text()) || "快来评论吧~";
+
+    let path = $.trim($('#pjax-comment-path').text());
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
 
     var valine = new Valine();
     valine.init({
       el: '#valine_container',
       meta: meta,
       placeholder: pagePlaceholder,
-      path: pageUrl,
+      path: path,
       appId: "O2XYIOn9EAIKNr5HayEBixXl-MdYXbMMI",
       appKey: "g1XtDO1m1wHerH2wbn0A08mk",
       pageSize: '10',
@@ -1836,15 +1812,15 @@ function supportCss3(style) {
 //配置信息
 var options = {
   bottom: '100px',
-  right: '35px',
+  right: '32px',
   left: 'unset',
   time: '0s',
   mixColor: '#f4f4f4',
   backgroundColor: '#f4f4f4',
-  buttonColorDark: '#bbb',
-  buttonColorLight: '#444',
+  buttonColorDark: '#333',
+  buttonColorLight: '#ddd',
   saveInCookies: true,
-  label: '🌓',
+  label: '',
   autoMatchOsTheme: true
 };
 // 卡片兼容处理 mix-blend-mode 与 effect: [blur] 冲突
@@ -1921,6 +1897,10 @@ if(supportCss3('mix-blend-mode')){
     });
   </script>
 
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/comment_typing.js"></script>
 
 
 
@@ -2146,13 +2126,14 @@ if(supportCss3('mix-blend-mode')){
 
 <div class="pjax-animate">
   
-    <div class="loading-circle"><div id="loader-circle"></div></div>
+    <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+    <div id="loading-bar-wrapper"><script>NProgress.configure({parent:"#loading-bar-wrapper",trickleSpeed: 100})</script></div>
     <script>
       window.ShowLoading = function() {
-        $(".loading-circle").css("display", "block");
+        NProgress.start();
       };
       window.HideLoading = function() {
-        $(".loading-circle").css("display", "none");
+        NProgress.done();
       }
     </script>
   
@@ -2249,8 +2230,6 @@ if(supportCss3('mix-blend-mode')){
           }
         
         
-        
-          pjax_scrollrebeal();
         
         
           pjax_initCopyCode();

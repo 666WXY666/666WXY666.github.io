@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.0.0-beta.2">
+<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.0.0-rc.1">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -36,7 +36,7 @@
   <!-- link -->
   
     
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css">
 
   
   
@@ -647,8 +647,8 @@
   <div id="pjax-ispage">true</div>
   <div id="pjax-pageTitle">Linux 上机实战3 shell脚本程序设计</div>
   <div id="pjax-enable-cover">true</div>
-  <div id="pjax-comment-path">none</div>
-  <div id="pjax-comment-placeholder">none</div>
+  <div id="pjax-comment-path"></div>
+  <div id="pjax-comment-placeholder"></div>
 </div>
 
 
@@ -658,10 +658,10 @@
     document.getElementsByClassName('cover-wrapper')[0].style.display = "none";
     document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show");
   } else {
-    if ("none" == "blog") { // 半屏
+    if ("none" == "half") { // 半屏
       document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'half');
       document.getElementsByClassName('scroll-down')[0].style.display = "none";
-    } else if ("none" == "docs") { // 全屏
+    } else if ("none" == "full") { // 全屏
       document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'full');
       document.getElementsByClassName('scroll-down')[0].style.display = "";
     }
@@ -675,29 +675,22 @@
         
 
 <div class="l_main">
+  <article class="article post white-box reveal md shadow floatable article-type-post" id="post" itemscope itemprop="blogPost">
   
-
-  
-    <article id="post" class="post white-box reveal md shadow floatable article-type-post" itemscope itemprop="blogPost">
-      
 
 
   <div class="article-header">
     
+    <div class="article-meta" id="top">
       
-      <div class="article-meta" id="top">
-        
-        
-        
-          <h1 class="title">
-            <a href="/2020/08/24/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%983-shell%E8%84%9A%E6%9C%AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
-              Linux 上机实战3 shell脚本程序设计
-            </a>
-          </h1>
-        
+      
+      
+        <h1 class="title">
+          <a href="/2020/08/24/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%983-shell%E8%84%9A%E6%9C%AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+            Linux 上机实战3 shell脚本程序设计
+          </a>
+        </h1>
         <div class="new-meta-box">
-          
-            
           
             
               
@@ -749,16 +742,15 @@
             
           
         </div>
-      </div>
-    
+      
+    </div>
   </div>
 
 
-      <section class="article typo">
-        <div class="article-entry" itemprop="articleBody">
-          
-          
-          <p><strong>本文是关于Linux中的shell脚本程序设计，有几个小Demo。</strong></p>
+  <div class="article-entry" itemprop="articleBody">
+    
+    
+    <p><strong>本文是关于Linux中的shell脚本程序设计，有几个小Demo。</strong></p>
 <a id="more"></a>
 
 
@@ -1105,62 +1097,61 @@
 <h3 id="3、bing3-sh"><a href="#3、bing3-sh" class="headerlink" title="3、bing3.sh"></a>3、bing3.sh</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">##</span></span></span><br><span class="line"><span class="meta"> #</span><span class="bash"> @Copyright: Copyright (c) 2020 苇名一心 All Rights Reserved.</span></span><br><span class="line"><span class="meta"> #</span><span class="bash"> @Description: </span></span><br><span class="line"><span class="meta"> #</span><span class="bash"> @Version: 3.0</span></span><br><span class="line"><span class="meta"> #</span><span class="bash"> @Author: 苇名一心</span></span><br><span class="line"><span class="meta"> #</span><span class="bash"> @Date: 2020-05-01 08:54:37</span></span><br><span class="line"><span class="meta"> #</span><span class="bash"> @LastEditors: 苇名一心</span></span><br><span class="line"><span class="meta"> #</span><span class="bash"> @LastEditTime: 2020-05-08 22:04:23</span></span><br><span class="line"><span class="meta"> #</span><span class="bash"><span class="comment">##</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 错误代号:</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 1: 参数输入格式错误</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 2: 输入的页数非整数</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 3: 输入的页数范围不在[1,126]</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 4: 开始页数&lt;结束页数</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 5: 下载页面失败</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 6: 下载图片失败</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 7: 输入的随机次数非整数</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 8: 输入的随机次数&lt;1</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 9: 下载json失败</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 10: 未知错误</span></span><br><span class="line"></span><br><span class="line">NONE="\e[0m"</span><br><span class="line">RED="\e[0;31m"</span><br><span class="line"><span class="meta">#</span><span class="bash"> rand=0，代表普通模式；rand&gt;0代表随机模式，rand的数值代表随机的次数</span></span><br><span class="line">rand=0</span><br><span class="line"><span class="meta">#</span><span class="bash"> 读取命令行参数，并进行错误处理</span></span><br><span class="line">if [ $# = 0 ]</span><br><span class="line">then</span><br><span class="line">    start_page=1</span><br><span class="line">    end_page=126</span><br><span class="line"><span class="meta">#</span><span class="bash"> 额外增加了一个，如果只输入一个参数，代表从第1页到输入的参数的页数</span></span><br><span class="line">elif [ $# = 1 ]</span><br><span class="line">then</span><br><span class="line">    start_page=1</span><br><span class="line">    end_page=$1</span><br><span class="line">elif [ $# = 2 ]</span><br><span class="line">then</span><br><span class="line">    # 随机模式</span><br><span class="line">    if [ $1 = 'rand' ]</span><br><span class="line">    then</span><br><span class="line">        # 判断第二个参数是否为整数</span><br><span class="line">        if expr $2 + 0 &gt; /dev/null 2&gt;&amp;1</span><br><span class="line">        then</span><br><span class="line">            # 输入的随机次数&lt;1</span><br><span class="line">            if [ $2 -lt 1 ]</span><br><span class="line">            then</span><br><span class="line">                printf $RED'Error: Your input [rand times] &lt; 1\n'$NONE</span><br><span class="line">                echo "Usage: $0 [start page] [end page]  download photos in pages from [start page] to [end page]"</span><br><span class="line">                echo "   or: $0 [end page]               download photos in pages from [1] to [end page]"</span><br><span class="line">                echo "   or: $0 (with no arguments)      download photos in pages from [1] to [126] by default"</span><br><span class="line">                echo "   or: $0 rand [rand times]          rand download photos of [rand times]"</span><br><span class="line">                exit 8</span><br><span class="line">            else</span><br><span class="line">                rand=$2</span><br><span class="line">            fi</span><br><span class="line">        # 输入的随机次数非整数</span><br><span class="line">        else</span><br><span class="line">            printf $RED'Error: Your input [rand times] is not an integer\n'$NONE</span><br><span class="line">            echo "Usage: $0 [start page] [end page]  download photos in pages from [start page] to [end page]"</span><br><span class="line">            echo "   or: $0 [end page]               download photos in pages from [1] to [end page]"</span><br><span class="line">            echo "   or: $0 (with no arguments)      download photos in pages from [1] to [126] by default"</span><br><span class="line">            echo "   or: $0 rand [rand times]          rand download photos of [rand times]"</span><br><span class="line">            exit 7</span><br><span class="line">        fi</span><br><span class="line">    # 普通模式</span><br><span class="line">    else</span><br><span class="line">        start_page=$1</span><br><span class="line">        end_page=$2</span><br><span class="line">        # 输入的页数非整数</span><br><span class="line">        if ! expr $start_page + 0 &gt; /dev/null 2&gt;&amp;1 || ! expr $end_page + 0 &gt; /dev/null 2&gt;&amp;1</span><br><span class="line">        then</span><br><span class="line">            printf $RED'Error: Your input page is not an integer\n'$NONE</span><br><span class="line">            echo "Usage: $0 [start page] [end page]  download photos in pages from [start page] to [end page]"</span><br><span class="line">            echo "   or: $0 [end page]               download photos in pages from [1] to [end page]"</span><br><span class="line">            echo "   or: $0 (with no arguments)      download photos in pages from [1] to [126] by default"</span><br><span class="line">            echo "   or: $0 rand [rand times]        rand download photos of [rand times]"</span><br><span class="line">            exit 2</span><br><span class="line">        fi</span><br><span class="line">        # 输入的页数范围不在[1,126]</span><br><span class="line">        if [ $start_page -lt 1 -o $end_page -lt 1 -o $start_page -gt 126 -o $end_page -gt 126 ]</span><br><span class="line">        then</span><br><span class="line">            printf $RED'Error: Your input page not in the range [1,126]\n'$NONE</span><br><span class="line">            echo "Usage: $0 [start page] [end page]  download photos in pages from [start page] to [end page]"</span><br><span class="line">            echo "   or: $0 [end page]               download photos in pages from [1] to [end page]"</span><br><span class="line">            echo "   or: $0 (with no arguments)      download photos in pages from [1] to [126] by default"</span><br><span class="line">            echo "   or: $0 rand [rand times]        rand download photos of [rand times]"</span><br><span class="line">            exit 3</span><br><span class="line">        fi</span><br><span class="line">        # 开始页数&lt;结束页数</span><br><span class="line">        if [ $start_page -gt $end_page ]</span><br><span class="line">        then</span><br><span class="line">            printf $RED'Error: Your input [start_page] &gt; [end page]\n'$NONE</span><br><span class="line">            echo "Usage: $0 [start page] [end page]  download photos in pages from [start page] to [end page]"</span><br><span class="line">            echo "   or: $0 [end page]               download photos in pages from [1] to [end page]"</span><br><span class="line">            echo "   or: $0 (with no arguments)      download photos in pages from [1] to [126] by default"</span><br><span class="line">            echo "   or: $0 rand [rand times]        rand download photos of [rand times]"</span><br><span class="line">            exit 4</span><br><span class="line">        fi</span><br><span class="line">    fi</span><br><span class="line"><span class="meta">#</span><span class="bash"> 参数输入格式错误</span></span><br><span class="line">else</span><br><span class="line">    printf $RED'Error: Please input the right arguments\n'$NONE</span><br><span class="line">    echo "Usage: $0 [start page] [end page]  download photos in pages from [start page] to [end page]"</span><br><span class="line">    echo "   or: $0 [end page]               download photos in pages from [1] to [end page]"</span><br><span class="line">    echo "   or: $0 (with no arguments)      download photos in pages from [1] to [126] by default"</span><br><span class="line">    echo "   or: $0 rand [rand times]        rand download photos of [rand times]"</span><br><span class="line">    exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 判断并创建工作目录</span></span><br><span class="line">if [ ! -d bing ]</span><br><span class="line">then</span><br><span class="line">    mkdir bing</span><br><span class="line">    echo "Work directory bing is created"</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 普通模式</span></span><br><span class="line">if [ $rand -eq 0 ]</span><br><span class="line">then</span><br><span class="line">    echo "##############Regular Mode##############"</span><br><span class="line">    echo "Your input page range is [$start_page,$end_page]"</span><br><span class="line">    # 对页范围内的循环下载</span><br><span class="line">    for i in `seq $start_page $end_page`</span><br><span class="line">    do</span><br><span class="line">        # 缓存文件使用当前进程ID号$$.html命名，防止受到影响，下面下载图片使用$$.jpg作为缓存也是同样的道理</span><br><span class="line">        echo "Download page $i……"</span><br><span class="line">        if wget -O bing/$$.html "https://bing.ioliu.cn/?p=$i" &gt; /dev/null 2&gt;&amp;1</span><br><span class="line">        then</span><br><span class="line">            echo "Page $i download successfully"</span><br><span class="line">        else</span><br><span class="line">            if [ -f bing/$$.html ]</span><br><span class="line">            then</span><br><span class="line">                rm bing/$$.html</span><br><span class="line">            fi</span><br><span class="line">            printf $RED"Error: Page $i download failed\n"$NONE</span><br><span class="line">            exit 5</span><br><span class="line">        fi</span><br><span class="line">        # 获取该页所以图片信息</span><br><span class="line">        name_list=`cat bing/$$.html | sed 's/&lt;[^&lt;&gt;]*&gt;/\n/g' | awk '/©/ &#123; print $0 &#125;' | sed 's/(.*)//g'`</span><br><span class="line">        date_list=`cat bing/$$.html | sed 's/&lt;[^&lt;&gt;]*&gt;/\n/g' | awk '/[0-9][0-9]*-[0-9][0-9]*-[0-9][0-9]*/ &#123; print $0 &#125;'`</span><br><span class="line">        url_list=`cat bing/$$.html | sed 's/src="/\n/g' | awk '/^http:/ &#123; print $1 &#125;' | sed -e 's/"&gt;&lt;a//g' -e 's/640x480/1920x1080/g'`</span><br><span class="line">        # 对该页内图片循环下载</span><br><span class="line">        for j in `seq 1 12`</span><br><span class="line">        do</span><br><span class="line">            # 获取图片信息</span><br><span class="line">            name=`echo "$name_list" | awk "NR==$j"`</span><br><span class="line">            date=`echo "$date_list" | awk "NR==$j"`</span><br><span class="line">            url=`echo "$url_list" | awk "NR==$j"`</span><br><span class="line">            file_name="$date $name.jpg"</span><br><span class="line">            # 判断是否已经下载</span><br><span class="line">            if [ ! -f "bing/$file_name" ]</span><br><span class="line">            then</span><br><span class="line">                echo "Download photo $i-$j……"</span><br><span class="line">                if wget -O bing/$$.jpg "$url" &gt; /dev/null 2&gt;&amp;1</span><br><span class="line">                then</span><br><span class="line">                    same=0</span><br><span class="line">                    # 先判断md5文件是否存在，如果不存在，说明bing空目录，直接改名</span><br><span class="line">                    if [ -f "bing/md5.txt" ]</span><br><span class="line">                    then</span><br><span class="line">                        # 文件名不存在的，判断是否有文件大小相同的和md5相同的</span><br><span class="line">                        cat bing/md5.txt | while read line</span><br><span class="line">                        do</span><br><span class="line">                            # 先比较文件大小是否相同，加快速度</span><br><span class="line">                            if [ `stat -c%s "bing/$$.jpg"` = `echo "$line" | awk '&#123; print $1 &#125;'` ]</span><br><span class="line">                            then</span><br><span class="line">                                # md5sum计算文件md5值，进行比较</span><br><span class="line">                                if [ `md5sum "bing/$$.jpg" | awk '&#123; print $1 &#125;'` = `echo "$line" | awk '&#123; print $2 &#125;'` ]</span><br><span class="line">                                then</span><br><span class="line">                                    # 相同</span><br><span class="line">                                    same=1</span><br><span class="line">                                    break</span><br><span class="line">                                fi</span><br><span class="line">                            fi</span><br><span class="line">                        done</span><br><span class="line">                    fi</span><br><span class="line">                    if [ $same = 1 ]</span><br><span class="line">                    then</span><br><span class="line">                        rm "bing/$$.jpg"</span><br><span class="line">                        echo "Photo $i-$j already exists"</span><br><span class="line">                    else</span><br><span class="line">                        mv "bing/$$.jpg" "bing/$file_name"</span><br><span class="line">                        echo "Photo $i-$j download successfully"</span><br><span class="line">                        # 生成文件大小和MD5校验信息</span><br><span class="line">                        echo "`stat -c%s "bing/$file_name"` "`md5sum "bing/$file_name"` &gt;&gt; bing/md5.txt</span><br><span class="line">                    fi</span><br><span class="line">                else</span><br><span class="line">                    printf $RED"Error: Photo $i-$j download failed\n"$NONE</span><br><span class="line">                    exit 6</span><br><span class="line">                fi</span><br><span class="line">            else</span><br><span class="line">                echo "Photo $i-$j already exists"</span><br><span class="line">            fi</span><br><span class="line">        done</span><br><span class="line">    done</span><br><span class="line">    # 清理缓存</span><br><span class="line">    echo "Cleaning……"</span><br><span class="line">    rm bing/$$.html</span><br><span class="line"><span class="meta">#</span><span class="bash"> 随机模式</span></span><br><span class="line">elif [ $rand -gt 0 ]</span><br><span class="line">then</span><br><span class="line">    echo "##############Random Mode##############"</span><br><span class="line">    echo "Your input rand times is $rand"</span><br><span class="line">    # 循环随机下载</span><br><span class="line">    for k in `seq 1 $rand`</span><br><span class="line">    do</span><br><span class="line">        # 获取json</span><br><span class="line">        if wget -O "bing/$$.json" "https://bing.ioliu.cn/v1/rand?type=json" &gt; /dev/null 2&gt;&amp;1</span><br><span class="line">        then</span><br><span class="line">            # 获取图片信息</span><br><span class="line">            name=`cat bing/$$.json | sed 's/.*"copyright":"\(.*\)(.*©.*)"&#125;,.*/\1/g'`</span><br><span class="line">            date=`cat bing/$$.json | sed 's/.*"enddate":"\([0-9][0-9][0-9][0-9]\)\([0-9][0-9]\)\([0-9][0-9]\)",.*/\1-\2-\3/g'`</span><br><span class="line">            url=`cat bing/$$.json | sed 's/.*"url":"\(http:.*imageslim\)",.*/\1/g'`</span><br><span class="line">            file_name="$date $name.jpg"</span><br><span class="line">            # 判断是否已经下载，先用文件名判断</span><br><span class="line">            if [ ! -f "bing/$file_name" ]</span><br><span class="line">            then</span><br><span class="line">                echo "Download photo $k……"</span><br><span class="line">                if wget -O "bing/$$.jpg" "$url" &gt; /dev/null 2&gt;&amp;1</span><br><span class="line">                then</span><br><span class="line">                    same=0</span><br><span class="line">                    # 先判断md5文件是否存在，如果不存在，说明bing空目录，直接改名</span><br><span class="line">                    if [ -f "bing/md5.txt" ]</span><br><span class="line">                    then</span><br><span class="line">                        # 文件名不存在的，判断是否有文件大小相同的和md5相同的</span><br><span class="line">                        cat bing/md5.txt | while read line</span><br><span class="line">                        do</span><br><span class="line">                            # 先比较文件大小是否相同，加快速度</span><br><span class="line">                            if [ `stat -c%s "bing/$$.jpg"` = `echo "$line" | awk '&#123; print $1 &#125;'` ]</span><br><span class="line">                            then</span><br><span class="line">                                # md5sum计算文件md5值，进行比较</span><br><span class="line">                                if [ `md5sum "bing/$$.jpg" | awk '&#123; print $1 &#125;'` = `echo "$line" | awk '&#123; print $2 &#125;'` ]</span><br><span class="line">                                then</span><br><span class="line">                                    # 相同</span><br><span class="line">                                    same=1</span><br><span class="line">                                    break</span><br><span class="line">                                fi</span><br><span class="line">                            fi</span><br><span class="line">                        done</span><br><span class="line">                    fi</span><br><span class="line">                    if [ $same = 1 ]</span><br><span class="line">                    then</span><br><span class="line">                        rm "bing/$$.jpg"</span><br><span class="line">                        echo "Photo $k already exists"</span><br><span class="line">                    else</span><br><span class="line">                        mv "bing/$$.jpg" "bing/$file_name"</span><br><span class="line">                        echo "Photo $k download successfully"</span><br><span class="line">                        # 生成文件大小和MD5校验信息</span><br><span class="line">                        echo "`stat -c%s "bing/$file_name"` "`md5sum "bing/$file_name"` &gt;&gt; bing/md5.txt</span><br><span class="line">                    fi</span><br><span class="line">                else</span><br><span class="line">                    printf $RED"Error: Photo $k download failed\n"$NONE</span><br><span class="line">                    exit 6</span><br><span class="line">                fi</span><br><span class="line">            else</span><br><span class="line">                echo "Photo $k already exists"</span><br><span class="line">            fi</span><br><span class="line">        else</span><br><span class="line">            if [ -f bing/$$.json ]</span><br><span class="line">            then</span><br><span class="line">                rm bing/$$.json</span><br><span class="line">            fi</span><br><span class="line">            printf $RED"Error: Json $k download failed\n"$NONE</span><br><span class="line">            exit 9</span><br><span class="line">        fi</span><br><span class="line">    done</span><br><span class="line">    # 清理缓存</span><br><span class="line">    echo "Cleaning……"</span><br><span class="line">    rm bing/$$.json</span><br><span class="line"><span class="meta">#</span><span class="bash"> 未知错误</span></span><br><span class="line">else</span><br><span class="line">    printf $RED"Error: Unkonwn error\n"$NONE</span><br><span class="line">    exit 10</span><br><span class="line">fi</span><br><span class="line">echo "All done,Thanks for using!"</span><br></pre></td></tr></table></figure>
 
 
-          
-            
-            <div class="footer">
-              
-              
-                <div class="related_posts">
-                  <section class="header">
-                    <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
-                  </section>
-                  <section class="body">
-                    <div class="vlts-rps"><a class="item" href="\2020\08\24\Linux-上机实战4-SimpleShell\" title="Linux 上机实战4 SimpleShell" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200521_212437.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200521_212437.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">Linux 上机实战4 SimpleShell</span><span class="excerpt">本文是关于Linux中的一个简单的shell，支持运行多个命令以[;]分割，支持管道和重定向，支持CTRL-C终止内部命令...</span></a><a class="item" href="\2020\08\24\Linux-上机实战1-正则表达式\" title="Linux 上机实战1 正则表达式" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200331203352.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203352.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">Linux 上机实战1 正则表达式</span><span class="excerpt">本文是关于Linux中的文本处理三剑客（grep，sed，awk），以及正则表达式应用的一个样例，获取北京某时刻PM2.5...</span></a><a class="item" href="\2020\08\24\Linux-上机实战2-遍历目录\" title="Linux 上机实战2 遍历目录" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200413160150.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200413160150.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">Linux 上机实战2 遍历目录</span><span class="excerpt">本文是关于Linux中的ls的简化版，遍历目录小程序。</span></a><a class="item" href="\2020\08\24\Linux-拓展学习\" title="Linux 拓展学习" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200429205057.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429205057.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">Linux 拓展学习</span><span class="excerpt">简单的写了一些Linux的课外拓展学习的相关知识和问题。</span></a></div>
-                  </section>
-                </div>
-              
-              
-                <div class="copyright">
-                  <blockquote>
-                    
-                      
-                        <p>本文为博主「苇名一心」的原创文章</p>
-
-                      
-                    
-                      
-                        <p>内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
-
-                      
-                    
-                      
-                        <p>本文永久链接是：<a href="https://666wxy666.github.io/2020/08/24/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%983-shell%E8%84%9A%E6%9C%AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">https://666wxy666.github.io/2020/08/24/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%983-shell%E8%84%9A%E6%9C%AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</a></p>
-                      
-                    
-                      
-                        <p>转载请附上原文出处链接及本声明</p>
-
-                      
-                    
-                  </blockquote>
-                </div>
-              
-              
-                <div class="donate">
-                  <div class="imgs">
-                    
-                      <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-                    
-                      <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-                    
-                  </div>
-                </div>
-              
-            </div>
-          
-        </div>
+    
+      
+      <div class="footer">
+        
         
           
+  <div class="related_posts">
+    <section class="header">
+      <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
+    </section>
+    <section class="body">
+      <div class="vlts-rps"><a class="item" href="\2020\08\24\Linux-上机实战4-SimpleShell\" title="Linux 上机实战4 SimpleShell" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200521_212437.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200521_212437.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">Linux 上机实战4 SimpleShell</span><span class="excerpt">本文是关于Linux中的一个简单的shell，支持运行多个命令以[;]分割，支持管道和重定向，支持CTRL-C终止内部命令...</span></a><a class="item" href="\2020\08\24\Linux-上机实战1-正则表达式\" title="Linux 上机实战1 正则表达式" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200331203352.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203352.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">Linux 上机实战1 正则表达式</span><span class="excerpt">本文是关于Linux中的文本处理三剑客（grep，sed，awk），以及正则表达式应用的一个样例，获取北京某时刻PM2.5...</span></a><a class="item" href="\2020\08\24\Linux-上机实战2-遍历目录\" title="Linux 上机实战2 遍历目录" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200413160150.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200413160150.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">Linux 上机实战2 遍历目录</span><span class="excerpt">本文是关于Linux中的ls的简化版，遍历目录小程序。</span></a><a class="item" href="\2020\08\24\Linux-拓展学习\" title="Linux 拓展学习" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200429205057.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429205057.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">Linux 拓展学习</span><span class="excerpt">简单的写了一些Linux的课外拓展学习的相关知识和问题。</span></a></div></section></div>
+        
+        
+          <div class="copyright">
+            <blockquote>
+              
+                
+                  <p>本文为博主「苇名一心」的原创文章</p>
+
+                
+              
+                
+                  <p>内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+                
+              
+                
+                  <p>本文永久链接是：<a href="https://666wxy666.github.io/2020/08/24/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%983-shell%E8%84%9A%E6%9C%AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">https://666wxy666.github.io/2020/08/24/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%983-shell%E8%84%9A%E6%9C%AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</a></p>
+                
+              
+                
+                  <p>转载请附上原文出处链接及本声明</p>
+
+                
+              
+            </blockquote>
+          </div>
+        
+        
+          <div class="donate">
+            <div class="imgs">
+              
+                <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+              
+                <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+              
+            </div>
+          </div>
+        
+      </div>
+    
+  </div>
+  
+    
 
 
   <div class="article-meta" id="bottom">
@@ -1186,18 +1177,13 @@
       
         
           
-
-        
-      
-        
-          
   <div class="new-meta-item share -mob-share-list">
   <div class="-mob-share-list share-body">
     
       
         <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://666wxy666.github.io/2020/08/24/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%983-shell%E8%84%9A%E6%9C%AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/&title=Linux 上机实战3 shell脚本程序设计 - 苇名一心的博客&summary=本文是关于Linux中的shell脚本程序设计，有几个小Demo。" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -1205,7 +1191,7 @@
       
         <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://666wxy666.github.io/2020/08/24/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%983-shell%E8%84%9A%E6%9C%AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/&title=Linux 上机实战3 shell脚本程序设计 - 苇名一心的博客&summary=本文是关于Linux中的shell脚本程序设计，有几个小Demo。" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -1213,9 +1199,13 @@
       
         <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://666wxy666.github.io/2020/08/24/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%983-shell%E8%84%9A%E6%9C%AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/&title=Linux 上机实战3 shell脚本程序设计 - 苇名一心的博客&summary=本文是关于Linux中的shell脚本程序设计，有几个小Demo。" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
+      
+    
+      
+    
       
     
   </div>
@@ -1229,19 +1219,21 @@
   </div>
 
 
-        
-        
-          <div class="prev-next">
-            
-              <a class="prev" href="/2020/08/24/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%984-SimpleShell/">
-                <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>Linux 上机实战4 SimpleShell</p>
-                <p class="content">本文是关于Linux中的一个简单的shell，支持运行多个命令以[;]分割，支持管道和重定向，支持CTRL-C终止内部命令而不终止simple shell本身，有完善的错误处理及醒目的颜色提示。...</p>
-              </a>
-            
-            
-              <a class="next" href="/2020/08/24/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%982-%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95/">
-                <p class="title">Linux 上机实战2 遍历目录<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class="content">本文是关于Linux中的ls的简化版，遍历目录小程序。
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class="prev" href="/2020/08/24/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%984-SimpleShell/">
+          <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>Linux 上机实战4 SimpleShell</p>
+          <p class="content">本文是关于Linux中的一个简单的shell，支持运行多个命令以[;]分割，支持管道和重定向，支持CTRL-C终止内部命令而不终止simple shell本身，有完善的错误处理及醒目的颜色提示。...</p>
+        </a>
+      
+      
+        <a class="next" href="/2020/08/24/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%982-%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95/">
+          <p class="title">Linux 上机实战2 遍历目录<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class="content">本文是关于Linux中的ls的简化版，遍历目录小程序。
 
 
 
@@ -1250,44 +1242,32 @@
 
 使用vi编辑文件，熟悉工具vi。
 使用Linux...</p>
-              </a>
-            
-          </div>
-        
-      </section>
-    </article>
-  
-
-  
-    
-
-  <article class="post white-box reveal comments shadow floatable">
-    <section class="article typo">
-      <p ct><i class="fas fa-comments"></i> 评论</p>
+        </a>
       
-      <section id="comments">
-        <div id="valine_container" class="valine_thread">
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow floatable" id="comments">
+    <p ct><i class="fas fa-comments"></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
   <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-      </section>
-    </section>
   </article>
 
 
-  
 
 
-
-
-<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
 
 
 </div>
 <aside class="l_side">
   
-  
-
   
     
     
@@ -1358,6 +1338,14 @@
             
           
             
+          
+            
+          
+            
+          
+            
+          
+            
               <a href="https://gitee.com/wxy_666" class="social fab fa-git-alt flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
                 
               </a>
@@ -1379,6 +1367,14 @@
               <a href="https://music.163.com/#/user/home?id=74040689" class="social fas fa-headphones-alt flat-btn" target="_blank" rel="external nofollow noopener noreferrer">
                 
               </a>
+            
+          
+            
+          
+            
+          
+            
+          
             
           
         </div>
@@ -1412,18 +1408,10 @@
       
     
       
-        
-          <div><p><span id="lc-sv">本站总访问量为 <span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
-</div>
-        
-      
-    
-      
         <div class="copyright">
         <p><a href="/">Copyright © 2020-2020 苇名一心</a></p>
 
         </div>
-		<br>
       
     
   </footer>
@@ -1688,105 +1676,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
 
-
-
-<!-- optional -->
-
-  
-  
-  
-    
-<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
-
-    <script type="text/javascript">
-      $(function(){
-        var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
-        if ('true' == 'true') {
-          function shuffle(arr){
-            /*From countercurrent-time*/
-            var n = arr.length;
-            while(n--) {
-              var index = Math.floor(Math.random() * n);
-              var temp = arr[index];
-              arr[index] = arr[n];
-              arr[n] = temp;
-            }
-          }
-          shuffle(imgs);
-        }
-        if ('.cover-backstretch') {
-          $('.cover-backstretch').backstretch(
-            imgs,
-          {
-            duration: "10000",
-            fade: "1500"
-          });
-        } else {
-          $.backstretch(
-            imgs,
-          {
-            duration: "10000",
-            fade: "1500"
-          });
-        }
-      });
-    </script>
-  
-
-
-
-  <script>
-  
-  var SEARCH_SERVICE = "hexo" || "hexo";
-  var ROOT = "/" || "/";
-  if (!ROOT.endsWith('/')) ROOT += '/';
-</script>
-
-
-
-
-  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
-<script>
-  // https://www.npmjs.com/package/vanilla-lazyload
-  // Set the options globally
-  // to make LazyLoad self-initialize
-  window.lazyLoadOptions = {
-    elements_selector: ".lazyload",
-    threshold: 0
-  };
-  // Listen to the initialization event
-  // and get the instance of LazyLoad
-  window.addEventListener(
-    "LazyLoad::Initialized",
-    function (event) {
-      window.lazyLoadInstance = event.detail.instance;
-    },
-    false
-  );
-  document.addEventListener('DOMContentLoaded', function () {
-    lazyLoadInstance.update();
-  });
-  document.addEventListener('pjax:complete', function () {
-    lazyLoadInstance.update();
-  });
-</script>
-
-
-
-
-
-
-<script>
-  window.FPConfig = {
-    delay: 0,
-    ignoreKeywords: [],
-    maxRPS: 5,
-    hoverDelay: 25
-  };
-</script>
-<script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
-
-
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 <script>
   function pjax_fancybox() {
@@ -1838,6 +1727,108 @@
     pjax_fancybox();
   });
 </script>
+
+
+<!-- internal -->
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover-backstretch') {
+          $('.cover-backstretch').backstretch(
+            imgs,
+          {
+            duration: "10000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "10000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+<!-- optional -->
+
+  <script>
+  
+  var SEARCH_SERVICE = "hexo" || "hexo";
+  var ROOT = "/" || "/";
+  if (!ROOT.endsWith('/')) ROOT += '/';
+</script>
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+  
+    <script>
+      window.FPConfig = {
+        delay: 0,
+        ignoreKeywords: [],
+        maxRPS: 5,
+        hoverDelay: 25
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+  
+
+
 
 
   <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
@@ -1895,22 +1886,6 @@
 </script>
 
 
-
-   <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
-<script type="text/javascript">
-  function pjax_scrollrebeal() {
-    ScrollReveal().reveal('.l_main .reveal', {
-      distance: '32px',
-      duration: '800',
-      interval: '20',
-      scale: '1',
-      easing: 'ease-out'
-    });
-  }
-  $(function () {
-    pjax_scrollrebeal();
-  });
-</script>
 
 
 
@@ -1977,20 +1952,21 @@
 
   function pjax_valine() {
     if(!document.querySelectorAll("#valine_container")[0])return;
-    let pageUrl = $.trim($('#pjax-comment-path').text()) === "none" ? 
-      decodeURI(window.location.pathname) : $.trim($('#pjax-comment-path').text());
-    let pagePlaceholder = $.trim($('#pjax-comment-placeholder').text()) === "none" ?
-      "快来评论吧~" : $.trim($('#pjax-comment-placeholder').text());
 
-    let ALLPATH = '';
-    if(ALLPATH != '') pageUrl = ALLPATH;
+    let pagePlaceholder = $.trim($('#pjax-comment-placeholder').text()) || "快来评论吧~";
+
+    let path = $.trim($('#pjax-comment-path').text());
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
 
     var valine = new Valine();
     valine.init({
       el: '#valine_container',
       meta: meta,
       placeholder: pagePlaceholder,
-      path: pageUrl,
+      path: path,
       appId: "O2XYIOn9EAIKNr5HayEBixXl-MdYXbMMI",
       appKey: "g1XtDO1m1wHerH2wbn0A08mk",
       pageSize: '10',
@@ -2047,15 +2023,15 @@ function supportCss3(style) {
 //配置信息
 var options = {
   bottom: '100px',
-  right: '35px',
+  right: '32px',
   left: 'unset',
   time: '0s',
   mixColor: '#f4f4f4',
   backgroundColor: '#f4f4f4',
-  buttonColorDark: '#bbb',
-  buttonColorLight: '#444',
+  buttonColorDark: '#333',
+  buttonColorLight: '#ddd',
   saveInCookies: true,
-  label: '🌓',
+  label: '',
   autoMatchOsTheme: true
 };
 // 卡片兼容处理 mix-blend-mode 与 effect: [blur] 冲突
@@ -2132,6 +2108,10 @@ if(supportCss3('mix-blend-mode')){
     });
   </script>
 
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/comment_typing.js"></script>
 
 
 
@@ -2357,13 +2337,14 @@ if(supportCss3('mix-blend-mode')){
 
 <div class="pjax-animate">
   
-    <div class="loading-circle"><div id="loader-circle"></div></div>
+    <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+    <div id="loading-bar-wrapper"><script>NProgress.configure({parent:"#loading-bar-wrapper",trickleSpeed: 100})</script></div>
     <script>
       window.ShowLoading = function() {
-        $(".loading-circle").css("display", "block");
+        NProgress.start();
       };
       window.HideLoading = function() {
-        $(".loading-circle").css("display", "none");
+        NProgress.done();
       }
     </script>
   
@@ -2460,8 +2441,6 @@ if(supportCss3('mix-blend-mode')){
           }
         
         
-        
-          pjax_scrollrebeal();
         
         
           pjax_initCopyCode();
