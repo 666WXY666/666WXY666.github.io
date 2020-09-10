@@ -4,6 +4,74 @@
   
     
     <entry>
+      <title>计算机网络 实验集锦</title>
+      <link href="/2020/09/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AE%9E%E9%AA%8C%E9%9B%86%E9%94%A6/"/>
+      <url>/2020/09/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AE%9E%E9%AA%8C%E9%9B%86%E9%94%A6/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>本文是计算机网络相关实验项目工程集锦。</strong></p><a id="more"></a><p>这些项目的源码、可执行程序、报告等已经存放于我的Github，欢迎下载查看：</p><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/ComputerNetwork-Exp" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=ComputerNetwork-Exp&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=ComputerNetwork-Exp&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a><div class="btns rounded center grid3">            <a class="button" href="https://github.com/666WXY666/ComputerNetwork-Exp/blob/master/%E7%BD%91%E7%BB%9C%E5%B1%82%E6%95%B0%E6%8D%AE%E5%88%86%E7%BB%84%E7%9A%84%E6%8D%95%E8%8E%B7%E5%92%8C%E5%88%86%E6%9E%90.pdf" target="_blank" rel="external nofollow noopener noreferrer" title="网络层数据分组的捕获和分析"><i class="fas fa-download"></i>网络层数据分组的捕获和分析</a><a class="button" href="https://github.com/666WXY666/ComputerNetwork-Exp/tree/master/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E5%8D%8F%E8%AE%AE%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0" target="_blank" rel="external nofollow noopener noreferrer" title="数据链路层滑动窗口协议的设计与实现"><i class="fas fa-download"></i>数据链路层滑动窗口协议的设计与实现</a><a class="button" href="https://github.com/666WXY666/CSAPP-Report/blob/master/%E5%AE%9E%E9%AA%8C4-%E9%94%AE%E7%9B%98%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%88%86%E6%9E%90%E4%B8%8E%E4%BF%AE%E6%94%B9.pdf" target="_blank" rel="external nofollow noopener noreferrer" title="DNS中继服务器的简单实现"><i class="fas fa-download"></i>DNS中继服务器的简单实现</a>          </div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 杂项 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 工程 </tag>
+            
+            <tag> C </tag>
+            
+            <tag> 项目 </tag>
+            
+            <tag> 计算机网络 </tag>
+            
+            <tag> DNS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>CSAPP 实验集锦</title>
+      <link href="/2020/09/04/CSAPP-%E5%AE%9E%E9%AA%8C%E9%9B%86%E9%94%A6/"/>
+      <url>/2020/09/04/CSAPP-%E5%AE%9E%E9%AA%8C%E9%9B%86%E9%94%A6/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>本文是CSAPP（深入理解计算机系统）项目工程集锦。</strong></p><a id="more"></a><p>这些项目的源码、可执行程序、报告等已经存放于我的Github，欢迎下载查看：</p><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/CSAPP-Report" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=CSAPP-Report&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=CSAPP-Report&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a><div class="btns rounded center grid3">            <a class="button" href="https://github.com/666WXY666/CSAPP-Report/blob/master/%E5%AE%9E%E9%AA%8C1-LINUX%E7%8E%AF%E5%A2%83%E5%92%8CGCC%E5%B7%A5%E5%85%B7%E9%93%BE.pdf" target="_blank" rel="external nofollow noopener noreferrer" title="LINUX环境和GCC工具链"><i class="fas fa-download"></i>LINUX环境和GCC工具链</a><a class="button" href="https://github.com/666WXY666/CSAPP-Report/blob/master/%E5%AE%9E%E9%AA%8C3-%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA.pdf" target="_blank" rel="external nofollow noopener noreferrer" title="缓冲区溢出"><i class="fas fa-download"></i>缓冲区溢出</a><a class="button" href="https://github.com/666WXY666/CSAPP-Report/blob/master/%E5%AE%9E%E9%AA%8C4-%E9%94%AE%E7%9B%98%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%88%86%E6%9E%90%E4%B8%8E%E4%BF%AE%E6%94%B9.pdf" target="_blank" rel="external nofollow noopener noreferrer" title="键盘驱动程序的分析与修改"><i class="fas fa-download"></i>键盘驱动程序的分析与修改</a>          </div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 杂项 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工程 </tag>
+            
+            <tag> C </tag>
+            
+            <tag> Linux </tag>
+            
+            <tag> 项目 </tag>
+            
+            <tag> CSAPP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>操作系统 内存管理</title>
       <link href="/2020/09/03/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"/>
       <url>/2020/09/03/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</url>
@@ -96,11 +164,11 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> C++ </tag>
             
             <tag> 工程 </tag>
+            
+            <tag> Linux </tag>
             
             <tag> 操作系统 </tag>
             
@@ -222,11 +290,11 @@
     
     
     <entry>
-      <title>杂项工程项目集锦</title>
-      <link href="/2020/08/15/%E6%9D%82%E9%A1%B9%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE%E9%9B%86%E9%94%A6/"/>
-      <url>/2020/08/15/%E6%9D%82%E9%A1%B9%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE%E9%9B%86%E9%94%A6/</url>
+      <title>Python杂项工程项目集锦</title>
+      <link href="/2020/08/15/Python%E6%9D%82%E9%A1%B9%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE%E9%9B%86%E9%94%A6/"/>
+      <url>/2020/08/15/Python%E6%9D%82%E9%A1%B9%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE%E9%9B%86%E9%94%A6/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>本文是一些我曾经写过的项目工程集锦。</strong></p><a id="more"></a><p>这些项目的源码、可执行程序、报告等已经存放于我的Github，欢迎下载查看：</p><h2 id="1、Python爬虫、数据处理、数据分析、数据可视化"><a href="#1、Python爬虫、数据处理、数据分析、数据可视化" class="headerlink" title="1、Python爬虫、数据处理、数据分析、数据可视化"></a>1、Python爬虫、数据处理、数据分析、数据可视化</h2><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/MiscellaneousProjects" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=MiscellaneousProjects&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=MiscellaneousProjects&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a><div class="btns rounded center grid3">            <a class="button" href="https://github.com/666WXY666/MiscellaneousProjects/tree/master/Python/%E5%AD%A6%E6%A0%A1%E5%92%8C%E6%88%BF%E4%BB%B7%E7%88%AC%E8%99%AB%E5%B0%8F%E9%A1%B9%E7%9B%AE" target="_blank" rel="external nofollow noopener noreferrer" title="学校和房价爬虫小项目"><i class="fas fa-download"></i>学校和房价爬虫小项目</a><a class="button" href="https://github.com/666WXY666/MiscellaneousProjects/tree/master/Python/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%E5%B0%8F%E9%A1%B9%E7%9B%AE" target="_blank" rel="external nofollow noopener noreferrer" title="数据预处理小项目"><i class="fas fa-download"></i>数据预处理小项目</a><a class="button" href="https://github.com/666WXY666/MiscellaneousProjects/tree/master/Python/%E6%88%BF%E4%BB%B7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E9%A1%B9%E7%9B%AE" target="_blank" rel="external nofollow noopener noreferrer" title="房价数据分析小项目"><i class="fas fa-download"></i>房价数据分析小项目</a><a class="button" href="https://github.com/666WXY666/MiscellaneousProjects/tree/master/Python/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B0%8F%E9%A1%B9%E7%9B%AE" target="_blank" rel="external nofollow noopener noreferrer" title="数据可视化小项目"><i class="fas fa-download"></i>数据可视化小项目</a><a class="button" href="https://github.com/666WXY666/MiscellaneousProjects/tree/master/Python/%E4%BA%AC%E4%B8%9C%E6%B7%98%E5%AE%9D%E6%89%8B%E6%9C%BA%E7%88%AC%E8%99%AB%E5%88%86%E6%9E%90%E9%A1%B9%E7%9B%AE" target="_blank" rel="external nofollow noopener noreferrer" title="京东淘宝手机爬虫分析项目"><i class="fas fa-download"></i>京东淘宝手机爬虫分析项目</a>          </div>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>本文是一些我曾经写过的Python项目工程集锦。</strong></p><a id="more"></a><p>这些项目的源码、可执行程序、报告等已经存放于我的Github，欢迎下载查看：</p><h2 id="Python爬虫、数据处理、数据分析、数据可视化"><a href="#Python爬虫、数据处理、数据分析、数据可视化" class="headerlink" title="Python爬虫、数据处理、数据分析、数据可视化"></a>Python爬虫、数据处理、数据分析、数据可视化</h2><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/PythonProjectsCollection" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=PythonProjectsCollection&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=PythonProjectsCollection&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a><div class="btns rounded center grid3">            <a class="button" href="https://github.com/666WXY666/PythonProjectsCollection/tree/master/Python/%E5%AD%A6%E6%A0%A1%E5%92%8C%E6%88%BF%E4%BB%B7%E7%88%AC%E8%99%AB%E5%B0%8F%E9%A1%B9%E7%9B%AE" target="_blank" rel="external nofollow noopener noreferrer" title="学校和房价爬虫小项目"><i class="fas fa-download"></i>学校和房价爬虫小项目</a><a class="button" href="https://github.com/666WXY666/PythonProjectsCollection/tree/master/Python/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%E5%B0%8F%E9%A1%B9%E7%9B%AE" target="_blank" rel="external nofollow noopener noreferrer" title="数据预处理小项目"><i class="fas fa-download"></i>数据预处理小项目</a><a class="button" href="https://github.com/666WXY666/PythonProjectsCollection/tree/master/Python/%E6%88%BF%E4%BB%B7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B0%8F%E9%A1%B9%E7%9B%AE" target="_blank" rel="external nofollow noopener noreferrer" title="房价数据分析小项目"><i class="fas fa-download"></i>房价数据分析小项目</a><a class="button" href="https://github.com/666WXY666/PythonProjectsCollection/tree/master/Python/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B0%8F%E9%A1%B9%E7%9B%AE" target="_blank" rel="external nofollow noopener noreferrer" title="数据可视化小项目"><i class="fas fa-download"></i>数据可视化小项目</a><a class="button" href="https://github.com/666WXY666/PythonProjectsCollection/tree/master/Python/%E4%BA%AC%E4%B8%9C%E6%B7%98%E5%AE%9D%E6%89%8B%E6%9C%BA%E7%88%AC%E8%99%AB%E5%88%86%E6%9E%90%E9%A1%B9%E7%9B%AE" target="_blank" rel="external nofollow noopener noreferrer" title="京东淘宝手机爬虫分析项目"><i class="fas fa-download"></i>京东淘宝手机爬虫分析项目</a>          </div>]]></content>
       
       
       <categories>
@@ -238,15 +306,11 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 工程 </tag>
             
-            <tag> C </tag>
+            <tag> 项目 </tag>
             
             <tag> Python </tag>
-            
-            <tag> 项目 </tag>
             
         </tags>
       
@@ -259,7 +323,7 @@
       <link href="/2020/08/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-%E8%8A%B1%E5%8D%89%E8%AF%86%E5%88%AB/"/>
       <url>/2020/08/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-%E8%8A%B1%E5%8D%89%E8%AF%86%E5%88%AB/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>本文是机器学习人工智能实验，利用华为云ModelArts平台实现花卉分类识别。</strong></p><a id="more"></a><h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><p>通过该实验，实现以下目标</p><ul><li>熟悉ModelArts平台，能够调用平台的简单物体识别算法进行物体检测；</li><li>熟悉ModelArts平台特征提取方法，提取数据集的视觉特征；</li><li>熟悉ModelArts的神经网络架构，改进架构算法，进行目标检测算法的设计与实现。</li><li>学会评价检测算法的基本方法，对所设计的算法进行评估。</li></ul><h2 id="二、实验环境"><a href="#二、实验环境" class="headerlink" title="二、实验环境"></a>二、实验环境</h2><p>ModelArts平台</p><h2 id="三、实验内容"><a href="#三、实验内容" class="headerlink" title="三、实验内容"></a>三、实验内容</h2><img src="https://gitee.com/wxy_666/images/raw/master/20200715111020.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200715111020.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="1" style="zoom:80%;"><h2 id="四、实验步骤"><a href="#四、实验步骤" class="headerlink" title="四、实验步骤"></a>四、实验步骤</h2><p>由于时间久远，详细内容请前往Github项目查看实验报告。</p><h2 id="五、项目地址"><a href="#五、项目地址" class="headerlink" title="五、项目地址"></a>五、项目地址</h2><p>本项目的实验报告已经存放于我的Github，欢迎下载查看：</p><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/MiscellaneousProjects" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=MiscellaneousProjects&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=MiscellaneousProjects&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a><div class="btns rounded center grid1">            <a class="button" href="https://github.com/666WXY666/MiscellaneousProjects/tree/master/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-%E8%8A%B1%E5%8D%89%E8%AF%86%E5%88%AB" target="_blank" rel="external nofollow noopener noreferrer" title="源码仓库"><i class="fas fa-download"></i>源码仓库</a>          </div>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>本文是机器学习人工智能实验，利用华为云ModelArts平台实现花卉分类识别。</strong></p><a id="more"></a><h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><p>通过该实验，实现以下目标</p><ul><li>熟悉ModelArts平台，能够调用平台的简单物体识别算法进行物体检测；</li><li>熟悉ModelArts平台特征提取方法，提取数据集的视觉特征；</li><li>熟悉ModelArts的神经网络架构，改进架构算法，进行目标检测算法的设计与实现。</li><li>学会评价检测算法的基本方法，对所设计的算法进行评估。</li></ul><h2 id="二、实验环境"><a href="#二、实验环境" class="headerlink" title="二、实验环境"></a>二、实验环境</h2><p>ModelArts平台</p><h2 id="三、实验内容"><a href="#三、实验内容" class="headerlink" title="三、实验内容"></a>三、实验内容</h2><img src="https://gitee.com/wxy_666/images/raw/master/20200715111020.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200715111020.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="1" style="zoom:80%;"><h2 id="四、实验步骤"><a href="#四、实验步骤" class="headerlink" title="四、实验步骤"></a>四、实验步骤</h2><p>由于时间久远，详细内容请前往Github项目查看实验报告。</p><h2 id="五、项目地址"><a href="#五、项目地址" class="headerlink" title="五、项目地址"></a>五、项目地址</h2><p>本项目的实验报告已经存放于我的Github，欢迎下载查看：</p><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/PythonProjectsCollection" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=PythonProjectsCollection&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=PythonProjectsCollection&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a><div class="btns rounded center grid1">            <a class="button" href="https://github.com/666WXY666/PythonProjectsCollection/tree/master/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-%E8%8A%B1%E5%8D%89%E8%AF%86%E5%88%AB" target="_blank" rel="external nofollow noopener noreferrer" title="源码仓库"><i class="fas fa-download"></i>源码仓库</a>          </div>]]></content>
       
       
       <categories>
@@ -316,13 +380,13 @@
             
             <tag> Spark </tag>
             
-            <tag> 流计算 </tag>
-            
             <tag> 单词计数 </tag>
             
-            <tag> Streaming </tag>
-            
             <tag> Scala </tag>
+            
+            <tag> 流计算 </tag>
+            
+            <tag> Streaming </tag>
             
             <tag> Kafka </tag>
             
@@ -357,13 +421,13 @@
             
             <tag> Spark </tag>
             
-            <tag> 流计算 </tag>
-            
-            <tag> Streaming </tag>
-            
             <tag> Java </tag>
             
+            <tag> 流计算 </tag>
+            
             <tag> 日志分析 </tag>
+            
+            <tag> Streaming </tag>
             
         </tags>
       
@@ -528,15 +592,15 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> C </tag>
+            
+            <tag> Linux </tag>
             
             <tag> 难点 </tag>
             
-            <tag> Shell </tag>
-            
             <tag> 拓展 </tag>
+            
+            <tag> Shell </tag>
             
         </tags>
       
@@ -742,9 +806,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> C </tag>
+            
+            <tag> Linux </tag>
             
             <tag> 实战 </tag>
             
@@ -816,13 +880,13 @@
             
             <tag> Spark </tag>
             
-            <tag> 流计算 </tag>
-            
             <tag> 单词计数 </tag>
             
-            <tag> Streaming </tag>
-            
             <tag> Scala </tag>
+            
+            <tag> 流计算 </tag>
+            
+            <tag> Streaming </tag>
             
             <tag> Kafka </tag>
             
@@ -1018,9 +1082,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> C </tag>
+            
+            <tag> Linux </tag>
             
             <tag> 实战 </tag>
             
@@ -1154,9 +1218,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> C </tag>
+            
+            <tag> Linux </tag>
             
             <tag> 实战 </tag>
             
@@ -1228,9 +1292,9 @@
             
             <tag> 单词计数 </tag>
             
-            <tag> Scala </tag>
-            
             <tag> Java </tag>
+            
+            <tag> Scala </tag>
             
         </tags>
       

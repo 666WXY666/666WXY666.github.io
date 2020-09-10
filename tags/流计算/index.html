@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.0.0-rc.2">
+<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.0.0-rc.4">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -15,6 +15,7 @@
   <meta name="HandheldFriendly" content="True">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="x-dns-prefetch-control" content="on">
 
   <!-- 页面元数据 -->
   
@@ -32,6 +33,7 @@
   
 
   <!-- link -->
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   
     
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css">
@@ -40,11 +42,6 @@
   
     
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css">
-
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
 
   
 
@@ -102,10 +99,24 @@
     })();
     </script>
   
+  <!-- 脚本懒加载函数 -->
+  <script>
+  function loadScript(src, cb) {
+    var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+    var script = document.createElement('script');
+    script.setAttribute('type','text/javascript');
+    if (cb) script.onload = cb;
+    script.setAttribute('src', src);
+    HEAD.appendChild(script);
+  }
+  //https://github.com/filamentgroup/loadCSS
+  !function(c){"use strict";var e=function(e,t,n,r){var o,i=c.document,a=i.createElement("link");if(t)o=t;else{var d=(i.body||i.getElementsByTagName("head")[0]).childNodes;o=d[d.length-1]}var f=i.styleSheets;if(r)for(var l in r)r.hasOwnProperty(l)&&a.setAttribute(l,r[l]);a.rel="stylesheet",a.href=e,a.media="only x",function e(t){if(i.body)return t();setTimeout(function(){e(t)})}(function(){o.parentNode.insertBefore(a,t?o:o.nextSibling)});var s=function(e){for(var t=a.href,n=f.length;n--;)if(f[n].href===t)return e();setTimeout(function(){s(e)})};function u(){a.addEventListener&&a.removeEventListener("load",u),a.media=n||"all"}return a.addEventListener&&a.addEventListener("load",u),(a.onloadcssdefined=s)(u),a};"undefined"!=typeof exports?exports.loadCSS=e:c.loadCSS=e}("undefined"!=typeof global?global:this);
+  </script>
+  <script id="loadcss"></script>
 </head>
 
 <body>
-  <header class="l_header auto shadow floatable blur" style="opacity: 0">
+  <header class="l_header auto shadow floatable blur " style="opacity: 0">
   <div class="container">
   <div class="wrapper">
     <div class="nav-sub">
@@ -530,14 +541,14 @@
 
   <div class="l_body">
     <div class="l_cover">
-
   
-  
-      <div class="cover-wrapper  focus" style="display: none;">
-        
-          <div class="cover-backstretch"></div>
-        
-        <div class="cover-body">
+    
+    
+        <div class="cover-wrapper  focus" style="display: none;">
+          
+            <div class="cover-backstretch"></div>
+          
+          <div class="cover-body">
   <div class="top">
     
     
@@ -627,47 +638,47 @@
   </div>
 </div>
 
-        <div class="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
-      </div>
+          <div class="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
   
-
-</div>
-
+  </div>
+  
     <div class="safearea">
       <div class="body-wrapper" id="pjax-container">
         
-          <!--此文件用来存放一些不方便取值的变量-->
-<!--思路大概是将值藏到重加载的区域内-->
-
-
-
-<div id="pjax-data" style="display: none">
-  <div id="pjax-ispage">false</div>
-  <div id="pjax-pageTitle"></div>
-  <div id="pjax-enable-cover">true</div>
-  <div id="pjax-comment-path"></div>
-  <div id="pjax-comment-placeholder"></div>
-</div>
-
-
-<script>
-  // 处理封面 此时 jquery 还没加载
-  if ("none" == "none") { // 移除封面
-    document.getElementsByClassName('cover-wrapper')[0].style.display = "none";
-    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show");
-  } else {
-    if ("none" == "half") { // 半屏
-      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'half');
-      document.getElementsByClassName('scroll-down')[0].style.display = "none";
-    } else if ("none" == "full") { // 全屏
-      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'full');
-      document.getElementsByClassName('scroll-down')[0].style.display = "";
-    }
-    document.getElementsByClassName('cover-wrapper')[0].style.display = "";
-    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.remove("show");
-  }
-</script>
-
+          <!--此文件用来存放一些不方便取值的变量--> 
+<!--思路大概是将值藏到重加载的区域内--> 
+ 
+ 
+ 
+<div id="pjax-data" style="display: none"> 
+  <div id="pjax-ispage">false</div> 
+  <div id="pjax-pageTitle"></div> 
+  <div id="pjax-enable-cover">true</div> 
+  <div id="pjax-comment-path"></div> 
+  <div id="pjax-comment-placeholder"></div> 
+</div> 
+ 
+ 
+<script> 
+  // 处理封面 此时 jquery 还没加载 
+  if ("none" == "none") { // 移除封面 
+    document.getElementsByClassName('cover-wrapper')[0].style.display = "none"; 
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
+  } else { 
+    if ("none" == "half") { // 半屏 
+      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'half'); 
+      document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
+    } else if ("none" == "full") { // 全屏 
+      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'full'); 
+      document.getElementsByClassName('scroll-down')[0].style.display = ""; 
+    } 
+    document.getElementsByClassName('cover-wrapper')[0].style.display = ""; 
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.remove("show"); 
+  } 
+</script> 
+ 
 
         
         
@@ -713,6 +724,10 @@
   
     <div class="meta-v3" line_style="solid">
       <div>
+        
+          
+          <a class="avatar" href="/"><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a>
+        
         <time>2020-07-21</time>
         
           <span class="dot"></span>
@@ -721,7 +736,7 @@
       </div>
       
         <div>
-            <a class="readmore" href="/2020/07/21/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Spark-%E8%87%AA%E9%80%89%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/">
+          <a class="readmore" href="/2020/07/21/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Spark-%E8%87%AA%E9%80%89%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/">
             阅读全文
           </a>
         </div>
@@ -756,6 +771,10 @@
   
     <div class="meta-v3" line_style="solid">
       <div>
+        
+          
+          <a class="avatar" href="/"><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a>
+        
         <time>2020-07-20</time>
         
           <span class="dot"></span>
@@ -764,7 +783,7 @@
       </div>
       
         <div>
-            <a class="readmore" href="/2020/07/20/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Spark-%E5%88%86%E6%9E%90%E6%B5%81%E9%87%8F%E6%97%A5%E5%BF%97/">
+          <a class="readmore" href="/2020/07/20/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Spark-%E5%88%86%E6%9E%90%E6%B5%81%E9%87%8F%E6%97%A5%E5%BF%97/">
             阅读全文
           </a>
         </div>
@@ -799,6 +818,10 @@
   
     <div class="meta-v3" line_style="solid">
       <div>
+        
+          
+          <a class="avatar" href="/"><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a>
+        
         <time>2020-05-14</time>
         
           <span class="dot"></span>
@@ -807,7 +830,7 @@
       </div>
       
         <div>
-            <a class="readmore" href="/2020/05/14/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Spark-Streaming-%E5%AE%9E%E6%97%B6%E8%AE%A1%E7%AE%97Kafka%E6%95%B0%E6%8D%AE/">
+          <a class="readmore" href="/2020/05/14/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Spark-Streaming-%E5%AE%9E%E6%97%B6%E8%AE%A1%E7%AE%97Kafka%E6%95%B0%E6%8D%AE/">
             阅读全文
           </a>
         </div>
@@ -956,7 +979,7 @@
         
           <li><a class="flat-box child" title="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%9F%A5%E8%AF%86%E6%8B%93%E5%B1%95/" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%9F%A5%E8%AF%86%E6%8B%93%E5%B1%95/" id="categoriesE69CBAE599A8E5ADA6E4B9A0E79FA5E8AF86E68B93E5B195"><div class="name">知识拓展</div><div class="badge">(1)</div></a></li>
         
-          <li><a class="flat-box" title="/categories/%E6%9D%82%E9%A1%B9/" href="/categories/%E6%9D%82%E9%A1%B9/" id="categoriesE69D82E9A1B9"><div class="name">杂项</div><div class="badge">(1)</div></a></li>
+          <li><a class="flat-box" title="/categories/%E6%9D%82%E9%A1%B9/" href="/categories/%E6%9D%82%E9%A1%B9/" id="categoriesE69D82E9A1B9"><div class="name">杂项</div><div class="badge">(3)</div></a></li>
         
           <li><a class="flat-box" title="/categories/%E7%8E%B0%E4%BB%A3%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/" href="/categories/%E7%8E%B0%E4%BB%A3%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/" id="categoriesE78EB0E4BBA3E4BAA4E68DA2E58E9FE79086"><div class="name">现代交换原理</div><div class="badge">(2)</div></a></li>
         
@@ -988,7 +1011,7 @@
 
 
     <div class="content">
-      <a href="/tags/AI/" style="font-size: 14px; color: #999">AI</a> <a href="/tags/C/" style="font-size: 20.25px; color: #6f6f6f">C</a> <a href="/tags/C/" style="font-size: 24px; color: #555">C++</a> <a href="/tags/C99/" style="font-size: 14px; color: #999">C99</a> <a href="/tags/DNN/" style="font-size: 14px; color: #999">DNN</a> <a href="/tags/HDFS/" style="font-size: 14px; color: #999">HDFS</a> <a href="/tags/Java/" style="font-size: 15.25px; color: #919191">Java</a> <a href="/tags/K-Means/" style="font-size: 14px; color: #999">K-Means</a> <a href="/tags/Kafka/" style="font-size: 15.25px; color: #919191">Kafka</a> <a href="/tags/LL1/" style="font-size: 14px; color: #999">LL1</a> <a href="/tags/LR/" style="font-size: 14px; color: #999">LR</a> <a href="/tags/Linux/" style="font-size: 24px; color: #555">Linux</a> <a href="/tags/MIPS/" style="font-size: 17.75px; color: #808080">MIPS</a> <a href="/tags/MOOC/" style="font-size: 19px; color: #777">MOOC</a> <a href="/tags/MapReduce/" style="font-size: 14px; color: #999">MapReduce</a> <a href="/tags/Matplotlib/" style="font-size: 14px; color: #999">Matplotlib</a> <a href="/tags/Python/" style="font-size: 21.5px; color: #666">Python</a> <a href="/tags/QT/" style="font-size: 14px; color: #999">QT</a> <a href="/tags/RNN/" style="font-size: 14px; color: #999">RNN</a> <a href="/tags/Scala/" style="font-size: 16.5px; color: #888">Scala</a> <a href="/tags/Shell/" style="font-size: 16.5px; color: #888">Shell</a> <a href="/tags/Spark/" style="font-size: 19px; color: #777">Spark</a> <a href="/tags/Streaming/" style="font-size: 16.5px; color: #888">Streaming</a> <a href="/tags/Struct/" style="font-size: 14px; color: #999">Struct</a> <a href="/tags/first/" style="font-size: 14px; color: #999">first</a> <a href="/tags/iPython/" style="font-size: 14px; color: #999">iPython</a> <a href="/tags/ls/" style="font-size: 14px; color: #999">ls</a> <a href="/tags/%E4%B9%A0%E9%A2%98/" style="font-size: 20.25px; color: #6f6f6f">习题</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 14px; color: #999">人工智能</a> <a href="/tags/%E4%BF%A1%E5%8F%B7%E9%87%8F/" style="font-size: 14px; color: #999">信号量</a> <a href="/tags/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" style="font-size: 14px; color: #999">内存管理</a> <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/" style="font-size: 14px; color: #999">决策树</a> <a href="/tags/%E5%88%86%E7%B1%BB/" style="font-size: 14px; color: #999">分类</a> <a href="/tags/%E5%8D%8E%E4%B8%BA%E4%BA%91/" style="font-size: 14px; color: #999">华为云</a> <a href="/tags/%E5%8D%95%E8%AF%8D%E8%AE%A1%E6%95%B0/" style="font-size: 16.5px; color: #888">单词计数</a> <a href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 14px; color: #999">可视化</a> <a href="/tags/%E5%90%8C%E6%AD%A5%E4%BA%92%E6%96%A5/" style="font-size: 15.25px; color: #919191">同步互斥</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 20.25px; color: #6f6f6f">大数据</a> <a href="/tags/%E5%AD%A6%E5%A0%82%E5%9C%A8%E7%BA%BF/" style="font-size: 14px; color: #999">学堂在线</a> <a href="/tags/%E5%AE%9E%E6%88%98/" style="font-size: 24px; color: #555">实战</a> <a href="/tags/%E5%AE%9E%E9%AA%8C/" style="font-size: 24px; color: #555">实验</a> <a href="/tags/%E5%B0%8F%E6%B8%B8%E6%88%8F/" style="font-size: 14px; color: #999">小游戏</a> <a href="/tags/%E5%B7%A5%E7%A8%8B/" style="font-size: 22.75px; color: #5e5e5e">工程</a> <a href="/tags/%E6%89%8B%E5%86%99%E8%AF%86%E5%88%AB/" style="font-size: 14px; color: #999">手写识别</a> <a href="/tags/%E6%8B%93%E5%B1%95/" style="font-size: 15.25px; color: #919191">拓展</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 16.5px; color: #888">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" style="font-size: 14px; color: #999">数据处理</a> <a href="/tags/%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/" style="font-size: 14px; color: #999">日志分析</a> <a href="/tags/%E6%98%93%E9%94%99%E7%82%B9/" style="font-size: 20.25px; color: #6f6f6f">易错点</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 20.25px; color: #6f6f6f">机器学习</a> <a href="/tags/%E6%9D%A1%E4%BB%B6%E7%86%B5/" style="font-size: 14px; color: #999">条件熵</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 14px; color: #999">正则表达式</a> <a href="/tags/%E6%B1%87%E7%BC%96/" style="font-size: 17.75px; color: #808080">汇编</a> <a href="/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/" style="font-size: 16.5px; color: #888">流计算</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 14px; color: #999">爬虫</a> <a href="/tags/%E7%8E%B0%E4%BB%A3%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/" style="font-size: 15.25px; color: #919191">现代交换原理</a> <a href="/tags/%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85/" style="font-size: 14px; color: #999">生产者消费者</a> <a href="/tags/%E7%9F%A5%E8%AF%86/" style="font-size: 14px; color: #999">知识</a> <a href="/tags/%E7%BA%BF%E7%A8%8B/" style="font-size: 14px; color: #999">线程</a> <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" style="font-size: 16.5px; color: #888">编译原理</a> <a href="/tags/%E7%BD%91%E8%AF%BE/" style="font-size: 19px; color: #777">网课</a> <a href="/tags/%E8%81%9A%E7%B1%BB/" style="font-size: 14px; color: #999">聚类</a> <a href="/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/" style="font-size: 17.75px; color: #808080">计算机系统结构</a> <a href="/tags/%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90/" style="font-size: 14px; color: #999">词法分析</a> <a href="/tags/%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90/" style="font-size: 15.25px; color: #919191">语法分析</a> <a href="/tags/%E8%AF%BB%E8%80%85%E5%86%99%E8%80%85/" style="font-size: 14px; color: #999">读者写者</a> <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 14px; color: #999">课程</a> <a href="/tags/%E8%B5%B7%E5%90%8D%E5%AD%97/" style="font-size: 14px; color: #999">起名字</a> <a href="/tags/%E8%BF%9B%E7%A8%8B/" style="font-size: 15.25px; color: #919191">进程</a> <a href="/tags/%E9%80%9A%E4%BF%A1/" style="font-size: 14px; color: #999">通信</a> <a href="/tags/%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95/" style="font-size: 14px; color: #999">遍历目录</a> <a href="/tags/%E9%9A%BE%E7%82%B9/" style="font-size: 15.25px; color: #919191">难点</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 14px; color: #999">项目</a>
+      <a href="/tags/AI/" style="font-size: 14px; color: #999">AI</a> <a href="/tags/C/" style="font-size: 21.5px; color: #666">C</a> <a href="/tags/C/" style="font-size: 22.75px; color: #5e5e5e">C++</a> <a href="/tags/C99/" style="font-size: 14px; color: #999">C99</a> <a href="/tags/CSAPP/" style="font-size: 14px; color: #999">CSAPP</a> <a href="/tags/DNN/" style="font-size: 14px; color: #999">DNN</a> <a href="/tags/DNS/" style="font-size: 14px; color: #999">DNS</a> <a href="/tags/HDFS/" style="font-size: 14px; color: #999">HDFS</a> <a href="/tags/Java/" style="font-size: 15.25px; color: #919191">Java</a> <a href="/tags/K-Means/" style="font-size: 14px; color: #999">K-Means</a> <a href="/tags/Kafka/" style="font-size: 15.25px; color: #919191">Kafka</a> <a href="/tags/LL1/" style="font-size: 14px; color: #999">LL1</a> <a href="/tags/LR/" style="font-size: 14px; color: #999">LR</a> <a href="/tags/Linux/" style="font-size: 24px; color: #555">Linux</a> <a href="/tags/MIPS/" style="font-size: 17.75px; color: #808080">MIPS</a> <a href="/tags/MOOC/" style="font-size: 19px; color: #777">MOOC</a> <a href="/tags/MapReduce/" style="font-size: 14px; color: #999">MapReduce</a> <a href="/tags/Matplotlib/" style="font-size: 14px; color: #999">Matplotlib</a> <a href="/tags/Python/" style="font-size: 21.5px; color: #666">Python</a> <a href="/tags/QT/" style="font-size: 14px; color: #999">QT</a> <a href="/tags/RNN/" style="font-size: 14px; color: #999">RNN</a> <a href="/tags/Scala/" style="font-size: 16.5px; color: #888">Scala</a> <a href="/tags/Shell/" style="font-size: 16.5px; color: #888">Shell</a> <a href="/tags/Spark/" style="font-size: 19px; color: #777">Spark</a> <a href="/tags/Streaming/" style="font-size: 16.5px; color: #888">Streaming</a> <a href="/tags/Struct/" style="font-size: 14px; color: #999">Struct</a> <a href="/tags/first/" style="font-size: 14px; color: #999">first</a> <a href="/tags/iPython/" style="font-size: 14px; color: #999">iPython</a> <a href="/tags/ls/" style="font-size: 14px; color: #999">ls</a> <a href="/tags/%E4%B9%A0%E9%A2%98/" style="font-size: 20.25px; color: #6f6f6f">习题</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 14px; color: #999">人工智能</a> <a href="/tags/%E4%BF%A1%E5%8F%B7%E9%87%8F/" style="font-size: 14px; color: #999">信号量</a> <a href="/tags/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" style="font-size: 14px; color: #999">内存管理</a> <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/" style="font-size: 14px; color: #999">决策树</a> <a href="/tags/%E5%88%86%E7%B1%BB/" style="font-size: 14px; color: #999">分类</a> <a href="/tags/%E5%8D%8E%E4%B8%BA%E4%BA%91/" style="font-size: 14px; color: #999">华为云</a> <a href="/tags/%E5%8D%95%E8%AF%8D%E8%AE%A1%E6%95%B0/" style="font-size: 16.5px; color: #888">单词计数</a> <a href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 14px; color: #999">可视化</a> <a href="/tags/%E5%90%8C%E6%AD%A5%E4%BA%92%E6%96%A5/" style="font-size: 15.25px; color: #919191">同步互斥</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 20.25px; color: #6f6f6f">大数据</a> <a href="/tags/%E5%AD%A6%E5%A0%82%E5%9C%A8%E7%BA%BF/" style="font-size: 14px; color: #999">学堂在线</a> <a href="/tags/%E5%AE%9E%E6%88%98/" style="font-size: 22.75px; color: #5e5e5e">实战</a> <a href="/tags/%E5%AE%9E%E9%AA%8C/" style="font-size: 22.75px; color: #5e5e5e">实验</a> <a href="/tags/%E5%B0%8F%E6%B8%B8%E6%88%8F/" style="font-size: 14px; color: #999">小游戏</a> <a href="/tags/%E5%B7%A5%E7%A8%8B/" style="font-size: 24px; color: #555">工程</a> <a href="/tags/%E6%89%8B%E5%86%99%E8%AF%86%E5%88%AB/" style="font-size: 14px; color: #999">手写识别</a> <a href="/tags/%E6%8B%93%E5%B1%95/" style="font-size: 15.25px; color: #919191">拓展</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 16.5px; color: #888">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" style="font-size: 14px; color: #999">数据处理</a> <a href="/tags/%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/" style="font-size: 14px; color: #999">日志分析</a> <a href="/tags/%E6%98%93%E9%94%99%E7%82%B9/" style="font-size: 20.25px; color: #6f6f6f">易错点</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 20.25px; color: #6f6f6f">机器学习</a> <a href="/tags/%E6%9D%A1%E4%BB%B6%E7%86%B5/" style="font-size: 14px; color: #999">条件熵</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 14px; color: #999">正则表达式</a> <a href="/tags/%E6%B1%87%E7%BC%96/" style="font-size: 17.75px; color: #808080">汇编</a> <a href="/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/" style="font-size: 16.5px; color: #888">流计算</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 14px; color: #999">爬虫</a> <a href="/tags/%E7%8E%B0%E4%BB%A3%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/" style="font-size: 15.25px; color: #919191">现代交换原理</a> <a href="/tags/%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85/" style="font-size: 14px; color: #999">生产者消费者</a> <a href="/tags/%E7%9F%A5%E8%AF%86/" style="font-size: 14px; color: #999">知识</a> <a href="/tags/%E7%BA%BF%E7%A8%8B/" style="font-size: 14px; color: #999">线程</a> <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" style="font-size: 16.5px; color: #888">编译原理</a> <a href="/tags/%E7%BD%91%E8%AF%BE/" style="font-size: 19px; color: #777">网课</a> <a href="/tags/%E8%81%9A%E7%B1%BB/" style="font-size: 14px; color: #999">聚类</a> <a href="/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/" style="font-size: 17.75px; color: #808080">计算机系统结构</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/tags/%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90/" style="font-size: 14px; color: #999">词法分析</a> <a href="/tags/%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90/" style="font-size: 15.25px; color: #919191">语法分析</a> <a href="/tags/%E8%AF%BB%E8%80%85%E5%86%99%E8%80%85/" style="font-size: 14px; color: #999">读者写者</a> <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 14px; color: #999">课程</a> <a href="/tags/%E8%B5%B7%E5%90%8D%E5%AD%97/" style="font-size: 14px; color: #999">起名字</a> <a href="/tags/%E8%BF%9B%E7%A8%8B/" style="font-size: 15.25px; color: #919191">进程</a> <a href="/tags/%E9%80%9A%E4%BF%A1/" style="font-size: 14px; color: #999">通信</a> <a href="/tags/%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95/" style="font-size: 14px; color: #999">遍历目录</a> <a href="/tags/%E9%9A%BE%E7%82%B9/" style="font-size: 15.25px; color: #919191">难点</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 16.5px; color: #888">项目</a>
     </div>
   </section>
 
@@ -1015,7 +1038,7 @@
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>37 篇</div>
+          <div>39 篇</div>
         </div>
       
 
@@ -1037,21 +1060,25 @@
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>82.9k 字</div>
+          <div>83.1k 字</div>
         </div>
       
 
       
         <div class="webinfo-item">
           <div>本站访客数：</div>
-          <div><span id="busuanzi_value_site_uv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 人</div>
+          
+          <div><span id="lc-uv"><span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
+          
         </div>
       
 
       
         <div class="webinfo-item">
           <div>本站总访问量：</div>
-          <div><span id="busuanzi_value_site_pv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 次</div>
+          
+          <div><span id="lc-sv"><span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
+          
         </div>
       
 
@@ -1059,8 +1086,8 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Wed Sep 02 2020 17:40:58 GMT+0800 (GMT+08:00)</div>
-            <div id="last-update-show">2020-09-02 日</div>
+            <div id="last-update" style="display: none;">Thu Sep 10 2020 16:59:15 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update-show">2020-09-10 日</div>
           
         </div>
         
@@ -1110,7 +1137,7 @@
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2020-09-02 日';
+            document.getElementById('last-update-show').innerHTML = '2020-09-10 日';
           }
         </script>
         
@@ -1254,10 +1281,9 @@
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 <script>
   function pjax_fancybox() {
-    $(".md").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
       var element = document.createElement("a"); // a 标签
       $(element).attr("class", "fancybox");
       $(element).attr("pjax-fancybox", "");  // 过滤 pjax
@@ -1278,16 +1304,9 @@
       $(span).addClass("image-caption");
       $(span).text(caption); // 加描述
       $(this).after(span);  // 再套一层描述
-      // 背景层
-      var bgDiv = document.createElement("div");
-      $(bgDiv).addClass("bg");
-      if ($(this).attr('bg')) {
-        $(bgDiv).css('background', $(this).attr('bg'));
-      }
-      $(this).wrap(bgDiv); // 背景层
       $(this).wrap(element);  // 最后套 a 标签
     })
-    $(".md").find("img").fancybox({
+    $(".md .gallery").find("img").fancybox({
       selector: '[data-fancybox="images"]',
       hash: false,
       loop: false,
@@ -1301,8 +1320,15 @@
       ]
     });
   };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    setTimeout(function() {
+      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+    }, 1);
+  };
   $(function () {
-    pjax_fancybox();
+    SCload_fancybox();
   });
 </script>
 
@@ -1358,7 +1384,7 @@
   <div id="rightmenu-wrapper">
     <ul class="list-v rightmenu" id="rightmenu-content">
       <li class="option">
-        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-text" onclick="document.execCommand(" copy")"><i class="fa fa-copy fa-fw"></i>复制文本</a>
+        <a class="vlts-menu opt fix-cursor-default" id="menu-copy-text" onclick="document.execCommand('copy')"><i class="fa fa-copy fa-fw"></i>复制文本</a>
         <hr id="hr-text">
         <a class="vlts-menu opt fix-cursor-default" id="menu-copy-href"><i class="fa fa-link fa-fw"></i>复制链接</a>
         <a class="vlts-menu opt fix-cursor-default" id="menu-open-href"><i class="fa fa-arrow-circle-right fa-fw"></i>在新标签页打开</a>
@@ -1603,15 +1629,6 @@
 
 
 
-<!-- optional -->
-
-  <script>
-  
-  var SEARCH_SERVICE = "hexo" || "hexo";
-  var ROOT = "/" || "/";
-  if (!ROOT.endsWith('/')) ROOT += '/';
-</script>
-
 
 
 
@@ -1658,61 +1675,6 @@
   
 
 
-
-
-  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
-<script>
-    var clipboard = new ClipboardJS('.btn-copy', {
-        target: function (trigger) {
-            return trigger.nextElementSibling
-        }
-    });
-    function wait(callback, seconds) {
-        var timelag = null;
-        timelag = window.setTimeout(callback, seconds)
-    }
-    function pjax_initCopyCode() {
-		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
-        var copyHtml = '';
-        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
-        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
-        copyHtml += '</button>';
-        $(".highlight .code pre").before(copyHtml);
-        $(".article pre code").before(copyHtml);
-        clipboard.off('success').on('success', function (e) {
-            let $btn = $(e.trigger);
-            $btn.addClass('copied');
-            let $icon = $($btn.find('i'));
-            $icon.removeClass('fa-copy');
-            $icon.addClass('fa-check-circle');
-            let $span = $($btn.find('span'));
-            $span[0].innerText = 'COPIED';
-            wait(function () {
-                $icon.removeClass('fa-check-circle');
-                $icon.addClass('fa-copy');
-                $span[0].innerText = 'COPY'
-            }, 2000)
-        });
-        clipboard.off('error').on('error', function (e) {
-            e.clearSelection();
-            let $btn = $(e.trigger);
-            $btn.addClass('copy-failed');
-            let $icon = $($btn.find('i'));
-            $icon.removeClass('fa-copy');
-            $icon.addClass('fa-times-circle');
-            let $span = $($btn.find('span'));
-            $span[0].innerText = 'COPY FAILED';
-            wait(function () {
-                $icon.removeClass('fa-times-circle');
-                $icon.addClass('fa-copy');
-                $span[0].innerText = 'COPY'
-            }, 2000)
-        })
-    }
-    $(function () {
-        pjax_initCopyCode()
-    });
-</script>
 
 
 
@@ -1920,6 +1882,23 @@ if(supportCss3('mix-blend-mode')){
   
 
 
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+(function ($) {
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+})(jQuery);
+
+</script>
+
+
+
 
 
   
@@ -2084,13 +2063,17 @@ if(supportCss3('mix-blend-mode')){
           if (url) {
             var viewGetter = this.getRecord(Counter, url, title).then((record) => {
               // 是当前页面就自增
-              if (pv.getAttribute('data-path') == window.location.pathname) {
+              let curPath = window.location.pathname;
+              if (curPath.includes('index.html')) {
+                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
+              }
+              if (pv.getAttribute('data-path') == curPath) {
                 incrArr.push(this.buildIncrement(record.objectId));
               }
               if (pv) {
                 var ele = pv.querySelector('#lc-pv #number');
                 if (ele) {
-                  if (pv.getAttribute('data-path') == window.location.pathname) {
+                  if (pv.getAttribute('data-path') == curPath) {
                     ele.innerText = (record.times || 0) + 1;
                   } else {
                     ele.innerText = record.times || 0;
@@ -2211,7 +2194,9 @@ if(supportCss3('mix-blend-mode')){
       } catch (error) {}
 
       window.subData = null; // 移除标题（用于一二级导航栏切换处）
-      $.fancybox.close();    // 关闭弹窗
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
       $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
       $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
       $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
@@ -2250,7 +2235,11 @@ if(supportCss3('mix-blend-mode')){
         $(this).parent().append($(this).remove());
       });
       try{
-        pjax_fancybox();
+          if (typeof $.fancybox == "undefined") {
+            SCload_fancybox();
+          } else {
+            pjax_fancybox();
+          }
         
           
           if ('.cover-backstretch') {
@@ -2272,7 +2261,6 @@ if(supportCss3('mix-blend-mode')){
         
         
         
-          pjax_initCopyCode();
         
         
           pjax_valine();
