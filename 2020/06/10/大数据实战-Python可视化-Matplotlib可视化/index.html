@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.0.0">
+<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.1">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
     
   
   <!-- 渲染优化 -->
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="HandheldFriendly" content="True">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta http-equiv="x-dns-prefetch-control" content="on">
 
   <!-- 页面元数据 -->
   
@@ -35,7 +37,6 @@
   
 
   <!-- link -->
-  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   
     
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css">
@@ -72,61 +73,23 @@
 <link rel="stylesheet" href="/css/style.css">
 
   
-  
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script>
-	setTimeout(function() {
-  	  window.ga_tid = 'UA-162450234-2';
- 	   (function() {
- 	     var dga = document.createElement("script");
- 	     dga.src = "https://rmt.dogedoge.com/fetch/public/ga.js";
-	      var s = document.getElementsByTagName("script")[0];
-	      s.parentNode.insertBefore(dga, s);
-	  })();
-	}, 5000);
-    </script>
-  
-  
-    <!-- ba -->
-    <script>
-    var _hmt = _hmt || [];
-    (function() {
-	  setTimeout(function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?93c49980dcbfb8920e167f85129d6917";
-		hm.defer=true;
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-	  }, 5000);
-    })();
-    </script>
-  
-  <!-- 脚本懒加载函数 -->
-  <script>
-  function loadScript(src, cb) {
-    var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
-    var script = document.createElement('script');
-    script.setAttribute('type','text/javascript');
-    if (cb) script.onload = cb;
-    script.setAttribute('src', src);
-    HEAD.appendChild(script);
-  }
-  //https://github.com/filamentgroup/loadCSS
-  !function(c){"use strict";var e=function(e,t,n,r){var o,i=c.document,a=i.createElement("link");if(t)o=t;else{var d=(i.body||i.getElementsByTagName("head")[0]).childNodes;o=d[d.length-1]}var f=i.styleSheets;if(r)for(var l in r)r.hasOwnProperty(l)&&a.setAttribute(l,r[l]);a.rel="stylesheet",a.href=e,a.media="only x",function e(t){if(i.body)return t();setTimeout(function(){e(t)})}(function(){o.parentNode.insertBefore(a,t?o:o.nextSibling)});var s=function(e){for(var t=a.href,n=f.length;n--;)if(f[n].href===t)return e();setTimeout(function(){s(e)})};function u(){a.addEventListener&&a.removeEventListener("load",u),a.media=n||"all"}return a.addEventListener&&a.addEventListener("load",u),(a.onloadcssdefined=s)(u),a};"undefined"!=typeof exports?exports.loadCSS=e:c.loadCSS=e}("undefined"!=typeof global?global:this);
-  </script>
+
   <script id="loadcss"></script>
+
 </head>
 
 <body>
-  <header class="l_header auto shadow floatable blur " style="opacity: 0">
+  
+
+<header id="l_header" class="l_header auto shadow floatable blur show" style="opacity: 0">
   <div class="container">
-  <div class="wrapper">
+  <div id="wrapper">
     <div class="nav-sub">
       <p class="title"></p>
       <ul class="switcher nav-list-h m-phone" id="pjax-header-nav-list">
-        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
         
-          <li><a class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
         
       </ul>
     </div>
@@ -303,39 +266,7 @@
             
           
                     
-                      
-            
-              <hr>
-            
-          
-                    
-                      
-            
-              
-                <li>
-                  <a class="menuitem flat-box">
-                    <i class="fas fa-compact-disc fa-fw music fa-fw music"></i>背景音乐
-                  </a>
-                  <ul class="list-v">
-                    <li>
-                      <div class="aplayer-container">
-                        
-
-  
-    <meting-js theme="#1BCDFC" autoplay="true" volume="0.1" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="1930654125" list-folded="true">
-    </meting-js>
-  
-
-
-                      </div>
-                    </li>
                   </ul>
-                </li><li>
-              
-            
-          
-                    
-                  </li></ul>
                 
               </li>
             
@@ -515,18 +446,6 @@
             
           
                     
-                      
-            
-              <hr>
-            
-          
-                    
-                      
-            
-              
-            
-          
-                    
                   </ul>
                 
               </li>
@@ -541,14 +460,13 @@
   </div>
 </header>
 
-  <div class="l_body">
-    <div class="l_cover">
+  <div id="l_body">
+    <div id="l_cover">
   
     
-    
-        <div class="cover-wrapper post focus" style="display: none;">
+        <div id="full" class="cover-wrapper post focus" style="display: none;">
           
-            <div class="cover-backstretch"></div>
+            <div id="cover-backstretch"></div>
           
           <div class="cover-body">
   <div class="top">
@@ -640,49 +558,14 @@
   </div>
 </div>
 
-          <div class="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
         </div>
     
   
   </div>
-  
-    <div class="safearea">
-      <div class="body-wrapper" id="pjax-container">
-        
-          <!--此文件用来存放一些不方便取值的变量--> 
-<!--思路大概是将值藏到重加载的区域内--> 
- 
- 
- 
-<div id="pjax-data" style="display: none"> 
-  <div id="pjax-ispage">true</div> 
-  <div id="pjax-pageTitle">大数据实战 Python可视化 Matplotlib可视化</div> 
-  <div id="pjax-enable-cover">true</div> 
-  <div id="pjax-comment-path"></div> 
-  <div id="pjax-comment-placeholder"></div> 
-</div> 
- 
- 
-<script> 
-  // 处理封面 此时 jquery 还没加载 
-  if ("none" == "none") { // 移除封面 
-    document.getElementsByClassName('cover-wrapper')[0].style.display = "none"; 
-    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
-  } else { 
-    if ("none" == "half") { // 半屏 
-      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'half'); 
-      document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
-    } else if ("none" == "full") { // 全屏 
-      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'full'); 
-      document.getElementsByClassName('scroll-down')[0].style.display = ""; 
-    } 
-    document.getElementsByClassName('cover-wrapper')[0].style.display = ""; 
-    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.remove("show"); 
-  } 
-</script> 
- 
 
-        
+    <div id="safearea">
+      <div class="body-wrapper" id="pjax-container">
         
 
 <div class="l_main">
@@ -805,35 +688,35 @@
 <h3 id="3-6Matplotlib-绘图示例"><a href="#3-6Matplotlib-绘图示例" class="headerlink" title="3.6Matplotlib 绘图示例"></a>3.6Matplotlib 绘图示例</h3><p>3.6.1执行如下命令打开编程环境</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd</span><br><span class="line">ipython</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200602123119.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123119.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-02_110843" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200602123119.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123119.jpg" srcset="data:image/png;base64,666" alt="2020-06-02_110843" style="zoom:80%;">
 
 <p>3.6.2绘制世界人口与年份的关系图：</p>
 <p>3.6.2.1导入实验所需的库</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> matplotlib.dates <span class="keyword">as</span> mdates</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200602123234.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123234.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-02_111044" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200602123234.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123234.jpg" srcset="data:image/png;base64,666" alt="2020-06-02_111044" style="zoom:80%;">
 
 <p>3.6.2.2year 和pop为年份和对应的全世界人口数辆（单位10亿）</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yearInt = [<span class="number">2005</span>, <span class="number">2006</span>, <span class="number">2007</span>, <span class="number">2008</span>, <span class="number">2009</span>, <span class="number">2010</span>, <span class="number">2011</span>, <span class="number">2012</span>, <span class="number">2013</span>, <span class="number">2014</span>, <span class="number">2015</span>, <span class="number">2016</span>, <span class="number">2017</span>, <span class="number">2018</span>, <span class="number">2019</span>, <span class="number">2020</span>]</span><br><span class="line">year = [str(item) <span class="keyword">for</span> item <span class="keyword">in</span> yearInt]  <span class="comment"># 将yearInt中的数字转换成str</span></span><br><span class="line">pop = [<span class="number">6.49</span>, <span class="number">6.558</span>, <span class="number">6.656</span>, <span class="number">6.725</span>, <span class="number">6.804</span>, <span class="number">6.884</span>, <span class="number">6.965</span>, <span class="number">7.043</span>, <span class="number">7.125</span>, <span class="number">7.207</span>, <span class="number">7.356</span>, <span class="number">7.380</span>, <span class="number">7.405</span>, <span class="number">7.440</span>, <span class="number">7.468</span>, <span class="number">8.020</span>]</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200602123248.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123248.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-02_114653" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200602123248.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123248.jpg" srcset="data:image/png;base64,666" alt="2020-06-02_114653" style="zoom:80%;">
 
 <p>3.6.2.3绘图</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">xs = [datetime.strptime(d, <span class="string">'%Y'</span>).date() <span class="keyword">for</span> d <span class="keyword">in</span> year]  <span class="comment"># 将year中的每个如'2005'的字符串转换成只包含年的日期</span></span><br><span class="line">plt.gca().xaxis.set_major_formatter(mdates.DateFormatter(<span class="string">'%Y'</span>))  <span class="comment"># gca()获得坐标轴；</span></span><br><span class="line">plt.gca().xaxis.set_major_locator(mdates.YearLocator())  <span class="comment"># 年份</span></span><br><span class="line">plt.plot(xs, pop)  <span class="comment"># 绘制图表</span></span><br><span class="line">plt.gcf().autofmt_xdate()  <span class="comment"># 将x轴的日期自动旋转角度</span></span><br><span class="line">plt.show()  <span class="comment"># 显示图表</span></span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200602123256.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123256.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-02_115550" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200602123256.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123256.jpg" srcset="data:image/png;base64,666" alt="2020-06-02_115550" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200602123321.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123321.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-02_115609" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200602123321.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123321.jpg" srcset="data:image/png;base64,666" alt="2020-06-02_115609" style="zoom:80%;">
 
 <h3 id="3-7在上一幅图表中添加另一条关于中国人品与年份关系的线，并对新图添加对应的修饰项"><a href="#3-7在上一幅图表中添加另一条关于中国人品与年份关系的线，并对新图添加对应的修饰项" class="headerlink" title="3.7在上一幅图表中添加另一条关于中国人品与年份关系的线，并对新图添加对应的修饰项"></a>3.7在上一幅图表中添加另一条关于中国人品与年份关系的线，并对新图添加对应的修饰项</h3><p>3.7.1添加中国人口数量关系</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plt.figure()</span><br><span class="line">pop_cn = [<span class="number">1.30756</span>, <span class="number">1.31448</span>, <span class="number">1.32129</span>, <span class="number">1.32802</span>, <span class="number">1.33450</span>, <span class="number">1.34091</span>, <span class="number">1.34735</span>, <span class="number">1.35404</span>, <span class="number">1.36072</span>, <span class="number">1.36782</span>, <span class="number">1.36790</span>, <span class="number">1.36801</span>,</span><br><span class="line">          <span class="number">1.36813</span>, <span class="number">1.36832</span>, <span class="number">1.36845</span>, <span class="number">1.36860</span>]</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200602123409.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123409.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-02_115923" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200602123409.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123409.jpg" srcset="data:image/png;base64,666" alt="2020-06-02_115923" style="zoom:80%;">
 
 <p>3.7.2绘制人口数量和年份关系；year与pop仍然用之前的数据</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(year, pop, color=<span class="string">"g"</span>, label=<span class="string">"World population"</span>)</span><br><span class="line">plt.plot(year, pop_cn, linestyle=<span class="string">"--"</span>, color=<span class="string">"r"</span>, label=<span class="string">"China population"</span>)</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200602123441.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123441.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-02_120014" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200602123441.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123441.jpg" srcset="data:image/png;base64,666" alt="2020-06-02_120014" style="zoom:80%;">
 
 <p>3.7.3添加修饰项</p>
 <p>3.7.3.1添加x，y轴标签</p>
@@ -842,79 +725,79 @@
 <p>3.7.3.4添加title</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plt.xlabel(<span class="string">'year'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'Population'</span>)</span><br><span class="line">plt.text(<span class="string">'2008'</span>, <span class="number">6.725</span>, <span class="string">'2013'</span>)</span><br><span class="line">plt.legend(loc=<span class="number">1</span>)</span><br><span class="line">plt.title(<span class="string">"World Population Summary"</span>)</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200602123531.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123531.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-02_120228" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200602123531.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123531.jpg" srcset="data:image/png;base64,666" alt="2020-06-02_120228" style="zoom:80%;">
 
 <p>3.7.4显示图片</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200602123539.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123539.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-02_120321" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200602123539.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123539.jpg" srcset="data:image/png;base64,666" alt="2020-06-02_120321" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200602123546.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123546.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-02_120300" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200602123546.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123546.jpg" srcset="data:image/png;base64,666" alt="2020-06-02_120300" style="zoom:80%;">
 
 <h3 id="3-8子图的绘制："><a href="#3-8子图的绘制：" class="headerlink" title="3.8子图的绘制："></a>3.8子图的绘制：</h3><p>利用plt.subplots函数创建包含多个子图的绘图对象，还可以设置子图个数。</p>
 <p>3.8.1绘制x轴共享子图，</p>
 <p>3.8.1.1子图个数设置为2，并且共享x轴</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f, (ax1, ax2) = plt.subplots(<span class="number">2</span>, sharex=<span class="literal">True</span>)  <span class="comment"># f是Figure对象；ax1,ax2分别是Axes</span></span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200602123723.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123723.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-02_120441" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200602123723.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123723.jpg" srcset="data:image/png;base64,666" alt="2020-06-02_120441" style="zoom:80%;">
 
 <p>3.8.1.2使用散点图绘制</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ax1.scatter(year, pop)  <span class="comment"># 绘制散点图</span></span><br><span class="line">ax2.scatter(year, pop_cn)</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200602123731.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123731.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-02_120452" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200602123731.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123731.jpg" srcset="data:image/png;base64,666" alt="2020-06-02_120452" style="zoom:80%;">
 
 <p>3.8.1.3添加修饰项：标题，</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ax1.set_title(<span class="string">'World Population Summary'</span>)  <span class="comment"># 设置标题</span></span><br><span class="line">ax2.set_title(<span class="string">"China Population Summary"</span>)</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200602123737.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123737.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-02_120501" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200602123737.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123737.jpg" srcset="data:image/png;base64,666" alt="2020-06-02_120501" style="zoom:80%;">
 
 <p>3.8.1.4显示图像</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200602123745.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123745.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-02_120725" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200602123745.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123745.jpg" srcset="data:image/png;base64,666" alt="2020-06-02_120725" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200602123752.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123752.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-02_120708" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200602123752.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123752.jpg" srcset="data:image/png;base64,666" alt="2020-06-02_120708" style="zoom:80%;">
 
 <p>3.8.2绘制双y轴子图，共享x轴。</p>
 <p>3.8.2.1创建绘图对象fig</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fig = plt.figure()</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200602123926.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123926.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-02_120843" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200602123926.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123926.jpg" srcset="data:image/png;base64,666" alt="2020-06-02_120843" style="zoom:80%;">
 
 <p>3.8.2.2使用fig.add_subplot函数为绘图对象fig添加两个子图，ax4通过使用ax3的twinx方法创建，且与ax3共享x中，放置在y轴右侧</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ax3 = fig.add_subplot(<span class="number">111</span>)  <span class="comment"># 参数是1个3位的整数或3个分隔的整数，描述子图的位置，分别是nrows,ncols,index</span></span><br><span class="line">ax4 = ax3.twinx()  <span class="comment"># 创建一个x轴，并创建一个与原y轴处于相对位置的新y轴</span></span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200602123932.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123932.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-02_120854" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200602123932.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123932.jpg" srcset="data:image/png;base64,666" alt="2020-06-02_120854" style="zoom:80%;">
 
 <p>3.8.2.3绘制子图ax3， ax4</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ax3.plot(year, pop, color=<span class="string">"g"</span>, label=<span class="string">"World population"</span>)</span><br><span class="line">ax4.plot(year, pop_cn, linestyle=<span class="string">"--"</span>, color=<span class="string">"r"</span>, label=<span class="string">"China population"</span>)</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200602123937.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123937.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-02_120905" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200602123937.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123937.jpg" srcset="data:image/png;base64,666" alt="2020-06-02_120905" style="zoom:80%;">
 
 <p>3.8.2.4添加修饰项：添加x,y轴标签、 标题</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ax3.set_ylabel(<span class="string">'World population'</span>)</span><br><span class="line">ax3.set_title(<span class="string">"Double Y axis"</span>)</span><br><span class="line">ax4.set_ylabel(<span class="string">'China population'</span>)</span><br><span class="line">ax4.set_xlabel(<span class="string">'Year'</span>)</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200602123942.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123942.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-02_121021" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200602123942.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123942.jpg" srcset="data:image/png;base64,666" alt="2020-06-02_121021" style="zoom:80%;">
 
 <p>3.8.2.5显示图像</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200602123949.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123949.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-02_121101" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200602123949.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123949.jpg" srcset="data:image/png;base64,666" alt="2020-06-02_121101" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200602123955.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123955.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-02_121049" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200602123955.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123955.jpg" srcset="data:image/png;base64,666" alt="2020-06-02_121049" style="zoom:80%;">
 
 <h3 id="3-9图像的保存："><a href="#3-9图像的保存：" class="headerlink" title="3.9图像的保存："></a>3.9图像的保存：</h3><p>3.9.1代码使用双y轴的代码，代码末尾show（）方法改成保存方法即可</p>
 <p>3.9.2使用plt.savfig()函数保存图像</p>
 <p>3.9.2.1制定保存的名称，格式，像素，以及是否修渐空白区域。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">fig = plt.figure()</span><br><span class="line">ax3 = fig.add_subplot(<span class="number">111</span>)</span><br><span class="line">ax3.plot(year, pop, color=<span class="string">"g"</span>, label=<span class="string">"World population"</span>)</span><br><span class="line">ax3.set_ylabel(<span class="string">'World population'</span>)</span><br><span class="line">ax3.set_title(<span class="string">"Double Y axis"</span>)</span><br><span class="line">ax4 = ax3.twinx()</span><br><span class="line">ax4.plot(year, pop_cn, linestyle=<span class="string">"--"</span>, color=<span class="string">"r"</span>, label=<span class="string">"China population"</span>)</span><br><span class="line">ax4.set_ylabel(<span class="string">'China population'</span>)</span><br><span class="line">ax4.set_xlabel(<span class="string">'Year'</span>)</span><br><span class="line">plt.savefig(<span class="string">'figure.pdf'</span>, dpi=<span class="number">400</span>, bbox_inches=<span class="string">'tight'</span>)  <span class="comment"># 去除空白区域</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200602124041.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602124041.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-02_121228" style="zoom: 80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200602124041.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602124041.jpg" srcset="data:image/png;base64,666" alt="2020-06-02_121228" style="zoom: 80%;">
 
 <p>3.9.2.2点击关闭弹出的效果图</p>
 <p>3.9.2.3查看保存的文件：打开火狐浏览器，地址栏键入如下内容（生成图片的绝对路径）</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200602124053.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602124053.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-02_121449" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200602124053.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602124053.jpg" srcset="data:image/png;base64,666" alt="2020-06-02_121449" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200602124102.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602124102.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-02_121529" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200602124102.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602124102.jpg" srcset="data:image/png;base64,666" alt="2020-06-02_121529" style="zoom:80%;">
 
 <h2 id="四、附录"><a href="#四、附录" class="headerlink" title="四、附录"></a>四、附录</h2><h3 id="所有的代码汇总plt-py"><a href="#所有的代码汇总plt-py" class="headerlink" title="所有的代码汇总plt.py"></a>所有的代码汇总plt.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">@Copyright: Copyright (c) 2020 苇名一心 All Rights Reserved.</span></span><br><span class="line"><span class="string">@Project: plt_5</span></span><br><span class="line"><span class="string">@Description: </span></span><br><span class="line"><span class="string">@Version: </span></span><br><span class="line"><span class="string">@Author: 苇名一心</span></span><br><span class="line"><span class="string">@Date: 2020-06-02 11:46</span></span><br><span class="line"><span class="string">@LastEditors: 苇名一心</span></span><br><span class="line"><span class="string">@LastEditTime: 2020-06-02 11:46</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> matplotlib.dates <span class="keyword">as</span> mdates</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">yearInt = [<span class="number">2005</span>, <span class="number">2006</span>, <span class="number">2007</span>, <span class="number">2008</span>, <span class="number">2009</span>, <span class="number">2010</span>, <span class="number">2011</span>, <span class="number">2012</span>, <span class="number">2013</span>, <span class="number">2014</span>, <span class="number">2015</span>, <span class="number">2016</span>, <span class="number">2017</span>, <span class="number">2018</span>, <span class="number">2019</span>, <span class="number">2020</span>]</span><br><span class="line">year = [str(item) <span class="keyword">for</span> item <span class="keyword">in</span> yearInt]  <span class="comment"># 将yearInt中的数字转换成str</span></span><br><span class="line">pop = [<span class="number">6.49</span>, <span class="number">6.558</span>, <span class="number">6.656</span>, <span class="number">6.725</span>, <span class="number">6.804</span>, <span class="number">6.884</span>, <span class="number">6.965</span>, <span class="number">7.043</span>, <span class="number">7.125</span>, <span class="number">7.207</span>, <span class="number">7.356</span>, <span class="number">7.380</span>, <span class="number">7.405</span>, <span class="number">7.440</span>, <span class="number">7.468</span>, <span class="number">8.020</span>]</span><br><span class="line">xs = [datetime.strptime(d, <span class="string">'%Y'</span>).date() <span class="keyword">for</span> d <span class="keyword">in</span> year]  <span class="comment"># 将year中的每个如'2005'的字符串转换成只包含年的日期</span></span><br><span class="line">plt.gca().xaxis.set_major_formatter(mdates.DateFormatter(<span class="string">'%Y'</span>))  <span class="comment"># gca()获得坐标轴；</span></span><br><span class="line">plt.gca().xaxis.set_major_locator(mdates.YearLocator())  <span class="comment"># 年份</span></span><br><span class="line">plt.plot(xs, pop)  <span class="comment"># 绘制图表</span></span><br><span class="line">plt.gcf().autofmt_xdate()  <span class="comment"># 将x轴的日期自动旋转角度</span></span><br><span class="line">plt.show()  <span class="comment"># 显示图表</span></span><br><span class="line"></span><br><span class="line">plt.figure()</span><br><span class="line">pop_cn = [<span class="number">1.30756</span>, <span class="number">1.31448</span>, <span class="number">1.32129</span>, <span class="number">1.32802</span>, <span class="number">1.33450</span>, <span class="number">1.34091</span>, <span class="number">1.34735</span>, <span class="number">1.35404</span>, <span class="number">1.36072</span>, <span class="number">1.36782</span>, <span class="number">1.36790</span>, <span class="number">1.36801</span>,</span><br><span class="line">          <span class="number">1.36813</span>, <span class="number">1.36832</span>, <span class="number">1.36845</span>, <span class="number">1.36860</span>]</span><br><span class="line">plt.plot(year, pop, color=<span class="string">"g"</span>, label=<span class="string">"World population"</span>)</span><br><span class="line">plt.plot(year, pop_cn, linestyle=<span class="string">"--"</span>, color=<span class="string">"r"</span>, label=<span class="string">"China population"</span>)</span><br><span class="line">plt.xlabel(<span class="string">'year'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'Population'</span>)</span><br><span class="line">plt.text(<span class="string">'2008'</span>, <span class="number">6.725</span>, <span class="string">'2013'</span>)</span><br><span class="line">plt.legend(loc=<span class="number">1</span>)</span><br><span class="line">plt.title(<span class="string">"World Population Summary"</span>)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">f, (ax1, ax2) = plt.subplots(<span class="number">2</span>, sharex=<span class="literal">True</span>)  <span class="comment"># f是Figure对象；ax1,ax2分别是Axes</span></span><br><span class="line">ax1.scatter(year, pop)  <span class="comment"># 绘制散点图</span></span><br><span class="line">ax2.scatter(year, pop_cn)</span><br><span class="line">ax1.set_title(<span class="string">'World Population Summary'</span>)  <span class="comment"># 设置标题</span></span><br><span class="line">ax2.set_title(<span class="string">"China Population Summary"</span>)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line">ax3 = fig.add_subplot(<span class="number">111</span>)  <span class="comment"># 参数是1个3位的整数或3个分隔的整数，描述子图的位置，分别是nrows,ncols,index</span></span><br><span class="line">ax4 = ax3.twinx()  <span class="comment"># 创建一个x轴，并创建一个与原y轴处于相对位置的新y轴</span></span><br><span class="line">ax3.plot(year, pop, color=<span class="string">"g"</span>, label=<span class="string">"World population"</span>)</span><br><span class="line">ax4.plot(year, pop_cn, linestyle=<span class="string">"--"</span>, color=<span class="string">"r"</span>, label=<span class="string">"China population"</span>)</span><br><span class="line">ax3.set_ylabel(<span class="string">'World population'</span>)</span><br><span class="line">ax3.set_title(<span class="string">"Double Y axis"</span>)</span><br><span class="line">ax4.set_ylabel(<span class="string">'China population'</span>)</span><br><span class="line">ax4.set_xlabel(<span class="string">'Year'</span>)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line">ax3 = fig.add_subplot(<span class="number">111</span>)</span><br><span class="line">ax3.plot(year, pop, color=<span class="string">"g"</span>, label=<span class="string">"World population"</span>)</span><br><span class="line">ax3.set_ylabel(<span class="string">'World population'</span>)</span><br><span class="line">ax3.set_title(<span class="string">"Double Y axis"</span>)</span><br><span class="line">ax4 = ax3.twinx()</span><br><span class="line">ax4.plot(year, pop_cn, linestyle=<span class="string">"--"</span>, color=<span class="string">"r"</span>, label=<span class="string">"China population"</span>)</span><br><span class="line">ax4.set_ylabel(<span class="string">'China population'</span>)</span><br><span class="line">ax4.set_xlabel(<span class="string">'Year'</span>)</span><br><span class="line">plt.savefig(<span class="string">'figure.pdf'</span>, dpi=<span class="number">400</span>, bbox_inches=<span class="string">'tight'</span>)  <span class="comment"># 去除空白区域</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 
@@ -931,7 +814,7 @@
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
     </section>
     <section class="body">
-      <div class="vlts-rps"><a class="item" href="\2020\05\14\大数据实战-Spark-Streaming-实时计算Kafka数据\" title="大数据实战 Spark Streaming 实时计算Kafka数据" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200518184342.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518184342.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">大数据实战 Spark Streaming 实时计算Kafka数据</span><span class="excerpt">本文是关于大数据通过Spark Streaming实现流计算Kafka数据进行单词计数。</span></a><a class="item" href="\2020\03\15\大数据实战-Spark-Java单词计数\" title="大数据实战 Spark Java单词计数" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200423203009.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200423203009.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">大数据实战 Spark Java单词计数</span><span class="excerpt">本文是关于大数据通过Spark实现Java单词计数。</span></a><a class="item" href="\2020\07\20\大数据实战-Spark-分析流量日志\" title="大数据实战 Spark 分析流量日志" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200603142941.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603142941.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">大数据实战 Spark 分析流量日志</span><span class="excerpt">本文是关于大数据通过Java进行Spark编程实现日志处理分析。</span></a><a class="item" href="\2020\07\21\大数据实战-Spark-自选日志分析\" title="大数据实战 Spark 自选日志分析" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200603145855.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603145855.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">大数据实战 Spark 自选日志分析</span><span class="excerpt">本文是关于大数据通过Java进行Spark编程实现自选日志处理分析。</span></a></div></section></div>
+      <div class="vlts-rps"><a class="item" href="\2020\03\15\大数据实战-Spark-Java单词计数\" title="大数据实战 Spark Java单词计数" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200423203009.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200423203009.jpg" srcset="data:image/png;base64,666"><span class="title">大数据实战 Spark Java单词计数</span><span class="excerpt">本文是关于大数据通过Spark实现Java单词计数。</span></a><a class="item" href="\2020\05\14\大数据实战-Spark-Streaming-实时计算Kafka数据\" title="大数据实战 Spark Streaming 实时计算Kafka数据" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200518184342.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518184342.jpg" srcset="data:image/png;base64,666"><span class="title">大数据实战 Spark Streaming 实时计算Kafka数据</span><span class="excerpt">本文是关于大数据通过Spark Streaming实现流计算Kafka数据进行单词计数。</span></a><a class="item" href="\2020\07\20\大数据实战-Spark-分析流量日志\" title="大数据实战 Spark 分析流量日志" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200603142941.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603142941.png" srcset="data:image/png;base64,666"><span class="title">大数据实战 Spark 分析流量日志</span><span class="excerpt">本文是关于大数据通过Java进行Spark编程实现日志处理分析。</span></a><a class="item" href="\2020\07\21\大数据实战-Spark-自选日志分析\" title="大数据实战 Spark 自选日志分析" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200603145855.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603145855.jpg" srcset="data:image/png;base64,666"><span class="title">大数据实战 Spark 自选日志分析</span><span class="excerpt">本文是关于大数据通过Java进行Spark编程实现自选日志处理分析。</span></a></div></section></div>
       
       
         <div class="copyright">
@@ -963,9 +846,9 @@
         <div class="donate">
           <div class="imgs">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" srcset="data:image/png;base64,666">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,666">
             
           </div>
         </div>
@@ -1005,7 +888,7 @@
       
         <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://666wxy666.github.io/2020/06/10/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Python%E5%8F%AF%E8%A7%86%E5%8C%96-Matplotlib%E5%8F%AF%E8%A7%86%E5%8C%96/&title=大数据实战 Python可视化 Matplotlib可视化 - 苇名一心的博客&summary=本文是关于大数据通过Python的Matplotlib实现数据可视化。" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
           
         </a>
       
@@ -1013,7 +896,7 @@
       
         <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://666wxy666.github.io/2020/06/10/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Python%E5%8F%AF%E8%A7%86%E5%8C%96-Matplotlib%E5%8F%AF%E8%A7%86%E5%8C%96/&title=大数据实战 Python可视化 Matplotlib可视化 - 苇名一心的博客&summary=本文是关于大数据通过Python的Matplotlib实现数据可视化。" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
           
         </a>
       
@@ -1021,7 +904,7 @@
       
         <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://666wxy666.github.io/2020/06/10/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Python%E5%8F%AF%E8%A7%86%E5%8C%96-Matplotlib%E5%8F%AF%E8%A7%86%E5%8C%96/&title=大数据实战 Python可视化 Matplotlib可视化 - 苇名一心的博客&summary=本文是关于大数据通过Python的Matplotlib实现数据可视化。" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
           
         </a>
       
@@ -1115,6 +998,24 @@
 </aside>
 
 
+
+        
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="大数据实战 Python可视化 Matplotlib可视化";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.add("show");
+  
+</script>
 
         
       </div>
@@ -1238,11 +1139,82 @@
   </footer>
 
 
-      <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
     </div>
   </div>
   <div>
-    <!-- required -->
+    <script>
+window.volantis={};
+/********************脚本懒加载函数********************************/
+function loadScript(src, cb) {
+var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+var script = document.createElement('script');
+script.setAttribute('type','text/javascript');
+if (cb) script.onload = cb;
+script.setAttribute('src', src);
+HEAD.appendChild(script);
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<!-- required -->
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
 
@@ -1307,7 +1279,6 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
 
     <script type="text/javascript">
-      $(function(){
         var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
         if ('true' == 'true') {
           function shuffle(arr){
@@ -1322,22 +1293,17 @@
           }
           shuffle(imgs);
         }
-        if ('.cover-backstretch') {
-          $('.cover-backstretch').backstretch(
+	  function Pjax_backstretch(){
+        
+          $('#cover-backstretch').backstretch(
             imgs,
           {
             duration: "10000",
             fade: "1500"
           });
-        } else {
-          $.backstretch(
-            imgs,
-          {
-            duration: "10000",
-            fade: "1500"
-          });
-        }
-      });
+        
+	  }
+	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
     </script>
   
 
@@ -1709,9 +1675,9 @@
   function pjax_valine() {
     if(!document.querySelectorAll("#valine_container")[0])return;
 
-    let pagePlaceholder = $.trim($('#pjax-comment-placeholder').text()) || "快来评论吧~";
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
 
-    let path = $.trim($('#pjax-comment-path').text());
+    let path = pdata.commentPath;
     if (path.length == 0) {
       let defaultPath = '';
       path = defaultPath || decodeURI(window.location.pathname);
@@ -1742,91 +1708,6 @@
   $(function () {
     pjax_valine();
   });
-</script>
-
-
-
-
-  
-<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5/lib/darkmode-js.min.js" aysc></script>
-
-<script type="text/javascript">
-function getClientHeight(){
-  var clientHeight=0;
-  if(document.body.clientHeight&&document.documentElement.clientHeight){
-  var clientHeight = (document.body.clientHeight<document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
-  }else{
-  var clientHeight = (document.body.clientHeight>document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
-  }
-  return clientHeight;
-}
-function supportCss3(style) {
-  var prefix = ['webkit', 'Moz', 'ms', 'o'],
-  i,
-  humpString = [],
-  htmlStyle = document.documentElement.style,
-  _toHumb = function (string) {
-  return string.replace(/-(\w)/g, function ($0, $1) {
-  return $1.toUpperCase();
-  });
-  };
-  for (i in prefix)
-  humpString.push(_toHumb(prefix[i] + '-' + style));
-  humpString.push(_toHumb(style));
-  for (i in humpString)
-  if (humpString[i] in htmlStyle) return true;
-  return false;
-};
-//配置信息
-var options = {
-  bottom: '100px',
-  right: '32px',
-  left: 'unset',
-  time: '0s',
-  mixColor: '#f4f4f4',
-  backgroundColor: '#f4f4f4',
-  buttonColorDark: '#333',
-  buttonColorLight: '#ddd',
-  saveInCookies: true,
-  label: '',
-  autoMatchOsTheme: true
-};
-// 卡片兼容处理 mix-blend-mode 与 effect: [blur] 冲突
-
-function pjax_darkmodejs(){
-  
-  if(!supportCss3('mix-blend-mode'))return;
-  var checkExist2 = setInterval(function() {
-     if (typeof jQuery == 'undefined'){return;}
-     clearInterval(checkExist2);
-     var TopFlag=getClientHeight();
-    $(window).scroll(function(){
-      var top = $(document).scrollTop();
-      if(top > TopFlag) {
-        $(".darkmode-layer").css("mix-blend-mode","normal");
-        $(".darkmode-layer").css("background-color","#222");
-      }else{
-        $(".darkmode-layer").css("mix-blend-mode","difference");
-        $(".darkmode-layer").css("background-color","");
-      }
-    })
-  }, 100);
-  
-}
-// mix-blend-mode support?
-if(supportCss3('mix-blend-mode')){
-  window.darkmode = new Darkmode(options);
-  
-  window.darkmode.showWidget();
-  
-  pjax_darkmodejs();
-}
-////////////////Development///////////////////////
-//////////////darkmode模式切换////////////////////
-//window.darkmode.toggle();                     //
-//////////////darkmode模式判断////////////////////
-//console.log(window.darkmode.isActivated())    //
-//////////////////////////////////////////////////
 </script>
 
 
@@ -2102,7 +1983,227 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
 
 
 
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+  try {
+    localStorage.setItem(k, v);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+const removeLS = (k) => {
+  try {
+    localStorage.removeItem(k);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+const getLS = (k) => {
+  try {
+    return localStorage.getItem(k);
+  } catch (e) {
+    console.log(e.message);
+    return null;
+  }
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+function bindToggleButton() {
+	var btn=$("#wrapper .toggle-mode-btn");
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+$("#wrapper .darkbtn").parents(".header").addClass("toggle-mode-btn")
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+document.addEventListener("pjax:success", bindToggleButton);
+var now = new Date();
+var hour = now.getHours();
+if (hour < 7 && hour >= 19) {
+	var mode = toggleCustomDarkMode();
+	if (mode === "dark") {
+	  applyCustomDarkModeSettings(mode);
+	}
+}
+</script>
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script>
+setTimeout(function() {
+  window.ga_tid = 'UA-162450234-2';
+   (function() {
+	 var dga = document.createElement("script");
+	 dga.src = "https://rmt.dogedoge.com/fetch/public/ga.js";
+	  var s = document.getElementsByTagName("script")[0];
+	  s.parentNode.insertBefore(dga, s);
+  })();
+}, 5000);
+</script>
+
+
+<!-- baidu Analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  setTimeout(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?93c49980dcbfb8920e167f85129d6917";
+	hm.defer=true;
+	var s = document.getElementsByTagName("script")[0];
+	s.parentNode.insertBefore(hm, s);
+  }, 5000);
+})();
+</script>
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
 <!-- more -->
+
+
 
 
     
@@ -2135,6 +2236,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
         elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
         selectors: [
           "title",
+          "#l_cover",
           "#pjax-container",
           "#pjax-header-nav-list"
         ],
@@ -2144,7 +2246,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
     });
 
     document.addEventListener('pjax:send', function (e) {
-      window.stop(); // 相当于点击了浏览器的停止按钮
+      //window.stop(); // 相当于点击了浏览器的停止按钮
 
       try {
         var currentUrl = window.location.pathname;
@@ -2163,12 +2265,12 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
       if (typeof $.fancybox != "undefined") {
         $.fancybox.close();    // 关闭弹窗
       }
-      $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
-      $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
-      $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
 
       // 解绑事件 避免重复监听
-      $('.s-top').unbind('click');
+      volantis.$topBtn.unbind('click');
       $('.menu a').unbind('click');
       $(window).unbind('resize');
       $(window).unbind('scroll');
@@ -2207,22 +2309,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
             pjax_fancybox();
           }
         
-          
-          if ('.cover-backstretch') {
-            $('.cover-backstretch').backstretch("resize");
-            if($('.cover-wrapper').is(':hidden')){
-              $('.cover-backstretch').backstretch("pause");
-            }else{
-              $('.cover-backstretch').backstretch("next");
-            }
-          } else {
-            $.backstretch("resize");
-            if($('.cover-wrapper').is(':hidden')){
-              $.backstretch("pause");
-            }else{
-              $.backstretch("next");
-            }
-          }
+		  Pjax_backstretch()
         
         
         
@@ -2233,9 +2320,6 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
         
         
         
-        
-        
-          pjax_darkmodejs();
         
       } catch (e) {
         console.log(e);

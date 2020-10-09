@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.0.0">
+<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.1">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
     
   
   <!-- 渲染优化 -->
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="HandheldFriendly" content="True">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta http-equiv="x-dns-prefetch-control" content="on">
 
   <!-- 页面元数据 -->
   
   <title>操作系统 进程线程管理通信与同步互斥 - 苇名一心的博客</title>
   
-    <meta name="keywords" content="Linux,工程,C++,操作系统,进程,同步互斥,线程,通信">
+    <meta name="keywords" content="C++,工程,Linux,操作系统,进程,同步互斥,线程,通信">
   
 
   
@@ -35,7 +37,6 @@
   
 
   <!-- link -->
-  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   
     
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css">
@@ -72,61 +73,23 @@
 <link rel="stylesheet" href="/css/style.css">
 
   
-  
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script>
-	setTimeout(function() {
-  	  window.ga_tid = 'UA-162450234-2';
- 	   (function() {
- 	     var dga = document.createElement("script");
- 	     dga.src = "https://rmt.dogedoge.com/fetch/public/ga.js";
-	      var s = document.getElementsByTagName("script")[0];
-	      s.parentNode.insertBefore(dga, s);
-	  })();
-	}, 5000);
-    </script>
-  
-  
-    <!-- ba -->
-    <script>
-    var _hmt = _hmt || [];
-    (function() {
-	  setTimeout(function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?93c49980dcbfb8920e167f85129d6917";
-		hm.defer=true;
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-	  }, 5000);
-    })();
-    </script>
-  
-  <!-- 脚本懒加载函数 -->
-  <script>
-  function loadScript(src, cb) {
-    var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
-    var script = document.createElement('script');
-    script.setAttribute('type','text/javascript');
-    if (cb) script.onload = cb;
-    script.setAttribute('src', src);
-    HEAD.appendChild(script);
-  }
-  //https://github.com/filamentgroup/loadCSS
-  !function(c){"use strict";var e=function(e,t,n,r){var o,i=c.document,a=i.createElement("link");if(t)o=t;else{var d=(i.body||i.getElementsByTagName("head")[0]).childNodes;o=d[d.length-1]}var f=i.styleSheets;if(r)for(var l in r)r.hasOwnProperty(l)&&a.setAttribute(l,r[l]);a.rel="stylesheet",a.href=e,a.media="only x",function e(t){if(i.body)return t();setTimeout(function(){e(t)})}(function(){o.parentNode.insertBefore(a,t?o:o.nextSibling)});var s=function(e){for(var t=a.href,n=f.length;n--;)if(f[n].href===t)return e();setTimeout(function(){s(e)})};function u(){a.addEventListener&&a.removeEventListener("load",u),a.media=n||"all"}return a.addEventListener&&a.addEventListener("load",u),(a.onloadcssdefined=s)(u),a};"undefined"!=typeof exports?exports.loadCSS=e:c.loadCSS=e}("undefined"!=typeof global?global:this);
-  </script>
+
   <script id="loadcss"></script>
+
 </head>
 
 <body>
-  <header class="l_header auto shadow floatable blur " style="opacity: 0">
+  
+
+<header id="l_header" class="l_header auto shadow floatable blur show" style="opacity: 0">
   <div class="container">
-  <div class="wrapper">
+  <div id="wrapper">
     <div class="nav-sub">
       <p class="title"></p>
       <ul class="switcher nav-list-h m-phone" id="pjax-header-nav-list">
-        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
         
-          <li><a class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
         
       </ul>
     </div>
@@ -303,39 +266,7 @@
             
           
                     
-                      
-            
-              <hr>
-            
-          
-                    
-                      
-            
-              
-                <li>
-                  <a class="menuitem flat-box">
-                    <i class="fas fa-compact-disc fa-fw music fa-fw music"></i>背景音乐
-                  </a>
-                  <ul class="list-v">
-                    <li>
-                      <div class="aplayer-container">
-                        
-
-  
-    <meting-js theme="#1BCDFC" autoplay="true" volume="0.1" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="1930654125" list-folded="true">
-    </meting-js>
-  
-
-
-                      </div>
-                    </li>
                   </ul>
-                </li><li>
-              
-            
-          
-                    
-                  </li></ul>
                 
               </li>
             
@@ -515,18 +446,6 @@
             
           
                     
-                      
-            
-              <hr>
-            
-          
-                    
-                      
-            
-              
-            
-          
-                    
                   </ul>
                 
               </li>
@@ -541,14 +460,13 @@
   </div>
 </header>
 
-  <div class="l_body">
-    <div class="l_cover">
+  <div id="l_body">
+    <div id="l_cover">
   
     
-    
-        <div class="cover-wrapper post focus" style="display: none;">
+        <div id="full" class="cover-wrapper post focus" style="display: none;">
           
-            <div class="cover-backstretch"></div>
+            <div id="cover-backstretch"></div>
           
           <div class="cover-body">
   <div class="top">
@@ -640,49 +558,14 @@
   </div>
 </div>
 
-          <div class="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
         </div>
     
   
   </div>
-  
-    <div class="safearea">
-      <div class="body-wrapper" id="pjax-container">
-        
-          <!--此文件用来存放一些不方便取值的变量--> 
-<!--思路大概是将值藏到重加载的区域内--> 
- 
- 
- 
-<div id="pjax-data" style="display: none"> 
-  <div id="pjax-ispage">true</div> 
-  <div id="pjax-pageTitle">操作系统 进程线程管理通信与同步互斥</div> 
-  <div id="pjax-enable-cover">true</div> 
-  <div id="pjax-comment-path"></div> 
-  <div id="pjax-comment-placeholder"></div> 
-</div> 
- 
- 
-<script> 
-  // 处理封面 此时 jquery 还没加载 
-  if ("none" == "none") { // 移除封面 
-    document.getElementsByClassName('cover-wrapper')[0].style.display = "none"; 
-    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
-  } else { 
-    if ("none" == "half") { // 半屏 
-      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'half'); 
-      document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
-    } else if ("none" == "full") { // 全屏 
-      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'full'); 
-      document.getElementsByClassName('scroll-down')[0].style.display = ""; 
-    } 
-    document.getElementsByClassName('cover-wrapper')[0].style.display = ""; 
-    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.remove("show"); 
-  } 
-</script> 
- 
 
-        
+    <div id="safearea">
+      <div class="body-wrapper" id="pjax-container">
         
 
 <div class="l_main">
@@ -833,103 +716,103 @@
 <p>因为我电脑早已经安装了VMware虚拟机，就不重新安装了，直接下载安装OpenEuler。</p>
 <h5 id="1、下载OpenEuler"><a href="#1、下载OpenEuler" class="headerlink" title="1、下载OpenEuler"></a>1、下载OpenEuler</h5><ol>
 <li><p>进入<a href="https://openeuler.org/zh/releases.html" target="_blank" rel="external nofollow noopener noreferrer">OpenEuler下载页面</a>，下载openEuler-20.03-LTS-x86_64-dvd.iso镜像。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626132252.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626132252.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_111556" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626132252.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626132252.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_111556" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626132326.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626132326.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_111616" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626132326.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626132326.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_111616" style="zoom:80%;">
 </li>
 <li><p>等待下载完成。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626132420.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626132420.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_132410" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626132420.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626132420.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_132410" style="zoom:80%;">
 
 </li>
 </ol>
 <h5 id="2、创建虚拟机"><a href="#2、创建虚拟机" class="headerlink" title="2、创建虚拟机"></a>2、创建虚拟机</h5><ol>
 <li><p>打开VMware Workstation Pro，选择“创建新的虚拟机”。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626132611.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626132611.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_132601" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626132611.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626132611.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_132601" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626132632.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626132632.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_112633" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626132632.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626132632.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_112633" style="zoom:80%;">
 </li>
 <li><p>选择“自定义”。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626132719.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626132719.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_112704" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626132719.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626132719.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_112704" style="zoom:80%;">
 </li>
 <li><p>设置虚拟机的硬件兼容性限制，按照默认选择。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626132800.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626132800.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_112725" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626132800.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626132800.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_112725" style="zoom:80%;">
 </li>
 <li><p>选择下载好的openEuler-20.03-LTS-x86_64-dvd.iso镜像。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626132854.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626132854.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_112750" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626132854.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626132854.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_112750" style="zoom:80%;">
 </li>
 <li><p>选择Linux 操作系统。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626132954.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626132954.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_112826" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626132954.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626132954.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_112826" style="zoom:80%;">
 </li>
 <li><p>配置虚拟机的名称，位置，处理器，内存，网络连接、控制器、磁盘等。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626133108.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626133108.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_112858" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626133108.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626133108.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_112858" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626133116.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626133116.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_112918" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626133116.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626133116.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_112918" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626133123.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626133123.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_112938" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626133123.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626133123.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_112938" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626133132.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626133132.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_112954" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626133132.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626133132.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_112954" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626133231.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626133231.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_113009" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626133231.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626133231.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_113009" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626133250.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626133250.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_113016" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626133250.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626133250.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_113016" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626133416.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626133416.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_113024" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626133416.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626133416.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_113024" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626133512.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626133512.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_113115" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626133512.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626133512.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_113115" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626133604.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626133604.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_113126" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626133604.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626133604.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_113126" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626133611.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626133611.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_113133" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626133611.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626133611.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_113133" style="zoom:80%;">
 
 
 </li>
 </ol>
 <ol start="7">
 <li><p>创建完成。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626133817.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626133817.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_113152" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626133817.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626133817.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_113152" style="zoom:80%;">
 
 </li>
 </ol>
 <h5 id="3、安装OpenEuler"><a href="#3、安装OpenEuler" class="headerlink" title="3、安装OpenEuler"></a>3、安装OpenEuler</h5><ol>
 <li><p>启动虚拟机。</p>
-<p><img src="https://gitee.com/wxy_666/images/raw/master/20200626133904.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626133904.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_113202"></p>
+<p><img src="https://gitee.com/wxy_666/images/raw/master/20200626133904.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626133904.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_113202"></p>
 </li>
 <li><p>选择第一项安装OpenEuler。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626133936.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626133936.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_113235" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626133936.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626133936.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_113235" style="zoom:80%;">
 </li>
 <li><p>等待check完毕。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626134003.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626134003.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_113312" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626134003.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626134003.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_113312" style="zoom:80%;">
 </li>
 <li><p>选择安装过程中所使用的语言。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626134034.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626134034.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_113357" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626134034.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626134034.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_113357" style="zoom:80%;">
 </li>
 <li><p>选择分区和软件模块，点击“开始安装”后，开始安装系统，在安装期间可以设置Root密码以及创建用户。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626134155.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626134155.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_113456" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626134155.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626134155.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_113456" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626134341.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626134341.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_113619" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626134341.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626134341.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_113619" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626134350.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626134350.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_113643" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626134350.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626134350.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_113643" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626134418.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626134418.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_113726" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626134418.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626134418.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_113726" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626134431.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626134431.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_113805" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626134431.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626134431.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_113805" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626134504.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626134504.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_113813" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626134504.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626134504.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_113813" style="zoom:80%;">
 
 
 </li>
 </ol>
 <ol start="6">
 <li><p>安装完成。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626134548.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626134548.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_114538" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626134548.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626134548.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_114538" style="zoom:80%;">
 </li>
 <li><p>重启后登录OpenEuler系统。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626134624.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626134624.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_114615" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626134624.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626134624.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_114615" style="zoom:80%;">
 </li>
 <li><p>创建的wxy用户以及root用户均可以成功登录，安装OpenEuler完成。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626134930.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626134930.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_134836" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626134930.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626134930.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_134836" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200626134938.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626134938.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-26_134905" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200626134938.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626134938.jpg" srcset="data:image/png;base64,666" alt="2020-06-26_134905" style="zoom:80%;">
 
 
 
@@ -940,7 +823,7 @@
 <p>要求：本组实验至少用到<code>fork()</code>、<code>exec()</code>、<code>wait()</code>、<code>exit()</code>、<code>kill()</code>、<code>getpid()</code>五个系统调用。</p>
 <h5 id="1-2-1-fork"><a href="#1-2-1-fork" class="headerlink" title="1-2-1 fork()"></a>1-2-1 <code>fork()</code></h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">__pid_t</span> pid;</span><br><span class="line">    <span class="keyword">if</span> ((pid = fork()) &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"I am the parent process.\n"</span>);</span><br><span class="line">        <span class="comment">/*父进程处理过程*/</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (pid == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"I am the child process.\n"</span>);</span><br><span class="line">        <span class="comment">/*子进程处理过程*/</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"fork error\n"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_200044.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_200044.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200512_200044" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_200044.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_200044.png" srcset="data:image/png;base64,666" alt="Screenshot_20200512_200044" style="zoom:80%;">
 
 <ul>
 <li>fork的返回值如果是&gt;0，那么就是父进程，这个&gt;0的返回值就是创建的子进程的PID；</li>
@@ -949,7 +832,7 @@
 </ul>
 <h5 id="1-2-2-exec"><a href="#1-2-2-exec" class="headerlink" title="1-2-2 exec()"></a>1-2-2 <code>exec()</code></h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> *envp[] = &#123;<span class="string">"PATH=/tmp"</span>, <span class="string">"USER = 1ei"</span>, <span class="string">"STATUS = testing"</span>, <span class="literal">NULL</span>&#125;;</span><br><span class="line">    <span class="keyword">char</span> *argv_execv[] = &#123;<span class="string">"echo"</span>, <span class="string">"excuted by execv"</span>, <span class="literal">NULL</span>&#125;;</span><br><span class="line">    <span class="keyword">char</span> *argv_execvp[] = &#123;<span class="string">"echo"</span>, <span class="string">"excuted by execvp"</span>, <span class="literal">NULL</span>&#125;;</span><br><span class="line">    <span class="keyword">char</span> *argv_execve[] = &#123;<span class="string">"env"</span>, <span class="literal">NULL</span>&#125;;</span><br><span class="line">    <span class="keyword">if</span> (fork() == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (execl(<span class="string">"/bin/echo"</span>, <span class="string">"echo"</span>, <span class="string">"executed by execl"</span>, <span class="literal">NULL</span>) &lt; <span class="number">0</span>)</span><br><span class="line">            perror(<span class="string">"Err on execl"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (fork() == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (execlp(<span class="string">"echo"</span>, <span class="string">"echo"</span>, <span class="string">"executed by execlp"</span>, <span class="literal">NULL</span>) &lt; <span class="number">0</span>)</span><br><span class="line">            perror(<span class="string">"Err on execlp"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (fork() == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (execle(<span class="string">"/usr/bin/env"</span>, <span class="string">"env"</span>, <span class="literal">NULL</span>, envp) &lt; <span class="number">0</span>)</span><br><span class="line">            perror(<span class="string">"Err on execle"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (fork() == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (execv(<span class="string">"/bin/echo"</span>, argv_execv) &lt; <span class="number">0</span>)</span><br><span class="line">            perror(<span class="string">"Err on execv"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (fork() == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (execvp(<span class="string">"echo"</span>, argv_execvp) &lt; <span class="number">0</span>)</span><br><span class="line">            perror(<span class="string">"Err on execvp"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (fork() == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (execve(<span class="string">"/usr/bin/env"</span>, argv_execve, envp) &lt; <span class="number">0</span>)</span><br><span class="line">            perror(<span class="string">"Err on execve"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_200606.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_200606.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200512_200606" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_200606.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_200606.png" srcset="data:image/png;base64,666" alt="Screenshot_20200512_200606" style="zoom:80%;">
 
 <p>exec用一个指定的程序文件,重新初始化一个进程。</p>
 <ul>
@@ -972,7 +855,7 @@
 </ul>
 <h5 id="1-2-3-wait"><a href="#1-2-3-wait" class="headerlink" title="1-2-3 wait()"></a>1-2-3 <code>wait()</code></h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">__pid_t</span> pid;</span><br><span class="line">    <span class="keyword">if</span> ((pid = fork()) &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> status, wait_pid;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"I am the parent process.\n"</span>);</span><br><span class="line">        wait_pid = wait(&amp;status);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"pid=%d,wait_pid=%d\n"</span>, pid, wait_pid);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"status=%#X,WTERMSIG=%d,WEXITSTATUS=%d\n"</span>, status, WTERMSIG(status), WEXITSTATUS(status));</span><br><span class="line">        <span class="comment">/*父进程处理过程*/</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (pid == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"I am the child process.\n"</span>);</span><br><span class="line">            sleep(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/*子进程处理过程*/</span></span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">5</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"fork error\n"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_203430.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_203430.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200512_203430" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_203430.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_203430.jpg" srcset="data:image/png;base64,666" alt="Screenshot_20200512_203430" style="zoom:80%;">
 
 <ul>
 <li><p>函数返回值为已终止的子进程PID。</p>
@@ -987,32 +870,32 @@
 <p>子进程正常退出，且退出码为5，因此wait的status退出码刚好是5。</p>
 <h5 id="1-2-4-kill"><a href="#1-2-4-kill" class="headerlink" title="1-2-4 kill()"></a>1-2-4 <code>kill()</code></h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">__pid_t</span> pid;</span><br><span class="line">    <span class="keyword">if</span> ((pid = fork()) &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> status;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"I am the parent process.\n"</span>);</span><br><span class="line">        sleep(<span class="number">3</span>);</span><br><span class="line">        kill(pid, <span class="number">5</span>);</span><br><span class="line">        wait(&amp;status);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%#X,%d,%d\n"</span>, status, WTERMSIG(status), WEXITSTATUS(status));</span><br><span class="line">        <span class="comment">/*父进程处理过程*/</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (pid == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"I am the child process.\n"</span>);</span><br><span class="line">            sleep(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/*子进程处理过程*/</span></span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"fork error\n"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_214107.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_214107.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200512_214107" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_214107.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_214107.png" srcset="data:image/png;base64,666" alt="Screenshot_20200512_214107" style="zoom:80%;">
 
 <p>可以发现子进程被父进程杀掉了，且终止码为5，刚好wait的终止码也是5。</p>
 <h5 id="1-2-5-getpid"><a href="#1-2-5-getpid" class="headerlink" title="1-2-5 getpid()"></a>1-2-5 <code>getpid()</code></h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">__pid_t</span> pid;</span><br><span class="line">    <span class="keyword">if</span> ((pid = fork()) &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"I am the parent process.\tpid=%d,child_pid=%d\n"</span>, getpid(), pid);</span><br><span class="line">        <span class="comment">/*父进程处理过程*/</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (pid == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"I am the child process.\t\tpid=%d,ppid=%d\n"</span>, getpid(), getppid());</span><br><span class="line">        <span class="comment">/*子进程处理过程*/</span></span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"fork error\n"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_214652.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_214652.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200512_214652" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_214652.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_214652.png" srcset="data:image/png;base64,666" alt="Screenshot_20200512_214652" style="zoom:80%;">
 
 <p>可以发现，父进程打印的子进程pid和子进程的pid相等，子进程打印的父进程的pid也和父进程的pid相等。</p>
 <h4 id="实验1-3-进程管理命令"><a href="#实验1-3-进程管理命令" class="headerlink" title="实验1-3. 进程管理命令"></a>实验1-3. 进程管理命令</h4><p>了解<code>ps</code>、<code>top</code>、<code>pstree –h</code>、<code>vmstat</code>、<code>strace</code>、<code>ltrace</code>、<code>sleep x</code>、<code>kill</code>、<code>jobs</code>等命令的功能，使用这些命令观察进程结构和行为；</p>
 <h5 id="1-3-1-ps"><a href="#1-3-1-ps" class="headerlink" title="1-3-1 ps"></a>1-3-1 <code>ps</code></h5><p>查看正在运行的进程。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_214908.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_214908.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200512_214908" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_214908.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_214908.png" srcset="data:image/png;base64,666" alt="Screenshot_20200512_214908" style="zoom:80%;">
 
 
 
 <h5 id="1-3-2-top"><a href="#1-3-2-top" class="headerlink" title="1-3-2 top"></a>1-3-2 <code>top</code></h5><p>top查看进程相关信息。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_215333.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_215333.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200512_215333" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_215333.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_215333.png" srcset="data:image/png;base64,666" alt="Screenshot_20200512_215333" style="zoom:80%;">
 
 
 
 <h5 id="1-3-3-pstree-–h"><a href="#1-3-3-pstree-–h" class="headerlink" title="1-3-3 pstree –h"></a>1-3-3 <code>pstree –h</code></h5><p>pstree查看进程树。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_215518.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_215518.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200512_215518" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_215518.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_215518.png" srcset="data:image/png;base64,666" alt="Screenshot_20200512_215518" style="zoom:80%;">
 
 
 
 <h5 id="1-3-4-vmstat"><a href="#1-3-4-vmstat" class="headerlink" title="1-3-4 vmstat"></a>1-3-4 <code>vmstat</code></h5><p>vmstat可以查看系统相关信息。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_215555.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_215555.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200512_215555" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_215555.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_215555.png" srcset="data:image/png;base64,666" alt="Screenshot_20200512_215555" style="zoom:80%;">
 
 
 
@@ -1020,26 +903,26 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">__pid_t</span> pid;</span><br><span class="line">    <span class="keyword">if</span> ((pid = fork()) &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"I am the parent process.\tpid=%d,child_pid=%d\n"</span>, getpid(), pid);</span><br><span class="line">            sleep(<span class="number">3</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/*父进程处理过程*/</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (pid == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"I am the child process.\t\tpid=%d,ppid=%d\n"</span>, getpid(), getppid());</span><br><span class="line">            sleep(<span class="number">3</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/*子进程处理过程*/</span></span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"fork error\n"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>屏幕输出：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_215842.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_215842.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200512_215842" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_215842.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_215842.png" srcset="data:image/png;base64,666" alt="Screenshot_20200512_215842" style="zoom:80%;">
 
 <p>strace就相当于是调试信息：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_215937.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_215937.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200512_215937" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_215937.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_215937.png" srcset="data:image/png;base64,666" alt="Screenshot_20200512_215937" style="zoom:80%;">
 
 
 
 <h5 id="1-3-6-ltrace"><a href="#1-3-6-ltrace" class="headerlink" title="1-3-6 ltrace"></a>1-3-6 <code>ltrace</code></h5><p>ltrace也是同理。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_220010.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_220010.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200512_220010" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_220010.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_220010.png" srcset="data:image/png;base64,666" alt="Screenshot_20200512_220010" style="zoom:80%;">
 
 
 
 <h5 id="1-3-7-sleep-x"><a href="#1-3-7-sleep-x" class="headerlink" title="1-3-7 sleep x"></a>1-3-7 <code>sleep x</code></h5><p>睡眠了3s后继续输出。</p>
-<p><img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_220200.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_220200.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200512_220200"></p>
-<h5 id="1-3-8-kill"><a href="#1-3-8-kill" class="headerlink" title="1-3-8 kill"></a>1-3-8 <code>kill</code></h5><img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_220353.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_220353.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200512_220353" style="zoom:80%;">
+<p><img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_220200.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_220200.png" srcset="data:image/png;base64,666" alt="Screenshot_20200512_220200"></p>
+<h5 id="1-3-8-kill"><a href="#1-3-8-kill" class="headerlink" title="1-3-8 kill"></a>1-3-8 <code>kill</code></h5><img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_220353.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_220353.png" srcset="data:image/png;base64,666" alt="Screenshot_20200512_220353" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_220330.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_220330.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200512_220330" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_220330.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_220330.png" srcset="data:image/png;base64,666" alt="Screenshot_20200512_220330" style="zoom:80%;">
 
 <p>运行kill后只有父进程输出，子进程被杀掉了。</p>
-<h5 id="1-3-9-jobs"><a href="#1-3-9-jobs" class="headerlink" title="1-3-9 jobs"></a>1-3-9 <code>jobs</code></h5><img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_221109.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_221109.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200512_221109" style="zoom:80%;">
+<h5 id="1-3-9-jobs"><a href="#1-3-9-jobs" class="headerlink" title="1-3-9 jobs"></a>1-3-9 <code>jobs</code></h5><img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_221109.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200512_221109.png" srcset="data:image/png;base64,666" alt="Screenshot_20200512_221109" style="zoom:80%;">
 
 <p>jobs查看已挂载的程序,不用携带任何参数，这里查看了正在后台运行的1-2-5程序。</p>
 <h3 id="2、第二组-线程的创建与管理-1"><a href="#2、第二组-线程的创建与管理-1" class="headerlink" title="2、第二组 线程的创建与管理"></a>2、第二组 线程的创建与管理</h3><h4 id="实验2-1-Pthread线程库背景知识"><a href="#实验2-1-Pthread线程库背景知识" class="headerlink" title="实验2-1. Pthread线程库背景知识"></a>实验2-1. Pthread线程库背景知识</h4><p>了解POSIX 线程标准库（Pthread线程库）相关知识，分析Pthread线程结构，掌握所提供的线程管理API，如<code>pthread_create()</code>, <code>pthread_join()</code>, <code>pthread_self()</code>, <code>pthread_detach()</code>, <code>pthread_exit()</code>；</p>
@@ -1080,7 +963,7 @@
 </tbody></table>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">mythread1</span><span class="params">(<span class="keyword">void</span> *arg)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"I am thread 1\n"</span>);</span><br><span class="line">        sleep(<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">mythread2</span><span class="params">(<span class="keyword">void</span> *arg)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"I am thread 2\n"</span>);</span><br><span class="line">        sleep(<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">pthread_t</span> id1, id2;</span><br><span class="line">    <span class="keyword">int</span> res;</span><br><span class="line"></span><br><span class="line">    res = pthread_create(&amp;id1, <span class="literal">NULL</span>, mythread1, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="keyword">if</span> (res)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Create pthread error!\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    res = pthread_create(&amp;id2, <span class="literal">NULL</span>, mythread2, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="keyword">if</span> (res)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Create pthread error!\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-2</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    pthread_join(id1, <span class="literal">NULL</span>);</span><br><span class="line">    pthread_join(id2, <span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200513_085544.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200513_085544.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200513_085544" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200513_085544.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200513_085544.png" srcset="data:image/png;base64,666" alt="Screenshot_20200513_085544" style="zoom:80%;">
 
 <p>可以发现，创建了两个线程：thread1和thread2。两个线程分别打印自己的信息，等带2s后继续打印。</p>
 <h5 id="2-2-2-pthread-exit"><a href="#2-2-2-pthread-exit" class="headerlink" title="2-2-2 pthread_exit()"></a>2-2-2 <code>pthread_exit()</code></h5><p>函数原型：</p>
@@ -1106,7 +989,7 @@
 </tbody></table>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">create</span><span class="params">(<span class="keyword">void</span> *arg)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"New thread is create...\n"</span>);</span><br><span class="line">    pthread_exit((<span class="keyword">void</span> *)<span class="number">6</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">pthread_t</span> tid;</span><br><span class="line">    <span class="keyword">int</span> res;</span><br><span class="line">    <span class="keyword">void</span> *temp;</span><br><span class="line">    res = pthread_create(&amp;tid, <span class="literal">NULL</span>, create, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"I am the main thread!\n"</span>);</span><br><span class="line">    <span class="keyword">if</span> (res)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"thread id not create...\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    res = pthread_join(tid, &amp;temp);</span><br><span class="line">    <span class="keyword">if</span> (res)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"thread is not exit...\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Thread is exit code %ld \n"</span>, (<span class="keyword">long</span>)temp);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200513_093431.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200513_093431.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200513_093431" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200513_093431.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200513_093431.png" srcset="data:image/png;base64,666" alt="Screenshot_20200513_093431" style="zoom:80%;">
 
 <p>可以发现，子线程退出，主线程接收到了子线程的退出码6。</p>
 <h5 id="2-2-3-pthread-join"><a href="#2-2-3-pthread-join" class="headerlink" title="2-2-3 pthread_join()"></a>2-2-3 <code>pthread_join()</code></h5><p>函数原型：</p>
@@ -1136,7 +1019,7 @@
 </tbody></table>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">thread</span><span class="params">(<span class="keyword">void</span> *str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">4</span>; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        sleep(<span class="number">2</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"This is the thread:%d\n"</span>, i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">pthread_t</span> pth;</span><br><span class="line">    <span class="keyword">long</span> i;</span><br><span class="line">    <span class="keyword">int</span> ret = pthread_create(&amp;pth, <span class="literal">NULL</span>, thread, (<span class="keyword">void</span> *)(i));</span><br><span class="line">    pthread_join(pth, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"123\n"</span>);</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">3</span>; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        sleep(<span class="number">1</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"This is the main:%ld\n"</span>, i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200513_094008.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200513_094008.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200513_094008" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200513_094008.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200513_094008.png" srcset="data:image/png;base64,666" alt="Screenshot_20200513_094008" style="zoom:80%;">
 
 <p>可以发现主线程在调用pthread_join后等待子线程输出完毕结束后再进行的输出，相当于是主线程被阻塞。</p>
 <h5 id="2-2-4-pthread-self"><a href="#2-2-4-pthread-self" class="headerlink" title="2-2-4 pthread_self()"></a>2-2-4 <code>pthread_self()</code></h5><p>函数原型：</p>
@@ -1162,7 +1045,7 @@
 </tbody></table>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">create</span><span class="params">(<span class="keyword">void</span> *arg)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"New thread...\n"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"This thread's id is %u \n"</span>, (<span class="keyword">unsigned</span> <span class="keyword">int</span>)pthread_self());</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"This thread process pid is %d\n"</span>, getpid());</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">pthread_t</span> tid;</span><br><span class="line">    <span class="keyword">int</span> res;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Main thread is starting...\n"</span>);</span><br><span class="line">    res = pthread_create(&amp;tid, <span class="literal">NULL</span>, create, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="keyword">if</span> (res)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"thread id not create...\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The main process pid is %d\n"</span>, getpid());</span><br><span class="line">    sleep(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200513_094649.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200513_094649.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200513_094649" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200513_094649.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200513_094649.png" srcset="data:image/png;base64,666" alt="Screenshot_20200513_094649" style="zoom:80%;">
 
 <p>可以发现，子线程成功打印了自己的线程id，并且子线程的进程pid和主线程的进场pid相等，这也说明这两个线程属于同一个进程。</p>
 <h5 id="2-2-5-pthread-cleanup-push-，pthread-cleanup-pop"><a href="#2-2-5-pthread-cleanup-push-，pthread-cleanup-pop" class="headerlink" title="2-2-5 pthread_cleanup_push()，pthread_cleanup_pop()"></a>2-2-5 <code>pthread_cleanup_push()</code>，<code>pthread_cleanup_pop()</code></h5><p>函数原型：</p>
@@ -1213,7 +1096,7 @@
 </tbody></table>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">clean</span><span class="params">(<span class="keyword">void</span> *arg)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Cleanup %s\n"</span>, (<span class="keyword">char</span> *)arg);</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">void</span> *)<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">thr_fn1</span><span class="params">(<span class="keyword">void</span> *arg)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Thread1 start\n"</span>);</span><br><span class="line">    pthread_cleanup_push((<span class="keyword">void</span> *)clean, <span class="string">"Thread1 first handler"</span>);</span><br><span class="line">    pthread_cleanup_push((<span class="keyword">void</span> *)clean, <span class="string">"Thread1 second handler"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Thread1 push complete\n"</span>);</span><br><span class="line">    <span class="keyword">if</span> (arg)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> ((<span class="keyword">void</span> *)<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    pthread_cleanup_pop(<span class="number">1</span>);</span><br><span class="line">    pthread_cleanup_pop(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">void</span> *)<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">thr_fn2</span><span class="params">(<span class="keyword">void</span> *arg)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Thread2 start\n"</span>);</span><br><span class="line">    pthread_cleanup_push((<span class="keyword">void</span> *)clean, <span class="string">"Thread2 first handler"</span>);</span><br><span class="line">    pthread_cleanup_push((<span class="keyword">void</span> *)clean, <span class="string">"Thread2 second handler"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Thread2 push complete\n"</span>);</span><br><span class="line">    <span class="keyword">if</span> (arg)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> ((<span class="keyword">void</span> *)<span class="number">3</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    pthread_cleanup_pop(<span class="number">0</span>);</span><br><span class="line">    pthread_cleanup_pop(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">void</span> *)<span class="number">4</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res;</span><br><span class="line">    <span class="keyword">pthread_t</span> tid1, tid2;</span><br><span class="line">    <span class="keyword">void</span> *tret;</span><br><span class="line">    res = pthread_create(&amp;tid1, <span class="literal">NULL</span>, thr_fn1, (<span class="keyword">void</span> *)<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span> (res != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Create theate error...\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    res = pthread_create(&amp;tid2, <span class="literal">NULL</span>, thr_fn2, (<span class="keyword">void</span> *)<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">if</span> (res != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Create theate error...\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    res = pthread_join(tid1, &amp;tret);</span><br><span class="line">    <span class="keyword">if</span> (res != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Thread_join error...\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Thread1 exit code %ld\n"</span>, (<span class="keyword">long</span>)tret);</span><br><span class="line">    res = pthread_join(tid2, &amp;tret);</span><br><span class="line">    <span class="keyword">if</span> (res != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Thread_join error...\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Thread2 exit code %ld\n"</span>, (<span class="keyword">long</span>)tret);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200513_141113.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200513_141113.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200513_141113" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200513_141113.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200513_141113.png" srcset="data:image/png;base64,666" alt="Screenshot_20200513_141113" style="zoom:80%;">
 
 <ul>
 <li>对于Thread1，传入的参数是1，因此函数thr_fn1只执行了两个pthread_cleanup_push，在pthread_cleanup_pop之前就return 1了，因此Thread1没有Cleanup输出，且返回码是1。</li>
@@ -1221,7 +1104,7 @@
 </ul>
 <h5 id="2-2-6-综合"><a href="#2-2-6-综合" class="headerlink" title="2-2-6 综合"></a>2-2-6 综合</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> THREAD_NUMBER 3        <span class="comment">//线程数</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> REPEAT_NUMBER 5        <span class="comment">//每个线程中的小任务数</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DELAY_TIME_LEVELS 10.0 <span class="comment">//小任务之间的最大时间间隔</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">thrd_func</span><span class="params">(<span class="keyword">void</span> *arg)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> thrd_num = (<span class="keyword">long</span>)arg;</span><br><span class="line">    <span class="keyword">int</span> delay_time = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Thread %ld is starting\n"</span>, thrd_num);</span><br><span class="line">    <span class="keyword">for</span> (count = <span class="number">0</span>; count &lt; REPEAT_NUMBER; count++)</span><br><span class="line">    &#123;</span><br><span class="line">        delay_time = (<span class="keyword">int</span>)(rand() * DELAY_TIME_LEVELS / (RAND_MAX)) + <span class="number">1</span>;</span><br><span class="line">        sleep(delay_time);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\tThread %ld:job %d delay=%d\n"</span>, thrd_num, count, delay_time);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Thread %ld finished\n"</span>, thrd_num);</span><br><span class="line">    pthread_exit(<span class="literal">NULL</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">pthread_t</span> thread[THREAD_NUMBER];</span><br><span class="line">    <span class="keyword">long</span> no, res;</span><br><span class="line">    <span class="keyword">void</span> *thrd_ret;</span><br><span class="line">    srand(time(<span class="literal">NULL</span>));</span><br><span class="line">    <span class="keyword">for</span> (no = <span class="number">0</span>; no &lt; THREAD_NUMBER; no++)</span><br><span class="line">    &#123;</span><br><span class="line">        res = pthread_create(&amp;thread[no], <span class="literal">NULL</span>, thrd_func, (<span class="keyword">void</span> *)no);</span><br><span class="line">        <span class="keyword">if</span> (res != <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Create thread %d failed\n"</span>, no);</span><br><span class="line">            <span class="built_in">exit</span>(res);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Creating threads success\nWaiting for thread to finish...\n"</span>);</span><br><span class="line">    <span class="keyword">for</span> (no = <span class="number">0</span>; no &lt; THREAD_NUMBER; no++)</span><br><span class="line">    &#123;</span><br><span class="line">        res = pthread_join(thread[no], &amp;thrd_ret);</span><br><span class="line">        <span class="keyword">if</span> (!res)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Thread %d joined\n"</span>, no);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Thread %d joined failed\n"</span>, no);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200513_154240.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200513_154240.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200513_154240" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200513_154240.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200513_154240.png" srcset="data:image/png;base64,666" alt="Screenshot_20200513_154240" style="zoom:80%;">
 
 <p>这个综合案例就是创建了3个线程，让3个线程共用同一个执行函数。每个线程都有5次循环（可以看成5个小任务，也就是5个job），每次循环之间会随机等待1～10s的时间，意义在于模拟每个任务的到达时间是随机的，并没有任何特定的规律。最后就是三个线程相继完成了各自的任务，都成功join，最后主线程结束。</p>
 <h3 id="3、第三组-进程间通信"><a href="#3、第三组-进程间通信" class="headerlink" title="3、第三组 进程间通信"></a>3、第三组 进程间通信</h3><p>了解Linux提供的消息队列（消息传递）、共享内存、管道/命名管道、信号(signal)/软中断四种进程间通信机制的实现原理和方法；</p>
@@ -1269,30 +1152,30 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;errno.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/msg.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">msg_st</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">int</span> msg_type;</span><br><span class="line">    <span class="keyword">char</span> <span class="built_in">text</span>[BUFSIZ];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">running</span> = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> msgid = <span class="number">-1</span>;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">msg_st</span> <span class="title">data</span>;</span></span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">int</span> msgtype = <span class="number">0</span>; <span class="comment">//注意1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//建立消息队列</span></span><br><span class="line">    msgid = msgget((<span class="keyword">key_t</span>)<span class="number">1234</span>, <span class="number">0666</span> | IPC_CREAT);</span><br><span class="line">    <span class="keyword">if</span> (msgid == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"msgget failed with error: %d\n"</span>, errno);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//从队列中获取消息，直到遇到end消息为止</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">running</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (msgrcv(msgid, (<span class="keyword">void</span> *)&amp;data, BUFSIZ, msgtype, <span class="number">0</span>) == <span class="number">-1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"msgrcv failed with errno: %d\n"</span>, errno);</span><br><span class="line">            <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"You wrote: %s\n"</span>, data.<span class="built_in">text</span>);</span><br><span class="line">        <span class="comment">//遇到end结束</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">strncmp</span>(data.<span class="built_in">text</span>, <span class="string">"end"</span>, <span class="number">3</span>) == <span class="number">0</span>)</span><br><span class="line">            <span class="built_in">running</span> = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//删除消息队列</span></span><br><span class="line">    <span class="keyword">if</span> (msgctl(msgid, IPC_RMID, <span class="number">0</span>) == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"msgctl(IPC_RMID) failed\n"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">exit</span>(EXIT_SUCCESS);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>在第一个终端中编译运行msgsend.c：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_144833.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_144833.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200517_144833" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_144833.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_144833.png" srcset="data:image/png;base64,666" alt="Screenshot_20200517_144833" style="zoom:80%;">
 
 <p>新开一个终端编译运行msgreceive.c：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_145014.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_145014.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200517_145014" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_145014.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_145014.png" srcset="data:image/png;base64,666" alt="Screenshot_20200517_145014" style="zoom:80%;">
 
 <p>在第一个终端的发送进程中输入，能在第二个终端的接收进程中显示：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_145215.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_145215.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200517_145215" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_145215.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_145215.png" srcset="data:image/png;base64,666" alt="Screenshot_20200517_145215" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_145256.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_145256.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200517_145256" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_145256.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_145256.png" srcset="data:image/png;base64,666" alt="Screenshot_20200517_145256" style="zoom:80%;">
 
 <p>在发送进程中输入end，接收进程接收到了end信号，就会删除消息队列，退出进程；发送进程也会在退出。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_145548.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_145548.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200517_145548" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_145548.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_145548.png" srcset="data:image/png;base64,666" alt="Screenshot_20200517_145548" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_145619.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_145619.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200517_145619" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_145619.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_145619.png" srcset="data:image/png;base64,666" alt="Screenshot_20200517_145619" style="zoom:80%;">
 
 <p>在同一个终端，发送进程后台运行也是同样的道理。但是如果开两个接收进程，一个发送进程，那么就会出现接收进程争抢使用消息队列的情况，并且每个消息只会被使用一次，不会出现被重复消费的情况。因此最后的end消息因为只会被一个接收方拿到，且将消息队列删除，发送方和接收方1正常退出，但是导致另一个接收方2找不到消息队列，出错退出。</p>
 <p>msgsend：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_150046.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_150046.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200517_150046" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_150046.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_150046.png" srcset="data:image/png;base64,666" alt="Screenshot_20200517_150046" style="zoom:80%;">
 
 <p>msgreceive1：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_150252.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_150252.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200517_150252" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_150252.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_150252.png" srcset="data:image/png;base64,666" alt="Screenshot_20200517_150252" style="zoom:80%;">
 
 <p>msgreceive2：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_150315.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_150315.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200517_150315" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_150315.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_150315.png" srcset="data:image/png;base64,666" alt="Screenshot_20200517_150315" style="zoom:80%;">
 
 
 
@@ -1302,21 +1185,21 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">create</span><span class="params">(<span class="keyword">void</span> *arg)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> *str;</span><br><span class="line">    str = (<span class="keyword">char</span> *)arg;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The parameter passed from main is %s\n"</span>, str);</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">void</span> *)<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> error;</span><br><span class="line">    <span class="keyword">pthread_t</span> id1;</span><br><span class="line">    <span class="keyword">char</span> *str1 = <span class="string">"Hello!"</span>;</span><br><span class="line">    <span class="keyword">char</span> *attr = str1;</span><br><span class="line">    error = pthread_create(&amp;id1, <span class="literal">NULL</span>, create, (<span class="keyword">void</span> *)attr);</span><br><span class="line">    <span class="keyword">if</span> (error != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"This pthread is not created!\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    sleep(<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"pthread is created..\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>运行结果：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_171450.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_171450.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200517_171450" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_171450.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_171450.png" srcset="data:image/png;base64,666" alt="Screenshot_20200517_171450" style="zoom:80%;">
 
 <p>可以发现Hello字符串已经传到了子线程，并在子线程打印输出。</p>
 <h4 id="示例2-3-4-向新建的线程传递字符串"><a href="#示例2-3-4-向新建的线程传递字符串" class="headerlink" title="示例2-3-4 向新建的线程传递字符串"></a>示例2-3-4 向新建的线程传递字符串</h4><p>代码：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">member</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">char</span> *s;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">create</span><span class="params">(<span class="keyword">void</span> *arg)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">member</span> *<span class="title">temp</span>;</span></span><br><span class="line">    temp = (struct member *)arg;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"member-&gt;a = %d\n"</span>, temp-&gt;a);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"member-&gt;s = %s\n"</span>, temp-&gt;s);</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">void</span> *)<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> error;</span><br><span class="line">    <span class="keyword">pthread_t</span> id1;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">member</span> *<span class="title">p</span>;</span></span><br><span class="line">    p = (struct member *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct member));</span><br><span class="line">    p-&gt;a = <span class="number">1</span>;</span><br><span class="line">    p-&gt;s = <span class="string">"Robben!"</span>;</span><br><span class="line">    error = pthread_create(&amp;id1, <span class="literal">NULL</span>, create, (<span class="keyword">void</span> *)p);</span><br><span class="line">    <span class="keyword">if</span> (error)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"pthread is not created!\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    sleep(<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"pthread is created!\n"</span>);</span><br><span class="line">    <span class="built_in">free</span>(p);</span><br><span class="line">    p = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>运行结果：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_171737.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_171737.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200517_171737" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_171737.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_171737.png" srcset="data:image/png;base64,666" alt="Screenshot_20200517_171737" style="zoom:80%;">
 
 <p>可以发现，结构体member传递到了子线程中，member中的int型a和char*型s，在子线程中被输出。</p>
 <h4 id="示例2-3-5-验证新建立的线程可以共享进程中的数据"><a href="#示例2-3-5-验证新建立的线程可以共享进程中的数据" class="headerlink" title="示例2-3-5 验证新建立的线程可以共享进程中的数据"></a>示例2-3-5 验证新建立的线程可以共享进程中的数据</h4><p>代码：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> a = <span class="number">5</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">create</span><span class="params">(<span class="keyword">void</span> *arg)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"New pthread...\n"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"a = %d\n"</span>, a);</span><br><span class="line">    a = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">void</span> *)<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> error;</span><br><span class="line">    <span class="keyword">pthread_t</span> id1;</span><br><span class="line">    a = <span class="number">10</span>;</span><br><span class="line">    error = pthread_create(&amp;id1, <span class="literal">NULL</span>, create, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="keyword">if</span> (error != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"new thread is not created!\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    sleep(<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"a = %d\n"</span>, a);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"New thread is created...\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>运行结果：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_172426.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_172426.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200517_172426" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_172426.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200517_172426.png" srcset="data:image/png;base64,666" alt="Screenshot_20200517_172426" style="zoom:80%;">
 
 <p>可以发现，定义了一个静态变量<code>a=5</code>，在主线程创建子线程之前a被赋值为10，然后主线程创建子线程，子线程读取a，读取到的是重新赋值后的a（10）,因此子线程中输出a = 10。然后子线程中将a修改为-1，因为主线程等待（sleep）了1s，因此主线程拿到的a是子线程修改后的a（-1），因此主线程中输出a = -1。这也证明了新建立的线程可以共享进程中的数据，同一进程中的主线程和子线程可以共享进程中的静态数据。</p>
 <h3 id="5、第五组-进程-线程间同步与互斥（二选一）"><a href="#5、第五组-进程-线程间同步与互斥（二选一）" class="headerlink" title="5、第五组 进程/线程间同步与互斥（二选一）"></a>5、第五组 进程/线程间同步与互斥（二选一）</h3><ol>
@@ -1385,27 +1268,27 @@
 
 
 <h4 id="2、运行结果及分析"><a href="#2、运行结果及分析" class="headerlink" title="2、运行结果及分析"></a>2、运行结果及分析</h4><p>两种方案的运行情况只选择了其中一种方案的运行结果，如果工作时间一致的话，两种方案的运行情况基本一致，但是因为使用了随机工作时间，每次运行的结果可能不一样，因此只选择了其中的一次运行结果。</p>
-<h5 id="1、编译"><a href="#1、编译" class="headerlink" title="1、编译"></a>1、编译</h5><img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200528_205104.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200528_205104.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200528_205104" style="zoom:80%;">
+<h5 id="1、编译"><a href="#1、编译" class="headerlink" title="1、编译"></a>1、编译</h5><img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200528_205104.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200528_205104.png" srcset="data:image/png;base64,666" alt="Screenshot_20200528_205104" style="zoom:80%;">
 
-<h5 id="2、运行"><a href="#2、运行" class="headerlink" title="2、运行"></a>2、运行</h5><h6 id="方案一："><a href="#方案一：" class="headerlink" title="方案一："></a>方案一：</h6><img src="https://gitee.com/wxy_666/images/raw/master/20200713193414.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200713193414.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200713_190946" style="zoom:80%;">
+<h5 id="2、运行"><a href="#2、运行" class="headerlink" title="2、运行"></a>2、运行</h5><h6 id="方案一："><a href="#方案一：" class="headerlink" title="方案一："></a>方案一：</h6><img src="https://gitee.com/wxy_666/images/raw/master/20200713193414.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200713193414.jpg" srcset="data:image/png;base64,666" alt="Screenshot_20200713_190946" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200713193440.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200713193440.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200713_191031" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200713193440.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200713193440.jpg" srcset="data:image/png;base64,666" alt="Screenshot_20200713_191031" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200713193450.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200713193450.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200713_191049" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200713193450.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200713193450.jpg" srcset="data:image/png;base64,666" alt="Screenshot_20200713_191049" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200713193500.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200713193500.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200713_191112" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200713193500.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200713193500.jpg" srcset="data:image/png;base64,666" alt="Screenshot_20200713_191112" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200713193510.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200713193510.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200713193510.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200713193510.jpg" srcset="data:image/png;base64,666" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200713193521.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200713193521.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200713_191253" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200713193521.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200713193521.jpg" srcset="data:image/png;base64,666" alt="Screenshot_20200713_191253" style="zoom:80%;">
 
-<h6 id="方案二："><a href="#方案二：" class="headerlink" title="方案二："></a>方案二：</h6><img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200528_205211.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200528_205211.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200528_205211" style="zoom:80%;">
+<h6 id="方案二："><a href="#方案二：" class="headerlink" title="方案二："></a>方案二：</h6><img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200528_205211.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200528_205211.png" srcset="data:image/png;base64,666" alt="Screenshot_20200528_205211" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200528_205258.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200528_205258.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200528_205258" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200528_205258.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200528_205258.png" srcset="data:image/png;base64,666" alt="Screenshot_20200528_205258" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200528_205330.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200528_205330.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Screenshot_20200528_205330" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200528_205330.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200528_205330.png" srcset="data:image/png;base64,666" alt="Screenshot_20200528_205330" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200528_205411.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200528_205411.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200528_205411.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200528_205411.png" srcset="data:image/png;base64,666" style="zoom:80%;">
 
 <h5 id="3、分析"><a href="#3、分析" class="headerlink" title="3、分析"></a>3、分析</h5><p>从运行结果来看，完全没有死锁现象，程序完全正常运行，输出结果也正常，创建和初始化信号量和共享内存，释放和删除信号量和共享内存都正常结束。</p>
 <p>方案一的输出中有count_A、count_B、和empty的值，以及Worker A、Worker B和Worker C在进入阻塞状态时的输出，整个过程比较清晰。</p>
@@ -1415,7 +1298,7 @@
 <h2 id="五、实验总结"><a href="#五、实验总结" class="headerlink" title="五、实验总结"></a>五、实验总结</h2><p>这次操作系统课程设计的5组实验，虽然难度可能不是那么高，但是结合了操作系统理论课所学的知识，很有实践意义。经过这5组实验，我首先认识了华为最新的OpenEuler开源Linux操作系统，学习了Linux操作系统的安装、基本操作和使用。这次实验还加深了我对操作系统进程、线程概念和消息队列、共享内存、管道、软中断四种进程间通信机制的理解，掌握了利用Linux系统调用创建、管理进程的方法、利用POSIX线程（Pthread）库创建管理线程的方法和实现进程间通信和线程间通信的方法，深刻地认识了进程、线程并发执行的实质，并掌握了编程使用互斥变量和条件变量实现多线程间的同步互斥。</p>
 <p>在实验的过程中，也遇到了各种各样的小问题，比如Linux的命令报错啊，编程gcc编译不通过等等，但经过上网查找资料和与同学讨论交流，都完美解决了问题，总体上看实验过程比较顺利。经过这次的课程设计，明显加深了对操作系统理论课知识的理解，并拓展了很多新的知识和内容，让我受益匪浅。</p>
 <h2 id="六、项目源码"><a href="#六、项目源码" class="headerlink" title="六、项目源码"></a>六、项目源码</h2><p>本项目的源码已经存放于我的Github，欢迎下载查看：</p>
-<a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/czxt-CompExpSource" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=czxt-CompExpSource&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=czxt-CompExpSource&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a>
+<a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/czxt-CompExpSource" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=czxt-CompExpSource&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=czxt-CompExpSource&show_owner=true" srcset="data:image/png;base64,666"></a>
 
 
   
@@ -1430,7 +1313,7 @@
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
     </section>
     <section class="body">
-      <div class="vlts-rps"><a class="item" href="\2020\09\03\操作系统-读者写者(生产者消费者)\" title="操作系统 读者写者(生产者消费者)" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200902162507.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902162507.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">操作系统 读者写者(生产者消费者)</span><span class="excerpt">本文是操作系统进程同步互斥关于读者写者(生产者消费者)的基本实验。</span></a><a class="item" href="\2020\09\03\操作系统-内存管理\" title="操作系统 内存管理" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200902170741.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902170741.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">操作系统 内存管理</span><span class="excerpt">本文是操作系统内存管理的基本实验。</span></a><a class="item" href="\2020\09\04\CSAPP-实验集锦\" title="CSAPP 实验集锦" rel="bookmark "><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=CSAPP-Report&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=CSAPP-Report&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">CSAPP 实验集锦</span><span class="excerpt">本文是CSAPP（深入理解计算机系统）项目工程集锦。</span></a><a class="item" href="\2020\09\30\C++工程项目-JobShop\" title="C++工程项目 JobShop" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200930101945.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200930101945.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">C++工程项目 JobShop</span><span class="excerpt">本文是计算机导论的程序设计实战项目，实现单词消除游戏，具体项目及要求请点击查看。</span></a></div></section></div>
+      <div class="vlts-rps"><a class="item" href="\2020\09\03\操作系统-读者写者(生产者消费者)\" title="操作系统 读者写者(生产者消费者)" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200902162507.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902162507.png" srcset="data:image/png;base64,666"><span class="title">操作系统 读者写者(生产者消费者)</span><span class="excerpt">本文是操作系统进程同步互斥关于读者写者(生产者消费者)的基本实验。</span></a><a class="item" href="\2020\09\03\操作系统-内存管理\" title="操作系统 内存管理" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200902170741.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902170741.png" srcset="data:image/png;base64,666"><span class="title">操作系统 内存管理</span><span class="excerpt">本文是操作系统内存管理的基本实验。</span></a><a class="item" href="\2020\09\30\C++工程项目-JobShop\" title="C++工程项目 JobShop" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200930101945.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200930101945.jpg" srcset="data:image/png;base64,666"><span class="title">C++工程项目 JobShop</span><span class="excerpt">本文是计算机导论的程序设计实战项目，实现单词消除游戏，具体项目及要求请点击查看。</span></a><a class="item" href="\2020\07\12\C++工程项目-单词消除游戏\" title="C++工程项目 单词消除游戏" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200715102903.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200715102903.png" srcset="data:image/png;base64,666"><span class="title">C++工程项目 单词消除游戏</span><span class="excerpt">本文是C++面向对象的程序设计实战项目，实现单词消除游戏，具体项目及要求请点击查看。</span></a></div></section></div>
       
       
         <div class="copyright">
@@ -1462,9 +1345,9 @@
         <div class="donate">
           <div class="imgs">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" srcset="data:image/png;base64,666">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,666">
             
           </div>
         </div>
@@ -1491,7 +1374,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Linux/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Linux</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%B7%A5%E7%A8%8B/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>工程</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/C/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>C++</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>操作系统</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%BF%9B%E7%A8%8B/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>进程</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%90%8C%E6%AD%A5%E4%BA%92%E6%96%A5/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>同步互斥</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%BA%BF%E7%A8%8B/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>线程</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%80%9A%E4%BF%A1/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>通信</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/C/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>C++</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%B7%A5%E7%A8%8B/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>工程</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Linux/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Linux</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>操作系统</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%BF%9B%E7%A8%8B/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>进程</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%90%8C%E6%AD%A5%E4%BA%92%E6%96%A5/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>同步互斥</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%BA%BF%E7%A8%8B/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>线程</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%80%9A%E4%BF%A1/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>通信</p></a></div>
 
 
         
@@ -1504,7 +1387,7 @@
       
         <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://666wxy666.github.io/2020/09/03/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E7%AE%A1%E7%90%86%E9%80%9A%E4%BF%A1%E4%B8%8E%E5%90%8C%E6%AD%A5%E4%BA%92%E6%96%A5/&title=操作系统 进程线程管理通信与同步互斥 - 苇名一心的博客&summary=本文是操作系统课程设计关于进程线程管理通信与同步互斥的综合实验（长文警告）。" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
           
         </a>
       
@@ -1512,7 +1395,7 @@
       
         <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://666wxy666.github.io/2020/09/03/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E7%AE%A1%E7%90%86%E9%80%9A%E4%BF%A1%E4%B8%8E%E5%90%8C%E6%AD%A5%E4%BA%92%E6%96%A5/&title=操作系统 进程线程管理通信与同步互斥 - 苇名一心的博客&summary=本文是操作系统课程设计关于进程线程管理通信与同步互斥的综合实验（长文警告）。" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
           
         </a>
       
@@ -1520,7 +1403,7 @@
       
         <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://666wxy666.github.io/2020/09/03/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E7%AE%A1%E7%90%86%E9%80%9A%E4%BF%A1%E4%B8%8E%E5%90%8C%E6%AD%A5%E4%BA%92%E6%96%A5/&title=操作系统 进程线程管理通信与同步互斥 - 苇名一心的博客&summary=本文是操作系统课程设计关于进程线程管理通信与同步互斥的综合实验（长文警告）。" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
           
         </a>
       
@@ -1546,28 +1429,28 @@
   
     <div class="prev-next">
       
-        <a class="prev" href="/2020/09/03/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">
-          <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>操作系统 内存管理</p>
-          <p class="content">本文是操作系统内存管理的基本实验。
+        <a class="prev" href="/2020/09/03/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%AF%BB%E8%80%85%E5%86%99%E8%80%85(%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85)/">
+          <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>操作系统 读者写者(生产者消费者)</p>
+          <p class="content">本文是操作系统进程同步互斥关于读者写者(生产者消费者)的基本实验。
 
 
 
 
-一、实验目的在本次实验中，需要从不同的侧面了解Windows  的虚拟内存机制。在Windows操作系统中，可以通过一些API 操纵虚拟内存。主要需要...</p>
+一、需求本课程实验内容引自《Windows 内核实验教程》(陈向群、林斌等编著，机械工业出版社，2002.9)。
+在W...</p>
         </a>
       
       
-        <a class="next" href="/2020/09/02/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90-LL1/">
-          <p class="title">编译原理 语法分析 LL1<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class="content">本文是编译原理C语言LL1语法分析器的简单实现项目。
+        <a class="next" href="/2020/09/02/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90-LR/">
+          <p class="title">编译原理 语法分析 LR<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class="content">本文是编译原理C语言LR语法分析器的简单实现项目。
 
 
 
 
 一、需求
 
-拓展需求：还能自动够造LL1文法的first集和follow集，为LL1文法自动构造预测分析表。
-二、运行环境电脑硬件配...</p>
+拓展需求：除题目的基础要求外，还额外实现了对任意SLR1文法，自动生成拓广文法，且求该文法的first集和follow集，...</p>
         </a>
       
     </div>
@@ -1621,6 +1504,24 @@
 </aside>
 
 
+
+        
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="操作系统 进程线程管理通信与同步互斥";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.add("show");
+  
+</script>
 
         
       </div>
@@ -1744,11 +1645,82 @@
   </footer>
 
 
-      <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
     </div>
   </div>
   <div>
-    <!-- required -->
+    <script>
+window.volantis={};
+/********************脚本懒加载函数********************************/
+function loadScript(src, cb) {
+var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+var script = document.createElement('script');
+script.setAttribute('type','text/javascript');
+if (cb) script.onload = cb;
+script.setAttribute('src', src);
+HEAD.appendChild(script);
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<!-- required -->
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
 
@@ -1813,7 +1785,6 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
 
     <script type="text/javascript">
-      $(function(){
         var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
         if ('true' == 'true') {
           function shuffle(arr){
@@ -1828,22 +1799,17 @@
           }
           shuffle(imgs);
         }
-        if ('.cover-backstretch') {
-          $('.cover-backstretch').backstretch(
+	  function Pjax_backstretch(){
+        
+          $('#cover-backstretch').backstretch(
             imgs,
           {
             duration: "10000",
             fade: "1500"
           });
-        } else {
-          $.backstretch(
-            imgs,
-          {
-            duration: "10000",
-            fade: "1500"
-          });
-        }
-      });
+        
+	  }
+	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
     </script>
   
 
@@ -2215,9 +2181,9 @@
   function pjax_valine() {
     if(!document.querySelectorAll("#valine_container")[0])return;
 
-    let pagePlaceholder = $.trim($('#pjax-comment-placeholder').text()) || "快来评论吧~";
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
 
-    let path = $.trim($('#pjax-comment-path').text());
+    let path = pdata.commentPath;
     if (path.length == 0) {
       let defaultPath = '';
       path = defaultPath || decodeURI(window.location.pathname);
@@ -2248,91 +2214,6 @@
   $(function () {
     pjax_valine();
   });
-</script>
-
-
-
-
-  
-<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5/lib/darkmode-js.min.js" aysc></script>
-
-<script type="text/javascript">
-function getClientHeight(){
-  var clientHeight=0;
-  if(document.body.clientHeight&&document.documentElement.clientHeight){
-  var clientHeight = (document.body.clientHeight<document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
-  }else{
-  var clientHeight = (document.body.clientHeight>document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
-  }
-  return clientHeight;
-}
-function supportCss3(style) {
-  var prefix = ['webkit', 'Moz', 'ms', 'o'],
-  i,
-  humpString = [],
-  htmlStyle = document.documentElement.style,
-  _toHumb = function (string) {
-  return string.replace(/-(\w)/g, function ($0, $1) {
-  return $1.toUpperCase();
-  });
-  };
-  for (i in prefix)
-  humpString.push(_toHumb(prefix[i] + '-' + style));
-  humpString.push(_toHumb(style));
-  for (i in humpString)
-  if (humpString[i] in htmlStyle) return true;
-  return false;
-};
-//配置信息
-var options = {
-  bottom: '100px',
-  right: '32px',
-  left: 'unset',
-  time: '0s',
-  mixColor: '#f4f4f4',
-  backgroundColor: '#f4f4f4',
-  buttonColorDark: '#333',
-  buttonColorLight: '#ddd',
-  saveInCookies: true,
-  label: '',
-  autoMatchOsTheme: true
-};
-// 卡片兼容处理 mix-blend-mode 与 effect: [blur] 冲突
-
-function pjax_darkmodejs(){
-  
-  if(!supportCss3('mix-blend-mode'))return;
-  var checkExist2 = setInterval(function() {
-     if (typeof jQuery == 'undefined'){return;}
-     clearInterval(checkExist2);
-     var TopFlag=getClientHeight();
-    $(window).scroll(function(){
-      var top = $(document).scrollTop();
-      if(top > TopFlag) {
-        $(".darkmode-layer").css("mix-blend-mode","normal");
-        $(".darkmode-layer").css("background-color","#222");
-      }else{
-        $(".darkmode-layer").css("mix-blend-mode","difference");
-        $(".darkmode-layer").css("background-color","");
-      }
-    })
-  }, 100);
-  
-}
-// mix-blend-mode support?
-if(supportCss3('mix-blend-mode')){
-  window.darkmode = new Darkmode(options);
-  
-  window.darkmode.showWidget();
-  
-  pjax_darkmodejs();
-}
-////////////////Development///////////////////////
-//////////////darkmode模式切换////////////////////
-//window.darkmode.toggle();                     //
-//////////////darkmode模式判断////////////////////
-//console.log(window.darkmode.isActivated())    //
-//////////////////////////////////////////////////
 </script>
 
 
@@ -2608,7 +2489,227 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
 
 
 
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+  try {
+    localStorage.setItem(k, v);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+const removeLS = (k) => {
+  try {
+    localStorage.removeItem(k);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+const getLS = (k) => {
+  try {
+    return localStorage.getItem(k);
+  } catch (e) {
+    console.log(e.message);
+    return null;
+  }
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+function bindToggleButton() {
+	var btn=$("#wrapper .toggle-mode-btn");
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+$("#wrapper .darkbtn").parents(".header").addClass("toggle-mode-btn")
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+document.addEventListener("pjax:success", bindToggleButton);
+var now = new Date();
+var hour = now.getHours();
+if (hour < 7 && hour >= 19) {
+	var mode = toggleCustomDarkMode();
+	if (mode === "dark") {
+	  applyCustomDarkModeSettings(mode);
+	}
+}
+</script>
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script>
+setTimeout(function() {
+  window.ga_tid = 'UA-162450234-2';
+   (function() {
+	 var dga = document.createElement("script");
+	 dga.src = "https://rmt.dogedoge.com/fetch/public/ga.js";
+	  var s = document.getElementsByTagName("script")[0];
+	  s.parentNode.insertBefore(dga, s);
+  })();
+}, 5000);
+</script>
+
+
+<!-- baidu Analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  setTimeout(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?93c49980dcbfb8920e167f85129d6917";
+	hm.defer=true;
+	var s = document.getElementsByTagName("script")[0];
+	s.parentNode.insertBefore(hm, s);
+  }, 5000);
+})();
+</script>
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
 <!-- more -->
+
+
 
 
     
@@ -2641,6 +2742,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
         elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
         selectors: [
           "title",
+          "#l_cover",
           "#pjax-container",
           "#pjax-header-nav-list"
         ],
@@ -2650,7 +2752,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
     });
 
     document.addEventListener('pjax:send', function (e) {
-      window.stop(); // 相当于点击了浏览器的停止按钮
+      //window.stop(); // 相当于点击了浏览器的停止按钮
 
       try {
         var currentUrl = window.location.pathname;
@@ -2669,12 +2771,12 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
       if (typeof $.fancybox != "undefined") {
         $.fancybox.close();    // 关闭弹窗
       }
-      $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
-      $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
-      $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
 
       // 解绑事件 避免重复监听
-      $('.s-top').unbind('click');
+      volantis.$topBtn.unbind('click');
       $('.menu a').unbind('click');
       $(window).unbind('resize');
       $(window).unbind('scroll');
@@ -2713,22 +2815,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
             pjax_fancybox();
           }
         
-          
-          if ('.cover-backstretch') {
-            $('.cover-backstretch').backstretch("resize");
-            if($('.cover-wrapper').is(':hidden')){
-              $('.cover-backstretch').backstretch("pause");
-            }else{
-              $('.cover-backstretch').backstretch("next");
-            }
-          } else {
-            $.backstretch("resize");
-            if($('.cover-wrapper').is(':hidden')){
-              $.backstretch("pause");
-            }else{
-              $.backstretch("next");
-            }
-          }
+		  Pjax_backstretch()
         
         
         
@@ -2739,9 +2826,6 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
         
         
         
-        
-        
-          pjax_darkmodejs();
         
       } catch (e) {
         console.log(e);

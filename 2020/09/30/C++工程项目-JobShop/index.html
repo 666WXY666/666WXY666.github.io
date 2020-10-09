@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.0.0">
+<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.1">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
     
   
   <!-- 渲染优化 -->
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="HandheldFriendly" content="True">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta http-equiv="x-dns-prefetch-control" content="on">
 
   <!-- 页面元数据 -->
   
   <title>C++工程项目 JobShop - 苇名一心的博客</title>
   
-    <meta name="keywords" content="工程,C++,JobShop">
+    <meta name="keywords" content="C++,工程,JobShop">
   
 
   
@@ -35,7 +37,6 @@
   
 
   <!-- link -->
-  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   
     
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css">
@@ -72,61 +73,23 @@
 <link rel="stylesheet" href="/css/style.css">
 
   
-  
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script>
-	setTimeout(function() {
-  	  window.ga_tid = 'UA-162450234-2';
- 	   (function() {
- 	     var dga = document.createElement("script");
- 	     dga.src = "https://rmt.dogedoge.com/fetch/public/ga.js";
-	      var s = document.getElementsByTagName("script")[0];
-	      s.parentNode.insertBefore(dga, s);
-	  })();
-	}, 5000);
-    </script>
-  
-  
-    <!-- ba -->
-    <script>
-    var _hmt = _hmt || [];
-    (function() {
-	  setTimeout(function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?93c49980dcbfb8920e167f85129d6917";
-		hm.defer=true;
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-	  }, 5000);
-    })();
-    </script>
-  
-  <!-- 脚本懒加载函数 -->
-  <script>
-  function loadScript(src, cb) {
-    var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
-    var script = document.createElement('script');
-    script.setAttribute('type','text/javascript');
-    if (cb) script.onload = cb;
-    script.setAttribute('src', src);
-    HEAD.appendChild(script);
-  }
-  //https://github.com/filamentgroup/loadCSS
-  !function(c){"use strict";var e=function(e,t,n,r){var o,i=c.document,a=i.createElement("link");if(t)o=t;else{var d=(i.body||i.getElementsByTagName("head")[0]).childNodes;o=d[d.length-1]}var f=i.styleSheets;if(r)for(var l in r)r.hasOwnProperty(l)&&a.setAttribute(l,r[l]);a.rel="stylesheet",a.href=e,a.media="only x",function e(t){if(i.body)return t();setTimeout(function(){e(t)})}(function(){o.parentNode.insertBefore(a,t?o:o.nextSibling)});var s=function(e){for(var t=a.href,n=f.length;n--;)if(f[n].href===t)return e();setTimeout(function(){s(e)})};function u(){a.addEventListener&&a.removeEventListener("load",u),a.media=n||"all"}return a.addEventListener&&a.addEventListener("load",u),(a.onloadcssdefined=s)(u),a};"undefined"!=typeof exports?exports.loadCSS=e:c.loadCSS=e}("undefined"!=typeof global?global:this);
-  </script>
+
   <script id="loadcss"></script>
+
 </head>
 
 <body>
-  <header class="l_header auto shadow floatable blur " style="opacity: 0">
+  
+
+<header id="l_header" class="l_header auto shadow floatable blur show" style="opacity: 0">
   <div class="container">
-  <div class="wrapper">
+  <div id="wrapper">
     <div class="nav-sub">
       <p class="title"></p>
       <ul class="switcher nav-list-h m-phone" id="pjax-header-nav-list">
-        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
         
-          <li><a class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
         
       </ul>
     </div>
@@ -303,39 +266,7 @@
             
           
                     
-                      
-            
-              <hr>
-            
-          
-                    
-                      
-            
-              
-                <li>
-                  <a class="menuitem flat-box">
-                    <i class="fas fa-compact-disc fa-fw music fa-fw music"></i>背景音乐
-                  </a>
-                  <ul class="list-v">
-                    <li>
-                      <div class="aplayer-container">
-                        
-
-  
-    <meting-js theme="#1BCDFC" autoplay="true" volume="0.1" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="1930654125" list-folded="true">
-    </meting-js>
-  
-
-
-                      </div>
-                    </li>
                   </ul>
-                </li><li>
-              
-            
-          
-                    
-                  </li></ul>
                 
               </li>
             
@@ -515,18 +446,6 @@
             
           
                     
-                      
-            
-              <hr>
-            
-          
-                    
-                      
-            
-              
-            
-          
-                    
                   </ul>
                 
               </li>
@@ -541,14 +460,13 @@
   </div>
 </header>
 
-  <div class="l_body">
-    <div class="l_cover">
+  <div id="l_body">
+    <div id="l_cover">
   
     
-    
-        <div class="cover-wrapper post focus" style="display: none;">
+        <div id="full" class="cover-wrapper post focus" style="display: none;">
           
-            <div class="cover-backstretch"></div>
+            <div id="cover-backstretch"></div>
           
           <div class="cover-body">
   <div class="top">
@@ -640,49 +558,14 @@
   </div>
 </div>
 
-          <div class="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
         </div>
     
   
   </div>
-  
-    <div class="safearea">
-      <div class="body-wrapper" id="pjax-container">
-        
-          <!--此文件用来存放一些不方便取值的变量--> 
-<!--思路大概是将值藏到重加载的区域内--> 
- 
- 
- 
-<div id="pjax-data" style="display: none"> 
-  <div id="pjax-ispage">true</div> 
-  <div id="pjax-pageTitle">C++工程项目 JobShop</div> 
-  <div id="pjax-enable-cover">true</div> 
-  <div id="pjax-comment-path"></div> 
-  <div id="pjax-comment-placeholder"></div> 
-</div> 
- 
- 
-<script> 
-  // 处理封面 此时 jquery 还没加载 
-  if ("none" == "none") { // 移除封面 
-    document.getElementsByClassName('cover-wrapper')[0].style.display = "none"; 
-    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
-  } else { 
-    if ("none" == "half") { // 半屏 
-      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'half'); 
-      document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
-    } else if ("none" == "full") { // 全屏 
-      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'full'); 
-      document.getElementsByClassName('scroll-down')[0].style.display = ""; 
-    } 
-    document.getElementsByClassName('cover-wrapper')[0].style.display = ""; 
-    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.remove("show"); 
-  } 
-</script> 
- 
 
-        
+    <div id="safearea">
+      <div class="body-wrapper" id="pjax-container">
         
 
 <div class="l_main">
@@ -760,10 +643,10 @@
 
 
 
-<h2 id="一、任务概述"><a href="#一、任务概述" class="headerlink" title="一、任务概述"></a>一、任务概述</h2><p><img src="https://gitee.com/wxy_666/images/raw/master/20200930101945.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200930101945.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-09-30_101902"></p>
+<h2 id="一、任务概述"><a href="#一、任务概述" class="headerlink" title="一、任务概述"></a>一、任务概述</h2><p><img src="https://gitee.com/wxy_666/images/raw/master/20200930101945.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200930101945.jpg" srcset="data:image/png;base64,666" alt="2020-09-30_101902"></p>
 <p>完成这一任务必须满足以下约束条件：</p>
 <p>约束1：程序启动后首先接受产品加工请求输入，确认当天的需求后不再接受新的订单。对每个产品需满足加工工序约束，即只有其前一个工序加工完毕，才能加工其后一个工序。每个工序的加工时间已知，且所需机器固定(每台机器都不能被其他机器替代)，均作为程序的输入。</p>
-<p><img src="https://gitee.com/wxy_666/images/raw/master/20200930102043.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200930102043.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-09-30_102028"></p>
+<p><img src="https://gitee.com/wxy_666/images/raw/master/20200930102043.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200930102043.jpg" srcset="data:image/png;base64,666" alt="2020-09-30_102028"></p>
 <p>表1. 要输入的参数</p>
 <table>
 <thead>
@@ -884,7 +767,7 @@
 <p><strong>M3 (19,1-3,34)</strong></p>
 <p><strong>End 51</strong></p>
 <h3 id="3、图形界面输出"><a href="#3、图形界面输出" class="headerlink" title="3、图形界面输出"></a>3、图形界面输出</h3><p>要求在图形窗口中用绘制的甘特图来表示操作在机器上的安排。</p>
-<p><img src="https://gitee.com/wxy_666/images/raw/master/20200930101715.gif" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200930101715.gif" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<p><img src="https://gitee.com/wxy_666/images/raw/master/20200930101715.gif" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200930101715.gif" srcset="data:image/png;base64,666" alt="img"></p>
 <p>例如，图2所示的甘特图给出了上文提及的3个产品在3台机器上加工的一个安排，其中给出了每台机器上的操作的加工排序以及每个操作的开始加工时间。图2所示的加工安排满足产品加工约束和表1所示的机器加工约束。例如，产品1的第1个操作加工完毕再加工第2个操作，第2个操作加工完毕再加工第3个操作。产品1的第1、2、3个操作分别在机器1、2、3上加工，加工时间分别是7、12、15，满足表1中的约束。</p>
 <h3 id="4、动画输出"><a href="#4、动画输出" class="headerlink" title="4、动画输出"></a>4、动画输出</h3><h2 id="四、核心调度算法"><a href="#四、核心调度算法" class="headerlink" title="四、核心调度算法"></a>四、核心调度算法</h2><p><em>n</em>个产品在<em>m</em>台机器上加工，满足约束条件的加工安排有很多。我们设定最优解为所有产品加工完成所需时间最短，则需要找到一个加工安排，使得所有产品最快完成加工。</p>
 <p>要想获得所有产品加工完成时间更短的方案，我们需要借助调度算法。以下是可选的调度算法。</p>
@@ -902,7 +785,7 @@
 <h2 id="六、评价规则"><a href="#六、评价规则" class="headerlink" title="六、评价规则"></a>六、评价规则</h2><p>所有参与此游戏开发的小组会将结果：程序运行时间、最优解方案加工时间两个时间值按一定权重进行评比，形成一个排行榜。</p>
 <p>大作业成绩会基于这个排行榜得分。另外再综合软件的扩展功能、程序代码结构、小组协作度等附加项，形成最终分数。</p>
 <h2 id="五、项目地址"><a href="#五、项目地址" class="headerlink" title="五、项目地址"></a>五、项目地址</h2><p>本项目的源码、可执行程序均已经存放于我的Github，欢迎下载查看：</p>
-<a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/JobShop" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=JobShop&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=JobShop&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a>
+<a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/JobShop" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=JobShop&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=JobShop&show_owner=true" srcset="data:image/png;base64,666"></a>
   
   
     
@@ -915,7 +798,7 @@
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
     </section>
     <section class="body">
-      <div class="vlts-rps"><a class="item" href="\2020\07\12\C++工程项目-单词消除游戏\" title="C++工程项目 单词消除游戏" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200715102903.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200715102903.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">C++工程项目 单词消除游戏</span><span class="excerpt">本文是C++面向对象的程序设计实战项目，实现单词消除游戏，具体项目及要求请点击查看。</span></a><a class="item" href="\2020\09\03\操作系统-读者写者(生产者消费者)\" title="操作系统 读者写者(生产者消费者)" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200902162507.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902162507.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">操作系统 读者写者(生产者消费者)</span><span class="excerpt">本文是操作系统进程同步互斥关于读者写者(生产者消费者)的基本实验。</span></a><a class="item" href="\2020\09\03\操作系统-内存管理\" title="操作系统 内存管理" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200902170741.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902170741.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">操作系统 内存管理</span><span class="excerpt">本文是操作系统内存管理的基本实验。</span></a><a class="item" href="\2020\09\01\编译原理-词法分析\" title="编译原理 词法分析" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200824091143.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200824091143.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">编译原理 词法分析</span><span class="excerpt">本文是编译原理C语言词法分析器的简单实现项目。</span></a></div></section></div>
+      <div class="vlts-rps"><a class="item" href="\2020\07\12\C++工程项目-单词消除游戏\" title="C++工程项目 单词消除游戏" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200715102903.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200715102903.png" srcset="data:image/png;base64,666"><span class="title">C++工程项目 单词消除游戏</span><span class="excerpt">本文是C++面向对象的程序设计实战项目，实现单词消除游戏，具体项目及要求请点击查看。</span></a><a class="item" href="\2020\09\03\操作系统-内存管理\" title="操作系统 内存管理" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200902170741.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902170741.png" srcset="data:image/png;base64,666"><span class="title">操作系统 内存管理</span><span class="excerpt">本文是操作系统内存管理的基本实验。</span></a><a class="item" href="\2020\09\03\操作系统-读者写者(生产者消费者)\" title="操作系统 读者写者(生产者消费者)" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200902162507.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902162507.png" srcset="data:image/png;base64,666"><span class="title">操作系统 读者写者(生产者消费者)</span><span class="excerpt">本文是操作系统进程同步互斥关于读者写者(生产者消费者)的基本实验。</span></a><a class="item" href="\2020\09\02\编译原理-语法分析-LR\" title="编译原理 语法分析 LR" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200902092212.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902092212.png" srcset="data:image/png;base64,666"><span class="title">编译原理 语法分析 LR</span><span class="excerpt">本文是编译原理C语言LR语法分析器的简单实现项目。</span></a></div></section></div>
       
       
         <div class="copyright">
@@ -947,9 +830,9 @@
         <div class="donate">
           <div class="imgs">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" srcset="data:image/png;base64,666">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,666">
             
           </div>
         </div>
@@ -976,7 +859,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%B7%A5%E7%A8%8B/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>工程</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/C/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>C++</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/JobShop/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>JobShop</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/C/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>C++</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%B7%A5%E7%A8%8B/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>工程</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/JobShop/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>JobShop</p></a></div>
 
 
         
@@ -989,7 +872,7 @@
       
         <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://666wxy666.github.io/2020/09/30/C++%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE-JobShop/&title=C++工程项目 JobShop - 苇名一心的博客&summary=本文是计算机导论的程序设计实战项目，实现单词消除游戏，具体项目及要求请点击查看。" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
           
         </a>
       
@@ -997,7 +880,7 @@
       
         <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://666wxy666.github.io/2020/09/30/C++%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE-JobShop/&title=C++工程项目 JobShop - 苇名一心的博客&summary=本文是计算机导论的程序设计实战项目，实现单词消除游戏，具体项目及要求请点击查看。" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
           
         </a>
       
@@ -1005,7 +888,7 @@
       
         <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://666wxy666.github.io/2020/09/30/C++%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE-JobShop/&title=C++工程项目 JobShop - 苇名一心的博客&summary=本文是计算机导论的程序设计实战项目，实现单词消除游戏，具体项目及要求请点击查看。" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
           
         </a>
       
@@ -1030,6 +913,17 @@
 
   
     <div class="prev-next">
+      
+        <a class="prev" href="/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C4-%E6%8B%A8%E6%89%93SIP%E7%94%B5%E8%AF%9D/">
+          <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>交换原理 实验4 拨打SIP电话</p>
+          <p class="content">本文是关于交换原理实验四——拨打SIP电话及抓包分析实验报告记录。
+
+
+
+
+这些项目的源码、可执行程序、报告等已经存放于我的Github，欢迎下载查看：
+</p>
+        </a>
       
       
         <a class="next" href="/2020/09/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86-FPGA%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C/">
@@ -1098,6 +992,24 @@
 </aside>
 
 
+
+        
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="C++工程项目 JobShop";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.add("show");
+  
+</script>
 
         
       </div>
@@ -1221,11 +1133,82 @@
   </footer>
 
 
-      <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
     </div>
   </div>
   <div>
-    <!-- required -->
+    <script>
+window.volantis={};
+/********************脚本懒加载函数********************************/
+function loadScript(src, cb) {
+var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+var script = document.createElement('script');
+script.setAttribute('type','text/javascript');
+if (cb) script.onload = cb;
+script.setAttribute('src', src);
+HEAD.appendChild(script);
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<!-- required -->
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
 
@@ -1290,7 +1273,6 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
 
     <script type="text/javascript">
-      $(function(){
         var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
         if ('true' == 'true') {
           function shuffle(arr){
@@ -1305,22 +1287,17 @@
           }
           shuffle(imgs);
         }
-        if ('.cover-backstretch') {
-          $('.cover-backstretch').backstretch(
+	  function Pjax_backstretch(){
+        
+          $('#cover-backstretch').backstretch(
             imgs,
           {
             duration: "10000",
             fade: "1500"
           });
-        } else {
-          $.backstretch(
-            imgs,
-          {
-            duration: "10000",
-            fade: "1500"
-          });
-        }
-      });
+        
+	  }
+	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
     </script>
   
 
@@ -1692,9 +1669,9 @@
   function pjax_valine() {
     if(!document.querySelectorAll("#valine_container")[0])return;
 
-    let pagePlaceholder = $.trim($('#pjax-comment-placeholder').text()) || "快来评论吧~";
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
 
-    let path = $.trim($('#pjax-comment-path').text());
+    let path = pdata.commentPath;
     if (path.length == 0) {
       let defaultPath = '';
       path = defaultPath || decodeURI(window.location.pathname);
@@ -1725,91 +1702,6 @@
   $(function () {
     pjax_valine();
   });
-</script>
-
-
-
-
-  
-<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5/lib/darkmode-js.min.js" aysc></script>
-
-<script type="text/javascript">
-function getClientHeight(){
-  var clientHeight=0;
-  if(document.body.clientHeight&&document.documentElement.clientHeight){
-  var clientHeight = (document.body.clientHeight<document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
-  }else{
-  var clientHeight = (document.body.clientHeight>document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
-  }
-  return clientHeight;
-}
-function supportCss3(style) {
-  var prefix = ['webkit', 'Moz', 'ms', 'o'],
-  i,
-  humpString = [],
-  htmlStyle = document.documentElement.style,
-  _toHumb = function (string) {
-  return string.replace(/-(\w)/g, function ($0, $1) {
-  return $1.toUpperCase();
-  });
-  };
-  for (i in prefix)
-  humpString.push(_toHumb(prefix[i] + '-' + style));
-  humpString.push(_toHumb(style));
-  for (i in humpString)
-  if (humpString[i] in htmlStyle) return true;
-  return false;
-};
-//配置信息
-var options = {
-  bottom: '100px',
-  right: '32px',
-  left: 'unset',
-  time: '0s',
-  mixColor: '#f4f4f4',
-  backgroundColor: '#f4f4f4',
-  buttonColorDark: '#333',
-  buttonColorLight: '#ddd',
-  saveInCookies: true,
-  label: '',
-  autoMatchOsTheme: true
-};
-// 卡片兼容处理 mix-blend-mode 与 effect: [blur] 冲突
-
-function pjax_darkmodejs(){
-  
-  if(!supportCss3('mix-blend-mode'))return;
-  var checkExist2 = setInterval(function() {
-     if (typeof jQuery == 'undefined'){return;}
-     clearInterval(checkExist2);
-     var TopFlag=getClientHeight();
-    $(window).scroll(function(){
-      var top = $(document).scrollTop();
-      if(top > TopFlag) {
-        $(".darkmode-layer").css("mix-blend-mode","normal");
-        $(".darkmode-layer").css("background-color","#222");
-      }else{
-        $(".darkmode-layer").css("mix-blend-mode","difference");
-        $(".darkmode-layer").css("background-color","");
-      }
-    })
-  }, 100);
-  
-}
-// mix-blend-mode support?
-if(supportCss3('mix-blend-mode')){
-  window.darkmode = new Darkmode(options);
-  
-  window.darkmode.showWidget();
-  
-  pjax_darkmodejs();
-}
-////////////////Development///////////////////////
-//////////////darkmode模式切换////////////////////
-//window.darkmode.toggle();                     //
-//////////////darkmode模式判断////////////////////
-//console.log(window.darkmode.isActivated())    //
-//////////////////////////////////////////////////
 </script>
 
 
@@ -2085,7 +1977,227 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
 
 
 
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+  try {
+    localStorage.setItem(k, v);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+const removeLS = (k) => {
+  try {
+    localStorage.removeItem(k);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+const getLS = (k) => {
+  try {
+    return localStorage.getItem(k);
+  } catch (e) {
+    console.log(e.message);
+    return null;
+  }
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+function bindToggleButton() {
+	var btn=$("#wrapper .toggle-mode-btn");
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+$("#wrapper .darkbtn").parents(".header").addClass("toggle-mode-btn")
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+document.addEventListener("pjax:success", bindToggleButton);
+var now = new Date();
+var hour = now.getHours();
+if (hour < 7 && hour >= 19) {
+	var mode = toggleCustomDarkMode();
+	if (mode === "dark") {
+	  applyCustomDarkModeSettings(mode);
+	}
+}
+</script>
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script>
+setTimeout(function() {
+  window.ga_tid = 'UA-162450234-2';
+   (function() {
+	 var dga = document.createElement("script");
+	 dga.src = "https://rmt.dogedoge.com/fetch/public/ga.js";
+	  var s = document.getElementsByTagName("script")[0];
+	  s.parentNode.insertBefore(dga, s);
+  })();
+}, 5000);
+</script>
+
+
+<!-- baidu Analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  setTimeout(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?93c49980dcbfb8920e167f85129d6917";
+	hm.defer=true;
+	var s = document.getElementsByTagName("script")[0];
+	s.parentNode.insertBefore(hm, s);
+  }, 5000);
+})();
+</script>
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
 <!-- more -->
+
+
 
 
     
@@ -2118,6 +2230,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
         elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
         selectors: [
           "title",
+          "#l_cover",
           "#pjax-container",
           "#pjax-header-nav-list"
         ],
@@ -2127,7 +2240,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
     });
 
     document.addEventListener('pjax:send', function (e) {
-      window.stop(); // 相当于点击了浏览器的停止按钮
+      //window.stop(); // 相当于点击了浏览器的停止按钮
 
       try {
         var currentUrl = window.location.pathname;
@@ -2146,12 +2259,12 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
       if (typeof $.fancybox != "undefined") {
         $.fancybox.close();    // 关闭弹窗
       }
-      $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
-      $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
-      $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
 
       // 解绑事件 避免重复监听
-      $('.s-top').unbind('click');
+      volantis.$topBtn.unbind('click');
       $('.menu a').unbind('click');
       $(window).unbind('resize');
       $(window).unbind('scroll');
@@ -2190,22 +2303,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
             pjax_fancybox();
           }
         
-          
-          if ('.cover-backstretch') {
-            $('.cover-backstretch').backstretch("resize");
-            if($('.cover-wrapper').is(':hidden')){
-              $('.cover-backstretch').backstretch("pause");
-            }else{
-              $('.cover-backstretch').backstretch("next");
-            }
-          } else {
-            $.backstretch("resize");
-            if($('.cover-wrapper').is(':hidden')){
-              $.backstretch("pause");
-            }else{
-              $.backstretch("next");
-            }
-          }
+		  Pjax_backstretch()
         
         
         
@@ -2216,9 +2314,6 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
         
         
         
-        
-        
-          pjax_darkmodejs();
         
       } catch (e) {
         console.log(e);

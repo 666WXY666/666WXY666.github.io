@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.0.0">
+<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.1">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
     
   
   <!-- 渲染优化 -->
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="HandheldFriendly" content="True">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta http-equiv="x-dns-prefetch-control" content="on">
 
   <!-- 页面元数据 -->
   
@@ -35,7 +37,6 @@
   
 
   <!-- link -->
-  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   
     
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css">
@@ -72,61 +73,23 @@
 <link rel="stylesheet" href="/css/style.css">
 
   
-  
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script>
-	setTimeout(function() {
-  	  window.ga_tid = 'UA-162450234-2';
- 	   (function() {
- 	     var dga = document.createElement("script");
- 	     dga.src = "https://rmt.dogedoge.com/fetch/public/ga.js";
-	      var s = document.getElementsByTagName("script")[0];
-	      s.parentNode.insertBefore(dga, s);
-	  })();
-	}, 5000);
-    </script>
-  
-  
-    <!-- ba -->
-    <script>
-    var _hmt = _hmt || [];
-    (function() {
-	  setTimeout(function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?93c49980dcbfb8920e167f85129d6917";
-		hm.defer=true;
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-	  }, 5000);
-    })();
-    </script>
-  
-  <!-- 脚本懒加载函数 -->
-  <script>
-  function loadScript(src, cb) {
-    var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
-    var script = document.createElement('script');
-    script.setAttribute('type','text/javascript');
-    if (cb) script.onload = cb;
-    script.setAttribute('src', src);
-    HEAD.appendChild(script);
-  }
-  //https://github.com/filamentgroup/loadCSS
-  !function(c){"use strict";var e=function(e,t,n,r){var o,i=c.document,a=i.createElement("link");if(t)o=t;else{var d=(i.body||i.getElementsByTagName("head")[0]).childNodes;o=d[d.length-1]}var f=i.styleSheets;if(r)for(var l in r)r.hasOwnProperty(l)&&a.setAttribute(l,r[l]);a.rel="stylesheet",a.href=e,a.media="only x",function e(t){if(i.body)return t();setTimeout(function(){e(t)})}(function(){o.parentNode.insertBefore(a,t?o:o.nextSibling)});var s=function(e){for(var t=a.href,n=f.length;n--;)if(f[n].href===t)return e();setTimeout(function(){s(e)})};function u(){a.addEventListener&&a.removeEventListener("load",u),a.media=n||"all"}return a.addEventListener&&a.addEventListener("load",u),(a.onloadcssdefined=s)(u),a};"undefined"!=typeof exports?exports.loadCSS=e:c.loadCSS=e}("undefined"!=typeof global?global:this);
-  </script>
+
   <script id="loadcss"></script>
+
 </head>
 
 <body>
-  <header class="l_header auto shadow floatable blur " style="opacity: 0">
+  
+
+<header id="l_header" class="l_header auto shadow floatable blur show" style="opacity: 0">
   <div class="container">
-  <div class="wrapper">
+  <div id="wrapper">
     <div class="nav-sub">
       <p class="title"></p>
       <ul class="switcher nav-list-h m-phone" id="pjax-header-nav-list">
-        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
         
-          <li><a class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
         
       </ul>
     </div>
@@ -303,39 +266,7 @@
             
           
                     
-                      
-            
-              <hr>
-            
-          
-                    
-                      
-            
-              
-                <li>
-                  <a class="menuitem flat-box">
-                    <i class="fas fa-compact-disc fa-fw music fa-fw music"></i>背景音乐
-                  </a>
-                  <ul class="list-v">
-                    <li>
-                      <div class="aplayer-container">
-                        
-
-  
-    <meting-js theme="#1BCDFC" autoplay="true" volume="0.1" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="1930654125" list-folded="true">
-    </meting-js>
-  
-
-
-                      </div>
-                    </li>
                   </ul>
-                </li><li>
-              
-            
-          
-                    
-                  </li></ul>
                 
               </li>
             
@@ -515,18 +446,6 @@
             
           
                     
-                      
-            
-              <hr>
-            
-          
-                    
-                      
-            
-              
-            
-          
-                    
                   </ul>
                 
               </li>
@@ -541,14 +460,13 @@
   </div>
 </header>
 
-  <div class="l_body">
-    <div class="l_cover">
+  <div id="l_body">
+    <div id="l_cover">
   
     
-    
-        <div class="cover-wrapper post focus" style="display: none;">
+        <div id="full" class="cover-wrapper post focus" style="display: none;">
           
-            <div class="cover-backstretch"></div>
+            <div id="cover-backstretch"></div>
           
           <div class="cover-body">
   <div class="top">
@@ -640,49 +558,14 @@
   </div>
 </div>
 
-          <div class="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
         </div>
     
   
   </div>
-  
-    <div class="safearea">
-      <div class="body-wrapper" id="pjax-container">
-        
-          <!--此文件用来存放一些不方便取值的变量--> 
-<!--思路大概是将值藏到重加载的区域内--> 
- 
- 
- 
-<div id="pjax-data" style="display: none"> 
-  <div id="pjax-ispage">true</div> 
-  <div id="pjax-pageTitle">Linux MOOC习题 6~10章</div> 
-  <div id="pjax-enable-cover">true</div> 
-  <div id="pjax-comment-path"></div> 
-  <div id="pjax-comment-placeholder"></div> 
-</div> 
- 
- 
-<script> 
-  // 处理封面 此时 jquery 还没加载 
-  if ("none" == "none") { // 移除封面 
-    document.getElementsByClassName('cover-wrapper')[0].style.display = "none"; 
-    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
-  } else { 
-    if ("none" == "half") { // 半屏 
-      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'half'); 
-      document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
-    } else if ("none" == "full") { // 全屏 
-      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'full'); 
-      document.getElementsByClassName('scroll-down')[0].style.display = ""; 
-    } 
-    document.getElementsByClassName('cover-wrapper')[0].style.display = ""; 
-    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.remove("show"); 
-  } 
-</script> 
- 
 
-        
+    <div id="safearea">
+      <div class="body-wrapper" id="pjax-container">
         
 
 <div class="l_main">
@@ -761,29 +644,29 @@
 
 
 <p><strong><em>PS：第七章是上机实验。</em></strong></p>
-<h2 id="六、Linux命令风格和文件系统"><a href="#六、Linux命令风格和文件系统" class="headerlink" title="六、Linux命令风格和文件系统"></a>六、Linux命令风格和文件系统</h2><img src="https://gitee.com/wxy_666/images/raw/master/20200429102845.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429102845.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-28_213047" style="zoom:80%;">
+<h2 id="六、Linux命令风格和文件系统"><a href="#六、Linux命令风格和文件系统" class="headerlink" title="六、Linux命令风格和文件系统"></a>六、Linux命令风格和文件系统</h2><img src="https://gitee.com/wxy_666/images/raw/master/20200429102845.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429102845.jpg" srcset="data:image/png;base64,666" alt="2020-04-28_213047" style="zoom:80%;">
 
 <blockquote><p>这两个题都忽略了“符号链接”的作用。</p>
 </blockquote>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200429103011.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429103011.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-28_213114" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200429103011.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429103011.jpg" srcset="data:image/png;base64,666" alt="2020-04-28_213114" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200429103030.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429103030.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-28_213125" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200429103030.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429103030.jpg" srcset="data:image/png;base64,666" alt="2020-04-28_213125" style="zoom:80%;">
 
 <blockquote><p>这俩没啥好说的。</p>
 </blockquote>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200429103227.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429103227.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-28_213133" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200429103227.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429103227.jpg" srcset="data:image/png;base64,666" alt="2020-04-28_213133" style="zoom:80%;">
 
 <blockquote><p>在Linux中，一般是-1代表失败，&gt;=0的值代表成功。</p>
 </blockquote>
 
-<h2 id="八、文件和目录的权限，Shell"><a href="#八、文件和目录的权限，Shell" class="headerlink" title="八、文件和目录的权限，Shell"></a>八、文件和目录的权限，Shell</h2><img src="https://gitee.com/wxy_666/images/raw/master/20200429103454.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429103454.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-28_213341" style="zoom:80%;">
+<h2 id="八、文件和目录的权限，Shell"><a href="#八、文件和目录的权限，Shell" class="headerlink" title="八、文件和目录的权限，Shell"></a>八、文件和目录的权限，Shell</h2><img src="https://gitee.com/wxy_666/images/raw/master/20200429103454.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429103454.jpg" srcset="data:image/png;base64,666" alt="2020-04-28_213341" style="zoom:80%;">
 
 <blockquote><p>目录有执行权限（即x权限）意味着分析路径名过程中可检索该目录。</p>
 </blockquote>
 
-<h2 id="九、替换，元字符和转义"><a href="#九、替换，元字符和转义" class="headerlink" title="九、替换，元字符和转义"></a>九、替换，元字符和转义</h2><img src="https://gitee.com/wxy_666/images/raw/master/20200429103639.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429103639.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-28_213427" style="zoom:80%;">
+<h2 id="九、替换，元字符和转义"><a href="#九、替换，元字符和转义" class="headerlink" title="九、替换，元字符和转义"></a>九、替换，元字符和转义</h2><img src="https://gitee.com/wxy_666/images/raw/master/20200429103639.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429103639.jpg" srcset="data:image/png;base64,666" alt="2020-04-28_213427" style="zoom:80%;">
 
 <blockquote><p>如果你是执行这个命令的操作员，估计你马上就心情不好了。由于拼错了单词，把DATABASE不小心写成了DATEBASE，灾难来了。未命名的变量被bash替换为空字符串，实际上你以root身份执行了最邪恶的一条命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /*</span><br></pre></td></tr></table></figure>
@@ -803,26 +686,26 @@
 </ol>
 </blockquote>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200429103652.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429103652.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-28_213530" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200429103652.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429103652.jpg" srcset="data:image/png;base64,666" alt="2020-04-28_213530" style="zoom:80%;">
 
 <blockquote><p>在Linux中，目前我已知的Shell的元字符有：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">空格 制表符 回车 &gt; &lt; | ; &amp; $ * [ ] ? \ ( ) '' " " 反撇号`</span><br></pre></td></tr></table></figure>
 
 <p>第11题中，这三个命令都可以取消文件通配符*的特殊作用，让echo直接打印字符*，并且这个替换是Shell进行的，也就是说，echo拿到的命令都是一样的，他是分不清操作员输入的是哪个命令，这三个命令的参数：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200429105050.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429105050.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-29_105040" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200429105050.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429105050.jpg" srcset="data:image/png;base64,666" alt="2020-04-29_105040" style="zoom:80%;">
 
 <p>而对于不转义的命令的参数：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo *</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200429105236.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429105236.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-29_105224" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200429105236.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429105236.jpg" srcset="data:image/png;base64,666" alt="2020-04-29_105224" style="zoom:80%;">
 
 <p>因此结果就很明显了：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200429104247.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429104247.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-29_104233" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200429104247.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429104247.jpg" srcset="data:image/png;base64,666" alt="2020-04-29_104233" style="zoom:80%;">
 </blockquote>
 
 
 
-<h2 id="十、shell流程控制：条件，循环与函数"><a href="#十、shell流程控制：条件，循环与函数" class="headerlink" title="十、shell流程控制：条件，循环与函数"></a>十、shell流程控制：条件，循环与函数</h2><img src="https://gitee.com/wxy_666/images/raw/master/20200507100115.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507100115.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-07_095339" style="zoom:80%;">
+<h2 id="十、shell流程控制：条件，循环与函数"><a href="#十、shell流程控制：条件，循环与函数" class="headerlink" title="十、shell流程控制：条件，循环与函数"></a>十、shell流程控制：条件，循环与函数</h2><img src="https://gitee.com/wxy_666/images/raw/master/20200507100115.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507100115.jpg" srcset="data:image/png;base64,666" alt="2020-05-07_095339" style="zoom:80%;">
 
 <blockquote><ul>
 <li>B选项：明显的错误，<code>then</code>要么另起一行，要么前面加<code>;</code>。</li>
@@ -830,15 +713,15 @@
 </ul>
 </blockquote>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200507101924.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507101924.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-07_095526" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200507101924.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507101924.jpg" srcset="data:image/png;base64,666" alt="2020-05-07_095526" style="zoom:80%;">
 
 
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200507102056.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507102056.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-07_095602" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200507102056.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507102056.jpg" srcset="data:image/png;base64,666" alt="2020-05-07_095602" style="zoom:80%;">
 
 
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200507102115.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507102115.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-07_095632" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200507102115.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507102115.jpg" srcset="data:image/png;base64,666" alt="2020-05-07_095632" style="zoom:80%;">
 
 
 
@@ -863,7 +746,7 @@
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
     </section>
     <section class="body">
-      <div class="vlts-rps"><a class="item" href="\2020\06\20\Linux-MOOC习题-11~15章\" title="Linux MOOC习题 11~15章" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200507102145.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507102145.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">Linux MOOC习题 11~15章</span><span class="excerpt">自己随便整理了一下在学习Linux网课时遇到的一些习题，易错点之类的，接上文Linux MOOC习题 6~10章。</span></a><a class="item" href="\2020\03\10\Linux-MOOC习题-1~5章\" title="Linux MOOC习题 1~5章" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200428215021.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200428215021.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">Linux MOOC习题 1~5章</span><span class="excerpt">自己随便整理了一下在学习Linux网课时遇到的一些习题，易错点之类的。</span></a><a class="item" href="\2020\04\17\现代交换原理-MOOC习题-1~4章\" title="现代交换原理 MOOC习题 1~4章" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200507105053.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507105053.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">现代交换原理 MOOC习题 1~4章</span><span class="excerpt">自己随便整理了一下在学习“现代交换原理”网课时遇到的一些习题，易错点之类的。</span></a><a class="item" href="\2020\06\20\现代交换原理-MOOC习题-5~6章\" title="现代交换原理 MOOC习题 5~6章" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200518094712.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518094712.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">现代交换原理 MOOC习题 5~6章</span><span class="excerpt">自己随便整理了一下在学习“现代交换原理”网课时遇到的一些习题，易错点之类的。接上一部分现代交换原理 MOOC习题 1~4章。</span></a><a class="item" href="\2020\06\18\大数据-习题\" title="大数据 习题" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200507215355.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507215355.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">大数据 习题</span><span class="excerpt">自己随便整理了一下在学习“大数据”时遇到的一些习题，易错点之类的。</span></a></div></section></div>
+      <div class="vlts-rps"><a class="item" href="\2020\06\20\Linux-MOOC习题-11~15章\" title="Linux MOOC习题 11~15章" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200507102145.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507102145.jpg" srcset="data:image/png;base64,666"><span class="title">Linux MOOC习题 11~15章</span><span class="excerpt">自己随便整理了一下在学习Linux网课时遇到的一些习题，易错点之类的，接上文Linux MOOC习题 6~10章。</span></a><a class="item" href="\2020\03\10\Linux-MOOC习题-1~5章\" title="Linux MOOC习题 1~5章" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200428215021.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200428215021.jpg" srcset="data:image/png;base64,666"><span class="title">Linux MOOC习题 1~5章</span><span class="excerpt">自己随便整理了一下在学习Linux网课时遇到的一些习题，易错点之类的。</span></a><a class="item" href="\2020\04\17\现代交换原理-MOOC习题-1~4章\" title="现代交换原理 MOOC习题 1~4章" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200507105053.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507105053.jpg" srcset="data:image/png;base64,666"><span class="title">现代交换原理 MOOC习题 1~4章</span><span class="excerpt">自己随便整理了一下在学习“现代交换原理”网课时遇到的一些习题，易错点之类的。</span></a><a class="item" href="\2020\06\20\现代交换原理-MOOC习题-5~6章\" title="现代交换原理 MOOC习题 5~6章" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200518094712.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518094712.jpg" srcset="data:image/png;base64,666"><span class="title">现代交换原理 MOOC习题 5~6章</span><span class="excerpt">自己随便整理了一下在学习“现代交换原理”网课时遇到的一些习题，易错点之类的。接上一部分现代交换原理 MOOC习题 1~4章。</span></a><a class="item" href="\2020\06\18\大数据-习题\" title="大数据 习题" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200507215355.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507215355.png" srcset="data:image/png;base64,666"><span class="title">大数据 习题</span><span class="excerpt">自己随便整理了一下在学习“大数据”时遇到的一些习题，易错点之类的。</span></a></div></section></div>
       
       
         <div class="copyright">
@@ -895,9 +778,9 @@
         <div class="donate">
           <div class="imgs">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" srcset="data:image/png;base64,666">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,666">
             
           </div>
         </div>
@@ -937,7 +820,7 @@
       
         <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://666wxy666.github.io/2020/05/12/Linux-MOOC%E4%B9%A0%E9%A2%98-6~10%E7%AB%A0/&title=Linux MOOC习题 6~10章 - 苇名一心的博客&summary=自己随便整理了一下在学习Linux网课时遇到的一些习题，易错点之类的，接上文Linux MOOC习题 1~5章。" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
           
         </a>
       
@@ -945,7 +828,7 @@
       
         <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://666wxy666.github.io/2020/05/12/Linux-MOOC%E4%B9%A0%E9%A2%98-6~10%E7%AB%A0/&title=Linux MOOC习题 6~10章 - 苇名一心的博客&summary=自己随便整理了一下在学习Linux网课时遇到的一些习题，易错点之类的，接上文Linux MOOC习题 1~5章。" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
           
         </a>
       
@@ -953,7 +836,7 @@
       
         <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://666wxy666.github.io/2020/05/12/Linux-MOOC%E4%B9%A0%E9%A2%98-6~10%E7%AB%A0/&title=Linux MOOC习题 6~10章 - 苇名一心的博客&summary=自己随便整理了一下在学习Linux网课时遇到的一些习题，易错点之类的，接上文Linux MOOC习题 1~5章。" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
           
         </a>
       
@@ -991,8 +874,8 @@
         </a>
       
       
-        <a class="next" href="/2020/05/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-%E6%8C%87%E4%BB%A4%E8%B0%83%E5%BA%A6%E4%B8%8E%E5%BB%B6%E8%BF%9F%E5%88%86%E6%94%AF/">
-          <p class="title">计算机系统结构 实验 指令调度与延迟分支<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+        <a class="next" href="/2020/05/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C5-%E6%8C%87%E4%BB%A4%E8%B0%83%E5%BA%A6%E4%B8%8E%E5%BB%B6%E8%BF%9F%E5%88%86%E6%94%AF/">
+          <p class="title">计算机系统结构 实验5 指令调度与延迟分支<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
           <p class="content">本文是关于计算机系统结构实验五，指令调度与延迟分支。
 
 
@@ -1056,6 +939,24 @@
 </aside>
 
 
+
+        
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="Linux MOOC习题 6~10章";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.add("show");
+  
+</script>
 
         
       </div>
@@ -1179,11 +1080,82 @@
   </footer>
 
 
-      <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
     </div>
   </div>
   <div>
-    <!-- required -->
+    <script>
+window.volantis={};
+/********************脚本懒加载函数********************************/
+function loadScript(src, cb) {
+var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+var script = document.createElement('script');
+script.setAttribute('type','text/javascript');
+if (cb) script.onload = cb;
+script.setAttribute('src', src);
+HEAD.appendChild(script);
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<!-- required -->
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
 
@@ -1248,7 +1220,6 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
 
     <script type="text/javascript">
-      $(function(){
         var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
         if ('true' == 'true') {
           function shuffle(arr){
@@ -1263,22 +1234,17 @@
           }
           shuffle(imgs);
         }
-        if ('.cover-backstretch') {
-          $('.cover-backstretch').backstretch(
+	  function Pjax_backstretch(){
+        
+          $('#cover-backstretch').backstretch(
             imgs,
           {
             duration: "10000",
             fade: "1500"
           });
-        } else {
-          $.backstretch(
-            imgs,
-          {
-            duration: "10000",
-            fade: "1500"
-          });
-        }
-      });
+        
+	  }
+	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
     </script>
   
 
@@ -1650,9 +1616,9 @@
   function pjax_valine() {
     if(!document.querySelectorAll("#valine_container")[0])return;
 
-    let pagePlaceholder = $.trim($('#pjax-comment-placeholder').text()) || "快来评论吧~";
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
 
-    let path = $.trim($('#pjax-comment-path').text());
+    let path = pdata.commentPath;
     if (path.length == 0) {
       let defaultPath = '';
       path = defaultPath || decodeURI(window.location.pathname);
@@ -1683,91 +1649,6 @@
   $(function () {
     pjax_valine();
   });
-</script>
-
-
-
-
-  
-<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5/lib/darkmode-js.min.js" aysc></script>
-
-<script type="text/javascript">
-function getClientHeight(){
-  var clientHeight=0;
-  if(document.body.clientHeight&&document.documentElement.clientHeight){
-  var clientHeight = (document.body.clientHeight<document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
-  }else{
-  var clientHeight = (document.body.clientHeight>document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
-  }
-  return clientHeight;
-}
-function supportCss3(style) {
-  var prefix = ['webkit', 'Moz', 'ms', 'o'],
-  i,
-  humpString = [],
-  htmlStyle = document.documentElement.style,
-  _toHumb = function (string) {
-  return string.replace(/-(\w)/g, function ($0, $1) {
-  return $1.toUpperCase();
-  });
-  };
-  for (i in prefix)
-  humpString.push(_toHumb(prefix[i] + '-' + style));
-  humpString.push(_toHumb(style));
-  for (i in humpString)
-  if (humpString[i] in htmlStyle) return true;
-  return false;
-};
-//配置信息
-var options = {
-  bottom: '100px',
-  right: '32px',
-  left: 'unset',
-  time: '0s',
-  mixColor: '#f4f4f4',
-  backgroundColor: '#f4f4f4',
-  buttonColorDark: '#333',
-  buttonColorLight: '#ddd',
-  saveInCookies: true,
-  label: '',
-  autoMatchOsTheme: true
-};
-// 卡片兼容处理 mix-blend-mode 与 effect: [blur] 冲突
-
-function pjax_darkmodejs(){
-  
-  if(!supportCss3('mix-blend-mode'))return;
-  var checkExist2 = setInterval(function() {
-     if (typeof jQuery == 'undefined'){return;}
-     clearInterval(checkExist2);
-     var TopFlag=getClientHeight();
-    $(window).scroll(function(){
-      var top = $(document).scrollTop();
-      if(top > TopFlag) {
-        $(".darkmode-layer").css("mix-blend-mode","normal");
-        $(".darkmode-layer").css("background-color","#222");
-      }else{
-        $(".darkmode-layer").css("mix-blend-mode","difference");
-        $(".darkmode-layer").css("background-color","");
-      }
-    })
-  }, 100);
-  
-}
-// mix-blend-mode support?
-if(supportCss3('mix-blend-mode')){
-  window.darkmode = new Darkmode(options);
-  
-  window.darkmode.showWidget();
-  
-  pjax_darkmodejs();
-}
-////////////////Development///////////////////////
-//////////////darkmode模式切换////////////////////
-//window.darkmode.toggle();                     //
-//////////////darkmode模式判断////////////////////
-//console.log(window.darkmode.isActivated())    //
-//////////////////////////////////////////////////
 </script>
 
 
@@ -2043,7 +1924,227 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
 
 
 
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+  try {
+    localStorage.setItem(k, v);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+const removeLS = (k) => {
+  try {
+    localStorage.removeItem(k);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+const getLS = (k) => {
+  try {
+    return localStorage.getItem(k);
+  } catch (e) {
+    console.log(e.message);
+    return null;
+  }
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+function bindToggleButton() {
+	var btn=$("#wrapper .toggle-mode-btn");
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+$("#wrapper .darkbtn").parents(".header").addClass("toggle-mode-btn")
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+document.addEventListener("pjax:success", bindToggleButton);
+var now = new Date();
+var hour = now.getHours();
+if (hour < 7 && hour >= 19) {
+	var mode = toggleCustomDarkMode();
+	if (mode === "dark") {
+	  applyCustomDarkModeSettings(mode);
+	}
+}
+</script>
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script>
+setTimeout(function() {
+  window.ga_tid = 'UA-162450234-2';
+   (function() {
+	 var dga = document.createElement("script");
+	 dga.src = "https://rmt.dogedoge.com/fetch/public/ga.js";
+	  var s = document.getElementsByTagName("script")[0];
+	  s.parentNode.insertBefore(dga, s);
+  })();
+}, 5000);
+</script>
+
+
+<!-- baidu Analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  setTimeout(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?93c49980dcbfb8920e167f85129d6917";
+	hm.defer=true;
+	var s = document.getElementsByTagName("script")[0];
+	s.parentNode.insertBefore(hm, s);
+  }, 5000);
+})();
+</script>
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
 <!-- more -->
+
+
 
 
     
@@ -2076,6 +2177,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
         elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
         selectors: [
           "title",
+          "#l_cover",
           "#pjax-container",
           "#pjax-header-nav-list"
         ],
@@ -2085,7 +2187,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
     });
 
     document.addEventListener('pjax:send', function (e) {
-      window.stop(); // 相当于点击了浏览器的停止按钮
+      //window.stop(); // 相当于点击了浏览器的停止按钮
 
       try {
         var currentUrl = window.location.pathname;
@@ -2104,12 +2206,12 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
       if (typeof $.fancybox != "undefined") {
         $.fancybox.close();    // 关闭弹窗
       }
-      $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
-      $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
-      $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
 
       // 解绑事件 避免重复监听
-      $('.s-top').unbind('click');
+      volantis.$topBtn.unbind('click');
       $('.menu a').unbind('click');
       $(window).unbind('resize');
       $(window).unbind('scroll');
@@ -2148,22 +2250,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
             pjax_fancybox();
           }
         
-          
-          if ('.cover-backstretch') {
-            $('.cover-backstretch').backstretch("resize");
-            if($('.cover-wrapper').is(':hidden')){
-              $('.cover-backstretch').backstretch("pause");
-            }else{
-              $('.cover-backstretch').backstretch("next");
-            }
-          } else {
-            $.backstretch("resize");
-            if($('.cover-wrapper').is(':hidden')){
-              $.backstretch("pause");
-            }else{
-              $.backstretch("next");
-            }
-          }
+		  Pjax_backstretch()
         
         
         
@@ -2174,9 +2261,6 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
         
         
         
-        
-        
-          pjax_darkmodejs();
         
       } catch (e) {
         console.log(e);

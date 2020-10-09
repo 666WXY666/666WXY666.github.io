@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.0.0">
+<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.1">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
     
   
   <!-- 渲染优化 -->
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="HandheldFriendly" content="True">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta http-equiv="x-dns-prefetch-control" content="on">
 
   <!-- 页面元数据 -->
   
@@ -35,7 +37,6 @@
   
 
   <!-- link -->
-  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   
     
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css">
@@ -72,61 +73,23 @@
 <link rel="stylesheet" href="/css/style.css">
 
   
-  
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script>
-	setTimeout(function() {
-  	  window.ga_tid = 'UA-162450234-2';
- 	   (function() {
- 	     var dga = document.createElement("script");
- 	     dga.src = "https://rmt.dogedoge.com/fetch/public/ga.js";
-	      var s = document.getElementsByTagName("script")[0];
-	      s.parentNode.insertBefore(dga, s);
-	  })();
-	}, 5000);
-    </script>
-  
-  
-    <!-- ba -->
-    <script>
-    var _hmt = _hmt || [];
-    (function() {
-	  setTimeout(function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?93c49980dcbfb8920e167f85129d6917";
-		hm.defer=true;
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-	  }, 5000);
-    })();
-    </script>
-  
-  <!-- 脚本懒加载函数 -->
-  <script>
-  function loadScript(src, cb) {
-    var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
-    var script = document.createElement('script');
-    script.setAttribute('type','text/javascript');
-    if (cb) script.onload = cb;
-    script.setAttribute('src', src);
-    HEAD.appendChild(script);
-  }
-  //https://github.com/filamentgroup/loadCSS
-  !function(c){"use strict";var e=function(e,t,n,r){var o,i=c.document,a=i.createElement("link");if(t)o=t;else{var d=(i.body||i.getElementsByTagName("head")[0]).childNodes;o=d[d.length-1]}var f=i.styleSheets;if(r)for(var l in r)r.hasOwnProperty(l)&&a.setAttribute(l,r[l]);a.rel="stylesheet",a.href=e,a.media="only x",function e(t){if(i.body)return t();setTimeout(function(){e(t)})}(function(){o.parentNode.insertBefore(a,t?o:o.nextSibling)});var s=function(e){for(var t=a.href,n=f.length;n--;)if(f[n].href===t)return e();setTimeout(function(){s(e)})};function u(){a.addEventListener&&a.removeEventListener("load",u),a.media=n||"all"}return a.addEventListener&&a.addEventListener("load",u),(a.onloadcssdefined=s)(u),a};"undefined"!=typeof exports?exports.loadCSS=e:c.loadCSS=e}("undefined"!=typeof global?global:this);
-  </script>
+
   <script id="loadcss"></script>
+
 </head>
 
 <body>
-  <header class="l_header auto shadow floatable blur " style="opacity: 0">
+  
+
+<header id="l_header" class="l_header auto shadow floatable blur show" style="opacity: 0">
   <div class="container">
-  <div class="wrapper">
+  <div id="wrapper">
     <div class="nav-sub">
       <p class="title"></p>
       <ul class="switcher nav-list-h m-phone" id="pjax-header-nav-list">
-        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
         
-          <li><a class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
         
       </ul>
     </div>
@@ -303,39 +266,7 @@
             
           
                     
-                      
-            
-              <hr>
-            
-          
-                    
-                      
-            
-              
-                <li>
-                  <a class="menuitem flat-box">
-                    <i class="fas fa-compact-disc fa-fw music fa-fw music"></i>背景音乐
-                  </a>
-                  <ul class="list-v">
-                    <li>
-                      <div class="aplayer-container">
-                        
-
-  
-    <meting-js theme="#1BCDFC" autoplay="true" volume="0.1" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="1930654125" list-folded="true">
-    </meting-js>
-  
-
-
-                      </div>
-                    </li>
                   </ul>
-                </li><li>
-              
-            
-          
-                    
-                  </li></ul>
                 
               </li>
             
@@ -515,18 +446,6 @@
             
           
                     
-                      
-            
-              <hr>
-            
-          
-                    
-                      
-            
-              
-            
-          
-                    
                   </ul>
                 
               </li>
@@ -541,14 +460,13 @@
   </div>
 </header>
 
-  <div class="l_body">
-    <div class="l_cover">
+  <div id="l_body">
+    <div id="l_cover">
   
     
-    
-        <div class="cover-wrapper post focus" style="display: none;">
+        <div id="full" class="cover-wrapper post focus" style="display: none;">
           
-            <div class="cover-backstretch"></div>
+            <div id="cover-backstretch"></div>
           
           <div class="cover-body">
   <div class="top">
@@ -640,49 +558,14 @@
   </div>
 </div>
 
-          <div class="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
         </div>
     
   
   </div>
-  
-    <div class="safearea">
-      <div class="body-wrapper" id="pjax-container">
-        
-          <!--此文件用来存放一些不方便取值的变量--> 
-<!--思路大概是将值藏到重加载的区域内--> 
- 
- 
- 
-<div id="pjax-data" style="display: none"> 
-  <div id="pjax-ispage">true</div> 
-  <div id="pjax-pageTitle">Linux 上机实战1 正则表达式</div> 
-  <div id="pjax-enable-cover">true</div> 
-  <div id="pjax-comment-path"></div> 
-  <div id="pjax-comment-placeholder"></div> 
-</div> 
- 
- 
-<script> 
-  // 处理封面 此时 jquery 还没加载 
-  if ("none" == "none") { // 移除封面 
-    document.getElementsByClassName('cover-wrapper')[0].style.display = "none"; 
-    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
-  } else { 
-    if ("none" == "half") { // 半屏 
-      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'half'); 
-      document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
-    } else if ("none" == "full") { // 全屏 
-      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'full'); 
-      document.getElementsByClassName('scroll-down')[0].style.display = ""; 
-    } 
-    document.getElementsByClassName('cover-wrapper')[0].style.display = ""; 
-    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.remove("show"); 
-  } 
-</script> 
- 
 
-        
+    <div id="safearea">
+      <div class="body-wrapper" id="pjax-container">
         
 
 <div class="l_main">
@@ -763,94 +646,94 @@
 <h2 id="一、题目要求："><a href="#一、题目要求：" class="headerlink" title="一、题目要求："></a>一、题目要求：</h2><p>​        <strong>从因特网上搜索 Web 页，用 wget 获取网页，处理网页 html 文本数据，从中提取出当前时间点北京各监测站的 PM2.5 浓度，输出如下 CSV 格式数据：</strong><br><strong><em>2020 03 09 13:00:00, 海淀区万柳 ,73<br>2020 03 09 13:00:00, 昌平镇 ,67<br>2020 03 09 13:00:00, 奥体中心 ,66<br>2020 03 09 13:00:00, 海淀区万柳 ,73<br>2020 03 09 13:00:00, 昌平镇 ,73<br>2020 03 09 13:00:00, 奥体中心 ,75</em></strong><br>​        <strong>撰写实验报告，要求：写出对数据的分析和处理思路，列出各个处理步骤并给出解释。</strong></p>
 <h2 id="二、详细步骤："><a href="#二、详细步骤：" class="headerlink" title="二、详细步骤："></a>二、详细步骤：</h2><ol>
 <li><p>从因特网上搜索 Web 页，找到与含有北京各监测站的 PM2.5 浓度的网站，我找到了**<em><a href="http://www.pm25.com/city/beijing.html" target="_blank" rel="external nofollow noopener noreferrer">绿色呼吸网</a>**</em>，网站如下：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203352.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203352.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="1" style="zoom:33%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203352.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203352.jpg" srcset="data:image/png;base64,666" alt="1" style="zoom:33%;">
 </li>
 <li><p>使用**<em>Xshell**</em>登录到Ubuntu服务器：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203420.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203420.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2" style="zoom:33%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203420.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203420.jpg" srcset="data:image/png;base64,666" alt="2" style="zoom:33%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203429.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203429.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="3" style="zoom:33%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203429.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203429.jpg" srcset="data:image/png;base64,666" alt="3" style="zoom:33%;">
 </li>
 <li><p>使用**<em>wget**</em>命令获取该网页：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.pm25.com/city/beijing.html</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203525.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203525.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="4" style="zoom: 80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203525.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203525.jpg" srcset="data:image/png;base64,666" alt="4" style="zoom: 80%;">
 </li>
 <li><p>使用**<em>cat**</em>命令查看该网页的内容：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | more</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203554.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203554.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="5" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203554.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203554.jpg" srcset="data:image/png;base64,666" alt="5" style="zoom:80%;">
 
 <p>我们关注的内容：</p>
 <p>​        ①数据更新的时间：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203608.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203608.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="6" style="zoom:67%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203608.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203608.jpg" srcset="data:image/png;base64,666" alt="6" style="zoom:67%;">
 
 <p>​        ②各监测点PM2.5浓度数据：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203617.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203617.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="7" style="zoom:50%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203617.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203617.jpg" srcset="data:image/png;base64,666" alt="7" style="zoom:50%;">
 </li>
 <li><p>发现时间的地方有个*<strong>“更新时间：”**<em>，监测点名称的地方都有</em></strong>“pjadt_location”*<strong>，而PM2.5浓度的地方都有**<em>“pjadt_pm25”</em></strong>。根据这个特性，先使用*<strong>awk**<em>命令将需要的行保留下来。下面先进行编写</em></strong>1.awk***：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim 1.awk</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://gitee.com/wxy_666/images/raw/master/20200331203629.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203629.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="8"></p>
+<p><img src="https://gitee.com/wxy_666/images/raw/master/20200331203629.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203629.jpg" srcset="data:image/png;base64,666" alt="8"></p>
 <p>运行以下命令，对所需行进行过滤：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | more</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203639.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203639.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="9" style="zoom:50%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203639.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203639.jpg" srcset="data:image/png;base64,666" alt="9" style="zoom:50%;">
 
 <p>发现除了我们想要的行还多出了这几行：</p>
-<p><img src="https://gitee.com/wxy_666/images/raw/master/20200331203656.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203656.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="10"></p>
+<p><img src="https://gitee.com/wxy_666/images/raw/master/20200331203656.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203656.jpg" srcset="data:image/png;base64,666" alt="10"></p>
 <p>经过观察，发现*<strong>“PM2.5”**<em>浓度这一行与我们所需的行的区别是，我们所需的行有</em></strong>μg*<strong>，而**<em>“PM2.5”</em></strong>浓度这一行没有：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203705.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203705.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="11" style="zoom:50%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203705.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203705.jpg" srcset="data:image/png;base64,666" alt="11" style="zoom:50%;">
 
 <p>我们重新对*<strong>“1.awk”**<em>进行编辑，直接将</em></strong>“监测站点”*<strong>这一行排除，并且对**<em>“PM2.5”</em></strong>浓度这一行采用额外的过滤规则:</p>
-<p><img src="https://gitee.com/wxy_666/images/raw/master/20200331203718.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203718.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="12"></p>
+<p><img src="https://gitee.com/wxy_666/images/raw/master/20200331203718.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203718.jpg" srcset="data:image/png;base64,666" alt="12"></p>
 <p>重新运行以下命令，对所需行进行过滤：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | more</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203729.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203729.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="13" style="zoom:50%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203729.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203729.jpg" srcset="data:image/png;base64,666" alt="13" style="zoom:50%;">
 
 <p>发现已经筛选出了所需要的行。</p>
 </li>
 <li><p>现在再利用*<strong>sed**<em>命令将</em></strong>html标签”&lt;&gt;“*<strong>中的内容和**<em>“更新时间：”</em></strong>这个无用的信息删除：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | sed -e 's/&lt;[^&lt;&gt;]*&gt;//g' -e 's/更新时间：//g' | more</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203744.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203744.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="14" style="zoom:50%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203744.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203744.jpg" srcset="data:image/png;base64,666" alt="14" style="zoom:50%;">
 
 <p>发现已经只剩余我们想要的数据。</p>
 </li>
 <li><p>但是这些数据不在同一行，且没有明显特征，无法进行*<strong>awk**<em>命令，因此先使用</em></strong>tr***命令将这些行合并为一行，以空格分隔：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | sed -e 's/&lt;[^&lt;&gt;]*&gt;//g' -e 's/更新时间：//g' | tr '\n' ' ' | more</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203757.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203757.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="15" style="zoom:50%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203757.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203757.jpg" srcset="data:image/png;base64,666" alt="15" style="zoom:50%;">
 </li>
 <li><p>最后利用*<strong>awk**<em>命令将所需内容规格化输出即可，先编辑</em></strong>“2.awk”***：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim 2.awk</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203807.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203807.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="16" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203807.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203807.jpg" srcset="data:image/png;base64,666" alt="16" style="zoom:80%;">
 
 <p>利用*<strong>for**<em>循环输出，</em></strong>NF*<strong>为列数，刚好循环$$(NF-2)/4$$次，第一个**<em>%s</em></strong>为*<strong>日期**<em>，第二个</em></strong>%s*<strong>为**<em>时间</em></strong>，第三个*<strong>%s**<em>为</em></strong>监测点名称*<strong>，第四个**<em>%s</em></strong>为*<strong>PM2.5浓度**<em>，再运行以下</em></strong>awk***命令，即可得到格式化的输出：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | sed -e 's/&lt;[^&lt;&gt;]*&gt;//g' -e 's/更新时间：//g' | tr '\n' ' ' | awk -f 2.awk  | more</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203819.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203819.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="17" style="zoom: 50%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203819.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203819.jpg" srcset="data:image/png;base64,666" alt="17" style="zoom: 50%;">
 
 <p>发现输出已经符合题目要求。</p>
 </li>
 <li><p>将结果重定向到文件**<em>“beijing.csv”**</em>：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | sed -e 's/&lt;[^&lt;&gt;]*&gt;//g' -e 's/更新时间：//g' | tr '\n' ' ' | awk -f 2.awk  &gt; beijing.csv</span><br><span class="line">vim beijing.csv</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203839.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203839.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="18" style="zoom:50%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203839.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203839.jpg" srcset="data:image/png;base64,666" alt="18" style="zoom:50%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203853.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203853.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="19" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203853.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203853.jpg" srcset="data:image/png;base64,666" alt="19" style="zoom:80%;">
 </li>
 <li><p>将*<strong>beijing.csv**<em>发送到电脑，并将编码转为</em></strong>ANSI***：</p>
 </li>
 </ol>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203903.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203903.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="20" style="zoom: 67%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203903.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203903.jpg" srcset="data:image/png;base64,666" alt="20" style="zoom: 67%;">
 
 <ol start="11">
 <li><p>由于不同时间的数据有所不同，因此我的过滤语句考虑了不同时间点的情况*<strong>（北京一共有12个监测点，有时有的监测点没有数据，因此是只有11个监测点的数据）**<em>，直接运行以下命令就可以直接将数据导出为</em></strong>beijing.csv***，以下为另一时间点的数据情况：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.pm25.com/city/beijing.html</span><br><span class="line">cat beijing.html | awk -f 1.awk | sed -e 's/&lt;[^&lt;&gt;]*&gt;//g' -e 's/更新时间：//g' | tr '\n' ' ' | awk -f 2.awk  &gt; beijing.csv</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203916.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203916.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="21" style="zoom:67%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203916.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203916.jpg" srcset="data:image/png;base64,666" alt="21" style="zoom:67%;">
 
 </li>
 </ol>
@@ -868,7 +751,7 @@
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
     </section>
     <section class="body">
-      <div class="vlts-rps"><a class="item" href="\2020\04\20\Linux-上机实战2-遍历目录\" title="Linux 上机实战2 遍历目录" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200413160150.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200413160150.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">Linux 上机实战2 遍历目录</span><span class="excerpt">本文是关于Linux中的ls的简化版，遍历目录小程序。</span></a><a class="item" href="\2020\06\01\Linux-上机实战4-SimpleShell\" title="Linux 上机实战4 SimpleShell" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200521_212437.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200521_212437.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">Linux 上机实战4 SimpleShell</span><span class="excerpt">本文是关于Linux中的一个简单的shell，支持运行多个命令以[;]分割，支持管道和重定向，支持CTRL-C终止内部命令...</span></a><a class="item" href="\2020\09\04\CSAPP-实验集锦\" title="CSAPP 实验集锦" rel="bookmark "><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=CSAPP-Report&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=CSAPP-Report&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">CSAPP 实验集锦</span><span class="excerpt">本文是CSAPP（深入理解计算机系统）项目工程集锦。</span></a><a class="item" href="\2020\06\24\Linux-拓展学习\" title="Linux 拓展学习" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200429205057.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429205057.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">Linux 拓展学习</span><span class="excerpt">简单的写了一些Linux的课外拓展学习的相关知识和问题。</span></a><a class="item" href="\2020\05\10\Linux-上机实战3-shell脚本程序设计\" title="Linux 上机实战3 shell脚本程序设计" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200501212725.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200501212725.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">Linux 上机实战3 shell脚本程序设计</span><span class="excerpt">本文是关于Linux中的shell脚本程序设计，有几个小Demo。</span></a></div></section></div>
+      <div class="vlts-rps"><a class="item" href="\2020\06\01\Linux-上机实战4-SimpleShell\" title="Linux 上机实战4 SimpleShell" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200521_212437.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200521_212437.png" srcset="data:image/png;base64,666"><span class="title">Linux 上机实战4 SimpleShell</span><span class="excerpt">本文是关于Linux中的一个简单的shell，支持运行多个命令以[;]分割，支持管道和重定向，支持CTRL-C终止内部命令...</span></a><a class="item" href="\2020\04\20\Linux-上机实战2-遍历目录\" title="Linux 上机实战2 遍历目录" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200413160150.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200413160150.jpg" srcset="data:image/png;base64,666"><span class="title">Linux 上机实战2 遍历目录</span><span class="excerpt">本文是关于Linux中的ls的简化版，遍历目录小程序。</span></a><a class="item" href="\2020\09\04\CSAPP-实验集锦\" title="CSAPP 实验集锦" rel="bookmark "><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=CSAPP-Report&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=CSAPP-Report&show_owner=true" srcset="data:image/png;base64,666"><span class="title">CSAPP 实验集锦</span><span class="excerpt">本文是CSAPP（深入理解计算机系统）项目工程集锦。</span></a><a class="item" href="\2020\06\24\Linux-拓展学习\" title="Linux 拓展学习" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200429205057.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429205057.jpg" srcset="data:image/png;base64,666"><span class="title">Linux 拓展学习</span><span class="excerpt">简单的写了一些Linux的课外拓展学习的相关知识和问题。</span></a><a class="item" href="\2020\05\10\Linux-上机实战3-shell脚本程序设计\" title="Linux 上机实战3 shell脚本程序设计" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200501212725.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200501212725.jpg" srcset="data:image/png;base64,666"><span class="title">Linux 上机实战3 shell脚本程序设计</span><span class="excerpt">本文是关于Linux中的shell脚本程序设计，有几个小Demo。</span></a></div></section></div>
       
       
         <div class="copyright">
@@ -900,9 +783,9 @@
         <div class="donate">
           <div class="imgs">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" srcset="data:image/png;base64,666">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,666">
             
           </div>
         </div>
@@ -942,7 +825,7 @@
       
         <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://666wxy666.github.io/2020/03/28/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%981-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/&title=Linux 上机实战1 正则表达式 - 苇名一心的博客&summary=本文是关于Linux中的文本处理三剑客（grep，sed，awk），以及正则表达式应用的一个样例，获取北京某时刻PM2.5的数据，然后进行处理，输出到csv文件中，并画图表展示。" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
           
         </a>
       
@@ -950,7 +833,7 @@
       
         <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://666wxy666.github.io/2020/03/28/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%981-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/&title=Linux 上机实战1 正则表达式 - 苇名一心的博客&summary=本文是关于Linux中的文本处理三剑客（grep，sed，awk），以及正则表达式应用的一个样例，获取北京某时刻PM2.5的数据，然后进行处理，输出到csv文件中，并画图表展示。" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
           
         </a>
       
@@ -958,7 +841,7 @@
       
         <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://666wxy666.github.io/2020/03/28/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%981-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/&title=Linux 上机实战1 正则表达式 - 苇名一心的博客&summary=本文是关于Linux中的文本处理三剑客（grep，sed，awk），以及正则表达式应用的一个样例，获取北京某时刻PM2.5的数据，然后进行处理，输出到csv文件中，并画图表展示。" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
           
         </a>
       
@@ -984,8 +867,8 @@
   
     <div class="prev-next">
       
-        <a class="prev" href="/2020/04/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-%E4%BD%BF%E7%94%A8MIPS%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%B3%95/">
-          <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>计算机系统结构 实验 使用MIPS指令实现冒泡排序法</p>
+        <a class="prev" href="/2020/04/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C4-%E4%BD%BF%E7%94%A8MIPS%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%B3%95/">
+          <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>计算机系统结构 实验4 使用MIPS指令实现冒泡排序法</p>
           <p class="content">本文是关于计算机系统结构实验四，使用MIPS指令实现冒泡排序法。
 
 
@@ -1000,8 +883,8 @@
         </a>
       
       
-        <a class="next" href="/2020/03/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-1%E5%92%8C2%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">
-          <p class="title">计算机系统结构 实验 1和2遇到的问题<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+        <a class="next" href="/2020/03/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C1&2-%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">
+          <p class="title">计算机系统结构 实验1和2 遇到的问题<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
           <p class="content">本文是关于计算机系统结构实验一（MIPS指令系统和MIPS体系结构）和实验二（流水线及流水线中的冲突），遇到的一些问题。
 
 
@@ -1062,6 +945,24 @@ H:half word 半字节...</p>
 </aside>
 
 
+
+        
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="Linux 上机实战1 正则表达式";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.add("show");
+  
+</script>
 
         
       </div>
@@ -1185,11 +1086,82 @@ H:half word 半字节...</p>
   </footer>
 
 
-      <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
     </div>
   </div>
   <div>
-    <!-- required -->
+    <script>
+window.volantis={};
+/********************脚本懒加载函数********************************/
+function loadScript(src, cb) {
+var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+var script = document.createElement('script');
+script.setAttribute('type','text/javascript');
+if (cb) script.onload = cb;
+script.setAttribute('src', src);
+HEAD.appendChild(script);
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<!-- required -->
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
 
@@ -1254,7 +1226,6 @@ H:half word 半字节...</p>
 <script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
 
     <script type="text/javascript">
-      $(function(){
         var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
         if ('true' == 'true') {
           function shuffle(arr){
@@ -1269,22 +1240,17 @@ H:half word 半字节...</p>
           }
           shuffle(imgs);
         }
-        if ('.cover-backstretch') {
-          $('.cover-backstretch').backstretch(
+	  function Pjax_backstretch(){
+        
+          $('#cover-backstretch').backstretch(
             imgs,
           {
             duration: "10000",
             fade: "1500"
           });
-        } else {
-          $.backstretch(
-            imgs,
-          {
-            duration: "10000",
-            fade: "1500"
-          });
-        }
-      });
+        
+	  }
+	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
     </script>
   
 
@@ -1656,9 +1622,9 @@ H:half word 半字节...</p>
   function pjax_valine() {
     if(!document.querySelectorAll("#valine_container")[0])return;
 
-    let pagePlaceholder = $.trim($('#pjax-comment-placeholder').text()) || "快来评论吧~";
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
 
-    let path = $.trim($('#pjax-comment-path').text());
+    let path = pdata.commentPath;
     if (path.length == 0) {
       let defaultPath = '';
       path = defaultPath || decodeURI(window.location.pathname);
@@ -1689,91 +1655,6 @@ H:half word 半字节...</p>
   $(function () {
     pjax_valine();
   });
-</script>
-
-
-
-
-  
-<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5/lib/darkmode-js.min.js" aysc></script>
-
-<script type="text/javascript">
-function getClientHeight(){
-  var clientHeight=0;
-  if(document.body.clientHeight&&document.documentElement.clientHeight){
-  var clientHeight = (document.body.clientHeight<document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
-  }else{
-  var clientHeight = (document.body.clientHeight>document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
-  }
-  return clientHeight;
-}
-function supportCss3(style) {
-  var prefix = ['webkit', 'Moz', 'ms', 'o'],
-  i,
-  humpString = [],
-  htmlStyle = document.documentElement.style,
-  _toHumb = function (string) {
-  return string.replace(/-(\w)/g, function ($0, $1) {
-  return $1.toUpperCase();
-  });
-  };
-  for (i in prefix)
-  humpString.push(_toHumb(prefix[i] + '-' + style));
-  humpString.push(_toHumb(style));
-  for (i in humpString)
-  if (humpString[i] in htmlStyle) return true;
-  return false;
-};
-//配置信息
-var options = {
-  bottom: '100px',
-  right: '32px',
-  left: 'unset',
-  time: '0s',
-  mixColor: '#f4f4f4',
-  backgroundColor: '#f4f4f4',
-  buttonColorDark: '#333',
-  buttonColorLight: '#ddd',
-  saveInCookies: true,
-  label: '',
-  autoMatchOsTheme: true
-};
-// 卡片兼容处理 mix-blend-mode 与 effect: [blur] 冲突
-
-function pjax_darkmodejs(){
-  
-  if(!supportCss3('mix-blend-mode'))return;
-  var checkExist2 = setInterval(function() {
-     if (typeof jQuery == 'undefined'){return;}
-     clearInterval(checkExist2);
-     var TopFlag=getClientHeight();
-    $(window).scroll(function(){
-      var top = $(document).scrollTop();
-      if(top > TopFlag) {
-        $(".darkmode-layer").css("mix-blend-mode","normal");
-        $(".darkmode-layer").css("background-color","#222");
-      }else{
-        $(".darkmode-layer").css("mix-blend-mode","difference");
-        $(".darkmode-layer").css("background-color","");
-      }
-    })
-  }, 100);
-  
-}
-// mix-blend-mode support?
-if(supportCss3('mix-blend-mode')){
-  window.darkmode = new Darkmode(options);
-  
-  window.darkmode.showWidget();
-  
-  pjax_darkmodejs();
-}
-////////////////Development///////////////////////
-//////////////darkmode模式切换////////////////////
-//window.darkmode.toggle();                     //
-//////////////darkmode模式判断////////////////////
-//console.log(window.darkmode.isActivated())    //
-//////////////////////////////////////////////////
 </script>
 
 
@@ -2049,7 +1930,227 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
 
 
 
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+  try {
+    localStorage.setItem(k, v);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+const removeLS = (k) => {
+  try {
+    localStorage.removeItem(k);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+const getLS = (k) => {
+  try {
+    return localStorage.getItem(k);
+  } catch (e) {
+    console.log(e.message);
+    return null;
+  }
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+function bindToggleButton() {
+	var btn=$("#wrapper .toggle-mode-btn");
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+$("#wrapper .darkbtn").parents(".header").addClass("toggle-mode-btn")
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+document.addEventListener("pjax:success", bindToggleButton);
+var now = new Date();
+var hour = now.getHours();
+if (hour < 7 && hour >= 19) {
+	var mode = toggleCustomDarkMode();
+	if (mode === "dark") {
+	  applyCustomDarkModeSettings(mode);
+	}
+}
+</script>
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script>
+setTimeout(function() {
+  window.ga_tid = 'UA-162450234-2';
+   (function() {
+	 var dga = document.createElement("script");
+	 dga.src = "https://rmt.dogedoge.com/fetch/public/ga.js";
+	  var s = document.getElementsByTagName("script")[0];
+	  s.parentNode.insertBefore(dga, s);
+  })();
+}, 5000);
+</script>
+
+
+<!-- baidu Analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  setTimeout(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?93c49980dcbfb8920e167f85129d6917";
+	hm.defer=true;
+	var s = document.getElementsByTagName("script")[0];
+	s.parentNode.insertBefore(hm, s);
+  }, 5000);
+})();
+</script>
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
 <!-- more -->
+
+
 
 
     
@@ -2082,6 +2183,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
         elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
         selectors: [
           "title",
+          "#l_cover",
           "#pjax-container",
           "#pjax-header-nav-list"
         ],
@@ -2091,7 +2193,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
     });
 
     document.addEventListener('pjax:send', function (e) {
-      window.stop(); // 相当于点击了浏览器的停止按钮
+      //window.stop(); // 相当于点击了浏览器的停止按钮
 
       try {
         var currentUrl = window.location.pathname;
@@ -2110,12 +2212,12 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
       if (typeof $.fancybox != "undefined") {
         $.fancybox.close();    // 关闭弹窗
       }
-      $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
-      $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
-      $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
 
       // 解绑事件 避免重复监听
-      $('.s-top').unbind('click');
+      volantis.$topBtn.unbind('click');
       $('.menu a').unbind('click');
       $(window).unbind('resize');
       $(window).unbind('scroll');
@@ -2154,22 +2256,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
             pjax_fancybox();
           }
         
-          
-          if ('.cover-backstretch') {
-            $('.cover-backstretch').backstretch("resize");
-            if($('.cover-wrapper').is(':hidden')){
-              $('.cover-backstretch').backstretch("pause");
-            }else{
-              $('.cover-backstretch').backstretch("next");
-            }
-          } else {
-            $.backstretch("resize");
-            if($('.cover-wrapper').is(':hidden')){
-              $.backstretch("pause");
-            }else{
-              $.backstretch("next");
-            }
-          }
+		  Pjax_backstretch()
         
         
         
@@ -2180,9 +2267,6 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
         
         
         
-        
-        
-          pjax_darkmodejs();
         
       } catch (e) {
         console.log(e);

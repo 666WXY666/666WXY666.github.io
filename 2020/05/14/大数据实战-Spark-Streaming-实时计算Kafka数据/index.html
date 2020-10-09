@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.0.0">
+<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.1">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
     
   
   <!-- 渲染优化 -->
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="HandheldFriendly" content="True">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta http-equiv="x-dns-prefetch-control" content="on">
 
   <!-- 页面元数据 -->
   
   <title>大数据实战 Spark Streaming 实时计算Kafka数据 - 苇名一心的博客</title>
   
-    <meta name="keywords" content="实战,大数据,Spark,流计算,单词计数,Streaming,Scala,Kafka">
+    <meta name="keywords" content="实战,大数据,单词计数,Spark,Scala,流计算,Streaming,Kafka">
   
 
   
@@ -35,7 +37,6 @@
   
 
   <!-- link -->
-  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   
     
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css">
@@ -72,61 +73,23 @@
 <link rel="stylesheet" href="/css/style.css">
 
   
-  
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script>
-	setTimeout(function() {
-  	  window.ga_tid = 'UA-162450234-2';
- 	   (function() {
- 	     var dga = document.createElement("script");
- 	     dga.src = "https://rmt.dogedoge.com/fetch/public/ga.js";
-	      var s = document.getElementsByTagName("script")[0];
-	      s.parentNode.insertBefore(dga, s);
-	  })();
-	}, 5000);
-    </script>
-  
-  
-    <!-- ba -->
-    <script>
-    var _hmt = _hmt || [];
-    (function() {
-	  setTimeout(function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?93c49980dcbfb8920e167f85129d6917";
-		hm.defer=true;
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-	  }, 5000);
-    })();
-    </script>
-  
-  <!-- 脚本懒加载函数 -->
-  <script>
-  function loadScript(src, cb) {
-    var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
-    var script = document.createElement('script');
-    script.setAttribute('type','text/javascript');
-    if (cb) script.onload = cb;
-    script.setAttribute('src', src);
-    HEAD.appendChild(script);
-  }
-  //https://github.com/filamentgroup/loadCSS
-  !function(c){"use strict";var e=function(e,t,n,r){var o,i=c.document,a=i.createElement("link");if(t)o=t;else{var d=(i.body||i.getElementsByTagName("head")[0]).childNodes;o=d[d.length-1]}var f=i.styleSheets;if(r)for(var l in r)r.hasOwnProperty(l)&&a.setAttribute(l,r[l]);a.rel="stylesheet",a.href=e,a.media="only x",function e(t){if(i.body)return t();setTimeout(function(){e(t)})}(function(){o.parentNode.insertBefore(a,t?o:o.nextSibling)});var s=function(e){for(var t=a.href,n=f.length;n--;)if(f[n].href===t)return e();setTimeout(function(){s(e)})};function u(){a.addEventListener&&a.removeEventListener("load",u),a.media=n||"all"}return a.addEventListener&&a.addEventListener("load",u),(a.onloadcssdefined=s)(u),a};"undefined"!=typeof exports?exports.loadCSS=e:c.loadCSS=e}("undefined"!=typeof global?global:this);
-  </script>
+
   <script id="loadcss"></script>
+
 </head>
 
 <body>
-  <header class="l_header auto shadow floatable blur " style="opacity: 0">
+  
+
+<header id="l_header" class="l_header auto shadow floatable blur show" style="opacity: 0">
   <div class="container">
-  <div class="wrapper">
+  <div id="wrapper">
     <div class="nav-sub">
       <p class="title"></p>
       <ul class="switcher nav-list-h m-phone" id="pjax-header-nav-list">
-        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
         
-          <li><a class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
         
       </ul>
     </div>
@@ -303,39 +266,7 @@
             
           
                     
-                      
-            
-              <hr>
-            
-          
-                    
-                      
-            
-              
-                <li>
-                  <a class="menuitem flat-box">
-                    <i class="fas fa-compact-disc fa-fw music fa-fw music"></i>背景音乐
-                  </a>
-                  <ul class="list-v">
-                    <li>
-                      <div class="aplayer-container">
-                        
-
-  
-    <meting-js theme="#1BCDFC" autoplay="true" volume="0.1" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="1930654125" list-folded="true">
-    </meting-js>
-  
-
-
-                      </div>
-                    </li>
                   </ul>
-                </li><li>
-              
-            
-          
-                    
-                  </li></ul>
                 
               </li>
             
@@ -515,18 +446,6 @@
             
           
                     
-                      
-            
-              <hr>
-            
-          
-                    
-                      
-            
-              
-            
-          
-                    
                   </ul>
                 
               </li>
@@ -541,14 +460,13 @@
   </div>
 </header>
 
-  <div class="l_body">
-    <div class="l_cover">
+  <div id="l_body">
+    <div id="l_cover">
   
     
-    
-        <div class="cover-wrapper post focus" style="display: none;">
+        <div id="full" class="cover-wrapper post focus" style="display: none;">
           
-            <div class="cover-backstretch"></div>
+            <div id="cover-backstretch"></div>
           
           <div class="cover-body">
   <div class="top">
@@ -640,49 +558,14 @@
   </div>
 </div>
 
-          <div class="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
         </div>
     
   
   </div>
-  
-    <div class="safearea">
-      <div class="body-wrapper" id="pjax-container">
-        
-          <!--此文件用来存放一些不方便取值的变量--> 
-<!--思路大概是将值藏到重加载的区域内--> 
- 
- 
- 
-<div id="pjax-data" style="display: none"> 
-  <div id="pjax-ispage">true</div> 
-  <div id="pjax-pageTitle">大数据实战 Spark Streaming 实时计算Kafka数据</div> 
-  <div id="pjax-enable-cover">true</div> 
-  <div id="pjax-comment-path"></div> 
-  <div id="pjax-comment-placeholder"></div> 
-</div> 
- 
- 
-<script> 
-  // 处理封面 此时 jquery 还没加载 
-  if ("none" == "none") { // 移除封面 
-    document.getElementsByClassName('cover-wrapper')[0].style.display = "none"; 
-    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
-  } else { 
-    if ("none" == "half") { // 半屏 
-      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'half'); 
-      document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
-    } else if ("none" == "full") { // 全屏 
-      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'full'); 
-      document.getElementsByClassName('scroll-down')[0].style.display = ""; 
-    } 
-    document.getElementsByClassName('cover-wrapper')[0].style.display = ""; 
-    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.remove("show"); 
-  } 
-</script> 
- 
 
-        
+    <div id="safearea">
+      <div class="body-wrapper" id="pjax-container">
         
 
 <div class="l_main">
@@ -782,99 +665,99 @@
 </ul>
 <h2 id="三、实验步骤："><a href="#三、实验步骤：" class="headerlink" title="三、实验步骤："></a>三、实验步骤：</h2><h3 id="3-1打开IDEA软件"><a href="#3-1打开IDEA软件" class="headerlink" title="3.1打开IDEA软件"></a>3.1打开IDEA软件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd</span><br><span class="line">cd idea-IC-172.4574.19/</span><br><span class="line">bin/idea.sh &amp;</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200518184342.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518184342.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-18_160617" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200518184342.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518184342.jpg" srcset="data:image/png;base64,666" alt="2020-05-18_160617" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200518184356.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518184356.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-18_160648" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200518184356.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518184356.jpg" srcset="data:image/png;base64,666" alt="2020-05-18_160648" style="zoom:80%;">
 
 
 
 <h3 id="3-2创建项目"><a href="#3-2创建项目" class="headerlink" title="3.2创建项目"></a>3.2创建项目</h3><p>3.2.1创建同之前章节结构一致的项目spark_test, 设置语言级别为8。</p>
 <p>3.2.2点击 Create New Project，进入如下图界面，按照图标依次点击，最后点击next。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200423211601.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200423211601.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-23_185224" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200423211601.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200423211601.jpg" srcset="data:image/png;base64,666" alt="2020-04-23_185224" style="zoom:80%;">
 
 <p>3.2.3依次输入GroupId和ArtifactId和Version的值，随后点击next。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200423211619.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200423211619.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-23_185405" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200423211619.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200423211619.jpg" srcset="data:image/png;base64,666" alt="2020-04-23_185405" style="zoom:80%;">
 
 <p>3.2.4进入如下界面，设置本地Maven项目的setting.xml文件和warehouse仓库，点击next按钮。</p>
 <p>3.2.4.1本地setting.xml文件在/home/zkpk/apache-maven-3.5.0/conf目录下。</p>
 <p>3.2.4.2本地仓库文件夹warehouse在/home/zkpk/apache-maven-3.5.0/warehouse。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200423211646.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200423211646.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-23_185452" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200423211646.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200423211646.jpg" srcset="data:image/png;base64,666" alt="2020-04-23_185452" style="zoom:80%;">
 
 <p>3.2.5进入如下界面，输入工程名称spark_test，然后点击next，OK。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200423211749.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200423211749.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-23_185533" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200423211749.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200423211749.jpg" srcset="data:image/png;base64,666" alt="2020-04-23_185533" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200423211810.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200423211810.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-23_185546" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200423211810.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200423211810.jpg" srcset="data:image/png;base64,666" alt="2020-04-23_185546" style="zoom:80%;">
 
 <p>3.2.6工程创建完成后会自动打开一个名为zkpk的xml文件，按照以下修改：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.zkpk.lab<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>zkpk<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">inceptionYear</span>&gt;</span>2008<span class="tag">&lt;/<span class="name">inceptionYear</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scala.version</span>&gt;</span>2.11.11<span class="tag">&lt;/<span class="name">scala.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">spark.version</span>&gt;</span>2.1.1<span class="tag">&lt;/<span class="name">spark.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">hadoop.version</span>&gt;</span>2.7.3<span class="tag">&lt;/<span class="name">hadoop.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">kafka.version</span>&gt;</span>0.10.2.1<span class="tag">&lt;/<span class="name">kafka.version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">repositories</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>scala-tools.org<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>Scala-Tools Maven2 Repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://scala-tools.org/repo-releases<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">pluginRepositories</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pluginRepository</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>scala-tools.org<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>Scala-Tools Maven2 Repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://scala-tools.org/repo-releases<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">pluginRepository</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">pluginRepositories</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.scala-lang<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>scala-library<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;scala.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.spark<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spark-core_2.11<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spark.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.spark<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spark-sql_2.11<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spark.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.spark<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spark-streaming_2.11<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spark.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.spark<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spark-streaming-kafka-0-10_2.11<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spark.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.kafka<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>kafka_2.11<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;kafka.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">sourceDirectory</span>&gt;</span>src/main/scala<span class="tag">&lt;/<span class="name">sourceDirectory</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.scala-tools<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-scala-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">goal</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">goal</span>&gt;</span>testCompile<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">scalaVersion</span>&gt;</span>$&#123;scala.version&#125;<span class="tag">&lt;/<span class="name">scalaVersion</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">args</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">arg</span>&gt;</span>-target:jvm-1.5<span class="tag">&lt;/<span class="name">arg</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">args</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-eclipse-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">downloadSources</span>&gt;</span>true<span class="tag">&lt;/<span class="name">downloadSources</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">buildcommands</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">buildcommand</span>&gt;</span>ch.epfl.lamp.sdt.core.scalabuilder<span class="tag">&lt;/<span class="name">buildcommand</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">buildcommands</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">additionalProjectnatures</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">projectnature</span>&gt;</span>ch.epfl.lamp.sdt.core.scalanature<span class="tag">&lt;/<span class="name">projectnature</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">additionalProjectnatures</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">classpathContainers</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">classpathContainer</span>&gt;</span>org.eclipse.jdt.launching.JRE_CONTAINER<span class="tag">&lt;/<span class="name">classpathContainer</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">classpathContainer</span>&gt;</span>ch.epfl.lamp.sdt.launching.SCALA_CONTAINER<span class="tag">&lt;/<span class="name">classpathContainer</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">classpathContainers</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">reporting</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.scala-tools<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-scala-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">scalaVersion</span>&gt;</span>$&#123;scala.version&#125;<span class="tag">&lt;/<span class="name">scalaVersion</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">reporting</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>3.2.7保存修改的pom.xml文件后，点击工程名，依次选择Maven——&gt;Reimport，即可根据pom.xml文件导入依赖包。</p>
 <p>3.2.8设置语言环境language level，点击菜单栏中的file，选择Project Structure，弹出如下对话框，选择Modules，选择Language level为8，然后点击Apply，点击OK。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200423212331.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200423212331.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-23_190537" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200423212331.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200423212331.jpg" srcset="data:image/png;base64,666" alt="2020-04-23_190537" style="zoom:80%;">
 
 <p>3.2.9设置Java Compiler环境，点击菜单栏中的file，选择Setting，弹出如下对话框，依次选择Build，Execution——&gt;Compiler——&gt;Java Compiler，设置图中的Project bytecode version为1.8，设置图中的Target bytecode version为1.8，然后依次点击Apply和OK。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200423212433.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200423212433.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-23_190657" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200423212433.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200423212433.jpg" srcset="data:image/png;base64,666" alt="2020-04-23_190657" style="zoom:80%;">
 
 <p>至此，Spark Maven工程创建完毕。</p>
 <p>3.2.10在项目sclaa文件下的org.zkpk.lab下新建“kafka_streaming”Object。</p>
 <p>创建完成后的工程结构：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200518184547.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518184547.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-18_163207" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200518184547.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518184547.jpg" srcset="data:image/png;base64,666" alt="2020-05-18_163207" style="zoom:80%;">
 
 
 
 <h3 id="3-3编写scala代码"><a href="#3-3编写scala代码" class="headerlink" title="3.3编写scala代码"></a>3.3编写scala代码</h3><p>下面是部分代码截图，具体代码在本文的附录中。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200518184610.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518184610.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-18_170115" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200518184610.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518184610.jpg" srcset="data:image/png;base64,666" alt="2020-05-18_170115" style="zoom:80%;">
 
 <h3 id="3-4使用maven打包程序"><a href="#3-4使用maven打包程序" class="headerlink" title="3.4使用maven打包程序"></a>3.4使用maven打包程序</h3><p>开始打包。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200518184749.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518184749.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-18_170203" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200518184749.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518184749.jpg" srcset="data:image/png;base64,666" alt="2020-05-18_170203" style="zoom:80%;">
 
 <p>打包完成。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200518184800.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518184800.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-18_170204" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200518184800.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518184800.jpg" srcset="data:image/png;base64,666" alt="2020-05-18_170204" style="zoom:80%;">
 
 <h3 id="3-5启动Zookeeper集群"><a href="#3-5启动Zookeeper集群" class="headerlink" title="3.5启动Zookeeper集群"></a>3.5启动Zookeeper集群</h3><p>3.5.1分别登录master和slave01、slave02节点，进入zookeeper安装目录，启动服务。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200518184917.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518184917.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-18_170527" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200518184917.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518184917.jpg" srcset="data:image/png;base64,666" alt="2020-05-18_170527" style="zoom:80%;">
 
 <p>3.5.2在三个节点上分别运行<code>bin/zkServer.sh status</code>命令查看状态，出现follower或leader表示ZK启动成功。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200518185007.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518185007.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-18_170817" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200518185007.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518185007.jpg" srcset="data:image/png;base64,666" alt="2020-05-18_170817" style="zoom:80%;">
 
 <h3 id="3-6启动Kafka集群"><a href="#3-6启动Kafka集群" class="headerlink" title="3.6启动Kafka集群"></a>3.6启动Kafka集群</h3><p>在 master 和 slave01、slave02节点分别启动 Kafka。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200518185051.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518185051.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-18_171119" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200518185051.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518185051.jpg" srcset="data:image/png;base64,666" alt="2020-05-18_171119" style="zoom:80%;">
 
 <h3 id="3-7创建Kafka-topic"><a href="#3-7创建Kafka-topic" class="headerlink" title="3.7创建Kafka topic"></a>3.7创建Kafka topic</h3><p>名称需要和代码中保持一致。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200518191546.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518191546.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-18_171340" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200518191546.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518191546.jpg" srcset="data:image/png;base64,666" alt="2020-05-18_171340" style="zoom:80%;">
 
-<h3 id="3-8在一个终端上启动一个生产者-准备生产"><a href="#3-8在一个终端上启动一个生产者-准备生产" class="headerlink" title="3.8在一个终端上启动一个生产者,准备生产"></a>3.8在一个终端上启动一个生产者,准备生产</h3><img src="https://gitee.com/wxy_666/images/raw/master/20200518191639.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518191639.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-18_171502" style="zoom:80%;">
+<h3 id="3-8在一个终端上启动一个生产者-准备生产"><a href="#3-8在一个终端上启动一个生产者-准备生产" class="headerlink" title="3.8在一个终端上启动一个生产者,准备生产"></a>3.8在一个终端上启动一个生产者,准备生产</h3><img src="https://gitee.com/wxy_666/images/raw/master/20200518191639.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518191639.jpg" srcset="data:image/png;base64,666" alt="2020-05-18_171502" style="zoom:80%;">
 
 <h3 id="3-9使用spark-submit提交spark-应用"><a href="#3-9使用spark-submit提交spark-应用" class="headerlink" title="3.9使用spark-submit提交spark 应用"></a>3.9使用spark-submit提交spark 应用</h3><p>3.9.1将生成的jar包文件复制到/home/zkpk下。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200518191855.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518191855.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-18_171718" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200518191855.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518191855.jpg" srcset="data:image/png;base64,666" alt="2020-05-18_171718" style="zoom:80%;">
 
 <p>3.9.2提交sparkjob之前需要将spark-streaming-kafka-0-10_2.11-2.1.0，kafka-clients-0.10.2.这两个jar添加到spark_home/jars/路径下，否则程序提交会报错。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200518191929.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518191929.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-18_172111" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200518191929.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518191929.jpg" srcset="data:image/png;base64,666" alt="2020-05-18_172111" style="zoom:80%;">
 
 <p>3.9.3新开一个终端，在/home/zkpk目录下提交程序。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-submit --class org.zkpk.lab.kafka_streaming zkpk-1.0.jar</span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200518191955.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518191955.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-18_174524" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200518191955.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518191955.jpg" srcset="data:image/png;base64,666" alt="2020-05-18_174524" style="zoom:80%;">
 
 <h3 id="3-10输入内容，查看结果"><a href="#3-10输入内容，查看结果" class="headerlink" title="3.10输入内容，查看结果"></a>3.10输入内容，查看结果</h3><p>切换到之前的Kafka生产者终端中输入如下内容，然后切换到sparkStreaming任务界面查看结果。</p>
 <ul>
 <li><p>输入：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200518192227.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518192227.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-18_174619" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200518192227.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518192227.jpg" srcset="data:image/png;base64,666" alt="2020-05-18_174619" style="zoom:80%;">
 
 <p>结果：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200518192249.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518192249.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-18_174609" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200518192249.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518192249.jpg" srcset="data:image/png;base64,666" alt="2020-05-18_174609" style="zoom:80%;">
 </li>
 <li><p>输入：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200518192408.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518192408.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-18_174732" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200518192408.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518192408.jpg" srcset="data:image/png;base64,666" alt="2020-05-18_174732" style="zoom:80%;">
 
 <p>结果：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200518192418.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518192418.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-18_174721" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200518192418.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518192418.jpg" srcset="data:image/png;base64,666" alt="2020-05-18_174721" style="zoom:80%;">
 </li>
 <li><p>输入：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200518192431.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518192431.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-18_174825" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200518192431.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518192431.jpg" srcset="data:image/png;base64,666" alt="2020-05-18_174825" style="zoom:80%;">
 
 <p>结果：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200518192450.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518192450.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-18_174817" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200518192450.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518192450.jpg" srcset="data:image/png;base64,666" alt="2020-05-18_174817" style="zoom:80%;">
 
 </li>
 </ul>
@@ -893,7 +776,7 @@
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
     </section>
     <section class="body">
-      <div class="vlts-rps"><a class="item" href="\2020\07\21\大数据实战-Spark-自选日志分析\" title="大数据实战 Spark 自选日志分析" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200603145855.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603145855.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">大数据实战 Spark 自选日志分析</span><span class="excerpt">本文是关于大数据通过Java进行Spark编程实现自选日志处理分析。</span></a><a class="item" href="\2020\03\15\大数据实战-Spark-Java单词计数\" title="大数据实战 Spark Java单词计数" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200423203009.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200423203009.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">大数据实战 Spark Java单词计数</span><span class="excerpt">本文是关于大数据通过Spark实现Java单词计数。</span></a><a class="item" href="\2020\07\20\大数据实战-Spark-分析流量日志\" title="大数据实战 Spark 分析流量日志" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200603142941.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603142941.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">大数据实战 Spark 分析流量日志</span><span class="excerpt">本文是关于大数据通过Java进行Spark编程实现日志处理分析。</span></a><a class="item" href="\2020\06\10\大数据实战-Python可视化-Matplotlib可视化\" title="大数据实战 Python可视化 Matplotlib可视化" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200602123119.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123119.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">大数据实战 Python可视化 Matplotlib可视化</span><span class="excerpt">本文是关于大数据通过Python的Matplotlib实现数据可视化。</span></a></div></section></div>
+      <div class="vlts-rps"><a class="item" href="\2020\07\21\大数据实战-Spark-自选日志分析\" title="大数据实战 Spark 自选日志分析" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200603145855.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603145855.jpg" srcset="data:image/png;base64,666"><span class="title">大数据实战 Spark 自选日志分析</span><span class="excerpt">本文是关于大数据通过Java进行Spark编程实现自选日志处理分析。</span></a><a class="item" href="\2020\03\15\大数据实战-Spark-Java单词计数\" title="大数据实战 Spark Java单词计数" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200423203009.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200423203009.jpg" srcset="data:image/png;base64,666"><span class="title">大数据实战 Spark Java单词计数</span><span class="excerpt">本文是关于大数据通过Spark实现Java单词计数。</span></a><a class="item" href="\2020\07\20\大数据实战-Spark-分析流量日志\" title="大数据实战 Spark 分析流量日志" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200603142941.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603142941.png" srcset="data:image/png;base64,666"><span class="title">大数据实战 Spark 分析流量日志</span><span class="excerpt">本文是关于大数据通过Java进行Spark编程实现日志处理分析。</span></a><a class="item" href="\2020\06\10\大数据实战-Python可视化-Matplotlib可视化\" title="大数据实战 Python可视化 Matplotlib可视化" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200602123119.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123119.jpg" srcset="data:image/png;base64,666"><span class="title">大数据实战 Python可视化 Matplotlib可视化</span><span class="excerpt">本文是关于大数据通过Python的Matplotlib实现数据可视化。</span></a></div></section></div>
       
       
         <div class="copyright">
@@ -925,9 +808,9 @@
         <div class="donate">
           <div class="imgs">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" srcset="data:image/png;base64,666">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,666">
             
           </div>
         </div>
@@ -954,7 +837,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%AE%9E%E6%88%98/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>实战</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>大数据</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Spark/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Spark</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>流计算</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%8D%95%E8%AF%8D%E8%AE%A1%E6%95%B0/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>单词计数</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Streaming/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Streaming</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Scala/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Scala</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Kafka/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Kafka</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%AE%9E%E6%88%98/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>实战</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>大数据</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%8D%95%E8%AF%8D%E8%AE%A1%E6%95%B0/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>单词计数</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Spark/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Spark</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Scala/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Scala</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>流计算</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Streaming/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Streaming</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Kafka/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Kafka</p></a></div>
 
 
         
@@ -967,7 +850,7 @@
       
         <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://666wxy666.github.io/2020/05/14/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Spark-Streaming-%E5%AE%9E%E6%97%B6%E8%AE%A1%E7%AE%97Kafka%E6%95%B0%E6%8D%AE/&title=大数据实战 Spark Streaming 实时计算Kafka数据 - 苇名一心的博客&summary=本文是关于大数据通过Spark Streaming实现流计算Kafka数据进行单词计数。" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
           
         </a>
       
@@ -975,7 +858,7 @@
       
         <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://666wxy666.github.io/2020/05/14/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Spark-Streaming-%E5%AE%9E%E6%97%B6%E8%AE%A1%E7%AE%97Kafka%E6%95%B0%E6%8D%AE/&title=大数据实战 Spark Streaming 实时计算Kafka数据 - 苇名一心的博客&summary=本文是关于大数据通过Spark Streaming实现流计算Kafka数据进行单词计数。" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
           
         </a>
       
@@ -983,7 +866,7 @@
       
         <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://666wxy666.github.io/2020/05/14/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Spark-Streaming-%E5%AE%9E%E6%97%B6%E8%AE%A1%E7%AE%97Kafka%E6%95%B0%E6%8D%AE/&title=大数据实战 Spark Streaming 实时计算Kafka数据 - 苇名一心的博客&summary=本文是关于大数据通过Spark Streaming实现流计算Kafka数据进行单词计数。" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
           
         </a>
       
@@ -1084,6 +967,24 @@ PS：第七章是上机实验。
 </aside>
 
 
+
+        
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="大数据实战 Spark Streaming 实时计算Kafka数据";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.add("show");
+  
+</script>
 
         
       </div>
@@ -1207,11 +1108,82 @@ PS：第七章是上机实验。
   </footer>
 
 
-      <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
     </div>
   </div>
   <div>
-    <!-- required -->
+    <script>
+window.volantis={};
+/********************脚本懒加载函数********************************/
+function loadScript(src, cb) {
+var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+var script = document.createElement('script');
+script.setAttribute('type','text/javascript');
+if (cb) script.onload = cb;
+script.setAttribute('src', src);
+HEAD.appendChild(script);
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<!-- required -->
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
 
@@ -1276,7 +1248,6 @@ PS：第七章是上机实验。
 <script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
 
     <script type="text/javascript">
-      $(function(){
         var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
         if ('true' == 'true') {
           function shuffle(arr){
@@ -1291,22 +1262,17 @@ PS：第七章是上机实验。
           }
           shuffle(imgs);
         }
-        if ('.cover-backstretch') {
-          $('.cover-backstretch').backstretch(
+	  function Pjax_backstretch(){
+        
+          $('#cover-backstretch').backstretch(
             imgs,
           {
             duration: "10000",
             fade: "1500"
           });
-        } else {
-          $.backstretch(
-            imgs,
-          {
-            duration: "10000",
-            fade: "1500"
-          });
-        }
-      });
+        
+	  }
+	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
     </script>
   
 
@@ -1678,9 +1644,9 @@ PS：第七章是上机实验。
   function pjax_valine() {
     if(!document.querySelectorAll("#valine_container")[0])return;
 
-    let pagePlaceholder = $.trim($('#pjax-comment-placeholder').text()) || "快来评论吧~";
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
 
-    let path = $.trim($('#pjax-comment-path').text());
+    let path = pdata.commentPath;
     if (path.length == 0) {
       let defaultPath = '';
       path = defaultPath || decodeURI(window.location.pathname);
@@ -1711,91 +1677,6 @@ PS：第七章是上机实验。
   $(function () {
     pjax_valine();
   });
-</script>
-
-
-
-
-  
-<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5/lib/darkmode-js.min.js" aysc></script>
-
-<script type="text/javascript">
-function getClientHeight(){
-  var clientHeight=0;
-  if(document.body.clientHeight&&document.documentElement.clientHeight){
-  var clientHeight = (document.body.clientHeight<document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
-  }else{
-  var clientHeight = (document.body.clientHeight>document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
-  }
-  return clientHeight;
-}
-function supportCss3(style) {
-  var prefix = ['webkit', 'Moz', 'ms', 'o'],
-  i,
-  humpString = [],
-  htmlStyle = document.documentElement.style,
-  _toHumb = function (string) {
-  return string.replace(/-(\w)/g, function ($0, $1) {
-  return $1.toUpperCase();
-  });
-  };
-  for (i in prefix)
-  humpString.push(_toHumb(prefix[i] + '-' + style));
-  humpString.push(_toHumb(style));
-  for (i in humpString)
-  if (humpString[i] in htmlStyle) return true;
-  return false;
-};
-//配置信息
-var options = {
-  bottom: '100px',
-  right: '32px',
-  left: 'unset',
-  time: '0s',
-  mixColor: '#f4f4f4',
-  backgroundColor: '#f4f4f4',
-  buttonColorDark: '#333',
-  buttonColorLight: '#ddd',
-  saveInCookies: true,
-  label: '',
-  autoMatchOsTheme: true
-};
-// 卡片兼容处理 mix-blend-mode 与 effect: [blur] 冲突
-
-function pjax_darkmodejs(){
-  
-  if(!supportCss3('mix-blend-mode'))return;
-  var checkExist2 = setInterval(function() {
-     if (typeof jQuery == 'undefined'){return;}
-     clearInterval(checkExist2);
-     var TopFlag=getClientHeight();
-    $(window).scroll(function(){
-      var top = $(document).scrollTop();
-      if(top > TopFlag) {
-        $(".darkmode-layer").css("mix-blend-mode","normal");
-        $(".darkmode-layer").css("background-color","#222");
-      }else{
-        $(".darkmode-layer").css("mix-blend-mode","difference");
-        $(".darkmode-layer").css("background-color","");
-      }
-    })
-  }, 100);
-  
-}
-// mix-blend-mode support?
-if(supportCss3('mix-blend-mode')){
-  window.darkmode = new Darkmode(options);
-  
-  window.darkmode.showWidget();
-  
-  pjax_darkmodejs();
-}
-////////////////Development///////////////////////
-//////////////darkmode模式切换////////////////////
-//window.darkmode.toggle();                     //
-//////////////darkmode模式判断////////////////////
-//console.log(window.darkmode.isActivated())    //
-//////////////////////////////////////////////////
 </script>
 
 
@@ -2071,7 +1952,227 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
 
 
 
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+  try {
+    localStorage.setItem(k, v);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+const removeLS = (k) => {
+  try {
+    localStorage.removeItem(k);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+const getLS = (k) => {
+  try {
+    return localStorage.getItem(k);
+  } catch (e) {
+    console.log(e.message);
+    return null;
+  }
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+function bindToggleButton() {
+	var btn=$("#wrapper .toggle-mode-btn");
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+$("#wrapper .darkbtn").parents(".header").addClass("toggle-mode-btn")
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+document.addEventListener("pjax:success", bindToggleButton);
+var now = new Date();
+var hour = now.getHours();
+if (hour < 7 && hour >= 19) {
+	var mode = toggleCustomDarkMode();
+	if (mode === "dark") {
+	  applyCustomDarkModeSettings(mode);
+	}
+}
+</script>
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script>
+setTimeout(function() {
+  window.ga_tid = 'UA-162450234-2';
+   (function() {
+	 var dga = document.createElement("script");
+	 dga.src = "https://rmt.dogedoge.com/fetch/public/ga.js";
+	  var s = document.getElementsByTagName("script")[0];
+	  s.parentNode.insertBefore(dga, s);
+  })();
+}, 5000);
+</script>
+
+
+<!-- baidu Analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  setTimeout(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?93c49980dcbfb8920e167f85129d6917";
+	hm.defer=true;
+	var s = document.getElementsByTagName("script")[0];
+	s.parentNode.insertBefore(hm, s);
+  }, 5000);
+})();
+</script>
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
 <!-- more -->
+
+
 
 
     
@@ -2104,6 +2205,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
         elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
         selectors: [
           "title",
+          "#l_cover",
           "#pjax-container",
           "#pjax-header-nav-list"
         ],
@@ -2113,7 +2215,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
     });
 
     document.addEventListener('pjax:send', function (e) {
-      window.stop(); // 相当于点击了浏览器的停止按钮
+      //window.stop(); // 相当于点击了浏览器的停止按钮
 
       try {
         var currentUrl = window.location.pathname;
@@ -2132,12 +2234,12 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
       if (typeof $.fancybox != "undefined") {
         $.fancybox.close();    // 关闭弹窗
       }
-      $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
-      $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
-      $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
 
       // 解绑事件 避免重复监听
-      $('.s-top').unbind('click');
+      volantis.$topBtn.unbind('click');
       $('.menu a').unbind('click');
       $(window).unbind('resize');
       $(window).unbind('scroll');
@@ -2176,22 +2278,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
             pjax_fancybox();
           }
         
-          
-          if ('.cover-backstretch') {
-            $('.cover-backstretch').backstretch("resize");
-            if($('.cover-wrapper').is(':hidden')){
-              $('.cover-backstretch').backstretch("pause");
-            }else{
-              $('.cover-backstretch').backstretch("next");
-            }
-          } else {
-            $.backstretch("resize");
-            if($('.cover-wrapper').is(':hidden')){
-              $.backstretch("pause");
-            }else{
-              $.backstretch("next");
-            }
-          }
+		  Pjax_backstretch()
         
         
         
@@ -2202,9 +2289,6 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
         
         
         
-        
-        
-          pjax_darkmodejs();
         
       } catch (e) {
         console.log(e);

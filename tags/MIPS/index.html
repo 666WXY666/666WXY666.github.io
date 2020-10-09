@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.0.0">
+<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.1">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -9,13 +9,15 @@
     
   
   <!-- 渲染优化 -->
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="HandheldFriendly" content="True">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta http-equiv="x-dns-prefetch-control" content="on">
 
   <!-- 页面元数据 -->
   
@@ -33,7 +35,6 @@
   
 
   <!-- link -->
-  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   
     
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css">
@@ -70,61 +71,23 @@
 <link rel="stylesheet" href="/css/style.css">
 
   
-  
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script>
-	setTimeout(function() {
-  	  window.ga_tid = 'UA-162450234-2';
- 	   (function() {
- 	     var dga = document.createElement("script");
- 	     dga.src = "https://rmt.dogedoge.com/fetch/public/ga.js";
-	      var s = document.getElementsByTagName("script")[0];
-	      s.parentNode.insertBefore(dga, s);
-	  })();
-	}, 5000);
-    </script>
-  
-  
-    <!-- ba -->
-    <script>
-    var _hmt = _hmt || [];
-    (function() {
-	  setTimeout(function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?93c49980dcbfb8920e167f85129d6917";
-		hm.defer=true;
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-	  }, 5000);
-    })();
-    </script>
-  
-  <!-- 脚本懒加载函数 -->
-  <script>
-  function loadScript(src, cb) {
-    var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
-    var script = document.createElement('script');
-    script.setAttribute('type','text/javascript');
-    if (cb) script.onload = cb;
-    script.setAttribute('src', src);
-    HEAD.appendChild(script);
-  }
-  //https://github.com/filamentgroup/loadCSS
-  !function(c){"use strict";var e=function(e,t,n,r){var o,i=c.document,a=i.createElement("link");if(t)o=t;else{var d=(i.body||i.getElementsByTagName("head")[0]).childNodes;o=d[d.length-1]}var f=i.styleSheets;if(r)for(var l in r)r.hasOwnProperty(l)&&a.setAttribute(l,r[l]);a.rel="stylesheet",a.href=e,a.media="only x",function e(t){if(i.body)return t();setTimeout(function(){e(t)})}(function(){o.parentNode.insertBefore(a,t?o:o.nextSibling)});var s=function(e){for(var t=a.href,n=f.length;n--;)if(f[n].href===t)return e();setTimeout(function(){s(e)})};function u(){a.addEventListener&&a.removeEventListener("load",u),a.media=n||"all"}return a.addEventListener&&a.addEventListener("load",u),(a.onloadcssdefined=s)(u),a};"undefined"!=typeof exports?exports.loadCSS=e:c.loadCSS=e}("undefined"!=typeof global?global:this);
-  </script>
+
   <script id="loadcss"></script>
+
 </head>
 
 <body>
-  <header class="l_header auto shadow floatable blur " style="opacity: 0">
+  
+
+<header id="l_header" class="l_header auto shadow floatable blur show" style="opacity: 0">
   <div class="container">
-  <div class="wrapper">
+  <div id="wrapper">
     <div class="nav-sub">
       <p class="title"></p>
       <ul class="switcher nav-list-h m-phone" id="pjax-header-nav-list">
-        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
         
-          <li><a class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
         
       </ul>
     </div>
@@ -301,39 +264,7 @@
             
           
                     
-                      
-            
-              <hr>
-            
-          
-                    
-                      
-            
-              
-                <li>
-                  <a class="menuitem flat-box">
-                    <i class="fas fa-compact-disc fa-fw music fa-fw music"></i>背景音乐
-                  </a>
-                  <ul class="list-v">
-                    <li>
-                      <div class="aplayer-container">
-                        
-
-  
-    <meting-js theme="#1BCDFC" autoplay="true" volume="0.1" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="1930654125" list-folded="true">
-    </meting-js>
-  
-
-
-                      </div>
-                    </li>
                   </ul>
-                </li><li>
-              
-            
-          
-                    
-                  </li></ul>
                 
               </li>
             
@@ -513,18 +444,6 @@
             
           
                     
-                      
-            
-              <hr>
-            
-          
-                    
-                      
-            
-              
-            
-          
-                    
                   </ul>
                 
               </li>
@@ -539,14 +458,13 @@
   </div>
 </header>
 
-  <div class="l_body">
-    <div class="l_cover">
+  <div id="l_body">
+    <div id="l_cover">
   
     
-    
-        <div class="cover-wrapper  focus" style="display: none;">
+        <div id="full" class="cover-wrapper  focus" style="display: none;">
           
-            <div class="cover-backstretch"></div>
+            <div id="cover-backstretch"></div>
           
           <div class="cover-body">
   <div class="top">
@@ -638,49 +556,14 @@
   </div>
 </div>
 
-          <div class="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
         </div>
     
   
   </div>
-  
-    <div class="safearea">
-      <div class="body-wrapper" id="pjax-container">
-        
-          <!--此文件用来存放一些不方便取值的变量--> 
-<!--思路大概是将值藏到重加载的区域内--> 
- 
- 
- 
-<div id="pjax-data" style="display: none"> 
-  <div id="pjax-ispage">false</div> 
-  <div id="pjax-pageTitle"></div> 
-  <div id="pjax-enable-cover">true</div> 
-  <div id="pjax-comment-path"></div> 
-  <div id="pjax-comment-placeholder"></div> 
-</div> 
- 
- 
-<script> 
-  // 处理封面 此时 jquery 还没加载 
-  if ("none" == "none") { // 移除封面 
-    document.getElementsByClassName('cover-wrapper')[0].style.display = "none"; 
-    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
-  } else { 
-    if ("none" == "half") { // 半屏 
-      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'half'); 
-      document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
-    } else if ("none" == "full") { // 全屏 
-      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'full'); 
-      document.getElementsByClassName('scroll-down')[0].style.display = ""; 
-    } 
-    document.getElementsByClassName('cover-wrapper')[0].style.display = ""; 
-    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.remove("show"); 
-  } 
-</script> 
- 
 
-        
+    <div id="safearea">
+      <div class="body-wrapper" id="pjax-container">
         
 
 
@@ -713,8 +596,8 @@
   
     
     <h2 class="article-title">
-      <a href="/2020/05/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-%E6%8C%87%E4%BB%A4%E8%B0%83%E5%BA%A6%E4%B8%8E%E5%BB%B6%E8%BF%9F%E5%88%86%E6%94%AF/">
-        计算机系统结构 实验 指令调度与延迟分支
+      <a href="/2020/05/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C5-%E6%8C%87%E4%BB%A4%E8%B0%83%E5%BA%A6%E4%B8%8E%E5%BB%B6%E8%BF%9F%E5%88%86%E6%94%AF/">
+        计算机系统结构 实验5 指令调度与延迟分支
       </a>
     </h2>
   
@@ -728,7 +611,7 @@
       <div>
         
           
-          <a class="avatar" href="/"><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a>
+          <a class="avatar" href="/"><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg" srcset="data:image/png;base64,666"></a>
         
         <time>2020-05-11</time>
         
@@ -738,7 +621,7 @@
       </div>
       
         <div>
-          <a class="readmore" href="/2020/05/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-%E6%8C%87%E4%BB%A4%E8%B0%83%E5%BA%A6%E4%B8%8E%E5%BB%B6%E8%BF%9F%E5%88%86%E6%94%AF/">
+          <a class="readmore" href="/2020/05/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C5-%E6%8C%87%E4%BB%A4%E8%B0%83%E5%BA%A6%E4%B8%8E%E5%BB%B6%E8%BF%9F%E5%88%86%E6%94%AF/">
             阅读全文
           </a>
         </div>
@@ -760,8 +643,8 @@
   
     
     <h2 class="article-title">
-      <a href="/2020/04/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-%E4%BD%BF%E7%94%A8MIPS%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E6%B1%82%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E7%82%B9%E7%A7%AF/">
-        计算机系统结构 实验 使用MIPS指令实现求两个数组的点积
+      <a href="/2020/04/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C3-%E4%BD%BF%E7%94%A8MIPS%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E6%B1%82%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E7%82%B9%E7%A7%AF/">
+        计算机系统结构 实验3 使用MIPS指令实现求两个数组的点积
       </a>
     </h2>
   
@@ -775,7 +658,7 @@
       <div>
         
           
-          <a class="avatar" href="/"><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a>
+          <a class="avatar" href="/"><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg" srcset="data:image/png;base64,666"></a>
         
         <time>2020-04-25</time>
         
@@ -785,7 +668,7 @@
       </div>
       
         <div>
-          <a class="readmore" href="/2020/04/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-%E4%BD%BF%E7%94%A8MIPS%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E6%B1%82%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E7%82%B9%E7%A7%AF/">
+          <a class="readmore" href="/2020/04/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C3-%E4%BD%BF%E7%94%A8MIPS%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E6%B1%82%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E7%82%B9%E7%A7%AF/">
             阅读全文
           </a>
         </div>
@@ -807,8 +690,8 @@
   
     
     <h2 class="article-title">
-      <a href="/2020/04/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-%E4%BD%BF%E7%94%A8MIPS%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%B3%95/">
-        计算机系统结构 实验 使用MIPS指令实现冒泡排序法
+      <a href="/2020/04/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C4-%E4%BD%BF%E7%94%A8MIPS%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%B3%95/">
+        计算机系统结构 实验4 使用MIPS指令实现冒泡排序法
       </a>
     </h2>
   
@@ -822,7 +705,7 @@
       <div>
         
           
-          <a class="avatar" href="/"><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a>
+          <a class="avatar" href="/"><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg" srcset="data:image/png;base64,666"></a>
         
         <time>2020-04-16</time>
         
@@ -832,7 +715,7 @@
       </div>
       
         <div>
-          <a class="readmore" href="/2020/04/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-%E4%BD%BF%E7%94%A8MIPS%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%B3%95/">
+          <a class="readmore" href="/2020/04/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C4-%E4%BD%BF%E7%94%A8MIPS%E6%8C%87%E4%BB%A4%E5%AE%9E%E7%8E%B0%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%B3%95/">
             阅读全文
           </a>
         </div>
@@ -854,8 +737,8 @@
   
     
     <h2 class="article-title">
-      <a href="/2020/03/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-1%E5%92%8C2%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">
-        计算机系统结构 实验 1和2遇到的问题
+      <a href="/2020/03/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C1&2-%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">
+        计算机系统结构 实验1和2 遇到的问题
       </a>
     </h2>
   
@@ -869,7 +752,7 @@
       <div>
         
           
-          <a class="avatar" href="/"><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a>
+          <a class="avatar" href="/"><img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/avatar/avatar.jpg" srcset="data:image/png;base64,666"></a>
         
         <time>2020-03-26</time>
         
@@ -879,7 +762,7 @@
       </div>
       
         <div>
-          <a class="readmore" href="/2020/03/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-1%E5%92%8C2%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">
+          <a class="readmore" href="/2020/03/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C1&2-%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">
             阅读全文
           </a>
         </div>
@@ -1018,6 +901,10 @@
         
           <li><a class="flat-box child" title="/categories/Python/%E7%88%AC%E8%99%AB/" href="/categories/Python/%E7%88%AC%E8%99%AB/" id="categoriesPythonE788ACE899AB"><div class="name">爬虫</div><div class="badge">(1)</div></a></li>
         
+          <li><a class="flat-box" title="/categories/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/" href="/categories/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/" id="categoriesE4BAA4E68DA2E58E9FE79086"><div class="name">交换原理</div><div class="badge">(4)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/%E5%AE%9E%E9%AA%8C/" href="/categories/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/%E5%AE%9E%E9%AA%8C/" id="categoriesE4BAA4E68DA2E58E9FE79086E5AE9EE9AA8C"><div class="name">实验</div><div class="badge">(4)</div></a></li>
+        
           <li><a class="flat-box" title="/categories/%E5%85%B6%E4%BB%96/" href="/categories/%E5%85%B6%E4%BB%96/" id="categoriesE585B6E4BB96"><div class="name">其他</div><div class="badge">(1)</div></a></li>
         
           <li><a class="flat-box" title="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" id="categoriesE5A4A7E695B0E68DAE"><div class="name">大数据</div><div class="badge">(6)</div></a></li>
@@ -1074,7 +961,7 @@
 
 
     <div class="content">
-      <a href="/tags/AI/" style="font-size: 14px; color: #999">AI</a> <a href="/tags/C/" style="font-size: 20.67px; color: #6c6c6c">C</a> <a href="/tags/C/" style="font-size: 22.89px; color: #5d5d5d">C++</a> <a href="/tags/C99/" style="font-size: 14px; color: #999">C99</a> <a href="/tags/CSAPP/" style="font-size: 14px; color: #999">CSAPP</a> <a href="/tags/DNN/" style="font-size: 14px; color: #999">DNN</a> <a href="/tags/DNS/" style="font-size: 14px; color: #999">DNS</a> <a href="/tags/FPGA/" style="font-size: 14px; color: #999">FPGA</a> <a href="/tags/HDFS/" style="font-size: 14px; color: #999">HDFS</a> <a href="/tags/Java/" style="font-size: 15.11px; color: #919191">Java</a> <a href="/tags/JobShop/" style="font-size: 14px; color: #999">JobShop</a> <a href="/tags/K-Means/" style="font-size: 14px; color: #999">K-Means</a> <a href="/tags/Kafka/" style="font-size: 15.11px; color: #919191">Kafka</a> <a href="/tags/LL1/" style="font-size: 14px; color: #999">LL1</a> <a href="/tags/LR/" style="font-size: 14px; color: #999">LR</a> <a href="/tags/Linux/" style="font-size: 22.89px; color: #5d5d5d">Linux</a> <a href="/tags/MIPS/" style="font-size: 17.33px; color: #828282">MIPS</a> <a href="/tags/MOOC/" style="font-size: 18.44px; color: #7b7b7b">MOOC</a> <a href="/tags/MapReduce/" style="font-size: 14px; color: #999">MapReduce</a> <a href="/tags/Matplotlib/" style="font-size: 14px; color: #999">Matplotlib</a> <a href="/tags/MiniSYS/" style="font-size: 14px; color: #999">MiniSYS</a> <a href="/tags/Python/" style="font-size: 20.67px; color: #6c6c6c">Python</a> <a href="/tags/QT/" style="font-size: 14px; color: #999">QT</a> <a href="/tags/RNN/" style="font-size: 14px; color: #999">RNN</a> <a href="/tags/Scala/" style="font-size: 16.22px; color: #8a8a8a">Scala</a> <a href="/tags/Shell/" style="font-size: 16.22px; color: #8a8a8a">Shell</a> <a href="/tags/Spark/" style="font-size: 18.44px; color: #7b7b7b">Spark</a> <a href="/tags/Streaming/" style="font-size: 16.22px; color: #8a8a8a">Streaming</a> <a href="/tags/Struct/" style="font-size: 14px; color: #999">Struct</a> <a href="/tags/Verilog/" style="font-size: 14px; color: #999">Verilog</a> <a href="/tags/first/" style="font-size: 14px; color: #999">first</a> <a href="/tags/iPython/" style="font-size: 14px; color: #999">iPython</a> <a href="/tags/ls/" style="font-size: 14px; color: #999">ls</a> <a href="/tags/%E4%B9%A0%E9%A2%98/" style="font-size: 19.56px; color: #737373">习题</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 14px; color: #999">人工智能</a> <a href="/tags/%E4%BF%A1%E5%8F%B7%E9%87%8F/" style="font-size: 14px; color: #999">信号量</a> <a href="/tags/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" style="font-size: 14px; color: #999">内存管理</a> <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/" style="font-size: 14px; color: #999">决策树</a> <a href="/tags/%E5%88%86%E7%B1%BB/" style="font-size: 14px; color: #999">分类</a> <a href="/tags/%E5%8D%8E%E4%B8%BA%E4%BA%91/" style="font-size: 14px; color: #999">华为云</a> <a href="/tags/%E5%8D%95%E8%AF%8D%E8%AE%A1%E6%95%B0/" style="font-size: 16.22px; color: #8a8a8a">单词计数</a> <a href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 14px; color: #999">可视化</a> <a href="/tags/%E5%90%8C%E6%AD%A5%E4%BA%92%E6%96%A5/" style="font-size: 15.11px; color: #919191">同步互斥</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 19.56px; color: #737373">大数据</a> <a href="/tags/%E5%AD%A6%E5%A0%82%E5%9C%A8%E7%BA%BF/" style="font-size: 14px; color: #999">学堂在线</a> <a href="/tags/%E5%AE%9E%E6%88%98/" style="font-size: 21.78px; color: #646464">实战</a> <a href="/tags/%E5%AE%9E%E9%AA%8C/" style="font-size: 21.78px; color: #646464">实验</a> <a href="/tags/%E5%B0%8F%E6%B8%B8%E6%88%8F/" style="font-size: 14px; color: #999">小游戏</a> <a href="/tags/%E5%B7%A5%E7%A8%8B/" style="font-size: 24px; color: #555">工程</a> <a href="/tags/%E6%89%8B%E5%86%99%E8%AF%86%E5%88%AB/" style="font-size: 14px; color: #999">手写识别</a> <a href="/tags/%E6%8B%93%E5%B1%95/" style="font-size: 15.11px; color: #919191">拓展</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 16.22px; color: #8a8a8a">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" style="font-size: 14px; color: #999">数据处理</a> <a href="/tags/%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/" style="font-size: 14px; color: #999">日志分析</a> <a href="/tags/%E6%98%93%E9%94%99%E7%82%B9/" style="font-size: 19.56px; color: #737373">易错点</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 19.56px; color: #737373">机器学习</a> <a href="/tags/%E6%9D%A1%E4%BB%B6%E7%86%B5/" style="font-size: 14px; color: #999">条件熵</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 14px; color: #999">正则表达式</a> <a href="/tags/%E6%B1%87%E7%BC%96/" style="font-size: 17.33px; color: #828282">汇编</a> <a href="/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/" style="font-size: 16.22px; color: #8a8a8a">流计算</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 14px; color: #999">爬虫</a> <a href="/tags/%E7%8E%B0%E4%BB%A3%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/" style="font-size: 15.11px; color: #919191">现代交换原理</a> <a href="/tags/%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85/" style="font-size: 14px; color: #999">生产者消费者</a> <a href="/tags/%E7%9F%A5%E8%AF%86/" style="font-size: 14px; color: #999">知识</a> <a href="/tags/%E7%BA%BF%E7%A8%8B/" style="font-size: 14px; color: #999">线程</a> <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" style="font-size: 16.22px; color: #8a8a8a">编译原理</a> <a href="/tags/%E7%BD%91%E8%AF%BE/" style="font-size: 18.44px; color: #7b7b7b">网课</a> <a href="/tags/%E8%81%9A%E7%B1%BB/" style="font-size: 14px; color: #999">聚类</a> <a href="/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/" style="font-size: 17.33px; color: #828282">计算机系统结构</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="font-size: 14px; color: #999">计算机组成原理</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/tags/%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90/" style="font-size: 14px; color: #999">词法分析</a> <a href="/tags/%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90/" style="font-size: 15.11px; color: #919191">语法分析</a> <a href="/tags/%E8%AF%BB%E8%80%85%E5%86%99%E8%80%85/" style="font-size: 14px; color: #999">读者写者</a> <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 14px; color: #999">课程</a> <a href="/tags/%E8%B5%B7%E5%90%8D%E5%AD%97/" style="font-size: 14px; color: #999">起名字</a> <a href="/tags/%E8%BF%9B%E7%A8%8B/" style="font-size: 15.11px; color: #919191">进程</a> <a href="/tags/%E9%80%9A%E4%BF%A1/" style="font-size: 14px; color: #999">通信</a> <a href="/tags/%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95/" style="font-size: 14px; color: #999">遍历目录</a> <a href="/tags/%E9%9A%BE%E7%82%B9/" style="font-size: 15.11px; color: #919191">难点</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 17.33px; color: #828282">项目</a>
+      <a href="/tags/AI/" style="font-size: 14px; color: #999">AI</a> <a href="/tags/C/" style="font-size: 20px; color: #707070">C</a> <a href="/tags/C/" style="font-size: 22px; color: #636363">C++</a> <a href="/tags/C99/" style="font-size: 14px; color: #999">C99</a> <a href="/tags/CSAPP/" style="font-size: 14px; color: #999">CSAPP</a> <a href="/tags/DNN/" style="font-size: 14px; color: #999">DNN</a> <a href="/tags/DNS/" style="font-size: 14px; color: #999">DNS</a> <a href="/tags/FPGA/" style="font-size: 14px; color: #999">FPGA</a> <a href="/tags/HDFS/" style="font-size: 14px; color: #999">HDFS</a> <a href="/tags/Java/" style="font-size: 15px; color: #929292">Java</a> <a href="/tags/JobShop/" style="font-size: 14px; color: #999">JobShop</a> <a href="/tags/K-Means/" style="font-size: 14px; color: #999">K-Means</a> <a href="/tags/Kafka/" style="font-size: 15px; color: #929292">Kafka</a> <a href="/tags/LL1/" style="font-size: 14px; color: #999">LL1</a> <a href="/tags/LR/" style="font-size: 14px; color: #999">LR</a> <a href="/tags/Linux/" style="font-size: 22px; color: #636363">Linux</a> <a href="/tags/MIPS/" style="font-size: 17px; color: #858585">MIPS</a> <a href="/tags/MOOC/" style="font-size: 18px; color: #7e7e7e">MOOC</a> <a href="/tags/MPLS/" style="font-size: 14px; color: #999">MPLS</a> <a href="/tags/MapReduce/" style="font-size: 14px; color: #999">MapReduce</a> <a href="/tags/Matplotlib/" style="font-size: 14px; color: #999">Matplotlib</a> <a href="/tags/MiniSYS/" style="font-size: 14px; color: #999">MiniSYS</a> <a href="/tags/Python/" style="font-size: 20px; color: #707070">Python</a> <a href="/tags/QT/" style="font-size: 14px; color: #999">QT</a> <a href="/tags/RNN/" style="font-size: 14px; color: #999">RNN</a> <a href="/tags/SIP/" style="font-size: 14px; color: #999">SIP</a> <a href="/tags/Scala/" style="font-size: 16px; color: #8b8b8b">Scala</a> <a href="/tags/Shell/" style="font-size: 16px; color: #8b8b8b">Shell</a> <a href="/tags/Spark/" style="font-size: 18px; color: #7e7e7e">Spark</a> <a href="/tags/Streaming/" style="font-size: 16px; color: #8b8b8b">Streaming</a> <a href="/tags/Struct/" style="font-size: 14px; color: #999">Struct</a> <a href="/tags/Verilog/" style="font-size: 14px; color: #999">Verilog</a> <a href="/tags/first/" style="font-size: 14px; color: #999">first</a> <a href="/tags/iPython/" style="font-size: 14px; color: #999">iPython</a> <a href="/tags/ls/" style="font-size: 14px; color: #999">ls</a> <a href="/tags/%E4%B9%A0%E9%A2%98/" style="font-size: 19px; color: #777">习题</a> <a href="/tags/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/" style="font-size: 17px; color: #858585">交换原理</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 14px; color: #999">人工智能</a> <a href="/tags/%E4%BF%A1%E5%8F%B7%E9%87%8F/" style="font-size: 14px; color: #999">信号量</a> <a href="/tags/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" style="font-size: 14px; color: #999">内存管理</a> <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/" style="font-size: 14px; color: #999">决策树</a> <a href="/tags/%E5%88%86%E7%B1%BB/" style="font-size: 14px; color: #999">分类</a> <a href="/tags/%E5%8D%8E%E4%B8%BA%E4%BA%91/" style="font-size: 14px; color: #999">华为云</a> <a href="/tags/%E5%8D%95%E8%AF%8D%E8%AE%A1%E6%95%B0/" style="font-size: 16px; color: #8b8b8b">单词计数</a> <a href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 14px; color: #999">可视化</a> <a href="/tags/%E5%90%8C%E6%AD%A5%E4%BA%92%E6%96%A5/" style="font-size: 15px; color: #929292">同步互斥</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 19px; color: #777">大数据</a> <a href="/tags/%E5%AD%A6%E5%A0%82%E5%9C%A8%E7%BA%BF/" style="font-size: 14px; color: #999">学堂在线</a> <a href="/tags/%E5%AE%9E%E6%88%98/" style="font-size: 21px; color: #696969">实战</a> <a href="/tags/%E5%AE%9E%E9%AA%8C/" style="font-size: 24px; color: #555">实验</a> <a href="/tags/%E5%B0%8F%E6%B8%B8%E6%88%8F/" style="font-size: 14px; color: #999">小游戏</a> <a href="/tags/%E5%B7%A5%E7%A8%8B/" style="font-size: 23px; color: #5c5c5c">工程</a> <a href="/tags/%E6%89%8B%E5%86%99%E8%AF%86%E5%88%AB/" style="font-size: 14px; color: #999">手写识别</a> <a href="/tags/%E6%8B%93%E5%B1%95/" style="font-size: 15px; color: #929292">拓展</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 16px; color: #8b8b8b">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" style="font-size: 14px; color: #999">数据处理</a> <a href="/tags/%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/" style="font-size: 14px; color: #999">日志分析</a> <a href="/tags/%E6%98%93%E9%94%99%E7%82%B9/" style="font-size: 19px; color: #777">易错点</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 19px; color: #777">机器学习</a> <a href="/tags/%E6%9D%A1%E4%BB%B6%E7%86%B5/" style="font-size: 14px; color: #999">条件熵</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 14px; color: #999">正则表达式</a> <a href="/tags/%E6%B1%87%E7%BC%96/" style="font-size: 17px; color: #858585">汇编</a> <a href="/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/" style="font-size: 16px; color: #8b8b8b">流计算</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 14px; color: #999">爬虫</a> <a href="/tags/%E7%8E%B0%E4%BB%A3%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/" style="font-size: 15px; color: #929292">现代交换原理</a> <a href="/tags/%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85/" style="font-size: 14px; color: #999">生产者消费者</a> <a href="/tags/%E7%9F%A5%E8%AF%86/" style="font-size: 14px; color: #999">知识</a> <a href="/tags/%E7%BA%BF%E7%A8%8B/" style="font-size: 14px; color: #999">线程</a> <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" style="font-size: 16px; color: #8b8b8b">编译原理</a> <a href="/tags/%E7%BD%91%E8%AF%BE/" style="font-size: 18px; color: #7e7e7e">网课</a> <a href="/tags/%E8%81%9A%E7%B1%BB/" style="font-size: 14px; color: #999">聚类</a> <a href="/tags/%E8%84%9A%E6%9C%AC/" style="font-size: 14px; color: #999">脚本</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/" style="font-size: 17px; color: #858585">计算机系统结构</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="font-size: 14px; color: #999">计算机组成原理</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/tags/%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90/" style="font-size: 14px; color: #999">词法分析</a> <a href="/tags/%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90/" style="font-size: 15px; color: #929292">语法分析</a> <a href="/tags/%E8%AF%BB%E8%80%85%E5%86%99%E8%80%85/" style="font-size: 14px; color: #999">读者写者</a> <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 14px; color: #999">课程</a> <a href="/tags/%E8%B5%B7%E5%90%8D%E5%AD%97/" style="font-size: 14px; color: #999">起名字</a> <a href="/tags/%E8%BF%9B%E7%A8%8B/" style="font-size: 15px; color: #929292">进程</a> <a href="/tags/%E9%80%9A%E4%BF%A1/" style="font-size: 14px; color: #999">通信</a> <a href="/tags/%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95/" style="font-size: 14px; color: #999">遍历目录</a> <a href="/tags/%E9%9A%BE%E7%82%B9/" style="font-size: 15px; color: #929292">难点</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 17px; color: #858585">项目</a>
     </div>
   </section>
 
@@ -1101,7 +988,7 @@
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>41 篇</div>
+          <div>45 篇</div>
         </div>
       
 
@@ -1123,7 +1010,7 @@
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>85.7k 字</div>
+          <div>89.9k 字</div>
         </div>
       
 
@@ -1149,8 +1036,8 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Wed Sep 30 2020 11:09:22 GMT+0800 (GMT+08:00)</div>
-            <div id="last-update-show">2020-09-30 日</div>
+            <div id="last-update" style="display: none;">Fri Oct 09 2020 16:50:14 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update-show">2020-10-09 日</div>
           
         </div>
         
@@ -1200,7 +1087,7 @@
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2020-09-30 日';
+            document.getElementById('last-update-show').innerHTML = '2020-10-09 日';
           }
         </script>
         
@@ -1214,6 +1101,24 @@
 
 </aside>
 
+
+        
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=false;
+  pdata.postTitle="";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.add("show");
+  
+</script>
 
         
       </div>
@@ -1337,11 +1242,82 @@
   </footer>
 
 
-      <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
     </div>
   </div>
   <div>
-    <!-- required -->
+    <script>
+window.volantis={};
+/********************脚本懒加载函数********************************/
+function loadScript(src, cb) {
+var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+var script = document.createElement('script');
+script.setAttribute('type','text/javascript');
+if (cb) script.onload = cb;
+script.setAttribute('src', src);
+HEAD.appendChild(script);
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<!-- required -->
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
 
@@ -1406,7 +1382,6 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
 
     <script type="text/javascript">
-      $(function(){
         var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
         if ('true' == 'true') {
           function shuffle(arr){
@@ -1421,22 +1396,17 @@
           }
           shuffle(imgs);
         }
-        if ('.cover-backstretch') {
-          $('.cover-backstretch').backstretch(
+	  function Pjax_backstretch(){
+        
+          $('#cover-backstretch').backstretch(
             imgs,
           {
             duration: "10000",
             fade: "1500"
           });
-        } else {
-          $.backstretch(
-            imgs,
-          {
-            duration: "10000",
-            fade: "1500"
-          });
-        }
-      });
+        
+	  }
+	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
     </script>
   
 
@@ -1808,9 +1778,9 @@
   function pjax_valine() {
     if(!document.querySelectorAll("#valine_container")[0])return;
 
-    let pagePlaceholder = $.trim($('#pjax-comment-placeholder').text()) || "快来评论吧~";
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
 
-    let path = $.trim($('#pjax-comment-path').text());
+    let path = pdata.commentPath;
     if (path.length == 0) {
       let defaultPath = '';
       path = defaultPath || decodeURI(window.location.pathname);
@@ -1841,91 +1811,6 @@
   $(function () {
     pjax_valine();
   });
-</script>
-
-
-
-
-  
-<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5/lib/darkmode-js.min.js" aysc></script>
-
-<script type="text/javascript">
-function getClientHeight(){
-  var clientHeight=0;
-  if(document.body.clientHeight&&document.documentElement.clientHeight){
-  var clientHeight = (document.body.clientHeight<document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
-  }else{
-  var clientHeight = (document.body.clientHeight>document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
-  }
-  return clientHeight;
-}
-function supportCss3(style) {
-  var prefix = ['webkit', 'Moz', 'ms', 'o'],
-  i,
-  humpString = [],
-  htmlStyle = document.documentElement.style,
-  _toHumb = function (string) {
-  return string.replace(/-(\w)/g, function ($0, $1) {
-  return $1.toUpperCase();
-  });
-  };
-  for (i in prefix)
-  humpString.push(_toHumb(prefix[i] + '-' + style));
-  humpString.push(_toHumb(style));
-  for (i in humpString)
-  if (humpString[i] in htmlStyle) return true;
-  return false;
-};
-//配置信息
-var options = {
-  bottom: '100px',
-  right: '32px',
-  left: 'unset',
-  time: '0s',
-  mixColor: '#f4f4f4',
-  backgroundColor: '#f4f4f4',
-  buttonColorDark: '#333',
-  buttonColorLight: '#ddd',
-  saveInCookies: true,
-  label: '',
-  autoMatchOsTheme: true
-};
-// 卡片兼容处理 mix-blend-mode 与 effect: [blur] 冲突
-
-function pjax_darkmodejs(){
-  
-  if(!supportCss3('mix-blend-mode'))return;
-  var checkExist2 = setInterval(function() {
-     if (typeof jQuery == 'undefined'){return;}
-     clearInterval(checkExist2);
-     var TopFlag=getClientHeight();
-    $(window).scroll(function(){
-      var top = $(document).scrollTop();
-      if(top > TopFlag) {
-        $(".darkmode-layer").css("mix-blend-mode","normal");
-        $(".darkmode-layer").css("background-color","#222");
-      }else{
-        $(".darkmode-layer").css("mix-blend-mode","difference");
-        $(".darkmode-layer").css("background-color","");
-      }
-    })
-  }, 100);
-  
-}
-// mix-blend-mode support?
-if(supportCss3('mix-blend-mode')){
-  window.darkmode = new Darkmode(options);
-  
-  window.darkmode.showWidget();
-  
-  pjax_darkmodejs();
-}
-////////////////Development///////////////////////
-//////////////darkmode模式切换////////////////////
-//window.darkmode.toggle();                     //
-//////////////darkmode模式判断////////////////////
-//console.log(window.darkmode.isActivated())    //
-//////////////////////////////////////////////////
 </script>
 
 
@@ -2201,7 +2086,227 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
 
 
 
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+  try {
+    localStorage.setItem(k, v);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+const removeLS = (k) => {
+  try {
+    localStorage.removeItem(k);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+const getLS = (k) => {
+  try {
+    return localStorage.getItem(k);
+  } catch (e) {
+    console.log(e.message);
+    return null;
+  }
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+function bindToggleButton() {
+	var btn=$("#wrapper .toggle-mode-btn");
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+$("#wrapper .darkbtn").parents(".header").addClass("toggle-mode-btn")
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+document.addEventListener("pjax:success", bindToggleButton);
+var now = new Date();
+var hour = now.getHours();
+if (hour < 7 && hour >= 19) {
+	var mode = toggleCustomDarkMode();
+	if (mode === "dark") {
+	  applyCustomDarkModeSettings(mode);
+	}
+}
+</script>
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script>
+setTimeout(function() {
+  window.ga_tid = 'UA-162450234-2';
+   (function() {
+	 var dga = document.createElement("script");
+	 dga.src = "https://rmt.dogedoge.com/fetch/public/ga.js";
+	  var s = document.getElementsByTagName("script")[0];
+	  s.parentNode.insertBefore(dga, s);
+  })();
+}, 5000);
+</script>
+
+
+<!-- baidu Analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  setTimeout(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?93c49980dcbfb8920e167f85129d6917";
+	hm.defer=true;
+	var s = document.getElementsByTagName("script")[0];
+	s.parentNode.insertBefore(hm, s);
+  }, 5000);
+})();
+</script>
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
 <!-- more -->
+
+
 
 
     
@@ -2234,6 +2339,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
         elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
         selectors: [
           "title",
+          "#l_cover",
           "#pjax-container",
           "#pjax-header-nav-list"
         ],
@@ -2243,7 +2349,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
     });
 
     document.addEventListener('pjax:send', function (e) {
-      window.stop(); // 相当于点击了浏览器的停止按钮
+      //window.stop(); // 相当于点击了浏览器的停止按钮
 
       try {
         var currentUrl = window.location.pathname;
@@ -2262,12 +2368,12 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
       if (typeof $.fancybox != "undefined") {
         $.fancybox.close();    // 关闭弹窗
       }
-      $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
-      $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
-      $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
 
       // 解绑事件 避免重复监听
-      $('.s-top').unbind('click');
+      volantis.$topBtn.unbind('click');
       $('.menu a').unbind('click');
       $(window).unbind('resize');
       $(window).unbind('scroll');
@@ -2306,22 +2412,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
             pjax_fancybox();
           }
         
-          
-          if ('.cover-backstretch') {
-            $('.cover-backstretch').backstretch("resize");
-            if($('.cover-wrapper').is(':hidden')){
-              $('.cover-backstretch').backstretch("pause");
-            }else{
-              $('.cover-backstretch').backstretch("next");
-            }
-          } else {
-            $.backstretch("resize");
-            if($('.cover-wrapper').is(':hidden')){
-              $.backstretch("pause");
-            }else{
-              $.backstretch("next");
-            }
-          }
+		  Pjax_backstretch()
         
         
         
@@ -2332,9 +2423,6 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
         
         
         
-        
-        
-          pjax_darkmodejs();
         
       } catch (e) {
         console.log(e);

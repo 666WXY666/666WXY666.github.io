@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.0.0">
+<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.1.1">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
     
   
   <!-- 渲染优化 -->
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="HandheldFriendly" content="True">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta http-equiv="x-dns-prefetch-control" content="on">
 
   <!-- 页面元数据 -->
   
-  <title>计算机系统结构 实验 1和2遇到的问题 - 苇名一心的博客</title>
+  <title>计算机系统结构 实验5 指令调度与延迟分支 - 苇名一心的博客</title>
   
     <meta name="keywords" content="实验,计算机系统结构,汇编,MIPS">
   
 
   
-    <meta name="description" content="本文是关于计算机系统结构实验一（MIPS指令系统和MIPS体系结构）和实验二（流水线及流水线中的冲突），遇到的一些问题。">
+    <meta name="description" content="本文是关于计算机系统结构实验五，指令调度与延迟分支。">
   
 
   <!-- feed -->
@@ -35,7 +37,6 @@
   
 
   <!-- link -->
-  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   
     
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css">
@@ -72,61 +73,23 @@
 <link rel="stylesheet" href="/css/style.css">
 
   
-  
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script>
-	setTimeout(function() {
-  	  window.ga_tid = 'UA-162450234-2';
- 	   (function() {
- 	     var dga = document.createElement("script");
- 	     dga.src = "https://rmt.dogedoge.com/fetch/public/ga.js";
-	      var s = document.getElementsByTagName("script")[0];
-	      s.parentNode.insertBefore(dga, s);
-	  })();
-	}, 5000);
-    </script>
-  
-  
-    <!-- ba -->
-    <script>
-    var _hmt = _hmt || [];
-    (function() {
-	  setTimeout(function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?93c49980dcbfb8920e167f85129d6917";
-		hm.defer=true;
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-	  }, 5000);
-    })();
-    </script>
-  
-  <!-- 脚本懒加载函数 -->
-  <script>
-  function loadScript(src, cb) {
-    var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
-    var script = document.createElement('script');
-    script.setAttribute('type','text/javascript');
-    if (cb) script.onload = cb;
-    script.setAttribute('src', src);
-    HEAD.appendChild(script);
-  }
-  //https://github.com/filamentgroup/loadCSS
-  !function(c){"use strict";var e=function(e,t,n,r){var o,i=c.document,a=i.createElement("link");if(t)o=t;else{var d=(i.body||i.getElementsByTagName("head")[0]).childNodes;o=d[d.length-1]}var f=i.styleSheets;if(r)for(var l in r)r.hasOwnProperty(l)&&a.setAttribute(l,r[l]);a.rel="stylesheet",a.href=e,a.media="only x",function e(t){if(i.body)return t();setTimeout(function(){e(t)})}(function(){o.parentNode.insertBefore(a,t?o:o.nextSibling)});var s=function(e){for(var t=a.href,n=f.length;n--;)if(f[n].href===t)return e();setTimeout(function(){s(e)})};function u(){a.addEventListener&&a.removeEventListener("load",u),a.media=n||"all"}return a.addEventListener&&a.addEventListener("load",u),(a.onloadcssdefined=s)(u),a};"undefined"!=typeof exports?exports.loadCSS=e:c.loadCSS=e}("undefined"!=typeof global?global:this);
-  </script>
+
   <script id="loadcss"></script>
+
 </head>
 
 <body>
-  <header class="l_header auto shadow floatable blur " style="opacity: 0">
+  
+
+<header id="l_header" class="l_header auto shadow floatable blur show" style="opacity: 0">
   <div class="container">
-  <div class="wrapper">
+  <div id="wrapper">
     <div class="nav-sub">
       <p class="title"></p>
       <ul class="switcher nav-list-h m-phone" id="pjax-header-nav-list">
-        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href="javascript:void(0)"></a></li>
         
-          <li><a class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href="javascript:void(0)"></a></li>
         
       </ul>
     </div>
@@ -303,39 +266,7 @@
             
           
                     
-                      
-            
-              <hr>
-            
-          
-                    
-                      
-            
-              
-                <li>
-                  <a class="menuitem flat-box">
-                    <i class="fas fa-compact-disc fa-fw music fa-fw music"></i>背景音乐
-                  </a>
-                  <ul class="list-v">
-                    <li>
-                      <div class="aplayer-container">
-                        
-
-  
-    <meting-js theme="#1BCDFC" autoplay="true" volume="0.1" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="1930654125" list-folded="true">
-    </meting-js>
-  
-
-
-                      </div>
-                    </li>
                   </ul>
-                </li><li>
-              
-            
-          
-                    
-                  </li></ul>
                 
               </li>
             
@@ -515,18 +446,6 @@
             
           
                     
-                      
-            
-              <hr>
-            
-          
-                    
-                      
-            
-              
-            
-          
-                    
                   </ul>
                 
               </li>
@@ -541,14 +460,13 @@
   </div>
 </header>
 
-  <div class="l_body">
-    <div class="l_cover">
+  <div id="l_body">
+    <div id="l_cover">
   
     
-    
-        <div class="cover-wrapper post focus" style="display: none;">
+        <div id="full" class="cover-wrapper post focus" style="display: none;">
           
-            <div class="cover-backstretch"></div>
+            <div id="cover-backstretch"></div>
           
           <div class="cover-body">
   <div class="top">
@@ -640,49 +558,14 @@
   </div>
 </div>
 
-          <div class="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
         </div>
     
   
   </div>
-  
-    <div class="safearea">
-      <div class="body-wrapper" id="pjax-container">
-        
-          <!--此文件用来存放一些不方便取值的变量--> 
-<!--思路大概是将值藏到重加载的区域内--> 
- 
- 
- 
-<div id="pjax-data" style="display: none"> 
-  <div id="pjax-ispage">true</div> 
-  <div id="pjax-pageTitle">计算机系统结构 实验 1和2遇到的问题</div> 
-  <div id="pjax-enable-cover">true</div> 
-  <div id="pjax-comment-path"></div> 
-  <div id="pjax-comment-placeholder"></div> 
-</div> 
- 
- 
-<script> 
-  // 处理封面 此时 jquery 还没加载 
-  if ("none" == "none") { // 移除封面 
-    document.getElementsByClassName('cover-wrapper')[0].style.display = "none"; 
-    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
-  } else { 
-    if ("none" == "half") { // 半屏 
-      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'half'); 
-      document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
-    } else if ("none" == "full") { // 全屏 
-      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'full'); 
-      document.getElementsByClassName('scroll-down')[0].style.display = ""; 
-    } 
-    document.getElementsByClassName('cover-wrapper')[0].style.display = ""; 
-    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.remove("show"); 
-  } 
-</script> 
- 
 
-        
+    <div id="safearea">
+      <div class="body-wrapper" id="pjax-container">
         
 
 <div class="l_main">
@@ -696,7 +579,7 @@
     
     
       <h1 class="title">
-        计算机系统结构 实验 1和2遇到的问题
+        计算机系统结构 实验5 指令调度与延迟分支
       </h1>
       <div class="new-meta-box">
         
@@ -727,7 +610,7 @@
             <div class="new-meta-item date">
   <a class="notlink">
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年3月26日</p>
+    <p>发布于：2020年5月11日</p>
   </a>
 </div>
 
@@ -738,7 +621,7 @@
   <div class="new-meta-item browse leancloud">
     <a class="notlink">
       
-      <div id="lc-pv" data-title="计算机系统结构 实验 1和2遇到的问题" data-path="/2020/03/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-1%E5%92%8C2%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">
+      <div id="lc-pv" data-title="计算机系统结构 实验5 指令调度与延迟分支" data-path="/2020/05/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C5-%E6%8C%87%E4%BB%A4%E8%B0%83%E5%BA%A6%E4%B8%8E%E5%BB%B6%E8%BF%9F%E5%88%86%E6%94%AF/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id="number"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -755,31 +638,160 @@
 
 
   
-  <p>本文是关于计算机系统结构实验一（MIPS指令系统和MIPS体系结构）和实验二（流水线及流水线中的冲突），遇到的一些问题。</p>
+  <p>本文是关于计算机系统结构实验五，指令调度与延迟分支。</p>
 <a id="more"></a>
 
 
 
-<h2 id="一、关于字"><a href="#一、关于字" class="headerlink" title="一、关于字"></a>一、关于字</h2><p>B:byte 字节指令</p>
-<p>H:half word 半字节指令</p>
-<p>W:word 字节指令</p>
-<h2 id="二、关于访存"><a href="#二、关于访存" class="headerlink" title="二、关于访存"></a>二、关于访存</h2><p>按字或半字访存，无论给定地址是字（半字）中的哪一个字节的地址，都会自动转换为该字（半字）的首字节的地址。例如：MIPS中字长4字节，32位（红色框）；半字2字节，16位（蓝色框）。无论你给定的是第一个红框里的7C(0x00000000)/00(0x00000001)/08(0x00000002)/24(0x00000003)的哪一的地址，只要是按字访存，都会自动转换为7C的地址0x00000000，取出的内容都是2408007C，**<em>一定要注意，这里是小端法存储**</em>。</p>
+<h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><ol>
+<li>加深对指令调度技术的理解。</li>
+<li>加深对延迟分支技术的理解。</li>
+<li>熟练掌握用指令调度技术解决流水线中的数据冲突的方法。</li>
+<li>进一步理解指令调度技术对 CPU 性能的改进。</li>
+<li>进一步理解延迟分支技术对 CPU 性能的改进。</li>
+</ol>
+<h2 id="二、实验步骤及结果分析"><a href="#二、实验步骤及结果分析" class="headerlink" title="二、实验步骤及结果分析"></a>二、实验步骤及结果分析</h2><h3 id="1、启动-MIPSsim。"><a href="#1、启动-MIPSsim。" class="headerlink" title="1、启动 MIPSsim。"></a>1、启动 MIPSsim。</h3><img src="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" srcset="data:image/png;base64,666" alt="2020-05-07_175631" style="zoom: 50%;">
+
+<h3 id="2、根据实验2的相关知识中关于流水线各段操作的描述，进一步理解流水线窗口中各段的功能，掌握各流水线寄存器的含义（双击各段，就可以看到各流水线寄存器中的内容）。"><a href="#2、根据实验2的相关知识中关于流水线各段操作的描述，进一步理解流水线窗口中各段的功能，掌握各流水线寄存器的含义（双击各段，就可以看到各流水线寄存器中的内容）。" class="headerlink" title="2、根据实验2的相关知识中关于流水线各段操作的描述，进一步理解流水线窗口中各段的功能，掌握各流水线寄存器的含义（双击各段，就可以看到各流水线寄存器中的内容）。"></a>2、根据实验2的相关知识中关于流水线各段操作的描述，进一步理解流水线窗口中各段的功能，掌握各流水线寄存器的含义（双击各段，就可以看到各流水线寄存器中的内容）。</h3><h4 id="①IF段："><a href="#①IF段：" class="headerlink" title="①IF段："></a>①IF段：</h4><img src="https://gitee.com/wxy_666/images/raw/master/20200517210511.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200517210511.jpg" srcset="data:image/png;base64,666" alt="2020-05-17_210337" style="zoom:80%;">
+
+<h4 id="②ID段："><a href="#②ID段：" class="headerlink" title="②ID段："></a>②ID段：</h4><img src="https://gitee.com/wxy_666/images/raw/master/20200517210543.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200517210543.jpg" srcset="data:image/png;base64,666" alt="2020-05-17_210358" style="zoom:80%;">
+
+<h4 id="③EX段："><a href="#③EX段：" class="headerlink" title="③EX段："></a>③EX段：</h4><img src="https://gitee.com/wxy_666/images/raw/master/20200517210648.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200517210648.jpg" srcset="data:image/png;base64,666" alt="2020-05-17_210409" style="zoom:80%;">
+
+<h4 id="④MEM段："><a href="#④MEM段：" class="headerlink" title="④MEM段："></a>④MEM段：</h4><img src="https://gitee.com/wxy_666/images/raw/master/20200517210657.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200517210657.jpg" srcset="data:image/png;base64,666" alt="2020-05-17_210417" style="zoom:80%;">
+
+<h4 id="⑤WB段："><a href="#⑤WB段：" class="headerlink" title="⑤WB段："></a>⑤WB段：</h4><img src="https://gitee.com/wxy_666/images/raw/master/20200517210729.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200517210729.jpg" srcset="data:image/png;base64,666" alt="2020-05-17_210423" style="zoom:80%;">
+
+<h3 id="3、选择“配置”→“流水方式”选项，使模拟器工作在流水方式下。"><a href="#3、选择“配置”→“流水方式”选项，使模拟器工作在流水方式下。" class="headerlink" title="3、选择“配置”→“流水方式”选项，使模拟器工作在流水方式下。"></a>3、选择“配置”→“流水方式”选项，使模拟器工作在流水方式下。</h3><h3 id="4、用指令调度技术解决流水线中的结构冲突与数据冲突："><a href="#4、用指令调度技术解决流水线中的结构冲突与数据冲突：" class="headerlink" title="4、用指令调度技术解决流水线中的结构冲突与数据冲突："></a>4、用指令调度技术解决流水线中的结构冲突与数据冲突：</h3><ol>
+<li><p>启动 MIPSsim。用 MIPSsim 的“文件”-&gt;“载入程序”选项来加载 schedule.s（在模拟器所在文件夹下的“样例程序”文件夹中）。关闭定向功能，这是通过“配置“-&gt;”定向“选项来实现的。执行所载入的程序，通过查看统计数据和时钟周期图，找出并记录程序执行过程中各种冲突发生的次数，发生冲突的指令组合以及程序执行的总时钟周期数。</p>
+<p>载入的程序：</p>
+<img src="https://gitee.com/wxy_666/images/raw/master/20200517211348.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200517211348.jpg" srcset="data:image/png;base64,666" alt="2020-05-17_211340" style="zoom:80%;">
+
+<p>执行结果：</p>
 <ul>
-<li><p>小端法：高内存地址放整数的高位，低内存地址放整数的低位，这种方式叫倒着放，术语叫小端对齐。电脑X86和手机ARM都是小端对齐的。</p>
+<li><p>寄存器的值</p>
+<img src="https://gitee.com/wxy_666/images/raw/master/20200517211749.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200517211749.jpg" srcset="data:image/png;base64,666" alt="2020-05-17_211604" style="zoom:80%;">
 </li>
-<li><p>大端法：高内存地址放整数的低位，低内存地址放整数的高位，这种方式叫正着放，术语叫大端对齐。很多Unix服务器的cpu都是大端对齐的。</p>
+<li><p>部分时钟周期图</p>
+<img src="https://gitee.com/wxy_666/images/raw/master/20200517211814.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200517211814.jpg" srcset="data:image/png;base64,666" alt="2020-05-17_211620" style="zoom:80%;">
+</li>
+<li><p>统计</p>
+<img src="https://gitee.com/wxy_666/images/raw/master/20200517211909.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200517211909.jpg" srcset="data:image/png;base64,666" alt="2020-05-17_211525" style="zoom:80%;">
+
+<p>发现总共执行了33个周期，执行了15条指令，8次RAW停顿，RAW停顿有16个周期，RAW停顿占周期总数的百分比为48.48485%，所有的停顿为17个周期，占周期总数的百分比为51.51515%。<br>$$<br>吞吐率TP_1=\frac{15}{33\Delta{t}}<br>$$</p>
+<p>$$<br>加速比S_1=\frac{15\times{5\Delta{t}}}{33\Delta{t}}\approx{2.27}<br>$$</p>
+<p>冲突的指令组合：</p>
+<p>1-1和2-1，2-1和2-2，2-2和2-3，3-1和3-2，4-1和4-2，4-2和4-3，4-3和4-4，5-1和5-2共8对冲突，1-5组组内冲突，组间没有关联。</p>
+<p>schedule.s：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">.text</span><br><span class="line">main:</span><br><span class="line">ADDIU  $r1,$r0,A		# 1-1</span><br><span class="line"></span><br><span class="line">LW     $r2,0($r1)		# 2-1</span><br><span class="line">ADD    $r4,$r0,$r2		# 2-2</span><br><span class="line">SW     $r4,0($r1)		# 2-3</span><br><span class="line"></span><br><span class="line">LW     $r6,4($r1)		# 3-1</span><br><span class="line">ADD    $r8,$r6,$r1		# 3-2</span><br><span class="line"></span><br><span class="line">MUL    $r12,$r10,$r1	# 4-1</span><br><span class="line">ADD    $r16,$r12,$r1	# 4-2</span><br><span class="line">ADD    $r18,$r16,$r1	# 4-3</span><br><span class="line">SW     $r18,16($r1)		# 4-4</span><br><span class="line"></span><br><span class="line">LW     $r20,8($r1)		# 5-1</span><br><span class="line">MUL    $r22,$r20,$r14	# 5-2</span><br><span class="line"></span><br><span class="line">MUL    $r24,$r26,$r14	# 6-1</span><br><span class="line"></span><br><span class="line">TEQ    $r0,$r0			# 7-1</span><br><span class="line"></span><br><span class="line">.data</span><br><span class="line">A: </span><br><span class="line">.word 4,6,8</span><br></pre></td></tr></table></figure>
+
+
+
+
 </li>
 </ul>
-<p>大端和小端字节序不是由操作系统决定的，而是由cpu架构决定的。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200419150741.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200419150741.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-19_150338" style="zoom:80%;">
+</li>
+</ol>
+<ol start="2">
+<li><p>自己采用调度技术对程序进行指令调度，消除冲突（自己修改源程序）。将调度（修改）后的程序重新命名为 afer-schedule.s。（注意：调度方法灵活多样，在保证程序正确性的前提下自己随意调度，尽量减少冲突即可，不要求要达到最优。）载入 afer-schedule.s，执行该程序，观察程序在流水线中的执行情况，记录程序执行的总时钟周期数。 比较调度前和调度后的性能，论述指令调度对提高 CPU 性能的作用。</p>
+<p><strong><em>PS：调度后的程序见附录。</em></strong></p>
+<p>载入的程序：</p>
+<img src="https://gitee.com/wxy_666/images/raw/master/20200517213848.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200517213848.jpg" srcset="data:image/png;base64,666" alt="2020-05-17_213739" style="zoom:80%;">
 
-<h2 id="三、关于返回地址"><a href="#三、关于返回地址" class="headerlink" title="三、关于返回地址"></a>三、关于返回地址</h2><p>关于这里的**<em>返回地址**</em>，后面的所有其他跳转指令的返回地址均指的是：当前指令的下一条指令的地址，也就是跳转指令如果不跳转（分支失败）的下一条指令的地址。例如：当前的指令的地址是0x00000068，那么返回地址就是0x00000072。还要注意offset要左移两位并进行符号位扩展后才能与PC相加得到转移地址。这里左移两位的目的是，将offset*4，使之成为4的倍数。也就是说PC+offset&lt;&lt;2代表了PC的后offset+1（因为PC+offset&lt;&lt;2的PC已经+1了）条指令为转移指令。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200419152615.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200419152615.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="QQ图片20200419152549" style="zoom:80%;">
+<p>执行结果：</p>
+<ul>
+<li><p>寄存器的值</p>
+<img src="https://gitee.com/wxy_666/images/raw/master/20200517213909.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200517213909.jpg" srcset="data:image/png;base64,666" alt="2020-05-17_213757" style="zoom:80%;">
 
-<h2 id="四、关于定向技术"><a href="#四、关于定向技术" class="headerlink" title="四、关于定向技术"></a>四、关于定向技术</h2><p>在定向技术中，因为其采用的是静态指令调度。非运算类指令必须在 ID段 得到之前指令的定向数据。并不能像运算类执行一样在 EX段 得到定向数据；如图所示：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200518210441.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518210441.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="307-实验二-第二组" style="zoom:80%;">
+<p>与不调度前完全一致，调度没有改变结果，调度正确。</p>
+</li>
+<li><p>时钟周期图</p>
+<img src="https://gitee.com/wxy_666/images/raw/master/20200517214016.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200517214016.jpg" srcset="data:image/png;base64,666" alt="2020-05-17_213828" style="zoom:80%;">
+</li>
+<li><p>统计</p>
+<img src="https://gitee.com/wxy_666/images/raw/master/20200517213944.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200517213944.jpg" srcset="data:image/png;base64,666" alt="2020-05-17_213812" style="zoom:80%;">
 
-<h2 id="五、关于STALL"><a href="#五、关于STALL" class="headerlink" title="五、关于STALL"></a>五、关于STALL</h2><p>“绿色<font color="red">ID</font>后跟绿色ID” 和 “绿色STALL后跟绿色ID”的区别：<br>绿色<font color="red">ID</font>表示该周期ID可以执行，但是存在RAW冲突，因此执行失败，因此紧接着要做绿色ID；<br>绿色STALL表示该周期由于上一条指令的红色STALL，导致该指令此周期停顿，下一周期执行绿色ID。</p>
+<p>发现总共执行了18个周期，执行了15条指令，1次RAW停顿，RAW停顿有1个周期，RAW停顿占周期总数的百分比为5.555555%，较没有静态调度的48.48485%少了很多，所有的停顿为2个周期，占周期总数的百分比为11.111111%，较没有静态调度的51.51515%也少了很多。<br>$$<br>吞吐率TP_2=\frac{15}{18\Delta{t}}<br>$$</p>
+<p>$$<br>加速比S_2=\frac{15\times{5\Delta{t}}}{18\Delta{t}}\approx{4.17}<br>$$</p>
+<p>吞吐率和加速比是没有静态调度时的$\frac{33}{18}\approx{1.83}$倍。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="5、用延迟分支技术减少分支指令对性能的影响："><a href="#5、用延迟分支技术减少分支指令对性能的影响：" class="headerlink" title="5、用延迟分支技术减少分支指令对性能的影响："></a>5、用延迟分支技术减少分支指令对性能的影响：</h3><ol>
+<li><p>在 MIPSsim 中载入 branch.s 样例程序（在本模拟器目录的“样例程序”文件夹中。关闭延迟分支功能。这是通过在“配置”-&gt;“延迟槽”选项来实现的。执行该程序，观察并记录发生分支延迟的时刻，记录该程序执行的总时钟周期数。</p>
+<ol>
+<li><p>载入的程序：</p>
+<img src="https://gitee.com/wxy_666/images/raw/master/20200517220107.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200517220107.jpg" srcset="data:image/png;base64,666" alt="2020-05-17_215518" style="zoom:80%;">
+
+<p>执行结果：</p>
+<ul>
+<li><p>寄存器的值</p>
+<img src="https://gitee.com/wxy_666/images/raw/master/20200517220117.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200517220117.jpg" srcset="data:image/png;base64,666" alt="2020-05-17_215540" style="zoom:80%;">
+</li>
+<li><p>部分时钟周期图</p>
+<p><img src="https://gitee.com/wxy_666/images/raw/master/20200517220131.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200517220131.jpg" srcset="data:image/png;base64,666" alt="2020-05-17_215609"></p>
+</li>
+<li><p>统计</p>
+<img src="https://gitee.com/wxy_666/images/raw/master/20200517220148.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200517220148.jpg" srcset="data:image/png;base64,666" alt="2020-05-17_215554" style="zoom:80%;">
+
+<p>发现总共执行了38个周期，执行了18条指令，8次RAW停顿，RAW停顿有16个周期，RAW停顿占周期总数的百分比为42.10526%，控制停顿有2个周期，占周期总数的百分比为5.263158%，所有的停顿为19个周期，占周期总数的百分比为50%。发生分支延迟的时刻为第15个周期，延迟了2个周期。</p>
+<img src="https://gitee.com/wxy_666/images/raw/master/20200517220910.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200517220910.png" srcset="data:image/png;base64,666" alt="img" style="zoom:80%;">
+$$
+吞吐率TP_1=\frac{18}{38\Delta{t}}
+$$
+
+<p>$$<br>加速比S_1=\frac{18\times{5\Delta{t}}}{38\Delta{t}}\approx{2.37}<br>$$</p>
+<p>冲突的指令组合：</p>
+<p>2-1和2-2，2-2和2-3，3-1和3-2，3-2和3-3共4对冲突，2组和3组组内冲突，组间没有关联。</p>
+<p>branch.s：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">.text</span><br><span class="line">main:</span><br><span class="line">ADDI  $r2,$r0,1024	# 1-1</span><br><span class="line">ADD   $r3,$r0,$r0	# 1-2</span><br><span class="line">ADDI  $r4,$r0,8		# 1-3</span><br><span class="line"></span><br><span class="line">loop:  </span><br><span class="line">LW    $r1,0($r2)	# 2-1</span><br><span class="line">ADDI  $r1,$r1,1		# 2-2</span><br><span class="line">SW    $r1,0($r2)	# 2-3</span><br><span class="line"></span><br><span class="line">ADDI  $r3,$r3,4		# 3-1</span><br><span class="line">SUB   $r5,$r4,$r3	# 3-2</span><br><span class="line">BGTZ  $r5,loop		# 3-3</span><br><span class="line"></span><br><span class="line">ADD   $r7,$r0,$r6	# 4-1</span><br><span class="line"></span><br><span class="line">TEQ   $r0,$r0		# 5-1</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<ol start="2">
+<li><p>假设延迟槽为一个，自己对 branch.s 程序进行指令调度（自己修改源程序），将调度后的程序重新命名为 delayed-branch.s。 载入 delayed-branch.s，打开延迟分支功能，执行该程序，观察其时钟周期图，记录程序执行的总时钟周期数。</p>
+<ol start="2">
+<li><p><strong><em>PS：调度后的程序见附录。</em></strong></p>
+<p>载入的程序：</p>
+<img src="https://gitee.com/wxy_666/images/raw/master/20200517221827.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200517221827.jpg" srcset="data:image/png;base64,666" alt="2020-05-17_221307" style="zoom:80%;">
+
+<p>执行结果：</p>
+<ul>
+<li><p>寄存器的值</p>
+<img src="https://gitee.com/wxy_666/images/raw/master/20200517221840.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200517221840.jpg" srcset="data:image/png;base64,666" alt="2020-05-17_221458" style="zoom:80%;">
+
+<p>与不调度前完全一致，调度没有改变结果，调度正确。</p>
+</li>
+<li><p>部分时钟周期图</p>
+<img src="https://gitee.com/wxy_666/images/raw/master/20200517221906.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200517221906.jpg" srcset="data:image/png;base64,666" alt="2020-05-17_221439" style="zoom:80%;">
+</li>
+<li><p>统计</p>
+<img src="https://gitee.com/wxy_666/images/raw/master/20200517221920.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200517221920.jpg" srcset="data:image/png;base64,666" alt="2020-05-17_221507" style="zoom:80%;">
+
+<p>发现总共执行了25个周期，执行了19条指令，4次RAW停顿，RAW停顿有4个周期，RAW停顿占周期总数的百分比为16%，较没有静态调度的42.10526%少了很多，控制停顿有0个周期，占周期总数的百分比为0%，比没有使用延迟分支技术的5.263158%少了，所有的停顿为5个周期，占周期总数的百分比为20%，较没有静态调度和延迟分支技术的50%也减少了。可以发现使用延迟分支技术后，控制停顿消失了。<br>$$<br>吞吐率TP_2=\frac{19}{25\Delta{t}}<br>$$</p>
+<p>$$<br>加速比S_2=\frac{19\times{5\Delta{t}}}{25\Delta{t}}={3.8}<br>$$</p>
+<p>吞吐率和加速比是没有静态调度和延迟分支技术时的$\frac{19\times{38}}{25\times{18}}\approx{1.60}$倍。</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="四、实验结论"><a href="#四、实验结论" class="headerlink" title="四、实验结论"></a>四、实验结论</h2><p>​        静态调度优化代码和定向技术都能在一定程度上减少甚至消除数据冲突，尤其是RAW停顿，可以很好地提高性能，但是这两种方法对分支控制停顿没有任何帮助。但是延迟分支技术是由编译器通过重排指令序列，在分支指令后紧跟一条或几条延迟槽指令，不管分支是否成功，都顺序执行延迟槽中的指令，从而逻辑上“延长”分支指令的执行时间，减少甚至消除了控制停顿。因此这几种方法都能大幅度的减少停顿，从而提高CPU性能。</p>
+<p>​        在查看延迟分支技术的统计信息时，发现使用延迟分支技术比不使用延迟分支技术多执行了一条指令，可能是由于分支取消机制当分支的实际执行方向和事先所预测的一样时，执行分支延迟槽中的指令，否则就将分支延迟槽中的指令转化成一个空操作，这条指令确实已经执行了，只是分支条件判断完后发现不该执行，然后就将执行的回滚，因此比不使用延迟分支技术多执行了一条指令。</p>
+<h2 id="五、附录"><a href="#五、附录" class="headerlink" title="五、附录"></a>五、附录</h2><h3 id="1、after-schedule-s"><a href="#1、after-schedule-s" class="headerlink" title="1、after-schedule.s"></a>1、after-schedule.s</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">.text</span><br><span class="line">main:</span><br><span class="line">ADDIU  $r1,$r0,A		# 1-1</span><br><span class="line">MUL    $r24,$r26,$r14	# 6-1</span><br><span class="line"></span><br><span class="line">MUL    $r12,$r10,$r1	# 4-1</span><br><span class="line">LW     $r2,0($r1)		# 2-1</span><br><span class="line">LW     $r6,4($r1)		# 3-1</span><br><span class="line"></span><br><span class="line">ADD    $r16,$r12,$r1	# 4-2</span><br><span class="line">ADD    $r4,$r0,$r2		# 2-2</span><br><span class="line">LW     $r20,8($r1)		# 5-1</span><br><span class="line"></span><br><span class="line">ADD    $r18,$r16,$r1	# 4-3</span><br><span class="line">SW     $r4,0($r1)		# 2-3</span><br><span class="line">MUL    $r22,$r20,$r14	# 5-2</span><br><span class="line"></span><br><span class="line">SW     $r18,16($r1)		# 4-4</span><br><span class="line">ADD    $r8,$r6,$r1		# 3-2</span><br><span class="line">TEQ    $r0,$r0			# 7-1</span><br><span class="line"></span><br><span class="line">.data</span><br><span class="line">A: </span><br><span class="line">.word 4,6,8</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2、delay-branch-s"><a href="#2、delay-branch-s" class="headerlink" title="2、delay-branch.s"></a>2、delay-branch.s</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">.text</span><br><span class="line">main:</span><br><span class="line">ADDI  $r2,$r0,1024	# 1-1</span><br><span class="line">ADD   $r3,$r0,$r0	# 1-2</span><br><span class="line">ADDI  $r4,$r0,8		# 1-3</span><br><span class="line"></span><br><span class="line">loop:  </span><br><span class="line">LW    $r1,0($r2)	# 2-1</span><br><span class="line">ADDI  $r3,$r3,4		# 3-1</span><br><span class="line">ADDI  $r1,$r1,1		# 2-2</span><br><span class="line">SUB   $r5,$r4,$r3	# 3-2</span><br><span class="line">SW    $r1,0($r2)	# 2-3</span><br><span class="line">BGTZ  $r5,loop		# 3-3</span><br><span class="line"></span><br><span class="line">ADD   $r7,$r0,$r6	# 4-1</span><br><span class="line"></span><br><span class="line">TEQ   $r0,$r0		# 5-1</span><br></pre></td></tr></table></figure>
+
 
   
   
@@ -793,7 +805,7 @@
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
     </section>
     <section class="body">
-      <div class="vlts-rps"><a class="item" href="\2020\04\25\计算机系统结构-实验-使用MIPS指令实现求两个数组的点积\" title="计算机系统结构 实验 使用MIPS指令实现求两个数组的点积" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">计算机系统结构 实验 使用MIPS指令实现求两个数组的点积</span><span class="excerpt">本文是关于计算机系统结构实验三，使用MIPS指令实现求两个数组的点积。</span></a><a class="item" href="\2020\04\16\计算机系统结构-实验-使用MIPS指令实现冒泡排序法\" title="计算机系统结构 实验 使用MIPS指令实现冒泡排序法" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">计算机系统结构 实验 使用MIPS指令实现冒泡排序法</span><span class="excerpt">本文是关于计算机系统结构实验四，使用MIPS指令实现冒泡排序法。</span></a><a class="item" href="\2020\05\11\计算机系统结构-实验-指令调度与延迟分支\" title="计算机系统结构 实验 指令调度与延迟分支" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">计算机系统结构 实验 指令调度与延迟分支</span><span class="excerpt">本文是关于计算机系统结构实验五，指令调度与延迟分支。</span></a><a class="item" href="\2020\06\11\机器学习-实验-DNN-手写识别\" title="机器学习 实验 DNN 手写识别" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200601103924.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200601103924.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">机器学习 实验 DNN 手写识别</span><span class="excerpt">本文是关于经典深度神经网络DNN的应用手写识别的思路样例。</span></a><a class="item" href="\2020\05\17\机器学习-实验-K-Means聚类\" title="机器学习 实验 K-Means聚类" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200524095524.svg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200524095524.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">机器学习 实验 K-Means聚类</span><span class="excerpt">本文是关于经典聚类算法K-Means的代码实现。</span></a></div></section></div>
+      <div class="vlts-rps"><a class="item" href="\2020\03\26\计算机系统结构-实验1&2-遇到的问题\" title="计算机系统结构 实验1和2 遇到的问题" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200419150741.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200419150741.png" srcset="data:image/png;base64,666"><span class="title">计算机系统结构 实验1和2 遇到的问题</span><span class="excerpt">本文是关于计算机系统结构实验一（MIPS指令系统和MIPS体系结构）和实验二（流水线及流水线中的冲突），遇到的一些问题。</span></a><a class="item" href="\2020\04\25\计算机系统结构-实验3-使用MIPS指令实现求两个数组的点积\" title="计算机系统结构 实验3 使用MIPS指令实现求两个数组的点积" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" srcset="data:image/png;base64,666"><span class="title">计算机系统结构 实验3 使用MIPS指令实现求两个数组的点积</span><span class="excerpt">本文是关于计算机系统结构实验三，使用MIPS指令实现求两个数组的点积。</span></a><a class="item" href="\2020\04\16\计算机系统结构-实验4-使用MIPS指令实现冒泡排序法\" title="计算机系统结构 实验4 使用MIPS指令实现冒泡排序法" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" srcset="data:image/png;base64,666"><span class="title">计算机系统结构 实验4 使用MIPS指令实现冒泡排序法</span><span class="excerpt">本文是关于计算机系统结构实验四，使用MIPS指令实现冒泡排序法。</span></a><a class="item" href="\2020\10\09\交换原理-实验1-时间表调度实验\" title="交换原理 实验1 时间表调度实验" rel="bookmark "><img src="data:image/png;base64,666"><span class="title">交换原理 实验1 时间表调度实验</span><span class="excerpt">本文是关于交换原理实验一——时间表调度实验报告记录。</span></a><a class="item" href="\2020\10\09\交换原理-实验3-MPLS编程实验\" title="交换原理 实验3 MPLS编程实验" rel="bookmark "><img src="data:image/png;base64,666"><span class="title">交换原理 实验3 MPLS编程实验</span><span class="excerpt">本文是关于交换原理实验三——MPLS编程实验报告记录。</span></a></div></section></div>
       
       
         <div class="copyright">
@@ -810,7 +822,7 @@
               
             
               
-                <p>本文永久链接是：<a href="https://666wxy666.github.io/2020/03/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-1%E5%92%8C2%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">https://666wxy666.github.io/2020/03/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-1%E5%92%8C2%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</a></p>
+                <p>本文永久链接是：<a href="https://666wxy666.github.io/2020/05/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C5-%E6%8C%87%E4%BB%A4%E8%B0%83%E5%BA%A6%E4%B8%8E%E5%BB%B6%E8%BF%9F%E5%88%86%E6%94%AF/">https://666wxy666.github.io/2020/05/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C5-%E6%8C%87%E4%BB%A4%E8%B0%83%E5%BA%A6%E4%B8%8E%E5%BB%B6%E8%BF%9F%E5%88%86%E6%94%AF/</a></p>
               
             
               
@@ -825,9 +837,9 @@
         <div class="donate">
           <div class="imgs">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weixin.jpg" srcset="data:image/png;base64,666">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,666">
             
           </div>
         </div>
@@ -842,10 +854,10 @@
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-02T10:08:22+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-09T16:03:30+08:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年9月2日</p>
+    <p>更新于：2020年10月9日</p>
   </a>
 </div>
 
@@ -865,25 +877,25 @@
   <div class="-mob-share-list share-body">
     
       
-        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://666wxy666.github.io/2020/03/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-1%E5%92%8C2%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/&title=计算机系统结构 实验 1和2遇到的问题 - 苇名一心的博客&summary=本文是关于计算机系统结构实验一（MIPS指令系统和MIPS体系结构）和实验二（流水线及流水线中的冲突），遇到的一些问题。" target="_blank">
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://666wxy666.github.io/2020/05/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C5-%E6%8C%87%E4%BB%A4%E8%B0%83%E5%BA%A6%E4%B8%8E%E5%BB%B6%E8%BF%9F%E5%88%86%E6%94%AF/&title=计算机系统结构 实验5 指令调度与延迟分支 - 苇名一心的博客&summary=本文是关于计算机系统结构实验五，指令调度与延迟分支。" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://666wxy666.github.io/2020/03/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-1%E5%92%8C2%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/&title=计算机系统结构 实验 1和2遇到的问题 - 苇名一心的博客&summary=本文是关于计算机系统结构实验一（MIPS指令系统和MIPS体系结构）和实验二（流水线及流水线中的冲突），遇到的一些问题。" target="_blank">
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
           
         </a>
       
     
       
-        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://666wxy666.github.io/2020/03/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C-1%E5%92%8C2%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/&title=计算机系统结构 实验 1和2遇到的问题 - 苇名一心的博客&summary=本文是关于计算机系统结构实验一（MIPS指令系统和MIPS体系结构）和实验二（流水线及流水线中的冲突），遇到的一些问题。" target="_blank">
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://666wxy666.github.io/2020/05/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C5-%E6%8C%87%E4%BB%A4%E8%B0%83%E5%BA%A6%E4%B8%8E%E5%BB%B6%E8%BF%9F%E5%88%86%E6%94%AF/&title=计算机系统结构 实验5 指令调度与延迟分支 - 苇名一心的博客&summary=本文是关于计算机系统结构实验五，指令调度与延迟分支。" target="_blank">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://666wxy666.github.io/2020/05/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C5-%E6%8C%87%E4%BB%A4%E8%B0%83%E5%BA%A6%E4%B8%8E%E5%BB%B6%E8%BF%9F%E5%88%86%E6%94%AF/&title=计算机系统结构 实验5 指令调度与延迟分支 - 苇名一心的博客&summary=本文是关于计算机系统结构实验五，指令调度与延迟分支。" target="_blank">
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
           
         </a>
       
@@ -909,29 +921,28 @@
   
     <div class="prev-next">
       
-        <a class="prev" href="/2020/03/28/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%981-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
-          <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>Linux 上机实战1 正则表达式</p>
-          <p class="content">本文是关于Linux中的文本处理三剑客（grep，sed，awk），以及正则表达式应用的一个样例，获取北京某时刻PM2.5的数据，然后进行处理，输出到csv文件中，并画图表展示。
+        <a class="prev" href="/2020/05/12/Linux-MOOC%E4%B9%A0%E9%A2%98-6~10%E7%AB%A0/">
+          <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>Linux MOOC习题 6~10章</p>
+          <p class="content">自己随便整理了一下在学习Linux网课时遇到的一些习题，易错点之类的，接上文Linux MOOC习题 1~5章。
 
 
 
 
-一、题...</p>
+PS：第七章是上机实验。
+六、Linux命令风格和文件系统
+
+这两个题都...</p>
         </a>
       
       
-        <a class="next" href="/2020/03/15/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Spark-Java%E5%8D%95%E8%AF%8D%E8%AE%A1%E6%95%B0/">
-          <p class="title">大数据实战 Spark Java单词计数<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class="content">本文是关于大数据通过Spark实现Java单词计数。
+        <a class="next" href="/2020/05/10/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%983-shell%E8%84%9A%E6%9C%AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+          <p class="title">Linux 上机实战3 shell脚本程序设计<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class="content">本文是关于Linux中的shell脚本程序设计，有几个小Demo。
 
 
 
 
-一、实验环境：
-虚拟机数量：1
-系统版本：Centos 7.5
-Spark版本：Apache Spark 2.1.1
-JDK版本： ...</p>
+一、题目要求1、生成TCP 活动状况报告​        netstat –statistics 命令可以列出tcp等...</p>
         </a>
       
     </div>
@@ -954,6 +965,59 @@ JDK版本： ...</p>
 
 
 
+  <script>
+  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.0/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    // 文章章节标题不能为 “MathJax” ，否则会报错。
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
 
 </div>
 <aside class="l_side">
@@ -974,7 +1038,7 @@ JDK版本： ...</p>
 
 
     <div class="content">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、关于字"><span class="toc-text">一、关于字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、关于访存"><span class="toc-text">二、关于访存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、关于返回地址"><span class="toc-text">三、关于返回地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、关于定向技术"><span class="toc-text">四、关于定向技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、关于STALL"><span class="toc-text">五、关于STALL</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、实验目的"><span class="toc-text">一、实验目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、实验步骤及结果分析"><span class="toc-text">二、实验步骤及结果分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、启动-MIPSsim。"><span class="toc-text">1、启动 MIPSsim。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、根据实验2的相关知识中关于流水线各段操作的描述，进一步理解流水线窗口中各段的功能，掌握各流水线寄存器的含义（双击各段，就可以看到各流水线寄存器中的内容）。"><span class="toc-text">2、根据实验2的相关知识中关于流水线各段操作的描述，进一步理解流水线窗口中各段的功能，掌握各流水线寄存器的含义（双击各段，就可以看到各流水线寄存器中的内容）。</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#①IF段："><span class="toc-text">①IF段：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#②ID段："><span class="toc-text">②ID段：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#③EX段："><span class="toc-text">③EX段：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#④MEM段："><span class="toc-text">④MEM段：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#⑤WB段："><span class="toc-text">⑤WB段：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、选择“配置”→“流水方式”选项，使模拟器工作在流水方式下。"><span class="toc-text">3、选择“配置”→“流水方式”选项，使模拟器工作在流水方式下。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、用指令调度技术解决流水线中的结构冲突与数据冲突："><span class="toc-text">4、用指令调度技术解决流水线中的结构冲突与数据冲突：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、用延迟分支技术减少分支指令对性能的影响："><span class="toc-text">5、用延迟分支技术减少分支指令对性能的影响：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、实验结论"><span class="toc-text">四、实验结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、附录"><span class="toc-text">五、附录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、after-schedule-s"><span class="toc-text">1、after-schedule.s</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、delay-branch-s"><span class="toc-text">2、delay-branch.s</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -985,6 +1049,24 @@ JDK版本： ...</p>
 </aside>
 
 
+
+        
+        
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="计算机系统结构 实验5 指令调度与延迟分支";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.add("show");
+  
+</script>
 
         
       </div>
@@ -1108,11 +1190,82 @@ JDK版本： ...</p>
   </footer>
 
 
-      <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
     </div>
   </div>
   <div>
-    <!-- required -->
+    <script>
+window.volantis={};
+/********************脚本懒加载函数********************************/
+function loadScript(src, cb) {
+var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+var script = document.createElement('script');
+script.setAttribute('type','text/javascript');
+if (cb) script.onload = cb;
+script.setAttribute('src', src);
+HEAD.appendChild(script);
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<!-- required -->
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
 
@@ -1177,7 +1330,6 @@ JDK版本： ...</p>
 <script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
 
     <script type="text/javascript">
-      $(function(){
         var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
         if ('true' == 'true') {
           function shuffle(arr){
@@ -1192,22 +1344,17 @@ JDK版本： ...</p>
           }
           shuffle(imgs);
         }
-        if ('.cover-backstretch') {
-          $('.cover-backstretch').backstretch(
+	  function Pjax_backstretch(){
+        
+          $('#cover-backstretch').backstretch(
             imgs,
           {
             duration: "10000",
             fade: "1500"
           });
-        } else {
-          $.backstretch(
-            imgs,
-          {
-            duration: "10000",
-            fade: "1500"
-          });
-        }
-      });
+        
+	  }
+	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
     </script>
   
 
@@ -1579,9 +1726,9 @@ JDK版本： ...</p>
   function pjax_valine() {
     if(!document.querySelectorAll("#valine_container")[0])return;
 
-    let pagePlaceholder = $.trim($('#pjax-comment-placeholder').text()) || "快来评论吧~";
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
 
-    let path = $.trim($('#pjax-comment-path').text());
+    let path = pdata.commentPath;
     if (path.length == 0) {
       let defaultPath = '';
       path = defaultPath || decodeURI(window.location.pathname);
@@ -1612,91 +1759,6 @@ JDK版本： ...</p>
   $(function () {
     pjax_valine();
   });
-</script>
-
-
-
-
-  
-<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5/lib/darkmode-js.min.js" aysc></script>
-
-<script type="text/javascript">
-function getClientHeight(){
-  var clientHeight=0;
-  if(document.body.clientHeight&&document.documentElement.clientHeight){
-  var clientHeight = (document.body.clientHeight<document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
-  }else{
-  var clientHeight = (document.body.clientHeight>document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;
-  }
-  return clientHeight;
-}
-function supportCss3(style) {
-  var prefix = ['webkit', 'Moz', 'ms', 'o'],
-  i,
-  humpString = [],
-  htmlStyle = document.documentElement.style,
-  _toHumb = function (string) {
-  return string.replace(/-(\w)/g, function ($0, $1) {
-  return $1.toUpperCase();
-  });
-  };
-  for (i in prefix)
-  humpString.push(_toHumb(prefix[i] + '-' + style));
-  humpString.push(_toHumb(style));
-  for (i in humpString)
-  if (humpString[i] in htmlStyle) return true;
-  return false;
-};
-//配置信息
-var options = {
-  bottom: '100px',
-  right: '32px',
-  left: 'unset',
-  time: '0s',
-  mixColor: '#f4f4f4',
-  backgroundColor: '#f4f4f4',
-  buttonColorDark: '#333',
-  buttonColorLight: '#ddd',
-  saveInCookies: true,
-  label: '',
-  autoMatchOsTheme: true
-};
-// 卡片兼容处理 mix-blend-mode 与 effect: [blur] 冲突
-
-function pjax_darkmodejs(){
-  
-  if(!supportCss3('mix-blend-mode'))return;
-  var checkExist2 = setInterval(function() {
-     if (typeof jQuery == 'undefined'){return;}
-     clearInterval(checkExist2);
-     var TopFlag=getClientHeight();
-    $(window).scroll(function(){
-      var top = $(document).scrollTop();
-      if(top > TopFlag) {
-        $(".darkmode-layer").css("mix-blend-mode","normal");
-        $(".darkmode-layer").css("background-color","#222");
-      }else{
-        $(".darkmode-layer").css("mix-blend-mode","difference");
-        $(".darkmode-layer").css("background-color","");
-      }
-    })
-  }, 100);
-  
-}
-// mix-blend-mode support?
-if(supportCss3('mix-blend-mode')){
-  window.darkmode = new Darkmode(options);
-  
-  window.darkmode.showWidget();
-  
-  pjax_darkmodejs();
-}
-////////////////Development///////////////////////
-//////////////darkmode模式切换////////////////////
-//window.darkmode.toggle();                     //
-//////////////darkmode模式判断////////////////////
-//console.log(window.darkmode.isActivated())    //
-//////////////////////////////////////////////////
 </script>
 
 
@@ -1972,7 +2034,227 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
 
 
 
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+  try {
+    localStorage.setItem(k, v);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+const removeLS = (k) => {
+  try {
+    localStorage.removeItem(k);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+const getLS = (k) => {
+  try {
+    return localStorage.getItem(k);
+  } catch (e) {
+    console.log(e.message);
+    return null;
+  }
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+function bindToggleButton() {
+	var btn=$("#wrapper .toggle-mode-btn");
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+$("#wrapper .darkbtn").parents(".header").addClass("toggle-mode-btn")
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+document.addEventListener("pjax:success", bindToggleButton);
+var now = new Date();
+var hour = now.getHours();
+if (hour < 7 && hour >= 19) {
+	var mode = toggleCustomDarkMode();
+	if (mode === "dark") {
+	  applyCustomDarkModeSettings(mode);
+	}
+}
+</script>
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script>
+setTimeout(function() {
+  window.ga_tid = 'UA-162450234-2';
+   (function() {
+	 var dga = document.createElement("script");
+	 dga.src = "https://rmt.dogedoge.com/fetch/public/ga.js";
+	  var s = document.getElementsByTagName("script")[0];
+	  s.parentNode.insertBefore(dga, s);
+  })();
+}, 5000);
+</script>
+
+
+<!-- baidu Analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  setTimeout(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?93c49980dcbfb8920e167f85129d6917";
+	hm.defer=true;
+	var s = document.getElementsByTagName("script")[0];
+	s.parentNode.insertBefore(hm, s);
+  }, 5000);
+})();
+</script>
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
 <!-- more -->
+
+
 
 
     
@@ -2005,6 +2287,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
         elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
         selectors: [
           "title",
+          "#l_cover",
           "#pjax-container",
           "#pjax-header-nav-list"
         ],
@@ -2014,7 +2297,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
     });
 
     document.addEventListener('pjax:send', function (e) {
-      window.stop(); // 相当于点击了浏览器的停止按钮
+      //window.stop(); // 相当于点击了浏览器的停止按钮
 
       try {
         var currentUrl = window.location.pathname;
@@ -2033,12 +2316,12 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
       if (typeof $.fancybox != "undefined") {
         $.fancybox.close();    // 关闭弹窗
       }
-      $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
-      $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
-      $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
 
       // 解绑事件 避免重复监听
-      $('.s-top').unbind('click');
+      volantis.$topBtn.unbind('click');
       $('.menu a').unbind('click');
       $(window).unbind('resize');
       $(window).unbind('scroll');
@@ -2077,22 +2360,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
             pjax_fancybox();
           }
         
-          
-          if ('.cover-backstretch') {
-            $('.cover-backstretch').backstretch("resize");
-            if($('.cover-wrapper').is(':hidden')){
-              $('.cover-backstretch').backstretch("pause");
-            }else{
-              $('.cover-backstretch').backstretch("next");
-            }
-          } else {
-            $.backstretch("resize");
-            if($('.cover-wrapper').is(':hidden')){
-              $.backstretch("pause");
-            }else{
-              $.backstretch("next");
-            }
-          }
+		  Pjax_backstretch()
         
         
         
@@ -2103,9 +2371,6 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
         
         
         
-        
-        
-          pjax_darkmodejs();
         
       } catch (e) {
         console.log(e);
