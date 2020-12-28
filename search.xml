@@ -4,37 +4,6 @@
   
     
     <entry>
-      <title>交换原理 实验3 MPLS编程实验</title>
-      <link href="/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C3-MPLS%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C/"/>
-      <url>/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C3-MPLS%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文是关于交换原理实验三——MPLS编程实验报告记录。</p><a id="more"></a><h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><p>安排的三个编程实验主要用于加强学生对MPLS交换中标记请求、标记分配与分发、标记分组转发的理解。</p><h2 id="二、实验内容和实验步骤"><a href="#二、实验内容和实验步骤" class="headerlink" title="二、实验内容和实验步骤"></a>二、实验内容和实验步骤</h2><h3 id="1、实验原理及设计"><a href="#1、实验原理及设计" class="headerlink" title="1、实验原理及设计"></a>1、实验原理及设计</h3><p>多协议标记交换MPLS（Multiple Protocol Labeled  Switching）技术是将第二层交换和第三层路由结合起来的一种L2/L3集成数据传输技术。MPLS是一项面向连接的交换技术，因此有建立连接的过程。各个MPLS设备运行  路由协议，在标记分发协议LDP的控制下根据计算得到的路由在相邻的路由器进行标记分配和分发，从而通过标记的拼接建立起从网络入口到出口的标记交换路径LSP。 </p><p>在数据转发过程中，入口标记路由器LER根据数据流的属性比如网络层目的地址等将分组映射到某一转发等价类FEC，并为分组绑定标记。核心标记交换路由器LSR只需根据分组中所携带的标记进行转发即可。出口标记路由器LER弹出标记，根据分组的网络层目的地址将分组转发到下一跳。MPLS节点（MPLS标记交换路由器LSR或MPLS边缘路由器LER）均要创建和维护传统的路由表和标记信息库LIB。</p><p>路由表记录记录路由信息，用于转发网络层分组和标记分发从而建立标记交换路径。LIB记录了本地节点分配的标记与从邻接MPLS节点收到的标记之间的映射关系，用于标记分组的转发。</p><p>MPLS技术的核心实质在于：</p><ol><li>网络中分组基于标记的转发；</li><li>LDP协议控制下的进行标记分发从而建立标记交换路径LSP；</li></ol><h3 id="2、实验主要数据结构"><a href="#2、实验主要数据结构" class="headerlink" title="2、实验主要数据结构"></a>2、实验主要数据结构</h3><p>所需要的头文件：”mplsconstant.h”</p><p>其中的主要数据结构为：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//发送的请求信息包数据结构</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ReqType</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> iFirstNode;   <span class="comment">//请求信息包的源节点</span></span><br><span class="line">    <span class="keyword">int</span> iEndNode;     <span class="comment">//请求信息包的目的节点</span></span><br><span class="line">    <span class="keyword">double</span> ipaddress; <span class="comment">//请求信息包包含的网络层目的IP地址前缀（例如197.42）</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//路由表表项的数据结构</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">routertype</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">double</span> ipaddress; <span class="comment">//网络层目的地址前缀</span></span><br><span class="line">    <span class="keyword">int</span> nexthop;      <span class="comment">//下一跳节点</span></span><br><span class="line">    <span class="keyword">int</span> lasthop;      <span class="comment">//上一跳节点</span></span><br><span class="line">    <span class="keyword">int</span> inpoint;      <span class="comment">//入端口号</span></span><br><span class="line">    <span class="keyword">int</span> outpoint;     <span class="comment">//出端口号</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//标记信息表表项的数据结构</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">libtype</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">double</span> ipaddress; <span class="comment">//网络层目的地址前缀</span></span><br><span class="line">    <span class="keyword">int</span> inpoint;      <span class="comment">//入端口号</span></span><br><span class="line">    <span class="keyword">int</span> outpoint;     <span class="comment">//出端口号</span></span><br><span class="line">    <span class="keyword">int</span> inlabel;      <span class="comment">//入标记值</span></span><br><span class="line">    <span class="keyword">int</span> outlabel;     <span class="comment">//出标记值</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//发送的标记信息包数据结构</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">LabelPack</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> iFirstNode; <span class="comment">//源节点号</span></span><br><span class="line">    <span class="keyword">int</span> iEndNode;   <span class="comment">//目的节点号</span></span><br><span class="line">    <span class="keyword">int</span> labelvalue; <span class="comment">//标签值</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">funcusedtype</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">libtype</span> <span class="title">libinfo</span>;</span>     <span class="comment">//包含的标记信息表项</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LabelPack</span> <span class="title">labelinfo</span>;</span> <span class="comment">//包含的标记信息包数据结构</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//发送的标记分组信息包类型</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">LabelledDataPack</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> iFirstNode;              <span class="comment">//源节点号</span></span><br><span class="line">    <span class="keyword">int</span> iEndNode;                <span class="comment">//目的节点号</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">MessageType</span> <span class="title">DataInfo</span>;</span> <span class="comment">//包含的标记分组类型信息</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//标记分组类型</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">MessageType</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">double</span> ipaddress; <span class="comment">//网络层目的地址前缀</span></span><br><span class="line">    <span class="keyword">int</span> labelvalue; <span class="comment">//输出标签值</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h4 id="①标记请求实验："><a href="#①标记请求实验：" class="headerlink" title="①标记请求实验："></a>①标记请求实验：</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span> _declspec(dllexport) <span class="function">struct  ReqType <span class="title">req_process</span><span class="params">(<span class="keyword">int</span> idnow,struct routertype routenow)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ReqType</span> <span class="title">reqtemp</span>;</span></span><br><span class="line"><span class="keyword">return</span>  reqtemp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>参数意义：</p><p>int idnow：当前的节点号；</p><p>struct routertype routenow：当前所指的路由表的表项；</p><p>函数要求：</p><p>根据提供的当前节点号和路由表表项值产生标记请求包；</p><p>过程描述：</p><p>标记请求包的源节点号由当前节点号提供，目的节点号和ip地址前缀由当前所指的路由表表项的下一跳节点和ip地址前缀提供；</p><h4 id="②标记分配与分发实验："><a href="#②标记分配与分发实验：" class="headerlink" title="②标记分配与分发实验："></a>②标记分配与分发实验：</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span>  <span class="string">"C"</span> _declspec(dllexport) <span class="function">struct  funcusedtype <span class="title">label_process</span><span class="params">(struct routertype routenow,<span class="keyword">int</span> labelout,<span class="keyword">int</span>  idnow)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="class"><span class="keyword">struct</span>  <span class="title">funcusedtype</span> <span class="title">tempstruct</span>;</span></span><br><span class="line"><span class="keyword">return</span>  tempstruct;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>参数意义：</p><p>struct routertype routenow：当前所指的路由表表项；</p><p>int labelout：分配的输出标签号；</p><p>int idnow：当前的节点号；</p><p>函数要求：</p><p>该函数要求根据提供的路由表当前表项、分配的输出标签号和当前节点号，构造一funcusedtype信息包。注：各节点的输入标签可以自由选定，但必须是1-9的整数；</p><p>过程描述：</p><p>该funcusedtype信息包的libinfo部分可由当前的路由表表项、当前分配的标签号的有关部分构成；labelinfo部分由当前节点号和当前的路由表表项的有关部分构成；    </p><h4 id="③标记分组转发实验"><a href="#③标记分组转发实验" class="headerlink" title="③标记分组转发实验"></a>③标记分组转发实验</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span> _declspec(dllexport) <span class="function">struct  LabelledDataPack <span class="title">pack_process</span><span class="params">(struct routertype routenow,struct libtype  libnow,<span class="keyword">int</span> idnow)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">LabelledDataPack</span> <span class="title">packtemp</span>;</span></span><br><span class="line"><span class="keyword">return</span> packtemp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>参数意义：</p><p>struct routertype routenow：当前所指的路由表表项；</p><p>struct libtype libnow：当前的标签信息表表项；</p><p>int idnow：当前的节点号；</p><p>函数要求:</p><p>该函数要求根据提供的路由表表项、标签信息表表项和当前节点号，构造出一个标签数据信息包。</p><p>过程描述：</p><p>该标签信息包的源节点、目的节点、IP地址前缀和标签值均可由当前节点号、路由表表项和标签信息表表项构成；</p><h3 id="3、实验效果检验"><a href="#3、实验效果检验" class="headerlink" title="3、实验效果检验"></a>3、实验效果检验</h3><p>建立连接阶段、数据传输阶段、拆除阶段，三阶段均可正常进行。</p><h3 id="4、实验步骤"><a href="#4、实验步骤" class="headerlink" title="4、实验步骤"></a>4、实验步骤</h3><ol><li>熟悉实验平台和测试环境；</li><li>编写C程序实现所要求的功能；</li><li>运行测试程序；</li><li>完成实验报告。</li></ol><h2 id="三、源代码"><a href="#三、源代码" class="headerlink" title="三、源代码"></a>三、源代码</h2><h3 id="①标记请求实验：-1"><a href="#①标记请求实验：-1" class="headerlink" title="①标记请求实验："></a>①标记请求实验：</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"mplsconstant.h"</span></span></span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span> _declspec(dllexport) <span class="function">struct ReqType <span class="title">req_process</span><span class="params">(<span class="keyword">int</span> idnow, struct routertype routenow)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ReqType</span> <span class="title">reqtemp</span>;</span></span><br><span class="line">    reqtemp.iFirstNode = idnow;             <span class="comment">//源节点号由当前节点号提供</span></span><br><span class="line">    reqtemp.iEndNode = routenow.nexthop;    <span class="comment">//目的节点号由当前路由表表项的下一跳节点提供</span></span><br><span class="line">    reqtemp.ipaddress = routenow.ipaddress; <span class="comment">//IP地址前缀由当前路由表表项的IP地址前缀提供</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> reqtemp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="②标记分配与分发实验：-1"><a href="#②标记分配与分发实验：-1" class="headerlink" title="②标记分配与分发实验："></a>②标记分配与分发实验：</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"mplsconstant.h"</span></span></span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span> _declspec(dllexport) <span class="function">struct funcusedtype <span class="title">label_process</span><span class="params">(struct routertype routenow, <span class="keyword">int</span> labelout, <span class="keyword">int</span> idnow)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">funcusedtype</span> <span class="title">tempstruct</span>;</span></span><br><span class="line">    <span class="comment">//包含的标记信息表项</span></span><br><span class="line">    tempstruct.libinfo.ipaddress = routenow.ipaddress; <span class="comment">//网络层目的地址前缀</span></span><br><span class="line">    tempstruct.libinfo.inpoint = routenow.inpoint;     <span class="comment">//入端口号</span></span><br><span class="line">    tempstruct.libinfo.outpoint = routenow.outpoint;   <span class="comment">//出端口号</span></span><br><span class="line">    tempstruct.libinfo.inlabel = <span class="number">1</span>;                    <span class="comment">//入标记值</span></span><br><span class="line">    tempstruct.libinfo.outlabel = labelout;            <span class="comment">//出标记值</span></span><br><span class="line">    <span class="comment">//包含的标记信息包数据结构</span></span><br><span class="line">    tempstruct.labelinfo.iFirstNode = idnow;          <span class="comment">//当前节点号</span></span><br><span class="line">    tempstruct.labelinfo.iEndNode = routenow.lasthop; <span class="comment">//当前的路由表表项的上一跳节点</span></span><br><span class="line">    tempstruct.labelinfo.labelvalue = <span class="number">1</span>;              <span class="comment">//与tempstruct.libinfo.inlabel保持一致</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> tempstruct;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="③标记分组转发实验-1"><a href="#③标记分组转发实验-1" class="headerlink" title="③标记分组转发实验"></a>③标记分组转发实验</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"mplsconstant.h"</span></span></span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span> _declspec(dllexport) <span class="function">struct LabelledDataPack <span class="title">pack_process</span><span class="params">(struct routertype routenow, struct libtype libnow, <span class="keyword">int</span> idnow)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LabelledDataPack</span> <span class="title">packtemp</span>;</span></span><br><span class="line">    packtemp.iFirstNode = idnow;          <span class="comment">//源节点号</span></span><br><span class="line">    packtemp.iEndNode = routenow.nexthop; <span class="comment">//目的节点号</span></span><br><span class="line">    <span class="comment">//包含的标记分组类型信息</span></span><br><span class="line">    packtemp.DataInfo.ipaddress = routenow.ipaddress; <span class="comment">//网络层目的地址前缀</span></span><br><span class="line">    packtemp.DataInfo.labelvalue = libnow.outlabel;   <span class="comment">//输出标签值</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> packtemp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h2><p>运行程序后，建立连接阶段、数据传输阶段、拆除阶段，三阶段均可正常进行，实验成功。</p><h2 id="五、实验心得"><a href="#五、实验心得" class="headerlink" title="五、实验心得"></a>五、实验心得</h2><p>这次实验要编写三个程序，但是基本框架都已经规定好了，对照指导书上结构体和函数的说明，只需要简单的创建结构体和赋值操作就能很轻松地完成。加强了我对MPLS的原理和标记请求、标记分配与分发、标记分组转发过程的理解和认识。实验虽然简单，但是很有意义，收获很多。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 交换原理 </category>
-          
-          <category> 实验 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 实验 </tag>
-            
-            <tag> 交换原理 </tag>
-            
-            <tag> MPLS </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>交换原理 实验1 时间表调度实验</title>
       <link href="/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C1-%E6%97%B6%E9%97%B4%E8%A1%A8%E8%B0%83%E5%BA%A6%E5%AE%9E%E9%AA%8C/"/>
       <url>/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C1-%E6%97%B6%E9%97%B4%E8%A1%A8%E8%B0%83%E5%BA%A6%E5%AE%9E%E9%AA%8C/</url>
@@ -93,6 +62,37 @@
     
     
     <entry>
+      <title>交换原理 实验3 MPLS编程实验</title>
+      <link href="/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C3-MPLS%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C/"/>
+      <url>/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C3-MPLS%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文是关于交换原理实验三——MPLS编程实验报告记录。</p><a id="more"></a><h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><p>安排的三个编程实验主要用于加强学生对MPLS交换中标记请求、标记分配与分发、标记分组转发的理解。</p><h2 id="二、实验内容和实验步骤"><a href="#二、实验内容和实验步骤" class="headerlink" title="二、实验内容和实验步骤"></a>二、实验内容和实验步骤</h2><h3 id="1、实验原理及设计"><a href="#1、实验原理及设计" class="headerlink" title="1、实验原理及设计"></a>1、实验原理及设计</h3><p>多协议标记交换MPLS（Multiple Protocol Labeled  Switching）技术是将第二层交换和第三层路由结合起来的一种L2/L3集成数据传输技术。MPLS是一项面向连接的交换技术，因此有建立连接的过程。各个MPLS设备运行  路由协议，在标记分发协议LDP的控制下根据计算得到的路由在相邻的路由器进行标记分配和分发，从而通过标记的拼接建立起从网络入口到出口的标记交换路径LSP。 </p><p>在数据转发过程中，入口标记路由器LER根据数据流的属性比如网络层目的地址等将分组映射到某一转发等价类FEC，并为分组绑定标记。核心标记交换路由器LSR只需根据分组中所携带的标记进行转发即可。出口标记路由器LER弹出标记，根据分组的网络层目的地址将分组转发到下一跳。MPLS节点（MPLS标记交换路由器LSR或MPLS边缘路由器LER）均要创建和维护传统的路由表和标记信息库LIB。</p><p>路由表记录记录路由信息，用于转发网络层分组和标记分发从而建立标记交换路径。LIB记录了本地节点分配的标记与从邻接MPLS节点收到的标记之间的映射关系，用于标记分组的转发。</p><p>MPLS技术的核心实质在于：</p><ol><li>网络中分组基于标记的转发；</li><li>LDP协议控制下的进行标记分发从而建立标记交换路径LSP；</li></ol><h3 id="2、实验主要数据结构"><a href="#2、实验主要数据结构" class="headerlink" title="2、实验主要数据结构"></a>2、实验主要数据结构</h3><p>所需要的头文件：”mplsconstant.h”</p><p>其中的主要数据结构为：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//发送的请求信息包数据结构</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ReqType</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> iFirstNode;   <span class="comment">//请求信息包的源节点</span></span><br><span class="line">    <span class="keyword">int</span> iEndNode;     <span class="comment">//请求信息包的目的节点</span></span><br><span class="line">    <span class="keyword">double</span> ipaddress; <span class="comment">//请求信息包包含的网络层目的IP地址前缀（例如197.42）</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//路由表表项的数据结构</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">routertype</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">double</span> ipaddress; <span class="comment">//网络层目的地址前缀</span></span><br><span class="line">    <span class="keyword">int</span> nexthop;      <span class="comment">//下一跳节点</span></span><br><span class="line">    <span class="keyword">int</span> lasthop;      <span class="comment">//上一跳节点</span></span><br><span class="line">    <span class="keyword">int</span> inpoint;      <span class="comment">//入端口号</span></span><br><span class="line">    <span class="keyword">int</span> outpoint;     <span class="comment">//出端口号</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//标记信息表表项的数据结构</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">libtype</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">double</span> ipaddress; <span class="comment">//网络层目的地址前缀</span></span><br><span class="line">    <span class="keyword">int</span> inpoint;      <span class="comment">//入端口号</span></span><br><span class="line">    <span class="keyword">int</span> outpoint;     <span class="comment">//出端口号</span></span><br><span class="line">    <span class="keyword">int</span> inlabel;      <span class="comment">//入标记值</span></span><br><span class="line">    <span class="keyword">int</span> outlabel;     <span class="comment">//出标记值</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//发送的标记信息包数据结构</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">LabelPack</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> iFirstNode; <span class="comment">//源节点号</span></span><br><span class="line">    <span class="keyword">int</span> iEndNode;   <span class="comment">//目的节点号</span></span><br><span class="line">    <span class="keyword">int</span> labelvalue; <span class="comment">//标签值</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">funcusedtype</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">libtype</span> <span class="title">libinfo</span>;</span>     <span class="comment">//包含的标记信息表项</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LabelPack</span> <span class="title">labelinfo</span>;</span> <span class="comment">//包含的标记信息包数据结构</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//发送的标记分组信息包类型</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">LabelledDataPack</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> iFirstNode;              <span class="comment">//源节点号</span></span><br><span class="line">    <span class="keyword">int</span> iEndNode;                <span class="comment">//目的节点号</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">MessageType</span> <span class="title">DataInfo</span>;</span> <span class="comment">//包含的标记分组类型信息</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//标记分组类型</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">MessageType</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">double</span> ipaddress; <span class="comment">//网络层目的地址前缀</span></span><br><span class="line">    <span class="keyword">int</span> labelvalue; <span class="comment">//输出标签值</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h4 id="①标记请求实验："><a href="#①标记请求实验：" class="headerlink" title="①标记请求实验："></a>①标记请求实验：</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span> _declspec(dllexport) <span class="function">struct  ReqType <span class="title">req_process</span><span class="params">(<span class="keyword">int</span> idnow,struct routertype routenow)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ReqType</span> <span class="title">reqtemp</span>;</span></span><br><span class="line"><span class="keyword">return</span>  reqtemp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>参数意义：</p><p>int idnow：当前的节点号；</p><p>struct routertype routenow：当前所指的路由表的表项；</p><p>函数要求：</p><p>根据提供的当前节点号和路由表表项值产生标记请求包；</p><p>过程描述：</p><p>标记请求包的源节点号由当前节点号提供，目的节点号和ip地址前缀由当前所指的路由表表项的下一跳节点和ip地址前缀提供；</p><h4 id="②标记分配与分发实验："><a href="#②标记分配与分发实验：" class="headerlink" title="②标记分配与分发实验："></a>②标记分配与分发实验：</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span>  <span class="string">"C"</span> _declspec(dllexport) <span class="function">struct  funcusedtype <span class="title">label_process</span><span class="params">(struct routertype routenow,<span class="keyword">int</span> labelout,<span class="keyword">int</span>  idnow)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="class"><span class="keyword">struct</span>  <span class="title">funcusedtype</span> <span class="title">tempstruct</span>;</span></span><br><span class="line"><span class="keyword">return</span>  tempstruct;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>参数意义：</p><p>struct routertype routenow：当前所指的路由表表项；</p><p>int labelout：分配的输出标签号；</p><p>int idnow：当前的节点号；</p><p>函数要求：</p><p>该函数要求根据提供的路由表当前表项、分配的输出标签号和当前节点号，构造一funcusedtype信息包。注：各节点的输入标签可以自由选定，但必须是1-9的整数；</p><p>过程描述：</p><p>该funcusedtype信息包的libinfo部分可由当前的路由表表项、当前分配的标签号的有关部分构成；labelinfo部分由当前节点号和当前的路由表表项的有关部分构成；    </p><h4 id="③标记分组转发实验"><a href="#③标记分组转发实验" class="headerlink" title="③标记分组转发实验"></a>③标记分组转发实验</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span> _declspec(dllexport) <span class="function">struct  LabelledDataPack <span class="title">pack_process</span><span class="params">(struct routertype routenow,struct libtype  libnow,<span class="keyword">int</span> idnow)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">LabelledDataPack</span> <span class="title">packtemp</span>;</span></span><br><span class="line"><span class="keyword">return</span> packtemp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>参数意义：</p><p>struct routertype routenow：当前所指的路由表表项；</p><p>struct libtype libnow：当前的标签信息表表项；</p><p>int idnow：当前的节点号；</p><p>函数要求:</p><p>该函数要求根据提供的路由表表项、标签信息表表项和当前节点号，构造出一个标签数据信息包。</p><p>过程描述：</p><p>该标签信息包的源节点、目的节点、IP地址前缀和标签值均可由当前节点号、路由表表项和标签信息表表项构成；</p><h3 id="3、实验效果检验"><a href="#3、实验效果检验" class="headerlink" title="3、实验效果检验"></a>3、实验效果检验</h3><p>建立连接阶段、数据传输阶段、拆除阶段，三阶段均可正常进行。</p><h3 id="4、实验步骤"><a href="#4、实验步骤" class="headerlink" title="4、实验步骤"></a>4、实验步骤</h3><ol><li>熟悉实验平台和测试环境；</li><li>编写C程序实现所要求的功能；</li><li>运行测试程序；</li><li>完成实验报告。</li></ol><h2 id="三、源代码"><a href="#三、源代码" class="headerlink" title="三、源代码"></a>三、源代码</h2><h3 id="①标记请求实验：-1"><a href="#①标记请求实验：-1" class="headerlink" title="①标记请求实验："></a>①标记请求实验：</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"mplsconstant.h"</span></span></span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span> _declspec(dllexport) <span class="function">struct ReqType <span class="title">req_process</span><span class="params">(<span class="keyword">int</span> idnow, struct routertype routenow)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ReqType</span> <span class="title">reqtemp</span>;</span></span><br><span class="line">    reqtemp.iFirstNode = idnow;             <span class="comment">//源节点号由当前节点号提供</span></span><br><span class="line">    reqtemp.iEndNode = routenow.nexthop;    <span class="comment">//目的节点号由当前路由表表项的下一跳节点提供</span></span><br><span class="line">    reqtemp.ipaddress = routenow.ipaddress; <span class="comment">//IP地址前缀由当前路由表表项的IP地址前缀提供</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> reqtemp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="②标记分配与分发实验：-1"><a href="#②标记分配与分发实验：-1" class="headerlink" title="②标记分配与分发实验："></a>②标记分配与分发实验：</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"mplsconstant.h"</span></span></span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span> _declspec(dllexport) <span class="function">struct funcusedtype <span class="title">label_process</span><span class="params">(struct routertype routenow, <span class="keyword">int</span> labelout, <span class="keyword">int</span> idnow)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">funcusedtype</span> <span class="title">tempstruct</span>;</span></span><br><span class="line">    <span class="comment">//包含的标记信息表项</span></span><br><span class="line">    tempstruct.libinfo.ipaddress = routenow.ipaddress; <span class="comment">//网络层目的地址前缀</span></span><br><span class="line">    tempstruct.libinfo.inpoint = routenow.inpoint;     <span class="comment">//入端口号</span></span><br><span class="line">    tempstruct.libinfo.outpoint = routenow.outpoint;   <span class="comment">//出端口号</span></span><br><span class="line">    tempstruct.libinfo.inlabel = <span class="number">1</span>;                    <span class="comment">//入标记值</span></span><br><span class="line">    tempstruct.libinfo.outlabel = labelout;            <span class="comment">//出标记值</span></span><br><span class="line">    <span class="comment">//包含的标记信息包数据结构</span></span><br><span class="line">    tempstruct.labelinfo.iFirstNode = idnow;          <span class="comment">//当前节点号</span></span><br><span class="line">    tempstruct.labelinfo.iEndNode = routenow.lasthop; <span class="comment">//当前的路由表表项的上一跳节点</span></span><br><span class="line">    tempstruct.labelinfo.labelvalue = <span class="number">1</span>;              <span class="comment">//与tempstruct.libinfo.inlabel保持一致</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> tempstruct;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="③标记分组转发实验-1"><a href="#③标记分组转发实验-1" class="headerlink" title="③标记分组转发实验"></a>③标记分组转发实验</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"mplsconstant.h"</span></span></span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span> _declspec(dllexport) <span class="function">struct LabelledDataPack <span class="title">pack_process</span><span class="params">(struct routertype routenow, struct libtype libnow, <span class="keyword">int</span> idnow)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LabelledDataPack</span> <span class="title">packtemp</span>;</span></span><br><span class="line">    packtemp.iFirstNode = idnow;          <span class="comment">//源节点号</span></span><br><span class="line">    packtemp.iEndNode = routenow.nexthop; <span class="comment">//目的节点号</span></span><br><span class="line">    <span class="comment">//包含的标记分组类型信息</span></span><br><span class="line">    packtemp.DataInfo.ipaddress = routenow.ipaddress; <span class="comment">//网络层目的地址前缀</span></span><br><span class="line">    packtemp.DataInfo.labelvalue = libnow.outlabel;   <span class="comment">//输出标签值</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> packtemp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h2><p>运行程序后，建立连接阶段、数据传输阶段、拆除阶段，三阶段均可正常进行，实验成功。</p><h2 id="五、实验心得"><a href="#五、实验心得" class="headerlink" title="五、实验心得"></a>五、实验心得</h2><p>这次实验要编写三个程序，但是基本框架都已经规定好了，对照指导书上结构体和函数的说明，只需要简单的创建结构体和赋值操作就能很轻松地完成。加强了我对MPLS的原理和标记请求、标记分配与分发、标记分组转发过程的理解和认识。实验虽然简单，但是很有意义，收获很多。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 交换原理 </category>
+          
+          <category> 实验 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 实验 </tag>
+            
+            <tag> 交换原理 </tag>
+            
+            <tag> MPLS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>交换原理 实验4 拨打SIP电话</title>
       <link href="/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C4-%E6%8B%A8%E6%89%93SIP%E7%94%B5%E8%AF%9D/"/>
       <url>/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C4-%E6%8B%A8%E6%89%93SIP%E7%94%B5%E8%AF%9D/</url>
@@ -142,9 +142,9 @@
       
         <tags>
             
-            <tag> 工程 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 工程 </tag>
             
             <tag> JobShop </tag>
             
@@ -210,13 +210,13 @@
       
         <tags>
             
-            <tag> C </tag>
+            <tag> C++ </tag>
             
             <tag> 工程 </tag>
             
-            <tag> 项目 </tag>
+            <tag> C </tag>
             
-            <tag> C++ </tag>
+            <tag> 项目 </tag>
             
             <tag> 计算机网络 </tag>
             
@@ -245,11 +245,11 @@
       
         <tags>
             
+            <tag> 工程 </tag>
+            
             <tag> C </tag>
             
             <tag> Linux </tag>
-            
-            <tag> 工程 </tag>
             
             <tag> 项目 </tag>
             
@@ -280,9 +280,9 @@
       
         <tags>
             
-            <tag> 工程 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 工程 </tag>
             
             <tag> 操作系统 </tag>
             
@@ -313,9 +313,9 @@
       
         <tags>
             
-            <tag> 工程 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 工程 </tag>
             
             <tag> 操作系统 </tag>
             
@@ -354,11 +354,11 @@
       
         <tags>
             
-            <tag> Linux </tag>
+            <tag> C++ </tag>
             
             <tag> 工程 </tag>
             
-            <tag> C++ </tag>
+            <tag> Linux </tag>
             
             <tag> 操作系统 </tag>
             
@@ -395,9 +395,9 @@
       
         <tags>
             
-            <tag> 工程 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 工程 </tag>
             
             <tag> 编译原理 </tag>
             
@@ -430,9 +430,9 @@
       
         <tags>
             
-            <tag> 工程 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 工程 </tag>
             
             <tag> 编译原理 </tag>
             
@@ -465,9 +465,9 @@
       
         <tags>
             
-            <tag> 工程 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 工程 </tag>
             
             <tag> 编译原理 </tag>
             
@@ -572,13 +572,13 @@
             
             <tag> Spark </tag>
             
-            <tag> 流计算 </tag>
-            
             <tag> 单词计数 </tag>
             
-            <tag> Streaming </tag>
-            
             <tag> Scala </tag>
+            
+            <tag> 流计算 </tag>
+            
+            <tag> Streaming </tag>
             
             <tag> Kafka </tag>
             
@@ -613,11 +613,11 @@
             
             <tag> Spark </tag>
             
+            <tag> Java </tag>
+            
             <tag> 流计算 </tag>
             
             <tag> Streaming </tag>
-            
-            <tag> Java </tag>
             
             <tag> 日志分析 </tag>
             
@@ -646,9 +646,9 @@
       
         <tags>
             
-            <tag> C </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> C </tag>
             
             <tag> 难点 </tag>
             
@@ -681,9 +681,9 @@
       
         <tags>
             
-            <tag> 工程 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 工程 </tag>
             
             <tag> QT </tag>
             
@@ -788,9 +788,9 @@
             
             <tag> Linux </tag>
             
-            <tag> Shell </tag>
-            
             <tag> 难点 </tag>
+            
+            <tag> Shell </tag>
             
             <tag> 拓展 </tag>
             
@@ -1072,13 +1072,13 @@
             
             <tag> Spark </tag>
             
-            <tag> 流计算 </tag>
-            
             <tag> 单词计数 </tag>
             
-            <tag> Streaming </tag>
-            
             <tag> Scala </tag>
+            
+            <tag> 流计算 </tag>
+            
+            <tag> Streaming </tag>
             
             <tag> Kafka </tag>
             
@@ -1484,9 +1484,9 @@
             
             <tag> 单词计数 </tag>
             
-            <tag> Scala </tag>
-            
             <tag> Java </tag>
+            
+            <tag> Scala </tag>
             
         </tags>
       
