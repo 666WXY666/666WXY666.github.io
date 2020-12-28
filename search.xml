@@ -4,35 +4,6 @@
   
     
     <entry>
-      <title>交换原理 实验1 时间表调度实验</title>
-      <link href="/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C1-%E6%97%B6%E9%97%B4%E8%A1%A8%E8%B0%83%E5%BA%A6%E5%AE%9E%E9%AA%8C/"/>
-      <url>/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C1-%E6%97%B6%E9%97%B4%E8%A1%A8%E8%B0%83%E5%BA%A6%E5%AE%9E%E9%AA%8C/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文是关于交换原理实验一——时间表调度实验报告记录。</p><a id="more"></a><h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><p>驱动交换网络实验用来考查学生对时间表调度原理的掌握情况。</p><h2 id="二、实验内容和实验步骤"><a href="#二、实验内容和实验步骤" class="headerlink" title="二、实验内容和实验步骤"></a>二、实验内容和实验步骤</h2><h3 id="1、实验原理及设计"><a href="#1、实验原理及设计" class="headerlink" title="1、实验原理及设计"></a>1、实验原理及设计</h3><p>在程控数字交换的体系结构中，周期级程序（例如摘挂机检测程序、脉冲识别程序、位间隔识别程序）是由时间表调度实现的。所谓时间表调度，是指每经过交换系统的最短有效时间（这通常是指各周期性程序周期的最大公约数），都会检查调度表的调度要求，如果某个程序在这时需要执行，则调度程序开始执行它。</p><p>在我们设计的时间表调度实验中，这个调度表的调度是静态的。所谓静态，是指我们的调度表是在系统初始化的时候就建立起来的，在系统运行的情况下不再改动。</p><p>实验要求的就是这个调度表的初始化。这个调度表如下：</p><table><thead><tr><th align="center">时间（10ms) \任务</th><th align="center">0：摘挂机检测任务</th><th align="center">1：脉冲检测任务</th><th align="center">2：位间隔检测任务</th></tr></thead><tbody><tr><td align="center">0</td><td align="center">0/1</td><td align="center">0/1</td><td align="center">0/1</td></tr><tr><td align="center">1</td><td align="center">0/1</td><td align="center">0/1</td><td align="center">0/1</td></tr><tr><td align="center">……</td><td align="center">……</td><td align="center">……</td><td align="center">……</td></tr><tr><td align="center">……</td><td align="center">……</td><td align="center">……</td><td align="center">……</td></tr><tr><td align="center">……</td><td align="center">……</td><td align="center">……</td><td align="center">……</td></tr><tr><td align="center">18</td><td align="center">0/1</td><td align="center">0/1</td><td align="center">0/1</td></tr><tr><td align="center">19</td><td align="center">0/1</td><td align="center">0/1</td><td align="center">0/1</td></tr></tbody></table><p>我们这个交换系统提供了三个周期性调度程度（摘挂机检测程序、脉冲识别程序和位间隔识别程序），它们的调用周期分别为 200ms、10ms 和 100ms，所以我们系统的最小调度时间为 10ms。如图所示，每隔 10ms,我们就会检查这个表的一行，如果该行上某一列为 1，我们就执列所对应的任务，如果为 0，就什么都不做。每当执行到这个表的最后一行，调度任务会返回第一行循环执行。而你所要做的就是按照你的理解来填写这个调度表。</p><h3 id="2、实验主要数据结构"><a href="#2、实验主要数据结构" class="headerlink" title="2、实验主要数据结构"></a>2、实验主要数据结构</h3><p>函数功能：完成调度表的初始化；</p><p>函数原型：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">initSchTable(<span class="keyword">int</span> ScheduleTable[SchTabLen][SchTabWdh])；</span><br></pre></td></tr></table></figure><p>其中 SchTalLen 和 SchTabWdh 为在 bconstant.h 中的宏定义：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SchTabLen 20 <span class="comment">//代表这个调度表为 20 行（相邻行之间的时间间隔为 10ms); </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SchTabWdh 3 <span class="comment">//代表三个周期性调度任务——0：摘挂机检测任务；1：脉冲检测任务；2：位间隔检测任务；</span></span></span><br></pre></td></tr></table></figure><h3 id="3、实验效果检验"><a href="#3、实验效果检验" class="headerlink" title="3、实验效果检验"></a>3、实验效果检验</h3><p>当调度表初始化正确时，能够进行正常的通话；如果初始化不正确，可能会造成周期性程序的不正常调用，例如位间隔调度的延迟会造成识别位间隔的延误甚至丢失。</p><h3 id="4、实验步骤"><a href="#4、实验步骤" class="headerlink" title="4、实验步骤"></a>4、实验步骤</h3><ol><li>熟悉实验平台和测试环境；</li><li>编写C程序实现所要求的功能；</li><li>运行测试程序；</li><li>完成实验报告。</li></ol><h2 id="三、源代码"><a href="#三、源代码" class="headerlink" title="三、源代码"></a>三、源代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"bconstant.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span> _declspec(dllexport) <span class="function"><span class="keyword">void</span> <span class="title">initSchTable</span><span class="params">(intScheduleTable[SchTabLen][SchTabWdh])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i != SchTabLen; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//最小时间间隔为10ms</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//对摘挂机状态进行初始化</span></span><br><span class="line">        <span class="keyword">if</span> (i % <span class="number">20</span> == <span class="number">0</span>) <span class="comment">//因为调度周期为200ms，也就是每隔20个最小间隔执行一次</span></span><br><span class="line">        &#123;</span><br><span class="line">            ScheduleTable[i][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            ScheduleTable[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//对脉冲识别进行初始化</span></span><br><span class="line">        ScheduleTable[i][<span class="number">1</span>] = <span class="number">1</span>; <span class="comment">//因为调度周期为10ms，也就是每个最小间隔都执行一次</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//对为间隔识别进行初始化</span></span><br><span class="line">        <span class="keyword">if</span> (i % <span class="number">10</span> == <span class="number">0</span>) <span class="comment">//因为调度周期为100ms，也就是每隔10个最小间隔执行一次</span></span><br><span class="line">        &#123;</span><br><span class="line">            ScheduleTable[i][<span class="number">2</span>] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            ScheduleTable[i][<span class="number">2</span>] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h2><p>运行程序后，调度表初始化正确，周期性程序正常调用，能够进行正常的通话。</p><h2 id="五、实验心得"><a href="#五、实验心得" class="headerlink" title="五、实验心得"></a>五、实验心得</h2><p>这是第一个交换原理的实验，是较为基础的实验，只是对数组的静态初始化，为以后的实验打下基础。我观察了模拟环境下的电路接通情形，让我对时间调度有了一个形象生动的认识，加深了这部分知识记忆和理解。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 交换原理 </category>
-          
-          <category> 实验 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 实验 </tag>
-            
-            <tag> 交换原理 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>交换原理 实验3 MPLS编程实验</title>
       <link href="/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C3-MPLS%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C/"/>
       <url>/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C3-MPLS%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C/</url>
@@ -56,6 +27,35 @@
             <tag> 交换原理 </tag>
             
             <tag> MPLS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>交换原理 实验1 时间表调度实验</title>
+      <link href="/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C1-%E6%97%B6%E9%97%B4%E8%A1%A8%E8%B0%83%E5%BA%A6%E5%AE%9E%E9%AA%8C/"/>
+      <url>/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C1-%E6%97%B6%E9%97%B4%E8%A1%A8%E8%B0%83%E5%BA%A6%E5%AE%9E%E9%AA%8C/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文是关于交换原理实验一——时间表调度实验报告记录。</p><a id="more"></a><h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><p>驱动交换网络实验用来考查学生对时间表调度原理的掌握情况。</p><h2 id="二、实验内容和实验步骤"><a href="#二、实验内容和实验步骤" class="headerlink" title="二、实验内容和实验步骤"></a>二、实验内容和实验步骤</h2><h3 id="1、实验原理及设计"><a href="#1、实验原理及设计" class="headerlink" title="1、实验原理及设计"></a>1、实验原理及设计</h3><p>在程控数字交换的体系结构中，周期级程序（例如摘挂机检测程序、脉冲识别程序、位间隔识别程序）是由时间表调度实现的。所谓时间表调度，是指每经过交换系统的最短有效时间（这通常是指各周期性程序周期的最大公约数），都会检查调度表的调度要求，如果某个程序在这时需要执行，则调度程序开始执行它。</p><p>在我们设计的时间表调度实验中，这个调度表的调度是静态的。所谓静态，是指我们的调度表是在系统初始化的时候就建立起来的，在系统运行的情况下不再改动。</p><p>实验要求的就是这个调度表的初始化。这个调度表如下：</p><table><thead><tr><th align="center">时间（10ms) \任务</th><th align="center">0：摘挂机检测任务</th><th align="center">1：脉冲检测任务</th><th align="center">2：位间隔检测任务</th></tr></thead><tbody><tr><td align="center">0</td><td align="center">0/1</td><td align="center">0/1</td><td align="center">0/1</td></tr><tr><td align="center">1</td><td align="center">0/1</td><td align="center">0/1</td><td align="center">0/1</td></tr><tr><td align="center">……</td><td align="center">……</td><td align="center">……</td><td align="center">……</td></tr><tr><td align="center">……</td><td align="center">……</td><td align="center">……</td><td align="center">……</td></tr><tr><td align="center">……</td><td align="center">……</td><td align="center">……</td><td align="center">……</td></tr><tr><td align="center">18</td><td align="center">0/1</td><td align="center">0/1</td><td align="center">0/1</td></tr><tr><td align="center">19</td><td align="center">0/1</td><td align="center">0/1</td><td align="center">0/1</td></tr></tbody></table><p>我们这个交换系统提供了三个周期性调度程度（摘挂机检测程序、脉冲识别程序和位间隔识别程序），它们的调用周期分别为 200ms、10ms 和 100ms，所以我们系统的最小调度时间为 10ms。如图所示，每隔 10ms,我们就会检查这个表的一行，如果该行上某一列为 1，我们就执列所对应的任务，如果为 0，就什么都不做。每当执行到这个表的最后一行，调度任务会返回第一行循环执行。而你所要做的就是按照你的理解来填写这个调度表。</p><h3 id="2、实验主要数据结构"><a href="#2、实验主要数据结构" class="headerlink" title="2、实验主要数据结构"></a>2、实验主要数据结构</h3><p>函数功能：完成调度表的初始化；</p><p>函数原型：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">initSchTable(<span class="keyword">int</span> ScheduleTable[SchTabLen][SchTabWdh])；</span><br></pre></td></tr></table></figure><p>其中 SchTalLen 和 SchTabWdh 为在 bconstant.h 中的宏定义：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SchTabLen 20 <span class="comment">//代表这个调度表为 20 行（相邻行之间的时间间隔为 10ms); </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SchTabWdh 3 <span class="comment">//代表三个周期性调度任务——0：摘挂机检测任务；1：脉冲检测任务；2：位间隔检测任务；</span></span></span><br></pre></td></tr></table></figure><h3 id="3、实验效果检验"><a href="#3、实验效果检验" class="headerlink" title="3、实验效果检验"></a>3、实验效果检验</h3><p>当调度表初始化正确时，能够进行正常的通话；如果初始化不正确，可能会造成周期性程序的不正常调用，例如位间隔调度的延迟会造成识别位间隔的延误甚至丢失。</p><h3 id="4、实验步骤"><a href="#4、实验步骤" class="headerlink" title="4、实验步骤"></a>4、实验步骤</h3><ol><li>熟悉实验平台和测试环境；</li><li>编写C程序实现所要求的功能；</li><li>运行测试程序；</li><li>完成实验报告。</li></ol><h2 id="三、源代码"><a href="#三、源代码" class="headerlink" title="三、源代码"></a>三、源代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"bconstant.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span> _declspec(dllexport) <span class="function"><span class="keyword">void</span> <span class="title">initSchTable</span><span class="params">(intScheduleTable[SchTabLen][SchTabWdh])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i != SchTabLen; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//最小时间间隔为10ms</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//对摘挂机状态进行初始化</span></span><br><span class="line">        <span class="keyword">if</span> (i % <span class="number">20</span> == <span class="number">0</span>) <span class="comment">//因为调度周期为200ms，也就是每隔20个最小间隔执行一次</span></span><br><span class="line">        &#123;</span><br><span class="line">            ScheduleTable[i][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            ScheduleTable[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//对脉冲识别进行初始化</span></span><br><span class="line">        ScheduleTable[i][<span class="number">1</span>] = <span class="number">1</span>; <span class="comment">//因为调度周期为10ms，也就是每个最小间隔都执行一次</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//对为间隔识别进行初始化</span></span><br><span class="line">        <span class="keyword">if</span> (i % <span class="number">10</span> == <span class="number">0</span>) <span class="comment">//因为调度周期为100ms，也就是每隔10个最小间隔执行一次</span></span><br><span class="line">        &#123;</span><br><span class="line">            ScheduleTable[i][<span class="number">2</span>] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            ScheduleTable[i][<span class="number">2</span>] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h2><p>运行程序后，调度表初始化正确，周期性程序正常调用，能够进行正常的通话。</p><h2 id="五、实验心得"><a href="#五、实验心得" class="headerlink" title="五、实验心得"></a>五、实验心得</h2><p>这是第一个交换原理的实验，是较为基础的实验，只是对数组的静态初始化，为以后的实验打下基础。我观察了模拟环境下的电路接通情形，让我对时间调度有了一个形象生动的认识，加深了这部分知识记忆和理解。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 交换原理 </category>
+          
+          <category> 实验 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 实验 </tag>
+            
+            <tag> 交换原理 </tag>
             
         </tags>
       
@@ -142,9 +142,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 工程 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> JobShop </tag>
             
@@ -210,13 +210,13 @@
       
         <tags>
             
-            <tag> C++ </tag>
+            <tag> C </tag>
             
             <tag> 工程 </tag>
             
-            <tag> C </tag>
-            
             <tag> 项目 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 计算机网络 </tag>
             
@@ -245,11 +245,11 @@
       
         <tags>
             
-            <tag> 工程 </tag>
-            
             <tag> C </tag>
             
             <tag> Linux </tag>
+            
+            <tag> 工程 </tag>
             
             <tag> 项目 </tag>
             
@@ -280,9 +280,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 工程 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 操作系统 </tag>
             
@@ -313,9 +313,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 工程 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 操作系统 </tag>
             
@@ -354,11 +354,11 @@
       
         <tags>
             
-            <tag> C++ </tag>
+            <tag> Linux </tag>
             
             <tag> 工程 </tag>
             
-            <tag> Linux </tag>
+            <tag> C++ </tag>
             
             <tag> 操作系统 </tag>
             
@@ -369,41 +369,6 @@
             <tag> 线程 </tag>
             
             <tag> 通信 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>编译原理 语法分析 LR</title>
-      <link href="/2020/09/02/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90-LR/"/>
-      <url>/2020/09/02/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90-LR/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>本文是编译原理C语言LR语法分析器的简单实现项目。</strong></p><a id="more"></a><h2 id="一、需求"><a href="#一、需求" class="headerlink" title="一、需求"></a>一、需求</h2><img src="https://gitee.com/wxy_666/images/raw/master/20200902092212.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902092212.png" srcset="data:image/png;base64,666" alt="1" style="zoom:80%;"><p><strong>拓展需求：</strong>除题目的基础要求外，还额外实现了对任意SLR1文法，自动生成拓广文法，且求该文法的first集和follow集，并且自动生成LR0项目集规范簇和识别该文法所有活前缀的DFA，然后根据该DFA自动生成SLR1分析表。</p><h2 id="二、运行环境"><a href="#二、运行环境" class="headerlink" title="二、运行环境"></a>二、运行环境</h2><p>电脑硬件配置：</p><ul><li><p>处理器：Intel i7 7700HQ</p></li><li><p>显卡：NVIDIA GeForce GTX 1050 Ti</p></li><li><p>内存：16GB</p></li></ul><p>软件：</p><ul><li><p>编程语言：C++</p></li><li><p>IDE：Microsoft Visual Studio 2019</p></li><li><p>Windows SDK版本：10.0</p></li><li><p>平台工具集：Visual Studio 2019（v142）</p></li></ul><h2 id="三、核心算法"><a href="#三、核心算法" class="headerlink" title="三、核心算法"></a>三、核心算法</h2><h3 id="1、整个程序的模型如图所示"><a href="#1、整个程序的模型如图所示" class="headerlink" title="1、整个程序的模型如图所示"></a>1、整个程序的模型如图所示</h3><h4 id="手动分析："><a href="#手动分析：" class="headerlink" title="手动分析："></a>手动分析：</h4><ol><li><p>首先对文法进行拓广，求first集和follow集，发现该文法是一个SLR1文法。</p></li><li><p>构造LR0项目集规范簇及识别该文法所有活前缀的DFA</p></li><li><p>构造识别该文法的SLR0分析表</p><table><thead><tr><th><img src="https://gitee.com/wxy_666/images/raw/master/20200902092905.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902092905.png" srcset="data:image/png;base64,666" alt="2" style="zoom: 67%;"></th><th><img src="https://gitee.com/wxy_666/images/raw/master/20200902093010.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093010.png" srcset="data:image/png;base64,666" alt="3"></th></tr></thead><tbody><tr><td><img src="https://gitee.com/wxy_666/images/raw/master/20200902093023.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093023.png" srcset="data:image/png;base64,666" alt="4"></td><td><img src="https://gitee.com/wxy_666/images/raw/master/20200902093052.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093052.png" srcset="data:image/png;base64,666" alt="5" style="zoom: 50%;"></td></tr></tbody></table></li></ol><ol start="4"><li><p>整个程序的模型如图所示</p><img src="https://gitee.com/wxy_666/images/raw/master/20200902093306.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093306.png" srcset="data:image/png;base64,666" alt="6" style="zoom:80%;"></li><li><p>预测分析控制程序算法</p><img src="https://gitee.com/wxy_666/images/raw/master/20200902093330.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093330.png" srcset="data:image/png;base64,666" alt="7" style="zoom:80%;"></li></ol><h3 id="6、输入形式："><a href="#6、输入形式：" class="headerlink" title="6、输入形式："></a>6、输入形式：</h3><p>文件输入，格式为：</p><p>产生式个数n</p><p>{</p><p>……</p><p>第i(1&lt;=i&lt;=n)个产生式（例如A-&gt;a，按照输入顺序分别从1到n编号，拓广产生式为0号，规定终结符和非终结符都是一个字符且非终结符都为大写字母）</p><p>……</p><p>}</p><p>要分析的字符串个数n</p><p>{</p><p>……</p><p>第i(1&lt;=i&lt;=n)个要分析的字符串（要求以$结尾）</p><p>……</p><p>}</p><img src="https://gitee.com/wxy_666/images/raw/master/20200902093444.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093444.png" srcset="data:image/png;base64,666" alt="8" style="zoom:80%;"><h3 id="7、输出形式："><a href="#7、输出形式：" class="headerlink" title="7、输出形式："></a>7、输出形式：</h3><p>先输出该文法的拓广文法，再输出该拓广文法的first集和follow集，再输出SLR0分析表，然后输出用户输入的待分析字符串的分析过程。</p><h2 id="四、变量和函数"><a href="#四、变量和函数" class="headerlink" title="四、变量和函数"></a>四、变量和函数</h2><h3 id="1、类和枚举："><a href="#1、类和枚举：" class="headerlink" title="1、类和枚举："></a>1、类和枚举：</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> RS<span class="comment">//动作的枚举</span></span><br><span class="line">&#123;</span><br><span class="line">shift,<span class="comment">//移进</span></span><br><span class="line">reduce,<span class="comment">//规约</span></span><br><span class="line">accept<span class="comment">//接受</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//假定非终结符仅为一个大写字母，终结符仅为一个小写字母和各种符号，且用~代替epsilon</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PF</span>//<span class="title">Production</span> <span class="title">formula</span>,产生式的类</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="keyword">char</span> left;<span class="comment">//产生式的左部</span></span><br><span class="line"><span class="built_in">string</span> right;<span class="comment">//产生式的右部</span></span><br><span class="line">PF(<span class="keyword">char</span> l, <span class="built_in">string</span> r)<span class="comment">//构造函数</span></span><br><span class="line">&#123;</span><br><span class="line">left = l;</span><br><span class="line">right = r;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ITEM</span>//项目集</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">ITEM();<span class="comment">//默认构造函数</span></span><br><span class="line">ITEM(<span class="keyword">int</span> NO);<span class="comment">//构造函数</span></span><br><span class="line"><span class="keyword">int</span> NO;<span class="comment">//项目集编号</span></span><br><span class="line"><span class="built_in">set</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; production;<span class="comment">//项目，第一个int代表产生式编号，第二个int代表.的位置</span></span><br><span class="line"><span class="built_in">set</span>&lt;pair&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt;&gt; go_to;<span class="comment">//该项目集指向的项目集，第一个char代表箭头上的字符，第二个int代表指向的项目集编号</span></span><br><span class="line"><span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> ITEM&amp; item)<span class="keyword">const</span>;<span class="comment">//重载&lt;操作符，以便使用set</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">action</span>//动作类</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">action(RS rs,<span class="keyword">int</span> num);<span class="comment">//重写构造函数</span></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">ret_action</span><span class="params">()</span></span>;<span class="comment">//返回该动作</span></span><br><span class="line">action();<span class="comment">//初始</span></span><br><span class="line">RS rs;<span class="comment">//动作</span></span><br><span class="line"><span class="keyword">int</span> num;<span class="comment">//移进到哪个状态，或者用哪个产生式规约</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h3 id="2、全局变量"><a href="#2、全局变量" class="headerlink" title="2、全局变量"></a>2、全局变量</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;PF&gt; PF_vector;<span class="comment">//产生式</span></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">char</span>, <span class="built_in">set</span>&lt;<span class="keyword">char</span>&gt; &gt; first;<span class="comment">//first集</span></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">char</span>, <span class="built_in">set</span>&lt;<span class="keyword">char</span>&gt; &gt; follow;<span class="comment">//follow集</span></span><br><span class="line"><span class="built_in">set</span>&lt;ITEM&gt; DFA;<span class="comment">//DFA项目集规范簇</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">map</span>&lt;<span class="keyword">char</span>, action&gt;&gt; predict_table_action;<span class="comment">//SLR1分析表action</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt;&gt; predict_table_goto;<span class="comment">//SLR1分析表goto</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; A_1;<span class="comment">//符号栈</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; A_2;<span class="comment">//状态栈</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; B;<span class="comment">//剩余串</span></span><br><span class="line"><span class="built_in">set</span>&lt;<span class="keyword">char</span>&gt; terminal;<span class="comment">//所有的终结符+'$'</span></span><br><span class="line"><span class="built_in">set</span>&lt;<span class="keyword">char</span>&gt; non_terminal;<span class="comment">//所有的非终结符</span></span><br><span class="line"><span class="keyword">int</span> B_point = <span class="number">0</span>, input_len = <span class="number">0</span>;<span class="comment">//B_point为输入串指针，input_len为输入串长度</span></span><br></pre></td></tr></table></figure><h3 id="3、函数"><a href="#3、函数" class="headerlink" title="3、函数"></a>3、函数</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">ITEM::ITEM()<span class="comment">//默认构造函数</span></span><br><span class="line">ITEM::ITEM(<span class="keyword">int</span> NO)<span class="comment">//构造函数</span></span><br><span class="line"><span class="keyword">bool</span> ITEM::<span class="keyword">operator</span>&lt;(<span class="keyword">const</span> ITEM&amp; item)<span class="keyword">const</span><span class="comment">//重载&lt;操作符，以便使用set</span></span><br><span class="line">action::action(RS rs, <span class="keyword">int</span> num) <span class="comment">//构造函数</span></span><br><span class="line">action::action()<span class="comment">//默认构造函数</span></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">action::ret_action</span><span class="params">()</span><span class="comment">//返回该动作</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">first_construction</span><span class="params">()</span><span class="comment">//构造并输出first集</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add_follow</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>&amp; ch1, <span class="keyword">const</span> <span class="keyword">char</span>&amp; ch2)</span><span class="comment">//将ch1的follow集加入到ch2的follow集中</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">follow_construction</span><span class="params">()</span><span class="comment">//构造并输出follow集</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFA_construction</span><span class="params">()</span><span class="comment">//构造DFA</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">predict_table_construction</span><span class="params">()</span><span class="comment">//构造并输出SLR1预测分析表</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_A</span><span class="params">()</span><span class="comment">//输出分析栈</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_B</span><span class="params">()</span><span class="comment">//输出剩余串</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">analyse</span><span class="params">()</span><span class="comment">//预测分析控制程序</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure><p>PS：关于每个函数内部详细实现详见main.cpp中写好了详细的注释，我几乎对每一步操作的目的和函数的目的都写了详细的注释。</p><h2 id="五、测试样例："><a href="#五、测试样例：" class="headerlink" title="五、测试样例："></a>五、测试样例：</h2><table><thead><tr><th><img src="https://gitee.com/wxy_666/images/raw/master/20200902093741.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093741.png" srcset="data:image/png;base64,666" alt="1" style="zoom:80%;"></th><th><img src="https://gitee.com/wxy_666/images/raw/master/20200902093801.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093801.png" srcset="data:image/png;base64,666" alt="2" style="zoom:80%;"></th></tr></thead><tbody><tr><td><img src="https://gitee.com/wxy_666/images/raw/master/20200902093811.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093811.png" srcset="data:image/png;base64,666" alt="3" style="zoom:80%;"></td><td><img src="https://gitee.com/wxy_666/images/raw/master/20200902093822.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093822.png" srcset="data:image/png;base64,666" alt="4" style="zoom:80%;"></td></tr><tr><td><img src="https://gitee.com/wxy_666/images/raw/master/20200902093830.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093830.png" srcset="data:image/png;base64,666" alt="5" style="zoom:80%;"></td><td></td></tr></tbody></table><h2 id="六、项目地址"><a href="#六、项目地址" class="headerlink" title="六、项目地址"></a>六、项目地址</h2><p>本项目的源码、可执行程序均已经存放于我的Github，欢迎下载查看：</p><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/yufafenxi-LR" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=yufafenxi-LR&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=yufafenxi-LR&show_owner=true" srcset="data:image/png;base64,666"></a>]]></content>
-      
-      
-      <categories>
-          
-          <category> C/C++ </category>
-          
-          <category> 编译原理 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> C++ </tag>
-            
-            <tag> 工程 </tag>
-            
-            <tag> 编译原理 </tag>
-            
-            <tag> 语法分析 </tag>
-            
-            <tag> LR </tag>
             
         </tags>
       
@@ -430,15 +395,50 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 工程 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 编译原理 </tag>
             
             <tag> 语法分析 </tag>
             
             <tag> LL1 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>编译原理 语法分析 LR</title>
+      <link href="/2020/09/02/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90-LR/"/>
+      <url>/2020/09/02/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90-LR/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>本文是编译原理C语言LR语法分析器的简单实现项目。</strong></p><a id="more"></a><h2 id="一、需求"><a href="#一、需求" class="headerlink" title="一、需求"></a>一、需求</h2><img src="https://gitee.com/wxy_666/images/raw/master/20200902092212.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902092212.png" srcset="data:image/png;base64,666" alt="1" style="zoom:80%;"><p><strong>拓展需求：</strong>除题目的基础要求外，还额外实现了对任意SLR1文法，自动生成拓广文法，且求该文法的first集和follow集，并且自动生成LR0项目集规范簇和识别该文法所有活前缀的DFA，然后根据该DFA自动生成SLR1分析表。</p><h2 id="二、运行环境"><a href="#二、运行环境" class="headerlink" title="二、运行环境"></a>二、运行环境</h2><p>电脑硬件配置：</p><ul><li><p>处理器：Intel i7 7700HQ</p></li><li><p>显卡：NVIDIA GeForce GTX 1050 Ti</p></li><li><p>内存：16GB</p></li></ul><p>软件：</p><ul><li><p>编程语言：C++</p></li><li><p>IDE：Microsoft Visual Studio 2019</p></li><li><p>Windows SDK版本：10.0</p></li><li><p>平台工具集：Visual Studio 2019（v142）</p></li></ul><h2 id="三、核心算法"><a href="#三、核心算法" class="headerlink" title="三、核心算法"></a>三、核心算法</h2><h3 id="1、整个程序的模型如图所示"><a href="#1、整个程序的模型如图所示" class="headerlink" title="1、整个程序的模型如图所示"></a>1、整个程序的模型如图所示</h3><h4 id="手动分析："><a href="#手动分析：" class="headerlink" title="手动分析："></a>手动分析：</h4><ol><li><p>首先对文法进行拓广，求first集和follow集，发现该文法是一个SLR1文法。</p></li><li><p>构造LR0项目集规范簇及识别该文法所有活前缀的DFA</p></li><li><p>构造识别该文法的SLR0分析表</p><table><thead><tr><th><img src="https://gitee.com/wxy_666/images/raw/master/20200902092905.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902092905.png" srcset="data:image/png;base64,666" alt="2" style="zoom: 67%;"></th><th><img src="https://gitee.com/wxy_666/images/raw/master/20200902093010.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093010.png" srcset="data:image/png;base64,666" alt="3"></th></tr></thead><tbody><tr><td><img src="https://gitee.com/wxy_666/images/raw/master/20200902093023.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093023.png" srcset="data:image/png;base64,666" alt="4"></td><td><img src="https://gitee.com/wxy_666/images/raw/master/20200902093052.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093052.png" srcset="data:image/png;base64,666" alt="5" style="zoom: 50%;"></td></tr></tbody></table></li></ol><ol start="4"><li><p>整个程序的模型如图所示</p><img src="https://gitee.com/wxy_666/images/raw/master/20200902093306.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093306.png" srcset="data:image/png;base64,666" alt="6" style="zoom:80%;"></li><li><p>预测分析控制程序算法</p><img src="https://gitee.com/wxy_666/images/raw/master/20200902093330.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093330.png" srcset="data:image/png;base64,666" alt="7" style="zoom:80%;"></li></ol><h3 id="6、输入形式："><a href="#6、输入形式：" class="headerlink" title="6、输入形式："></a>6、输入形式：</h3><p>文件输入，格式为：</p><p>产生式个数n</p><p>{</p><p>……</p><p>第i(1&lt;=i&lt;=n)个产生式（例如A-&gt;a，按照输入顺序分别从1到n编号，拓广产生式为0号，规定终结符和非终结符都是一个字符且非终结符都为大写字母）</p><p>……</p><p>}</p><p>要分析的字符串个数n</p><p>{</p><p>……</p><p>第i(1&lt;=i&lt;=n)个要分析的字符串（要求以$结尾）</p><p>……</p><p>}</p><img src="https://gitee.com/wxy_666/images/raw/master/20200902093444.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093444.png" srcset="data:image/png;base64,666" alt="8" style="zoom:80%;"><h3 id="7、输出形式："><a href="#7、输出形式：" class="headerlink" title="7、输出形式："></a>7、输出形式：</h3><p>先输出该文法的拓广文法，再输出该拓广文法的first集和follow集，再输出SLR0分析表，然后输出用户输入的待分析字符串的分析过程。</p><h2 id="四、变量和函数"><a href="#四、变量和函数" class="headerlink" title="四、变量和函数"></a>四、变量和函数</h2><h3 id="1、类和枚举："><a href="#1、类和枚举：" class="headerlink" title="1、类和枚举："></a>1、类和枚举：</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> RS<span class="comment">//动作的枚举</span></span><br><span class="line">&#123;</span><br><span class="line">shift,<span class="comment">//移进</span></span><br><span class="line">reduce,<span class="comment">//规约</span></span><br><span class="line">accept<span class="comment">//接受</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//假定非终结符仅为一个大写字母，终结符仅为一个小写字母和各种符号，且用~代替epsilon</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PF</span>//<span class="title">Production</span> <span class="title">formula</span>,产生式的类</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="keyword">char</span> left;<span class="comment">//产生式的左部</span></span><br><span class="line"><span class="built_in">string</span> right;<span class="comment">//产生式的右部</span></span><br><span class="line">PF(<span class="keyword">char</span> l, <span class="built_in">string</span> r)<span class="comment">//构造函数</span></span><br><span class="line">&#123;</span><br><span class="line">left = l;</span><br><span class="line">right = r;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ITEM</span>//项目集</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">ITEM();<span class="comment">//默认构造函数</span></span><br><span class="line">ITEM(<span class="keyword">int</span> NO);<span class="comment">//构造函数</span></span><br><span class="line"><span class="keyword">int</span> NO;<span class="comment">//项目集编号</span></span><br><span class="line"><span class="built_in">set</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; production;<span class="comment">//项目，第一个int代表产生式编号，第二个int代表.的位置</span></span><br><span class="line"><span class="built_in">set</span>&lt;pair&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt;&gt; go_to;<span class="comment">//该项目集指向的项目集，第一个char代表箭头上的字符，第二个int代表指向的项目集编号</span></span><br><span class="line"><span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> ITEM&amp; item)<span class="keyword">const</span>;<span class="comment">//重载&lt;操作符，以便使用set</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">action</span>//动作类</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">action(RS rs,<span class="keyword">int</span> num);<span class="comment">//重写构造函数</span></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">ret_action</span><span class="params">()</span></span>;<span class="comment">//返回该动作</span></span><br><span class="line">action();<span class="comment">//初始</span></span><br><span class="line">RS rs;<span class="comment">//动作</span></span><br><span class="line"><span class="keyword">int</span> num;<span class="comment">//移进到哪个状态，或者用哪个产生式规约</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h3 id="2、全局变量"><a href="#2、全局变量" class="headerlink" title="2、全局变量"></a>2、全局变量</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;PF&gt; PF_vector;<span class="comment">//产生式</span></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">char</span>, <span class="built_in">set</span>&lt;<span class="keyword">char</span>&gt; &gt; first;<span class="comment">//first集</span></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">char</span>, <span class="built_in">set</span>&lt;<span class="keyword">char</span>&gt; &gt; follow;<span class="comment">//follow集</span></span><br><span class="line"><span class="built_in">set</span>&lt;ITEM&gt; DFA;<span class="comment">//DFA项目集规范簇</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">map</span>&lt;<span class="keyword">char</span>, action&gt;&gt; predict_table_action;<span class="comment">//SLR1分析表action</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt;&gt; predict_table_goto;<span class="comment">//SLR1分析表goto</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; A_1;<span class="comment">//符号栈</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; A_2;<span class="comment">//状态栈</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; B;<span class="comment">//剩余串</span></span><br><span class="line"><span class="built_in">set</span>&lt;<span class="keyword">char</span>&gt; terminal;<span class="comment">//所有的终结符+'$'</span></span><br><span class="line"><span class="built_in">set</span>&lt;<span class="keyword">char</span>&gt; non_terminal;<span class="comment">//所有的非终结符</span></span><br><span class="line"><span class="keyword">int</span> B_point = <span class="number">0</span>, input_len = <span class="number">0</span>;<span class="comment">//B_point为输入串指针，input_len为输入串长度</span></span><br></pre></td></tr></table></figure><h3 id="3、函数"><a href="#3、函数" class="headerlink" title="3、函数"></a>3、函数</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">ITEM::ITEM()<span class="comment">//默认构造函数</span></span><br><span class="line">ITEM::ITEM(<span class="keyword">int</span> NO)<span class="comment">//构造函数</span></span><br><span class="line"><span class="keyword">bool</span> ITEM::<span class="keyword">operator</span>&lt;(<span class="keyword">const</span> ITEM&amp; item)<span class="keyword">const</span><span class="comment">//重载&lt;操作符，以便使用set</span></span><br><span class="line">action::action(RS rs, <span class="keyword">int</span> num) <span class="comment">//构造函数</span></span><br><span class="line">action::action()<span class="comment">//默认构造函数</span></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">action::ret_action</span><span class="params">()</span><span class="comment">//返回该动作</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">first_construction</span><span class="params">()</span><span class="comment">//构造并输出first集</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add_follow</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>&amp; ch1, <span class="keyword">const</span> <span class="keyword">char</span>&amp; ch2)</span><span class="comment">//将ch1的follow集加入到ch2的follow集中</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">follow_construction</span><span class="params">()</span><span class="comment">//构造并输出follow集</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFA_construction</span><span class="params">()</span><span class="comment">//构造DFA</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">predict_table_construction</span><span class="params">()</span><span class="comment">//构造并输出SLR1预测分析表</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_A</span><span class="params">()</span><span class="comment">//输出分析栈</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_B</span><span class="params">()</span><span class="comment">//输出剩余串</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">analyse</span><span class="params">()</span><span class="comment">//预测分析控制程序</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure><p>PS：关于每个函数内部详细实现详见main.cpp中写好了详细的注释，我几乎对每一步操作的目的和函数的目的都写了详细的注释。</p><h2 id="五、测试样例："><a href="#五、测试样例：" class="headerlink" title="五、测试样例："></a>五、测试样例：</h2><table><thead><tr><th><img src="https://gitee.com/wxy_666/images/raw/master/20200902093741.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093741.png" srcset="data:image/png;base64,666" alt="1" style="zoom:80%;"></th><th><img src="https://gitee.com/wxy_666/images/raw/master/20200902093801.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093801.png" srcset="data:image/png;base64,666" alt="2" style="zoom:80%;"></th></tr></thead><tbody><tr><td><img src="https://gitee.com/wxy_666/images/raw/master/20200902093811.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093811.png" srcset="data:image/png;base64,666" alt="3" style="zoom:80%;"></td><td><img src="https://gitee.com/wxy_666/images/raw/master/20200902093822.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093822.png" srcset="data:image/png;base64,666" alt="4" style="zoom:80%;"></td></tr><tr><td><img src="https://gitee.com/wxy_666/images/raw/master/20200902093830.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093830.png" srcset="data:image/png;base64,666" alt="5" style="zoom:80%;"></td><td></td></tr></tbody></table><h2 id="六、项目地址"><a href="#六、项目地址" class="headerlink" title="六、项目地址"></a>六、项目地址</h2><p>本项目的源码、可执行程序均已经存放于我的Github，欢迎下载查看：</p><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/yufafenxi-LR" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=yufafenxi-LR&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=yufafenxi-LR&show_owner=true" srcset="data:image/png;base64,666"></a>]]></content>
+      
+      
+      <categories>
+          
+          <category> C/C++ </category>
+          
+          <category> 编译原理 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工程 </tag>
+            
+            <tag> C++ </tag>
+            
+            <tag> 编译原理 </tag>
+            
+            <tag> 语法分析 </tag>
+            
+            <tag> LR </tag>
             
         </tags>
       
@@ -465,9 +465,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 工程 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 编译原理 </tag>
             
@@ -570,15 +570,15 @@
             
             <tag> 大数据 </tag>
             
-            <tag> 单词计数 </tag>
-            
             <tag> Spark </tag>
-            
-            <tag> Scala </tag>
             
             <tag> 流计算 </tag>
             
+            <tag> 单词计数 </tag>
+            
             <tag> Streaming </tag>
+            
+            <tag> Scala </tag>
             
             <tag> Kafka </tag>
             
@@ -613,11 +613,11 @@
             
             <tag> Spark </tag>
             
-            <tag> Java </tag>
-            
             <tag> 流计算 </tag>
             
             <tag> Streaming </tag>
+            
+            <tag> Java </tag>
             
             <tag> 日志分析 </tag>
             
@@ -646,9 +646,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> C </tag>
+            
+            <tag> C++ </tag>
             
             <tag> 难点 </tag>
             
@@ -681,9 +681,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> 工程 </tag>
+            
+            <tag> C++ </tag>
             
             <tag> QT </tag>
             
@@ -788,9 +788,9 @@
             
             <tag> Linux </tag>
             
-            <tag> 难点 </tag>
-            
             <tag> Shell </tag>
+            
+            <tag> 难点 </tag>
             
             <tag> 拓展 </tag>
             
@@ -1070,15 +1070,15 @@
             
             <tag> 大数据 </tag>
             
-            <tag> 单词计数 </tag>
-            
             <tag> Spark </tag>
-            
-            <tag> Scala </tag>
             
             <tag> 流计算 </tag>
             
+            <tag> 单词计数 </tag>
+            
             <tag> Streaming </tag>
+            
+            <tag> Scala </tag>
             
             <tag> Kafka </tag>
             
@@ -1480,13 +1480,13 @@
             
             <tag> 大数据 </tag>
             
-            <tag> 单词计数 </tag>
-            
             <tag> Spark </tag>
             
-            <tag> Java </tag>
+            <tag> 单词计数 </tag>
             
             <tag> Scala </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
