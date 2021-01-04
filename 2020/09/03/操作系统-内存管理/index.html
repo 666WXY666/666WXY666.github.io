@@ -21,7 +21,7 @@
   
   <title>操作系统 内存管理 - 苇名一心的博客</title>
   
-    <meta name="keywords" content="C++,工程,操作系统,内存管理">
+    <meta name="keywords" content="工程,C++,操作系统,内存管理">
   
 
   
@@ -695,7 +695,7 @@
 <li>大小：指块的大小</li>
 <li>访问权限：共五种PAGE_READONLY、PAGE_READWRITE、PAGE_EXCUTE、PAGE_EXECUTE_READ 和PAGE_EXECUTE_READWRITE。可以将这些权限编号，存放于文件中。跟踪线程将页面大小、已使用的地址范围、物理内存总量以及虚拟内存总量等信息显示出来。</li>
 </ul>
-<h2 id="二、运行环境"><a href="#二、运行环境" class="headerlink" title="二、运行环境"></a>二、运行环境</h2><p>电脑硬件配置：</p>
+<h2 id="三、运行环境"><a href="#三、运行环境" class="headerlink" title="三、运行环境"></a>三、运行环境</h2><p>电脑硬件配置：</p>
 <ul>
 <li><p>处理器：Intel i7 7700HQ</p>
 </li>
@@ -715,7 +715,7 @@
 <li><p>平台工具集：Visual Studio 2019（v142）</p>
 </li>
 </ul>
-<h2 id="三、实验原理"><a href="#三、实验原理" class="headerlink" title="三、实验原理"></a>三、实验原理</h2><p>内存管理是Windows执行体的一部分，位于Ntoskrnl.exe 文件中，是整个操作系统的重要组成部分。物理内存是固定的，内存条的容量多大，物理内存就有多大。但是如果程序运行很多或者程序本身很大的话，就会导致大量的物理内存占用，甚至导致物理内存消耗殆尽。</p>
+<h2 id="四、实验原理"><a href="#四、实验原理" class="headerlink" title="四、实验原理"></a>四、实验原理</h2><p>内存管理是Windows执行体的一部分，位于Ntoskrnl.exe 文件中，是整个操作系统的重要组成部分。物理内存是固定的，内存条的容量多大，物理内存就有多大。但是如果程序运行很多或者程序本身很大的话，就会导致大量的物理内存占用，甚至导致物理内存消耗殆尽。</p>
 <p>虚拟内存就是在硬盘上划分一块页面文件，充当内存。当程序在运行时，有一部分资源还没有用上或者同时打开几个程序却只操作其中一个程序时，系统没必要将程序所有的资源都放在物理内存中。于是，系统将这些暂时不用的资源放在虚拟内存上，等到需要时在调出来用。这也是虚拟内存的优点：需要的时候才真正分配内存。</p>
 <p>默认情况下，32位Windows上每个用户进程可以占有2GB的私有地址空间，操作系统占有剩下的2GB。Windows在x86体系结构上利用二级页表结构来实现虚拟地址向物理地址的变换。一个32位虚拟地址被解释为三个独立的分量——页目录索引、页表索引和字节索引——它们用于找出描述页面映射结构的索引。页面大小及页表项的宽度决定了页目录和页表索引的宽度。比如，在x86 系统中，因为一页包含4096字节，于是字节索引被确定为12位宽（2^12=4096）。</p>
 <p>应用程序有三种使用内存方法：</p>
@@ -725,7 +725,7 @@
 <li>内存堆方法，适合于大量的小型内存申请</li>
 </ul>
 <p>本次实验主要是针对第一种使用方式。应用程序通过API函数 VirtualAlloc和VirtualAllocEx等实现以页为单位的虚拟内存分配方法。首先保留地址空间，然后向此地址空间提交物理页面，也可以同时实现保留和提交。保留地址空间是为线程将来使用保留一块虚拟地址。在已保留的区域中，提交页面必须指出将物理存储器提交到何处以及提交多少。提交页面在访问时会转变为物理内存中的有效页面。</p>
-<h2 id="四、实验步骤"><a href="#四、实验步骤" class="headerlink" title="四、实验步骤"></a>四、实验步骤</h2><p>1、编译运行makefile.cpp，生成opfile文件。opfile里记录了几个不同的内存操作，包括时间、块数、操作、大小、访问权限。生成了包括5个权限和6个操作任意组合共30个操作。</p>
+<h2 id="五、实验步骤"><a href="#五、实验步骤" class="headerlink" title="五、实验步骤"></a>五、实验步骤</h2><p>1、编译运行makefile.cpp，生成opfile文件。opfile里记录了几个不同的内存操作，包括时间、块数、操作、大小、访问权限。生成了包括5个权限和6个操作任意组合共30个操作。</p>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200902170741.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902170741.png" srcset="data:image/png;base64,666" alt="1" style="zoom:80%;">
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200902170806.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902170806.png" srcset="data:image/png;base64,666" alt="2" style="zoom:80%;">
@@ -741,7 +741,7 @@
 <p>4、输出结果</p>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200902171100.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902171100.png" srcset="data:image/png;base64,666" alt="6" style="zoom:80%;">
 
-<h2 id="五、相关的API-函数"><a href="#五、相关的API-函数" class="headerlink" title="五、相关的API 函数"></a>五、相关的API 函数</h2><pre><code class="c">//可以通过GetSystemInfo，GlobalMemoryStatus 和VirtualQuery 来查询进程虚空间的状态。主要的信息来源如下：
+<h2 id="六、相关的API-函数"><a href="#六、相关的API-函数" class="headerlink" title="六、相关的API 函数"></a>六、相关的API 函数</h2><pre><code class="c">//可以通过GetSystemInfo，GlobalMemoryStatus 和VirtualQuery 来查询进程虚空间的状态。主要的信息来源如下：
 VOID GetSystemInfo （ LPSYSTEM_INFO lpSystemInfo ）;
 //结构SYSTEMINFO 定义如下：
 typedef struct _SYSTEM_INFO {
@@ -784,7 +784,7 @@ DWORD Type;
 } MEMORY_BASIC_INFORMATION;
 typedef MEMORY_BASIC_INFORMATION * PMEMORY_BASIC_INFORMATION;
 //还有一些函数，例如VirtualAlloc，VirtualAllocEx，VirtualFree 和VirtualFreeEx 等，用于虚拟内存的管理，详情请见Microsoft 的Win32 API Reference Manual。</code></pre>
-<h2 id="六、项目地址"><a href="#六、项目地址" class="headerlink" title="六、项目地址"></a>六、项目地址</h2><p>本项目的源码、可执行程序均已经存放于我的Github，欢迎下载查看：</p>
+<h2 id="七、项目地址"><a href="#七、项目地址" class="headerlink" title="七、项目地址"></a>七、项目地址</h2><p>本项目的源码、可执行程序均已经存放于我的Github，欢迎下载查看：</p>
 <a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/czxt-mem" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=czxt-mem&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=czxt-mem&show_owner=true" srcset="data:image/png;base64,666"></a>
   
   
@@ -798,7 +798,7 @@ typedef MEMORY_BASIC_INFORMATION * PMEMORY_BASIC_INFORMATION;
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
     </section>
     <section class="body">
-      <div class="vlts-rps"><a class="item" href="\2020\09\03\操作系统-读者写者(生产者消费者)\" title="操作系统 读者写者(生产者消费者)" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200902162507.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902162507.png" srcset="data:image/png;base64,666"><span class="title">操作系统 读者写者(生产者消费者)</span><span class="excerpt">本文是操作系统进程同步互斥关于读者写者(生产者消费者)的基本实验。</span></a><a class="item" href="\2020\09\03\操作系统-进程线程管理通信与同步互斥\" title="操作系统 进程线程管理通信与同步互斥" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200626132252.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626132252.jpg" srcset="data:image/png;base64,666"><span class="title">操作系统 进程线程管理通信与同步互斥</span><span class="excerpt">本文是操作系统课程设计关于进程线程管理通信与同步互斥的综合实验（长文警告）。</span></a><a class="item" href="\2020\09\30\C++工程项目-JobShop\" title="C++工程项目 JobShop" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200930101945.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200930101945.jpg" srcset="data:image/png;base64,666"><span class="title">C++工程项目 JobShop</span><span class="excerpt">本文是计算机导论的程序设计实战项目，实现单词消除游戏，具体项目及要求请点击查看。</span></a><a class="item" href="\2020\07\12\C++工程项目-单词消除游戏\" title="C++工程项目 单词消除游戏" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200715102903.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200715102903.png" srcset="data:image/png;base64,666"><span class="title">C++工程项目 单词消除游戏</span><span class="excerpt">本文是C++面向对象的程序设计实战项目，实现单词消除游戏，具体项目及要求请点击查看。</span></a></div></section></div>
+      <div class="vlts-rps"><a class="item" href="\2020\09\03\操作系统-读者写者(生产者消费者)\" title="操作系统 读者写者(生产者消费者)" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200902162507.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902162507.png" srcset="data:image/png;base64,666"><span class="title">操作系统 读者写者(生产者消费者)</span><span class="excerpt">本文是操作系统进程同步互斥关于读者写者(生产者消费者)的基本实验。</span></a><a class="item" href="\2020\09\03\操作系统-进程线程管理通信与同步互斥\" title="操作系统 进程线程管理通信与同步互斥" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200626132252.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200626132252.jpg" srcset="data:image/png;base64,666"><span class="title">操作系统 进程线程管理通信与同步互斥</span><span class="excerpt">本文是操作系统课程设计关于进程线程管理通信与同步互斥的综合实验（长文警告）。</span></a><a class="item" href="\2021\01\04\C++工程项目-travel\" title="C++工程项目 travel" rel="bookmark "><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=travel&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=travel&show_owner=true" srcset="data:image/png;base64,666"><span class="title">C++工程项目 travel</span><span class="excerpt">本文是数据结构课程设计项目，实现类似“携程”旅行模拟，具体项目及要求请点击查看。</span></a><a class="item" href="\2020\09\30\C++工程项目-JobShop\" title="C++工程项目 JobShop" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200930101945.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200930101945.jpg" srcset="data:image/png;base64,666"><span class="title">C++工程项目 JobShop</span><span class="excerpt">本文是计算机导论的程序设计实战项目，实现单词消除游戏，具体项目及要求请点击查看。</span></a></div></section></div>
       
       
         <div class="copyright">
@@ -847,10 +847,10 @@ typedef MEMORY_BASIC_INFORMATION * PMEMORY_BASIC_INFORMATION;
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-13T16:56:14+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-04T22:22:24+08:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年9月13日</p>
+    <p>更新于：2021年1月4日</p>
   </a>
 </div>
 
@@ -859,7 +859,7 @@ typedef MEMORY_BASIC_INFORMATION * PMEMORY_BASIC_INFORMATION;
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/C/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>C++</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%B7%A5%E7%A8%8B/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>工程</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>操作系统</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>内存管理</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%B7%A5%E7%A8%8B/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>工程</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/C/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>C++</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>操作系统</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>内存管理</p></a></div>
 
 
         
@@ -981,7 +981,7 @@ LINUX环境和GCC...</p>
 
 
     <div class="content">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、实验目的"><span class="toc-number">1.</span> <span class="toc-text">一、实验目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、实验需求"><span class="toc-number">2.</span> <span class="toc-text">二、实验需求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、运行环境"><span class="toc-number">3.</span> <span class="toc-text">二、运行环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、实验原理"><span class="toc-number">4.</span> <span class="toc-text">三、实验原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、实验步骤"><span class="toc-number">5.</span> <span class="toc-text">四、实验步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、相关的API-函数"><span class="toc-number">6.</span> <span class="toc-text">五、相关的API 函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、项目地址"><span class="toc-number">7.</span> <span class="toc-text">六、项目地址</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、实验目的"><span class="toc-number">1.</span> <span class="toc-text">一、实验目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、实验需求"><span class="toc-number">2.</span> <span class="toc-text">二、实验需求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、运行环境"><span class="toc-number">3.</span> <span class="toc-text">三、运行环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、实验原理"><span class="toc-number">4.</span> <span class="toc-text">四、实验原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、实验步骤"><span class="toc-number">5.</span> <span class="toc-text">五、实验步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、相关的API-函数"><span class="toc-number">6.</span> <span class="toc-text">六、相关的API 函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、项目地址"><span class="toc-number">7.</span> <span class="toc-text">七、项目地址</span></a></li></ol>
     </div>
   </section>
 
