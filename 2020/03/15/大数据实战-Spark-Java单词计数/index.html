@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.2.0">
+  <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.2.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -21,7 +21,7 @@
   
   <title>大数据实战 Spark Java单词计数 - 苇名一心的博客</title>
   
-    <meta name="keywords" content="实战,大数据,Spark,单词计数,Java,Scala">
+    <meta name="keywords" content="实战,大数据,Spark,单词计数,Scala,Java">
   
 
   
@@ -57,10 +57,14 @@
 
   <script id="loadcss"></script>
 
+  
+
+<script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) document.write('\x3Cscript id="_iealwn_js" data-outver="11" src="https://support.dmeng.net/ie-alert-warning/latest.js">\x3C/script>'); </script>
+
 </head>
 
-<body>
-  
+  <body>
+    
 
 <header id="l_header" class="l_header auto shadow floatable blur show" style="opacity: 0">
   <div class="container">
@@ -180,6 +184,16 @@
                       
             
               <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class="fas fa-moon fa-fw"></i>暗黑模式
+                </a>
+              </li><li>
+            
+          
+                    
+                      
+            
+              </li><li>
                 <a class="menuitem flat-box faa-parent animated-hover">
                   <i class="fas fa-question fa-fw"></i>有疑问？
                 </a>
@@ -211,7 +225,7 @@
                       
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href="https://gitee.com/wxy_666" id="https:giteecomwxy_666" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://gitee.com/wxy_666/" id="https:giteecomwxy_666" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fab fa-git-alt fa-fw"></i>我的Gitee主页
                 </a>
                 
@@ -360,6 +374,16 @@
                       
             
               <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class="fas fa-moon fa-fw"></i>暗黑模式
+                </a>
+              </li><li>
+            
+          
+                    
+                      
+            
+              </li><li>
                 <a class="menuitem flat-box faa-parent animated-hover">
                   <i class="fas fa-question fa-fw"></i>有疑问？
                 </a>
@@ -391,7 +415,7 @@
                       
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href="https://gitee.com/wxy_666" id="https:giteecomwxy_666" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://gitee.com/wxy_666/" id="https:giteecomwxy_666" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fab fa-git-alt fa-fw"></i>我的Gitee主页
                 </a>
                 
@@ -441,8 +465,8 @@
   </div>
 </header>
 
-  <div id="l_body">
-    <div id="l_cover">
+    <div id="l_body">
+      <div id="l_cover">
   
     
         <div id="full" class="cover-wrapper post focus" style="display: none;">
@@ -545,9 +569,9 @@
   
   </div>
 
-    <div id="safearea">
-      <div class="body-wrapper" id="pjax-container">
-        
+      <div id="safearea">
+        <div class="body-wrapper" id="pjax-container">
+          
 
 <div class="l_main">
   <article class="article post white-box reveal md shadow floatable article-type-post" id="post" itemscope itemprop="blogPost">
@@ -613,6 +637,38 @@
 
           
         
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：1.7k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：9分钟</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+<div class="new-meta-item comments-count">
+  
+  <a href="/2020/03/15/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Spark-Java%E5%8D%95%E8%AF%8D%E8%AE%A1%E6%95%B0/#comments">
+    <i class="fas fa-comment-dots fa-fw"></i>
+    <span class="valine-comment-count" data-xid="/2020/03/15/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Spark-Java%E5%8D%95%E8%AF%8D%E8%AE%A1%E6%95%B0/">0</span>
+    <span class="leancloud-comments-count">&nbsp;</span>
+  </a>
+</div>
+
+
+          
+        
       </div>
     
   </div>
@@ -637,18 +693,26 @@
 <li>打印结果</li>
 </ul>
 <h2 id="三、实验步骤："><a href="#三、实验步骤：" class="headerlink" title="三、实验步骤："></a>三、实验步骤：</h2><h3 id="3-1新建数据源"><a href="#3-1新建数据源" class="headerlink" title="3.1新建数据源"></a>3.1新建数据源</h3><p>3.1.1在/home/zkpk目录下创建worddata.txt文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd</span><br><span class="line">vim worddata.txt</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">cd
+vim worddata.txt</code></pre>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200423203009.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200423203009.jpg" srcset="data:image/png;base64,666" alt="2020-04-23_184840" style="zoom:80%;">
 
 <p>3.1.2输入以下内容作为JavaWordCount程序的源数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">hello hi hi spark</span><br><span class="line">hello spark hello hi sparksql</span><br><span class="line">hello hi hi sparkstreaming</span><br><span class="line">hello hi sparkgraphx</span><br><span class="line">hello hello world</span><br><span class="line">hello java c python</span><br><span class="line">hello scala go html</span><br><span class="line">hi hi hello spark hdfs</span><br><span class="line">hello hadoop</span><br></pre></td></tr></table></figure>
-
+<pre><code>hello hi hi spark
+hello spark hello hi sparksql
+hello hi hi sparkstreaming
+hello hi sparkgraphx
+hello hello world
+hello java c python
+hello scala go html
+hi hi hello spark hdfs
+hello hadoop</code></pre>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200423211155.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200423211155.jpg" srcset="data:image/png;base64,666" alt="2020-04-23_184956" style="zoom:80%;">
 
 <p>3.1.3打开IDEA，创建Java任务</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd</span><br><span class="line">cd idea-IC-172.4574.19/</span><br><span class="line">bin/idea.sh &amp;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">cd
+cd idea-IC-172.4574.19/
+bin/idea.sh &amp;</code></pre>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200423211241.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200423211241.jpg" srcset="data:image/png;base64,666" alt="2020-04-23_185042" style="zoom:80%;">
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200423211258.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200423211258.jpg" srcset="data:image/png;base64,666" alt="2020-04-23_185058" style="zoom:80%;">
@@ -671,8 +735,104 @@
 <img src="https://gitee.com/wxy_666/images/raw/master/20200423211810.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200423211810.jpg" srcset="data:image/png;base64,666" alt="2020-04-23_185546" style="zoom:80%;">
 
 <p>3.2.6工程创建完成后会自动打开一个名为zkpk的xml文件，按照以下修改：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.zkpk.lab<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>zkpk<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">inceptionYear</span>&gt;</span>2008<span class="tag">&lt;/<span class="name">inceptionYear</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scala.version</span>&gt;</span>2.11.11<span class="tag">&lt;/<span class="name">scala.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">spark.version</span>&gt;</span>2.1.1<span class="tag">&lt;/<span class="name">spark.version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">repositories</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>scala-tools.org<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>Scala-Tools Maven2 Repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://scala-tools.org/repo-releases<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">pluginRepositories</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pluginRepository</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>scala-tools.org<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>Scala-Tools Maven2 Repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://scala-tools.org/repo-releases<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">pluginRepository</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">pluginRepositories</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.scala-lang<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>scala-library<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;scala.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.spark<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spark-core_2.11<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spark.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.spark<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spark-sql_2.11<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spark.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">sourceDirectory</span>&gt;</span>src/main/scala<span class="tag">&lt;/<span class="name">sourceDirectory</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">testSourceDirectory</span>&gt;</span>src/test/scala<span class="tag">&lt;/<span class="name">testSourceDirectory</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.scala-tools<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-scala-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">goal</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">goal</span>&gt;</span>testCompile<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">scalaVersion</span>&gt;</span>$&#123;scala.version&#125;<span class="tag">&lt;/<span class="name">scalaVersion</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">args</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">arg</span>&gt;</span>-target:jvm-1.5<span class="tag">&lt;/<span class="name">arg</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">args</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-eclipse-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">downloadSources</span>&gt;</span>true<span class="tag">&lt;/<span class="name">downloadSources</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">buildcommands</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">buildcommand</span>&gt;</span>ch.epfl.lamp.sdt.core.scalabuilder<span class="tag">&lt;/<span class="name">buildcommand</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">buildcommands</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">additionalProjectnatures</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">projectnature</span>&gt;</span>ch.epfl.lamp.sdt.core.scalanature<span class="tag">&lt;/<span class="name">projectnature</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">additionalProjectnatures</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">classpathContainers</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">classpathContainer</span>&gt;</span>org.eclipse.jdt.launching.JRE_CONTAINER<span class="tag">&lt;/<span class="name">classpathContainer</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">classpathContainer</span>&gt;</span>ch.epfl.lamp.sdt.launching.SCALA_CONTAINER<span class="tag">&lt;/<span class="name">classpathContainer</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">classpathContainers</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">reporting</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.scala-tools<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-scala-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">scalaVersion</span>&gt;</span>$&#123;scala.version&#125;<span class="tag">&lt;/<span class="name">scalaVersion</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">reporting</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="xml">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;&gt;
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+  &lt;groupId&gt;org.zkpk.lab&lt;/groupId&gt;
+  &lt;artifactId&gt;zkpk&lt;/artifactId&gt;
+  &lt;version&gt;1.0&lt;/version&gt;
+  &lt;inceptionYear&gt;2008&lt;/inceptionYear&gt;
+  &lt;properties&gt;
+    &lt;scala.version&gt;2.11.11&lt;/scala.version&gt;
+    &lt;spark.version&gt;2.1.1&lt;/spark.version&gt;
+  &lt;/properties&gt;
 
+  &lt;repositories&gt;
+    &lt;repository&gt;
+      &lt;id&gt;scala-tools.org&lt;/id&gt;
+      &lt;name&gt;Scala-Tools Maven2 Repository&lt;/name&gt;
+      &lt;url&gt;http://scala-tools.org/repo-releases&lt;/url&gt;
+    &lt;/repository&gt;
+  &lt;/repositories&gt;
+
+  &lt;pluginRepositories&gt;
+    &lt;pluginRepository&gt;
+      &lt;id&gt;scala-tools.org&lt;/id&gt;
+      &lt;name&gt;Scala-Tools Maven2 Repository&lt;/name&gt;
+      &lt;url&gt;http://scala-tools.org/repo-releases&lt;/url&gt;
+    &lt;/pluginRepository&gt;
+  &lt;/pluginRepositories&gt;
+
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.scala-lang&lt;/groupId&gt;
+      &lt;artifactId&gt;scala-library&lt;/artifactId&gt;
+      &lt;version&gt;${scala.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.apache.spark&lt;/groupId&gt;
+      &lt;artifactId&gt;spark-core_2.11&lt;/artifactId&gt;
+      &lt;version&gt;${spark.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.apache.spark&lt;/groupId&gt;
+      &lt;artifactId&gt;spark-sql_2.11&lt;/artifactId&gt;
+      &lt;version&gt;${spark.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+
+  &lt;build&gt;
+    &lt;sourceDirectory&gt;src/main/scala&lt;/sourceDirectory&gt;
+    &lt;testSourceDirectory&gt;src/test/scala&lt;/testSourceDirectory&gt;
+    &lt;plugins&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.scala-tools&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-scala-plugin&lt;/artifactId&gt;
+        &lt;executions&gt;
+          &lt;execution&gt;
+            &lt;goals&gt;
+              &lt;goal&gt;compile&lt;/goal&gt;
+              &lt;goal&gt;testCompile&lt;/goal&gt;
+            &lt;/goals&gt;
+          &lt;/execution&gt;
+        &lt;/executions&gt;
+        &lt;configuration&gt;
+          &lt;scalaVersion&gt;${scala.version}&lt;/scalaVersion&gt;
+          &lt;args&gt;
+            &lt;arg&gt;-target:jvm-1.5&lt;/arg&gt;
+          &lt;/args&gt;
+        &lt;/configuration&gt;
+      &lt;/plugin&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-eclipse-plugin&lt;/artifactId&gt;
+        &lt;configuration&gt;
+          &lt;downloadSources&gt;true&lt;/downloadSources&gt;
+          &lt;buildcommands&gt;
+            &lt;buildcommand&gt;ch.epfl.lamp.sdt.core.scalabuilder&lt;/buildcommand&gt;
+          &lt;/buildcommands&gt;
+          &lt;additionalProjectnatures&gt;
+            &lt;projectnature&gt;ch.epfl.lamp.sdt.core.scalanature&lt;/projectnature&gt;
+          &lt;/additionalProjectnatures&gt;
+          &lt;classpathContainers&gt;
+            &lt;classpathContainer&gt;org.eclipse.jdt.launching.JRE_CONTAINER&lt;/classpathContainer&gt;
+            &lt;classpathContainer&gt;ch.epfl.lamp.sdt.launching.SCALA_CONTAINER&lt;/classpathContainer&gt;
+          &lt;/classpathContainers&gt;
+        &lt;/configuration&gt;
+      &lt;/plugin&gt;
+    &lt;/plugins&gt;
+  &lt;/build&gt;
+  &lt;reporting&gt;
+    &lt;plugins&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.scala-tools&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-scala-plugin&lt;/artifactId&gt;
+        &lt;configuration&gt;
+          &lt;scalaVersion&gt;${scala.version}&lt;/scalaVersion&gt;
+        &lt;/configuration&gt;
+      &lt;/plugin&gt;
+    &lt;/plugins&gt;
+  &lt;/reporting&gt;
+&lt;/project&gt;</code></pre>
 <p>3.2.7保存修改的pom.xml文件后，点击工程名，依次选择Maven——&gt;Reimport，即可根据pom.xml文件导入依赖包，出现下图就代表正在导入依赖包</p>
 <p><img src="https://gitee.com/wxy_666/images/raw/master/20200423212207.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200423212207.jpg" srcset="data:image/png;base64,666" alt="2020-04-23_190350"></p>
 <p>3.2.8设置语言环境language level，点击菜单栏中的file，选择Project Structure，弹出如下对话框，选择Modules，选择Language level为8，然后点击Apply，点击OK</p>
@@ -696,10 +856,85 @@
 
 
 
-<h2 id="四、附录"><a href="#四、附录" class="headerlink" title="四、附录"></a>四、附录</h2><h3 id="1、JavaWordCount-java"><a href="#1、JavaWordCount-java" class="headerlink" title="1、JavaWordCount.java"></a>1、JavaWordCount.java</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.spark.api.java.JavaPairRDD;</span><br><span class="line"><span class="keyword">import</span> org.apache.spark.api.java.JavaRDD;</span><br><span class="line"><span class="keyword">import</span> org.apache.spark.sql.SparkSession;</span><br><span class="line"><span class="keyword">import</span> scala.Tuple2;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.regex.Pattern;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaWordCount</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Pattern SPACE = Pattern.compile(<span class="string">" "</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line"></span><br><span class="line">        SparkSession ss = SparkSession</span><br><span class="line">                .builder()</span><br><span class="line">                .master(<span class="string">"local"</span>)</span><br><span class="line">                .appName(<span class="string">"JavaWordCount"</span>)</span><br><span class="line">                .getOrCreate();</span><br><span class="line"></span><br><span class="line">        JavaRDD&lt;String&gt; lines =</span><br><span class="line">                ss.read().textFile(<span class="string">"file:///home/zkpk/worddata.txt"</span>).javaRDD();</span><br><span class="line"></span><br><span class="line">        JavaRDD&lt;String&gt; words =</span><br><span class="line">                lines.flatMap(s -&gt; Arrays.asList(SPACE.split(s)).iterator());</span><br><span class="line"></span><br><span class="line">        JavaPairRDD&lt;String, Integer&gt; wordAndOne =</span><br><span class="line">                words.mapToPair(s -&gt; <span class="keyword">new</span> Tuple2&lt;&gt;(s, <span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">        JavaPairRDD&lt;String, Integer&gt; wordAndNum =</span><br><span class="line">                wordAndOne.reduceByKey((i1, i2) -&gt; i1 + i2);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//自己额外实现了可以根据词频的大小，从大到小排序展示的功能</span></span><br><span class="line">        List&lt;Tuple2&lt;String, Integer&gt;&gt; result = wordAndNum</span><br><span class="line">                <span class="comment">//先将key和value交换</span></span><br><span class="line">                .mapToPair((row) -&gt;  <span class="keyword">new</span> Tuple2&lt;&gt;(row._2,row._1))</span><br><span class="line">                <span class="comment">//按照交换后的key也就是词频倒排序</span></span><br><span class="line">                .sortByKey(<span class="keyword">false</span>)</span><br><span class="line">                <span class="comment">//再将key和value交换回来，回到单词在前，词频在后的状态</span></span><br><span class="line">                .mapToPair((row) -&gt;  <span class="keyword">new</span> Tuple2&lt;&gt;(row._2,row._1))</span><br><span class="line">                .collect();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (Tuple2&lt;?,?&gt; tuple : result)&#123;</span><br><span class="line">            System.out.println(tuple._1() + <span class="string">": "</span> + tuple._2());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ss.stop();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="四、附录"><a href="#四、附录" class="headerlink" title="四、附录"></a>四、附录</h2><h3 id="1、JavaWordCount-java"><a href="#1、JavaWordCount-java" class="headerlink" title="1、JavaWordCount.java"></a>1、JavaWordCount.java</h3><pre><code class="java">import org.apache.spark.api.java.JavaPairRDD;
+import org.apache.spark.api.java.JavaRDD;
+import org.apache.spark.sql.SparkSession;
+import scala.Tuple2;
 
-<h3 id="2、ScalaWordCount-scala"><a href="#2、ScalaWordCount-scala" class="headerlink" title="2、ScalaWordCount.scala"></a>2、ScalaWordCount.scala</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.zkpk.lab</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.rdd.<span class="type">RDD</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.&#123;<span class="type">SparkConf</span>, <span class="type">SparkContext</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ScalaWordCount</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">ScalaWordCount</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</span><br><span class="line">    <span class="keyword">val</span> list = <span class="type">List</span>(<span class="string">"hello hi hi spark "</span>,</span><br><span class="line">      <span class="string">"hello spark hello hi sparksql "</span>,</span><br><span class="line">      <span class="string">"hello hi hi sparkstreaming "</span>,</span><br><span class="line">      <span class="string">"hello hi sparkgraphx"</span>)</span><br><span class="line">    <span class="keyword">val</span> sparkConf = <span class="keyword">new</span> <span class="type">SparkConf</span>().setAppName(<span class="string">"word-count"</span>).setMaster(<span class="string">"local[*]"</span>)</span><br><span class="line">    <span class="keyword">val</span> sc = <span class="keyword">new</span> <span class="type">SparkContext</span>(sparkConf)</span><br><span class="line">    <span class="keyword">val</span> lines: <span class="type">RDD</span>[<span class="type">String</span>] = sc.parallelize(list)</span><br><span class="line">    <span class="keyword">val</span> words: <span class="type">RDD</span>[<span class="type">String</span>] =</span><br><span class="line">        lines.flatMap((line: <span class="type">String</span>) =&gt; &#123;line.split(<span class="string">" "</span>)&#125;)</span><br><span class="line">    <span class="keyword">val</span> wordAndOne: <span class="type">RDD</span>[(<span class="type">String</span>, <span class="type">Int</span>)] =</span><br><span class="line">        words.map((word: <span class="type">String</span>) =&gt; &#123;(word, <span class="number">1</span>)&#125;)</span><br><span class="line">    <span class="keyword">val</span> wordAndNum: <span class="type">RDD</span>[(<span class="type">String</span>, <span class="type">Int</span>)] =</span><br><span class="line">      wordAndOne.reduceByKey((count1: <span class="type">Int</span>, count2: <span class="type">Int</span>) =&gt; &#123;count1+ count2&#125;)</span><br><span class="line">    <span class="keyword">val</span> ret = wordAndNum.sortBy(kv =&gt; kv._2, <span class="literal">false</span>)</span><br><span class="line">    println(ret.collect().mkString(<span class="string">","</span>))</span><br><span class="line">    ret.saveAsTextFile(args(<span class="number">0</span>))</span><br><span class="line">    sc.stop()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+import java.util.Arrays;
+import java.util.List;
+import java.util.regex.Pattern;
 
+public final class JavaWordCount {
+
+    private static final Pattern SPACE = Pattern.compile(&quot; &quot;);
+
+    public static void main(String[] args) throws Exception{
+
+        SparkSession ss = SparkSession
+                .builder()
+                .master(&quot;local&quot;)
+                .appName(&quot;JavaWordCount&quot;)
+                .getOrCreate();
+
+        JavaRDD&lt;String&gt; lines =
+                ss.read().textFile(&quot;file:///home/zkpk/worddata.txt&quot;).javaRDD();
+
+        JavaRDD&lt;String&gt; words =
+                lines.flatMap(s -&gt; Arrays.asList(SPACE.split(s)).iterator());
+
+        JavaPairRDD&lt;String, Integer&gt; wordAndOne =
+                words.mapToPair(s -&gt; new Tuple2&lt;&gt;(s, 1));
+
+        JavaPairRDD&lt;String, Integer&gt; wordAndNum =
+                wordAndOne.reduceByKey((i1, i2) -&gt; i1 + i2);
+
+        //自己额外实现了可以根据词频的大小，从大到小排序展示的功能
+        List&lt;Tuple2&lt;String, Integer&gt;&gt; result = wordAndNum
+                //先将key和value交换
+                .mapToPair((row) -&gt;  new Tuple2&lt;&gt;(row._2,row._1))
+                //按照交换后的key也就是词频倒排序
+                .sortByKey(false)
+                //再将key和value交换回来，回到单词在前，词频在后的状态
+                .mapToPair((row) -&gt;  new Tuple2&lt;&gt;(row._2,row._1))
+                .collect();
+
+        for (Tuple2&lt;?,?&gt; tuple : result){
+            System.out.println(tuple._1() + &quot;: &quot; + tuple._2());
+        }
+
+        ss.stop();
+    }
+}</code></pre>
+<h3 id="2、ScalaWordCount-scala"><a href="#2、ScalaWordCount-scala" class="headerlink" title="2、ScalaWordCount.scala"></a>2、ScalaWordCount.scala</h3><pre><code class="scala">package org.zkpk.lab
+
+import org.apache.spark.rdd.RDD
+import org.apache.spark.{SparkConf, SparkContext}
+
+class ScalaWordCount {
+
+}
+object ScalaWordCount{
+  def main(args: Array[String]): Unit = {
+    val list = List(&quot;hello hi hi spark &quot;,
+      &quot;hello spark hello hi sparksql &quot;,
+      &quot;hello hi hi sparkstreaming &quot;,
+      &quot;hello hi sparkgraphx&quot;)
+    val sparkConf = new SparkConf().setAppName(&quot;word-count&quot;).setMaster(&quot;local[*]&quot;)
+    val sc = new SparkContext(sparkConf)
+    val lines: RDD[String] = sc.parallelize(list)
+    val words: RDD[String] =
+        lines.flatMap((line: String) =&gt; {line.split(&quot; &quot;)})
+    val wordAndOne: RDD[(String, Int)] =
+        words.map((word: String) =&gt; {(word, 1)})
+    val wordAndNum: RDD[(String, Int)] =
+      wordAndOne.reduceByKey((count1: Int, count2: Int) =&gt; {count1+ count2})
+    val ret = wordAndNum.sortBy(kv =&gt; kv._2, false)
+    println(ret.collect().mkString(&quot;,&quot;))
+    ret.saveAsTextFile(args(0))
+    sc.stop()
+  }
+}</code></pre>
 
   
   
@@ -774,7 +1009,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%AE%9E%E6%88%98/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>实战</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>大数据</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Spark/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Spark</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%8D%95%E8%AF%8D%E8%AE%A1%E6%95%B0/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>单词计数</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Java/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Java</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Scala/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Scala</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%AE%9E%E6%88%98/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>实战</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>大数据</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Spark/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Spark</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%8D%95%E8%AF%8D%E8%AE%A1%E6%95%B0/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>单词计数</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Scala/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Scala</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Java/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Java</p></a></div>
 
 
         
@@ -895,7 +1130,7 @@ PS：第一章是课程介绍。
 
 
     <div class="content">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、实验环境："><span class="toc-text">一、实验环境：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、实验内容："><span class="toc-text">二、实验内容：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、实验步骤："><span class="toc-text">三、实验步骤：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1新建数据源"><span class="toc-text">3.1新建数据源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2创建Spark-Maven工程，使用Java-API-编写wordcount"><span class="toc-text">3.2创建Spark Maven工程，使用Java API 编写wordcount</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3运行程序，查看结果"><span class="toc-text">3.3运行程序，查看结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、附录"><span class="toc-text">四、附录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、JavaWordCount-java"><span class="toc-text">1、JavaWordCount.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、ScalaWordCount-scala"><span class="toc-text">2、ScalaWordCount.scala</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、实验环境："><span class="toc-number">1.</span> <span class="toc-text">一、实验环境：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、实验内容："><span class="toc-number">2.</span> <span class="toc-text">二、实验内容：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、实验步骤："><span class="toc-number">3.</span> <span class="toc-text">三、实验步骤：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1新建数据源"><span class="toc-number">3.1.</span> <span class="toc-text">3.1新建数据源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2创建Spark-Maven工程，使用Java-API-编写wordcount"><span class="toc-number">3.2.</span> <span class="toc-text">3.2创建Spark Maven工程，使用Java API 编写wordcount</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3运行程序，查看结果"><span class="toc-number">3.3.</span> <span class="toc-text">3.3运行程序，查看结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、附录"><span class="toc-number">4.</span> <span class="toc-text">四、附录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、JavaWordCount-java"><span class="toc-number">4.1.</span> <span class="toc-text">1、JavaWordCount.java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、ScalaWordCount-scala"><span class="toc-number">4.2.</span> <span class="toc-text">2、ScalaWordCount.scala</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -906,10 +1141,7 @@ PS：第一章是课程介绍。
 </aside>
 
 
-
-        
-        
-          <!--此文件用来存放一些不方便取值的变量-->
+   <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <script>
@@ -924,10 +1156,9 @@ PS：第一章是课程介绍。
   l_header.classList.add("show");
   
 </script>
-
+ 
+        </div>
         
-      </div>
-      
   
   <footer class="footer clearfix">
     <br><br>
@@ -937,7 +1168,7 @@ PS：第一章是课程介绍。
           
 
   
-    <meting-js theme="#1BCDFC" autoplay="true" volume="0.3" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="1930654125" list-folded="true">
+    <meting-js theme="#1BCDFC" autoplay="false" volume="0.5" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="1930654125" list-folded="true">
     </meting-js>
   
 
@@ -1047,11 +1278,11 @@ PS：第一章是课程介绍。
   </footer>
 
 
-      <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+        <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      </div>
     </div>
-  </div>
-  <div>
-    <script>
+    <div>
+      <script>
 window.volantis={};
 window.volantis.loadcss=document.getElementById("loadcss");
 /********************脚本懒加载函数********************************/
@@ -1133,6 +1364,8 @@ var loadCSS = function( href, before, media, attributes ){
   
   loadCSS("https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css", window.volantis.loadcss);
   
+  
+  loadCSS("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/styles/solarized-light.min.css", window.volantis.loadcss);
   
 </script>
 <!-- required -->
@@ -1481,6 +1714,19 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
+<script>
+  function loadIssuesJS() {
+    if ($(".md").find(".issues-api").length == 0) return;
+    setTimeout(function() {
+	
+	  loadScript('/js/issues.js');
+	
+    }, 1);
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+</script>
 
 
 
@@ -1529,6 +1775,78 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
+
+
+   <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+<script type="text/javascript">
+  function pjax_scrollrebeal() {
+    ScrollReveal().reveal('.l_main .reveal', {
+      distance: '32px',
+      duration: '800',
+      interval: '20',
+      scale: '1',
+      easing: 'ease-out'
+    });
+  }
+  $(function () {
+    pjax_scrollrebeal();
+  });
+</script>
 
 
 
@@ -1536,7 +1854,7 @@ var loadCSS = function( href, before, media, attributes ){
   <script>
   let APlayerController = new Object();
   APlayerController.id = '1930654125';  // 设定全局音乐播放ID
-  APlayerController.volume = '0.3';
+  APlayerController.volume = '0.5';
   loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
   // APlayer 需要在  MetingJS 之前加载
   loadScript("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js")
@@ -1565,19 +1883,9 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 <script>
-  var GUEST_INFO = ['nick', 'mail', 'link'];
-  var meta = 'nick,mail,link'.split(',').filter(function (item) {
-    return GUEST_INFO.indexOf(item) > -1
-  });
-  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
-  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
-    return REQUIRED_FIELDS.indexOf(item) > -1
-  });
-
   function emoji(path, idx, ext) {
     return path + "/" + path + "-" + idx + "." + ext;
   }
-
   var emojiMaps = {};
   for (var i = 1; i <= 54; i++) {
     emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
@@ -1594,40 +1902,23 @@ var loadCSS = function( href, before, media, attributes ){
   for (var i = 1; i <= 4; i++) {
     emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
   }
-
   function pjax_valine() {
     if(!document.querySelectorAll("#valine_container")[0])return;
-
     let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
-
     let path = pdata.commentPath;
     if (path.length == 0) {
       let defaultPath = '';
       path = defaultPath || decodeURI(window.location.pathname);
     }
-
     var valine = new Valine();
-    valine.init({
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"O2XYIOn9EAIKNr5HayEBixXl-MdYXbMMI","appKey":"g1XtDO1m1wHerH2wbn0A08mk","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"visitor":true,"mathJax":false}, {
       el: '#valine_container',
-      meta: meta,
-      placeholder: pagePlaceholder,
       path: path,
-      appId: "O2XYIOn9EAIKNr5HayEBixXl-MdYXbMMI",
-      appKey: "g1XtDO1m1wHerH2wbn0A08mk",
-      pageSize: '10',
-      avatar: 'robohash',
-      lang: 'zh-cn',
-      visitor: 'true',
-      highlight: 'true',
-      mathJax: 'false',
-      enableQQ: 'true',
-      recordIP: 'false',
-      requiredFields: requiredFields,
+      placeholder: pagePlaceholder,
       emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
-      emojiMaps: emojiMaps
-    })
+      emojiMaps: emojiMaps,
+    }))
   }
-
   $(function () {
     pjax_valine();
   });
@@ -1695,6 +1986,13 @@ function setSearchService() {
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+  
 
 
 
@@ -1909,6 +2207,104 @@ function setSearchService() {
 
 
 
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+  try {
+    localStorage.setItem(k, v);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+const removeLS = (k) => {
+  try {
+    localStorage.removeItem(k);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+const getLS = (k) => {
+  try {
+    return localStorage.getItem(k);
+  } catch (e) {
+    console.log(e.message);
+    return null;
+  }
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+function bindToggleButton() {
+	var btn=$("#wrapper .toggle-mode-btn");
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+document.addEventListener("pjax:success", bindToggleButton);
+
+</script>
+
+
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -2018,11 +2414,7 @@ document.addEventListener("pjax:success", listennSidebarTOC);
 
 <!-- more -->
 
-
-
-
-    
-      
+  
 
 
 <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
@@ -2095,7 +2487,7 @@ document.addEventListener("pjax:success", listennSidebarTOC);
         function gtag(){dataLayer.push(arguments);}
         gtag('config', 'UA-162450234-2', {'page_path': document.location.pathname});
       
-	 
+
 
       $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
       $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
@@ -2112,8 +2504,18 @@ document.addEventListener("pjax:success", listennSidebarTOC);
 		  Pjax_backstretch()
         
         
+        document.querySelectorAll('pre code').forEach((block) => {
+          hljs.highlightBlock(block);
+        });
         
         
+          pjax_scrollrebeal();
+        
+        if (typeof IssuesAPI == "undefined") {
+          loadIssuesJS();
+        }
+        
+          pjax_initCopyCode();
         
         
           pjax_valine();
@@ -2134,10 +2536,9 @@ document.addEventListener("pjax:success", listennSidebarTOC);
       window.location.href = e.triggerElement.href;
     });
 </script>
-
-    
-  </div>
-</body>
+ 
+    </div>
+  </body>
 </html>
 <!--单击显示文字-->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/click_show_text.js"></script>

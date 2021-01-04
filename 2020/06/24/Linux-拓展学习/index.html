@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.2.0">
+  <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.2.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -21,7 +21,7 @@
   
   <title>Linux 拓展学习 - 苇名一心的博客</title>
   
-    <meta name="keywords" content="C,Linux,难点,Shell,拓展">
+    <meta name="keywords" content="Linux,C,难点,Shell,拓展">
   
 
   
@@ -57,10 +57,14 @@
 
   <script id="loadcss"></script>
 
+  
+
+<script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) document.write('\x3Cscript id="_iealwn_js" data-outver="11" src="https://support.dmeng.net/ie-alert-warning/latest.js">\x3C/script>'); </script>
+
 </head>
 
-<body>
-  
+  <body>
+    
 
 <header id="l_header" class="l_header auto shadow floatable blur show" style="opacity: 0">
   <div class="container">
@@ -180,6 +184,16 @@
                       
             
               <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class="fas fa-moon fa-fw"></i>暗黑模式
+                </a>
+              </li><li>
+            
+          
+                    
+                      
+            
+              </li><li>
                 <a class="menuitem flat-box faa-parent animated-hover">
                   <i class="fas fa-question fa-fw"></i>有疑问？
                 </a>
@@ -211,7 +225,7 @@
                       
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href="https://gitee.com/wxy_666" id="https:giteecomwxy_666" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://gitee.com/wxy_666/" id="https:giteecomwxy_666" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fab fa-git-alt fa-fw"></i>我的Gitee主页
                 </a>
                 
@@ -360,6 +374,16 @@
                       
             
               <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class="fas fa-moon fa-fw"></i>暗黑模式
+                </a>
+              </li><li>
+            
+          
+                    
+                      
+            
+              </li><li>
                 <a class="menuitem flat-box faa-parent animated-hover">
                   <i class="fas fa-question fa-fw"></i>有疑问？
                 </a>
@@ -391,7 +415,7 @@
                       
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href="https://gitee.com/wxy_666" id="https:giteecomwxy_666" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://gitee.com/wxy_666/" id="https:giteecomwxy_666" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fab fa-git-alt fa-fw"></i>我的Gitee主页
                 </a>
                 
@@ -441,8 +465,8 @@
   </div>
 </header>
 
-  <div id="l_body">
-    <div id="l_cover">
+    <div id="l_body">
+      <div id="l_cover">
   
     
         <div id="full" class="cover-wrapper post focus" style="display: none;">
@@ -545,9 +569,9 @@
   
   </div>
 
-    <div id="safearea">
-      <div class="body-wrapper" id="pjax-container">
-        
+      <div id="safearea">
+        <div class="body-wrapper" id="pjax-container">
+          
 
 <div class="l_main">
   <article class="article post white-box reveal md shadow floatable article-type-post" id="post" itemscope itemprop="blogPost">
@@ -613,6 +637,38 @@
 
           
         
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：1.2k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：4分钟</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+<div class="new-meta-item comments-count">
+  
+  <a href="/2020/06/24/Linux-%E6%8B%93%E5%B1%95%E5%AD%A6%E4%B9%A0/#comments">
+    <i class="fas fa-comment-dots fa-fw"></i>
+    <span class="valine-comment-count" data-xid="/2020/06/24/Linux-%E6%8B%93%E5%B1%95%E5%AD%A6%E4%B9%A0/">0</span>
+    <span class="leancloud-comments-count">&nbsp;</span>
+  </a>
+</div>
+
+
+          
+        
       </div>
     
   </div>
@@ -625,8 +681,17 @@
 
 
 <h2 id="一、命令的参数"><a href="#一、命令的参数" class="headerlink" title="一、命令的参数"></a>一、命令的参数</h2><p>编写一个小程序，可以显示命令的选项和参数</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; argc; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d:%p [%s]\n"</span>, i, argv[i], argv[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="c">#include &lt;stdio.h&gt;
 
+int main(int argc, char const *argv[])
+{
+    int i;
+    for (i = 0; i &lt; argc; i++)
+    {
+        printf(&quot;%d:%p [%s]\n&quot;, i, argv[i], argv[i]);
+    }
+    return 0;
+}</code></pre>
 <p>效果：</p>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429205057.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429205057.jpg" srcset="data:image/png;base64,666" alt="2020-04-29_205032" style="zoom:80%;">
 
@@ -634,14 +699,11 @@
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429204547.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429204547.png" srcset="data:image/png;base64,666" alt="图片1" style="zoom:80%;">
 
 <p>可以通过</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\<span class="number">033</span>[</span><br></pre></td></tr></table></figure>
-
+<pre><code class="c">\033[</code></pre>
 <p>来控制printf输出的颜色，格式为：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"\033[字背景颜色;字体颜色m 字符串 \033[0m"</span> );</span><br></pre></td></tr></table></figure>
-
+<pre><code class="c">printf(&quot;\033[字背景颜色;字体颜色m 字符串 \033[0m&quot; );</code></pre>
 <p>注意，一定要在printf最后使用</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\<span class="number">033</span>[<span class="number">0</span>m</span><br></pre></td></tr></table></figure>
-
+<pre><code class="c">\033[0m</code></pre>
 <p>来消除前面的作用，否则前面的设置对后面的printf都有效果。</p>
 <table>
 <thead>
@@ -760,49 +822,57 @@
 </tr>
 </tbody></table>
 <p>小程序具体代码：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NONE <span class="meta-string">"\e[0m"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RED <span class="meta-string">"\e[0;31m"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CYAN <span class="meta-string">"\e[0;36m"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(RED <span class="string">"Hello "</span> CYAN <span class="string">"World!\n"</span> NONE);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\e[0;31mHello \e[0;36mWorld!\n\e[0m"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="c">#define NONE &quot;\e[0m&quot;
+#define RED &quot;\e[0;31m&quot;
+#define CYAN &quot;\e[0;36m&quot;
+#include &lt;stdio.h&gt;
+int main(int argc, char const *argv[])
+{
+    printf(RED &quot;Hello &quot; CYAN &quot;World!\n&quot; NONE);
+    printf(&quot;\e[0;31mHello \e[0;36mWorld!\n\e[0m&quot;);
+    return 0;
+}</code></pre>
 <p>在这里\e和\033是一个意思，e的八进制代码就是033，这两个print其实效果是一样的，前面那个printf中多个连续的“xxx”字符串会被自动整合为一个字符串，其实最终执行的就是第二个printf。</p>
 <p>效果：</p>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429211041.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429211041.jpg" srcset="data:image/png;base64,666" alt="2020-04-29_210711">
 
 <h2 id="三、关于Linux中bash的变量、替换和元字符"><a href="#三、关于Linux中bash的变量、替换和元字符" class="headerlink" title="三、关于Linux中bash的变量、替换和元字符"></a>三、关于Linux中bash的变量、替换和元字符</h2><p>要求只列出所有bash进程的状态，使用命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep bash</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">ps -ef | grep bash</code></pre>
 <p>但grep进程自身也被输出了：</p>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429211423.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429211423.jpg" srcset="data:image/png;base64,666" alt="2020-04-29_211412" style="zoom:80%;">
 
 <p>使用以下的命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep [b]ash</span><br><span class="line">ps -ef | grep \\bash</span><br><span class="line">ps -ef | grep b\\ash</span><br><span class="line">ps -ef | grep b\ash</span><br><span class="line">ps -ef | grep ba\\sh</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">ps -ef | grep [b]ash
+ps -ef | grep \\bash
+ps -ef | grep b\\ash
+ps -ef | grep b\ash
+ps -ef | grep ba\\sh</code></pre>
 <ol>
 <li><p>可以</p>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429211802.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429211802.jpg" srcset="data:image/png;base64,666" alt="2020-04-29_211631" style="zoom:80%;">
 
 <p>上面这5个命令的核心目的其实是改变grep在</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">ps -ef</code></pre>
 <p>命令中的显示形式，例如这一个，我们使用三通（tee）命令将在grep命令过滤之前的输出定向到一个文件中。</p>
 <p>先将原命令试一下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | tee 1.txt | grep bash</span><br><span class="line">cat 1.txt</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">ps -ef | tee 1.txt | grep bash
+cat 1.txt</code></pre>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429214710.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429214710.jpg" srcset="data:image/png;base64,666" alt="2020-04-29_214703" style="zoom:80%;">
 
 <p>与1这个命令进行一下对比：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | tee 1.txt | grep [b]ash</span><br><span class="line">cat 1.txt</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">ps -ef | tee 1.txt | grep [b]ash
+cat 1.txt</code></pre>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429212708.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429212708.jpg" srcset="data:image/png;base64,666" alt="2020-04-29_212451" style="zoom:80%;">
 
 <p>我们可以很明显的看到，grep命令确实改变了，因为正则表达式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[b]ash</span><br></pre></td></tr></table></figure>
-
+<pre><code>[b]ash</code></pre>
 <p>是可以匹配bash的，但是却不能匹配[b]ash，因此第一行的-bash这一行被取了出来，而最后grep这一行，由于不匹配[b]ash，就取不出来了，刚好实现了我们只列出所有bash进程的状态的目的，下面的几个命令大同小异。</p>
 </li>
 <li><p>不可以</p>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429211917.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429211917.jpg" srcset="data:image/png;base64,666" alt="2020-04-29_211651" style="zoom:80%;">
 
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | tee 1.txt | grep \\bash</span><br><span class="line">cat 1.txt</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">ps -ef | tee 1.txt | grep \\bash
+cat 1.txt</code></pre>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429213025.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429213025.jpg" srcset="data:image/png;base64,666" alt="2020-04-29_213015" style="zoom:80%;">
 
 <p>首先，\是Shell的元字符，先被\转义为真正的单个字符\，因此传给grep的正则表达式其实是\bash，而在正则表达式中，\b有特殊含义，是单词边界，因此就连bash和\bash全部都没有匹配到。</p>
@@ -810,8 +880,8 @@
 <li><p>可以</p>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429211852.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429211852.jpg" srcset="data:image/png;base64,666" alt="2020-04-29_211709" style="zoom:80%;">
 
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | tee 1.txt | grep b\\ash</span><br><span class="line">cat 1.txt</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">ps -ef | tee 1.txt | grep b\\ash
+cat 1.txt</code></pre>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429213823.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429213823.jpg" srcset="data:image/png;base64,666" alt="2020-04-29_213811" style="zoom:80%;">
 
 <p>和2一样，传给grep的正则表达式为b\ash，在正则表达式中\a是没有意义的，因此\被丢弃，正则表达式其实就是bash，所以第一行的-bash这一行被取了出来，而最后grep这一行，由于不匹配b\ash，就取不出来了。</p>
@@ -819,25 +889,23 @@
 <li><p>不可以</p>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429212003.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429212003.jpg" srcset="data:image/png;base64,666" alt="2020-04-29_211730" style="zoom:80%;">
 
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | tee 1.txt | grep b\ash</span><br><span class="line">cat 1.txt</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">ps -ef | tee 1.txt | grep b\ash
+cat 1.txt</code></pre>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429214303.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429214303.jpg" srcset="data:image/png;base64,666" alt="2020-04-29_214256" style="zoom:80%;">
 
 <p>首先，\a先经过Shell的替换，因\a是没有特殊含义的，因此\被直接丢掉，传给grep的正则表达式为bash，这就和使用这个命令是一样的：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep bash</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">ps -ef | grep bash</code></pre>
 <p>显然是不能实现目的。</p>
 </li>
 <li><p>不可以</p>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429212010.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429212010.jpg" srcset="data:image/png;base64,666" alt="2020-04-29_211747" style="zoom:80%;">
 
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | tee 1.txt | grep ba\\sh</span><br><span class="line">cat 1.txt</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">ps -ef | tee 1.txt | grep ba\\sh
+cat 1.txt</code></pre>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429214922.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429214922.jpg" srcset="data:image/png;base64,666" alt="2020-04-29_214914" style="zoom:80%;">
 
 <p>这个和2基本是一样的，和3唯一的区别就是，第3个中\a对正则表达式而言是没有特殊含义的，但是\s对正则表达式而言是有特殊含义的，\s代表空白字符（可能是空格、制表符、其他空白），也就是说，grep匹配到的应该是类似于：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ba h</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">ba h</code></pre>
 <p>这种的字符串，显然-bash和ba\sh都不符合，因此就什么都没取到。</p>
 </li>
 </ol>
@@ -854,7 +922,7 @@
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
     </section>
     <section class="body">
-      <div class="vlts-rps"><a class="item" href="\2020\06\01\Linux-上机实战4-SimpleShell\" title="Linux 上机实战4 SimpleShell" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200521_212437.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200521_212437.png" srcset="data:image/png;base64,666"><span class="title">Linux 上机实战4 SimpleShell</span><span class="excerpt">本文是关于Linux中的一个简单的shell，支持运行多个命令以[;]分割，支持管道和重定向，支持CTRL-C终止内部命令...</span></a><a class="item" href="\2020\09\04\CSAPP-实验集锦\" title="CSAPP 实验集锦" rel="bookmark "><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=CSAPP-Report&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=CSAPP-Report&show_owner=true" srcset="data:image/png;base64,666"><span class="title">CSAPP 实验集锦</span><span class="excerpt">本文是CSAPP（深入理解计算机系统）项目工程集锦。</span></a><a class="item" href="\2020\07\15\C和C++的struct使用总结\" title="C和C++的struct使用总结" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200715113328.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200715113328.jpg" srcset="data:image/png;base64,666"><span class="title">C和C++的struct使用总结</span><span class="excerpt">简单的写了一下关于C语言和C++中的Struct结构体的定义的疑惑点和C99新增的柔性数组的使用和理解。</span></a><a class="item" href="\2020\03\28\Linux-上机实战1-正则表达式\" title="Linux 上机实战1 正则表达式" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200331203352.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203352.jpg" srcset="data:image/png;base64,666"><span class="title">Linux 上机实战1 正则表达式</span><span class="excerpt">本文是关于Linux中的文本处理三剑客（grep，sed，awk），以及正则表达式应用的一个样例，获取北京某时刻PM2.5...</span></a></div></section></div>
+      <div class="vlts-rps"><a class="item" href="\2020\06\01\Linux-上机实战4-SimpleShell\" title="Linux 上机实战4 SimpleShell" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200521_212437.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200521_212437.png" srcset="data:image/png;base64,666"><span class="title">Linux 上机实战4 SimpleShell</span><span class="excerpt">本文是关于Linux中的一个简单的shell，支持运行多个命令以[;]分割，支持管道和重定向，支持CTRL-C终止内部命令...</span></a><a class="item" href="\2020\09\04\CSAPP-实验集锦\" title="CSAPP 实验集锦" rel="bookmark "><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=CSAPP-Report&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=CSAPP-Report&show_owner=true" srcset="data:image/png;base64,666"><span class="title">CSAPP 实验集锦</span><span class="excerpt">本文是CSAPP（深入理解计算机系统）项目工程集锦。</span></a><a class="item" href="\2020\03\28\Linux-上机实战1-正则表达式\" title="Linux 上机实战1 正则表达式" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200331203352.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203352.jpg" srcset="data:image/png;base64,666"><span class="title">Linux 上机实战1 正则表达式</span><span class="excerpt">本文是关于Linux中的文本处理三剑客（grep，sed，awk），以及正则表达式应用的一个样例，获取北京某时刻PM2.5...</span></a><a class="item" href="\2020\04\20\Linux-上机实战2-遍历目录\" title="Linux 上机实战2 遍历目录" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200413160150.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200413160150.jpg" srcset="data:image/png;base64,666"><span class="title">Linux 上机实战2 遍历目录</span><span class="excerpt">本文是关于Linux中的ls的简化版，遍历目录小程序。</span></a><a class="item" href="\2020\07\15\C和C++的struct使用总结\" title="C和C++的struct使用总结" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200715113328.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200715113328.jpg" srcset="data:image/png;base64,666"><span class="title">C和C++的struct使用总结</span><span class="excerpt">简单的写了一下关于C语言和C++中的Struct结构体的定义的疑惑点和C99新增的柔性数组的使用和理解。</span></a></div></section></div>
       
       
         <div class="copyright">
@@ -915,7 +983,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/C/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>C</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Linux/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Linux</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9A%BE%E7%82%B9/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>难点</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Shell/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Shell</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%8B%93%E5%B1%95/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>拓展</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Linux/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Linux</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/C/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>C</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9A%BE%E7%82%B9/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>难点</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Shell/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Shell</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%8B%93%E5%B1%95/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>拓展</p></a></div>
 
 
         
@@ -1039,7 +1107,7 @@ int a[N] = { 2 };的...</p>
 
 
     <div class="content">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、命令的参数"><span class="toc-text">一、命令的参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、关于控制printf输出的颜色"><span class="toc-text">二、关于控制printf输出的颜色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、关于Linux中bash的变量、替换和元字符"><span class="toc-text">三、关于Linux中bash的变量、替换和元字符</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、命令的参数"><span class="toc-number">1.</span> <span class="toc-text">一、命令的参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、关于控制printf输出的颜色"><span class="toc-number">2.</span> <span class="toc-text">二、关于控制printf输出的颜色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、关于Linux中bash的变量、替换和元字符"><span class="toc-number">3.</span> <span class="toc-text">三、关于Linux中bash的变量、替换和元字符</span></a></li></ol>
     </div>
   </section>
 
@@ -1050,10 +1118,7 @@ int a[N] = { 2 };的...</p>
 </aside>
 
 
-
-        
-        
-          <!--此文件用来存放一些不方便取值的变量-->
+   <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <script>
@@ -1068,10 +1133,9 @@ int a[N] = { 2 };的...</p>
   l_header.classList.add("show");
   
 </script>
-
+ 
+        </div>
         
-      </div>
-      
   
   <footer class="footer clearfix">
     <br><br>
@@ -1081,7 +1145,7 @@ int a[N] = { 2 };的...</p>
           
 
   
-    <meting-js theme="#1BCDFC" autoplay="true" volume="0.3" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="1930654125" list-folded="true">
+    <meting-js theme="#1BCDFC" autoplay="false" volume="0.5" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="1930654125" list-folded="true">
     </meting-js>
   
 
@@ -1191,11 +1255,11 @@ int a[N] = { 2 };的...</p>
   </footer>
 
 
-      <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+        <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      </div>
     </div>
-  </div>
-  <div>
-    <script>
+    <div>
+      <script>
 window.volantis={};
 window.volantis.loadcss=document.getElementById("loadcss");
 /********************脚本懒加载函数********************************/
@@ -1277,6 +1341,8 @@ var loadCSS = function( href, before, media, attributes ){
   
   loadCSS("https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css", window.volantis.loadcss);
   
+  
+  loadCSS("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/styles/solarized-light.min.css", window.volantis.loadcss);
   
 </script>
 <!-- required -->
@@ -1625,6 +1691,19 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
+<script>
+  function loadIssuesJS() {
+    if ($(".md").find(".issues-api").length == 0) return;
+    setTimeout(function() {
+	
+	  loadScript('/js/issues.js');
+	
+    }, 1);
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+</script>
 
 
 
@@ -1673,6 +1752,78 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
+
+
+   <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+<script type="text/javascript">
+  function pjax_scrollrebeal() {
+    ScrollReveal().reveal('.l_main .reveal', {
+      distance: '32px',
+      duration: '800',
+      interval: '20',
+      scale: '1',
+      easing: 'ease-out'
+    });
+  }
+  $(function () {
+    pjax_scrollrebeal();
+  });
+</script>
 
 
 
@@ -1680,7 +1831,7 @@ var loadCSS = function( href, before, media, attributes ){
   <script>
   let APlayerController = new Object();
   APlayerController.id = '1930654125';  // 设定全局音乐播放ID
-  APlayerController.volume = '0.3';
+  APlayerController.volume = '0.5';
   loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
   // APlayer 需要在  MetingJS 之前加载
   loadScript("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js")
@@ -1709,19 +1860,9 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 <script>
-  var GUEST_INFO = ['nick', 'mail', 'link'];
-  var meta = 'nick,mail,link'.split(',').filter(function (item) {
-    return GUEST_INFO.indexOf(item) > -1
-  });
-  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
-  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
-    return REQUIRED_FIELDS.indexOf(item) > -1
-  });
-
   function emoji(path, idx, ext) {
     return path + "/" + path + "-" + idx + "." + ext;
   }
-
   var emojiMaps = {};
   for (var i = 1; i <= 54; i++) {
     emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
@@ -1738,40 +1879,23 @@ var loadCSS = function( href, before, media, attributes ){
   for (var i = 1; i <= 4; i++) {
     emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
   }
-
   function pjax_valine() {
     if(!document.querySelectorAll("#valine_container")[0])return;
-
     let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
-
     let path = pdata.commentPath;
     if (path.length == 0) {
       let defaultPath = '';
       path = defaultPath || decodeURI(window.location.pathname);
     }
-
     var valine = new Valine();
-    valine.init({
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"O2XYIOn9EAIKNr5HayEBixXl-MdYXbMMI","appKey":"g1XtDO1m1wHerH2wbn0A08mk","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"visitor":true,"mathJax":false}, {
       el: '#valine_container',
-      meta: meta,
-      placeholder: pagePlaceholder,
       path: path,
-      appId: "O2XYIOn9EAIKNr5HayEBixXl-MdYXbMMI",
-      appKey: "g1XtDO1m1wHerH2wbn0A08mk",
-      pageSize: '10',
-      avatar: 'robohash',
-      lang: 'zh-cn',
-      visitor: 'true',
-      highlight: 'true',
-      mathJax: 'false',
-      enableQQ: 'true',
-      recordIP: 'false',
-      requiredFields: requiredFields,
+      placeholder: pagePlaceholder,
       emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
-      emojiMaps: emojiMaps
-    })
+      emojiMaps: emojiMaps,
+    }))
   }
-
   $(function () {
     pjax_valine();
   });
@@ -1839,6 +1963,13 @@ function setSearchService() {
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+  
 
 
 
@@ -2053,6 +2184,104 @@ function setSearchService() {
 
 
 
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+  try {
+    localStorage.setItem(k, v);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+const removeLS = (k) => {
+  try {
+    localStorage.removeItem(k);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+const getLS = (k) => {
+  try {
+    return localStorage.getItem(k);
+  } catch (e) {
+    console.log(e.message);
+    return null;
+  }
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+function bindToggleButton() {
+	var btn=$("#wrapper .toggle-mode-btn");
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+document.addEventListener("pjax:success", bindToggleButton);
+
+</script>
+
+
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -2162,11 +2391,7 @@ document.addEventListener("pjax:success", listennSidebarTOC);
 
 <!-- more -->
 
-
-
-
-    
-      
+  
 
 
 <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
@@ -2239,7 +2464,7 @@ document.addEventListener("pjax:success", listennSidebarTOC);
         function gtag(){dataLayer.push(arguments);}
         gtag('config', 'UA-162450234-2', {'page_path': document.location.pathname});
       
-	 
+
 
       $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
       $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
@@ -2256,8 +2481,18 @@ document.addEventListener("pjax:success", listennSidebarTOC);
 		  Pjax_backstretch()
         
         
+        document.querySelectorAll('pre code').forEach((block) => {
+          hljs.highlightBlock(block);
+        });
         
         
+          pjax_scrollrebeal();
+        
+        if (typeof IssuesAPI == "undefined") {
+          loadIssuesJS();
+        }
+        
+          pjax_initCopyCode();
         
         
           pjax_valine();
@@ -2278,10 +2513,9 @@ document.addEventListener("pjax:success", listennSidebarTOC);
       window.location.href = e.triggerElement.href;
     });
 </script>
-
-    
-  </div>
-</body>
+ 
+    </div>
+  </body>
 </html>
 <!--单击显示文字-->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/click_show_text.js"></script>

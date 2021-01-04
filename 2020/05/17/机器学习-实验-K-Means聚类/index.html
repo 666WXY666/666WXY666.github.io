@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.2.0">
+  <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.2.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -57,10 +57,14 @@
 
   <script id="loadcss"></script>
 
+  
+
+<script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) document.write('\x3Cscript id="_iealwn_js" data-outver="11" src="https://support.dmeng.net/ie-alert-warning/latest.js">\x3C/script>'); </script>
+
 </head>
 
-<body>
-  
+  <body>
+    
 
 <header id="l_header" class="l_header auto shadow floatable blur show" style="opacity: 0">
   <div class="container">
@@ -180,6 +184,16 @@
                       
             
               <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class="fas fa-moon fa-fw"></i>暗黑模式
+                </a>
+              </li><li>
+            
+          
+                    
+                      
+            
+              </li><li>
                 <a class="menuitem flat-box faa-parent animated-hover">
                   <i class="fas fa-question fa-fw"></i>有疑问？
                 </a>
@@ -211,7 +225,7 @@
                       
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href="https://gitee.com/wxy_666" id="https:giteecomwxy_666" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://gitee.com/wxy_666/" id="https:giteecomwxy_666" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fab fa-git-alt fa-fw"></i>我的Gitee主页
                 </a>
                 
@@ -360,6 +374,16 @@
                       
             
               <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class="fas fa-moon fa-fw"></i>暗黑模式
+                </a>
+              </li><li>
+            
+          
+                    
+                      
+            
+              </li><li>
                 <a class="menuitem flat-box faa-parent animated-hover">
                   <i class="fas fa-question fa-fw"></i>有疑问？
                 </a>
@@ -391,7 +415,7 @@
                       
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href="https://gitee.com/wxy_666" id="https:giteecomwxy_666" rel="external nofollow noopener noreferrer" target="_blank">
+                <a class="menuitem flat-box faa-parent animated-hover" href="https://gitee.com/wxy_666/" id="https:giteecomwxy_666" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fab fa-git-alt fa-fw"></i>我的Gitee主页
                 </a>
                 
@@ -441,8 +465,8 @@
   </div>
 </header>
 
-  <div id="l_body">
-    <div id="l_cover">
+    <div id="l_body">
+      <div id="l_cover">
   
     
         <div id="full" class="cover-wrapper post focus" style="display: none;">
@@ -545,9 +569,9 @@
   
   </div>
 
-    <div id="safearea">
-      <div class="body-wrapper" id="pjax-container">
-        
+      <div id="safearea">
+        <div class="body-wrapper" id="pjax-container">
+          
 
 <div class="l_main">
   <article class="article post white-box reveal md shadow floatable article-type-post" id="post" itemscope itemprop="blogPost">
@@ -609,6 +633,38 @@
       </div>
     </a>
   </div>
+
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class="notlink">
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>字数：3.1k字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class="notlink">
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>时长：13分钟</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+<div class="new-meta-item comments-count">
+  
+  <a href="/2020/05/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-K-Means%E8%81%9A%E7%B1%BB/#comments">
+    <i class="fas fa-comment-dots fa-fw"></i>
+    <span class="valine-comment-count" data-xid="/2020/05/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-K-Means%E8%81%9A%E7%B1%BB/">0</span>
+    <span class="leancloud-comments-count">&nbsp;</span>
+  </a>
+</div>
 
 
           
@@ -711,42 +767,238 @@
 <h2 id="七、附录"><a href="#七、附录" class="headerlink" title="七、附录"></a>七、附录</h2><p>kmeans.py：</p>
 <ol start="0">
 <li><p>基本配置、全局参数</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">@Copyright: Copyright (c) 2020 苇名一心 All Rights Reserved.</span></span><br><span class="line"><span class="string">@Project: kmeans</span></span><br><span class="line"><span class="string">@Description: k-means算法</span></span><br><span class="line"><span class="string">@Version: 1.0</span></span><br><span class="line"><span class="string">@Author: 苇名一心</span></span><br><span class="line"><span class="string">@Date: 2020-05-22 21:25</span></span><br><span class="line"><span class="string">@LastEditors: 苇名一心</span></span><br><span class="line"><span class="string">@LastEditTime: 2020-05-22 21:25</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"></span><br><span class="line"><span class="comment">########################################################</span></span><br><span class="line"><span class="comment"># 全局变量</span></span><br><span class="line"><span class="comment">########################################################</span></span><br><span class="line"><span class="comment"># 显示中文标签</span></span><br><span class="line">plt.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]</span><br><span class="line"><span class="comment"># 显示负号</span></span><br><span class="line">plt.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 簇个数范围</span></span><br><span class="line">k_min = <span class="number">1</span></span><br><span class="line">k_max = <span class="number">1</span></span><br><span class="line">max_iteration = <span class="number">10</span>  <span class="comment"># 最大迭代次数</span></span><br><span class="line">test_rate = <span class="number">0.2</span>  <span class="comment"># 训练集所占比例</span></span><br><span class="line">all_point_num = <span class="number">0</span></span><br><span class="line">data_x = []  <span class="comment"># 点的x坐标列表</span></span><br><span class="line">data_y = []  <span class="comment"># 点的y坐标列表</span></span><br><span class="line">data_SSE_list = []  <span class="comment"># 数据集损失目标函数列表</span></span><br><span class="line">train_SSE_list = []  <span class="comment"># 训练集损失目标函数列表</span></span><br><span class="line">test_SSE_list = []  <span class="comment"># 测试集损失目标函数列表</span></span><br></pre></td></tr></table></figure>
+<pre><code class="python">&quot;&quot;&quot;
+@Copyright: Copyright (c) 2020 苇名一心 All Rights Reserved.
+@Project: kmeans
+@Description: k-means算法
+@Version: 1.0
+@Author: 苇名一心
+@Date: 2020-05-22 21:25
+@LastEditors: 苇名一心
+@LastEditTime: 2020-05-22 21:25
+&quot;&quot;&quot;
+import random
+import sys
 
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.model_selection import train_test_split
 
+########################################################
+# 全局变量
+########################################################
+# 显示中文标签
+plt.rcParams[&#39;font.sans-serif&#39;] = [&#39;SimHei&#39;]
+# 显示负号
+plt.rcParams[&#39;axes.unicode_minus&#39;] = False
 
+# 簇个数范围
+k_min = 1
+k_max = 1
+max_iteration = 10  # 最大迭代次数
+test_rate = 0.2  # 训练集所占比例
+all_point_num = 0
+data_x = []  # 点的x坐标列表
+data_y = []  # 点的y坐标列表
+data_SSE_list = []  # 数据集损失目标函数列表
+train_SSE_list = []  # 训练集损失目标函数列表
+test_SSE_list = []  # 测试集损失目标函数列表</code></pre>
 </li>
-</ol>
-<ol>
 <li><p>读入数据</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">########################################################</span></span><br><span class="line"><span class="comment"># 读入数据</span></span><br><span class="line"><span class="comment">########################################################</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_data</span><span class="params">(path)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> all_point_num</span><br><span class="line">    <span class="keyword">global</span> test_rate</span><br><span class="line">    <span class="keyword">global</span> max_iteration</span><br><span class="line">    <span class="keyword">global</span> k_min</span><br><span class="line">    <span class="keyword">global</span> k_max</span><br><span class="line">    data = open(path)  <span class="comment"># 打开数据文件</span></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> data:</span><br><span class="line">        <span class="comment"># 将数据文件的每一行按空格分隔，分别添加到x,y列表</span></span><br><span class="line">        data_x.append(float(line.split()[<span class="number">0</span>]))</span><br><span class="line">        data_y.append(float(line.split()[<span class="number">1</span>]))</span><br><span class="line">        all_point_num += <span class="number">1</span></span><br><span class="line">    print(<span class="string">"请输入k的范围（空格分隔，例如2 5，代表闭区间[2,5]）："</span>, end=<span class="string">""</span>)</span><br><span class="line">    k_min, k_max = map(int, input().split())</span><br><span class="line">    <span class="keyword">if</span> k_min &gt; k_max <span class="keyword">or</span> k_min &lt; <span class="number">1</span> <span class="keyword">or</span> k_max &lt; <span class="number">1</span>:</span><br><span class="line">        print(<span class="string">"ERROR: 簇的个数输入错误！"</span>)</span><br><span class="line">        sys.exit(<span class="number">1</span>)</span><br><span class="line">    print(<span class="string">"请输入测试集所占比例："</span>, end=<span class="string">""</span>)</span><br><span class="line">    test_rate = float(input())</span><br><span class="line">    <span class="keyword">if</span> test_rate &lt; <span class="number">0</span> <span class="keyword">or</span> test_rate &gt; <span class="number">1</span>:</span><br><span class="line">        print(<span class="string">"ERROR: 测试集所占比例输入错误！"</span>)</span><br><span class="line">        sys.exit(<span class="number">1</span>)</span><br><span class="line">    print(<span class="string">"请输入最大迭代次数："</span>, end=<span class="string">""</span>)</span><br><span class="line">    max_iteration = int(input())</span><br><span class="line">    <span class="keyword">if</span> max_iteration &lt; <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">"ERROR: 最大迭代次数输入错误！"</span>)</span><br><span class="line">        sys.exit(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="python">########################################################
+# 读入数据
+########################################################
+def read_data(path):
+    global all_point_num
+    global test_rate
+    global max_iteration
+    global k_min
+    global k_max
+    data = open(path)  # 打开数据文件
+    for line in data:
+        # 将数据文件的每一行按空格分隔，分别添加到x,y列表
+        data_x.append(float(line.split()[0]))
+        data_y.append(float(line.split()[1]))
+        all_point_num += 1
+    print(&quot;请输入k的范围（空格分隔，例如2 5，代表闭区间[2,5]）：&quot;, end=&quot;&quot;)
+    k_min, k_max = map(int, input().split())
+    if k_min &gt; k_max or k_min &lt; 1 or k_max &lt; 1:
+        print(&quot;ERROR: 簇的个数输入错误！&quot;)
+        sys.exit(1)
+    print(&quot;请输入测试集所占比例：&quot;, end=&quot;&quot;)
+    test_rate = float(input())
+    if test_rate &lt; 0 or test_rate &gt; 1:
+        print(&quot;ERROR: 测试集所占比例输入错误！&quot;)
+        sys.exit(1)
+    print(&quot;请输入最大迭代次数：&quot;, end=&quot;&quot;)
+    max_iteration = int(input())
+    if max_iteration &lt; 0:
+        print(&quot;ERROR: 最大迭代次数输入错误！&quot;)
+        sys.exit(1)</code></pre>
 </li>
-</ol>
-<ol start="2">
 <li><p>算法计算</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">########################################################</span></span><br><span class="line"><span class="comment"># 算法</span></span><br><span class="line"><span class="comment">########################################################</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">algorithm</span><span class="params">(x, y, k)</span>:</span></span><br><span class="line">    <span class="comment"># 初始化</span></span><br><span class="line">    n = <span class="number">0</span>  <span class="comment"># 迭代次数</span></span><br><span class="line">    SSE = <span class="number">0</span>  <span class="comment"># 损失（目标）函数</span></span><br><span class="line">    point_array = np.array([x, y])  <span class="comment"># 生成点的numpy数组，例如三个点(1，-1),(2，-2),(3，-3)生成[[ 1  2  3 ][ -1 -2 -3 ]]</span></span><br><span class="line">    point_num = point_array.shape[<span class="number">1</span>]  <span class="comment"># 获取点的个数，所给的数据集为1000个点，取0.8为800个</span></span><br><span class="line">    <span class="comment"># 如果点的个数&lt;簇的个数，则报错异常退出</span></span><br><span class="line">    <span class="keyword">if</span> point_num &lt; k:</span><br><span class="line">        print(<span class="string">"ERROR: 点的个数&lt;簇的个数！"</span>)</span><br><span class="line">        sys.exit(<span class="number">1</span>)</span><br><span class="line">    distance = np.zeros(k)  <span class="comment"># 初始化k维0向量，用来存储这个点到的k个簇中心的距离</span></span><br><span class="line">    point_distance = np.zeros(point_num)  <span class="comment"># 初始化point_num维0向量，用来存储每个点到其簇中心的距离</span></span><br><span class="line">    center = np.zeros((<span class="number">2</span>, k))  <span class="comment"># 生成2*k的零矩阵，初始化k个簇的中心点，后面将先计算每个簇的重心作为初始簇中心</span></span><br><span class="line">    point_k1 = np.arange(<span class="number">0</span>, k, <span class="number">1</span>)  <span class="comment"># 先生成0~k-1的数组，保证每个簇至少有一个点</span></span><br><span class="line">    point_k2 = np.random.randint(<span class="number">0</span>, k, size=point_num - k)  <span class="comment"># 将剩下的点随机分到任意一个簇，返回长度为point_num-k的向量，每个为0~k-1的随机整数</span></span><br><span class="line">    point_k = np.concatenate((point_k1, point_k2))  <span class="comment"># 将前两个数组合成为一个</span></span><br><span class="line">    np.random.shuffle(point_k)  <span class="comment"># 最后再打乱一次point_k数组，保证随机性</span></span><br><span class="line">    point_k_bak = point_k.copy()  <span class="comment"># point_k的备份，用于判断前后两次迭代是否发生变化</span></span><br><span class="line">    <span class="comment"># 输出相关信息</span></span><br><span class="line">    print(<span class="string">"点个数为："</span>, point_num, sep=<span class="string">""</span>)</span><br><span class="line">    <span class="comment"># 开始K-means算法的迭代</span></span><br><span class="line">    <span class="comment"># 只要迭代次数没有超过最大迭代次数上限max_iteration并且两次迭代的结果还有变化，就继续迭代</span></span><br><span class="line">    <span class="keyword">while</span> n &lt;= max_iteration:</span><br><span class="line">        <span class="comment"># 计算每个簇的中心</span></span><br><span class="line">        size = np.bincount(point_k, minlength=k)  <span class="comment"># 计算每个簇的规模，k维向量，每一维为每个簇里点的个数</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(k):  <span class="comment"># 对于k个簇中的每一个簇i</span></span><br><span class="line">            <span class="comment"># 不是空簇，防止出现除数为0，空簇下面单独处理</span></span><br><span class="line">            <span class="keyword">if</span> size[i] != <span class="number">0</span>:</span><br><span class="line">                <span class="comment"># point_sum是一个二维向量，代表i簇中的所有点的x,y坐标值的和</span></span><br><span class="line">                point_sum = np.zeros(<span class="number">2</span>)  <span class="comment"># 初始化为0</span></span><br><span class="line">                <span class="comment"># 计算i簇中的所有点的x,y坐标值的和</span></span><br><span class="line">                <span class="keyword">for</span> point <span class="keyword">in</span> range(point_num):  <span class="comment"># 对于每一个点point</span></span><br><span class="line">                    <span class="keyword">if</span> point_k[point] == i:  <span class="comment"># 如果这个点point属于簇i</span></span><br><span class="line">                        point_sum = point_sum + point_array[:, point]  <span class="comment"># 将这个点的x,y坐标加到point_sum上</span></span><br><span class="line">                        <span class="comment"># note: array[:, i]就是取array的第i列，刚好就是这个点</span></span><br><span class="line">                <span class="comment"># 求平均数，因此要/这个簇中点的个数size[i]</span></span><br><span class="line">                <span class="comment"># 将计算出的簇中心存在center矩阵中的第i列，代表第i个簇的中心点</span></span><br><span class="line">                center[:, i] = point_sum / size[i]</span><br><span class="line">        <span class="comment"># 对所有的空簇单独处理</span></span><br><span class="line">        <span class="comment"># 处理方式为把与自己所在的簇中心距离最大的点作为空簇的簇中心</span></span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> np.where(size == <span class="number">0</span>)[<span class="number">0</span>]:</span><br><span class="line">            <span class="comment"># 将距离最大的点的所在簇改为空簇的簇号</span></span><br><span class="line">            point_k[np.argmax(point_distance)] = c</span><br><span class="line">            <span class="comment"># 将空簇中心改为这个点</span></span><br><span class="line">            center[:, c] = point_array[:, np.argmax(point_distance)]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 将每一个点分到与簇中心最近的簇</span></span><br><span class="line">        <span class="keyword">for</span> point <span class="keyword">in</span> range(point_num):  <span class="comment"># 对于每一个点point</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(k):  <span class="comment"># 对于k个簇中的每一个簇i</span></span><br><span class="line">                <span class="comment"># 计算该点point到该簇i的距离</span></span><br><span class="line">                <span class="comment"># note: 使用矩阵的2范式，来计算欧氏距离</span></span><br><span class="line">                <span class="comment">#  point_array[:, point] - center[:, i]得到向量[p_x-c_x, p_y-c_y]</span></span><br><span class="line">                <span class="comment">#  对该向量求2范式刚好是欧式距离sqrt((p_x-c_x)^2+(p_y-c_y)^2)</span></span><br><span class="line">                distance[i] = np.linalg.norm(point_array[:, point] - center[:, i])</span><br><span class="line">            <span class="comment"># 使用numpy的argmin()返回distance中最小值的下标，也就是点point到簇中心距离最小的簇</span></span><br><span class="line">            point_k[point] = np.argmin(distance)</span><br><span class="line">            <span class="comment"># 将该点到其簇中心的距离记录下来</span></span><br><span class="line">            point_distance[point] = distance[point_k[point]]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 迭代次数+1</span></span><br><span class="line">        n += <span class="number">1</span></span><br><span class="line">        <span class="comment"># 判断两次迭代是否有变化，没有变化就跳出迭代循环</span></span><br><span class="line">        <span class="keyword">if</span> (point_k == point_k_bak).all():</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="comment"># 将point_k备份</span></span><br><span class="line">        point_k_bak = point_k.copy()</span><br><span class="line">        <span class="comment"># 输出每次迭代目标函数值</span></span><br><span class="line">        SSE = np.sum(point_distance)</span><br><span class="line">        print(<span class="string">"n="</span>, n - <span class="number">1</span>, <span class="string">"，SSE="</span>, SSE, sep=<span class="string">""</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 输出相关信息</span></span><br><span class="line">    print(<span class="string">"总迭代次数为："</span>, n - <span class="number">1</span>, sep=<span class="string">""</span>)</span><br><span class="line">    print(<span class="string">"每个簇的中心："</span>, sep=<span class="string">""</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(k):</span><br><span class="line">        print(<span class="string">"("</span>, center[<span class="number">0</span>, i], <span class="string">","</span>, center[<span class="number">1</span>, i], <span class="string">")"</span>, sep=<span class="string">""</span>)</span><br><span class="line">    print(<span class="string">"==================================================="</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> SSE, point_k</span><br></pre></td></tr></table></figure>
+<pre><code class="python">########################################################
+# 算法
+########################################################
+def algorithm(x, y, k):
+    # 初始化
+    n = 0  # 迭代次数
+    SSE = 0  # 损失（目标）函数
+    point_array = np.array([x, y])  # 生成点的numpy数组，例如三个点(1，-1),(2，-2),(3，-3)生成[[ 1  2  3 ][ -1 -2 -3 ]]
+    point_num = point_array.shape[1]  # 获取点的个数，所给的数据集为1000个点，取0.8为800个
+    # 如果点的个数&lt;簇的个数，则报错异常退出
+    if point_num &lt; k:
+        print(&quot;ERROR: 点的个数&lt;簇的个数！&quot;)
+        sys.exit(1)
+    distance = np.zeros(k)  # 初始化k维0向量，用来存储这个点到的k个簇中心的距离
+    point_distance = np.zeros(point_num)  # 初始化point_num维0向量，用来存储每个点到其簇中心的距离
+    center = np.zeros((2, k))  # 生成2*k的零矩阵，初始化k个簇的中心点，后面将先计算每个簇的重心作为初始簇中心
+    point_k1 = np.arange(0, k, 1)  # 先生成0~k-1的数组，保证每个簇至少有一个点
+    point_k2 = np.random.randint(0, k, size=point_num - k)  # 将剩下的点随机分到任意一个簇，返回长度为point_num-k的向量，每个为0~k-1的随机整数
+    point_k = np.concatenate((point_k1, point_k2))  # 将前两个数组合成为一个
+    np.random.shuffle(point_k)  # 最后再打乱一次point_k数组，保证随机性
+    point_k_bak = point_k.copy()  # point_k的备份，用于判断前后两次迭代是否发生变化
+    # 输出相关信息
+    print(&quot;点个数为：&quot;, point_num, sep=&quot;&quot;)
+    # 开始K-means算法的迭代
+    # 只要迭代次数没有超过最大迭代次数上限max_iteration并且两次迭代的结果还有变化，就继续迭代
+    while n &lt;= max_iteration:
+        # 计算每个簇的中心
+        size = np.bincount(point_k, minlength=k)  # 计算每个簇的规模，k维向量，每一维为每个簇里点的个数
+        for i in range(k):  # 对于k个簇中的每一个簇i
+            # 不是空簇，防止出现除数为0，空簇下面单独处理
+            if size[i] != 0:
+                # point_sum是一个二维向量，代表i簇中的所有点的x,y坐标值的和
+                point_sum = np.zeros(2)  # 初始化为0
+                # 计算i簇中的所有点的x,y坐标值的和
+                for point in range(point_num):  # 对于每一个点point
+                    if point_k[point] == i:  # 如果这个点point属于簇i
+                        point_sum = point_sum + point_array[:, point]  # 将这个点的x,y坐标加到point_sum上
+                        # note: array[:, i]就是取array的第i列，刚好就是这个点
+                # 求平均数，因此要/这个簇中点的个数size[i]
+                # 将计算出的簇中心存在center矩阵中的第i列，代表第i个簇的中心点
+                center[:, i] = point_sum / size[i]
+        # 对所有的空簇单独处理
+        # 处理方式为把与自己所在的簇中心距离最大的点作为空簇的簇中心
+        for c in np.where(size == 0)[0]:
+            # 将距离最大的点的所在簇改为空簇的簇号
+            point_k[np.argmax(point_distance)] = c
+            # 将空簇中心改为这个点
+            center[:, c] = point_array[:, np.argmax(point_distance)]
 
+        # 将每一个点分到与簇中心最近的簇
+        for point in range(point_num):  # 对于每一个点point
+            for i in range(k):  # 对于k个簇中的每一个簇i
+                # 计算该点point到该簇i的距离
+                # note: 使用矩阵的2范式，来计算欧氏距离
+                #  point_array[:, point] - center[:, i]得到向量[p_x-c_x, p_y-c_y]
+                #  对该向量求2范式刚好是欧式距离sqrt((p_x-c_x)^2+(p_y-c_y)^2)
+                distance[i] = np.linalg.norm(point_array[:, point] - center[:, i])
+            # 使用numpy的argmin()返回distance中最小值的下标，也就是点point到簇中心距离最小的簇
+            point_k[point] = np.argmin(distance)
+            # 将该点到其簇中心的距离记录下来
+            point_distance[point] = distance[point_k[point]]
 
+        # 迭代次数+1
+        n += 1
+        # 判断两次迭代是否有变化，没有变化就跳出迭代循环
+        if (point_k == point_k_bak).all():
+            break
+        # 将point_k备份
+        point_k_bak = point_k.copy()
+        # 输出每次迭代目标函数值
+        SSE = np.sum(point_distance)
+        print(&quot;n=&quot;, n - 1, &quot;，SSE=&quot;, SSE, sep=&quot;&quot;)
 
+    # 输出相关信息
+    print(&quot;总迭代次数为：&quot;, n - 1, sep=&quot;&quot;)
+    print(&quot;每个簇的中心：&quot;, sep=&quot;&quot;)
+    for i in range(k):
+        print(&quot;(&quot;, center[0, i], &quot;,&quot;, center[1, i], &quot;)&quot;, sep=&quot;&quot;)
+    print(&quot;===================================================&quot;)
+
+    return SSE, point_k</code></pre>
 </li>
-</ol>
-<ol start="3">
 <li><p>画图展示</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">########################################################</span></span><br><span class="line"><span class="comment"># 画图展示</span></span><br><span class="line"><span class="comment">########################################################</span></span><br><span class="line"><span class="comment"># 根据每个点所在的簇，获取点的颜色，返回一个列表</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_color_list</span><span class="params">(point_k, k)</span>:</span></span><br><span class="line">    <span class="comment"># 随机生成k个颜色</span></span><br><span class="line">    RGB = [<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>, <span class="string">'4'</span>, <span class="string">'5'</span>, <span class="string">'6'</span>, <span class="string">'7'</span>, <span class="string">'8'</span>, <span class="string">'9'</span>, <span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>, <span class="string">'E'</span>, <span class="string">'F'</span>]</span><br><span class="line">    colors = []</span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; k:</span><br><span class="line">        color = <span class="string">""</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">6</span>):</span><br><span class="line">            color += RGB[random.randint(<span class="number">0</span>, <span class="number">14</span>)]</span><br><span class="line">        <span class="comment"># 只有随机产生的颜色不相同，才加到colors中，颜色个数+1</span></span><br><span class="line">        <span class="keyword">if</span> <span class="string">"#"</span> + color <span class="keyword">not</span> <span class="keyword">in</span> colors <span class="keyword">and</span> color != <span class="string">"FFFFFF"</span>:</span><br><span class="line">            colors.append(<span class="string">"#"</span> + color)</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">    <span class="comment"># 对每个点，根据point_k中记录的点所在的簇，将颜色添加到列表中</span></span><br><span class="line">    color_list = []</span><br><span class="line">    <span class="keyword">for</span> c <span class="keyword">in</span> point_k:</span><br><span class="line">        color_list.append(colors[c])</span><br><span class="line">    <span class="keyword">return</span> color_list</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 画散点图展示聚类结果（数据集，训练集、测试集）</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show</span><span class="params">(x, y, result, x1, y1, result1, x2, y2, result2, k)</span>:</span></span><br><span class="line">    <span class="comment"># 数据集图</span></span><br><span class="line">    plt.subplot(<span class="number">131</span>)</span><br><span class="line">    <span class="comment"># 设置标题</span></span><br><span class="line">    plt.title(<span class="string">"K-Means数据集"</span>)</span><br><span class="line">    <span class="comment"># 绘制散点图</span></span><br><span class="line">    <span class="comment"># note: scatter函数支持传入颜色列表，对每一个点使用列表相应下标对应的颜色</span></span><br><span class="line">    plt.scatter(x, y, c=get_color_list(result, k))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 训练集图</span></span><br><span class="line">    plt.subplot(<span class="number">132</span>)</span><br><span class="line">    <span class="comment"># 设置标题</span></span><br><span class="line">    plt.title(<span class="string">"K-Means训练集"</span>)</span><br><span class="line">    <span class="comment"># 绘制散点图</span></span><br><span class="line">    plt.scatter(x1, y1, c=get_color_list(result1, k))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 测试集图</span></span><br><span class="line">    plt.subplot(<span class="number">133</span>)</span><br><span class="line">    <span class="comment"># 设置标题</span></span><br><span class="line">    plt.title(<span class="string">"K-Means测试集"</span>)</span><br><span class="line">    <span class="comment"># 绘制散点图</span></span><br><span class="line">    plt.scatter(x2, y2, c=get_color_list(result2, k))</span><br><span class="line">    <span class="comment"># 展示散点图</span></span><br><span class="line"></span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 画折线图展示SSE对比</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_SSE</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 设置标题</span></span><br><span class="line">    plt.title(<span class="string">"K-Means在不同k下的损失"</span>)</span><br><span class="line">    <span class="comment"># 设置x轴坐标</span></span><br><span class="line">    plt.xlim(k_min - <span class="number">1</span>, k_max + <span class="number">2</span>)</span><br><span class="line">    plt.xlabel(<span class="string">"k"</span>)  <span class="comment"># 设置x轴标注</span></span><br><span class="line">    plt.ylabel(<span class="string">"SSE"</span>)  <span class="comment"># 设置y轴标注</span></span><br><span class="line">    <span class="comment"># 绘制K-Means在不同k下训练集和测试集的损失</span></span><br><span class="line">    plt.plot(range(k_min, k_max + <span class="number">1</span>), data_SSE_list, lw=<span class="number">1</span>, c=<span class="string">'blue'</span>, marker=<span class="string">'v'</span>, ms=<span class="number">4</span>, label=<span class="string">'数据集'</span>)</span><br><span class="line">    plt.plot(range(k_min, k_max + <span class="number">1</span>), train_SSE_list, lw=<span class="number">1</span>, c=<span class="string">'red'</span>, marker=<span class="string">'s'</span>, ms=<span class="number">4</span>, label=<span class="string">'训练集'</span>)</span><br><span class="line">    plt.plot(range(k_min, k_max + <span class="number">1</span>), test_SSE_list, lw=<span class="number">1</span>, c=<span class="string">'green'</span>, marker=<span class="string">'o'</span>, label=<span class="string">'测试集'</span>)</span><br><span class="line">    plt.legend()  <span class="comment"># 图例</span></span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">########################################################
+# 画图展示
+########################################################
+# 根据每个点所在的簇，获取点的颜色，返回一个列表
+def get_color_list(point_k, k):
+    # 随机生成k个颜色
+    RGB = [&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39;, &#39;6&#39;, &#39;7&#39;, &#39;8&#39;, &#39;9&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;F&#39;]
+    colors = []
+    i = 0
+    while i &lt; k:
+        color = &quot;&quot;
+        for j in range(6):
+            color += RGB[random.randint(0, 14)]
+        # 只有随机产生的颜色不相同，才加到colors中，颜色个数+1
+        if &quot;#&quot; + color not in colors and color != &quot;FFFFFF&quot;:
+            colors.append(&quot;#&quot; + color)
+            i += 1
+    # 对每个点，根据point_k中记录的点所在的簇，将颜色添加到列表中
+    color_list = []
+    for c in point_k:
+        color_list.append(colors[c])
+    return color_list
 
-
-
+</code></pre>
 </li>
 </ol>
-<ol start="4">
-<li><p>开始运行</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">########################################################</span></span><br><span class="line"><span class="comment"># 开始运行</span></span><br><span class="line"><span class="comment">########################################################</span></span><br><span class="line"><span class="comment"># 读入数据</span></span><br><span class="line">read_data(<span class="string">"cluster.dat"</span>)</span><br><span class="line"><span class="comment"># 划分训练集和测试集</span></span><br><span class="line">train_x, test_x, train_y, test_y = train_test_split(data_x, data_y, test_size=test_rate, random_state=<span class="number">1</span>)</span><br><span class="line"><span class="comment"># 对k从2~5进行聚类</span></span><br><span class="line"><span class="keyword">for</span> k_num <span class="keyword">in</span> range(k_min, k_max + <span class="number">1</span>):</span><br><span class="line">    print(<span class="string">"###################################################"</span>)</span><br><span class="line">    print(<span class="string">"簇个数为："</span>, k_num, sep=<span class="string">""</span>)</span><br><span class="line">    <span class="comment"># 数据集</span></span><br><span class="line">    print(<span class="string">"数据集："</span>)</span><br><span class="line">    data_SSE, data_result = algorithm(data_x, data_y, k_num)</span><br><span class="line">    data_SSE_list.append(data_SSE)</span><br><span class="line">    <span class="comment"># 训练集</span></span><br><span class="line">    print(<span class="string">"训练集："</span>)</span><br><span class="line">    train_SSE, train_result = algorithm(train_x, train_y, k_num)</span><br><span class="line">    train_SSE_list.append(train_SSE)</span><br><span class="line">    <span class="comment"># 测试集</span></span><br><span class="line">    print(<span class="string">"测试集："</span>)</span><br><span class="line">    test_SSE, test_result = algorithm(test_y, test_y, k_num)</span><br><span class="line">    test_SSE_list.append(test_SSE)</span><br><span class="line">    <span class="comment"># 输出平均SSE</span></span><br><span class="line">    print(<span class="string">"数据集最终平均损失函数AVG_SSE："</span>, data_SSE / all_point_num)</span><br><span class="line">    print(<span class="string">"训练集最终平均损失函数AVG_SSE："</span>, train_SSE / (all_point_num * (<span class="number">1</span> - test_rate)))</span><br><span class="line">    print(<span class="string">"测试集最终平均损失函数AVG_SSE："</span>, test_SSE / (all_point_num * test_rate))</span><br><span class="line">    <span class="comment"># 画图</span></span><br><span class="line">    show(data_x, data_y, data_result, train_x, train_y, train_result, test_x, test_y, test_result, k_num)</span><br><span class="line"><span class="comment"># 画图展示SSE</span></span><br><span class="line">show_SSE()</span><br></pre></td></tr></table></figure>
+<h1 id="画散点图展示聚类结果（数据集，训练集、测试集）"><a href="#画散点图展示聚类结果（数据集，训练集、测试集）" class="headerlink" title="画散点图展示聚类结果（数据集，训练集、测试集）"></a>画散点图展示聚类结果（数据集，训练集、测试集）</h1><p>   def show(x, y, result, x1, y1, result1, x2, y2, result2, k):<br>       # 数据集图<br>       plt.subplot(131)<br>       # 设置标题<br>       plt.title(“K-Means数据集”)<br>       # 绘制散点图<br>       # note: scatter函数支持传入颜色列表，对每一个点使用列表相应下标对应的颜色<br>       plt.scatter(x, y, c=get_color_list(result, k))</p>
+<pre><code>   # 训练集图
+   plt.subplot(132)
+   # 设置标题
+   plt.title(&quot;K-Means训练集&quot;)
+   # 绘制散点图
+   plt.scatter(x1, y1, c=get_color_list(result1, k))
 
-</li>
-</ol>
+   # 测试集图
+   plt.subplot(133)
+   # 设置标题
+   plt.title(&quot;K-Means测试集&quot;)
+   # 绘制散点图
+   plt.scatter(x2, y2, c=get_color_list(result2, k))
+   # 展示散点图
+
+   plt.show()</code></pre>
+<h1 id="画折线图展示SSE对比"><a href="#画折线图展示SSE对比" class="headerlink" title="画折线图展示SSE对比"></a>画折线图展示SSE对比</h1><p>   def show_SSE():<br>       # 设置标题<br>       plt.title(“K-Means在不同k下的损失”)<br>       # 设置x轴坐标<br>       plt.xlim(k_min - 1, k_max + 2)<br>       plt.xlabel(“k”)  # 设置x轴标注<br>       plt.ylabel(“SSE”)  # 设置y轴标注<br>       # 绘制K-Means在不同k下训练集和测试集的损失<br>       plt.plot(range(k_min, k_max + 1), data_SSE_list, lw=1, c=’blue’, marker=’v’, ms=4, label=’数据集’)<br>       plt.plot(range(k_min, k_max + 1), train_SSE_list, lw=1, c=’red’, marker=’s’, ms=4, label=’训练集’)<br>       plt.plot(range(k_min, k_max + 1), test_SSE_list, lw=1, c=’green’, marker=’o’, label=’测试集’)<br>       plt.legend()  # 图例<br>       plt.show()</p>
+<pre><code>
+4. 开始运行
+
+```python
+########################################################
+# 开始运行
+########################################################
+# 读入数据
+read_data(&quot;cluster.dat&quot;)
+# 划分训练集和测试集
+train_x, test_x, train_y, test_y = train_test_split(data_x, data_y, test_size=test_rate, random_state=1)
+# 对k从2~5进行聚类
+for k_num in range(k_min, k_max + 1):
+    print(&quot;###################################################&quot;)
+    print(&quot;簇个数为：&quot;, k_num, sep=&quot;&quot;)
+    # 数据集
+    print(&quot;数据集：&quot;)
+    data_SSE, data_result = algorithm(data_x, data_y, k_num)
+    data_SSE_list.append(data_SSE)
+    # 训练集
+    print(&quot;训练集：&quot;)
+    train_SSE, train_result = algorithm(train_x, train_y, k_num)
+    train_SSE_list.append(train_SSE)
+    # 测试集
+    print(&quot;测试集：&quot;)
+    test_SSE, test_result = algorithm(test_y, test_y, k_num)
+    test_SSE_list.append(test_SSE)
+    # 输出平均SSE
+    print(&quot;数据集最终平均损失函数AVG_SSE：&quot;, data_SSE / all_point_num)
+    print(&quot;训练集最终平均损失函数AVG_SSE：&quot;, train_SSE / (all_point_num * (1 - test_rate)))
+    print(&quot;测试集最终平均损失函数AVG_SSE：&quot;, test_SSE / (all_point_num * test_rate))
+    # 画图
+    show(data_x, data_y, data_result, train_x, train_y, train_result, test_x, test_y, test_result, k_num)
+# 画图展示SSE
+show_SSE()</code></pre>
 
   
   
@@ -760,7 +1012,7 @@
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
     </section>
     <section class="body">
-      <div class="vlts-rps"><a class="item" href="\2020\06\11\机器学习-实验-DNN-手写识别\" title="机器学习 实验 DNN 手写识别" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200601103924.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200601103924.png" srcset="data:image/png;base64,666"><span class="title">机器学习 实验 DNN 手写识别</span><span class="excerpt">本文是关于经典深度神经网络DNN的应用手写识别的思路样例。</span></a><a class="item" href="\2020\07\03\机器学习-实验-RNN-为baby起名字\" title="机器学习 实验 RNN 为baby起名字" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200605202820.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200605202820.png" srcset="data:image/png;base64,666"><span class="title">机器学习 实验 RNN 为baby起名字</span><span class="excerpt">本文是关于经典RNN的应用为baby起名字的代码实现。</span></a><a class="item" href="\2020\04\26\机器学习-实验-决策树\" title="机器学习 实验 决策树" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200524143530.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200524143530.jpg" srcset="data:image/png;base64,666"><span class="title">机器学习 实验 决策树</span><span class="excerpt">本文是关于20问读心游戏的决策树代码实现。</span></a><a class="item" href="\2020\08\10\机器学习-实验-花卉识别\" title="机器学习 实验 花卉识别" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200715111020.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200715111020.png" srcset="data:image/png;base64,666"><span class="title">机器学习 实验 花卉识别</span><span class="excerpt">本文是机器学习人工智能实验，利用华为云ModelArts平台实现花卉分类识别。</span></a><a class="item" href="\2020\10\09\交换原理-实验1-时间表调度实验\" title="交换原理 实验1 时间表调度实验" rel="bookmark "><img src="data:image/png;base64,666"><span class="title">交换原理 实验1 时间表调度实验</span><span class="excerpt">本文是关于交换原理实验一——时间表调度实验报告记录。</span></a></div></section></div>
+      <div class="vlts-rps"><a class="item" href="\2020\06\11\机器学习-实验-DNN-手写识别\" title="机器学习 实验 DNN 手写识别" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200601103924.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200601103924.png" srcset="data:image/png;base64,666"><span class="title">机器学习 实验 DNN 手写识别</span><span class="excerpt">本文是关于经典深度神经网络DNN的应用手写识别的思路样例。</span></a><a class="item" href="\2020\07\03\机器学习-实验-RNN-为baby起名字\" title="机器学习 实验 RNN 为baby起名字" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200605202820.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200605202820.png" srcset="data:image/png;base64,666"><span class="title">机器学习 实验 RNN 为baby起名字</span><span class="excerpt">本文是关于经典RNN的应用为baby起名字的代码实现。</span></a><a class="item" href="\2020\04\26\机器学习-实验-决策树\" title="机器学习 实验 决策树" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200524143530.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200524143530.jpg" srcset="data:image/png;base64,666"><span class="title">机器学习 实验 决策树</span><span class="excerpt">本文是关于20问读心游戏的决策树代码实现。</span></a><a class="item" href="\2020\08\10\机器学习-实验-花卉识别\" title="机器学习 实验 花卉识别" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200715111020.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200715111020.png" srcset="data:image/png;base64,666"><span class="title">机器学习 实验 花卉识别</span><span class="excerpt">本文是机器学习人工智能实验，利用华为云ModelArts平台实现花卉分类识别。</span></a><a class="item" href="\2020\10\09\交换原理-实验2-摘挂机检测实验\" title="交换原理 实验2 摘挂机检测实验" rel="bookmark "><img src="data:image/png;base64,666"><span class="title">交换原理 实验2 摘挂机检测实验</span><span class="excerpt">本文是关于交换原理实验二——摘挂机检测实验报告记录。</span></a></div></section></div>
       
       
         <div class="copyright">
@@ -809,10 +1061,10 @@
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-02T10:06:46+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-04T17:22:10+08:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年9月2日</p>
+    <p>更新于：2021年1月4日</p>
   </a>
 </div>
 
@@ -986,7 +1238,7 @@
 
 
     <div class="content">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、实验目标"><span class="toc-text">一、实验目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、实验环境"><span class="toc-text">二、实验环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、算法原理"><span class="toc-text">三、算法原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、算法流程图"><span class="toc-text">四、算法流程图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、实验结果及分析"><span class="toc-text">五、实验结果及分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、项目地址"><span class="toc-text">六、项目地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、附录"><span class="toc-text">七、附录</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、实验目标"><span class="toc-number">1.</span> <span class="toc-text">一、实验目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、实验环境"><span class="toc-number">2.</span> <span class="toc-text">二、实验环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、算法原理"><span class="toc-number">3.</span> <span class="toc-text">三、算法原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、算法流程图"><span class="toc-number">4.</span> <span class="toc-text">四、算法流程图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、实验结果及分析"><span class="toc-number">5.</span> <span class="toc-text">五、实验结果及分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、项目地址"><span class="toc-number">6.</span> <span class="toc-text">六、项目地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、附录"><span class="toc-number">7.</span> <span class="toc-text">七、附录</span></a></li></ol>
     </div>
   </section>
 
@@ -997,10 +1249,7 @@
 </aside>
 
 
-
-        
-        
-          <!--此文件用来存放一些不方便取值的变量-->
+   <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <script>
@@ -1015,10 +1264,9 @@
   l_header.classList.add("show");
   
 </script>
-
+ 
+        </div>
         
-      </div>
-      
   
   <footer class="footer clearfix">
     <br><br>
@@ -1028,7 +1276,7 @@
           
 
   
-    <meting-js theme="#1BCDFC" autoplay="true" volume="0.3" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="1930654125" list-folded="true">
+    <meting-js theme="#1BCDFC" autoplay="false" volume="0.5" loop="all" order="list" fixed="false" list-max-height="320px" server="tencent" type="playlist" id="1930654125" list-folded="true">
     </meting-js>
   
 
@@ -1138,11 +1386,11 @@
   </footer>
 
 
-      <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+        <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      </div>
     </div>
-  </div>
-  <div>
-    <script>
+    <div>
+      <script>
 window.volantis={};
 window.volantis.loadcss=document.getElementById("loadcss");
 /********************脚本懒加载函数********************************/
@@ -1224,6 +1472,8 @@ var loadCSS = function( href, before, media, attributes ){
   
   loadCSS("https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css", window.volantis.loadcss);
   
+  
+  loadCSS("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/styles/solarized-light.min.css", window.volantis.loadcss);
   
 </script>
 <!-- required -->
@@ -1572,6 +1822,19 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
+<script>
+  function loadIssuesJS() {
+    if ($(".md").find(".issues-api").length == 0) return;
+    setTimeout(function() {
+	
+	  loadScript('/js/issues.js');
+	
+    }, 1);
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+</script>
 
 
 
@@ -1620,6 +1883,78 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
+
+
+   <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+<script type="text/javascript">
+  function pjax_scrollrebeal() {
+    ScrollReveal().reveal('.l_main .reveal', {
+      distance: '32px',
+      duration: '800',
+      interval: '20',
+      scale: '1',
+      easing: 'ease-out'
+    });
+  }
+  $(function () {
+    pjax_scrollrebeal();
+  });
+</script>
 
 
 
@@ -1627,7 +1962,7 @@ var loadCSS = function( href, before, media, attributes ){
   <script>
   let APlayerController = new Object();
   APlayerController.id = '1930654125';  // 设定全局音乐播放ID
-  APlayerController.volume = '0.3';
+  APlayerController.volume = '0.5';
   loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
   // APlayer 需要在  MetingJS 之前加载
   loadScript("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js")
@@ -1656,19 +1991,9 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 <script>
-  var GUEST_INFO = ['nick', 'mail', 'link'];
-  var meta = 'nick,mail,link'.split(',').filter(function (item) {
-    return GUEST_INFO.indexOf(item) > -1
-  });
-  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
-  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
-    return REQUIRED_FIELDS.indexOf(item) > -1
-  });
-
   function emoji(path, idx, ext) {
     return path + "/" + path + "-" + idx + "." + ext;
   }
-
   var emojiMaps = {};
   for (var i = 1; i <= 54; i++) {
     emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
@@ -1685,40 +2010,23 @@ var loadCSS = function( href, before, media, attributes ){
   for (var i = 1; i <= 4; i++) {
     emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
   }
-
   function pjax_valine() {
     if(!document.querySelectorAll("#valine_container")[0])return;
-
     let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
-
     let path = pdata.commentPath;
     if (path.length == 0) {
       let defaultPath = '';
       path = defaultPath || decodeURI(window.location.pathname);
     }
-
     var valine = new Valine();
-    valine.init({
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"O2XYIOn9EAIKNr5HayEBixXl-MdYXbMMI","appKey":"g1XtDO1m1wHerH2wbn0A08mk","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"visitor":true,"mathJax":false}, {
       el: '#valine_container',
-      meta: meta,
-      placeholder: pagePlaceholder,
       path: path,
-      appId: "O2XYIOn9EAIKNr5HayEBixXl-MdYXbMMI",
-      appKey: "g1XtDO1m1wHerH2wbn0A08mk",
-      pageSize: '10',
-      avatar: 'robohash',
-      lang: 'zh-cn',
-      visitor: 'true',
-      highlight: 'true',
-      mathJax: 'false',
-      enableQQ: 'true',
-      recordIP: 'false',
-      requiredFields: requiredFields,
+      placeholder: pagePlaceholder,
       emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
-      emojiMaps: emojiMaps
-    })
+      emojiMaps: emojiMaps,
+    }))
   }
-
   $(function () {
     pjax_valine();
   });
@@ -1786,6 +2094,13 @@ function setSearchService() {
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+  
 
 
 
@@ -2000,6 +2315,104 @@ function setSearchService() {
 
 
 
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+  try {
+    localStorage.setItem(k, v);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+const removeLS = (k) => {
+  try {
+    localStorage.removeItem(k);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+const getLS = (k) => {
+  try {
+    return localStorage.getItem(k);
+  } catch (e) {
+    console.log(e.message);
+    return null;
+  }
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+function bindToggleButton() {
+	var btn=$("#wrapper .toggle-mode-btn");
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+document.addEventListener("pjax:success", bindToggleButton);
+
+</script>
+
+
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -2109,11 +2522,7 @@ document.addEventListener("pjax:success", listennSidebarTOC);
 
 <!-- more -->
 
-
-
-
-    
-      
+  
 
 
 <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
@@ -2186,7 +2595,7 @@ document.addEventListener("pjax:success", listennSidebarTOC);
         function gtag(){dataLayer.push(arguments);}
         gtag('config', 'UA-162450234-2', {'page_path': document.location.pathname});
       
-	 
+
 
       $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
       $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
@@ -2203,8 +2612,18 @@ document.addEventListener("pjax:success", listennSidebarTOC);
 		  Pjax_backstretch()
         
         
+        document.querySelectorAll('pre code').forEach((block) => {
+          hljs.highlightBlock(block);
+        });
         
         
+          pjax_scrollrebeal();
+        
+        if (typeof IssuesAPI == "undefined") {
+          loadIssuesJS();
+        }
+        
+          pjax_initCopyCode();
         
         
           pjax_valine();
@@ -2225,10 +2644,9 @@ document.addEventListener("pjax:success", listennSidebarTOC);
       window.location.href = e.triggerElement.href;
     });
 </script>
-
-    
-  </div>
-</body>
+ 
+    </div>
+  </body>
 </html>
 <!--单击显示文字-->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/click_show_text.js"></script>
