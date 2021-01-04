@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://666wxy666.github.io/"/>
-  <updated>2020-10-09T08:05:07.116Z</updated>
+  <updated>2020-10-09T08:04:57.622Z</updated>
   <id>https://666wxy666.github.io/</id>
   
   <author>
@@ -15,33 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>交换原理 实验2 摘挂机检测实验</title>
-    <link href="https://666wxy666.github.io/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C2-%E6%91%98%E6%8C%82%E6%9C%BA%E6%A3%80%E6%B5%8B%E5%AE%9E%E9%AA%8C/"/>
-    <id>https://666wxy666.github.io/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C2-%E6%91%98%E6%8C%82%E6%9C%BA%E6%A3%80%E6%B5%8B%E5%AE%9E%E9%AA%8C/</id>
-    <published>2020-10-08T16:00:00.000Z</published>
-    <updated>2020-10-09T08:05:07.116Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文是关于交换原理实验二——摘挂机检测实验报告记录。</p><a id="more"></a><h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><p>摘挂机检测实验用来考查学生对摘挂机检测原理的掌握情况。</p><h2 id="二、实验内容和实验步骤"><a href="#二、实验内容和实验步骤" class="headerlink" title="二、实验内容和实验步骤"></a>二、实验内容和实验步骤</h2><h3 id="1、实验原理及设计"><a href="#1、实验原理及设计" class="headerlink" title="1、实验原理及设计"></a>1、实验原理及设计</h3><p>设用户在挂机状态时扫描输出为“0”，用户在摘机状态时扫描输出为“1”，摘挂机扫描程序的执行周期为200ms，那么摘机识别，就是在200ms的周期性扫描中找到从“0”到“1”的变化点，挂机识别就是在200ms的周期性扫描中找到从“1”到“0”的变化点。</p><p>在我们的实验中，我们把前200ms的线路状态保存以备这次可以读取，同时读出这次的线路状态，把前200ms的线路状态取反与这次的线路状态相与，如果为1，就说明检测到摘机消息了。同理，我们把这次的线路状态取反再与前200ms的线路状态相与，如果为1就说明检测到挂机消息了，然后把摘挂机信号作为事件放入摘挂机队列中。</p><h3 id="2、实验主要数据结构"><a href="#2、实验主要数据结构" class="headerlink" title="2、实验主要数据结构"></a>2、实验主要数据结构</h3><p>函数功能为：检测到摘、挂机事件，并把该事件放入到摘挂机事件队列中。</p><p>函数原型：</p><pre><code class="c">void scanfor200(int linestate200[LINEMAX],int  linestate[LINEMAX],UpOnnode * head1, UpOnnode*  end1);</code></pre><p>其中LINEMAX为线路总数，是定义在”bconstant.h”中的一个宏,linestate200[LINEMAX]为已保存的200ms前线路状态，linestate[LINEMAX]为当前的线路状态，head1,end1为摘挂机队列的首尾指针，该队列已经在主程序中进行了初始化。我们所要做的就是把检测到的摘挂机事件以摘挂机队列节点的形式插入到摘挂机事件队列中。</p><p>数据结构说明： </p><pre><code class="c">&quot;bconstant.h&quot;    //以下的数据结构都已在该文件中定义 LINEMAX    //最大线路数； int  linestate200[LINEMAX],linestate[LINEMAX]    //线路从0开始编号；状态：1：有电流，0无电流； enum UporOn {ehandup,ehandon}    //为摘挂机区别符：ehandup表示摘机，ehandon表示挂机； struct  UpOnnode      //摘挂机队列节点结构 {    UporOn  phonestate;        //摘挂机区别符；    int  linenum;               //线路号（从0开始）；    struct UpOnnode* next;      //指向下一节点的指针；};</code></pre><p>注意事项：</p><ol><li><p>我们编写的模块是基础实验部分预加载的本局交换系统的一个模块而已，在系统中head1头指针和end1尾指针已经完成初始化。为方便起见，我们的摘挂机事件队列是一个包含头节点的单向链表，并且头指针指向该头节点，尾指针在初始化时也指向了该节点。所以在我们的函数编写中应保证头指针始终指向该头节点上、尾指针指向摘挂机事件队列的最末一个节点。</p></li><li><p>注意把这次扫描的线路状态值保存在前200ms扫描线路状态数组中,以便主程周期调用。</p></li></ol><h3 id="3、实验效果检验"><a href="#3、实验效果检验" class="headerlink" title="3、实验效果检验"></a>3、实验效果检验</h3><p>当调度表初始化正确时，能够进行正常的通话；如果初始化不正确，可能会造成周期性程序的不正常调用，例如位间隔调度的延迟会造成识别位间隔的延误甚至丢失。</p><h3 id="4、实验步骤"><a href="#4、实验步骤" class="headerlink" title="4、实验步骤"></a>4、实验步骤</h3><ol><li>熟悉实验平台和测试环境；</li><li>编写C程序实现所要求的功能；</li><li>运行测试程序；</li><li>完成实验报告。</li></ol><h2 id="三、源代码"><a href="#三、源代码" class="headerlink" title="三、源代码"></a>三、源代码</h2><pre><code class="c">#include &quot;bconstant.h&quot;extern &quot;C&quot; _declspec(dllexport) void scanfor200(int linestate200[LINEMAX], int linestate[LINEMAX], UpOnnode *head1, UpOnnode *end1){    int i;    for (i = 0; i &lt;= LINEMAX; i++)    {        struct UpOnnode *newNode = new struct UpOnnode;        if (!linestate200[i] &amp;&amp; linestate[i])        {            newNode-&gt;phonestate = ehandup;        }        if (!linestate[i] &amp;&amp; linestate200[i])        {            newNode-&gt;phonestate = ehandon;        }        newNode-&gt;linenum = i;        newNode-&gt;next = 0;        end1-&gt;next = newNode;        end1 = newNode;        linestate200[i] = linestate[i];    }    return;}// 此函数不需修改extern &quot;C&quot; _declspec(dllexport) void freenode(UpOnnode *node){    delete node;}</code></pre><h2 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h2><p>运行程序后，能正确检测摘挂机动作并且能进行通话，与预期结果相符，成功。</p><h2 id="五、实验心得"><a href="#五、实验心得" class="headerlink" title="五、实验心得"></a>五、实验心得</h2><p>这次实验也比较简单，主要用来考察对摘挂机检测的原理的掌握情况。在实验中遇到的比较困难的就是新节点添加到链表中指针如何分配，因为大一学过的知识时间比较久了，记得不是很清晰，于是就先复习了链表相关的知识，最终也成功实现了要求的功能。通过这次实验， 我加深了对摘挂机检测原理的掌握（检测到摘挂机事件，都将该事件添加到队列中），深入了解了摘挂机的详细过程，增强了对实验平台的熟悉和对软件的了解，收获很大。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文是关于交换原理实验二——摘挂机检测实验报告记录。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="交换原理" scheme="https://666wxy666.github.io/categories/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/"/>
-    
-      <category term="实验" scheme="https://666wxy666.github.io/categories/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/%E5%AE%9E%E9%AA%8C/"/>
-    
-    
-      <category term="实验" scheme="https://666wxy666.github.io/tags/%E5%AE%9E%E9%AA%8C/"/>
-    
-      <category term="交换原理" scheme="https://666wxy666.github.io/tags/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/"/>
-    
-  </entry>
   
   <entry>
     <title>交换原理 实验1 时间表调度实验</title>
@@ -71,17 +44,17 @@
   </entry>
   
   <entry>
-    <title>交换原理 实验4 拨打SIP电话</title>
-    <link href="https://666wxy666.github.io/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C4-%E6%8B%A8%E6%89%93SIP%E7%94%B5%E8%AF%9D/"/>
-    <id>https://666wxy666.github.io/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C4-%E6%8B%A8%E6%89%93SIP%E7%94%B5%E8%AF%9D/</id>
+    <title>交换原理 实验2 摘挂机检测实验</title>
+    <link href="https://666wxy666.github.io/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C2-%E6%91%98%E6%8C%82%E6%9C%BA%E6%A3%80%E6%B5%8B%E5%AE%9E%E9%AA%8C/"/>
+    <id>https://666wxy666.github.io/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C2-%E6%91%98%E6%8C%82%E6%9C%BA%E6%A3%80%E6%B5%8B%E5%AE%9E%E9%AA%8C/</id>
     <published>2020-10-08T16:00:00.000Z</published>
-    <updated>2020-10-09T08:11:51.747Z</updated>
+    <updated>2020-10-09T08:05:07.116Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文是关于交换原理实验四——拨打SIP电话及抓包分析实验报告记录。</p><a id="more"></a><p>这些项目的源码、可执行程序、报告等已经存放于我的Github，欢迎下载查看：</p><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/SIP-EXP" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=SIP-EXP&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=SIP-EXP&show_owner=true" srcset="data:image/png;base64,666"></a>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文是关于交换原理实验二——摘挂机检测实验报告记录。</p><a id="more"></a><h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><p>摘挂机检测实验用来考查学生对摘挂机检测原理的掌握情况。</p><h2 id="二、实验内容和实验步骤"><a href="#二、实验内容和实验步骤" class="headerlink" title="二、实验内容和实验步骤"></a>二、实验内容和实验步骤</h2><h3 id="1、实验原理及设计"><a href="#1、实验原理及设计" class="headerlink" title="1、实验原理及设计"></a>1、实验原理及设计</h3><p>设用户在挂机状态时扫描输出为“0”，用户在摘机状态时扫描输出为“1”，摘挂机扫描程序的执行周期为200ms，那么摘机识别，就是在200ms的周期性扫描中找到从“0”到“1”的变化点，挂机识别就是在200ms的周期性扫描中找到从“1”到“0”的变化点。</p><p>在我们的实验中，我们把前200ms的线路状态保存以备这次可以读取，同时读出这次的线路状态，把前200ms的线路状态取反与这次的线路状态相与，如果为1，就说明检测到摘机消息了。同理，我们把这次的线路状态取反再与前200ms的线路状态相与，如果为1就说明检测到挂机消息了，然后把摘挂机信号作为事件放入摘挂机队列中。</p><h3 id="2、实验主要数据结构"><a href="#2、实验主要数据结构" class="headerlink" title="2、实验主要数据结构"></a>2、实验主要数据结构</h3><p>函数功能为：检测到摘、挂机事件，并把该事件放入到摘挂机事件队列中。</p><p>函数原型：</p><pre><code class="c">void scanfor200(int linestate200[LINEMAX],int  linestate[LINEMAX],UpOnnode * head1, UpOnnode*  end1);</code></pre><p>其中LINEMAX为线路总数，是定义在”bconstant.h”中的一个宏,linestate200[LINEMAX]为已保存的200ms前线路状态，linestate[LINEMAX]为当前的线路状态，head1,end1为摘挂机队列的首尾指针，该队列已经在主程序中进行了初始化。我们所要做的就是把检测到的摘挂机事件以摘挂机队列节点的形式插入到摘挂机事件队列中。</p><p>数据结构说明： </p><pre><code class="c">&quot;bconstant.h&quot;    //以下的数据结构都已在该文件中定义 LINEMAX    //最大线路数； int  linestate200[LINEMAX],linestate[LINEMAX]    //线路从0开始编号；状态：1：有电流，0无电流； enum UporOn {ehandup,ehandon}    //为摘挂机区别符：ehandup表示摘机，ehandon表示挂机； struct  UpOnnode      //摘挂机队列节点结构 {    UporOn  phonestate;        //摘挂机区别符；    int  linenum;               //线路号（从0开始）；    struct UpOnnode* next;      //指向下一节点的指针；};</code></pre><p>注意事项：</p><ol><li><p>我们编写的模块是基础实验部分预加载的本局交换系统的一个模块而已，在系统中head1头指针和end1尾指针已经完成初始化。为方便起见，我们的摘挂机事件队列是一个包含头节点的单向链表，并且头指针指向该头节点，尾指针在初始化时也指向了该节点。所以在我们的函数编写中应保证头指针始终指向该头节点上、尾指针指向摘挂机事件队列的最末一个节点。</p></li><li><p>注意把这次扫描的线路状态值保存在前200ms扫描线路状态数组中,以便主程周期调用。</p></li></ol><h3 id="3、实验效果检验"><a href="#3、实验效果检验" class="headerlink" title="3、实验效果检验"></a>3、实验效果检验</h3><p>当调度表初始化正确时，能够进行正常的通话；如果初始化不正确，可能会造成周期性程序的不正常调用，例如位间隔调度的延迟会造成识别位间隔的延误甚至丢失。</p><h3 id="4、实验步骤"><a href="#4、实验步骤" class="headerlink" title="4、实验步骤"></a>4、实验步骤</h3><ol><li>熟悉实验平台和测试环境；</li><li>编写C程序实现所要求的功能；</li><li>运行测试程序；</li><li>完成实验报告。</li></ol><h2 id="三、源代码"><a href="#三、源代码" class="headerlink" title="三、源代码"></a>三、源代码</h2><pre><code class="c">#include &quot;bconstant.h&quot;extern &quot;C&quot; _declspec(dllexport) void scanfor200(int linestate200[LINEMAX], int linestate[LINEMAX], UpOnnode *head1, UpOnnode *end1){    int i;    for (i = 0; i &lt;= LINEMAX; i++)    {        struct UpOnnode *newNode = new struct UpOnnode;        if (!linestate200[i] &amp;&amp; linestate[i])        {            newNode-&gt;phonestate = ehandup;        }        if (!linestate[i] &amp;&amp; linestate200[i])        {            newNode-&gt;phonestate = ehandon;        }        newNode-&gt;linenum = i;        newNode-&gt;next = 0;        end1-&gt;next = newNode;        end1 = newNode;        linestate200[i] = linestate[i];    }    return;}// 此函数不需修改extern &quot;C&quot; _declspec(dllexport) void freenode(UpOnnode *node){    delete node;}</code></pre><h2 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h2><p>运行程序后，能正确检测摘挂机动作并且能进行通话，与预期结果相符，成功。</p><h2 id="五、实验心得"><a href="#五、实验心得" class="headerlink" title="五、实验心得"></a>五、实验心得</h2><p>这次实验也比较简单，主要用来考察对摘挂机检测的原理的掌握情况。在实验中遇到的比较困难的就是新节点添加到链表中指针如何分配，因为大一学过的知识时间比较久了，记得不是很清晰，于是就先复习了链表相关的知识，最终也成功实现了要求的功能。通过这次实验， 我加深了对摘挂机检测原理的掌握（检测到摘挂机事件，都将该事件添加到队列中），深入了解了摘挂机的详细过程，增强了对实验平台的熟悉和对软件的了解，收获很大。</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;本文是关于交换原理实验四——拨打SIP电话及抓包分析实验报告记录。&lt;/p&gt;
+      &lt;p&gt;本文是关于交换原理实验二——摘挂机检测实验报告记录。&lt;/p&gt;
     
     </summary>
     
@@ -94,8 +67,6 @@
       <category term="实验" scheme="https://666wxy666.github.io/tags/%E5%AE%9E%E9%AA%8C/"/>
     
       <category term="交换原理" scheme="https://666wxy666.github.io/tags/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/"/>
-    
-      <category term="SIP" scheme="https://666wxy666.github.io/tags/SIP/"/>
     
   </entry>
   
@@ -129,6 +100,35 @@
   </entry>
   
   <entry>
+    <title>交换原理 实验4 拨打SIP电话</title>
+    <link href="https://666wxy666.github.io/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C4-%E6%8B%A8%E6%89%93SIP%E7%94%B5%E8%AF%9D/"/>
+    <id>https://666wxy666.github.io/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C4-%E6%8B%A8%E6%89%93SIP%E7%94%B5%E8%AF%9D/</id>
+    <published>2020-10-08T16:00:00.000Z</published>
+    <updated>2020-10-09T08:11:51.747Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文是关于交换原理实验四——拨打SIP电话及抓包分析实验报告记录。</p><a id="more"></a><p>这些项目的源码、可执行程序、报告等已经存放于我的Github，欢迎下载查看：</p><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/SIP-EXP" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=SIP-EXP&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=SIP-EXP&show_owner=true" srcset="data:image/png;base64,666"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文是关于交换原理实验四——拨打SIP电话及抓包分析实验报告记录。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="交换原理" scheme="https://666wxy666.github.io/categories/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/"/>
+    
+      <category term="实验" scheme="https://666wxy666.github.io/categories/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/%E5%AE%9E%E9%AA%8C/"/>
+    
+    
+      <category term="实验" scheme="https://666wxy666.github.io/tags/%E5%AE%9E%E9%AA%8C/"/>
+    
+      <category term="交换原理" scheme="https://666wxy666.github.io/tags/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/"/>
+    
+      <category term="SIP" scheme="https://666wxy666.github.io/tags/SIP/"/>
+    
+  </entry>
+  
+  <entry>
     <title>C++工程项目 JobShop</title>
     <link href="https://666wxy666.github.io/2020/09/30/C++%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE-JobShop/"/>
     <id>https://666wxy666.github.io/2020/09/30/C++%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE-JobShop/</id>
@@ -149,9 +149,9 @@
       <category term="项目" scheme="https://666wxy666.github.io/categories/C-C/%E9%A1%B9%E7%9B%AE/"/>
     
     
-      <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
-    
       <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
+    
+      <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
     
       <category term="JobShop" scheme="https://666wxy666.github.io/tags/JobShop/"/>
     
@@ -213,13 +213,13 @@
       <category term="实验" scheme="https://666wxy666.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%AE%9E%E9%AA%8C/"/>
     
     
-      <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
+      <category term="C" scheme="https://666wxy666.github.io/tags/C/"/>
     
       <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
     
-      <category term="C" scheme="https://666wxy666.github.io/tags/C/"/>
-    
       <category term="项目" scheme="https://666wxy666.github.io/tags/%E9%A1%B9%E7%9B%AE/"/>
+    
+      <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
     
       <category term="计算机网络" scheme="https://666wxy666.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
@@ -246,11 +246,11 @@
       <category term="杂项" scheme="https://666wxy666.github.io/categories/%E6%9D%82%E9%A1%B9/"/>
     
     
-      <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
+      <category term="C" scheme="https://666wxy666.github.io/tags/C/"/>
     
       <category term="Linux" scheme="https://666wxy666.github.io/tags/Linux/"/>
     
-      <category term="C" scheme="https://666wxy666.github.io/tags/C/"/>
+      <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
     
       <category term="项目" scheme="https://666wxy666.github.io/tags/%E9%A1%B9%E7%9B%AE/"/>
     
@@ -279,9 +279,9 @@
       <category term="操作系统" scheme="https://666wxy666.github.io/categories/C-C/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
-      <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
-    
       <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
+    
+      <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
     
       <category term="操作系统" scheme="https://666wxy666.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
@@ -310,9 +310,9 @@
       <category term="操作系统" scheme="https://666wxy666.github.io/categories/C-C/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
-      <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
-    
       <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
+    
+      <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
     
       <category term="操作系统" scheme="https://666wxy666.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
@@ -349,11 +349,11 @@
       <category term="操作系统" scheme="https://666wxy666.github.io/categories/C-C/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
-      <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
+      <category term="Linux" scheme="https://666wxy666.github.io/tags/Linux/"/>
     
       <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
     
-      <category term="Linux" scheme="https://666wxy666.github.io/tags/Linux/"/>
+      <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
     
       <category term="操作系统" scheme="https://666wxy666.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
@@ -364,39 +364,6 @@
       <category term="线程" scheme="https://666wxy666.github.io/tags/%E7%BA%BF%E7%A8%8B/"/>
     
       <category term="通信" scheme="https://666wxy666.github.io/tags/%E9%80%9A%E4%BF%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>编译原理 语法分析 LR</title>
-    <link href="https://666wxy666.github.io/2020/09/02/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90-LR/"/>
-    <id>https://666wxy666.github.io/2020/09/02/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90-LR/</id>
-    <published>2020-09-01T16:00:00.000Z</published>
-    <updated>2020-09-13T08:56:37.285Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>本文是编译原理C语言LR语法分析器的简单实现项目。</strong></p><a id="more"></a><h2 id="一、需求"><a href="#一、需求" class="headerlink" title="一、需求"></a>一、需求</h2><img src="https://gitee.com/wxy_666/images/raw/master/20200902092212.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902092212.png" srcset="data:image/png;base64,666" alt="1" style="zoom:80%;"><p><strong>拓展需求：</strong>除题目的基础要求外，还额外实现了对任意SLR1文法，自动生成拓广文法，且求该文法的first集和follow集，并且自动生成LR0项目集规范簇和识别该文法所有活前缀的DFA，然后根据该DFA自动生成SLR1分析表。</p><h2 id="二、运行环境"><a href="#二、运行环境" class="headerlink" title="二、运行环境"></a>二、运行环境</h2><p>电脑硬件配置：</p><ul><li><p>处理器：Intel i7 7700HQ</p></li><li><p>显卡：NVIDIA GeForce GTX 1050 Ti</p></li><li><p>内存：16GB</p></li></ul><p>软件：</p><ul><li><p>编程语言：C++</p></li><li><p>IDE：Microsoft Visual Studio 2019</p></li><li><p>Windows SDK版本：10.0</p></li><li><p>平台工具集：Visual Studio 2019（v142）</p></li></ul><h2 id="三、核心算法"><a href="#三、核心算法" class="headerlink" title="三、核心算法"></a>三、核心算法</h2><h3 id="1、整个程序的模型如图所示"><a href="#1、整个程序的模型如图所示" class="headerlink" title="1、整个程序的模型如图所示"></a>1、整个程序的模型如图所示</h3><h4 id="手动分析："><a href="#手动分析：" class="headerlink" title="手动分析："></a>手动分析：</h4><ol><li><p>首先对文法进行拓广，求first集和follow集，发现该文法是一个SLR1文法。</p></li><li><p>构造LR0项目集规范簇及识别该文法所有活前缀的DFA</p></li><li><p>构造识别该文法的SLR0分析表</p><table><thead><tr><th><img src="https://gitee.com/wxy_666/images/raw/master/20200902092905.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902092905.png" srcset="data:image/png;base64,666" alt="2" style="zoom: 67%;"></th><th><img src="https://gitee.com/wxy_666/images/raw/master/20200902093010.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093010.png" srcset="data:image/png;base64,666" alt="3"></th></tr></thead><tbody><tr><td><img src="https://gitee.com/wxy_666/images/raw/master/20200902093023.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093023.png" srcset="data:image/png;base64,666" alt="4"></td><td><img src="https://gitee.com/wxy_666/images/raw/master/20200902093052.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093052.png" srcset="data:image/png;base64,666" alt="5" style="zoom: 50%;"></td></tr></tbody></table></li></ol><ol start="4"><li><p>整个程序的模型如图所示</p><img src="https://gitee.com/wxy_666/images/raw/master/20200902093306.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093306.png" srcset="data:image/png;base64,666" alt="6" style="zoom:80%;"></li><li><p>预测分析控制程序算法</p><img src="https://gitee.com/wxy_666/images/raw/master/20200902093330.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093330.png" srcset="data:image/png;base64,666" alt="7" style="zoom:80%;"></li></ol><h3 id="6、输入形式："><a href="#6、输入形式：" class="headerlink" title="6、输入形式："></a>6、输入形式：</h3><p>文件输入，格式为：</p><p>产生式个数n</p><p>{</p><p>……</p><p>第i(1&lt;=i&lt;=n)个产生式（例如A-&gt;a，按照输入顺序分别从1到n编号，拓广产生式为0号，规定终结符和非终结符都是一个字符且非终结符都为大写字母）</p><p>……</p><p>}</p><p>要分析的字符串个数n</p><p>{</p><p>……</p><p>第i(1&lt;=i&lt;=n)个要分析的字符串（要求以$结尾）</p><p>……</p><p>}</p><img src="https://gitee.com/wxy_666/images/raw/master/20200902093444.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093444.png" srcset="data:image/png;base64,666" alt="8" style="zoom:80%;"><h3 id="7、输出形式："><a href="#7、输出形式：" class="headerlink" title="7、输出形式："></a>7、输出形式：</h3><p>先输出该文法的拓广文法，再输出该拓广文法的first集和follow集，再输出SLR0分析表，然后输出用户输入的待分析字符串的分析过程。</p><h2 id="四、变量和函数"><a href="#四、变量和函数" class="headerlink" title="四、变量和函数"></a>四、变量和函数</h2><h3 id="1、类和枚举："><a href="#1、类和枚举：" class="headerlink" title="1、类和枚举："></a>1、类和枚举：</h3><pre><code class="c">enum RS//动作的枚举{    shift,//移进    reduce,//规约    accept//接受};//假定非终结符仅为一个大写字母，终结符仅为一个小写字母和各种符号，且用~代替epsilonclass PF//Production formula,产生式的类{public:    char left;//产生式的左部    string right;//产生式的右部    PF(char l, string r)//构造函数    {        left = l;        right = r;    }};class ITEM//项目集{public:    ITEM();//默认构造函数    ITEM(int NO);//构造函数    int NO;//项目集编号    set&lt;pair&lt;int, int&gt;&gt; production;//项目，第一个int代表产生式编号，第二个int代表.的位置    set&lt;pair&lt;char, int&gt;&gt; go_to;//该项目集指向的项目集，第一个char代表箭头上的字符，第二个int代表指向的项目集编号    bool operator&lt;(const ITEM&amp; item)const;//重载&lt;操作符，以便使用set};class action//动作类{public:    action(RS rs,int num);//重写构造函数    string ret_action();//返回该动作    action();//初始    RS rs;//动作    int num;//移进到哪个状态，或者用哪个产生式规约};</code></pre><h3 id="2、全局变量"><a href="#2、全局变量" class="headerlink" title="2、全局变量"></a>2、全局变量</h3><pre><code class="c">vector&lt;PF&gt; PF_vector;//产生式map&lt;char, set&lt;char&gt; &gt; first;//first集map&lt;char, set&lt;char&gt; &gt; follow;//follow集set&lt;ITEM&gt; DFA;//DFA项目集规范簇vector&lt;map&lt;char, action&gt;&gt; predict_table_action;//SLR1分析表actionvector&lt;map&lt;char, int&gt;&gt; predict_table_goto;//SLR1分析表gotovector&lt;char&gt; A_1;//符号栈vector&lt;int&gt; A_2;//状态栈vector&lt;char&gt; B;//剩余串set&lt;char&gt; terminal;//所有的终结符+&#39;$&#39;set&lt;char&gt; non_terminal;//所有的非终结符int B_point = 0, input_len = 0;//B_point为输入串指针，input_len为输入串长度</code></pre><h3 id="3、函数"><a href="#3、函数" class="headerlink" title="3、函数"></a>3、函数</h3><pre><code class="c">ITEM::ITEM()//默认构造函数ITEM::ITEM(int NO)//构造函数bool ITEM::operator&lt;(const ITEM&amp; item)const//重载&lt;操作符，以便使用setaction::action(RS rs, int num) //构造函数action::action()//默认构造函数string action::ret_action()//返回该动作void first_construction()//构造并输出first集void add_follow(const char&amp; ch1, const char&amp; ch2)//将ch1的follow集加入到ch2的follow集中void follow_construction()//构造并输出follow集void DFA_construction()//构造DFAvoid predict_table_construction()//构造并输出SLR1预测分析表void print_A()//输出分析栈void print_B()//输出剩余串void analyse()//预测分析控制程序int main()</code></pre><p>PS：关于每个函数内部详细实现详见main.cpp中写好了详细的注释，我几乎对每一步操作的目的和函数的目的都写了详细的注释。</p><h2 id="五、测试样例："><a href="#五、测试样例：" class="headerlink" title="五、测试样例："></a>五、测试样例：</h2><table><thead><tr><th><img src="https://gitee.com/wxy_666/images/raw/master/20200902093741.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093741.png" srcset="data:image/png;base64,666" alt="1" style="zoom:80%;"></th><th><img src="https://gitee.com/wxy_666/images/raw/master/20200902093801.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093801.png" srcset="data:image/png;base64,666" alt="2" style="zoom:80%;"></th></tr></thead><tbody><tr><td><img src="https://gitee.com/wxy_666/images/raw/master/20200902093811.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093811.png" srcset="data:image/png;base64,666" alt="3" style="zoom:80%;"></td><td><img src="https://gitee.com/wxy_666/images/raw/master/20200902093822.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093822.png" srcset="data:image/png;base64,666" alt="4" style="zoom:80%;"></td></tr><tr><td><img src="https://gitee.com/wxy_666/images/raw/master/20200902093830.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093830.png" srcset="data:image/png;base64,666" alt="5" style="zoom:80%;"></td><td></td></tr></tbody></table><h2 id="六、项目地址"><a href="#六、项目地址" class="headerlink" title="六、项目地址"></a>六、项目地址</h2><p>本项目的源码、可执行程序均已经存放于我的Github，欢迎下载查看：</p><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/yufafenxi-LR" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=yufafenxi-LR&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=yufafenxi-LR&show_owner=true" srcset="data:image/png;base64,666"></a>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;本文是编译原理C语言LR语法分析器的简单实现项目。&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="C/C++" scheme="https://666wxy666.github.io/categories/C-C/"/>
-    
-      <category term="编译原理" scheme="https://666wxy666.github.io/categories/C-C/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
-    
-    
-      <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
-    
-      <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
-    
-      <category term="编译原理" scheme="https://666wxy666.github.io/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
-    
-      <category term="语法分析" scheme="https://666wxy666.github.io/tags/%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90/"/>
-    
-      <category term="LR" scheme="https://666wxy666.github.io/tags/LR/"/>
     
   </entry>
   
@@ -421,15 +388,48 @@
       <category term="编译原理" scheme="https://666wxy666.github.io/categories/C-C/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
     
     
-      <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
-    
       <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
+    
+      <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
     
       <category term="编译原理" scheme="https://666wxy666.github.io/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
     
       <category term="语法分析" scheme="https://666wxy666.github.io/tags/%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90/"/>
     
       <category term="LL1" scheme="https://666wxy666.github.io/tags/LL1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>编译原理 语法分析 LR</title>
+    <link href="https://666wxy666.github.io/2020/09/02/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90-LR/"/>
+    <id>https://666wxy666.github.io/2020/09/02/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90-LR/</id>
+    <published>2020-09-01T16:00:00.000Z</published>
+    <updated>2020-09-13T08:56:37.285Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>本文是编译原理C语言LR语法分析器的简单实现项目。</strong></p><a id="more"></a><h2 id="一、需求"><a href="#一、需求" class="headerlink" title="一、需求"></a>一、需求</h2><img src="https://gitee.com/wxy_666/images/raw/master/20200902092212.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902092212.png" srcset="data:image/png;base64,666" alt="1" style="zoom:80%;"><p><strong>拓展需求：</strong>除题目的基础要求外，还额外实现了对任意SLR1文法，自动生成拓广文法，且求该文法的first集和follow集，并且自动生成LR0项目集规范簇和识别该文法所有活前缀的DFA，然后根据该DFA自动生成SLR1分析表。</p><h2 id="二、运行环境"><a href="#二、运行环境" class="headerlink" title="二、运行环境"></a>二、运行环境</h2><p>电脑硬件配置：</p><ul><li><p>处理器：Intel i7 7700HQ</p></li><li><p>显卡：NVIDIA GeForce GTX 1050 Ti</p></li><li><p>内存：16GB</p></li></ul><p>软件：</p><ul><li><p>编程语言：C++</p></li><li><p>IDE：Microsoft Visual Studio 2019</p></li><li><p>Windows SDK版本：10.0</p></li><li><p>平台工具集：Visual Studio 2019（v142）</p></li></ul><h2 id="三、核心算法"><a href="#三、核心算法" class="headerlink" title="三、核心算法"></a>三、核心算法</h2><h3 id="1、整个程序的模型如图所示"><a href="#1、整个程序的模型如图所示" class="headerlink" title="1、整个程序的模型如图所示"></a>1、整个程序的模型如图所示</h3><h4 id="手动分析："><a href="#手动分析：" class="headerlink" title="手动分析："></a>手动分析：</h4><ol><li><p>首先对文法进行拓广，求first集和follow集，发现该文法是一个SLR1文法。</p></li><li><p>构造LR0项目集规范簇及识别该文法所有活前缀的DFA</p></li><li><p>构造识别该文法的SLR0分析表</p><table><thead><tr><th><img src="https://gitee.com/wxy_666/images/raw/master/20200902092905.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902092905.png" srcset="data:image/png;base64,666" alt="2" style="zoom: 67%;"></th><th><img src="https://gitee.com/wxy_666/images/raw/master/20200902093010.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093010.png" srcset="data:image/png;base64,666" alt="3"></th></tr></thead><tbody><tr><td><img src="https://gitee.com/wxy_666/images/raw/master/20200902093023.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093023.png" srcset="data:image/png;base64,666" alt="4"></td><td><img src="https://gitee.com/wxy_666/images/raw/master/20200902093052.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093052.png" srcset="data:image/png;base64,666" alt="5" style="zoom: 50%;"></td></tr></tbody></table></li></ol><ol start="4"><li><p>整个程序的模型如图所示</p><img src="https://gitee.com/wxy_666/images/raw/master/20200902093306.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093306.png" srcset="data:image/png;base64,666" alt="6" style="zoom:80%;"></li><li><p>预测分析控制程序算法</p><img src="https://gitee.com/wxy_666/images/raw/master/20200902093330.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093330.png" srcset="data:image/png;base64,666" alt="7" style="zoom:80%;"></li></ol><h3 id="6、输入形式："><a href="#6、输入形式：" class="headerlink" title="6、输入形式："></a>6、输入形式：</h3><p>文件输入，格式为：</p><p>产生式个数n</p><p>{</p><p>……</p><p>第i(1&lt;=i&lt;=n)个产生式（例如A-&gt;a，按照输入顺序分别从1到n编号，拓广产生式为0号，规定终结符和非终结符都是一个字符且非终结符都为大写字母）</p><p>……</p><p>}</p><p>要分析的字符串个数n</p><p>{</p><p>……</p><p>第i(1&lt;=i&lt;=n)个要分析的字符串（要求以$结尾）</p><p>……</p><p>}</p><img src="https://gitee.com/wxy_666/images/raw/master/20200902093444.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093444.png" srcset="data:image/png;base64,666" alt="8" style="zoom:80%;"><h3 id="7、输出形式："><a href="#7、输出形式：" class="headerlink" title="7、输出形式："></a>7、输出形式：</h3><p>先输出该文法的拓广文法，再输出该拓广文法的first集和follow集，再输出SLR0分析表，然后输出用户输入的待分析字符串的分析过程。</p><h2 id="四、变量和函数"><a href="#四、变量和函数" class="headerlink" title="四、变量和函数"></a>四、变量和函数</h2><h3 id="1、类和枚举："><a href="#1、类和枚举：" class="headerlink" title="1、类和枚举："></a>1、类和枚举：</h3><pre><code class="c">enum RS//动作的枚举{    shift,//移进    reduce,//规约    accept//接受};//假定非终结符仅为一个大写字母，终结符仅为一个小写字母和各种符号，且用~代替epsilonclass PF//Production formula,产生式的类{public:    char left;//产生式的左部    string right;//产生式的右部    PF(char l, string r)//构造函数    {        left = l;        right = r;    }};class ITEM//项目集{public:    ITEM();//默认构造函数    ITEM(int NO);//构造函数    int NO;//项目集编号    set&lt;pair&lt;int, int&gt;&gt; production;//项目，第一个int代表产生式编号，第二个int代表.的位置    set&lt;pair&lt;char, int&gt;&gt; go_to;//该项目集指向的项目集，第一个char代表箭头上的字符，第二个int代表指向的项目集编号    bool operator&lt;(const ITEM&amp; item)const;//重载&lt;操作符，以便使用set};class action//动作类{public:    action(RS rs,int num);//重写构造函数    string ret_action();//返回该动作    action();//初始    RS rs;//动作    int num;//移进到哪个状态，或者用哪个产生式规约};</code></pre><h3 id="2、全局变量"><a href="#2、全局变量" class="headerlink" title="2、全局变量"></a>2、全局变量</h3><pre><code class="c">vector&lt;PF&gt; PF_vector;//产生式map&lt;char, set&lt;char&gt; &gt; first;//first集map&lt;char, set&lt;char&gt; &gt; follow;//follow集set&lt;ITEM&gt; DFA;//DFA项目集规范簇vector&lt;map&lt;char, action&gt;&gt; predict_table_action;//SLR1分析表actionvector&lt;map&lt;char, int&gt;&gt; predict_table_goto;//SLR1分析表gotovector&lt;char&gt; A_1;//符号栈vector&lt;int&gt; A_2;//状态栈vector&lt;char&gt; B;//剩余串set&lt;char&gt; terminal;//所有的终结符+&#39;$&#39;set&lt;char&gt; non_terminal;//所有的非终结符int B_point = 0, input_len = 0;//B_point为输入串指针，input_len为输入串长度</code></pre><h3 id="3、函数"><a href="#3、函数" class="headerlink" title="3、函数"></a>3、函数</h3><pre><code class="c">ITEM::ITEM()//默认构造函数ITEM::ITEM(int NO)//构造函数bool ITEM::operator&lt;(const ITEM&amp; item)const//重载&lt;操作符，以便使用setaction::action(RS rs, int num) //构造函数action::action()//默认构造函数string action::ret_action()//返回该动作void first_construction()//构造并输出first集void add_follow(const char&amp; ch1, const char&amp; ch2)//将ch1的follow集加入到ch2的follow集中void follow_construction()//构造并输出follow集void DFA_construction()//构造DFAvoid predict_table_construction()//构造并输出SLR1预测分析表void print_A()//输出分析栈void print_B()//输出剩余串void analyse()//预测分析控制程序int main()</code></pre><p>PS：关于每个函数内部详细实现详见main.cpp中写好了详细的注释，我几乎对每一步操作的目的和函数的目的都写了详细的注释。</p><h2 id="五、测试样例："><a href="#五、测试样例：" class="headerlink" title="五、测试样例："></a>五、测试样例：</h2><table><thead><tr><th><img src="https://gitee.com/wxy_666/images/raw/master/20200902093741.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093741.png" srcset="data:image/png;base64,666" alt="1" style="zoom:80%;"></th><th><img src="https://gitee.com/wxy_666/images/raw/master/20200902093801.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093801.png" srcset="data:image/png;base64,666" alt="2" style="zoom:80%;"></th></tr></thead><tbody><tr><td><img src="https://gitee.com/wxy_666/images/raw/master/20200902093811.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093811.png" srcset="data:image/png;base64,666" alt="3" style="zoom:80%;"></td><td><img src="https://gitee.com/wxy_666/images/raw/master/20200902093822.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093822.png" srcset="data:image/png;base64,666" alt="4" style="zoom:80%;"></td></tr><tr><td><img src="https://gitee.com/wxy_666/images/raw/master/20200902093830.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902093830.png" srcset="data:image/png;base64,666" alt="5" style="zoom:80%;"></td><td></td></tr></tbody></table><h2 id="六、项目地址"><a href="#六、项目地址" class="headerlink" title="六、项目地址"></a>六、项目地址</h2><p>本项目的源码、可执行程序均已经存放于我的Github，欢迎下载查看：</p><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/yufafenxi-LR" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=yufafenxi-LR&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=yufafenxi-LR&show_owner=true" srcset="data:image/png;base64,666"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;本文是编译原理C语言LR语法分析器的简单实现项目。&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="C/C++" scheme="https://666wxy666.github.io/categories/C-C/"/>
+    
+      <category term="编译原理" scheme="https://666wxy666.github.io/categories/C-C/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
+    
+    
+      <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
+    
+      <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
+    
+      <category term="编译原理" scheme="https://666wxy666.github.io/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
+    
+      <category term="语法分析" scheme="https://666wxy666.github.io/tags/%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90/"/>
+    
+      <category term="LR" scheme="https://666wxy666.github.io/tags/LR/"/>
     
   </entry>
   
@@ -454,9 +454,9 @@
       <category term="编译原理" scheme="https://666wxy666.github.io/categories/C-C/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
     
     
-      <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
-    
       <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
+    
+      <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
     
       <category term="编译原理" scheme="https://666wxy666.github.io/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
     
@@ -555,13 +555,13 @@
     
       <category term="Spark" scheme="https://666wxy666.github.io/tags/Spark/"/>
     
-      <category term="流计算" scheme="https://666wxy666.github.io/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/"/>
-    
       <category term="单词计数" scheme="https://666wxy666.github.io/tags/%E5%8D%95%E8%AF%8D%E8%AE%A1%E6%95%B0/"/>
     
-      <category term="Streaming" scheme="https://666wxy666.github.io/tags/Streaming/"/>
-    
       <category term="Scala" scheme="https://666wxy666.github.io/tags/Scala/"/>
+    
+      <category term="流计算" scheme="https://666wxy666.github.io/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/"/>
+    
+      <category term="Streaming" scheme="https://666wxy666.github.io/tags/Streaming/"/>
     
       <category term="Kafka" scheme="https://666wxy666.github.io/tags/Kafka/"/>
     
@@ -594,11 +594,11 @@
     
       <category term="Spark" scheme="https://666wxy666.github.io/tags/Spark/"/>
     
+      <category term="Java" scheme="https://666wxy666.github.io/tags/Java/"/>
+    
       <category term="流计算" scheme="https://666wxy666.github.io/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/"/>
     
       <category term="Streaming" scheme="https://666wxy666.github.io/tags/Streaming/"/>
-    
-      <category term="Java" scheme="https://666wxy666.github.io/tags/Java/"/>
     
       <category term="日志分析" scheme="https://666wxy666.github.io/tags/%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/"/>
     
@@ -625,9 +625,9 @@
       <category term="拓展学习" scheme="https://666wxy666.github.io/categories/C-C/%E6%8B%93%E5%B1%95%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
-    
       <category term="C" scheme="https://666wxy666.github.io/tags/C/"/>
+    
+      <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
     
       <category term="难点" scheme="https://666wxy666.github.io/tags/%E9%9A%BE%E7%82%B9/"/>
     
@@ -658,9 +658,9 @@
       <category term="项目" scheme="https://666wxy666.github.io/categories/C-C/%E9%A1%B9%E7%9B%AE/"/>
     
     
-      <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
-    
       <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
+    
+      <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
     
       <category term="QT" scheme="https://666wxy666.github.io/tags/QT/"/>
     

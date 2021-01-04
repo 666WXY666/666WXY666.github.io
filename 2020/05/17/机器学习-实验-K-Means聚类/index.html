@@ -765,9 +765,7 @@
 <a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/kmeans" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=kmeans&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=kmeans&show_owner=true" srcset="data:image/png;base64,666"></a>
 
 <h2 id="七、附录"><a href="#七、附录" class="headerlink" title="七、附录"></a>七、附录</h2><p>kmeans.py：</p>
-<ol start="0">
-<li><p>基本配置、全局参数</p>
-<pre><code class="python">&quot;&quot;&quot;
+<h3 id="1、基本配置、全局参数"><a href="#1、基本配置、全局参数" class="headerlink" title="1、基本配置、全局参数"></a>1、基本配置、全局参数</h3><pre><code class="python">&quot;&quot;&quot;
 @Copyright: Copyright (c) 2020 苇名一心 All Rights Reserved.
 @Project: kmeans
 @Description: k-means算法
@@ -803,9 +801,7 @@ data_y = []  # 点的y坐标列表
 data_SSE_list = []  # 数据集损失目标函数列表
 train_SSE_list = []  # 训练集损失目标函数列表
 test_SSE_list = []  # 测试集损失目标函数列表</code></pre>
-</li>
-<li><p>读入数据</p>
-<pre><code class="python">########################################################
+<h3 id="2、读入数据"><a href="#2、读入数据" class="headerlink" title="2、读入数据"></a>2、读入数据</h3><pre><code class="python">########################################################
 # 读入数据
 ########################################################
 def read_data(path):
@@ -835,9 +831,7 @@ def read_data(path):
     if max_iteration &lt; 0:
         print(&quot;ERROR: 最大迭代次数输入错误！&quot;)
         sys.exit(1)</code></pre>
-</li>
-<li><p>算法计算</p>
-<pre><code class="python">########################################################
+<h3 id="3、算法计算"><a href="#3、算法计算" class="headerlink" title="3、算法计算"></a>3、算法计算</h3><pre><code class="python">########################################################
 # 算法
 ########################################################
 def algorithm(x, y, k):
@@ -918,9 +912,7 @@ def algorithm(x, y, k):
     print(&quot;===================================================&quot;)
 
     return SSE, point_k</code></pre>
-</li>
-<li><p>画图展示</p>
-<pre><code class="python">########################################################
+<h3 id="4、画图展示"><a href="#4、画图展示" class="headerlink" title="4、画图展示"></a>4、画图展示</h3><pre><code class="python">########################################################
 # 画图展示
 ########################################################
 # 根据每个点所在的簇，获取点的颜色，返回一个列表
@@ -943,32 +935,50 @@ def get_color_list(point_k, k):
         color_list.append(colors[c])
     return color_list
 
-</code></pre>
-</li>
-</ol>
-<h1 id="画散点图展示聚类结果（数据集，训练集、测试集）"><a href="#画散点图展示聚类结果（数据集，训练集、测试集）" class="headerlink" title="画散点图展示聚类结果（数据集，训练集、测试集）"></a>画散点图展示聚类结果（数据集，训练集、测试集）</h1><p>   def show(x, y, result, x1, y1, result1, x2, y2, result2, k):<br>       # 数据集图<br>       plt.subplot(131)<br>       # 设置标题<br>       plt.title(“K-Means数据集”)<br>       # 绘制散点图<br>       # note: scatter函数支持传入颜色列表，对每一个点使用列表相应下标对应的颜色<br>       plt.scatter(x, y, c=get_color_list(result, k))</p>
-<pre><code>   # 训练集图
-   plt.subplot(132)
-   # 设置标题
-   plt.title(&quot;K-Means训练集&quot;)
-   # 绘制散点图
-   plt.scatter(x1, y1, c=get_color_list(result1, k))
 
-   # 测试集图
-   plt.subplot(133)
-   # 设置标题
-   plt.title(&quot;K-Means测试集&quot;)
-   # 绘制散点图
-   plt.scatter(x2, y2, c=get_color_list(result2, k))
-   # 展示散点图
+# 画散点图展示聚类结果（数据集，训练集、测试集）
+def show(x, y, result, x1, y1, result1, x2, y2, result2, k):
+    # 数据集图
+    plt.subplot(131)
+    # 设置标题
+    plt.title(&quot;K-Means数据集&quot;)
+    # 绘制散点图
+    # note: scatter函数支持传入颜色列表，对每一个点使用列表相应下标对应的颜色
+    plt.scatter(x, y, c=get_color_list(result, k))
 
-   plt.show()</code></pre>
-<h1 id="画折线图展示SSE对比"><a href="#画折线图展示SSE对比" class="headerlink" title="画折线图展示SSE对比"></a>画折线图展示SSE对比</h1><p>   def show_SSE():<br>       # 设置标题<br>       plt.title(“K-Means在不同k下的损失”)<br>       # 设置x轴坐标<br>       plt.xlim(k_min - 1, k_max + 2)<br>       plt.xlabel(“k”)  # 设置x轴标注<br>       plt.ylabel(“SSE”)  # 设置y轴标注<br>       # 绘制K-Means在不同k下训练集和测试集的损失<br>       plt.plot(range(k_min, k_max + 1), data_SSE_list, lw=1, c=’blue’, marker=’v’, ms=4, label=’数据集’)<br>       plt.plot(range(k_min, k_max + 1), train_SSE_list, lw=1, c=’red’, marker=’s’, ms=4, label=’训练集’)<br>       plt.plot(range(k_min, k_max + 1), test_SSE_list, lw=1, c=’green’, marker=’o’, label=’测试集’)<br>       plt.legend()  # 图例<br>       plt.show()</p>
-<pre><code>
-4. 开始运行
+    # 训练集图
+    plt.subplot(132)
+    # 设置标题
+    plt.title(&quot;K-Means训练集&quot;)
+    # 绘制散点图
+    plt.scatter(x1, y1, c=get_color_list(result1, k))
 
-```python
-########################################################
+    # 测试集图
+    plt.subplot(133)
+    # 设置标题
+    plt.title(&quot;K-Means测试集&quot;)
+    # 绘制散点图
+    plt.scatter(x2, y2, c=get_color_list(result2, k))
+    # 展示散点图
+
+    plt.show()
+
+
+# 画折线图展示SSE对比
+def show_SSE():
+    # 设置标题
+    plt.title(&quot;K-Means在不同k下的损失&quot;)
+    # 设置x轴坐标
+    plt.xlim(k_min - 1, k_max + 2)
+    plt.xlabel(&quot;k&quot;)  # 设置x轴标注
+    plt.ylabel(&quot;SSE&quot;)  # 设置y轴标注
+    # 绘制K-Means在不同k下训练集和测试集的损失
+    plt.plot(range(k_min, k_max + 1), data_SSE_list, lw=1, c=&#39;blue&#39;, marker=&#39;v&#39;, ms=4, label=&#39;数据集&#39;)
+    plt.plot(range(k_min, k_max + 1), train_SSE_list, lw=1, c=&#39;red&#39;, marker=&#39;s&#39;, ms=4, label=&#39;训练集&#39;)
+    plt.plot(range(k_min, k_max + 1), test_SSE_list, lw=1, c=&#39;green&#39;, marker=&#39;o&#39;, label=&#39;测试集&#39;)
+    plt.legend()  # 图例
+    plt.show()</code></pre>
+<h3 id="5、开始运行"><a href="#5、开始运行" class="headerlink" title="5、开始运行"></a>5、开始运行</h3><pre><code class="python">########################################################
 # 开始运行
 ########################################################
 # 读入数据
@@ -1012,7 +1022,7 @@ show_SSE()</code></pre>
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
     </section>
     <section class="body">
-      <div class="vlts-rps"><a class="item" href="\2020\06\11\机器学习-实验-DNN-手写识别\" title="机器学习 实验 DNN 手写识别" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200601103924.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200601103924.png" srcset="data:image/png;base64,666"><span class="title">机器学习 实验 DNN 手写识别</span><span class="excerpt">本文是关于经典深度神经网络DNN的应用手写识别的思路样例。</span></a><a class="item" href="\2020\07\03\机器学习-实验-RNN-为baby起名字\" title="机器学习 实验 RNN 为baby起名字" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200605202820.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200605202820.png" srcset="data:image/png;base64,666"><span class="title">机器学习 实验 RNN 为baby起名字</span><span class="excerpt">本文是关于经典RNN的应用为baby起名字的代码实现。</span></a><a class="item" href="\2020\04\26\机器学习-实验-决策树\" title="机器学习 实验 决策树" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200524143530.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200524143530.jpg" srcset="data:image/png;base64,666"><span class="title">机器学习 实验 决策树</span><span class="excerpt">本文是关于20问读心游戏的决策树代码实现。</span></a><a class="item" href="\2020\08\10\机器学习-实验-花卉识别\" title="机器学习 实验 花卉识别" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200715111020.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200715111020.png" srcset="data:image/png;base64,666"><span class="title">机器学习 实验 花卉识别</span><span class="excerpt">本文是机器学习人工智能实验，利用华为云ModelArts平台实现花卉分类识别。</span></a><a class="item" href="\2020\10\09\交换原理-实验2-摘挂机检测实验\" title="交换原理 实验2 摘挂机检测实验" rel="bookmark "><img src="data:image/png;base64,666"><span class="title">交换原理 实验2 摘挂机检测实验</span><span class="excerpt">本文是关于交换原理实验二——摘挂机检测实验报告记录。</span></a></div></section></div>
+      <div class="vlts-rps"><a class="item" href="\2020\06\11\机器学习-实验-DNN-手写识别\" title="机器学习 实验 DNN 手写识别" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200601103924.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200601103924.png" srcset="data:image/png;base64,666"><span class="title">机器学习 实验 DNN 手写识别</span><span class="excerpt">本文是关于经典深度神经网络DNN的应用手写识别的思路样例。</span></a><a class="item" href="\2020\07\03\机器学习-实验-RNN-为baby起名字\" title="机器学习 实验 RNN 为baby起名字" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200605202820.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200605202820.png" srcset="data:image/png;base64,666"><span class="title">机器学习 实验 RNN 为baby起名字</span><span class="excerpt">本文是关于经典RNN的应用为baby起名字的代码实现。</span></a><a class="item" href="\2020\04\26\机器学习-实验-决策树\" title="机器学习 实验 决策树" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200524143530.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200524143530.jpg" srcset="data:image/png;base64,666"><span class="title">机器学习 实验 决策树</span><span class="excerpt">本文是关于20问读心游戏的决策树代码实现。</span></a><a class="item" href="\2020\08\10\机器学习-实验-花卉识别\" title="机器学习 实验 花卉识别" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200715111020.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200715111020.png" srcset="data:image/png;base64,666"><span class="title">机器学习 实验 花卉识别</span><span class="excerpt">本文是机器学习人工智能实验，利用华为云ModelArts平台实现花卉分类识别。</span></a><a class="item" href="\2020\10\09\交换原理-实验1-时间表调度实验\" title="交换原理 实验1 时间表调度实验" rel="bookmark "><img src="data:image/png;base64,666"><span class="title">交换原理 实验1 时间表调度实验</span><span class="excerpt">本文是关于交换原理实验一——时间表调度实验报告记录。</span></a></div></section></div>
       
       
         <div class="copyright">
@@ -1061,7 +1071,7 @@ show_SSE()</code></pre>
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-04T17:22:10+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-04T17:42:47+08:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2021年1月4日</p>
@@ -1238,7 +1248,7 @@ show_SSE()</code></pre>
 
 
     <div class="content">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、实验目标"><span class="toc-number">1.</span> <span class="toc-text">一、实验目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、实验环境"><span class="toc-number">2.</span> <span class="toc-text">二、实验环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、算法原理"><span class="toc-number">3.</span> <span class="toc-text">三、算法原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、算法流程图"><span class="toc-number">4.</span> <span class="toc-text">四、算法流程图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、实验结果及分析"><span class="toc-number">5.</span> <span class="toc-text">五、实验结果及分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、项目地址"><span class="toc-number">6.</span> <span class="toc-text">六、项目地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、附录"><span class="toc-number">7.</span> <span class="toc-text">七、附录</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、实验目标"><span class="toc-number">1.</span> <span class="toc-text">一、实验目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、实验环境"><span class="toc-number">2.</span> <span class="toc-text">二、实验环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、算法原理"><span class="toc-number">3.</span> <span class="toc-text">三、算法原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、算法流程图"><span class="toc-number">4.</span> <span class="toc-text">四、算法流程图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、实验结果及分析"><span class="toc-number">5.</span> <span class="toc-text">五、实验结果及分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、项目地址"><span class="toc-number">6.</span> <span class="toc-text">六、项目地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、附录"><span class="toc-number">7.</span> <span class="toc-text">七、附录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、基本配置、全局参数"><span class="toc-number">7.1.</span> <span class="toc-text">1、基本配置、全局参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、读入数据"><span class="toc-number">7.2.</span> <span class="toc-text">2、读入数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、算法计算"><span class="toc-number">7.3.</span> <span class="toc-text">3、算法计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、画图展示"><span class="toc-number">7.4.</span> <span class="toc-text">4、画图展示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、开始运行"><span class="toc-number">7.5.</span> <span class="toc-text">5、开始运行</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -1940,23 +1950,6 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
-   <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
-<script type="text/javascript">
-  function pjax_scrollrebeal() {
-    ScrollReveal().reveal('.l_main .reveal', {
-      distance: '32px',
-      duration: '800',
-      interval: '20',
-      scale: '1',
-      easing: 'ease-out'
-    });
-  }
-  $(function () {
-    pjax_scrollrebeal();
-  });
-</script>
-
-
 
 
   <script>
@@ -2528,6 +2521,23 @@ document.addEventListener("pjax:success", listennSidebarTOC);
 <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
 
 
+<!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <div class="loading-circle"><div id="loader-circle"></div></div>
+    <script>
+      window.ShowLoading = function() {
+        $(".loading-circle").css("display", "block");
+      };
+      window.HideLoading = function() {
+        $(".loading-circle").css("display", "none");
+      }
+    </script>
+  
+</div>
+
+
 <script>
     var pjax;
     document.addEventListener('DOMContentLoaded', function () {
@@ -2539,7 +2549,7 @@ document.addEventListener("pjax:success", listennSidebarTOC);
           "#pjax-container",
           "#pjax-header-nav-list"
         ],
-        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        cacheBust: true,   // url 地址追加时间戳，用以避免浏览器缓存
         timeout: 5000
       });
     });
@@ -2576,6 +2586,8 @@ document.addEventListener("pjax:success", listennSidebarTOC);
       $(document).unbind('scroll');
       $(document).unbind('click');
       $('body').unbind('click');
+	  
+      window.ShowLoading();
 	  
     });
 
@@ -2617,8 +2629,6 @@ document.addEventListener("pjax:success", listennSidebarTOC);
         });
         
         
-          pjax_scrollrebeal();
-        
         if (typeof IssuesAPI == "undefined") {
           loadIssuesJS();
         }
@@ -2637,25 +2647,29 @@ document.addEventListener("pjax:success", listennSidebarTOC);
         console.log(e);
       }
 	  
+      window.HideLoading();
+	  
     });
 
     document.addEventListener('pjax:error', function (e) {
+	  
+      window.HideLoading();
 	  
       window.location.href = e.triggerElement.href;
     });
 </script>
  
     </div>
+	<!--单击显示文字-->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/click_show_text.js"></script>
+	<!--鼠标点击烟花爆炸效果-->
+	<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
+	<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/fireworks.js"></script>
+	<!--Live2D看板娘-->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/live2d/autoload.js"></script>
+    <!--浏览器搞笑标题-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/FunnyTitle.js"></script>
   </body>
 </html>
-<!--单击显示文字-->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/click_show_text.js"></script>
-<!--鼠标点击烟花爆炸效果-->
-<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
-<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/fireworks.js"></script>
-<!--Live2D看板娘-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
-<script src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/live2d/autoload.js"></script>
-<!--浏览器搞笑标题-->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/FunnyTitle.js"></script>

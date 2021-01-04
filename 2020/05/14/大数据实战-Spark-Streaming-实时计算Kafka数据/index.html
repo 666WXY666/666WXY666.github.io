@@ -21,7 +21,7 @@
   
   <title>大数据实战 Spark Streaming 实时计算Kafka数据 - 苇名一心的博客</title>
   
-    <meta name="keywords" content="实战,大数据,Spark,流计算,单词计数,Streaming,Scala,Kafka">
+    <meta name="keywords" content="实战,大数据,Spark,单词计数,Scala,流计算,Streaming,Kafka">
   
 
   
@@ -1027,7 +1027,7 @@ object kafka_streaming {
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%AE%9E%E6%88%98/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>实战</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>大数据</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Spark/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Spark</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>流计算</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%8D%95%E8%AF%8D%E8%AE%A1%E6%95%B0/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>单词计数</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Streaming/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Streaming</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Scala/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Scala</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Kafka/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Kafka</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%AE%9E%E6%88%98/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>实战</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>大数据</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Spark/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Spark</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%8D%95%E8%AF%8D%E8%AE%A1%E6%95%B0/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>单词计数</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Scala/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Scala</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%B5%81%E8%AE%A1%E7%AE%97/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>流计算</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Streaming/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Streaming</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Kafka/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Kafka</p></a></div>
 
 
         
@@ -1848,23 +1848,6 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
-   <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
-<script type="text/javascript">
-  function pjax_scrollrebeal() {
-    ScrollReveal().reveal('.l_main .reveal', {
-      distance: '32px',
-      duration: '800',
-      interval: '20',
-      scale: '1',
-      easing: 'ease-out'
-    });
-  }
-  $(function () {
-    pjax_scrollrebeal();
-  });
-</script>
-
-
 
 
   <script>
@@ -2436,6 +2419,23 @@ document.addEventListener("pjax:success", listennSidebarTOC);
 <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
 
 
+<!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <div class="loading-circle"><div id="loader-circle"></div></div>
+    <script>
+      window.ShowLoading = function() {
+        $(".loading-circle").css("display", "block");
+      };
+      window.HideLoading = function() {
+        $(".loading-circle").css("display", "none");
+      }
+    </script>
+  
+</div>
+
+
 <script>
     var pjax;
     document.addEventListener('DOMContentLoaded', function () {
@@ -2447,7 +2447,7 @@ document.addEventListener("pjax:success", listennSidebarTOC);
           "#pjax-container",
           "#pjax-header-nav-list"
         ],
-        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        cacheBust: true,   // url 地址追加时间戳，用以避免浏览器缓存
         timeout: 5000
       });
     });
@@ -2484,6 +2484,8 @@ document.addEventListener("pjax:success", listennSidebarTOC);
       $(document).unbind('scroll');
       $(document).unbind('click');
       $('body').unbind('click');
+	  
+      window.ShowLoading();
 	  
     });
 
@@ -2525,8 +2527,6 @@ document.addEventListener("pjax:success", listennSidebarTOC);
         });
         
         
-          pjax_scrollrebeal();
-        
         if (typeof IssuesAPI == "undefined") {
           loadIssuesJS();
         }
@@ -2545,25 +2545,29 @@ document.addEventListener("pjax:success", listennSidebarTOC);
         console.log(e);
       }
 	  
+      window.HideLoading();
+	  
     });
 
     document.addEventListener('pjax:error', function (e) {
+	  
+      window.HideLoading();
 	  
       window.location.href = e.triggerElement.href;
     });
 </script>
  
     </div>
+	<!--单击显示文字-->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/click_show_text.js"></script>
+	<!--鼠标点击烟花爆炸效果-->
+	<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
+	<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/fireworks.js"></script>
+	<!--Live2D看板娘-->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/live2d/autoload.js"></script>
+    <!--浏览器搞笑标题-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/FunnyTitle.js"></script>
   </body>
 </html>
-<!--单击显示文字-->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/click_show_text.js"></script>
-<!--鼠标点击烟花爆炸效果-->
-<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
-<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/fireworks.js"></script>
-<!--Live2D看板娘-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
-<script src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/live2d/autoload.js"></script>
-<!--浏览器搞笑标题-->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/FunnyTitle.js"></script>

@@ -760,9 +760,7 @@ scrapy==2.0.1</code></pre>
 </ol>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200408201638.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408201638.png" srcset="data:image/png;base64,666" alt="scrapy" style="zoom: 33%;">
 
-<h3 id="②开始写代码"><a href="#②开始写代码" class="headerlink" title="②开始写代码"></a>②开始写代码</h3><ol>
-<li><p>先来写items.py。</p>
-<pre><code class="python">import scrapy
+<h3 id="②开始写代码"><a href="#②开始写代码" class="headerlink" title="②开始写代码"></a>②开始写代码</h3><h4 id="1、先来写items-py。"><a href="#1、先来写items-py。" class="headerlink" title="1、先来写items.py。"></a>1、先来写items.py。</h4><pre><code class="python">import scrapy
 
 class MyscrapyItem(scrapy.Item):
     # define the fields for your item here like:
@@ -770,12 +768,9 @@ class MyscrapyItem(scrapy.Item):
     school = scrapy.Field()
     num = scrapy.Field()
     pass</code></pre>
-</li>
-<li><p>再来搞settings.py，这个只需要找到这个注释掉的语句，把#去掉就OK了，就像这样：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200408210722.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408210722.jpg" srcset="data:image/png;base64,666" alt="2020-04-08_210710" style="zoom: 67%;">
-</li>
-<li><p>pipelines.py就很好写了，基本可以当模板来用。</p>
-<pre><code class="python">import json
+<h4 id="2、再来搞settings-py，这个只需要找到这个注释掉的语句，把-去掉就OK了，就像这样："><a href="#2、再来搞settings-py，这个只需要找到这个注释掉的语句，把-去掉就OK了，就像这样：" class="headerlink" title="2、再来搞settings.py，这个只需要找到这个注释掉的语句，把#去掉就OK了，就像这样："></a>2、再来搞settings.py，这个只需要找到这个注释掉的语句，把#去掉就OK了，就像这样：</h4><img src="https://gitee.com/wxy_666/images/raw/master/20200408210722.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408210722.jpg" srcset="data:image/png;base64,666" alt="2020-04-08_210710" style="zoom: 67%;">
+
+<h4 id="3、pipelines-py就很好写了，基本可以当模板来用。"><a href="#3、pipelines-py就很好写了，基本可以当模板来用。" class="headerlink" title="3、pipelines.py就很好写了，基本可以当模板来用。"></a>3、pipelines.py就很好写了，基本可以当模板来用。</h4><pre><code class="python">import json
 
 class MyscrapyPipeline(object):
     def open_spider(self, spider):
@@ -793,9 +788,7 @@ class MyscrapyPipeline(object):
 
     def close_spider(self, spider):
         self.file.close()</code></pre>
-</li>
-<li><p>spider.py是我们主要写的核心部分。这里需要一些html的xpath相关知识来对项进行定位，可以自行查找相关资料。</p>
-<pre><code class="python">&quot;&quot;&quot;
+<h4 id="4、spider-py是我们主要写的核心部分。这里需要一些html的xpath相关知识来对项进行定位，可以自行查找相关资料。"><a href="#4、spider-py是我们主要写的核心部分。这里需要一些html的xpath相关知识来对项进行定位，可以自行查找相关资料。" class="headerlink" title="4、spider.py是我们主要写的核心部分。这里需要一些html的xpath相关知识来对项进行定位，可以自行查找相关资料。"></a>4、spider.py是我们主要写的核心部分。这里需要一些html的xpath相关知识来对项进行定位，可以自行查找相关资料。</h4><pre><code class="python">&quot;&quot;&quot;
 @Copyright: Copyright (c) 2020 苇名一心 All Rights Reserved.
 @Project: xuetangzaixian
 @Description: 
@@ -837,31 +830,21 @@ class mySpider(scrapy.spiders.Spider):
             # 判断爬取的项目是否为空，把非空的项目提交
             if item[&#39;school&#39;] and item[&#39;num&#39;]:
                 yield (item)</code></pre>
-</li>
-</ol>
-<h3 id="③可以开始运行啦"><a href="#③可以开始运行啦" class="headerlink" title="③可以开始运行啦"></a>③可以开始运行啦</h3><ol>
-<li><p>在运行前要先在项目根目录下建立一个begin.py文件来控制scrapy爬虫的运行。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200408212615.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408212615.jpg" srcset="data:image/png;base64,666" alt="2020-04-08_212604" style="zoom: 80%;">
+<h3 id="③可以开始运行啦"><a href="#③可以开始运行啦" class="headerlink" title="③可以开始运行啦"></a>③可以开始运行啦</h3><h4 id="1、在运行前要先在项目根目录下建立一个begin-py文件来控制scrapy爬虫的运行。"><a href="#1、在运行前要先在项目根目录下建立一个begin-py文件来控制scrapy爬虫的运行。" class="headerlink" title="1、在运行前要先在项目根目录下建立一个begin.py文件来控制scrapy爬虫的运行。"></a>1、在运行前要先在项目根目录下建立一个begin.py文件来控制scrapy爬虫的运行。</h4><img src="https://gitee.com/wxy_666/images/raw/master/20200408212615.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408212615.jpg" srcset="data:image/png;base64,666" alt="2020-04-08_212604" style="zoom: 80%;">
 
 <pre><code class="python">from scrapy import cmdline
 # &quot;xuetang&quot;是我们上面spider.py中定义的爬虫名
 cmdline.execute(&quot;scrapy crawl xuetang&quot;.split())</code></pre>
-</li>
-<li><p>最终的项目结构（__init__.py没啥用，删了）：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200408212844.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408212844.jpg" srcset="data:image/png;base64,666" alt="2020-04-08_212834" style="zoom:67%;">
-</li>
-<li><p>运行begin.py就可以开始爬虫了。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200408212955.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408212955.jpg" srcset="data:image/png;base64,666" alt="2020-04-08_212946" style="zoom:67%;">
+<h4 id="2、最终的项目结构（-init-py没啥用，删了）："><a href="#2、最终的项目结构（-init-py没啥用，删了）：" class="headerlink" title="2、最终的项目结构（__init__.py没啥用，删了）："></a>2、最终的项目结构（__init__.py没啥用，删了）：</h4><img src="https://gitee.com/wxy_666/images/raw/master/20200408212844.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408212844.jpg" srcset="data:image/png;base64,666" alt="2020-04-08_212834" style="zoom:67%;">
+
+<h4 id="3、运行begin-py就可以开始爬虫了。"><a href="#3、运行begin-py就可以开始爬虫了。" class="headerlink" title="3、运行begin.py就可以开始爬虫了。"></a>3、运行begin.py就可以开始爬虫了。</h4><img src="https://gitee.com/wxy_666/images/raw/master/20200408212955.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408212955.jpg" srcset="data:image/png;base64,666" alt="2020-04-08_212946" style="zoom:67%;">
 
 <p>出现这些提示就表示成功了，运行完毕后会发现项目根目录出现了我们在pipelines.py中设置好的MyData.json。</p>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200408222346.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408222346.jpg" srcset="data:image/png;base64,666" alt="2020-04-08_222333" style="zoom:67%;">
-</li>
-<li><p>打开MyData.json看一下，Perfect！</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200408222427.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408222427.jpg" srcset="data:image/png;base64,666" alt="2020-04-08_222417" style="zoom:67%;">
+
+<h4 id="4、打开MyData-json看一下，Perfect！"><a href="#4、打开MyData-json看一下，Perfect！" class="headerlink" title="4、打开MyData.json看一下，Perfect！"></a>4、打开MyData.json看一下，Perfect！</h4><img src="https://gitee.com/wxy_666/images/raw/master/20200408222427.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408222427.jpg" srcset="data:image/png;base64,666" alt="2020-04-08_222417" style="zoom:67%;">
 
 <p>有了这个json文件，我们就可以利用Python的pandas、numpy等工具进行各种处理，然后用matplotlib等模块进行画图了。</p>
-</li>
-</ol>
 <h2 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h2><p>本文只是对Python的scrapy爬虫进行了简单的介绍和用一个小Demo讲述了如何使用scrapy爬取网页数据，希望对你有所帮助。</p>
 <h2 id="四、项目地址"><a href="#四、项目地址" class="headerlink" title="四、项目地址"></a>四、项目地址</h2><p>本项目的源码、可执行程序均已经存放于我的Github，欢迎下载查看：</p>
 <a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/xuetangzaixian" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=xuetangzaixian&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=xuetangzaixian&show_owner=true" srcset="data:image/png;base64,666"></a>
@@ -926,7 +909,7 @@ cmdline.execute(&quot;scrapy crawl xuetang&quot;.split())</code></pre>
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-04T17:03:59+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-04T17:49:25+08:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2021年1月4日</p>
@@ -1055,7 +1038,7 @@ cmdline.execute(&quot;scrapy crawl xuetang&quot;.split())</code></pre>
 
 
     <div class="content">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、编译环境："><span class="toc-number">1.</span> <span class="toc-text">一、编译环境：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、详细步骤"><span class="toc-number">2.</span> <span class="toc-text">二、详细步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#①准备工作"><span class="toc-number">2.1.</span> <span class="toc-text">①准备工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#②开始写代码"><span class="toc-number">2.2.</span> <span class="toc-text">②开始写代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#③可以开始运行啦"><span class="toc-number">2.3.</span> <span class="toc-text">③可以开始运行啦</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、总结"><span class="toc-number">3.</span> <span class="toc-text">三、总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、项目地址"><span class="toc-number">4.</span> <span class="toc-text">四、项目地址</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、编译环境："><span class="toc-number">1.</span> <span class="toc-text">一、编译环境：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、详细步骤"><span class="toc-number">2.</span> <span class="toc-text">二、详细步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#①准备工作"><span class="toc-number">2.1.</span> <span class="toc-text">①准备工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#②开始写代码"><span class="toc-number">2.2.</span> <span class="toc-text">②开始写代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、先来写items-py。"><span class="toc-number">2.2.1.</span> <span class="toc-text">1、先来写items.py。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、再来搞settings-py，这个只需要找到这个注释掉的语句，把-去掉就OK了，就像这样："><span class="toc-number">2.2.2.</span> <span class="toc-text">2、再来搞settings.py，这个只需要找到这个注释掉的语句，把#去掉就OK了，就像这样：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、pipelines-py就很好写了，基本可以当模板来用。"><span class="toc-number">2.2.3.</span> <span class="toc-text">3、pipelines.py就很好写了，基本可以当模板来用。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、spider-py是我们主要写的核心部分。这里需要一些html的xpath相关知识来对项进行定位，可以自行查找相关资料。"><span class="toc-number">2.2.4.</span> <span class="toc-text">4、spider.py是我们主要写的核心部分。这里需要一些html的xpath相关知识来对项进行定位，可以自行查找相关资料。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#③可以开始运行啦"><span class="toc-number">2.3.</span> <span class="toc-text">③可以开始运行啦</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、在运行前要先在项目根目录下建立一个begin-py文件来控制scrapy爬虫的运行。"><span class="toc-number">2.3.1.</span> <span class="toc-text">1、在运行前要先在项目根目录下建立一个begin.py文件来控制scrapy爬虫的运行。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、最终的项目结构（-init-py没啥用，删了）："><span class="toc-number">2.3.2.</span> <span class="toc-text">2、最终的项目结构（__init__.py没啥用，删了）：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、运行begin-py就可以开始爬虫了。"><span class="toc-number">2.3.3.</span> <span class="toc-text">3、运行begin.py就可以开始爬虫了。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、打开MyData-json看一下，Perfect！"><span class="toc-number">2.3.4.</span> <span class="toc-text">4、打开MyData.json看一下，Perfect！</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、总结"><span class="toc-number">3.</span> <span class="toc-text">三、总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、项目地址"><span class="toc-number">4.</span> <span class="toc-text">四、项目地址</span></a></li></ol>
     </div>
   </section>
 
@@ -1757,23 +1740,6 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
-   <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
-<script type="text/javascript">
-  function pjax_scrollrebeal() {
-    ScrollReveal().reveal('.l_main .reveal', {
-      distance: '32px',
-      duration: '800',
-      interval: '20',
-      scale: '1',
-      easing: 'ease-out'
-    });
-  }
-  $(function () {
-    pjax_scrollrebeal();
-  });
-</script>
-
-
 
 
   <script>
@@ -2345,6 +2311,23 @@ document.addEventListener("pjax:success", listennSidebarTOC);
 <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
 
 
+<!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <div class="loading-circle"><div id="loader-circle"></div></div>
+    <script>
+      window.ShowLoading = function() {
+        $(".loading-circle").css("display", "block");
+      };
+      window.HideLoading = function() {
+        $(".loading-circle").css("display", "none");
+      }
+    </script>
+  
+</div>
+
+
 <script>
     var pjax;
     document.addEventListener('DOMContentLoaded', function () {
@@ -2356,7 +2339,7 @@ document.addEventListener("pjax:success", listennSidebarTOC);
           "#pjax-container",
           "#pjax-header-nav-list"
         ],
-        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        cacheBust: true,   // url 地址追加时间戳，用以避免浏览器缓存
         timeout: 5000
       });
     });
@@ -2393,6 +2376,8 @@ document.addEventListener("pjax:success", listennSidebarTOC);
       $(document).unbind('scroll');
       $(document).unbind('click');
       $('body').unbind('click');
+	  
+      window.ShowLoading();
 	  
     });
 
@@ -2434,8 +2419,6 @@ document.addEventListener("pjax:success", listennSidebarTOC);
         });
         
         
-          pjax_scrollrebeal();
-        
         if (typeof IssuesAPI == "undefined") {
           loadIssuesJS();
         }
@@ -2454,25 +2437,29 @@ document.addEventListener("pjax:success", listennSidebarTOC);
         console.log(e);
       }
 	  
+      window.HideLoading();
+	  
     });
 
     document.addEventListener('pjax:error', function (e) {
+	  
+      window.HideLoading();
 	  
       window.location.href = e.triggerElement.href;
     });
 </script>
  
     </div>
+	<!--单击显示文字-->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/click_show_text.js"></script>
+	<!--鼠标点击烟花爆炸效果-->
+	<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
+	<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/fireworks.js"></script>
+	<!--Live2D看板娘-->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/live2d/autoload.js"></script>
+    <!--浏览器搞笑标题-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/FunnyTitle.js"></script>
   </body>
 </html>
-<!--单击显示文字-->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/click_show_text.js"></script>
-<!--鼠标点击烟花爆炸效果-->
-<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
-<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/fireworks.js"></script>
-<!--Live2D看板娘-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
-<script src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/live2d/autoload.js"></script>
-<!--浏览器搞笑标题-->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/FunnyTitle.js"></script>
