@@ -8,6 +8,13 @@
     </url>
 
     <url>
+        <loc>https://666wxy666.github.io/categories/%25E5%2585%25B6%25E4%25BB%2596/</loc>
+        <lastmod>2021-01-04T12:46:59.405Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://666wxy666.github.io/categories/Python/%25E7%2588%25AC%25E8%2599%25AB/</loc>
         <lastmod>2021-01-04T09:49:25.511Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -199,13 +206,6 @@
     <url>
         <loc>https://666wxy666.github.io/categories/Linux/%25E4%25B9%25A0%25E9%25A2%2598/</loc>
         <lastmod>2020-09-02T01:58:23.943Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://666wxy666.github.io/categories/%25E5%2585%25B6%25E4%25BB%2596/</loc>
-        <lastmod>2020-09-02T01:54:58.521Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

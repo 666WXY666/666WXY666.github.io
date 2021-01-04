@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://666wxy666.github.io/"/>
-  <updated>2020-10-09T08:04:57.622Z</updated>
+  <updated>2021-01-04T12:46:59.405Z</updated>
   <id>https://666wxy666.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>将博客搬至CSDN</title>
+    <link href="https://666wxy666.github.io/2021/01/04/%E5%B0%86%E5%8D%9A%E5%AE%A2%E6%90%AC%E8%87%B3CSDN/"/>
+    <id>https://666wxy666.github.io/2021/01/04/%E5%B0%86%E5%8D%9A%E5%AE%A2%E6%90%AC%E8%87%B3CSDN/</id>
+    <published>2021-01-03T16:00:00.000Z</published>
+    <updated>2021-01-04T12:46:59.405Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>本文是CSDN搬家证明。</strong></p><a id="more"></a><p><strong><p class="p center large">HELLO CSDN</p></strong></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;本文是CSDN搬家证明。&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="其他" scheme="https://666wxy666.github.io/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+      <category term="CSDN" scheme="https://666wxy666.github.io/tags/CSDN/"/>
+    
+  </entry>
   
   <entry>
     <title>交换原理 实验1 时间表调度实验</title>
@@ -28,33 +51,6 @@
     <summary type="html">
     
       &lt;p&gt;本文是关于交换原理实验一——时间表调度实验报告记录。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="交换原理" scheme="https://666wxy666.github.io/categories/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/"/>
-    
-      <category term="实验" scheme="https://666wxy666.github.io/categories/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/%E5%AE%9E%E9%AA%8C/"/>
-    
-    
-      <category term="实验" scheme="https://666wxy666.github.io/tags/%E5%AE%9E%E9%AA%8C/"/>
-    
-      <category term="交换原理" scheme="https://666wxy666.github.io/tags/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>交换原理 实验2 摘挂机检测实验</title>
-    <link href="https://666wxy666.github.io/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C2-%E6%91%98%E6%8C%82%E6%9C%BA%E6%A3%80%E6%B5%8B%E5%AE%9E%E9%AA%8C/"/>
-    <id>https://666wxy666.github.io/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C2-%E6%91%98%E6%8C%82%E6%9C%BA%E6%A3%80%E6%B5%8B%E5%AE%9E%E9%AA%8C/</id>
-    <published>2020-10-08T16:00:00.000Z</published>
-    <updated>2020-10-09T08:05:07.116Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文是关于交换原理实验二——摘挂机检测实验报告记录。</p><a id="more"></a><h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><p>摘挂机检测实验用来考查学生对摘挂机检测原理的掌握情况。</p><h2 id="二、实验内容和实验步骤"><a href="#二、实验内容和实验步骤" class="headerlink" title="二、实验内容和实验步骤"></a>二、实验内容和实验步骤</h2><h3 id="1、实验原理及设计"><a href="#1、实验原理及设计" class="headerlink" title="1、实验原理及设计"></a>1、实验原理及设计</h3><p>设用户在挂机状态时扫描输出为“0”，用户在摘机状态时扫描输出为“1”，摘挂机扫描程序的执行周期为200ms，那么摘机识别，就是在200ms的周期性扫描中找到从“0”到“1”的变化点，挂机识别就是在200ms的周期性扫描中找到从“1”到“0”的变化点。</p><p>在我们的实验中，我们把前200ms的线路状态保存以备这次可以读取，同时读出这次的线路状态，把前200ms的线路状态取反与这次的线路状态相与，如果为1，就说明检测到摘机消息了。同理，我们把这次的线路状态取反再与前200ms的线路状态相与，如果为1就说明检测到挂机消息了，然后把摘挂机信号作为事件放入摘挂机队列中。</p><h3 id="2、实验主要数据结构"><a href="#2、实验主要数据结构" class="headerlink" title="2、实验主要数据结构"></a>2、实验主要数据结构</h3><p>函数功能为：检测到摘、挂机事件，并把该事件放入到摘挂机事件队列中。</p><p>函数原型：</p><pre><code class="c">void scanfor200(int linestate200[LINEMAX],int  linestate[LINEMAX],UpOnnode * head1, UpOnnode*  end1);</code></pre><p>其中LINEMAX为线路总数，是定义在”bconstant.h”中的一个宏,linestate200[LINEMAX]为已保存的200ms前线路状态，linestate[LINEMAX]为当前的线路状态，head1,end1为摘挂机队列的首尾指针，该队列已经在主程序中进行了初始化。我们所要做的就是把检测到的摘挂机事件以摘挂机队列节点的形式插入到摘挂机事件队列中。</p><p>数据结构说明： </p><pre><code class="c">&quot;bconstant.h&quot;    //以下的数据结构都已在该文件中定义 LINEMAX    //最大线路数； int  linestate200[LINEMAX],linestate[LINEMAX]    //线路从0开始编号；状态：1：有电流，0无电流； enum UporOn {ehandup,ehandon}    //为摘挂机区别符：ehandup表示摘机，ehandon表示挂机； struct  UpOnnode      //摘挂机队列节点结构 {    UporOn  phonestate;        //摘挂机区别符；    int  linenum;               //线路号（从0开始）；    struct UpOnnode* next;      //指向下一节点的指针；};</code></pre><p>注意事项：</p><ol><li><p>我们编写的模块是基础实验部分预加载的本局交换系统的一个模块而已，在系统中head1头指针和end1尾指针已经完成初始化。为方便起见，我们的摘挂机事件队列是一个包含头节点的单向链表，并且头指针指向该头节点，尾指针在初始化时也指向了该节点。所以在我们的函数编写中应保证头指针始终指向该头节点上、尾指针指向摘挂机事件队列的最末一个节点。</p></li><li><p>注意把这次扫描的线路状态值保存在前200ms扫描线路状态数组中,以便主程周期调用。</p></li></ol><h3 id="3、实验效果检验"><a href="#3、实验效果检验" class="headerlink" title="3、实验效果检验"></a>3、实验效果检验</h3><p>当调度表初始化正确时，能够进行正常的通话；如果初始化不正确，可能会造成周期性程序的不正常调用，例如位间隔调度的延迟会造成识别位间隔的延误甚至丢失。</p><h3 id="4、实验步骤"><a href="#4、实验步骤" class="headerlink" title="4、实验步骤"></a>4、实验步骤</h3><ol><li>熟悉实验平台和测试环境；</li><li>编写C程序实现所要求的功能；</li><li>运行测试程序；</li><li>完成实验报告。</li></ol><h2 id="三、源代码"><a href="#三、源代码" class="headerlink" title="三、源代码"></a>三、源代码</h2><pre><code class="c">#include &quot;bconstant.h&quot;extern &quot;C&quot; _declspec(dllexport) void scanfor200(int linestate200[LINEMAX], int linestate[LINEMAX], UpOnnode *head1, UpOnnode *end1){    int i;    for (i = 0; i &lt;= LINEMAX; i++)    {        struct UpOnnode *newNode = new struct UpOnnode;        if (!linestate200[i] &amp;&amp; linestate[i])        {            newNode-&gt;phonestate = ehandup;        }        if (!linestate[i] &amp;&amp; linestate200[i])        {            newNode-&gt;phonestate = ehandon;        }        newNode-&gt;linenum = i;        newNode-&gt;next = 0;        end1-&gt;next = newNode;        end1 = newNode;        linestate200[i] = linestate[i];    }    return;}// 此函数不需修改extern &quot;C&quot; _declspec(dllexport) void freenode(UpOnnode *node){    delete node;}</code></pre><h2 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h2><p>运行程序后，能正确检测摘挂机动作并且能进行通话，与预期结果相符，成功。</p><h2 id="五、实验心得"><a href="#五、实验心得" class="headerlink" title="五、实验心得"></a>五、实验心得</h2><p>这次实验也比较简单，主要用来考察对摘挂机检测的原理的掌握情况。在实验中遇到的比较困难的就是新节点添加到链表中指针如何分配，因为大一学过的知识时间比较久了，记得不是很清晰，于是就先复习了链表相关的知识，最终也成功实现了要求的功能。通过这次实验， 我加深了对摘挂机检测原理的掌握（检测到摘挂机事件，都将该事件添加到队列中），深入了解了摘挂机的详细过程，增强了对实验平台的熟悉和对软件的了解，收获很大。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文是关于交换原理实验二——摘挂机检测实验报告记录。&lt;/p&gt;
     
     </summary>
     
@@ -96,6 +92,33 @@
       <category term="交换原理" scheme="https://666wxy666.github.io/tags/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/"/>
     
       <category term="MPLS" scheme="https://666wxy666.github.io/tags/MPLS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>交换原理 实验2 摘挂机检测实验</title>
+    <link href="https://666wxy666.github.io/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C2-%E6%91%98%E6%8C%82%E6%9C%BA%E6%A3%80%E6%B5%8B%E5%AE%9E%E9%AA%8C/"/>
+    <id>https://666wxy666.github.io/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C2-%E6%91%98%E6%8C%82%E6%9C%BA%E6%A3%80%E6%B5%8B%E5%AE%9E%E9%AA%8C/</id>
+    <published>2020-10-08T16:00:00.000Z</published>
+    <updated>2020-10-09T08:05:07.116Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文是关于交换原理实验二——摘挂机检测实验报告记录。</p><a id="more"></a><h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><p>摘挂机检测实验用来考查学生对摘挂机检测原理的掌握情况。</p><h2 id="二、实验内容和实验步骤"><a href="#二、实验内容和实验步骤" class="headerlink" title="二、实验内容和实验步骤"></a>二、实验内容和实验步骤</h2><h3 id="1、实验原理及设计"><a href="#1、实验原理及设计" class="headerlink" title="1、实验原理及设计"></a>1、实验原理及设计</h3><p>设用户在挂机状态时扫描输出为“0”，用户在摘机状态时扫描输出为“1”，摘挂机扫描程序的执行周期为200ms，那么摘机识别，就是在200ms的周期性扫描中找到从“0”到“1”的变化点，挂机识别就是在200ms的周期性扫描中找到从“1”到“0”的变化点。</p><p>在我们的实验中，我们把前200ms的线路状态保存以备这次可以读取，同时读出这次的线路状态，把前200ms的线路状态取反与这次的线路状态相与，如果为1，就说明检测到摘机消息了。同理，我们把这次的线路状态取反再与前200ms的线路状态相与，如果为1就说明检测到挂机消息了，然后把摘挂机信号作为事件放入摘挂机队列中。</p><h3 id="2、实验主要数据结构"><a href="#2、实验主要数据结构" class="headerlink" title="2、实验主要数据结构"></a>2、实验主要数据结构</h3><p>函数功能为：检测到摘、挂机事件，并把该事件放入到摘挂机事件队列中。</p><p>函数原型：</p><pre><code class="c">void scanfor200(int linestate200[LINEMAX],int  linestate[LINEMAX],UpOnnode * head1, UpOnnode*  end1);</code></pre><p>其中LINEMAX为线路总数，是定义在”bconstant.h”中的一个宏,linestate200[LINEMAX]为已保存的200ms前线路状态，linestate[LINEMAX]为当前的线路状态，head1,end1为摘挂机队列的首尾指针，该队列已经在主程序中进行了初始化。我们所要做的就是把检测到的摘挂机事件以摘挂机队列节点的形式插入到摘挂机事件队列中。</p><p>数据结构说明： </p><pre><code class="c">&quot;bconstant.h&quot;    //以下的数据结构都已在该文件中定义 LINEMAX    //最大线路数； int  linestate200[LINEMAX],linestate[LINEMAX]    //线路从0开始编号；状态：1：有电流，0无电流； enum UporOn {ehandup,ehandon}    //为摘挂机区别符：ehandup表示摘机，ehandon表示挂机； struct  UpOnnode      //摘挂机队列节点结构 {    UporOn  phonestate;        //摘挂机区别符；    int  linenum;               //线路号（从0开始）；    struct UpOnnode* next;      //指向下一节点的指针；};</code></pre><p>注意事项：</p><ol><li><p>我们编写的模块是基础实验部分预加载的本局交换系统的一个模块而已，在系统中head1头指针和end1尾指针已经完成初始化。为方便起见，我们的摘挂机事件队列是一个包含头节点的单向链表，并且头指针指向该头节点，尾指针在初始化时也指向了该节点。所以在我们的函数编写中应保证头指针始终指向该头节点上、尾指针指向摘挂机事件队列的最末一个节点。</p></li><li><p>注意把这次扫描的线路状态值保存在前200ms扫描线路状态数组中,以便主程周期调用。</p></li></ol><h3 id="3、实验效果检验"><a href="#3、实验效果检验" class="headerlink" title="3、实验效果检验"></a>3、实验效果检验</h3><p>当调度表初始化正确时，能够进行正常的通话；如果初始化不正确，可能会造成周期性程序的不正常调用，例如位间隔调度的延迟会造成识别位间隔的延误甚至丢失。</p><h3 id="4、实验步骤"><a href="#4、实验步骤" class="headerlink" title="4、实验步骤"></a>4、实验步骤</h3><ol><li>熟悉实验平台和测试环境；</li><li>编写C程序实现所要求的功能；</li><li>运行测试程序；</li><li>完成实验报告。</li></ol><h2 id="三、源代码"><a href="#三、源代码" class="headerlink" title="三、源代码"></a>三、源代码</h2><pre><code class="c">#include &quot;bconstant.h&quot;extern &quot;C&quot; _declspec(dllexport) void scanfor200(int linestate200[LINEMAX], int linestate[LINEMAX], UpOnnode *head1, UpOnnode *end1){    int i;    for (i = 0; i &lt;= LINEMAX; i++)    {        struct UpOnnode *newNode = new struct UpOnnode;        if (!linestate200[i] &amp;&amp; linestate[i])        {            newNode-&gt;phonestate = ehandup;        }        if (!linestate[i] &amp;&amp; linestate200[i])        {            newNode-&gt;phonestate = ehandon;        }        newNode-&gt;linenum = i;        newNode-&gt;next = 0;        end1-&gt;next = newNode;        end1 = newNode;        linestate200[i] = linestate[i];    }    return;}// 此函数不需修改extern &quot;C&quot; _declspec(dllexport) void freenode(UpOnnode *node){    delete node;}</code></pre><h2 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h2><p>运行程序后，能正确检测摘挂机动作并且能进行通话，与预期结果相符，成功。</p><h2 id="五、实验心得"><a href="#五、实验心得" class="headerlink" title="五、实验心得"></a>五、实验心得</h2><p>这次实验也比较简单，主要用来考察对摘挂机检测的原理的掌握情况。在实验中遇到的比较困难的就是新节点添加到链表中指针如何分配，因为大一学过的知识时间比较久了，记得不是很清晰，于是就先复习了链表相关的知识，最终也成功实现了要求的功能。通过这次实验， 我加深了对摘挂机检测原理的掌握（检测到摘挂机事件，都将该事件添加到队列中），深入了解了摘挂机的详细过程，增强了对实验平台的熟悉和对软件的了解，收获很大。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文是关于交换原理实验二——摘挂机检测实验报告记录。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="交换原理" scheme="https://666wxy666.github.io/categories/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/"/>
+    
+      <category term="实验" scheme="https://666wxy666.github.io/categories/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/%E5%AE%9E%E9%AA%8C/"/>
+    
+    
+      <category term="实验" scheme="https://666wxy666.github.io/tags/%E5%AE%9E%E9%AA%8C/"/>
+    
+      <category term="交换原理" scheme="https://666wxy666.github.io/tags/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
@@ -149,9 +172,9 @@
       <category term="项目" scheme="https://666wxy666.github.io/categories/C-C/%E9%A1%B9%E7%9B%AE/"/>
     
     
-      <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
-    
       <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
+    
+      <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
     
       <category term="JobShop" scheme="https://666wxy666.github.io/tags/JobShop/"/>
     
@@ -213,13 +236,13 @@
       <category term="实验" scheme="https://666wxy666.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%AE%9E%E9%AA%8C/"/>
     
     
-      <category term="C" scheme="https://666wxy666.github.io/tags/C/"/>
+      <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
     
       <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
     
-      <category term="项目" scheme="https://666wxy666.github.io/tags/%E9%A1%B9%E7%9B%AE/"/>
+      <category term="C" scheme="https://666wxy666.github.io/tags/C/"/>
     
-      <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
+      <category term="项目" scheme="https://666wxy666.github.io/tags/%E9%A1%B9%E7%9B%AE/"/>
     
       <category term="计算机网络" scheme="https://666wxy666.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
@@ -246,11 +269,11 @@
       <category term="杂项" scheme="https://666wxy666.github.io/categories/%E6%9D%82%E9%A1%B9/"/>
     
     
+      <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
+    
       <category term="C" scheme="https://666wxy666.github.io/tags/C/"/>
     
       <category term="Linux" scheme="https://666wxy666.github.io/tags/Linux/"/>
-    
-      <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
     
       <category term="项目" scheme="https://666wxy666.github.io/tags/%E9%A1%B9%E7%9B%AE/"/>
     
@@ -279,9 +302,9 @@
       <category term="操作系统" scheme="https://666wxy666.github.io/categories/C-C/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
-      <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
-    
       <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
+    
+      <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
     
       <category term="操作系统" scheme="https://666wxy666.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
@@ -310,9 +333,9 @@
       <category term="操作系统" scheme="https://666wxy666.github.io/categories/C-C/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
-      <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
-    
       <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
+    
+      <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
     
       <category term="操作系统" scheme="https://666wxy666.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
@@ -349,11 +372,11 @@
       <category term="操作系统" scheme="https://666wxy666.github.io/categories/C-C/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
-      <category term="Linux" scheme="https://666wxy666.github.io/tags/Linux/"/>
+      <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
     
       <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
     
-      <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
+      <category term="Linux" scheme="https://666wxy666.github.io/tags/Linux/"/>
     
       <category term="操作系统" scheme="https://666wxy666.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
@@ -388,9 +411,9 @@
       <category term="编译原理" scheme="https://666wxy666.github.io/categories/C-C/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
     
     
-      <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
-    
       <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
+    
+      <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
     
       <category term="编译原理" scheme="https://666wxy666.github.io/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
     
@@ -421,9 +444,9 @@
       <category term="编译原理" scheme="https://666wxy666.github.io/categories/C-C/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
     
     
-      <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
-    
       <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
+    
+      <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
     
       <category term="编译原理" scheme="https://666wxy666.github.io/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
     
@@ -454,9 +477,9 @@
       <category term="编译原理" scheme="https://666wxy666.github.io/categories/C-C/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
     
     
-      <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
-    
       <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
+    
+      <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
     
       <category term="编译原理" scheme="https://666wxy666.github.io/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
     
@@ -625,46 +648,15 @@
       <category term="拓展学习" scheme="https://666wxy666.github.io/categories/C-C/%E6%8B%93%E5%B1%95%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="C" scheme="https://666wxy666.github.io/tags/C/"/>
-    
       <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
+    
+      <category term="C" scheme="https://666wxy666.github.io/tags/C/"/>
     
       <category term="难点" scheme="https://666wxy666.github.io/tags/%E9%9A%BE%E7%82%B9/"/>
     
       <category term="C99" scheme="https://666wxy666.github.io/tags/C99/"/>
     
       <category term="Struct" scheme="https://666wxy666.github.io/tags/Struct/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++工程项目 单词消除游戏</title>
-    <link href="https://666wxy666.github.io/2020/07/12/C++%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE-%E5%8D%95%E8%AF%8D%E6%B6%88%E9%99%A4%E6%B8%B8%E6%88%8F/"/>
-    <id>https://666wxy666.github.io/2020/07/12/C++%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE-%E5%8D%95%E8%AF%8D%E6%B6%88%E9%99%A4%E6%B8%B8%E6%88%8F/</id>
-    <published>2020-07-11T16:00:00.000Z</published>
-    <updated>2020-09-02T01:58:51.050Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>本文是C++面向对象的程序设计实战项目，实现单词消除游戏，具体项目及要求请点击查看。</strong></p><a id="more"></a><h2 id="一、单词消除游戏总体要求"><a href="#一、单词消除游戏总体要求" class="headerlink" title="一、单词消除游戏总体要求"></a>一、单词消除游戏总体要求</h2><p>单词消除游戏由两类参与者组成：闯关者（即游戏玩家），出题者（为游戏增加游戏中使用单词）。游戏规则为，游戏每一轮，程序会根据该关卡难度，显示一个单词，一定时间后单词消失。闯关者需要在相应地方输入刚刚显示并消失的单词，如果闯关者输入正确（即闯关者输入的单词与刚刚显示的单词完全一致，包含大小写）则为通过。一关可以由一轮或者多轮组成。</p><h2 id="二、单词消除游戏具体要求"><a href="#二、单词消除游戏具体要求" class="headerlink" title="二、单词消除游戏具体要求"></a>二、单词消除游戏具体要求</h2><ol><li><p>Version1</p><ul><li>实现闯关者，出题者本地的注册、登录。</li><li>程序支持多人注册，同一时间只有一人可以登录。</li><li>实现游戏规则：出题者增加游戏中使用单词。游戏每一关，程序会根据该关卡难度，显示一个单词，一定时间后单词消失。闯关者需要在相应地方输入刚刚显示并消失的单词，如果闯关者输入正确则为通过。</li><li>任何角色均可查询所有闯关者、出题者，按照属性查找相应闯关者、出题者。</li><li>采用面向对象的方式，使用类设计。</li><li>在设计类时请注意类的继承关系，关注闯关者、出题者的关联（闯关者与出题者有共同的基类）。</li><li>使用文件或者数据库作为存储对象，自行设计文件格式，或者数据库表结构。</li></ul></li><li><p>Version2</p><p>在Version1的基础上增加：</p><ul><li>可以根据闯关者闯过关卡数、经验、等级等对闯关者排名，根据出题者出题数目、等级对出题者排名。</li><li>请根据要求设计每一关的出题方式，注意随着关卡数增加，题目难度增加</li><li>计闯关者经验值，等级增加策略。设计出题者等级升级策略。</li></ul></li><li><p>Version3</p><p>在Version2的基础上增加：</p><ul><li>使用socket进行通信，实现局域网通信游玩。</li><li>需要完成服务器端程序，以及客户端程序。客户端可以启动多个同时与服务器交互，要求服务器具有并发处理能力。</li><li>在题目的要求下自行扩展功能，功能扩展适当者酌情加分。</li></ul></li></ol><h2 id="三、运行环境"><a href="#三、运行环境" class="headerlink" title="三、运行环境"></a>三、运行环境</h2><p>电脑硬件配置：</p><ul><li><p>处理器：Intel i7 7700HQ</p></li><li><p>显卡：NVIDIA GeForce GTX 1050 Ti</p></li><li><p>内存：16GB</p></li></ul><p>编程语言：C++</p><p>QT：Qt Creator 4.11.1 Based on Qt 5.14.1 (MSVC 2017, 32 bit)</p><p>编译器：Desktop Qt 5.14.2 MinGW 7.3.0 64-bit</p><p>数据库：mysql Ver 8.0.20 for Win64 on x86_64 (MySQL Community Server - GPL)</p><p>其它说明：</p><ul><li><p>关于QT数据库驱动</p><ul><li><p>libmysql.dll和libqsqlmysql.a放入【…\Qt5.14.2\5.14.2\mingw73_64\bin】下。</p></li><li><p>qsqlmysql.dll和qsqlmysql.dll.debug放入【…\Qt5.14.2\5.14.2\mingw73_64\plugins\sqldrivers】下。</p></li></ul></li><li><p>数据库信息：</p><p>需要修改请自行修改代码，以下是默认用户名和密码。</p><ul><li>用户名：wxy</li><li>密码：123456</li></ul></li><li><p>由于QT的限制，编译构建时路径不允许有中文。</p></li><li><p>服务器默认IP地址是本地127.0.0.1，有需要请自行修改代码。</p></li></ul><h2 id="四、模块设计"><a href="#四、模块设计" class="headerlink" title="四、模块设计"></a>四、模块设计</h2><h3 id="1、游戏客户端"><a href="#1、游戏客户端" class="headerlink" title="1、游戏客户端"></a>1、游戏客户端</h3><h4 id="模块清单"><a href="#模块清单" class="headerlink" title="模块清单"></a>模块清单</h4><table><thead><tr><th>编号</th><th>模块名称</th><th>模块标识</th><th>模块功能</th></tr></thead><tbody><tr><td>1</td><td>主界面模块</td><td>Widget</td><td>主界面，包括登录等</td></tr><tr><td>2</td><td>用户类模块</td><td>User</td><td>闯关者，出题人类</td></tr><tr><td>3</td><td>注册模块</td><td>Register</td><td>注册用户</td></tr><tr><td>4</td><td>用户信息模块</td><td>Info</td><td>展示用户信息，包括等级、经验等</td></tr><tr><td>5</td><td>游戏模块</td><td>Game</td><td>单词消除游戏游玩界面</td></tr><tr><td>6</td><td>出题模块</td><td>Create</td><td>出题人出题界面</td></tr><tr><td>7</td><td>查询模块</td><td>Check</td><td>查询用户，排名界面</td></tr></tbody></table><h4 id="用户界面"><a href="#用户界面" class="headerlink" title="用户界面"></a>用户界面</h4><h5 id="1、主界面"><a href="#1、主界面" class="headerlink" title="1、主界面"></a>1、主界面</h5><img src="https://gitee.com/wxy_666/images/raw/master/20200715102903.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200715102903.png" srcset="data:image/png;base64,666" alt="1" style="zoom:80%;"><h5 id="2、注册界面"><a href="#2、注册界面" class="headerlink" title="2、注册界面"></a>2、注册界面</h5><img src="https://gitee.com/wxy_666/images/raw/master/20200715103047.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200715103047.png" srcset="data:image/png;base64,666" alt="2" style="zoom:80%;"><h5 id="3、用户信息界面（出题人与闯关者文字略有不同）"><a href="#3、用户信息界面（出题人与闯关者文字略有不同）" class="headerlink" title="3、用户信息界面（出题人与闯关者文字略有不同）"></a>3、用户信息界面（出题人与闯关者文字略有不同）</h5><img src="https://gitee.com/wxy_666/images/raw/master/20200715103058.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200715103058.png" srcset="data:image/png;base64,666" alt="3" style="zoom:80%;"><h5 id="4、游戏界面"><a href="#4、游戏界面" class="headerlink" title="4、游戏界面"></a>4、游戏界面</h5><img src="https://gitee.com/wxy_666/images/raw/master/20200715103347.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200715103347.png" srcset="data:image/png;base64,666" alt="4" style="zoom:80%;"><h5 id="5、出题界面"><a href="#5、出题界面" class="headerlink" title="5、出题界面"></a>5、出题界面</h5><ul><li><p>Version2：</p><img src="https://gitee.com/wxy_666/images/raw/master/20200715103355.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200715103355.png" srcset="data:image/png;base64,666" alt="5" style="zoom:80%;"></li><li><p>Version3：</p><img src="https://gitee.com/wxy_666/images/raw/master/20200715103405.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200715103405.png" srcset="data:image/png;base64,666" alt="6" style="zoom:80%;"></li></ul><h5 id="6、查询界面"><a href="#6、查询界面" class="headerlink" title="6、查询界面"></a>6、查询界面</h5><img src="https://gitee.com/wxy_666/images/raw/master/20200715103416.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200715103416.png" srcset="data:image/png;base64,666" alt="7" style="zoom:80%;"><h4 id="函数具体功能"><a href="#函数具体功能" class="headerlink" title="函数具体功能"></a>函数具体功能</h4><h5 id="1、Widget"><a href="#1、Widget" class="headerlink" title="1、Widget"></a>1、Widget</h5><pre><code class="c++">void init_UI();//初始化图形界面void connect_event();//信号，槽函数链接void user_registe_show();//显示闯关者注册界面void creater_registe_show();//显示出题人注册界面void check_user_show();    //显示查询闯关者界面void check_creater_show();//显示查询出题人界面void info_show();//显示用户信息界面void check_close();//关闭查询界面void registe_close();//关闭注册界面void info_close();//关闭用户信息界面void showEvent(QShowEvent *);//显示界面void close_Widget();//关闭界面void type_changed();//闯关者，出题人切换void init_database();//初始化数据库</code></pre><h5 id="2、user"><a href="#2、user" class="headerlink" title="2、user"></a>2、user</h5><p>player和creater继承于user类，升级函数采用虚函数，分别在各自类中实现。</p><h5 id="3、register"><a href="#3、register" class="headerlink" title="3、register"></a>3、register</h5><pre><code class="c++">void init_UI();//初始化图形界面void connect_event();//信号，槽函数链接void showEvent(QShowEvent *);//显示界面void close_Widget();//关闭界面void send_change_signal();//改变界面信号</code></pre><h5 id="4、info"><a href="#4、info" class="headerlink" title="4、info"></a>4、info</h5><pre><code class="c++">void init_UI();//初始化图形界面void connect_event();//信号，槽函数链接void showEvent(QShowEvent *);//显示界面void close_Widget();//关闭界面void send_change_signal();//改变界面信号void game_show();//游戏界面显示void game_close();//游戏界面关闭void create_show();//出题界面显示    void create_close();//出题界面关闭</code></pre><h5 id="5、game"><a href="#5、game" class="headerlink" title="5、game"></a>5、game</h5><pre><code class="c++">void init_UI();//初始化图形界面void connect_event();//信号，槽函数链接void showEvent(QShowEvent *);//显示界面void close_Widget();//关闭界面void send_change_signal();//改变界面信void init_timer();//计时器初始化void init_ms_timer();//计时器初始化void timeup();//超时void ms_timeup();//超时</code></pre><h5 id="6、create"><a href="#6、create" class="headerlink" title="6、create"></a>6、create</h5><pre><code class="c++">void init_UI();//初始化图形界面void connect_event();//信号，槽函数链接void showEvent(QShowEvent *);//显示界面void close_Widget();//关闭界面void send_change_signal();//改变界面信号</code></pre><h5 id="6、check"><a href="#6、check" class="headerlink" title="6、check"></a>6、check</h5><pre><code class="c++">void init_UI();//初始化图形界面void connect_event();//信号，槽函数链接void showEvent(QShowEvent *);//显示界面void close_Widget();//关闭界面void send_change_signal();//改变界面信号void search();//搜索信息</code></pre><h3 id="2、服务器端"><a href="#2、服务器端" class="headerlink" title="2、服务器端"></a>2、服务器端</h3><h4 id="模块清单-1"><a href="#模块清单-1" class="headerlink" title="模块清单"></a>模块清单</h4><table><thead><tr><th>编号</th><th>模块名称</th><th>模块标识</th><th>模块功能</th></tr></thead><tbody><tr><td>1</td><td>主界面模块</td><td>Widget</td><td>主界面</td></tr><tr><td>2</td><td>线程模块</td><td>My_thread</td><td>实现多线程</td></tr></tbody></table><h4 id="用户界面-1"><a href="#用户界面-1" class="headerlink" title="用户界面"></a>用户界面</h4><img src="https://gitee.com/wxy_666/images/raw/master/20200715104043.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200715104043.png" srcset="data:image/png;base64,666" alt="8" style="zoom:80%;"><h4 id="函数具体功能-1"><a href="#函数具体功能-1" class="headerlink" title="函数具体功能"></a>函数具体功能</h4><h5 id="1、Widget-1"><a href="#1、Widget-1" class="headerlink" title="1、Widget"></a>1、Widget</h5><pre><code class="c++">void init_UI();//初始化图形界面void tcpserver_connect();//tcpserver连接void tcpsocket_connect();//tcpsocket连接void showEvent(QShowEvent *);//界面显示</code></pre><h5 id="2、My-thread"><a href="#2、My-thread" class="headerlink" title="2、My_thread"></a>2、My_thread</h5><p>当收到客户端的请求后，根据客户端发送的字符串判断是什么请求，在屏幕上输出，同时新建线程，在线程中处理这些请求，从而实现并发处理。</p><pre><code class="c++">void init_database();//初始化数据库</code></pre><h2 id="五、项目地址"><a href="#五、项目地址" class="headerlink" title="五、项目地址"></a>五、项目地址</h2><p>本项目的源码、可执行程序均已经存放于我的Github，欢迎下载查看：</p><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/WordGame" target="_blank"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=WordGame&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=WordGame&show_owner=true" srcset="data:image/png;base64,666"></a>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;本文是C++面向对象的程序设计实战项目，实现单词消除游戏，具体项目及要求请点击查看。&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="C/C++" scheme="https://666wxy666.github.io/categories/C-C/"/>
-    
-      <category term="项目" scheme="https://666wxy666.github.io/categories/C-C/%E9%A1%B9%E7%9B%AE/"/>
-    
-    
-      <category term="工程" scheme="https://666wxy666.github.io/tags/%E5%B7%A5%E7%A8%8B/"/>
-    
-      <category term="C++" scheme="https://666wxy666.github.io/tags/C/"/>
-    
-      <category term="QT" scheme="https://666wxy666.github.io/tags/QT/"/>
-    
-      <category term="小游戏" scheme="https://666wxy666.github.io/tags/%E5%B0%8F%E6%B8%B8%E6%88%8F/"/>
     
   </entry>
   

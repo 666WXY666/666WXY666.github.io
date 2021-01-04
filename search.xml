@@ -4,27 +4,23 @@
   
     
     <entry>
-      <title>交换原理 实验1 时间表调度实验</title>
-      <link href="/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C1-%E6%97%B6%E9%97%B4%E8%A1%A8%E8%B0%83%E5%BA%A6%E5%AE%9E%E9%AA%8C/"/>
-      <url>/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C1-%E6%97%B6%E9%97%B4%E8%A1%A8%E8%B0%83%E5%BA%A6%E5%AE%9E%E9%AA%8C/</url>
+      <title>将博客搬至CSDN</title>
+      <link href="/2021/01/04/%E5%B0%86%E5%8D%9A%E5%AE%A2%E6%90%AC%E8%87%B3CSDN/"/>
+      <url>/2021/01/04/%E5%B0%86%E5%8D%9A%E5%AE%A2%E6%90%AC%E8%87%B3CSDN/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文是关于交换原理实验一——时间表调度实验报告记录。</p><a id="more"></a><h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><p>驱动交换网络实验用来考查学生对时间表调度原理的掌握情况。</p><h2 id="二、实验内容和实验步骤"><a href="#二、实验内容和实验步骤" class="headerlink" title="二、实验内容和实验步骤"></a>二、实验内容和实验步骤</h2><h3 id="1、实验原理及设计"><a href="#1、实验原理及设计" class="headerlink" title="1、实验原理及设计"></a>1、实验原理及设计</h3><p>在程控数字交换的体系结构中，周期级程序（例如摘挂机检测程序、脉冲识别程序、位间隔识别程序）是由时间表调度实现的。所谓时间表调度，是指每经过交换系统的最短有效时间（这通常是指各周期性程序周期的最大公约数），都会检查调度表的调度要求，如果某个程序在这时需要执行，则调度程序开始执行它。</p><p>在我们设计的时间表调度实验中，这个调度表的调度是静态的。所谓静态，是指我们的调度表是在系统初始化的时候就建立起来的，在系统运行的情况下不再改动。</p><p>实验要求的就是这个调度表的初始化。这个调度表如下：</p><table><thead><tr><th align="center">时间（10ms) \任务</th><th align="center">0：摘挂机检测任务</th><th align="center">1：脉冲检测任务</th><th align="center">2：位间隔检测任务</th></tr></thead><tbody><tr><td align="center">0</td><td align="center">0/1</td><td align="center">0/1</td><td align="center">0/1</td></tr><tr><td align="center">1</td><td align="center">0/1</td><td align="center">0/1</td><td align="center">0/1</td></tr><tr><td align="center">……</td><td align="center">……</td><td align="center">……</td><td align="center">……</td></tr><tr><td align="center">……</td><td align="center">……</td><td align="center">……</td><td align="center">……</td></tr><tr><td align="center">……</td><td align="center">……</td><td align="center">……</td><td align="center">……</td></tr><tr><td align="center">18</td><td align="center">0/1</td><td align="center">0/1</td><td align="center">0/1</td></tr><tr><td align="center">19</td><td align="center">0/1</td><td align="center">0/1</td><td align="center">0/1</td></tr></tbody></table><p>我们这个交换系统提供了三个周期性调度程度（摘挂机检测程序、脉冲识别程序和位间隔识别程序），它们的调用周期分别为 200ms、10ms 和 100ms，所以我们系统的最小调度时间为 10ms。如图所示，每隔 10ms,我们就会检查这个表的一行，如果该行上某一列为 1，我们就执列所对应的任务，如果为 0，就什么都不做。每当执行到这个表的最后一行，调度任务会返回第一行循环执行。而你所要做的就是按照你的理解来填写这个调度表。</p><h3 id="2、实验主要数据结构"><a href="#2、实验主要数据结构" class="headerlink" title="2、实验主要数据结构"></a>2、实验主要数据结构</h3><p>函数功能：完成调度表的初始化；</p><p>函数原型：</p><pre><code class="c">initSchTable(int ScheduleTable[SchTabLen][SchTabWdh])；</code></pre><p>其中 SchTalLen 和 SchTabWdh 为在 bconstant.h 中的宏定义：</p><pre><code class="c">#define SchTabLen 20 //代表这个调度表为 20 行（相邻行之间的时间间隔为 10ms); #define SchTabWdh 3 //代表三个周期性调度任务——0：摘挂机检测任务；1：脉冲检测任务；2：位间隔检测任务；</code></pre><h3 id="3、实验效果检验"><a href="#3、实验效果检验" class="headerlink" title="3、实验效果检验"></a>3、实验效果检验</h3><p>当调度表初始化正确时，能够进行正常的通话；如果初始化不正确，可能会造成周期性程序的不正常调用，例如位间隔调度的延迟会造成识别位间隔的延误甚至丢失。</p><h3 id="4、实验步骤"><a href="#4、实验步骤" class="headerlink" title="4、实验步骤"></a>4、实验步骤</h3><ol><li>熟悉实验平台和测试环境；</li><li>编写C程序实现所要求的功能；</li><li>运行测试程序；</li><li>完成实验报告。</li></ol><h2 id="三、源代码"><a href="#三、源代码" class="headerlink" title="三、源代码"></a>三、源代码</h2><pre><code class="c">#include &quot;bconstant.h&quot;extern &quot;C&quot; _declspec(dllexport) void initSchTable(intScheduleTable[SchTabLen][SchTabWdh]){    int i;    for (i = 0; i != SchTabLen; i++)    {        //最小时间间隔为10ms        //对摘挂机状态进行初始化        if (i % 20 == 0) //因为调度周期为200ms，也就是每隔20个最小间隔执行一次        {            ScheduleTable[i][0] = 1;        }        else        {            ScheduleTable[i][0] = 0;        }        //对脉冲识别进行初始化        ScheduleTable[i][1] = 1; //因为调度周期为10ms，也就是每个最小间隔都执行一次        //对为间隔识别进行初始化        if (i % 10 == 0) //因为调度周期为100ms，也就是每隔10个最小间隔执行一次        {            ScheduleTable[i][2] = 1;        }        else        {            ScheduleTable[i][2] = 0;        }    }    return;}</code></pre><h2 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h2><p>运行程序后，调度表初始化正确，周期性程序正常调用，能够进行正常的通话。</p><h2 id="五、实验心得"><a href="#五、实验心得" class="headerlink" title="五、实验心得"></a>五、实验心得</h2><p>这是第一个交换原理的实验，是较为基础的实验，只是对数组的静态初始化，为以后的实验打下基础。我观察了模拟环境下的电路接通情形，让我对时间调度有了一个形象生动的认识，加深了这部分知识记忆和理解。</p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>本文是CSDN搬家证明。</strong></p><a id="more"></a><p><strong><p class="p center large">HELLO CSDN</p></strong></p>]]></content>
       
       
       <categories>
           
-          <category> 交换原理 </category>
-          
-          <category> 实验 </category>
+          <category> 其他 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 实验 </tag>
-            
-            <tag> 交换原理 </tag>
+            <tag> CSDN </tag>
             
         </tags>
       
@@ -33,11 +29,11 @@
     
     
     <entry>
-      <title>交换原理 实验2 摘挂机检测实验</title>
-      <link href="/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C2-%E6%91%98%E6%8C%82%E6%9C%BA%E6%A3%80%E6%B5%8B%E5%AE%9E%E9%AA%8C/"/>
-      <url>/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C2-%E6%91%98%E6%8C%82%E6%9C%BA%E6%A3%80%E6%B5%8B%E5%AE%9E%E9%AA%8C/</url>
+      <title>交换原理 实验1 时间表调度实验</title>
+      <link href="/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C1-%E6%97%B6%E9%97%B4%E8%A1%A8%E8%B0%83%E5%BA%A6%E5%AE%9E%E9%AA%8C/"/>
+      <url>/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C1-%E6%97%B6%E9%97%B4%E8%A1%A8%E8%B0%83%E5%BA%A6%E5%AE%9E%E9%AA%8C/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文是关于交换原理实验二——摘挂机检测实验报告记录。</p><a id="more"></a><h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><p>摘挂机检测实验用来考查学生对摘挂机检测原理的掌握情况。</p><h2 id="二、实验内容和实验步骤"><a href="#二、实验内容和实验步骤" class="headerlink" title="二、实验内容和实验步骤"></a>二、实验内容和实验步骤</h2><h3 id="1、实验原理及设计"><a href="#1、实验原理及设计" class="headerlink" title="1、实验原理及设计"></a>1、实验原理及设计</h3><p>设用户在挂机状态时扫描输出为“0”，用户在摘机状态时扫描输出为“1”，摘挂机扫描程序的执行周期为200ms，那么摘机识别，就是在200ms的周期性扫描中找到从“0”到“1”的变化点，挂机识别就是在200ms的周期性扫描中找到从“1”到“0”的变化点。</p><p>在我们的实验中，我们把前200ms的线路状态保存以备这次可以读取，同时读出这次的线路状态，把前200ms的线路状态取反与这次的线路状态相与，如果为1，就说明检测到摘机消息了。同理，我们把这次的线路状态取反再与前200ms的线路状态相与，如果为1就说明检测到挂机消息了，然后把摘挂机信号作为事件放入摘挂机队列中。</p><h3 id="2、实验主要数据结构"><a href="#2、实验主要数据结构" class="headerlink" title="2、实验主要数据结构"></a>2、实验主要数据结构</h3><p>函数功能为：检测到摘、挂机事件，并把该事件放入到摘挂机事件队列中。</p><p>函数原型：</p><pre><code class="c">void scanfor200(int linestate200[LINEMAX],int  linestate[LINEMAX],UpOnnode * head1, UpOnnode*  end1);</code></pre><p>其中LINEMAX为线路总数，是定义在”bconstant.h”中的一个宏,linestate200[LINEMAX]为已保存的200ms前线路状态，linestate[LINEMAX]为当前的线路状态，head1,end1为摘挂机队列的首尾指针，该队列已经在主程序中进行了初始化。我们所要做的就是把检测到的摘挂机事件以摘挂机队列节点的形式插入到摘挂机事件队列中。</p><p>数据结构说明： </p><pre><code class="c">&quot;bconstant.h&quot;    //以下的数据结构都已在该文件中定义 LINEMAX    //最大线路数； int  linestate200[LINEMAX],linestate[LINEMAX]    //线路从0开始编号；状态：1：有电流，0无电流； enum UporOn {ehandup,ehandon}    //为摘挂机区别符：ehandup表示摘机，ehandon表示挂机； struct  UpOnnode      //摘挂机队列节点结构 {    UporOn  phonestate;        //摘挂机区别符；    int  linenum;               //线路号（从0开始）；    struct UpOnnode* next;      //指向下一节点的指针；};</code></pre><p>注意事项：</p><ol><li><p>我们编写的模块是基础实验部分预加载的本局交换系统的一个模块而已，在系统中head1头指针和end1尾指针已经完成初始化。为方便起见，我们的摘挂机事件队列是一个包含头节点的单向链表，并且头指针指向该头节点，尾指针在初始化时也指向了该节点。所以在我们的函数编写中应保证头指针始终指向该头节点上、尾指针指向摘挂机事件队列的最末一个节点。</p></li><li><p>注意把这次扫描的线路状态值保存在前200ms扫描线路状态数组中,以便主程周期调用。</p></li></ol><h3 id="3、实验效果检验"><a href="#3、实验效果检验" class="headerlink" title="3、实验效果检验"></a>3、实验效果检验</h3><p>当调度表初始化正确时，能够进行正常的通话；如果初始化不正确，可能会造成周期性程序的不正常调用，例如位间隔调度的延迟会造成识别位间隔的延误甚至丢失。</p><h3 id="4、实验步骤"><a href="#4、实验步骤" class="headerlink" title="4、实验步骤"></a>4、实验步骤</h3><ol><li>熟悉实验平台和测试环境；</li><li>编写C程序实现所要求的功能；</li><li>运行测试程序；</li><li>完成实验报告。</li></ol><h2 id="三、源代码"><a href="#三、源代码" class="headerlink" title="三、源代码"></a>三、源代码</h2><pre><code class="c">#include &quot;bconstant.h&quot;extern &quot;C&quot; _declspec(dllexport) void scanfor200(int linestate200[LINEMAX], int linestate[LINEMAX], UpOnnode *head1, UpOnnode *end1){    int i;    for (i = 0; i &lt;= LINEMAX; i++)    {        struct UpOnnode *newNode = new struct UpOnnode;        if (!linestate200[i] &amp;&amp; linestate[i])        {            newNode-&gt;phonestate = ehandup;        }        if (!linestate[i] &amp;&amp; linestate200[i])        {            newNode-&gt;phonestate = ehandon;        }        newNode-&gt;linenum = i;        newNode-&gt;next = 0;        end1-&gt;next = newNode;        end1 = newNode;        linestate200[i] = linestate[i];    }    return;}// 此函数不需修改extern &quot;C&quot; _declspec(dllexport) void freenode(UpOnnode *node){    delete node;}</code></pre><h2 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h2><p>运行程序后，能正确检测摘挂机动作并且能进行通话，与预期结果相符，成功。</p><h2 id="五、实验心得"><a href="#五、实验心得" class="headerlink" title="五、实验心得"></a>五、实验心得</h2><p>这次实验也比较简单，主要用来考察对摘挂机检测的原理的掌握情况。在实验中遇到的比较困难的就是新节点添加到链表中指针如何分配，因为大一学过的知识时间比较久了，记得不是很清晰，于是就先复习了链表相关的知识，最终也成功实现了要求的功能。通过这次实验， 我加深了对摘挂机检测原理的掌握（检测到摘挂机事件，都将该事件添加到队列中），深入了解了摘挂机的详细过程，增强了对实验平台的熟悉和对软件的了解，收获很大。</p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文是关于交换原理实验一——时间表调度实验报告记录。</p><a id="more"></a><h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><p>驱动交换网络实验用来考查学生对时间表调度原理的掌握情况。</p><h2 id="二、实验内容和实验步骤"><a href="#二、实验内容和实验步骤" class="headerlink" title="二、实验内容和实验步骤"></a>二、实验内容和实验步骤</h2><h3 id="1、实验原理及设计"><a href="#1、实验原理及设计" class="headerlink" title="1、实验原理及设计"></a>1、实验原理及设计</h3><p>在程控数字交换的体系结构中，周期级程序（例如摘挂机检测程序、脉冲识别程序、位间隔识别程序）是由时间表调度实现的。所谓时间表调度，是指每经过交换系统的最短有效时间（这通常是指各周期性程序周期的最大公约数），都会检查调度表的调度要求，如果某个程序在这时需要执行，则调度程序开始执行它。</p><p>在我们设计的时间表调度实验中，这个调度表的调度是静态的。所谓静态，是指我们的调度表是在系统初始化的时候就建立起来的，在系统运行的情况下不再改动。</p><p>实验要求的就是这个调度表的初始化。这个调度表如下：</p><table><thead><tr><th align="center">时间（10ms) \任务</th><th align="center">0：摘挂机检测任务</th><th align="center">1：脉冲检测任务</th><th align="center">2：位间隔检测任务</th></tr></thead><tbody><tr><td align="center">0</td><td align="center">0/1</td><td align="center">0/1</td><td align="center">0/1</td></tr><tr><td align="center">1</td><td align="center">0/1</td><td align="center">0/1</td><td align="center">0/1</td></tr><tr><td align="center">……</td><td align="center">……</td><td align="center">……</td><td align="center">……</td></tr><tr><td align="center">……</td><td align="center">……</td><td align="center">……</td><td align="center">……</td></tr><tr><td align="center">……</td><td align="center">……</td><td align="center">……</td><td align="center">……</td></tr><tr><td align="center">18</td><td align="center">0/1</td><td align="center">0/1</td><td align="center">0/1</td></tr><tr><td align="center">19</td><td align="center">0/1</td><td align="center">0/1</td><td align="center">0/1</td></tr></tbody></table><p>我们这个交换系统提供了三个周期性调度程度（摘挂机检测程序、脉冲识别程序和位间隔识别程序），它们的调用周期分别为 200ms、10ms 和 100ms，所以我们系统的最小调度时间为 10ms。如图所示，每隔 10ms,我们就会检查这个表的一行，如果该行上某一列为 1，我们就执列所对应的任务，如果为 0，就什么都不做。每当执行到这个表的最后一行，调度任务会返回第一行循环执行。而你所要做的就是按照你的理解来填写这个调度表。</p><h3 id="2、实验主要数据结构"><a href="#2、实验主要数据结构" class="headerlink" title="2、实验主要数据结构"></a>2、实验主要数据结构</h3><p>函数功能：完成调度表的初始化；</p><p>函数原型：</p><pre><code class="c">initSchTable(int ScheduleTable[SchTabLen][SchTabWdh])；</code></pre><p>其中 SchTalLen 和 SchTabWdh 为在 bconstant.h 中的宏定义：</p><pre><code class="c">#define SchTabLen 20 //代表这个调度表为 20 行（相邻行之间的时间间隔为 10ms); #define SchTabWdh 3 //代表三个周期性调度任务——0：摘挂机检测任务；1：脉冲检测任务；2：位间隔检测任务；</code></pre><h3 id="3、实验效果检验"><a href="#3、实验效果检验" class="headerlink" title="3、实验效果检验"></a>3、实验效果检验</h3><p>当调度表初始化正确时，能够进行正常的通话；如果初始化不正确，可能会造成周期性程序的不正常调用，例如位间隔调度的延迟会造成识别位间隔的延误甚至丢失。</p><h3 id="4、实验步骤"><a href="#4、实验步骤" class="headerlink" title="4、实验步骤"></a>4、实验步骤</h3><ol><li>熟悉实验平台和测试环境；</li><li>编写C程序实现所要求的功能；</li><li>运行测试程序；</li><li>完成实验报告。</li></ol><h2 id="三、源代码"><a href="#三、源代码" class="headerlink" title="三、源代码"></a>三、源代码</h2><pre><code class="c">#include &quot;bconstant.h&quot;extern &quot;C&quot; _declspec(dllexport) void initSchTable(intScheduleTable[SchTabLen][SchTabWdh]){    int i;    for (i = 0; i != SchTabLen; i++)    {        //最小时间间隔为10ms        //对摘挂机状态进行初始化        if (i % 20 == 0) //因为调度周期为200ms，也就是每隔20个最小间隔执行一次        {            ScheduleTable[i][0] = 1;        }        else        {            ScheduleTable[i][0] = 0;        }        //对脉冲识别进行初始化        ScheduleTable[i][1] = 1; //因为调度周期为10ms，也就是每个最小间隔都执行一次        //对为间隔识别进行初始化        if (i % 10 == 0) //因为调度周期为100ms，也就是每隔10个最小间隔执行一次        {            ScheduleTable[i][2] = 1;        }        else        {            ScheduleTable[i][2] = 0;        }    }    return;}</code></pre><h2 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h2><p>运行程序后，调度表初始化正确，周期性程序正常调用，能够进行正常的通话。</p><h2 id="五、实验心得"><a href="#五、实验心得" class="headerlink" title="五、实验心得"></a>五、实验心得</h2><p>这是第一个交换原理的实验，是较为基础的实验，只是对数组的静态初始化，为以后的实验打下基础。我观察了模拟环境下的电路接通情形，让我对时间调度有了一个形象生动的认识，加深了这部分知识记忆和理解。</p>]]></content>
       
       
       <categories>
@@ -85,6 +81,35 @@
             <tag> 交换原理 </tag>
             
             <tag> MPLS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>交换原理 实验2 摘挂机检测实验</title>
+      <link href="/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C2-%E6%91%98%E6%8C%82%E6%9C%BA%E6%A3%80%E6%B5%8B%E5%AE%9E%E9%AA%8C/"/>
+      <url>/2020/10/09/%E4%BA%A4%E6%8D%A2%E5%8E%9F%E7%90%86-%E5%AE%9E%E9%AA%8C2-%E6%91%98%E6%8C%82%E6%9C%BA%E6%A3%80%E6%B5%8B%E5%AE%9E%E9%AA%8C/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文是关于交换原理实验二——摘挂机检测实验报告记录。</p><a id="more"></a><h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><p>摘挂机检测实验用来考查学生对摘挂机检测原理的掌握情况。</p><h2 id="二、实验内容和实验步骤"><a href="#二、实验内容和实验步骤" class="headerlink" title="二、实验内容和实验步骤"></a>二、实验内容和实验步骤</h2><h3 id="1、实验原理及设计"><a href="#1、实验原理及设计" class="headerlink" title="1、实验原理及设计"></a>1、实验原理及设计</h3><p>设用户在挂机状态时扫描输出为“0”，用户在摘机状态时扫描输出为“1”，摘挂机扫描程序的执行周期为200ms，那么摘机识别，就是在200ms的周期性扫描中找到从“0”到“1”的变化点，挂机识别就是在200ms的周期性扫描中找到从“1”到“0”的变化点。</p><p>在我们的实验中，我们把前200ms的线路状态保存以备这次可以读取，同时读出这次的线路状态，把前200ms的线路状态取反与这次的线路状态相与，如果为1，就说明检测到摘机消息了。同理，我们把这次的线路状态取反再与前200ms的线路状态相与，如果为1就说明检测到挂机消息了，然后把摘挂机信号作为事件放入摘挂机队列中。</p><h3 id="2、实验主要数据结构"><a href="#2、实验主要数据结构" class="headerlink" title="2、实验主要数据结构"></a>2、实验主要数据结构</h3><p>函数功能为：检测到摘、挂机事件，并把该事件放入到摘挂机事件队列中。</p><p>函数原型：</p><pre><code class="c">void scanfor200(int linestate200[LINEMAX],int  linestate[LINEMAX],UpOnnode * head1, UpOnnode*  end1);</code></pre><p>其中LINEMAX为线路总数，是定义在”bconstant.h”中的一个宏,linestate200[LINEMAX]为已保存的200ms前线路状态，linestate[LINEMAX]为当前的线路状态，head1,end1为摘挂机队列的首尾指针，该队列已经在主程序中进行了初始化。我们所要做的就是把检测到的摘挂机事件以摘挂机队列节点的形式插入到摘挂机事件队列中。</p><p>数据结构说明： </p><pre><code class="c">&quot;bconstant.h&quot;    //以下的数据结构都已在该文件中定义 LINEMAX    //最大线路数； int  linestate200[LINEMAX],linestate[LINEMAX]    //线路从0开始编号；状态：1：有电流，0无电流； enum UporOn {ehandup,ehandon}    //为摘挂机区别符：ehandup表示摘机，ehandon表示挂机； struct  UpOnnode      //摘挂机队列节点结构 {    UporOn  phonestate;        //摘挂机区别符；    int  linenum;               //线路号（从0开始）；    struct UpOnnode* next;      //指向下一节点的指针；};</code></pre><p>注意事项：</p><ol><li><p>我们编写的模块是基础实验部分预加载的本局交换系统的一个模块而已，在系统中head1头指针和end1尾指针已经完成初始化。为方便起见，我们的摘挂机事件队列是一个包含头节点的单向链表，并且头指针指向该头节点，尾指针在初始化时也指向了该节点。所以在我们的函数编写中应保证头指针始终指向该头节点上、尾指针指向摘挂机事件队列的最末一个节点。</p></li><li><p>注意把这次扫描的线路状态值保存在前200ms扫描线路状态数组中,以便主程周期调用。</p></li></ol><h3 id="3、实验效果检验"><a href="#3、实验效果检验" class="headerlink" title="3、实验效果检验"></a>3、实验效果检验</h3><p>当调度表初始化正确时，能够进行正常的通话；如果初始化不正确，可能会造成周期性程序的不正常调用，例如位间隔调度的延迟会造成识别位间隔的延误甚至丢失。</p><h3 id="4、实验步骤"><a href="#4、实验步骤" class="headerlink" title="4、实验步骤"></a>4、实验步骤</h3><ol><li>熟悉实验平台和测试环境；</li><li>编写C程序实现所要求的功能；</li><li>运行测试程序；</li><li>完成实验报告。</li></ol><h2 id="三、源代码"><a href="#三、源代码" class="headerlink" title="三、源代码"></a>三、源代码</h2><pre><code class="c">#include &quot;bconstant.h&quot;extern &quot;C&quot; _declspec(dllexport) void scanfor200(int linestate200[LINEMAX], int linestate[LINEMAX], UpOnnode *head1, UpOnnode *end1){    int i;    for (i = 0; i &lt;= LINEMAX; i++)    {        struct UpOnnode *newNode = new struct UpOnnode;        if (!linestate200[i] &amp;&amp; linestate[i])        {            newNode-&gt;phonestate = ehandup;        }        if (!linestate[i] &amp;&amp; linestate200[i])        {            newNode-&gt;phonestate = ehandon;        }        newNode-&gt;linenum = i;        newNode-&gt;next = 0;        end1-&gt;next = newNode;        end1 = newNode;        linestate200[i] = linestate[i];    }    return;}// 此函数不需修改extern &quot;C&quot; _declspec(dllexport) void freenode(UpOnnode *node){    delete node;}</code></pre><h2 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h2><p>运行程序后，能正确检测摘挂机动作并且能进行通话，与预期结果相符，成功。</p><h2 id="五、实验心得"><a href="#五、实验心得" class="headerlink" title="五、实验心得"></a>五、实验心得</h2><p>这次实验也比较简单，主要用来考察对摘挂机检测的原理的掌握情况。在实验中遇到的比较困难的就是新节点添加到链表中指针如何分配，因为大一学过的知识时间比较久了，记得不是很清晰，于是就先复习了链表相关的知识，最终也成功实现了要求的功能。通过这次实验， 我加深了对摘挂机检测原理的掌握（检测到摘挂机事件，都将该事件添加到队列中），深入了解了摘挂机的详细过程，增强了对实验平台的熟悉和对软件的了解，收获很大。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 交换原理 </category>
+          
+          <category> 实验 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 实验 </tag>
+            
+            <tag> 交换原理 </tag>
             
         </tags>
       
@@ -142,9 +167,9 @@
       
         <tags>
             
-            <tag> 工程 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 工程 </tag>
             
             <tag> JobShop </tag>
             
@@ -210,13 +235,13 @@
       
         <tags>
             
-            <tag> C </tag>
+            <tag> C++ </tag>
             
             <tag> 工程 </tag>
             
-            <tag> 项目 </tag>
+            <tag> C </tag>
             
-            <tag> C++ </tag>
+            <tag> 项目 </tag>
             
             <tag> 计算机网络 </tag>
             
@@ -245,11 +270,11 @@
       
         <tags>
             
+            <tag> 工程 </tag>
+            
             <tag> C </tag>
             
             <tag> Linux </tag>
-            
-            <tag> 工程 </tag>
             
             <tag> 项目 </tag>
             
@@ -280,9 +305,9 @@
       
         <tags>
             
-            <tag> 工程 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 工程 </tag>
             
             <tag> 操作系统 </tag>
             
@@ -313,9 +338,9 @@
       
         <tags>
             
-            <tag> 工程 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 工程 </tag>
             
             <tag> 操作系统 </tag>
             
@@ -354,11 +379,11 @@
       
         <tags>
             
-            <tag> Linux </tag>
+            <tag> C++ </tag>
             
             <tag> 工程 </tag>
             
-            <tag> C++ </tag>
+            <tag> Linux </tag>
             
             <tag> 操作系统 </tag>
             
@@ -395,9 +420,9 @@
       
         <tags>
             
-            <tag> 工程 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 工程 </tag>
             
             <tag> 编译原理 </tag>
             
@@ -430,9 +455,9 @@
       
         <tags>
             
-            <tag> 工程 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 工程 </tag>
             
             <tag> 编译原理 </tag>
             
@@ -465,9 +490,9 @@
       
         <tags>
             
-            <tag> 工程 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 工程 </tag>
             
             <tag> 编译原理 </tag>
             
@@ -646,9 +671,9 @@
       
         <tags>
             
-            <tag> C </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> C </tag>
             
             <tag> 难点 </tag>
             
@@ -681,9 +706,9 @@
       
         <tags>
             
-            <tag> 工程 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 工程 </tag>
             
             <tag> QT </tag>
             
