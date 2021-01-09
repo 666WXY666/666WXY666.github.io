@@ -21,8 +21,8 @@
   box-shadow: 0 2px 4px 0px rgba(0,0,0,0.1), 0 4px 8px 0px rgba(0,0,0,0.1), 0 8px 16px 0px rgba(0,0,0,0.1);
 }
 @font-face {
-  font-family: 'Varela Round';
-  src: url("https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/fonts/VarelaRound/VarelaRound-Regular.ttf");
+  font-family: 'Noto Serif SC';
+  src: url("https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/fonts/Noto_Serif_SC/NotoSerifSC-Regular.otf");
   font-weight: 'normal';
   font-style: 'normal';
 }
@@ -33,8 +33,8 @@
   font-style: 'normal';
 }
 @font-face {
-  font-family: 'Varela Round';
-  src: url("https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/VarelaRound/VarelaRound-Regular.ttf");
+  font-family: 'Mulish';
+  src: url("https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/fonts/Mulish/static/Mulish-Regular.ttf");
   font-weight: 'normal';
   font-style: 'normal';
 }
@@ -69,7 +69,7 @@ html {
   color: var(--color-text);
   width: 100%;
   height: 100%;
-  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", UbuntuMono, Helvetica, Arial, Menlo, Monaco, monospace, sans-serif;
+  font-family: "Mulish", "Noto Serif SC", "PingFang SC", "Microsoft Yahei UI", "Microsoft Yahei", sans-serif, Menlo, Monaco, monospace, sans-serif;
   font-size: 16px;
 }
 html >::-webkit-scrollbar {
@@ -532,7 +532,7 @@ th {
   margin-top: 32px;
 }
 .cover-wrapper .cover-body .title {
-  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
+  font-family: "Mulish", "Noto Serif SC", "PingFang SC", "Microsoft Yahei UI", "Microsoft Yahei", sans-serif, Helvetica, monospace;
   font-size: 3.125rem;
   line-height: 1.2;
   text-shadow: 0 1px 2px rgba(0,0,0,0.1);
@@ -901,7 +901,7 @@ th {
   line-height: 64px;
   padding: 0 24px;
   font-size: 1.25rem;
-  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
+  font-family: "Mulish", "Noto Serif SC", "PingFang SC", "Microsoft Yahei UI", "Microsoft Yahei", sans-serif, Helvetica, monospace;
 }
 .l_header #wrapper .nav-main .title img {
   height: 64px;
@@ -912,7 +912,7 @@ th {
 }
 .l_header .nav-sub .title {
   font-weight: bold;
-  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", UbuntuMono, Helvetica, Arial, Menlo, Monaco, monospace, sans-serif;
+  font-family: "Mulish", "Noto Serif SC", "PingFang SC", "Microsoft Yahei UI", "Microsoft Yahei", sans-serif, Menlo, Monaco, monospace, sans-serif;
   line-height: 1.2;
   max-height: 64px;
   white-space: normal;

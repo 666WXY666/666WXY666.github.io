@@ -119,7 +119,6 @@ body {
 	cursor: grabbing;
 }
 </style>
-<link rel="alternate" href="/atom.xml" title="苇名一心的博客" type="application/atom+xml">
 </head>
 <body class="text-center">
 <form class="form-signin" action="login.php" method="post">
@@ -155,7 +154,7 @@ window.addEventListener("load", () => {
 	"use strict";
 
 	if (!CSS.supports("clip-path", "circle(120px at center)") && !CSS.supports("-webkit-clip-path", "circle(120px at center)")) {
-		document.getElementById("stage").innerHTML = '<img src="../assets/screenshot-1.png" class="lazyload" data-srcset="../assets/screenshot-1.png" srcset="data:image/png;base64,666">';
+		document.getElementById("stage").innerHTML = '<img src="../assets/screenshot-1.png">';
 		return;
 	}
 
@@ -248,5 +247,4 @@ window.addEventListener("load", () => {
 	});
 });
 </script>
-</body>
-</html>
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>

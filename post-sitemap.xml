@@ -2,10 +2,11 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>https://666wxy666.github.io</loc>
+        <loc>https://666wxy666.github.io/</loc>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
+
 
     <url>
         <loc>https://666wxy666.github.io/2021/01/04/Android-%E9%A1%B9%E7%9B%AE%E9%9B%86%E9%94%A6/</loc>

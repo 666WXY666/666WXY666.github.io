@@ -18,8 +18,8 @@
   box-shadow: 0 2px 4px 0px rgba(0,0,0,0.1), 0 4px 8px 0px rgba(0,0,0,0.1), 0 8px 16px 0px rgba(0,0,0,0.1);
 }
 @font-face {
-  font-family: 'Varela Round';
-  src: url("https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/fonts/VarelaRound/VarelaRound-Regular.ttf");
+  font-family: 'Noto Serif SC';
+  src: url("https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/fonts/Noto_Serif_SC/NotoSerifSC-Regular.otf");
   font-weight: 'normal';
   font-style: 'normal';
 }
@@ -30,8 +30,8 @@
   font-style: 'normal';
 }
 @font-face {
-  font-family: 'Varela Round';
-  src: url("https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/VarelaRound/VarelaRound-Regular.ttf");
+  font-family: 'Mulish';
+  src: url("https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/fonts/Mulish/static/Mulish-Regular.ttf");
   font-weight: 'normal';
   font-style: 'normal';
 }
@@ -1318,7 +1318,7 @@ p.p.subtitle:first-child {
 }
 span.p.logo,
 p.p.logo {
-  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
+  font-family: "Mulish", "Noto Serif SC", "PingFang SC", "Microsoft Yahei UI", "Microsoft Yahei", sans-serif, Helvetica, monospace;
 }
 span.p.code,
 p.p.code {
@@ -2276,7 +2276,7 @@ div.fancybox .image-caption:empty {
   max-width: 500px;
   border-radius: 4px;
   color: var(--color-text);
-  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", UbuntuMono, Helvetica, Arial, Menlo, Monaco, monospace, sans-serif;
+  font-family: "Mulish", "Noto Serif SC", "PingFang SC", "Microsoft Yahei UI", "Microsoft Yahei", sans-serif, Menlo, Monaco, monospace, sans-serif;
 }
 .aplayer .aplayer-list {
   text-align: left;
@@ -3318,7 +3318,7 @@ article#tag .all-tags ul li span:before {
   color: rgba(68,68,68,0.9);
 }
 .article code {
-  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", UbuntuMono, Helvetica, Arial, Menlo, Monaco, monospace, sans-serif;
+  font-family: "Mulish", "Noto Serif SC", "PingFang SC", "Microsoft Yahei UI", "Microsoft Yahei", sans-serif, Menlo, Monaco, monospace, sans-serif;
 }
 .article code:not([class]) {
   word-break: break-all;
