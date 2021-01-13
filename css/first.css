@@ -34,7 +34,7 @@
 }
 @font-face {
   font-family: 'Mulish';
-  src: url("https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/fonts/Mulish/static/Mulish-Regular.ttf");
+  src: url("https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/fonts/Mulish/Mulish-Regular.ttf");
   font-weight: 'normal';
   font-style: 'normal';
 }
@@ -49,9 +49,9 @@
   --color-inlinecode: #c74f00;
   --color-codeblock: #fff7ea;
   --color-h1: #3a3a3a;
-  --color-h2: #3a3a3a;
-  --color-h3: #333;
-  --color-h4: #444;
+  --color-h2: #ad2121;
+  --color-h3: #0028bb;
+  --color-h4: #ad9521;
   --color-h5: #555;
   --color-h6: #666;
   --color-p: #444;
