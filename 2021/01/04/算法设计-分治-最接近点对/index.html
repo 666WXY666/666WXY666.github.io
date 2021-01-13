@@ -16,6 +16,9 @@
   <meta name="HandheldFriendly" content="True">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <link rel="preload" href="/css/first.css" as="style">
+  
 
   <!-- 页面元数据 -->
   
@@ -60,6 +63,7 @@
   
 
 <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) document.write('\x3Cscript id="_iealwn_js" data-outver="11" src="https://support.dmeng.net/ie-alert-warning/latest.js">\x3C/script>'); </script>
+
 
 </head>
 
@@ -380,17 +384,6 @@
                       
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href="/faqs/" id="faqs">
-                  <i class="fas fa-question-circle faa-tada fa-fw"></i>FAQ
-                </a>
-                
-              </li>
-            
-          
-                    
-                      
-            
-              <li>
                 <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/666WXY666/" id="https:githubcom666WXY666" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fab fa-github faa-tada fa-fw"></i>我的Github主页
                 </a>
@@ -425,7 +418,7 @@
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/666WXY666/666WXY666.github.io/issues/" id="https:githubcom666WXY666666WXY666githubioissues" rel="external nofollow noopener noreferrer" target="_blank">
-                  <i class="fas fa-question faa-tada fa-fw"></i>向我提问
+                  <i class="fas fa-question-circle faa-tada fa-fw"></i>向我提问
                 </a>
                 
               </li>
@@ -770,17 +763,6 @@
                       
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href="/faqs/" id="faqs">
-                  <i class="fas fa-question-circle faa-tada fa-fw"></i>FAQ
-                </a>
-                
-              </li>
-            
-          
-                    
-                      
-            
-              <li>
                 <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/666WXY666/" id="https:githubcom666WXY666" rel="external nofollow noopener noreferrer" target="_blank">
                   <i class="fab fa-github faa-tada fa-fw"></i>我的Github主页
                 </a>
@@ -815,7 +797,7 @@
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover" href="https://github.com/666WXY666/666WXY666.github.io/issues/" id="https:githubcom666WXY666666WXY666githubioissues" rel="external nofollow noopener noreferrer" target="_blank">
-                  <i class="fas fa-question faa-tada fa-fw"></i>向我提问
+                  <i class="fas fa-question-circle faa-tada fa-fw"></i>向我提问
                 </a>
                 
               </li>
@@ -1061,6 +1043,7 @@
 
 
   
+  
   <p><strong>本文是算法设计基于分治算法的问题“最接近点对”的实现。</strong></p>
 <a id="more"></a>
 
@@ -1145,7 +1128,7 @@
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-13T11:07:43+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-13T12:04:03+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2021年1月13日</p>
@@ -1296,7 +1279,9 @@ K=&lt;k1,k2,…,kn&gt; (k1&lt;...</p>
 </aside>
 
 
-   <!--此文件用来存放一些不方便取值的变量-->
+
+		  
+		  <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <script>
@@ -1311,7 +1296,7 @@ K=&lt;k1,k2,…,kn&gt; (k1&lt;...</p>
   l_header.classList.add("show");
   
 </script>
- 
+
         </div>
         
   
@@ -2135,7 +2120,7 @@ var loadCSS = function( href, before, media, attributes ){
       path = defaultPath || decodeURI(window.location.pathname);
     }
     var valine = new Valine();
-    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"O2XYIOn9EAIKNr5HayEBixXl-MdYXbMMI","appKey":"g1XtDO1m1wHerH2wbn0A08mk","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"visitor":true,"mathJax":false,"yiyan":true}, {
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"O2XYIOn9EAIKNr5HayEBixXl-MdYXbMMI","appKey":"g1XtDO1m1wHerH2wbn0A08mk","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false,"yiyan":true}, {
       el: '#valine_container',
       path: path,
       placeholder: pagePlaceholder,
@@ -2146,6 +2131,7 @@ var loadCSS = function( href, before, media, attributes ){
   $(function () {
     pjax_valine();
   });
+  pjax_comment=pjax_valine;
 </script>
 
 
@@ -2460,28 +2446,15 @@ const darkModeStorageKey = "user-color-scheme";
 const rootElementDarkModeAttributeName = "data-user-color-scheme";
 
 const setLS = (k, v) => {
-  try {
     localStorage.setItem(k, v);
-  } catch (e) {
-    console.log(e.message);
-  }
 };
 
 const removeLS = (k) => {
-  try {
     localStorage.removeItem(k);
-  } catch (e) {
-    console.log(e.message);
-  }
 };
 
 const getLS = (k) => {
-  try {
     return localStorage.getItem(k);
-  } catch (e) {
-    console.log(e.message);
-    return null;
-  }
 };
 
 const getModeFromCSSMediaQuery = () => {
@@ -2825,6 +2798,8 @@ var _hmt = _hmt || [];
 </script>
 
 
+
+
 <script>
 function listennSidebarTOC() {
   const navItems = document.querySelectorAll(".toc li");
@@ -2908,7 +2883,9 @@ document.addEventListener("pjax:success", listennSidebarTOC);
 
 <!-- more -->
 
-  
+ 
+	   
+	    
 
 
 <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
@@ -2979,6 +2956,9 @@ document.addEventListener("pjax:success", listennSidebarTOC);
       $(document).unbind('scroll');
       $(document).unbind('click');
       $('body').unbind('click');
+      
+      $("#wrapper .toggle-mode-btn").unbind('click');
+      
 	  
       window.ShowLoading();
 	  
@@ -3024,13 +3004,8 @@ document.addEventListener("pjax:success", listennSidebarTOC);
         
           pjax_initCopyCode();
         
-        
-          pjax_valine();
-        
-        
-        
-        
-        
+		
+          try{pjax_comment();} catch (e) {}
         
       } catch (e) {
         console.log(e);
@@ -3048,6 +3023,7 @@ document.addEventListener("pjax:success", listennSidebarTOC);
     });
 </script>
  
+	  
     </div>
 	<!--鼠标点击显示文字效果-->
 	
