@@ -2286,6 +2286,9 @@ div.fancybox .image-caption:empty {
     border-radius: 8px;
   }
 }
+.l_header .aplayer-volume-wrap {
+  display: none !important;
+}
 .highlight {
   position: relative;
 }

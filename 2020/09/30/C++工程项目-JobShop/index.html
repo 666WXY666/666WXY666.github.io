@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.0">
+  <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -1069,10 +1069,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-<h2 id="一、任务概述"><a href="#一、任务概述" class="headerlink" title="一、任务概述"></a>一、任务概述</h2><p><img src="https://gitee.com/wxy_666/images/raw/master/20200930101945.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200930101945.jpg" srcset="data:image/png;base64,666" alt="2020-09-30_101902"></p>
+<h2 id="一、任务概述"><a href="#一、任务概述" class="headerlink" title="一、任务概述"></a>一、任务概述</h2><p><img src="https://gitee.com/wxy_666/images/raw/master/20200930101945.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200930101945.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-09-30_101902"></p>
 <p>完成这一任务必须满足以下约束条件：</p>
 <p>约束1：程序启动后首先接受产品加工请求输入，确认当天的需求后不再接受新的订单。对每个产品需满足加工工序约束，即只有其前一个工序加工完毕，才能加工其后一个工序。每个工序的加工时间已知，且所需机器固定(每台机器都不能被其他机器替代)，均作为程序的输入。</p>
-<p><img src="https://gitee.com/wxy_666/images/raw/master/20200930102043.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200930102043.jpg" srcset="data:image/png;base64,666" alt="2020-09-30_102028"></p>
+<p><img src="https://gitee.com/wxy_666/images/raw/master/20200930102043.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200930102043.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-09-30_102028"></p>
 <p>表1. 要输入的参数</p>
 <table>
 <thead>
@@ -1188,7 +1188,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p><strong>M3 (19,1-3,34)</strong></p>
 <p><strong>End 51</strong></p>
 <h3 id="3、图形界面输出"><a href="#3、图形界面输出" class="headerlink" title="3、图形界面输出"></a>3、图形界面输出</h3><p>要求在图形窗口中用绘制的甘特图来表示操作在机器上的安排。</p>
-<p><img src="https://gitee.com/wxy_666/images/raw/master/20200930101715.gif" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200930101715.gif" srcset="data:image/png;base64,666" alt="img"></p>
+<p><img src="https://gitee.com/wxy_666/images/raw/master/20200930101715.gif" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200930101715.gif" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
 <p>例如，图2所示的甘特图给出了上文提及的3个产品在3台机器上加工的一个安排，其中给出了每台机器上的操作的加工排序以及每个操作的开始加工时间。图2所示的加工安排满足产品加工约束和表1所示的机器加工约束。例如，产品1的第1个操作加工完毕再加工第2个操作，第2个操作加工完毕再加工第3个操作。产品1的第1、2、3个操作分别在机器1、2、3上加工，加工时间分别是7、12、15，满足表1中的约束。</p>
 <h3 id="4、动画输出"><a href="#4、动画输出" class="headerlink" title="4、动画输出"></a>4、动画输出</h3><h2 id="四、核心调度算法"><a href="#四、核心调度算法" class="headerlink" title="四、核心调度算法"></a>四、核心调度算法</h2><p><em>n</em>个产品在<em>m</em>台机器上加工，满足约束条件的加工安排有很多。我们设定最优解为所有产品加工完成所需时间最短，则需要找到一个加工安排，使得所有产品最快完成加工。</p>
 <p>要想获得所有产品加工完成时间更短的方案，我们需要借助调度算法。以下是可选的调度算法。</p>
@@ -1206,7 +1206,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h2 id="六、评价规则"><a href="#六、评价规则" class="headerlink" title="六、评价规则"></a>六、评价规则</h2><p>所有参与此游戏开发的小组会将结果：程序运行时间、最优解方案加工时间两个时间值按一定权重进行评比，形成一个排行榜。</p>
 <p>大作业成绩会基于这个排行榜得分。另外再综合软件的扩展功能、程序代码结构、小组协作度等附加项，形成最终分数。</p>
 <h2 id="五、项目地址"><a href="#五、项目地址" class="headerlink" title="五、项目地址"></a>五、项目地址</h2><p>本项目的源码、可执行程序均已经存放于我的Github，欢迎下载查看：</p>
-<a class="ghcard" rel="external nofollow noopener noreferrer" target="_blank" href="https://github.com/666WXY666/JobShop"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=JobShop&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=JobShop&show_owner=true" srcset="data:image/png;base64,666"></a>
+<a class="ghcard" rel="external nofollow noopener noreferrer" target="_blank" href="https://github.com/666WXY666/JobShop"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=JobShop&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=JobShop&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a>
   
   
     
@@ -1219,7 +1219,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
     </section>
     <section class="body">
-      <div class="vlts-rps"><a class="item" href="/2021/01/04/C++工程项目-travel/" title="C++工程项目 travel" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20210112113652.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20210112113652.jpg" srcset="data:image/png;base64,666"><span class="title">C++工程项目 travel</span><span class="excerpt">本文是数据结构课程设计项目，实现类似“携程”旅行模拟，具体项目及要求请点击查看。</span></a><a class="item" href="/2020/07/12/C++工程项目-单词消除游戏/" title="C++工程项目 单词消除游戏" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200715102903.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200715102903.png" srcset="data:image/png;base64,666"><span class="title">C++工程项目 单词消除游戏</span><span class="excerpt">本文是C++面向对象的程序设计实战项目，实现单词消除游戏，具体项目及要求请点击查看。</span></a><a class="item" href="/2020/09/03/操作系统-内存管理/" title="操作系统 内存管理" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200902170741.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902170741.png" srcset="data:image/png;base64,666"><span class="title">操作系统 内存管理</span><span class="excerpt">本文是操作系统内存管理的基本实验。</span></a><a class="item" href="/2020/09/03/操作系统-读者写者(生产者消费者)/" title="操作系统 读者写者(生产者消费者)" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200902162507.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902162507.png" srcset="data:image/png;base64,666"><span class="title">操作系统 读者写者(生产者消费者)</span><span class="excerpt">本文是操作系统进程同步互斥关于读者写者(生产者消费者)的基本实验。</span></a></div></section></div>
+      <div class="vlts-rps"><a class="item" href="/2021/01/04/C++工程项目-travel/" title="C++工程项目 travel" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20210112113652.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20210112113652.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">C++工程项目 travel</span><span class="excerpt">本文是数据结构课程设计项目，实现类似“携程”旅行模拟，具体项目及要求请点击查看。</span></a><a class="item" href="/2020/07/12/C++工程项目-单词消除游戏/" title="C++工程项目 单词消除游戏" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200715102903.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200715102903.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">C++工程项目 单词消除游戏</span><span class="excerpt">本文是C++面向对象的程序设计实战项目，实现单词消除游戏，具体项目及要求请点击查看。</span></a><a class="item" href="/2020/09/03/操作系统-内存管理/" title="操作系统 内存管理" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200902170741.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902170741.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">操作系统 内存管理</span><span class="excerpt">本文是操作系统内存管理的基本实验。</span></a><a class="item" href="/2020/09/03/操作系统-读者写者(生产者消费者)/" title="操作系统 读者写者(生产者消费者)" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200902162507.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200902162507.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">操作系统 读者写者(生产者消费者)</span><span class="excerpt">本文是操作系统进程同步互斥关于读者写者(生产者消费者)的基本实验。</span></a></div></section></div>
       
       
         <div class="copyright">
@@ -1246,9 +1246,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="donate">
           <div class="imgs">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" srcset="data:image/png;base64,666">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,666">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
             
           </div>
         </div>
@@ -1263,10 +1263,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-17T14:20:26+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-26T12:05:55+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年1月17日</p>
+    <p>更新于：2021年1月26日</p>
   </a>
 </div>
 
@@ -1288,7 +1288,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://666wxy666.github.io/2020/09/30/C++%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE-JobShop/&title=C++工程项目 JobShop - 苇名一心的博客&summary=本文是计算机导论的程序设计实战项目，实现单词消除游戏，具体项目及要求请点击查看。">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -1296,7 +1296,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://666wxy666.github.io/2020/09/30/C++%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE-JobShop/&title=C++工程项目 JobShop - 苇名一心的博客&summary=本文是计算机导论的程序设计实战项目，实现单词消除游戏，具体项目及要求请点击查看。">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -1304,7 +1304,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=https://666wxy666.github.io/2020/09/30/C++%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE-JobShop/&title=C++工程项目 JobShop - 苇名一心的博客&summary=本文是计算机导论的程序设计实战项目，实现单词消除游戏，具体项目及要求请点击查看。">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -1429,10 +1429,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   pdata.postTitle="C++工程项目 JobShop";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
-
+  // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
   l_header.classList.add("show");
+  
+  
+    // cover
+    var cover_wrapper=document.querySelector('.cover-wrapper');
+    
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
+    
   
 </script>
 
@@ -1867,7 +1875,6 @@ var loadCSS = function( href, before, media, attributes ){
         
 	  }
 	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
-	  volantis.pjax.push(Pjax_backstretch)
     </script>
   
 
@@ -1902,7 +1909,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/categories/" id="categories">
+      <a class="vlts-menu fix-cursor-default " href="/categories/" id="categories">
         <i class="fas fa-folder-open fa-fw"></i> 分类
       </a>
     </li>
@@ -1912,7 +1919,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/tags/" id="tags">
+      <a class="vlts-menu fix-cursor-default " href="/tags/" id="tags">
         <i class="fas fa-tags fa-fw"></i> 标签
       </a>
     </li>
@@ -1922,7 +1929,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/archives/" id="archives">
+      <a class="vlts-menu fix-cursor-default " href="/archives/" id="archives">
         <i class="fas fa-archive fa-fw"></i> 归档
       </a>
     </li>
@@ -1936,7 +1943,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/friends/" id="friends">
+      <a class="vlts-menu fix-cursor-default " href="/friends/" id="friends">
         <i class="fas fa-link fa-fw"></i> 友链
       </a>
     </li>
@@ -1946,7 +1953,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/about/" id="about">
+      <a class="vlts-menu fix-cursor-default " href="/about/" id="about">
         <i class="fas fa-info-circle fa-fw"></i> 关于
       </a>
     </li>
@@ -1960,8 +1967,22 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" onclick="document.execCommand('print')">
+      <a class="vlts-menu fix-cursor-default " onclick="document.execCommand('print')">
         <i class="fa fa-print fa-fw"></i> 打印页面
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default toggle-mode-btn">
+        <i class="fas fa-moon fa-fw"></i> 关灯
       </a>
     </li>
   
@@ -2092,18 +2113,13 @@ var loadCSS = function( href, before, media, attributes ){
           copyHref.style.display = 'none';
         }
       }
-
-      // 有音乐播放器
-      if ('true' == true && ('home,categories,tags,archives,hr,friends,about,hr,print,hr,music'||[]).includes('music')) {
+      // 有音乐播放器 see: layout/_third-party/aplayer/script.ejs
+      
+      if(volantis.APlayerLoaded){ // APlayer加载完成？
         // 如果有aplayer，初始化一下
-      	try {
-      		checkAPlayer();
-          updateTitle();
-      	} catch (error) {
-      		console.log(error);
-      	}
+        checkAPlayer();
       }
-
+      
       return false; // 该行代码确保系统自带的右键菜单不会被调出
     }
     function hideMenu() {
@@ -2260,15 +2276,17 @@ var loadCSS = function( href, before, media, attributes ){
   loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
   // APlayer 需要在  MetingJS 之前加载
   loadScript("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js")
-  window.volantis.LoadMetingJS=0
+  window.volantis.APlayerLoaded=0 // APlayer加载完成状态
   var checkAPlayer = setInterval(function () {
-    if (!window.APlayer) return
+    if (!window.APlayer) return // APlayer加载完成？
+	  if ($("#safearea").css("display")!="block") return // 文章内容加载完成？ see: source/css/first.styl
     clearInterval(checkAPlayer)
-	if (!window.volantis.LoadMetingJS&&!window.MetingJSElement){
-	  window.LoadMetingJS=1
-      loadScript("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js")
+	  if (!window.volantis.APlayerLoaded&&!window.MetingJSElement){ // APlayer只能加载一次
+      window.volantis.APlayerLoaded=1 // APlayer加载完成
+      loadScript("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js") // 加载 MetingJS
 	  }
-  }, 2500)
+  }, 2500) // 按照网速调节差分2.5s
+  // rightmenu see: layout/_partial/rightmenu.ejs
 
   
     loadScript("/js/aplayer.js")
@@ -3129,7 +3147,7 @@ document.addEventListener("pjax:success", listennSidebarTOC);
         elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
         selectors: [
           "title",
-          "#l_cover",
+          
           "#pjax-container",
           "#pjax-header-nav-list"
         ],

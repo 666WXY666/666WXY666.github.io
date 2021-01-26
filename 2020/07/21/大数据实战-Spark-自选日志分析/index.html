@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.0">
+  <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -1115,9 +1115,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </tr>
 </tbody></table>
 <p>定义好了日志的格式，只要编写python程序，让他自己按照这个格式生产日志即可，具体代码见附录，下面是部分代码截图和运行结果：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200603145855.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603145855.jpg" srcset="data:image/png;base64,666" alt="2020-06-03_145833" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200603145855.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603145855.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-03_145833" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200603145923.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603145923.jpg" srcset="data:image/png;base64,666" alt="2020-06-03_145917" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200603145923.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603145923.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-03_145917" style="zoom:80%;">
 
 <h3 id="4-2自选数据集计算的需求分析"><a href="#4-2自选数据集计算的需求分析" class="headerlink" title="4.2自选数据集计算的需求分析"></a>4.2自选数据集计算的需求分析</h3><p>因为是汽车和旅游日志信息，并且有不同日期，不同地区的信息，主要需求就是选取从开始时间到截止时间使用的机动车数量和旅游次数最多的前10个地区，以及他们的机动车总数量和旅游总次数。</p>
 <p>主要步骤就是（与实验一大体相同，又有所区别）：</p>
@@ -1135,37 +1135,37 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ol>
 <h3 id="4-3编程设计实现"><a href="#4-3编程设计实现" class="headerlink" title="4.3编程设计实现"></a>4.3编程设计实现</h3><h4 id="4-3-1创建工程"><a href="#4-3-1创建工程" class="headerlink" title="4.3.1创建工程"></a>4.3.1创建工程</h4><p>4.3.1.1打开Eclipse IDE</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd eclipse/</span><br><span class="line">./eclipse &amp;</span><br></pre></td></tr></table></figure>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200603143358.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603143358.jpg" srcset="data:image/png;base64,666" alt="2020-06-03_102818" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200603143358.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603143358.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-03_102818" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200603143419.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603143419.jpg" srcset="data:image/png;base64,666" alt="2020-06-03_102840" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200603143419.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603143419.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-03_102840" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200603143431.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603143431.jpg" srcset="data:image/png;base64,666" alt="2020-06-03_102917" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200603143431.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603143431.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-03_102917" style="zoom:80%;">
 
 <p>4.3.1.2点击 File -&gt; New -&gt;Other</p>
 <p>4.3.1.3搜索 maven -&gt; 点击 Maven Project -&gt; Next-&gt;Next</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200603143443.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603143443.jpg" srcset="data:image/png;base64,666" alt="2020-06-03_103021" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200603143443.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603143443.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-03_103021" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200603143500.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603143500.jpg" srcset="data:image/png;base64,666" alt="2020-06-03_103035" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200603143500.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603143500.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-03_103035" style="zoom:80%;">
 
 <p>4.3.1.4选中maven-archetype-quickstart -&gt;Next</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200603143535.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603143535.jpg" srcset="data:image/png;base64,666" alt="2020-06-03_103051" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200603143535.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603143535.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-03_103051" style="zoom:80%;">
 
 <p>4.3.1.5输入Group Id 为 org.zkpk；Artifact Id 为 spark ；Package为org.zkpk.spark；-&gt;Finish</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200603143603.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603143603.jpg" srcset="data:image/png;base64,666" alt="2020-06-03_103201" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200603143603.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603143603.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-03_103201" style="zoom:80%;">
 
 <p>4.3.1.6升级maven工程</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200603143618.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603143618.jpg" srcset="data:image/png;base64,666" alt="2020-06-03_103247" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200603143618.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603143618.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-03_103247" style="zoom:80%;">
 
 <p>升级完成：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200603143638.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603143638.jpg" srcset="data:image/png;base64,666" alt="2020-06-03_103513" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200603143638.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603143638.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-03_103513" style="zoom:80%;">
 
 <p>4.3.1.7更改JRE，右键JRE System Library-&gt; Properties</p>
 <p>4.3.1.8选中jdk1.8.0_131-&gt; OK</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200603143649.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603143649.jpg" srcset="data:image/png;base64,666" alt="2020-06-03_103535" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200603143649.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603143649.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-03_103535" style="zoom:80%;">
 
 <p>4.3.1.9点击spark项目-&gt;修改pom.xml-&gt; 保存会自动下载jar包</p>
 <p>4.3.1.10下载Jar包：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200603143734.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603143734.jpg" srcset="data:image/png;base64,666" alt="2020-06-03_103915" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200603143734.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603143734.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-03_103915" style="zoom:80%;">
 
 <p>4.3.1.11最终 pom.xml 如下：</p>
 <details><summary> 点击查看代码 </summary>
@@ -1175,7 +1175,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             </details>
 
 <p>4.3.1.12删除工程生成的App.java和AppTest.java</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200603143746.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603143746.jpg" srcset="data:image/png;base64,666" alt="2020-06-03_104358" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200603143746.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603143746.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-03_104358" style="zoom:80%;">
 
 <p>利用实验一的实验环境编写java程序，同样是SecondarySortKey.java和SecondarySortDemo.java两个java文件。其中SecondarySortKey.java中有两个类，一个是serDemo类，用于存储未排序的数据，一个是SecondarySortKey类，里面重写了一系列排序函数，用于按照自己的规则排序；SecondarySortDemo.java有一个类SecondarySortDemo，里面有主函数和创建Spark RDD，求和，sortByKey等函数，是主要的逻辑运行的地方。</p>
 <h4 id="4-3-2这里只挑出关键的代码进行解释注释和说明，详细的带注释的代码见附录："><a href="#4-3-2这里只挑出关键的代码进行解释注释和说明，详细的带注释的代码见附录：" class="headerlink" title="4.3.2这里只挑出关键的代码进行解释注释和说明，详细的带注释的代码见附录："></a>4.3.2这里只挑出关键的代码进行解释注释和说明，详细的带注释的代码见附录：</h4><p>这是排序的数据存放的类，有三个字段，全参构造函数，getter和setter，以及toString，hashCode和equal方法。</p>
@@ -1229,10 +1229,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 </li>
 </ul>
-<h3 id="4-4运行程序"><a href="#4-4运行程序" class="headerlink" title="4.4运行程序"></a>4.4运行程序</h3><h4 id="4-4-1将生成好的mydata-log发送到平台。"><a href="#4-4-1将生成好的mydata-log发送到平台。" class="headerlink" title="4.4.1将生成好的mydata.log发送到平台。"></a>4.4.1将生成好的mydata.log发送到平台。</h4><img src="https://gitee.com/wxy_666/images/raw/master/20200603153734.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603153734.jpg" srcset="data:image/png;base64,666" alt="2020-06-03_125258" style="zoom:80%;">
+<h3 id="4-4运行程序"><a href="#4-4运行程序" class="headerlink" title="4.4运行程序"></a>4.4运行程序</h3><h4 id="4-4-1将生成好的mydata-log发送到平台。"><a href="#4-4-1将生成好的mydata-log发送到平台。" class="headerlink" title="4.4.1将生成好的mydata.log发送到平台。"></a>4.4.1将生成好的mydata.log发送到平台。</h4><img src="https://gitee.com/wxy_666/images/raw/master/20200603153734.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603153734.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-03_125258" style="zoom:80%;">
 
 <h4 id="4-4-2运行程序，查看结果。"><a href="#4-4-2运行程序，查看结果。" class="headerlink" title="4.4.2运行程序，查看结果。"></a>4.4.2运行程序，查看结果。</h4><p>可以发现，程序正常运行得出了结果，并且已经求和和排序，成功！</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200603154055.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603154055.png" srcset="data:image/png;base64,666" alt="QQ截图20200603142255" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200603154055.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603154055.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="QQ截图20200603142255" style="zoom:80%;">
 
 
 
@@ -1265,7 +1265,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
     </section>
     <section class="body">
-      <div class="vlts-rps"><a class="item" href="/2020/05/14/大数据实战-Spark-Streaming-实时计算Kafka数据/" title="大数据实战 Spark Streaming 实时计算Kafka数据" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200518184342.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518184342.jpg" srcset="data:image/png;base64,666"><span class="title">大数据实战 Spark Streaming 实时计算Kafka数据</span><span class="excerpt">本文是关于大数据通过Spark Streaming实现流计算Kafka数据进行单词计数。</span></a><a class="item" href="/2020/03/15/大数据实战-Spark-Java单词计数/" title="大数据实战 Spark Java单词计数" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200423203009.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200423203009.jpg" srcset="data:image/png;base64,666"><span class="title">大数据实战 Spark Java单词计数</span><span class="excerpt">本文是关于大数据通过Spark实现Java单词计数。</span></a><a class="item" href="/2020/07/20/大数据实战-Spark-分析流量日志/" title="大数据实战 Spark 分析流量日志" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200603142941.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603142941.png" srcset="data:image/png;base64,666"><span class="title">大数据实战 Spark 分析流量日志</span><span class="excerpt">本文是关于大数据通过Java进行Spark编程实现日志处理分析。</span></a><a class="item" href="/2020/06/10/大数据实战-Python可视化-Matplotlib可视化/" title="大数据实战 Python可视化 Matplotlib可视化" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200602123119.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123119.jpg" srcset="data:image/png;base64,666"><span class="title">大数据实战 Python可视化 Matplotlib可视化</span><span class="excerpt">本文是关于大数据通过Python的Matplotlib实现数据可视化。</span></a></div></section></div>
+      <div class="vlts-rps"><a class="item" href="/2020/05/14/大数据实战-Spark-Streaming-实时计算Kafka数据/" title="大数据实战 Spark Streaming 实时计算Kafka数据" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200518184342.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518184342.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">大数据实战 Spark Streaming 实时计算Kafka数据</span><span class="excerpt">本文是关于大数据通过Spark Streaming实现流计算Kafka数据进行单词计数。</span></a><a class="item" href="/2020/03/15/大数据实战-Spark-Java单词计数/" title="大数据实战 Spark Java单词计数" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200423203009.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200423203009.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">大数据实战 Spark Java单词计数</span><span class="excerpt">本文是关于大数据通过Spark实现Java单词计数。</span></a><a class="item" href="/2020/07/20/大数据实战-Spark-分析流量日志/" title="大数据实战 Spark 分析流量日志" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200603142941.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603142941.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">大数据实战 Spark 分析流量日志</span><span class="excerpt">本文是关于大数据通过Java进行Spark编程实现日志处理分析。</span></a><a class="item" href="/2020/06/10/大数据实战-Python可视化-Matplotlib可视化/" title="大数据实战 Python可视化 Matplotlib可视化" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200602123119.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123119.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">大数据实战 Python可视化 Matplotlib可视化</span><span class="excerpt">本文是关于大数据通过Python的Matplotlib实现数据可视化。</span></a></div></section></div>
       
       
         <div class="copyright">
@@ -1292,9 +1292,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="donate">
           <div class="imgs">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" srcset="data:image/png;base64,666">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,666">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
             
           </div>
         </div>
@@ -1309,10 +1309,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-17T14:20:26+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-26T12:05:55+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年1月17日</p>
+    <p>更新于：2021年1月26日</p>
   </a>
 </div>
 
@@ -1334,7 +1334,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://666wxy666.github.io/2020/07/21/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Spark-%E8%87%AA%E9%80%89%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/&title=大数据实战 Spark 自选日志分析 - 苇名一心的博客&summary=本文是关于大数据通过Java进行Spark编程实现自选日志处理分析。">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -1342,7 +1342,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://666wxy666.github.io/2020/07/21/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Spark-%E8%87%AA%E9%80%89%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/&title=大数据实战 Spark 自选日志分析 - 苇名一心的博客&summary=本文是关于大数据通过Java进行Spark编程实现自选日志处理分析。">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -1350,7 +1350,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=https://666wxy666.github.io/2020/07/21/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98-Spark-%E8%87%AA%E9%80%89%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/&title=大数据实战 Spark 自选日志分析 - 苇名一心的博客&summary=本文是关于大数据通过Java进行Spark编程实现自选日志处理分析。">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -1475,10 +1475,18 @@ E...</p>
   pdata.postTitle="大数据实战 Spark 自选日志分析";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
-
+  // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
   l_header.classList.add("show");
+  
+  
+    // cover
+    var cover_wrapper=document.querySelector('.cover-wrapper');
+    
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
+    
   
 </script>
 
@@ -1913,7 +1921,6 @@ var loadCSS = function( href, before, media, attributes ){
         
 	  }
 	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
-	  volantis.pjax.push(Pjax_backstretch)
     </script>
   
 
@@ -1948,7 +1955,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/categories/" id="categories">
+      <a class="vlts-menu fix-cursor-default " href="/categories/" id="categories">
         <i class="fas fa-folder-open fa-fw"></i> 分类
       </a>
     </li>
@@ -1958,7 +1965,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/tags/" id="tags">
+      <a class="vlts-menu fix-cursor-default " href="/tags/" id="tags">
         <i class="fas fa-tags fa-fw"></i> 标签
       </a>
     </li>
@@ -1968,7 +1975,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/archives/" id="archives">
+      <a class="vlts-menu fix-cursor-default " href="/archives/" id="archives">
         <i class="fas fa-archive fa-fw"></i> 归档
       </a>
     </li>
@@ -1982,7 +1989,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/friends/" id="friends">
+      <a class="vlts-menu fix-cursor-default " href="/friends/" id="friends">
         <i class="fas fa-link fa-fw"></i> 友链
       </a>
     </li>
@@ -1992,7 +1999,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/about/" id="about">
+      <a class="vlts-menu fix-cursor-default " href="/about/" id="about">
         <i class="fas fa-info-circle fa-fw"></i> 关于
       </a>
     </li>
@@ -2006,8 +2013,22 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" onclick="document.execCommand('print')">
+      <a class="vlts-menu fix-cursor-default " onclick="document.execCommand('print')">
         <i class="fa fa-print fa-fw"></i> 打印页面
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default toggle-mode-btn">
+        <i class="fas fa-moon fa-fw"></i> 关灯
       </a>
     </li>
   
@@ -2138,18 +2159,13 @@ var loadCSS = function( href, before, media, attributes ){
           copyHref.style.display = 'none';
         }
       }
-
-      // 有音乐播放器
-      if ('true' == true && ('home,categories,tags,archives,hr,friends,about,hr,print,hr,music'||[]).includes('music')) {
+      // 有音乐播放器 see: layout/_third-party/aplayer/script.ejs
+      
+      if(volantis.APlayerLoaded){ // APlayer加载完成？
         // 如果有aplayer，初始化一下
-      	try {
-      		checkAPlayer();
-          updateTitle();
-      	} catch (error) {
-      		console.log(error);
-      	}
+        checkAPlayer();
       }
-
+      
       return false; // 该行代码确保系统自带的右键菜单不会被调出
     }
     function hideMenu() {
@@ -2306,15 +2322,17 @@ var loadCSS = function( href, before, media, attributes ){
   loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
   // APlayer 需要在  MetingJS 之前加载
   loadScript("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js")
-  window.volantis.LoadMetingJS=0
+  window.volantis.APlayerLoaded=0 // APlayer加载完成状态
   var checkAPlayer = setInterval(function () {
-    if (!window.APlayer) return
+    if (!window.APlayer) return // APlayer加载完成？
+	  if ($("#safearea").css("display")!="block") return // 文章内容加载完成？ see: source/css/first.styl
     clearInterval(checkAPlayer)
-	if (!window.volantis.LoadMetingJS&&!window.MetingJSElement){
-	  window.LoadMetingJS=1
-      loadScript("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js")
+	  if (!window.volantis.APlayerLoaded&&!window.MetingJSElement){ // APlayer只能加载一次
+      window.volantis.APlayerLoaded=1 // APlayer加载完成
+      loadScript("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js") // 加载 MetingJS
 	  }
-  }, 2500)
+  }, 2500) // 按照网速调节差分2.5s
+  // rightmenu see: layout/_partial/rightmenu.ejs
 
   
     loadScript("/js/aplayer.js")
@@ -3175,7 +3193,7 @@ document.addEventListener("pjax:success", listennSidebarTOC);
         elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
         selectors: [
           "title",
-          "#l_cover",
+          
           "#pjax-container",
           "#pjax-header-nav-list"
         ],

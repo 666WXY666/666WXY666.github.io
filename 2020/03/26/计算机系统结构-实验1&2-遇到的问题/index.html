@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.0">
+  <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -1080,13 +1080,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </li>
 </ul>
 <p>大端和小端字节序不是由操作系统决定的，而是由cpu架构决定的。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200419150741.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200419150741.png" srcset="data:image/png;base64,666" alt="2020-04-19_150338" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200419150741.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200419150741.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-19_150338" style="zoom:80%;">
 
 <h2 id="三、关于返回地址"><a href="#三、关于返回地址" class="headerlink" title="三、关于返回地址"></a>三、关于返回地址</h2><p>关于这里的**<em>返回地址**</em>，后面的所有其他跳转指令的返回地址均指的是：当前指令的下一条指令的地址，也就是跳转指令如果不跳转（分支失败）的下一条指令的地址。例如：当前的指令的地址是0x00000068，那么返回地址就是0x00000072。还要注意offset要左移两位并进行符号位扩展后才能与PC相加得到转移地址。这里左移两位的目的是，将offset*4，使之成为4的倍数。也就是说PC+offset&lt;&lt;2代表了PC的后offset+1（因为PC+offset&lt;&lt;2的PC已经+1了）条指令为转移指令。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200419152615.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200419152615.png" srcset="data:image/png;base64,666" alt="QQ图片20200419152549" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200419152615.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200419152615.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="QQ图片20200419152549" style="zoom:80%;">
 
 <h2 id="四、关于定向技术"><a href="#四、关于定向技术" class="headerlink" title="四、关于定向技术"></a>四、关于定向技术</h2><p>在定向技术中，因为其采用的是静态指令调度。非运算类指令必须在 ID段 得到之前指令的定向数据。并不能像运算类执行一样在 EX段 得到定向数据；如图所示：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200518210441.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518210441.jpg" srcset="data:image/png;base64,666" alt="307-实验二-第二组" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200518210441.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518210441.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="307-实验二-第二组" style="zoom:80%;">
 
 <h2 id="五、关于STALL"><a href="#五、关于STALL" class="headerlink" title="五、关于STALL"></a>五、关于STALL</h2><p>“绿色<font color="red">ID</font>后跟绿色ID” 和 “绿色STALL后跟绿色ID”的区别：<br>绿色<font color="red">ID</font>表示该周期ID可以执行，但是存在RAW冲突，因此执行失败，因此紧接着要做绿色ID；<br>绿色STALL表示该周期由于上一条指令的红色STALL，导致该指令此周期停顿，下一周期执行绿色ID。</p>
 
@@ -1102,7 +1102,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
     </section>
     <section class="body">
-      <div class="vlts-rps"><a class="item" href="/2020/04/25/计算机系统结构-实验3-使用MIPS指令实现求两个数组的点积/" title="计算机系统结构 实验3 使用MIPS指令实现求两个数组的点积" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" srcset="data:image/png;base64,666"><span class="title">计算机系统结构 实验3 使用MIPS指令实现求两个数组的点积</span><span class="excerpt">本文是关于计算机系统结构实验三，使用MIPS指令实现求两个数组的点积。</span></a><a class="item" href="/2020/04/16/计算机系统结构-实验4-使用MIPS指令实现冒泡排序法/" title="计算机系统结构 实验4 使用MIPS指令实现冒泡排序法" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" srcset="data:image/png;base64,666"><span class="title">计算机系统结构 实验4 使用MIPS指令实现冒泡排序法</span><span class="excerpt">本文是关于计算机系统结构实验四，使用MIPS指令实现冒泡排序法。</span></a><a class="item" href="/2020/05/11/计算机系统结构-实验5-指令调度与延迟分支/" title="计算机系统结构 实验5 指令调度与延迟分支" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" srcset="data:image/png;base64,666"><span class="title">计算机系统结构 实验5 指令调度与延迟分支</span><span class="excerpt">本文是关于计算机系统结构实验五，指令调度与延迟分支。</span></a><a class="item" href="/2020/09/04/CSAPP-实验集锦/" title="CSAPP 实验集锦" rel="bookmark "><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=CSAPP-Report&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=CSAPP-Report&show_owner=true" srcset="data:image/png;base64,666"><span class="title">CSAPP 实验集锦</span><span class="excerpt">本文是CSAPP（深入理解计算机系统）项目工程集锦。</span></a><a class="item" href="/2020/10/09/交换原理-实验1-时间表调度实验/" title="交换原理 实验1 时间表调度实验" rel="bookmark "><img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" class="lazyload" data-srcset="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="data:image/png;base64,666"><span class="title">交换原理 实验1 时间表调度实验</span><span class="excerpt">本文是关于交换原理实验一——时间表调度实验报告记录。</span></a></div></section></div>
+      <div class="vlts-rps"><a class="item" href="/2020/04/25/计算机系统结构-实验3-使用MIPS指令实现求两个数组的点积/" title="计算机系统结构 实验3 使用MIPS指令实现求两个数组的点积" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">计算机系统结构 实验3 使用MIPS指令实现求两个数组的点积</span><span class="excerpt">本文是关于计算机系统结构实验三，使用MIPS指令实现求两个数组的点积。</span></a><a class="item" href="/2020/04/16/计算机系统结构-实验4-使用MIPS指令实现冒泡排序法/" title="计算机系统结构 实验4 使用MIPS指令实现冒泡排序法" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">计算机系统结构 实验4 使用MIPS指令实现冒泡排序法</span><span class="excerpt">本文是关于计算机系统结构实验四，使用MIPS指令实现冒泡排序法。</span></a><a class="item" href="/2020/05/11/计算机系统结构-实验5-指令调度与延迟分支/" title="计算机系统结构 实验5 指令调度与延迟分支" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">计算机系统结构 实验5 指令调度与延迟分支</span><span class="excerpt">本文是关于计算机系统结构实验五，指令调度与延迟分支。</span></a><a class="item" href="/2020/09/04/CSAPP-实验集锦/" title="CSAPP 实验集锦" rel="bookmark "><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=CSAPP-Report&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=CSAPP-Report&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">CSAPP 实验集锦</span><span class="excerpt">本文是CSAPP（深入理解计算机系统）项目工程集锦。</span></a><a class="item" href="/2020/10/09/交换原理-实验1-时间表调度实验/" title="交换原理 实验1 时间表调度实验" rel="bookmark "><img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" class="lazyload" data-srcset="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">交换原理 实验1 时间表调度实验</span><span class="excerpt">本文是关于交换原理实验一——时间表调度实验报告记录。</span></a></div></section></div>
       
       
         <div class="copyright">
@@ -1129,9 +1129,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="donate">
           <div class="imgs">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" srcset="data:image/png;base64,666">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,666">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
             
           </div>
         </div>
@@ -1146,10 +1146,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-17T14:20:26+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-26T12:05:55+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年1月17日</p>
+    <p>更新于：2021年1月26日</p>
   </a>
 </div>
 
@@ -1171,7 +1171,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://666wxy666.github.io/2020/03/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C1&2-%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/&title=计算机系统结构 实验1和2 遇到的问题 - 苇名一心的博客&summary=本文是关于计算机系统结构实验一（MIPS指令系统和MIPS体系结构）和实验二（流水线及流水线中的冲突），遇到的一些问题。">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -1179,7 +1179,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://666wxy666.github.io/2020/03/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C1&2-%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/&title=计算机系统结构 实验1和2 遇到的问题 - 苇名一心的博客&summary=本文是关于计算机系统结构实验一（MIPS指令系统和MIPS体系结构）和实验二（流水线及流水线中的冲突），遇到的一些问题。">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -1187,7 +1187,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=https://666wxy666.github.io/2020/03/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84-%E5%AE%9E%E9%AA%8C1&2-%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/&title=计算机系统结构 实验1和2 遇到的问题 - 苇名一心的博客&summary=本文是关于计算机系统结构实验一（MIPS指令系统和MIPS体系结构）和实验二（流水线及流水线中的冲突），遇到的一些问题。">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -1310,10 +1310,18 @@ JDK版本： ...</p>
   pdata.postTitle="计算机系统结构 实验1和2 遇到的问题";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
-
+  // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
   l_header.classList.add("show");
+  
+  
+    // cover
+    var cover_wrapper=document.querySelector('.cover-wrapper');
+    
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
+    
   
 </script>
 
@@ -1748,7 +1756,6 @@ var loadCSS = function( href, before, media, attributes ){
         
 	  }
 	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
-	  volantis.pjax.push(Pjax_backstretch)
     </script>
   
 
@@ -1783,7 +1790,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/categories/" id="categories">
+      <a class="vlts-menu fix-cursor-default " href="/categories/" id="categories">
         <i class="fas fa-folder-open fa-fw"></i> 分类
       </a>
     </li>
@@ -1793,7 +1800,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/tags/" id="tags">
+      <a class="vlts-menu fix-cursor-default " href="/tags/" id="tags">
         <i class="fas fa-tags fa-fw"></i> 标签
       </a>
     </li>
@@ -1803,7 +1810,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/archives/" id="archives">
+      <a class="vlts-menu fix-cursor-default " href="/archives/" id="archives">
         <i class="fas fa-archive fa-fw"></i> 归档
       </a>
     </li>
@@ -1817,7 +1824,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/friends/" id="friends">
+      <a class="vlts-menu fix-cursor-default " href="/friends/" id="friends">
         <i class="fas fa-link fa-fw"></i> 友链
       </a>
     </li>
@@ -1827,7 +1834,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/about/" id="about">
+      <a class="vlts-menu fix-cursor-default " href="/about/" id="about">
         <i class="fas fa-info-circle fa-fw"></i> 关于
       </a>
     </li>
@@ -1841,8 +1848,22 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" onclick="document.execCommand('print')">
+      <a class="vlts-menu fix-cursor-default " onclick="document.execCommand('print')">
         <i class="fa fa-print fa-fw"></i> 打印页面
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default toggle-mode-btn">
+        <i class="fas fa-moon fa-fw"></i> 关灯
       </a>
     </li>
   
@@ -1973,18 +1994,13 @@ var loadCSS = function( href, before, media, attributes ){
           copyHref.style.display = 'none';
         }
       }
-
-      // 有音乐播放器
-      if ('true' == true && ('home,categories,tags,archives,hr,friends,about,hr,print,hr,music'||[]).includes('music')) {
+      // 有音乐播放器 see: layout/_third-party/aplayer/script.ejs
+      
+      if(volantis.APlayerLoaded){ // APlayer加载完成？
         // 如果有aplayer，初始化一下
-      	try {
-      		checkAPlayer();
-          updateTitle();
-      	} catch (error) {
-      		console.log(error);
-      	}
+        checkAPlayer();
       }
-
+      
       return false; // 该行代码确保系统自带的右键菜单不会被调出
     }
     function hideMenu() {
@@ -2141,15 +2157,17 @@ var loadCSS = function( href, before, media, attributes ){
   loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
   // APlayer 需要在  MetingJS 之前加载
   loadScript("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js")
-  window.volantis.LoadMetingJS=0
+  window.volantis.APlayerLoaded=0 // APlayer加载完成状态
   var checkAPlayer = setInterval(function () {
-    if (!window.APlayer) return
+    if (!window.APlayer) return // APlayer加载完成？
+	  if ($("#safearea").css("display")!="block") return // 文章内容加载完成？ see: source/css/first.styl
     clearInterval(checkAPlayer)
-	if (!window.volantis.LoadMetingJS&&!window.MetingJSElement){
-	  window.LoadMetingJS=1
-      loadScript("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js")
+	  if (!window.volantis.APlayerLoaded&&!window.MetingJSElement){ // APlayer只能加载一次
+      window.volantis.APlayerLoaded=1 // APlayer加载完成
+      loadScript("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js") // 加载 MetingJS
 	  }
-  }, 2500)
+  }, 2500) // 按照网速调节差分2.5s
+  // rightmenu see: layout/_partial/rightmenu.ejs
 
   
     loadScript("/js/aplayer.js")
@@ -3010,7 +3028,7 @@ document.addEventListener("pjax:success", listennSidebarTOC);
         elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
         selectors: [
           "title",
-          "#l_cover",
+          
           "#pjax-container",
           "#pjax-header-nav-list"
         ],

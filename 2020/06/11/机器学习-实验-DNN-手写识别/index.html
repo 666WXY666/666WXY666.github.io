@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.0">
+  <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -1073,57 +1073,57 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>包括问题描述，输入输出数据，训练、测试数据集，深度网络模型结构图，损失函数，训练方法，以及其他需要说明的内容。</p>
 <h2 id="二、问题描述"><a href="#二、问题描述" class="headerlink" title="二、问题描述"></a>二、问题描述</h2><p>下面将描述一个深度神经网络的典型经典例子：手写数字识别（OCR）。</p>
 <p>⼈类视觉系统是世界上众多奇迹之一。下面的手写数字序列：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200601103924.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200601103924.png" srcset="data:image/png;base64,666" alt="digits" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200601103924.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200601103924.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="digits" style="zoom:80%;">
 
 <p>大多数人毫不费力就能够认出这些数字为 504192。识别手写数字不是一件简单的事。尽管⼈类在理解我们眼睛展示出来的信息上非常擅长，但如果你尝试写出计算机程序来识别诸如上面的数字，就会明显感受到视觉模式识别的困难。看起来人类一下子就能完成的任务变得特别困难。关于我们识别形状——“9 顶上有一个圈，右下方则是一条竖线”这样的简单直觉——实际上算法上就很难轻易表达出来了。而在你试着让这些识别规则越发精准时，就会很快陷入各种混乱的异常或者特殊情形的困境中。实现一个可以识别手写数字的神经网络。这个神经网络不需要人类帮助便可以超过 96% 的准确率识别数字。实际上，最优的商业神经网络已经足够好到被银行和邮局分别用在账单核查和识别地址上了。</p>
-<h2 id="二、输入输出数据"><a href="#二、输入输出数据" class="headerlink" title="二、输入输出数据"></a>二、输入输出数据</h2><img src="https://gitee.com/wxy_666/images/raw/master/20200605100130.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200605100130.png" srcset="data:image/png;base64,666" alt="1" style="zoom:80%;">
+<h2 id="二、输入输出数据"><a href="#二、输入输出数据" class="headerlink" title="二、输入输出数据"></a>二、输入输出数据</h2><img src="https://gitee.com/wxy_666/images/raw/master/20200605100130.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200605100130.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="1" style="zoom:80%;">
 
 <h3 id="1、输入数据"><a href="#1、输入数据" class="headerlink" title="1、输入数据"></a>1、输入数据</h3><p>一系列手写的数字，例如：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200601103924.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200601103924.png" srcset="data:image/png;base64,666" alt="digits" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200601103924.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200601103924.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="digits" style="zoom:80%;">
 
 <h3 id="2、输出数据"><a href="#2、输出数据" class="headerlink" title="2、输出数据"></a>2、输出数据</h3><p>识别出的数字：504192</p>
 <h2 id="三、训练、测试数据集"><a href="#三、训练、测试数据集" class="headerlink" title="三、训练、测试数据集"></a>三、训练、测试数据集</h2><p>使用经典的<em>MNIST</em> 数据集作为数据源。MNIST 数据分为两个部分。第一部分包含 60,000 幅用于训练数据的图像。这些图像扫描⾃250 ⼈的手写样本。这些图像是28 × 28 ⼤小的灰度图像。第二部分是 10,000 幅用于测试数据的图像，同样是 28 × 28 的灰度图像。</p>
-<h3 id="训练集测试集样例"><a href="#训练集测试集样例" class="headerlink" title="训练集测试集样例"></a>训练集测试集样例</h3><img src="https://gitee.com/wxy_666/images/raw/master/20200605100239.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200605100239.png" srcset="data:image/png;base64,666" alt="fc73217ae57f451a89badc801a903bb742e42eabd9434ecc8089efe19a66c076" style="zoom:80%;">
+<h3 id="训练集测试集样例"><a href="#训练集测试集样例" class="headerlink" title="训练集测试集样例"></a>训练集测试集样例</h3><img src="https://gitee.com/wxy_666/images/raw/master/20200605100239.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200605100239.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="fc73217ae57f451a89badc801a903bb742e42eabd9434ecc8089efe19a66c076" style="zoom:80%;">
 
-<p><img src="https://gitee.com/wxy_666/images/raw/master/20200601103228.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200601103228.jpg" srcset="data:image/png;base64,666" alt="神经网络与深度学习1"></p>
+<p><img src="https://gitee.com/wxy_666/images/raw/master/20200601103228.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200601103228.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="神经网络与深度学习1"></p>
 <h2 id="四、深度网络模型结构图"><a href="#四、深度网络模型结构图" class="headerlink" title="四、深度网络模型结构图"></a>四、深度网络模型结构图</h2><p>我们可以把识别手写数字的问题分成两个子问题。首先，我们希望有个方式把包含许多数字的图像分成一系列单独的图像，每个包含单个数字。例如，我们想要把图像</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200601103924.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200601103924.png" srcset="data:image/png;base64,666" alt="digits" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200601103924.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200601103924.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="digits" style="zoom:80%;">
 
 <p>分成六个单独的图像</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200601104635.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200601104635.png" srcset="data:image/png;base64,666" alt="digits_separate" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200601104635.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200601104635.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="digits_separate" style="zoom:80%;">
 
 <p>一旦图像被分割，那么程序需要把每个单独的数字分类。例如，我们想要我们的程序能识别上面的第一个数字是 5。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200601104811.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200601104811.jpg" srcset="data:image/png;base64,666" alt="mnist_first_digit" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200601104811.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200601104811.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="mnist_first_digit" style="zoom:80%;">
 
 <p>有很多途径可以解决分割的问题。一种方法是尝试不同比分割方式，用数字分类器对每一个切分片段打分。如果数字分类器对每一个片段的置信度都较高，那么这个分割方式就能得到较高的分数；如果数字分类器在一或多个片段中出现问题，那么这种分割方式就会得到较低的分数。这种方法的思想是，如果分类器有问题，那么很可能是由于图像分割出错导致的。这种思想以及它的变化形式能够比较好地解决分割问题。因此，与其关心分割问题，我们不如把精力集中在解决第二个问题即分类单独的数字。</p>
 <p>我们可以使用一个三层神经网络来识别单个数字：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200601105123.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200601105123.png" srcset="data:image/png;base64,666" alt="image-20200601105123061" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200601105123.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200601105123.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200601105123061" style="zoom:80%;">
 
 <p>标准的DNN的模型结构：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200605101604.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200605101604.jpg" srcset="data:image/png;base64,666" alt="1" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200605101604.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200605101604.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="1" style="zoom:80%;">
 
 <p>网络的输入层包含给输入像素的值进行编码的神经元。我们给网络的训练数据会有很多扫描得到的 28 × 28 的手写数字的图像组成，所有输入层包含有 784 = 28 × 28个神经元。为了简化，上图中我已经忽略了 784 中⼤部分的输入神经元。输入像素是灰度级的，值为 0.0 表示白色，值为 1.0 表示黑色，中间数值表示逐渐暗淡的灰色。</p>
 <p>网络的中间层是隐藏层。我们用 n 来表示神经元的数量，我们将给 n 实验不同的数值。示例中用一个小的隐藏层来说明，仅仅包含 n = 15 个神经元。</p>
 <p>网络的输出层包含有 10 个神经元。如果第一个神经元激活，即输出$\approx1$，那么表明网络认为数字是一个 0。如果第二个神经元激活，就表明网络认为数字是一个 1。依此类推。更确切地说，我们把输出神经元的输出赋予编号 0 到 9，并计算出那个神经元有最高的激活值。比如，如果编号为 6 的神经元激活，那么我们的网络会猜到输入的数字是 6。其它神经元相同。</p>
 <p>这里使用 10 个输出神经元，因为任务是能让神经网络告诉我们哪个数字（0, 1, 2, . . . , 9 ）能和输入图片匹配，但是使用 4 个输出神经元，即把每一个当做一个二进制值，结果取决于它的输出更靠近 0 还是 1 。四个神经元足够编码这个问题了，因为 24 = 16 ⼤于 10 种可能的输入。但是10 个输出神经元的神经网络比 4 个的识别效果更好。</p>
 <p>在上述的三层神经网络加一个额外的一层就可以实现按位表示数字。额外的一层把原来的输出层转化为一个二进制表示：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200601105740.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200601105740.png" srcset="data:image/png;base64,666" alt="image-20200601105739985" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200601105740.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200601105740.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20200601105739985" style="zoom:80%;">
 
 <p>将上述网络详细展开来说，我们可以选择两个大小为100的隐层和一个大小为10的输出层，因为MNIST数据集是手写0到9的灰度图像，类别有10个，所以最后的输出大小是10。隐层的激活函数可以使用ReLU，最后输出层的激活函数是Softmax，所以最后的输出层相当于一个分类器。加上一个输入层的话，多层感知器的结构是：输入层–&gt;隐层–&gt;隐层–&gt;输出层。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200605100555.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200605100555.png" srcset="data:image/png;base64,666" alt="cb69f928778c4299b75814179607a89eea770bdc409d4e08a87e2975cb96b19b" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200605100555.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200605100555.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="cb69f928778c4299b75814179607a89eea770bdc409d4e08a87e2975cb96b19b" style="zoom:80%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200605100939.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200605100939.jpg" srcset="data:image/png;base64,666" alt="123" style="zoom:67%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200605100939.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200605100939.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="123" style="zoom:67%;">
 
 <h2 id="五、损失函及训练方法"><a href="#五、损失函及训练方法" class="headerlink" title="五、损失函及训练方法"></a>五、损失函及训练方法</h2><p>我们使用DNN反向传播算法和梯度下降算法进行学习训练。我们将用符号$x$来表示一个训练输入。为了方便，把每个训练输入$x$看作一个表示$28\times28=784$维的向量。每个向量中的项目代表图像中单个像素的灰度值。我们用$y=y(x)$表示对应的期望输出，这里$y$是一个 10 维的向量。例如，如果有一个特定的画成6的训练图像$x$，那么$y(x) = (0, 0, 0, 0, 0, 0, 1, 0, 0, 0)^T$则是网络的期望输出。</p>
 <p>我们希望有一个算法，能让我们找到权重和偏置，以⾄于网络的输出$y(x)$能够拟合所有的训练输入$x$。为了量化我们如何实现这个目标，我们定义一个代价损失函数：<br>$$<br>C(w,b)\equiv{\frac{1}{2n}}\sum_x||y(x)-a||^2<br>$$<br>这里$w$表示所有的网络中权重的集合，$b$是所有的偏置，$n$是训练输入数据的个数，$a$是表示当输入为 $x$时输出的向量，输出$a$取决于$x$，$w$和$b$，求和则是在总的训练输入$x$上进行的。符号$||v||$是指向量 v 的模。我们的训练算法的目的是最小化权重和偏置的代价函数$C(w,b)$。换句话说，我们想要找到一系列能让代价尽可能小的权重和偏置。</p>
 <p>也可以使用的是交叉熵损失函数，该函数在分类任务上比较常用。定义了一个损失函数之后，还有对它求平均值，训练程序必须返回平均损失作为第一个返回值，因为它会被后面反向传播算法所用到。同时我们还可以定义一个准确率函数，这个可以在我们训练的时候输出分类的准确率。<br>$$<br>H(p,q)=-\sum_{i=1}^{n}p(x_i)\log(q(x_i))<br>$$</p>
 <p>梯度下降算法的基本步骤：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200605102348.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200605102348.jpg" srcset="data:image/png;base64,666" alt="20200601112017" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200605102348.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200605102348.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="20200601112017" style="zoom:80%;">
 
 <h2 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h2><p>上述神经网络在测试集的准确度能达到95%左右，非常准确。</p>
-<p><img src="https://gitee.com/wxy_666/images/raw/master/20200601113522.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200601113522.png" srcset="data:image/png;base64,666" alt="regularized_full"></p>
+<p><img src="https://gitee.com/wxy_666/images/raw/master/20200601113522.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200601113522.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="regularized_full"></p>
 <p>相较于SVM，准确度和性能均有较大提升。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200601113339.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200601113339.png" srcset="data:image/png;base64,666" alt="more_data_comparison" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200601113339.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200601113339.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="more_data_comparison" style="zoom:80%;">
 
 <p>深度神经网络（Deep Neural Networks，DNN）是一个非常有前景和创新的研究方向。除了手写识别（OCR），还有各个行业的经典样例，比如：图像方面的黑白照片变彩色照片的图像着色（LetThereBeColor）、图像风格化，将一幅图像的内容与另一幅图像的风格相结合（neural-style）、通过深度学习极大提高模糊图片的分辨率（srez）、实时捕获面部表情，调换到另外一个人的面部（Face2Face）、雅虎出品的成人图片分类器（open_nsfw）、成人视频分类器（Miles Deep）等等，就不一一列举了。总之深度神经网络和深度学习给出了在图像识别、语音识别和自然语言处理领域中众多问题的最好解决方案，重要性不言而喻。</p>
 
@@ -1139,7 +1139,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
     </section>
     <section class="body">
-      <div class="vlts-rps"><a class="item" href="/2020/05/17/机器学习-实验-K-Means聚类/" title="机器学习 实验 K-Means聚类" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200524095524.svg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200524095524.svg" srcset="data:image/png;base64,666"><span class="title">机器学习 实验 K-Means聚类</span><span class="excerpt">本文是关于经典聚类算法K-Means的代码实现。</span></a><a class="item" href="/2020/07/03/机器学习-实验-RNN-为baby起名字/" title="机器学习 实验 RNN 为baby起名字" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200605202820.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200605202820.png" srcset="data:image/png;base64,666"><span class="title">机器学习 实验 RNN 为baby起名字</span><span class="excerpt">本文是关于经典RNN的应用为baby起名字的代码实现。</span></a><a class="item" href="/2020/04/26/机器学习-实验-决策树/" title="机器学习 实验 决策树" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200524143530.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200524143530.jpg" srcset="data:image/png;base64,666"><span class="title">机器学习 实验 决策树</span><span class="excerpt">本文是关于20问读心游戏的决策树代码实现。</span></a><a class="item" href="/2020/08/10/机器学习-实验-花卉识别/" title="机器学习 实验 花卉识别" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200715111020.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200715111020.png" srcset="data:image/png;base64,666"><span class="title">机器学习 实验 花卉识别</span><span class="excerpt">本文是机器学习人工智能实验，利用华为云ModelArts平台实现花卉分类识别。</span></a><a class="item" href="/2020/10/09/交换原理-实验1-时间表调度实验/" title="交换原理 实验1 时间表调度实验" rel="bookmark "><img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" class="lazyload" data-srcset="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="data:image/png;base64,666"><span class="title">交换原理 实验1 时间表调度实验</span><span class="excerpt">本文是关于交换原理实验一——时间表调度实验报告记录。</span></a></div></section></div>
+      <div class="vlts-rps"><a class="item" href="/2020/05/17/机器学习-实验-K-Means聚类/" title="机器学习 实验 K-Means聚类" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200524095524.svg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200524095524.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">机器学习 实验 K-Means聚类</span><span class="excerpt">本文是关于经典聚类算法K-Means的代码实现。</span></a><a class="item" href="/2020/07/03/机器学习-实验-RNN-为baby起名字/" title="机器学习 实验 RNN 为baby起名字" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200605202820.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200605202820.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">机器学习 实验 RNN 为baby起名字</span><span class="excerpt">本文是关于经典RNN的应用为baby起名字的代码实现。</span></a><a class="item" href="/2020/04/26/机器学习-实验-决策树/" title="机器学习 实验 决策树" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200524143530.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200524143530.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">机器学习 实验 决策树</span><span class="excerpt">本文是关于20问读心游戏的决策树代码实现。</span></a><a class="item" href="/2020/08/10/机器学习-实验-花卉识别/" title="机器学习 实验 花卉识别" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200715111020.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200715111020.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">机器学习 实验 花卉识别</span><span class="excerpt">本文是机器学习人工智能实验，利用华为云ModelArts平台实现花卉分类识别。</span></a><a class="item" href="/2020/10/09/交换原理-实验1-时间表调度实验/" title="交换原理 实验1 时间表调度实验" rel="bookmark "><img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" class="lazyload" data-srcset="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">交换原理 实验1 时间表调度实验</span><span class="excerpt">本文是关于交换原理实验一——时间表调度实验报告记录。</span></a></div></section></div>
       
       
         <div class="copyright">
@@ -1166,9 +1166,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="donate">
           <div class="imgs">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" srcset="data:image/png;base64,666">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,666">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
             
           </div>
         </div>
@@ -1183,10 +1183,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-17T14:20:26+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-26T12:05:55+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年1月17日</p>
+    <p>更新于：2021年1月26日</p>
   </a>
 </div>
 
@@ -1208,7 +1208,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://666wxy666.github.io/2020/06/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-DNN-%E6%89%8B%E5%86%99%E8%AF%86%E5%88%AB/&title=机器学习 实验 DNN 手写识别 - 苇名一心的博客&summary=本文是关于经典深度神经网络DNN的应用手写识别的思路样例。">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -1216,7 +1216,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://666wxy666.github.io/2020/06/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-DNN-%E6%89%8B%E5%86%99%E8%AF%86%E5%88%AB/&title=机器学习 实验 DNN 手写识别 - 苇名一心的博客&summary=本文是关于经典深度神经网络DNN的应用手写识别的思路样例。">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -1224,7 +1224,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=https://666wxy666.github.io/2020/06/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%AE%9E%E9%AA%8C-DNN-%E6%89%8B%E5%86%99%E8%AF%86%E5%88%AB/&title=机器学习 实验 DNN 手写识别 - 苇名一心的博客&summary=本文是关于经典深度神经网络DNN的应用手写识别的思路样例。">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -1403,10 +1403,18 @@ Anaconda版本：4.4.0
   pdata.postTitle="机器学习 实验 DNN 手写识别";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
-
+  // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
   l_header.classList.add("show");
+  
+  
+    // cover
+    var cover_wrapper=document.querySelector('.cover-wrapper');
+    
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
+    
   
 </script>
 
@@ -1841,7 +1849,6 @@ var loadCSS = function( href, before, media, attributes ){
         
 	  }
 	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
-	  volantis.pjax.push(Pjax_backstretch)
     </script>
   
 
@@ -1876,7 +1883,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/categories/" id="categories">
+      <a class="vlts-menu fix-cursor-default " href="/categories/" id="categories">
         <i class="fas fa-folder-open fa-fw"></i> 分类
       </a>
     </li>
@@ -1886,7 +1893,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/tags/" id="tags">
+      <a class="vlts-menu fix-cursor-default " href="/tags/" id="tags">
         <i class="fas fa-tags fa-fw"></i> 标签
       </a>
     </li>
@@ -1896,7 +1903,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/archives/" id="archives">
+      <a class="vlts-menu fix-cursor-default " href="/archives/" id="archives">
         <i class="fas fa-archive fa-fw"></i> 归档
       </a>
     </li>
@@ -1910,7 +1917,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/friends/" id="friends">
+      <a class="vlts-menu fix-cursor-default " href="/friends/" id="friends">
         <i class="fas fa-link fa-fw"></i> 友链
       </a>
     </li>
@@ -1920,7 +1927,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/about/" id="about">
+      <a class="vlts-menu fix-cursor-default " href="/about/" id="about">
         <i class="fas fa-info-circle fa-fw"></i> 关于
       </a>
     </li>
@@ -1934,8 +1941,22 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" onclick="document.execCommand('print')">
+      <a class="vlts-menu fix-cursor-default " onclick="document.execCommand('print')">
         <i class="fa fa-print fa-fw"></i> 打印页面
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default toggle-mode-btn">
+        <i class="fas fa-moon fa-fw"></i> 关灯
       </a>
     </li>
   
@@ -2066,18 +2087,13 @@ var loadCSS = function( href, before, media, attributes ){
           copyHref.style.display = 'none';
         }
       }
-
-      // 有音乐播放器
-      if ('true' == true && ('home,categories,tags,archives,hr,friends,about,hr,print,hr,music'||[]).includes('music')) {
+      // 有音乐播放器 see: layout/_third-party/aplayer/script.ejs
+      
+      if(volantis.APlayerLoaded){ // APlayer加载完成？
         // 如果有aplayer，初始化一下
-      	try {
-      		checkAPlayer();
-          updateTitle();
-      	} catch (error) {
-      		console.log(error);
-      	}
+        checkAPlayer();
       }
-
+      
       return false; // 该行代码确保系统自带的右键菜单不会被调出
     }
     function hideMenu() {
@@ -2234,15 +2250,17 @@ var loadCSS = function( href, before, media, attributes ){
   loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
   // APlayer 需要在  MetingJS 之前加载
   loadScript("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js")
-  window.volantis.LoadMetingJS=0
+  window.volantis.APlayerLoaded=0 // APlayer加载完成状态
   var checkAPlayer = setInterval(function () {
-    if (!window.APlayer) return
+    if (!window.APlayer) return // APlayer加载完成？
+	  if ($("#safearea").css("display")!="block") return // 文章内容加载完成？ see: source/css/first.styl
     clearInterval(checkAPlayer)
-	if (!window.volantis.LoadMetingJS&&!window.MetingJSElement){
-	  window.LoadMetingJS=1
-      loadScript("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js")
+	  if (!window.volantis.APlayerLoaded&&!window.MetingJSElement){ // APlayer只能加载一次
+      window.volantis.APlayerLoaded=1 // APlayer加载完成
+      loadScript("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js") // 加载 MetingJS
 	  }
-  }, 2500)
+  }, 2500) // 按照网速调节差分2.5s
+  // rightmenu see: layout/_partial/rightmenu.ejs
 
   
     loadScript("/js/aplayer.js")
@@ -3103,7 +3121,7 @@ document.addEventListener("pjax:success", listennSidebarTOC);
         elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
         selectors: [
           "title",
-          "#l_cover",
+          
           "#pjax-container",
           "#pjax-header-nav-list"
         ],

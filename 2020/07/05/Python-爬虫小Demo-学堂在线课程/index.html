@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.0">
+  <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -1078,17 +1078,17 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h2 id="二、详细步骤"><a href="#二、详细步骤" class="headerlink" title="二、详细步骤"></a>二、详细步骤</h2><h3 id="①准备工作"><a href="#①准备工作" class="headerlink" title="①准备工作"></a>①准备工作</h3><ol>
 <li>在Pycharm中新建一个Pure Python项目（记得要按照一中的要求配好Python环境）。</li>
 </ol>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200407214757.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200407214757.jpg" srcset="data:image/png;base64,666" alt="2020-04-07_214715" style="zoom:67%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200407214757.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200407214757.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-07_214715" style="zoom:67%;">
 
 <ol start="2">
 <li>打开Pycharm的下方的终端（Terminal），当然这些也可以在系统终端里操作，不过可能需要的步骤多一些，还是直接在Pycharm里方便一些。</li>
 </ol>
-<p><img src="https://gitee.com/wxy_666/images/raw/master/20200408164806.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408164806.png" srcset="data:image/png;base64,666" alt="2020-04-08_164744"></p>
+<p><img src="https://gitee.com/wxy_666/images/raw/master/20200408164806.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408164806.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-08_164744"></p>
 <ol start="3">
 <li><p>在终端里输入</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy startproject myScrapy</span><br></pre></td></tr></table></figure>
 <p>本来是可以在我们刚刚创建的项目里新建一个名为“myScrapy”的scrapy项目的，但是不知道为什么竟然报错了：</p>
-<p><img src="https://gitee.com/wxy_666/images/raw/master/20200408190345.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408190345.png" srcset="data:image/png;base64,666" alt="2020-04-08_190330"></p>
+<p><img src="https://gitee.com/wxy_666/images/raw/master/20200408190345.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408190345.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-08_190330"></p>
 <p>这是什么奇奇怪怪的错误，我都没有“d:\bld\scrapy_1584555997548_h_env\python.exe”这个目录，经过查找相关问题的资料，问题可能是出在Python环境上，因为我上一次新建项目时并没有报错，这一次我直接用的上一个项目的环境，网上还有一种说法是Scrapy的bug，详见</p>
 <p><a href="https://github.com/scrapy/scrapy/issues/4289" target="_blank" rel="external nofollow noopener noreferrer">Fatal error launching scrapy&gt;1.6.0 from Anaconda Prompt</a></p>
 <p><a href="https://github.com/conda-forge/scrapy-feedstock/issues/37" target="_blank" rel="external nofollow noopener noreferrer">Issue with conda-forge scrapy&gt;1.6.0 on Windows</a></p>
@@ -1107,11 +1107,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ol>
 <ol start="4">
 <li><p>出现这些提示就代表创建成功了。</p>
-<p> <img src="https://gitee.com/wxy_666/images/raw/master/20200408192211.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408192211.jpg" srcset="data:image/png;base64,666" alt="2020-04-08_192151"></p>
+<p> <img src="https://gitee.com/wxy_666/images/raw/master/20200408192211.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408192211.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-08_192151"></p>
 <p> 然后在spiders文件里新建一个spider.py文件，用于写爬虫。</p>
 </li>
 <li><p>我们来看一下目前scrapy项目的目录结构。</p>
- <img src="https://gitee.com/wxy_666/images/raw/master/20200408203358.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408203358.jpg" srcset="data:image/png;base64,666" alt="2020-04-08_203310" style="zoom: 67%;">
+ <img src="https://gitee.com/wxy_666/images/raw/master/20200408203358.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408203358.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-08_203310" style="zoom: 67%;">
 
 <p> __init__.py：pycharm生成的文件，简化导入语句用的，可以忽略，没啥用，建议删了，留着可能会出问题。</p>
 <p> spiders：存放你Spider爬虫源文件</p>
@@ -1126,7 +1126,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li><p>这是爬虫spider的基本工作方式，想要深入了解的可以去网上查找资料。</p>
 </li>
 </ol>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200408201638.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408201638.png" srcset="data:image/png;base64,666" alt="scrapy" style="zoom: 33%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200408201638.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408201638.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="scrapy" style="zoom: 33%;">
 
 <h3 id="②开始写代码"><a href="#②开始写代码" class="headerlink" title="②开始写代码"></a>②开始写代码</h3><h4 id="1、先来写items-py。"><a href="#1、先来写items-py。" class="headerlink" title="1、先来写items.py。"></a>1、先来写items.py。</h4><details><summary> 点击查看代码 </summary>
               <div class="content">
@@ -1134,7 +1134,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               </div>
             </details>
 
-<h4 id="2、再来搞settings-py，这个只需要找到这个注释掉的语句，把-去掉就OK了，就像这样："><a href="#2、再来搞settings-py，这个只需要找到这个注释掉的语句，把-去掉就OK了，就像这样：" class="headerlink" title="2、再来搞settings.py，这个只需要找到这个注释掉的语句，把#去掉就OK了，就像这样："></a>2、再来搞settings.py，这个只需要找到这个注释掉的语句，把#去掉就OK了，就像这样：</h4><img src="https://gitee.com/wxy_666/images/raw/master/20200408210722.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408210722.jpg" srcset="data:image/png;base64,666" alt="2020-04-08_210710" style="zoom: 67%;">
+<h4 id="2、再来搞settings-py，这个只需要找到这个注释掉的语句，把-去掉就OK了，就像这样："><a href="#2、再来搞settings-py，这个只需要找到这个注释掉的语句，把-去掉就OK了，就像这样：" class="headerlink" title="2、再来搞settings.py，这个只需要找到这个注释掉的语句，把#去掉就OK了，就像这样："></a>2、再来搞settings.py，这个只需要找到这个注释掉的语句，把#去掉就OK了，就像这样：</h4><img src="https://gitee.com/wxy_666/images/raw/master/20200408210722.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408210722.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-08_210710" style="zoom: 67%;">
 
 <h4 id="3、pipelines-py就很好写了，基本可以当模板来用。"><a href="#3、pipelines-py就很好写了，基本可以当模板来用。" class="headerlink" title="3、pipelines.py就很好写了，基本可以当模板来用。"></a>3、pipelines.py就很好写了，基本可以当模板来用。</h4><details><summary> 点击查看代码 </summary>
               <div class="content">
@@ -1148,7 +1148,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               </div>
             </details>
 
-<h3 id="③可以开始运行啦"><a href="#③可以开始运行啦" class="headerlink" title="③可以开始运行啦"></a>③可以开始运行啦</h3><h4 id="1、在运行前要先在项目根目录下建立一个begin-py文件来控制scrapy爬虫的运行。"><a href="#1、在运行前要先在项目根目录下建立一个begin-py文件来控制scrapy爬虫的运行。" class="headerlink" title="1、在运行前要先在项目根目录下建立一个begin.py文件来控制scrapy爬虫的运行。"></a>1、在运行前要先在项目根目录下建立一个begin.py文件来控制scrapy爬虫的运行。</h4><img src="https://gitee.com/wxy_666/images/raw/master/20200408212615.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408212615.jpg" srcset="data:image/png;base64,666" alt="2020-04-08_212604" style="zoom: 80%;">
+<h3 id="③可以开始运行啦"><a href="#③可以开始运行啦" class="headerlink" title="③可以开始运行啦"></a>③可以开始运行啦</h3><h4 id="1、在运行前要先在项目根目录下建立一个begin-py文件来控制scrapy爬虫的运行。"><a href="#1、在运行前要先在项目根目录下建立一个begin-py文件来控制scrapy爬虫的运行。" class="headerlink" title="1、在运行前要先在项目根目录下建立一个begin.py文件来控制scrapy爬虫的运行。"></a>1、在运行前要先在项目根目录下建立一个begin.py文件来控制scrapy爬虫的运行。</h4><img src="https://gitee.com/wxy_666/images/raw/master/20200408212615.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408212615.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-08_212604" style="zoom: 80%;">
 
 <details><summary> 点击查看代码 </summary>
               <div class="content">
@@ -1156,19 +1156,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               </div>
             </details>
 
-<h4 id="2、最终的项目结构（-init-py没啥用，删了）："><a href="#2、最终的项目结构（-init-py没啥用，删了）：" class="headerlink" title="2、最终的项目结构（__init__.py没啥用，删了）："></a>2、最终的项目结构（__init__.py没啥用，删了）：</h4><img src="https://gitee.com/wxy_666/images/raw/master/20200408212844.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408212844.jpg" srcset="data:image/png;base64,666" alt="2020-04-08_212834" style="zoom:67%;">
+<h4 id="2、最终的项目结构（-init-py没啥用，删了）："><a href="#2、最终的项目结构（-init-py没啥用，删了）：" class="headerlink" title="2、最终的项目结构（__init__.py没啥用，删了）："></a>2、最终的项目结构（__init__.py没啥用，删了）：</h4><img src="https://gitee.com/wxy_666/images/raw/master/20200408212844.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408212844.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-08_212834" style="zoom:67%;">
 
-<h4 id="3、运行begin-py就可以开始爬虫了。"><a href="#3、运行begin-py就可以开始爬虫了。" class="headerlink" title="3、运行begin.py就可以开始爬虫了。"></a>3、运行begin.py就可以开始爬虫了。</h4><img src="https://gitee.com/wxy_666/images/raw/master/20200408212955.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408212955.jpg" srcset="data:image/png;base64,666" alt="2020-04-08_212946" style="zoom:67%;">
+<h4 id="3、运行begin-py就可以开始爬虫了。"><a href="#3、运行begin-py就可以开始爬虫了。" class="headerlink" title="3、运行begin.py就可以开始爬虫了。"></a>3、运行begin.py就可以开始爬虫了。</h4><img src="https://gitee.com/wxy_666/images/raw/master/20200408212955.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408212955.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-08_212946" style="zoom:67%;">
 
 <p>出现这些提示就表示成功了，运行完毕后会发现项目根目录出现了我们在pipelines.py中设置好的MyData.json。</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200408222346.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408222346.jpg" srcset="data:image/png;base64,666" alt="2020-04-08_222333" style="zoom:67%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200408222346.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408222346.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-08_222333" style="zoom:67%;">
 
-<h4 id="4、打开MyData-json看一下，Perfect！"><a href="#4、打开MyData-json看一下，Perfect！" class="headerlink" title="4、打开MyData.json看一下，Perfect！"></a>4、打开MyData.json看一下，Perfect！</h4><img src="https://gitee.com/wxy_666/images/raw/master/20200408222427.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408222427.jpg" srcset="data:image/png;base64,666" alt="2020-04-08_222417" style="zoom:67%;">
+<h4 id="4、打开MyData-json看一下，Perfect！"><a href="#4、打开MyData-json看一下，Perfect！" class="headerlink" title="4、打开MyData.json看一下，Perfect！"></a>4、打开MyData.json看一下，Perfect！</h4><img src="https://gitee.com/wxy_666/images/raw/master/20200408222427.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408222427.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-08_222417" style="zoom:67%;">
 
 <p>有了这个json文件，我们就可以利用Python的pandas、numpy等工具进行各种处理，然后用matplotlib等模块进行画图了。</p>
 <h2 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h2><p>本文只是对Python的scrapy爬虫进行了简单的介绍和用一个小Demo讲述了如何使用scrapy爬取网页数据，希望对你有所帮助。</p>
 <h2 id="四、项目地址"><a href="#四、项目地址" class="headerlink" title="四、项目地址"></a>四、项目地址</h2><p>本项目的源码、可执行程序均已经存放于我的Github，欢迎下载查看：</p>
-<a class="ghcard" rel="external nofollow noopener noreferrer" target="_blank" href="https://github.com/666WXY666/xuetangzaixian"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=xuetangzaixian&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=xuetangzaixian&show_owner=true" srcset="data:image/png;base64,666"></a>
+<a class="ghcard" rel="external nofollow noopener noreferrer" target="_blank" href="https://github.com/666WXY666/xuetangzaixian"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=xuetangzaixian&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=xuetangzaixian&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a>
   
   
     
@@ -1181,7 +1181,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
     </section>
     <section class="body">
-      <div class="vlts-rps"><a class="item" href="/2020/08/15/Python-项目集锦/" title="Python 项目集锦" rel="bookmark "><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=PythonProjectsCollection&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=PythonProjectsCollection&show_owner=true" srcset="data:image/png;base64,666"><span class="title">Python 项目集锦</span><span class="excerpt">本文是一些我曾经写过的Python项目工程集锦。</span></a><a class="item" href="/2020/06/10/大数据实战-Python可视化-Matplotlib可视化/" title="大数据实战 Python可视化 Matplotlib可视化" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200602123119.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123119.jpg" srcset="data:image/png;base64,666"><span class="title">大数据实战 Python可视化 Matplotlib可视化</span><span class="excerpt">本文是关于大数据通过Python的Matplotlib实现数据可视化。</span></a><a class="item" href="/2020/06/11/机器学习-实验-DNN-手写识别/" title="机器学习 实验 DNN 手写识别" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200601103924.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200601103924.png" srcset="data:image/png;base64,666"><span class="title">机器学习 实验 DNN 手写识别</span><span class="excerpt">本文是关于经典深度神经网络DNN的应用手写识别的思路样例。</span></a><a class="item" href="/2020/05/17/机器学习-实验-K-Means聚类/" title="机器学习 实验 K-Means聚类" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200524095524.svg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200524095524.svg" srcset="data:image/png;base64,666"><span class="title">机器学习 实验 K-Means聚类</span><span class="excerpt">本文是关于经典聚类算法K-Means的代码实现。</span></a></div></section></div>
+      <div class="vlts-rps"><a class="item" href="/2020/08/15/Python-项目集锦/" title="Python 项目集锦" rel="bookmark "><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=PythonProjectsCollection&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=PythonProjectsCollection&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">Python 项目集锦</span><span class="excerpt">本文是一些我曾经写过的Python项目工程集锦。</span></a><a class="item" href="/2020/06/10/大数据实战-Python可视化-Matplotlib可视化/" title="大数据实战 Python可视化 Matplotlib可视化" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200602123119.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200602123119.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">大数据实战 Python可视化 Matplotlib可视化</span><span class="excerpt">本文是关于大数据通过Python的Matplotlib实现数据可视化。</span></a><a class="item" href="/2020/06/11/机器学习-实验-DNN-手写识别/" title="机器学习 实验 DNN 手写识别" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200601103924.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200601103924.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">机器学习 实验 DNN 手写识别</span><span class="excerpt">本文是关于经典深度神经网络DNN的应用手写识别的思路样例。</span></a><a class="item" href="/2020/05/17/机器学习-实验-K-Means聚类/" title="机器学习 实验 K-Means聚类" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200524095524.svg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200524095524.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">机器学习 实验 K-Means聚类</span><span class="excerpt">本文是关于经典聚类算法K-Means的代码实现。</span></a></div></section></div>
       
       
         <div class="copyright">
@@ -1208,9 +1208,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="donate">
           <div class="imgs">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" srcset="data:image/png;base64,666">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,666">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
             
           </div>
         </div>
@@ -1225,10 +1225,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-17T14:20:26+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-26T12:05:55+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年1月17日</p>
+    <p>更新于：2021年1月26日</p>
   </a>
 </div>
 
@@ -1250,7 +1250,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://666wxy666.github.io/2020/07/05/Python-%E7%88%AC%E8%99%AB%E5%B0%8FDemo-%E5%AD%A6%E5%A0%82%E5%9C%A8%E7%BA%BF%E8%AF%BE%E7%A8%8B/&title=Python 爬虫小Demo 学堂在线课程 - 苇名一心的博客&summary=本文是关于Python中的Spider的小Demo，通过Python的scrapy爬取学堂在线课程的相关数据。">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -1258,7 +1258,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://666wxy666.github.io/2020/07/05/Python-%E7%88%AC%E8%99%AB%E5%B0%8FDemo-%E5%AD%A6%E5%A0%82%E5%9C%A8%E7%BA%BF%E8%AF%BE%E7%A8%8B/&title=Python 爬虫小Demo 学堂在线课程 - 苇名一心的博客&summary=本文是关于Python中的Spider的小Demo，通过Python的scrapy爬取学堂在线课程的相关数据。">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -1266,7 +1266,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=https://666wxy666.github.io/2020/07/05/Python-%E7%88%AC%E8%99%AB%E5%B0%8FDemo-%E5%AD%A6%E5%A0%82%E5%9C%A8%E7%BA%BF%E8%AF%BE%E7%A8%8B/&title=Python 爬虫小Demo 学堂在线课程 - 苇名一心的博客&summary=本文是关于Python中的Spider的小Demo，通过Python的scrapy爬取学堂在线课程的相关数据。">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -1386,10 +1386,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   pdata.postTitle="Python 爬虫小Demo 学堂在线课程";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
-
+  // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
   l_header.classList.add("show");
+  
+  
+    // cover
+    var cover_wrapper=document.querySelector('.cover-wrapper');
+    
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
+    
   
 </script>
 
@@ -1824,7 +1832,6 @@ var loadCSS = function( href, before, media, attributes ){
         
 	  }
 	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
-	  volantis.pjax.push(Pjax_backstretch)
     </script>
   
 
@@ -1859,7 +1866,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/categories/" id="categories">
+      <a class="vlts-menu fix-cursor-default " href="/categories/" id="categories">
         <i class="fas fa-folder-open fa-fw"></i> 分类
       </a>
     </li>
@@ -1869,7 +1876,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/tags/" id="tags">
+      <a class="vlts-menu fix-cursor-default " href="/tags/" id="tags">
         <i class="fas fa-tags fa-fw"></i> 标签
       </a>
     </li>
@@ -1879,7 +1886,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/archives/" id="archives">
+      <a class="vlts-menu fix-cursor-default " href="/archives/" id="archives">
         <i class="fas fa-archive fa-fw"></i> 归档
       </a>
     </li>
@@ -1893,7 +1900,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/friends/" id="friends">
+      <a class="vlts-menu fix-cursor-default " href="/friends/" id="friends">
         <i class="fas fa-link fa-fw"></i> 友链
       </a>
     </li>
@@ -1903,7 +1910,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/about/" id="about">
+      <a class="vlts-menu fix-cursor-default " href="/about/" id="about">
         <i class="fas fa-info-circle fa-fw"></i> 关于
       </a>
     </li>
@@ -1917,8 +1924,22 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" onclick="document.execCommand('print')">
+      <a class="vlts-menu fix-cursor-default " onclick="document.execCommand('print')">
         <i class="fa fa-print fa-fw"></i> 打印页面
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default toggle-mode-btn">
+        <i class="fas fa-moon fa-fw"></i> 关灯
       </a>
     </li>
   
@@ -2049,18 +2070,13 @@ var loadCSS = function( href, before, media, attributes ){
           copyHref.style.display = 'none';
         }
       }
-
-      // 有音乐播放器
-      if ('true' == true && ('home,categories,tags,archives,hr,friends,about,hr,print,hr,music'||[]).includes('music')) {
+      // 有音乐播放器 see: layout/_third-party/aplayer/script.ejs
+      
+      if(volantis.APlayerLoaded){ // APlayer加载完成？
         // 如果有aplayer，初始化一下
-      	try {
-      		checkAPlayer();
-          updateTitle();
-      	} catch (error) {
-      		console.log(error);
-      	}
+        checkAPlayer();
       }
-
+      
       return false; // 该行代码确保系统自带的右键菜单不会被调出
     }
     function hideMenu() {
@@ -2217,15 +2233,17 @@ var loadCSS = function( href, before, media, attributes ){
   loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
   // APlayer 需要在  MetingJS 之前加载
   loadScript("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js")
-  window.volantis.LoadMetingJS=0
+  window.volantis.APlayerLoaded=0 // APlayer加载完成状态
   var checkAPlayer = setInterval(function () {
-    if (!window.APlayer) return
+    if (!window.APlayer) return // APlayer加载完成？
+	  if ($("#safearea").css("display")!="block") return // 文章内容加载完成？ see: source/css/first.styl
     clearInterval(checkAPlayer)
-	if (!window.volantis.LoadMetingJS&&!window.MetingJSElement){
-	  window.LoadMetingJS=1
-      loadScript("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js")
+	  if (!window.volantis.APlayerLoaded&&!window.MetingJSElement){ // APlayer只能加载一次
+      window.volantis.APlayerLoaded=1 // APlayer加载完成
+      loadScript("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js") // 加载 MetingJS
 	  }
-  }, 2500)
+  }, 2500) // 按照网速调节差分2.5s
+  // rightmenu see: layout/_partial/rightmenu.ejs
 
   
     loadScript("/js/aplayer.js")
@@ -3086,7 +3104,7 @@ document.addEventListener("pjax:success", listennSidebarTOC);
         elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
         selectors: [
           "title",
-          "#l_cover",
+          
           "#pjax-container",
           "#pjax-header-nav-list"
         ],

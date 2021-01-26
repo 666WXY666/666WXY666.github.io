@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.0">
+  <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -1072,83 +1072,83 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h2 id="一、题目要求："><a href="#一、题目要求：" class="headerlink" title="一、题目要求："></a>一、题目要求：</h2><p>​        <strong>从因特网上搜索 Web 页，用 wget 获取网页，处理网页 html 文本数据，从中提取出当前时间点北京各监测站的 PM2.5 浓度，输出如下 CSV 格式数据：</strong><br><strong><em>2020 03 09 13:00:00, 海淀区万柳 ,73<br>2020 03 09 13:00:00, 昌平镇 ,67<br>2020 03 09 13:00:00, 奥体中心 ,66<br>2020 03 09 13:00:00, 海淀区万柳 ,73<br>2020 03 09 13:00:00, 昌平镇 ,73<br>2020 03 09 13:00:00, 奥体中心 ,75</em></strong><br>​        <strong>撰写实验报告，要求：写出对数据的分析和处理思路，列出各个处理步骤并给出解释。</strong></p>
 <h2 id="二、详细步骤："><a href="#二、详细步骤：" class="headerlink" title="二、详细步骤："></a>二、详细步骤：</h2><ol>
 <li><p>从因特网上搜索 Web 页，找到与含有北京各监测站的 PM2.5 浓度的网站，我找到了**<em><a href="http://www.pm25.com/city/beijing.html" target="_blank" rel="external nofollow noopener noreferrer">绿色呼吸网</a>**</em>，网站如下：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203352.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203352.jpg" srcset="data:image/png;base64,666" alt="1" style="zoom:33%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203352.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203352.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="1" style="zoom:33%;">
 </li>
 <li><p>使用**<em>Xshell**</em>登录到Ubuntu服务器：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203420.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203420.jpg" srcset="data:image/png;base64,666" alt="2" style="zoom:33%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203420.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203420.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2" style="zoom:33%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203429.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203429.jpg" srcset="data:image/png;base64,666" alt="3" style="zoom:33%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203429.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203429.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="3" style="zoom:33%;">
 </li>
 <li><p>使用**<em>wget**</em>命令获取该网页：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.pm25.com/city/beijing.html</span><br></pre></td></tr></table></figure>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203525.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203525.jpg" srcset="data:image/png;base64,666" alt="4" style="zoom: 80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203525.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203525.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="4" style="zoom: 80%;">
 </li>
 <li><p>使用**<em>cat**</em>命令查看该网页的内容：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | more</span><br></pre></td></tr></table></figure>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203554.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203554.jpg" srcset="data:image/png;base64,666" alt="5" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203554.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203554.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="5" style="zoom:80%;">
 
 <p>我们关注的内容：</p>
 <p>​        ①数据更新的时间：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203608.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203608.jpg" srcset="data:image/png;base64,666" alt="6" style="zoom:67%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203608.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203608.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="6" style="zoom:67%;">
 
 <p>​        ②各监测点PM2.5浓度数据：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203617.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203617.jpg" srcset="data:image/png;base64,666" alt="7" style="zoom:50%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203617.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203617.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="7" style="zoom:50%;">
 </li>
 <li><p>发现时间的地方有个*<strong>“更新时间：”**<em>，监测点名称的地方都有</em></strong>“pjadt_location”*<strong>，而PM2.5浓度的地方都有**<em>“pjadt_pm25”</em></strong>。根据这个特性，先使用*<strong>awk**<em>命令将需要的行保留下来。下面先进行编写</em></strong>1.awk***：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim 1.awk</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/wxy_666/images/raw/master/20200331203629.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203629.jpg" srcset="data:image/png;base64,666" alt="8"></p>
+<p><img src="https://gitee.com/wxy_666/images/raw/master/20200331203629.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203629.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="8"></p>
 <p>运行以下命令，对所需行进行过滤：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | more</span><br></pre></td></tr></table></figure>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203639.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203639.jpg" srcset="data:image/png;base64,666" alt="9" style="zoom:50%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203639.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203639.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="9" style="zoom:50%;">
 
 <p>发现除了我们想要的行还多出了这几行：</p>
-<p><img src="https://gitee.com/wxy_666/images/raw/master/20200331203656.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203656.jpg" srcset="data:image/png;base64,666" alt="10"></p>
+<p><img src="https://gitee.com/wxy_666/images/raw/master/20200331203656.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203656.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="10"></p>
 <p>经过观察，发现*<strong>“PM2.5”**<em>浓度这一行与我们所需的行的区别是，我们所需的行有</em></strong>μg*<strong>，而**<em>“PM2.5”</em></strong>浓度这一行没有：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203705.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203705.jpg" srcset="data:image/png;base64,666" alt="11" style="zoom:50%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203705.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203705.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="11" style="zoom:50%;">
 
 <p>我们重新对*<strong>“1.awk”**<em>进行编辑，直接将</em></strong>“监测站点”*<strong>这一行排除，并且对**<em>“PM2.5”</em></strong>浓度这一行采用额外的过滤规则:</p>
-<p><img src="https://gitee.com/wxy_666/images/raw/master/20200331203718.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203718.jpg" srcset="data:image/png;base64,666" alt="12"></p>
+<p><img src="https://gitee.com/wxy_666/images/raw/master/20200331203718.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203718.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="12"></p>
 <p>重新运行以下命令，对所需行进行过滤：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | more</span><br></pre></td></tr></table></figure>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203729.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203729.jpg" srcset="data:image/png;base64,666" alt="13" style="zoom:50%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203729.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203729.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="13" style="zoom:50%;">
 
 <p>发现已经筛选出了所需要的行。</p>
 </li>
 <li><p>现在再利用*<strong>sed**<em>命令将</em></strong>html标签”&lt;&gt;“*<strong>中的内容和**<em>“更新时间：”</em></strong>这个无用的信息删除：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | sed -e &#x27;s/&lt;[^&lt;&gt;]*&gt;//g&#x27; -e &#x27;s/更新时间：//g&#x27; | more</span><br></pre></td></tr></table></figure>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203744.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203744.jpg" srcset="data:image/png;base64,666" alt="14" style="zoom:50%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203744.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203744.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="14" style="zoom:50%;">
 
 <p>发现已经只剩余我们想要的数据。</p>
 </li>
 <li><p>但是这些数据不在同一行，且没有明显特征，无法进行*<strong>awk**<em>命令，因此先使用</em></strong>tr***命令将这些行合并为一行，以空格分隔：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | sed -e &#x27;s/&lt;[^&lt;&gt;]*&gt;//g&#x27; -e &#x27;s/更新时间：//g&#x27; | tr &#x27;\n&#x27; &#x27; &#x27; | more</span><br></pre></td></tr></table></figure>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203757.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203757.jpg" srcset="data:image/png;base64,666" alt="15" style="zoom:50%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203757.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203757.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="15" style="zoom:50%;">
 </li>
 <li><p>最后利用*<strong>awk**<em>命令将所需内容规格化输出即可，先编辑</em></strong>“2.awk”***：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim 2.awk</span><br></pre></td></tr></table></figure>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203807.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203807.jpg" srcset="data:image/png;base64,666" alt="16" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203807.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203807.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="16" style="zoom:80%;">
 
 <p>利用*<strong>for**<em>循环输出，</em></strong>NF*<strong>为列数，刚好循环$$(NF-2)/4$$次，第一个**<em>%s</em></strong>为*<strong>日期**<em>，第二个</em></strong>%s*<strong>为**<em>时间</em></strong>，第三个*<strong>%s**<em>为</em></strong>监测点名称*<strong>，第四个**<em>%s</em></strong>为*<strong>PM2.5浓度**<em>，再运行以下</em></strong>awk***命令，即可得到格式化的输出：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | sed -e &#x27;s/&lt;[^&lt;&gt;]*&gt;//g&#x27; -e &#x27;s/更新时间：//g&#x27; | tr &#x27;\n&#x27; &#x27; &#x27; | awk -f 2.awk  | more</span><br></pre></td></tr></table></figure>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203819.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203819.jpg" srcset="data:image/png;base64,666" alt="17" style="zoom: 50%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203819.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203819.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="17" style="zoom: 50%;">
 
 <p>发现输出已经符合题目要求。</p>
 </li>
 <li><p>将结果重定向到文件**<em>“beijing.csv”**</em>：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | sed -e &#x27;s/&lt;[^&lt;&gt;]*&gt;//g&#x27; -e &#x27;s/更新时间：//g&#x27; | tr &#x27;\n&#x27; &#x27; &#x27; | awk -f 2.awk  &gt; beijing.csv</span><br><span class="line">vim beijing.csv</span><br></pre></td></tr></table></figure>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203839.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203839.jpg" srcset="data:image/png;base64,666" alt="18" style="zoom:50%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203839.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203839.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="18" style="zoom:50%;">
 
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203853.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203853.jpg" srcset="data:image/png;base64,666" alt="19" style="zoom:80%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203853.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203853.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="19" style="zoom:80%;">
 </li>
 <li><p>将*<strong>beijing.csv**<em>发送到电脑，并将编码转为</em></strong>ANSI***：</p>
 </li>
 </ol>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203903.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203903.jpg" srcset="data:image/png;base64,666" alt="20" style="zoom: 67%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203903.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203903.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="20" style="zoom: 67%;">
 
 <ol start="11">
 <li><p>由于不同时间的数据有所不同，因此我的过滤语句考虑了不同时间点的情况*<strong>（北京一共有12个监测点，有时有的监测点没有数据，因此是只有11个监测点的数据）**<em>，直接运行以下命令就可以直接将数据导出为</em></strong>beijing.csv***，以下为另一时间点的数据情况：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.pm25.com/city/beijing.html</span><br><span class="line">cat beijing.html | awk -f 1.awk | sed -e &#x27;s/&lt;[^&lt;&gt;]*&gt;//g&#x27; -e &#x27;s/更新时间：//g&#x27; | tr &#x27;\n&#x27; &#x27; &#x27; | awk -f 2.awk  &gt; beijing.csv</span><br></pre></td></tr></table></figure>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200331203916.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203916.jpg" srcset="data:image/png;base64,666" alt="21" style="zoom:67%;">
+<img src="https://gitee.com/wxy_666/images/raw/master/20200331203916.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203916.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="21" style="zoom:67%;">
 
 </li>
 </ol>
@@ -1166,7 +1166,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
     </section>
     <section class="body">
-      <div class="vlts-rps"><a class="item" href="/2020/06/01/Linux-上机实战4-SimpleShell/" title="Linux 上机实战4 SimpleShell" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200521_212437.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200521_212437.png" srcset="data:image/png;base64,666"><span class="title">Linux 上机实战4 SimpleShell</span><span class="excerpt">本文是关于Linux中的一个简单的shell，支持运行多个命令以[;]分割，支持管道和重定向，支持CTRL-C终止内部命令...</span></a><a class="item" href="/2020/04/20/Linux-上机实战2-遍历目录/" title="Linux 上机实战2 遍历目录" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200413160150.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200413160150.jpg" srcset="data:image/png;base64,666"><span class="title">Linux 上机实战2 遍历目录</span><span class="excerpt">本文是关于Linux中的ls的简化版，遍历目录小程序。</span></a><a class="item" href="/2020/09/04/CSAPP-实验集锦/" title="CSAPP 实验集锦" rel="bookmark "><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=CSAPP-Report&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=CSAPP-Report&show_owner=true" srcset="data:image/png;base64,666"><span class="title">CSAPP 实验集锦</span><span class="excerpt">本文是CSAPP（深入理解计算机系统）项目工程集锦。</span></a><a class="item" href="/2020/06/24/Linux-拓展学习/" title="Linux 拓展学习" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200429205057.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429205057.jpg" srcset="data:image/png;base64,666"><span class="title">Linux 拓展学习</span><span class="excerpt">简单的写了一些Linux的课外拓展学习的相关知识和问题。</span></a><a class="item" href="/2020/05/10/Linux-上机实战3-shell脚本程序设计/" title="Linux 上机实战3 shell脚本程序设计" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200501212725.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200501212725.jpg" srcset="data:image/png;base64,666"><span class="title">Linux 上机实战3 shell脚本程序设计</span><span class="excerpt">本文是关于Linux中的shell脚本程序设计，有几个小Demo。</span></a></div></section></div>
+      <div class="vlts-rps"><a class="item" href="/2020/06/01/Linux-上机实战4-SimpleShell/" title="Linux 上机实战4 SimpleShell" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200521_212437.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/Screenshot_20200521_212437.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">Linux 上机实战4 SimpleShell</span><span class="excerpt">本文是关于Linux中的一个简单的shell，支持运行多个命令以[;]分割，支持管道和重定向，支持CTRL-C终止内部命令...</span></a><a class="item" href="/2020/04/20/Linux-上机实战2-遍历目录/" title="Linux 上机实战2 遍历目录" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200413160150.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200413160150.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">Linux 上机实战2 遍历目录</span><span class="excerpt">本文是关于Linux中的ls的简化版，遍历目录小程序。</span></a><a class="item" href="/2020/09/04/CSAPP-实验集锦/" title="CSAPP 实验集锦" rel="bookmark "><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=CSAPP-Report&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=CSAPP-Report&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">CSAPP 实验集锦</span><span class="excerpt">本文是CSAPP（深入理解计算机系统）项目工程集锦。</span></a><a class="item" href="/2020/06/24/Linux-拓展学习/" title="Linux 拓展学习" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200429205057.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429205057.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">Linux 拓展学习</span><span class="excerpt">简单的写了一些Linux的课外拓展学习的相关知识和问题。</span></a><a class="item" href="/2020/05/10/Linux-上机实战3-shell脚本程序设计/" title="Linux 上机实战3 shell脚本程序设计" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200501212725.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200501212725.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">Linux 上机实战3 shell脚本程序设计</span><span class="excerpt">本文是关于Linux中的shell脚本程序设计，有几个小Demo。</span></a></div></section></div>
       
       
         <div class="copyright">
@@ -1193,9 +1193,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="donate">
           <div class="imgs">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" srcset="data:image/png;base64,666">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,666">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
             
           </div>
         </div>
@@ -1210,10 +1210,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-17T14:20:26+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-26T12:05:55+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年1月17日</p>
+    <p>更新于：2021年1月26日</p>
   </a>
 </div>
 
@@ -1235,7 +1235,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://666wxy666.github.io/2020/03/28/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%981-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/&title=Linux 上机实战1 正则表达式 - 苇名一心的博客&summary=本文是关于Linux中的文本处理三剑客（grep，sed，awk），以及正则表达式应用的一个样例，获取北京某时刻PM2.5的数据，然后进行处理，输出到csv文件中，并画图表展示。">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -1243,7 +1243,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://666wxy666.github.io/2020/03/28/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%981-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/&title=Linux 上机实战1 正则表达式 - 苇名一心的博客&summary=本文是关于Linux中的文本处理三剑客（grep，sed，awk），以及正则表达式应用的一个样例，获取北京某时刻PM2.5的数据，然后进行处理，输出到csv文件中，并画图表展示。">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -1251,7 +1251,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=https://666wxy666.github.io/2020/03/28/Linux-%E4%B8%8A%E6%9C%BA%E5%AE%9E%E6%88%981-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/&title=Linux 上机实战1 正则表达式 - 苇名一心的博客&summary=本文是关于Linux中的文本处理三剑客（grep，sed，awk），以及正则表达式应用的一个样例，获取北京某时刻PM2.5的数据，然后进行处理，输出到csv文件中，并画图表展示。">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -1376,10 +1376,18 @@ H:half word 半字节...</p>
   pdata.postTitle="Linux 上机实战1 正则表达式";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
-
+  // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
   l_header.classList.add("show");
+  
+  
+    // cover
+    var cover_wrapper=document.querySelector('.cover-wrapper');
+    
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
+    
   
 </script>
 
@@ -1814,7 +1822,6 @@ var loadCSS = function( href, before, media, attributes ){
         
 	  }
 	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
-	  volantis.pjax.push(Pjax_backstretch)
     </script>
   
 
@@ -1849,7 +1856,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/categories/" id="categories">
+      <a class="vlts-menu fix-cursor-default " href="/categories/" id="categories">
         <i class="fas fa-folder-open fa-fw"></i> 分类
       </a>
     </li>
@@ -1859,7 +1866,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/tags/" id="tags">
+      <a class="vlts-menu fix-cursor-default " href="/tags/" id="tags">
         <i class="fas fa-tags fa-fw"></i> 标签
       </a>
     </li>
@@ -1869,7 +1876,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/archives/" id="archives">
+      <a class="vlts-menu fix-cursor-default " href="/archives/" id="archives">
         <i class="fas fa-archive fa-fw"></i> 归档
       </a>
     </li>
@@ -1883,7 +1890,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/friends/" id="friends">
+      <a class="vlts-menu fix-cursor-default " href="/friends/" id="friends">
         <i class="fas fa-link fa-fw"></i> 友链
       </a>
     </li>
@@ -1893,7 +1900,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/about/" id="about">
+      <a class="vlts-menu fix-cursor-default " href="/about/" id="about">
         <i class="fas fa-info-circle fa-fw"></i> 关于
       </a>
     </li>
@@ -1907,8 +1914,22 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" onclick="document.execCommand('print')">
+      <a class="vlts-menu fix-cursor-default " onclick="document.execCommand('print')">
         <i class="fa fa-print fa-fw"></i> 打印页面
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default toggle-mode-btn">
+        <i class="fas fa-moon fa-fw"></i> 关灯
       </a>
     </li>
   
@@ -2039,18 +2060,13 @@ var loadCSS = function( href, before, media, attributes ){
           copyHref.style.display = 'none';
         }
       }
-
-      // 有音乐播放器
-      if ('true' == true && ('home,categories,tags,archives,hr,friends,about,hr,print,hr,music'||[]).includes('music')) {
+      // 有音乐播放器 see: layout/_third-party/aplayer/script.ejs
+      
+      if(volantis.APlayerLoaded){ // APlayer加载完成？
         // 如果有aplayer，初始化一下
-      	try {
-      		checkAPlayer();
-          updateTitle();
-      	} catch (error) {
-      		console.log(error);
-      	}
+        checkAPlayer();
       }
-
+      
       return false; // 该行代码确保系统自带的右键菜单不会被调出
     }
     function hideMenu() {
@@ -2207,15 +2223,17 @@ var loadCSS = function( href, before, media, attributes ){
   loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
   // APlayer 需要在  MetingJS 之前加载
   loadScript("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js")
-  window.volantis.LoadMetingJS=0
+  window.volantis.APlayerLoaded=0 // APlayer加载完成状态
   var checkAPlayer = setInterval(function () {
-    if (!window.APlayer) return
+    if (!window.APlayer) return // APlayer加载完成？
+	  if ($("#safearea").css("display")!="block") return // 文章内容加载完成？ see: source/css/first.styl
     clearInterval(checkAPlayer)
-	if (!window.volantis.LoadMetingJS&&!window.MetingJSElement){
-	  window.LoadMetingJS=1
-      loadScript("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js")
+	  if (!window.volantis.APlayerLoaded&&!window.MetingJSElement){ // APlayer只能加载一次
+      window.volantis.APlayerLoaded=1 // APlayer加载完成
+      loadScript("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js") // 加载 MetingJS
 	  }
-  }, 2500)
+  }, 2500) // 按照网速调节差分2.5s
+  // rightmenu see: layout/_partial/rightmenu.ejs
 
   
     loadScript("/js/aplayer.js")
@@ -3076,7 +3094,7 @@ document.addEventListener("pjax:success", listennSidebarTOC);
         elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
         selectors: [
           "title",
-          "#l_cover",
+          
           "#pjax-container",
           "#pjax-header-nav-list"
         ],

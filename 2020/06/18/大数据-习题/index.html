@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.0">
+  <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -1069,7 +1069,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-<h2 id="1、关于Spark中task，block，partition，split，core的关系"><a href="#1、关于Spark中task，block，partition，split，core的关系" class="headerlink" title="1、关于Spark中task，block，partition，split，core的关系"></a>1、关于Spark中task，block，partition，split，core的关系</h2><img src="https://gitee.com/wxy_666/images/raw/master/20200507215355.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507215355.png" srcset="data:image/png;base64,666" alt="第5讲-第4章-大数据处理-Spark框架" style="zoom: 67%;">
+<h2 id="1、关于Spark中task，block，partition，split，core的关系"><a href="#1、关于Spark中task，block，partition，split，core的关系" class="headerlink" title="1、关于Spark中task，block，partition，split，core的关系"></a>1、关于Spark中task，block，partition，split，core的关系</h2><img src="https://gitee.com/wxy_666/images/raw/master/20200507215355.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507215355.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="第5讲-第4章-大数据处理-Spark框架" style="zoom: 67%;">
 
 <blockquote><p>每一个过程的任务数，对应一个inputSplit, Partition输入可能以多个文件的形式存储在HDFS上，每个File都包含了很多块，称为Block。</p>
 <p>当Spark读取这些文件作为输入时，会根据具体数据格式对应的InputFormat进行解析，一般是将若干个Block合并成一个输入分片，称为InputSplit，注意InputSplit不能跨越文件。</p>
@@ -1103,10 +1103,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>当第一个数据块读取完毕时， FSDataInputStream关闭和此数据节点的 连接，然后连接此文件下一个数据块的 最近的数据节点。 </li>
 <li>当客户端读取完毕数据的时候，调用 FSDataInputStream的close()函数，关闭连接。</li>
 </ol>
-<h2 id="4、HDFS的写操作流程"><a href="#4、HDFS的写操作流程" class="headerlink" title="4、HDFS的写操作流程"></a>4、HDFS的写操作流程</h2><img src="https://gitee.com/wxy_666/images/raw/master/20200507220050.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507220050.jpg" srcset="data:image/png;base64,666" alt="Pag4" style="zoom:80%;">
+<h2 id="4、HDFS的写操作流程"><a href="#4、HDFS的写操作流程" class="headerlink" title="4、HDFS的写操作流程"></a>4、HDFS的写操作流程</h2><img src="https://gitee.com/wxy_666/images/raw/master/20200507220050.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507220050.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Pag4" style="zoom:80%;">
 
 <h2 id="5、习题"><a href="#5、习题" class="headerlink" title="5、习题"></a>5、习题</h2><div class="gallery stretch" col="4">
-              <img src="https://gitee.com/wxy_666/images/raw/master/20200507215507.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507215507.jpg" srcset="data:image/png;base64,666" alt="Page1" style="zoom:80%;"><img src="https://gitee.com/wxy_666/images/raw/master/20200507215615.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507215615.jpg" srcset="data:image/png;base64,666" alt="Page2" style="zoom:80%;"><img src="https://gitee.com/wxy_666/images/raw/master/20200507215630.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507215630.jpg" srcset="data:image/png;base64,666" alt="Page3" style="zoom:80%;"><img src="https://gitee.com/wxy_666/images/raw/master/20200507220134.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507220134.jpg" srcset="data:image/png;base64,666" alt="第3讲-第2章-大数据存储-NoSQL数据库" style="zoom:80%;"><img src="https://gitee.com/wxy_666/images/raw/master/20200603095741.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603095741.jpg" srcset="data:image/png;base64,666" alt="2020-06-03_091537" style="zoom:80%;"><img src="https://gitee.com/wxy_666/images/raw/master/20200603095754.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603095754.jpg" srcset="data:image/png;base64,666" alt="2020-06-03_095449" style="zoom:80%;"><img src="https://gitee.com/wxy_666/images/raw/master/20200603095804.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603095804.jpg" srcset="data:image/png;base64,666" alt="2020-06-03_095457" style="zoom:80%;"><img src="https://gitee.com/wxy_666/images/raw/master/20200603095810.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603095810.jpg" srcset="data:image/png;base64,666" alt="2020-06-03_095505" style="zoom:80%;">
+              <img src="https://gitee.com/wxy_666/images/raw/master/20200507215507.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507215507.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Page1" style="zoom:80%;"><img src="https://gitee.com/wxy_666/images/raw/master/20200507215615.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507215615.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Page2" style="zoom:80%;"><img src="https://gitee.com/wxy_666/images/raw/master/20200507215630.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507215630.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Page3" style="zoom:80%;"><img src="https://gitee.com/wxy_666/images/raw/master/20200507220134.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507220134.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="第3讲-第2章-大数据存储-NoSQL数据库" style="zoom:80%;"><img src="https://gitee.com/wxy_666/images/raw/master/20200603095741.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603095741.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-03_091537" style="zoom:80%;"><img src="https://gitee.com/wxy_666/images/raw/master/20200603095754.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603095754.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-03_095449" style="zoom:80%;"><img src="https://gitee.com/wxy_666/images/raw/master/20200603095804.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603095804.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-03_095457" style="zoom:80%;"><img src="https://gitee.com/wxy_666/images/raw/master/20200603095810.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200603095810.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-06-03_095505" style="zoom:80%;">
             </div>
   
   
@@ -1120,7 +1120,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
     </section>
     <section class="body">
-      <div class="vlts-rps"><a class="item" href="/2020/03/10/Linux-MOOC习题-1~5章/" title="Linux MOOC习题 1~5章" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200428215021.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200428215021.jpg" srcset="data:image/png;base64,666"><span class="title">Linux MOOC习题 1~5章</span><span class="excerpt">自己随便整理了一下在学习Linux网课时遇到的一些习题，易错点之类的。</span></a><a class="item" href="/2020/05/12/Linux-MOOC习题-6~10章/" title="Linux MOOC习题 6~10章" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200429102845.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429102845.jpg" srcset="data:image/png;base64,666"><span class="title">Linux MOOC习题 6~10章</span><span class="excerpt">自己随便整理了一下在学习Linux网课时遇到的一些习题，易错点之类的，接上文Linux MOOC习题 1~5章。</span></a><a class="item" href="/2020/04/17/现代交换原理-MOOC习题-1~4章/" title="现代交换原理 MOOC习题 1~4章" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200507105053.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507105053.jpg" srcset="data:image/png;base64,666"><span class="title">现代交换原理 MOOC习题 1~4章</span><span class="excerpt">自己随便整理了一下在学习“现代交换原理”网课时遇到的一些习题，易错点之类的。</span></a><a class="item" href="/2020/06/20/现代交换原理-MOOC习题-5~6章/" title="现代交换原理 MOOC习题 5~6章" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200518094712.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518094712.jpg" srcset="data:image/png;base64,666"><span class="title">现代交换原理 MOOC习题 5~6章</span><span class="excerpt">自己随便整理了一下在学习“现代交换原理”网课时遇到的一些习题，易错点之类的。接上一部分现代交换原理 MOOC习题 1~4章。</span></a><a class="item" href="/2020/06/20/Linux-MOOC习题-11~15章/" title="Linux MOOC习题 11~15章" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200507102145.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507102145.jpg" srcset="data:image/png;base64,666"><span class="title">Linux MOOC习题 11~15章</span><span class="excerpt">自己随便整理了一下在学习Linux网课时遇到的一些习题，易错点之类的，接上文Linux MOOC习题 6~10章。</span></a></div></section></div>
+      <div class="vlts-rps"><a class="item" href="/2020/03/10/Linux-MOOC习题-1~5章/" title="Linux MOOC习题 1~5章" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200428215021.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200428215021.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">Linux MOOC习题 1~5章</span><span class="excerpt">自己随便整理了一下在学习Linux网课时遇到的一些习题，易错点之类的。</span></a><a class="item" href="/2020/05/12/Linux-MOOC习题-6~10章/" title="Linux MOOC习题 6~10章" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200429102845.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429102845.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">Linux MOOC习题 6~10章</span><span class="excerpt">自己随便整理了一下在学习Linux网课时遇到的一些习题，易错点之类的，接上文Linux MOOC习题 1~5章。</span></a><a class="item" href="/2020/04/17/现代交换原理-MOOC习题-1~4章/" title="现代交换原理 MOOC习题 1~4章" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200507105053.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507105053.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">现代交换原理 MOOC习题 1~4章</span><span class="excerpt">自己随便整理了一下在学习“现代交换原理”网课时遇到的一些习题，易错点之类的。</span></a><a class="item" href="/2020/06/20/现代交换原理-MOOC习题-5~6章/" title="现代交换原理 MOOC习题 5~6章" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200518094712.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200518094712.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">现代交换原理 MOOC习题 5~6章</span><span class="excerpt">自己随便整理了一下在学习“现代交换原理”网课时遇到的一些习题，易错点之类的。接上一部分现代交换原理 MOOC习题 1~4章。</span></a><a class="item" href="/2020/06/20/Linux-MOOC习题-11~15章/" title="Linux MOOC习题 11~15章" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200507102145.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507102145.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">Linux MOOC习题 11~15章</span><span class="excerpt">自己随便整理了一下在学习Linux网课时遇到的一些习题，易错点之类的，接上文Linux MOOC习题 6~10章。</span></a></div></section></div>
       
       
         <div class="copyright">
@@ -1147,9 +1147,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="donate">
           <div class="imgs">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" srcset="data:image/png;base64,666">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,666">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
             
           </div>
         </div>
@@ -1164,10 +1164,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-17T14:20:26+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-26T12:05:55+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年1月17日</p>
+    <p>更新于：2021年1月26日</p>
   </a>
 </div>
 
@@ -1189,7 +1189,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://666wxy666.github.io/2020/06/18/%E5%A4%A7%E6%95%B0%E6%8D%AE-%E4%B9%A0%E9%A2%98/&title=大数据 习题 - 苇名一心的博客&summary=自己随便整理了一下在学习“大数据”时遇到的一些习题，易错点之类的。">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -1197,7 +1197,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://666wxy666.github.io/2020/06/18/%E5%A4%A7%E6%95%B0%E6%8D%AE-%E4%B9%A0%E9%A2%98/&title=大数据 习题 - 苇名一心的博客&summary=自己随便整理了一下在学习“大数据”时遇到的一些习题，易错点之类的。">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -1205,7 +1205,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=https://666wxy666.github.io/2020/06/18/%E5%A4%A7%E6%95%B0%E6%8D%AE-%E4%B9%A0%E9%A2%98/&title=大数据 习题 - 苇名一心的博客&summary=自己随便整理了一下在学习“大数据”时遇到的一些习题，易错点之类的。">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -1332,10 +1332,18 @@ int a[N] = { 2 };的...</p>
   pdata.postTitle="大数据 习题";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
-
+  // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
   l_header.classList.add("show");
+  
+  
+    // cover
+    var cover_wrapper=document.querySelector('.cover-wrapper');
+    
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
+    
   
 </script>
 
@@ -1770,7 +1778,6 @@ var loadCSS = function( href, before, media, attributes ){
         
 	  }
 	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
-	  volantis.pjax.push(Pjax_backstretch)
     </script>
   
 
@@ -1805,7 +1812,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/categories/" id="categories">
+      <a class="vlts-menu fix-cursor-default " href="/categories/" id="categories">
         <i class="fas fa-folder-open fa-fw"></i> 分类
       </a>
     </li>
@@ -1815,7 +1822,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/tags/" id="tags">
+      <a class="vlts-menu fix-cursor-default " href="/tags/" id="tags">
         <i class="fas fa-tags fa-fw"></i> 标签
       </a>
     </li>
@@ -1825,7 +1832,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/archives/" id="archives">
+      <a class="vlts-menu fix-cursor-default " href="/archives/" id="archives">
         <i class="fas fa-archive fa-fw"></i> 归档
       </a>
     </li>
@@ -1839,7 +1846,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/friends/" id="friends">
+      <a class="vlts-menu fix-cursor-default " href="/friends/" id="friends">
         <i class="fas fa-link fa-fw"></i> 友链
       </a>
     </li>
@@ -1849,7 +1856,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/about/" id="about">
+      <a class="vlts-menu fix-cursor-default " href="/about/" id="about">
         <i class="fas fa-info-circle fa-fw"></i> 关于
       </a>
     </li>
@@ -1863,8 +1870,22 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" onclick="document.execCommand('print')">
+      <a class="vlts-menu fix-cursor-default " onclick="document.execCommand('print')">
         <i class="fa fa-print fa-fw"></i> 打印页面
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default toggle-mode-btn">
+        <i class="fas fa-moon fa-fw"></i> 关灯
       </a>
     </li>
   
@@ -1995,18 +2016,13 @@ var loadCSS = function( href, before, media, attributes ){
           copyHref.style.display = 'none';
         }
       }
-
-      // 有音乐播放器
-      if ('true' == true && ('home,categories,tags,archives,hr,friends,about,hr,print,hr,music'||[]).includes('music')) {
+      // 有音乐播放器 see: layout/_third-party/aplayer/script.ejs
+      
+      if(volantis.APlayerLoaded){ // APlayer加载完成？
         // 如果有aplayer，初始化一下
-      	try {
-      		checkAPlayer();
-          updateTitle();
-      	} catch (error) {
-      		console.log(error);
-      	}
+        checkAPlayer();
       }
-
+      
       return false; // 该行代码确保系统自带的右键菜单不会被调出
     }
     function hideMenu() {
@@ -2163,15 +2179,17 @@ var loadCSS = function( href, before, media, attributes ){
   loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
   // APlayer 需要在  MetingJS 之前加载
   loadScript("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js")
-  window.volantis.LoadMetingJS=0
+  window.volantis.APlayerLoaded=0 // APlayer加载完成状态
   var checkAPlayer = setInterval(function () {
-    if (!window.APlayer) return
+    if (!window.APlayer) return // APlayer加载完成？
+	  if ($("#safearea").css("display")!="block") return // 文章内容加载完成？ see: source/css/first.styl
     clearInterval(checkAPlayer)
-	if (!window.volantis.LoadMetingJS&&!window.MetingJSElement){
-	  window.LoadMetingJS=1
-      loadScript("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js")
+	  if (!window.volantis.APlayerLoaded&&!window.MetingJSElement){ // APlayer只能加载一次
+      window.volantis.APlayerLoaded=1 // APlayer加载完成
+      loadScript("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js") // 加载 MetingJS
 	  }
-  }, 2500)
+  }, 2500) // 按照网速调节差分2.5s
+  // rightmenu see: layout/_partial/rightmenu.ejs
 
   
     loadScript("/js/aplayer.js")
@@ -3032,7 +3050,7 @@ document.addEventListener("pjax:success", listennSidebarTOC);
         elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
         selectors: [
           "title",
-          "#l_cover",
+          
           "#pjax-container",
           "#pjax-header-nav-list"
         ],

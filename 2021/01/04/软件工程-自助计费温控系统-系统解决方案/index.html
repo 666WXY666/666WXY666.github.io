@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.0">
+  <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -1386,7 +1386,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h3 id="5-技术框架要求"><a href="#5-技术框架要求" class="headerlink" title="5. 技术框架要求"></a>5. 技术框架要求</h3><p>​        由于一对多的服务框架，本系统拟采用“服务器+终端”模式，通过Socket套接字进行网络通信。用户通过终端控制室内空调系统，终端在本地记录操作信息并上载道服务器进行存储。所有数据存储来专用数据库中，并且只有服务器端有权限进行相应访问。前台控制端可以及逆行监控，以及全局控制。</p>
 <h2 id="四、总体设计-Overall-Design"><a href="#四、总体设计-Overall-Design" class="headerlink" title="四、总体设计(Overall Design)"></a>四、总体设计(Overall Design)</h2><h3 id="1-总体设计目标"><a href="#1-总体设计目标" class="headerlink" title="1. 总体设计目标"></a>1. 总体设计目标</h3><p>​    搭建一个服务于酒店管理人员与住户的空调管理系统，利用“服务器+终端”的模式，通过“socket套接字”进行连接，使得住户能够控制改变房间内（终端）的空调状态，并将空调信息实时传送给服务器，便于管理人员数据统计和处理。</p>
 <h3 id="2-总体设计原则"><a href="#2-总体设计原则" class="headerlink" title="2. 总体设计原则"></a>2. 总体设计原则</h3><p>​    空调管理系统需要建立终端与服务器之间的连接，并对于住户的空调使用信息和费用进行准确的统计、计算与存储。</p>
-<h3 id="3-总体逻辑架构设计"><a href="#3-总体逻辑架构设计" class="headerlink" title="3. 总体逻辑架构设计"></a>3. 总体逻辑架构设计</h3><img src="https://gitee.com/wxy_666/images/raw/master/20210112204456.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20210112204456.png" srcset="data:image/png;base64,666" alt="架构" style="zoom:80%;">
+<h3 id="3-总体逻辑架构设计"><a href="#3-总体逻辑架构设计" class="headerlink" title="3. 总体逻辑架构设计"></a>3. 总体逻辑架构设计</h3><img src="https://gitee.com/wxy_666/images/raw/master/20210112204456.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20210112204456.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="架构" style="zoom:80%;">
 
 <center>逻辑架构</center>
 
@@ -1419,7 +1419,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>QT 5.14</p>
 </li>
 </ol>
-<h3 id="7-基本技术路线"><a href="#7-基本技术路线" class="headerlink" title="7. 基本技术路线"></a>7. 基本技术路线</h3><img src="https://gitee.com/wxy_666/images/raw/master/20210112204953.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20210112204953.png" srcset="data:image/png;base64,666" alt="2021-01-12_204902" style="zoom:80%;">
+<h3 id="7-基本技术路线"><a href="#7-基本技术路线" class="headerlink" title="7. 基本技术路线"></a>7. 基本技术路线</h3><img src="https://gitee.com/wxy_666/images/raw/master/20210112204953.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20210112204953.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2021-01-12_204902" style="zoom:80%;">
 
 <center>技术路线</center>
 
@@ -2004,7 +2004,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p><strong><em>说明：</em></strong></p>
 <p>​        <strong><em>软件系统的最终版本可能与本系统解决方案的描述有所差异，最终的实行也可能与本方案有所偏差，本方案的最终解释权归乙方所有。</em></strong></p>
 <h2 id="六、项目地址"><a href="#六、项目地址" class="headerlink" title="六、项目地址"></a>六、项目地址</h2><p>整个项目的源代码，可执行文件，测试用例，结果均在下面的仓库中，欢迎查看：</p>
-<a class="ghcard" rel="external nofollow noopener noreferrer" target="_blank" href="https://github.com/666WXY666/Software-Engineering-AC"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=Software-Engineering-AC&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=Software-Engineering-AC&show_owner=true" srcset="data:image/png;base64,666"></a>
+<a class="ghcard" rel="external nofollow noopener noreferrer" target="_blank" href="https://github.com/666WXY666/Software-Engineering-AC"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=Software-Engineering-AC&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=Software-Engineering-AC&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a>
   
   
     
@@ -2017,7 +2017,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
     </section>
     <section class="body">
-      <div class="vlts-rps"><a class="item" href="/2021/01/04/软件工程-自助计费温控系统-动态模型/" title="软件工程 自助计费温控系统 动态模型" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200516110323.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200516110323.jpg" srcset="data:image/png;base64,666"><span class="title">软件工程 自助计费温控系统 动态模型</span><span class="excerpt">本文是软件工程项目“自助计费温控系统”的动态模型。</span></a><a class="item" href="/2021/01/04/软件工程-自助计费温控系统-静态模型/" title="软件工程 自助计费温控系统 静态模型" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200527091633.svg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200527091633.svg" srcset="data:image/png;base64,666"><span class="title">软件工程 自助计费温控系统 静态模型</span><span class="excerpt">本文是软件工程项目“自助计费温控系统”的静态模型。</span></a><a class="item" href="/2021/01/04/软件工程-自助计费温控系统-用户需求说明书/" title="软件工程 自助计费温控系统 用户需求说明书" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200403162458.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200403162458.png" srcset="data:image/png;base64,666"><span class="title">软件工程 自助计费温控系统 用户需求说明书</span><span class="excerpt">本文是软件工程项目“自助计费温控系统”的用户需求说明书。</span></a><a class="item" href="/2021/01/04/软件工程-自助计费温控系统-用例模型/" title="软件工程 自助计费温控系统 用例模型" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200412160356.svg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200412160356.svg" srcset="data:image/png;base64,666"><span class="title">软件工程 自助计费温控系统 用例模型</span><span class="excerpt">本文是软件工程项目“自助计费温控系统”的用例模型。</span></a></div></section></div>
+      <div class="vlts-rps"><a class="item" href="/2021/01/04/软件工程-自助计费温控系统-动态模型/" title="软件工程 自助计费温控系统 动态模型" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200516110323.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200516110323.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">软件工程 自助计费温控系统 动态模型</span><span class="excerpt">本文是软件工程项目“自助计费温控系统”的动态模型。</span></a><a class="item" href="/2021/01/04/软件工程-自助计费温控系统-静态模型/" title="软件工程 自助计费温控系统 静态模型" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200527091633.svg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200527091633.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">软件工程 自助计费温控系统 静态模型</span><span class="excerpt">本文是软件工程项目“自助计费温控系统”的静态模型。</span></a><a class="item" href="/2021/01/04/软件工程-自助计费温控系统-用例模型/" title="软件工程 自助计费温控系统 用例模型" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200412160356.svg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200412160356.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">软件工程 自助计费温控系统 用例模型</span><span class="excerpt">本文是软件工程项目“自助计费温控系统”的用例模型。</span></a><a class="item" href="/2021/01/04/软件工程-自助计费温控系统-用户需求说明书/" title="软件工程 自助计费温控系统 用户需求说明书" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200403162458.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200403162458.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">软件工程 自助计费温控系统 用户需求说明书</span><span class="excerpt">本文是软件工程项目“自助计费温控系统”的用户需求说明书。</span></a></div></section></div>
       
       
         <div class="copyright">
@@ -2044,9 +2044,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="donate">
           <div class="imgs">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" srcset="data:image/png;base64,666">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/weichat.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
             
-              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,666">
+              <img src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/img/qrcode/alipay.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
             
           </div>
         </div>
@@ -2061,10 +2061,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-17T14:20:26+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-26T12:05:55+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年1月17日</p>
+    <p>更新于：2021年1月26日</p>
   </a>
 </div>
 
@@ -2086,7 +2086,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://666wxy666.github.io/2021/01/04/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E8%87%AA%E5%8A%A9%E8%AE%A1%E8%B4%B9%E6%B8%A9%E6%8E%A7%E7%B3%BB%E7%BB%9F-%E7%B3%BB%E7%BB%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/&title=软件工程 自助计费温控系统 系统解决方案 - 苇名一心的博客&summary=本文是软件工程项目“自助计费温控系统”的系统解决方案。">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -2094,7 +2094,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://666wxy666.github.io/2021/01/04/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E8%87%AA%E5%8A%A9%E8%AE%A1%E8%B4%B9%E6%B8%A9%E6%8E%A7%E7%B3%BB%E7%BB%9F-%E7%B3%BB%E7%BB%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/&title=软件工程 自助计费温控系统 系统解决方案 - 苇名一心的博客&summary=本文是软件工程项目“自助计费温控系统”的系统解决方案。">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -2102,7 +2102,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=https://666wxy666.github.io/2021/01/04/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E8%87%AA%E5%8A%A9%E8%AE%A1%E8%B4%B9%E6%B8%A9%E6%8E%A7%E7%B3%BB%E7%BB%9F-%E7%B3%BB%E7%BB%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/&title=软件工程 自助计费温控系统 系统解决方案 - 苇名一心的博客&summary=本文是软件工程项目“自助计费温控系统”的系统解决方案。">
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
           
         </a>
       
@@ -2128,9 +2128,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class="prev" href="/2021/01/04/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E8%87%AA%E5%8A%A9%E8%AE%A1%E8%B4%B9%E6%B8%A9%E6%8E%A7%E7%B3%BB%E7%BB%9F-%E7%94%A8%E4%BE%8B%E6%A8%A1%E5%9E%8B/">
-          <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>软件工程 自助计费温控系统 用例模型</p>
-          <p class="content">本文是软件工程项目“自助计费温控系统”的用例模型。
+        <a class="prev" href="/2021/01/04/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E8%87%AA%E5%8A%A9%E8%AE%A1%E8%B4%B9%E6%B8%A9%E6%8E%A7%E7%B3%BB%E7%BB%9F-%E7%94%A8%E6%88%B7%E9%9C%80%E6%B1%82%E8%AF%B4%E6%98%8E%E4%B9%A6/">
+          <p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>软件工程 自助计费温控系统 用户需求说明书</p>
+          <p class="content">本文是软件工程项目“自助计费温控系统”的用户需求说明书。
 
 
 
@@ -2138,9 +2138,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 编写人员
 小组名：软件工程-307d组
 
-一、角色根据《用户需求说明书》中的要求，经过分析后得出，分布式温控计费系统的角色有：
-
-住户...</p>
+0. 文档介绍0.1 文档目的​        根据与用户（客户和最终用户）调查和收集...</p>
         </a>
       
       
@@ -2227,10 +2225,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   pdata.postTitle="软件工程 自助计费温控系统 系统解决方案";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
-
+  // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
   l_header.classList.add("show");
+  
+  
+    // cover
+    var cover_wrapper=document.querySelector('.cover-wrapper');
+    
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
+    
   
 </script>
 
@@ -2665,7 +2671,6 @@ var loadCSS = function( href, before, media, attributes ){
         
 	  }
 	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
-	  volantis.pjax.push(Pjax_backstretch)
     </script>
   
 
@@ -2700,7 +2705,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/categories/" id="categories">
+      <a class="vlts-menu fix-cursor-default " href="/categories/" id="categories">
         <i class="fas fa-folder-open fa-fw"></i> 分类
       </a>
     </li>
@@ -2710,7 +2715,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/tags/" id="tags">
+      <a class="vlts-menu fix-cursor-default " href="/tags/" id="tags">
         <i class="fas fa-tags fa-fw"></i> 标签
       </a>
     </li>
@@ -2720,7 +2725,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/archives/" id="archives">
+      <a class="vlts-menu fix-cursor-default " href="/archives/" id="archives">
         <i class="fas fa-archive fa-fw"></i> 归档
       </a>
     </li>
@@ -2734,7 +2739,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/friends/" id="friends">
+      <a class="vlts-menu fix-cursor-default " href="/friends/" id="friends">
         <i class="fas fa-link fa-fw"></i> 友链
       </a>
     </li>
@@ -2744,7 +2749,7 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" href="/about/" id="about">
+      <a class="vlts-menu fix-cursor-default " href="/about/" id="about">
         <i class="fas fa-info-circle fa-fw"></i> 关于
       </a>
     </li>
@@ -2758,8 +2763,22 @@ var loadCSS = function( href, before, media, attributes ){
         
           
     <li>
-      <a class="vlts-menu fix-cursor-default" onclick="document.execCommand('print')">
+      <a class="vlts-menu fix-cursor-default " onclick="document.execCommand('print')">
         <i class="fa fa-print fa-fw"></i> 打印页面
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class="vlts-menu fix-cursor-default toggle-mode-btn">
+        <i class="fas fa-moon fa-fw"></i> 关灯
       </a>
     </li>
   
@@ -2890,18 +2909,13 @@ var loadCSS = function( href, before, media, attributes ){
           copyHref.style.display = 'none';
         }
       }
-
-      // 有音乐播放器
-      if ('true' == true && ('home,categories,tags,archives,hr,friends,about,hr,print,hr,music'||[]).includes('music')) {
+      // 有音乐播放器 see: layout/_third-party/aplayer/script.ejs
+      
+      if(volantis.APlayerLoaded){ // APlayer加载完成？
         // 如果有aplayer，初始化一下
-      	try {
-      		checkAPlayer();
-          updateTitle();
-      	} catch (error) {
-      		console.log(error);
-      	}
+        checkAPlayer();
       }
-
+      
       return false; // 该行代码确保系统自带的右键菜单不会被调出
     }
     function hideMenu() {
@@ -3058,15 +3072,17 @@ var loadCSS = function( href, before, media, attributes ){
   loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
   // APlayer 需要在  MetingJS 之前加载
   loadScript("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js")
-  window.volantis.LoadMetingJS=0
+  window.volantis.APlayerLoaded=0 // APlayer加载完成状态
   var checkAPlayer = setInterval(function () {
-    if (!window.APlayer) return
+    if (!window.APlayer) return // APlayer加载完成？
+	  if ($("#safearea").css("display")!="block") return // 文章内容加载完成？ see: source/css/first.styl
     clearInterval(checkAPlayer)
-	if (!window.volantis.LoadMetingJS&&!window.MetingJSElement){
-	  window.LoadMetingJS=1
-      loadScript("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js")
+	  if (!window.volantis.APlayerLoaded&&!window.MetingJSElement){ // APlayer只能加载一次
+      window.volantis.APlayerLoaded=1 // APlayer加载完成
+      loadScript("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js") // 加载 MetingJS
 	  }
-  }, 2500)
+  }, 2500) // 按照网速调节差分2.5s
+  // rightmenu see: layout/_partial/rightmenu.ejs
 
   
     loadScript("/js/aplayer.js")
@@ -3927,7 +3943,7 @@ document.addEventListener("pjax:success", listennSidebarTOC);
         elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
         selectors: [
           "title",
-          "#l_cover",
+          
           "#pjax-container",
           "#pjax-header-nav-list"
         ],
