@@ -1290,7 +1290,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-26T12:05:55+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-01-26T12:34:14+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2021年1月26日</p>
@@ -2010,7 +2010,7 @@ var loadCSS = function( href, before, media, attributes ){
           
     <li>
       <a class="vlts-menu fix-cursor-default toggle-mode-btn">
-        <i class="fas fa-moon fa-fw"></i> 关灯
+        <i class="fas fa-moon faa-tada fa-fw"></i> 关灯
       </a>
     </li>
   
@@ -2769,8 +2769,8 @@ $('<div class="custom-dark-sky"><div class="custom-dark-planet"><svg class="icon
 /**
  * bind click event for toggle button
  */
+var btn=$("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn");
 function bindToggleButton() {
-	var btn=$("#wrapper .toggle-mode-btn");
     btn.on('click',(e) => {
 	  if(rootElement.getAttribute('data-user-color-scheme', 'dark')) {
 	    $.message({ title: '操作通知', message: '已为您开启日间模式。', time: '5000', type: 'success' });
@@ -2797,7 +2797,7 @@ applyCustomDarkModeSettings();
 document.addEventListener("DOMContentLoaded", bindToggleButton);
 volantis.pjax.push(bindToggleButton);
 volantis.pjax.send(()=>{
-	$("#wrapper .toggle-mode-btn").unbind('click');
+	btn.unbind('click');
 },'toggle-mode-btn-unbind');
 
 // 自动夜间模式
