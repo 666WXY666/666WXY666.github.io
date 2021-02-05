@@ -4,39 +4,6 @@
   
     
     <entry>
-      <title>Android 项目集锦</title>
-      <link href="2021/01/04/Android-%E9%A1%B9%E7%9B%AE%E9%9B%86%E9%94%A6/"/>
-      <url>2021/01/04/Android-%E9%A1%B9%E7%9B%AE%E9%9B%86%E9%94%A6/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>本文是Android项目工程集锦。</strong></p><a id="more"></a><p>这些项目的源码、可执行程序、报告等已经存放于我的Github，欢迎下载查看：</p><ul><li>第一次作业-Hello Word</li></ul><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/HelloWord"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=HelloWord&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=HelloWord&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/></a><ul><li>第二次作业</li></ul><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/homework2"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=homework2&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=homework2&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/></a><ul><li>第三次作业</li></ul><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/Homework3"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=Homework3&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=Homework3&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/></a><ul><li>第四次作业-模拟时钟</li></ul><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/AndroidHomework4-Clock"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=AndroidHomework4-Clock&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=AndroidHomework4-Clock&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/></a><ul><li>第五次作业-注册界面</li></ul><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/Homework5"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=Homework5&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=Homework5&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/></a><ul><li>第六次作业-Todo List</li></ul><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/todolist-1"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=todolist-1&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=todolist-1&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/></a><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/todolist-2"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=todolist-2&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=todolist-2&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/></a><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/todolist-pro-2"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=todolist-pro-2&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=todolist-pro-2&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/></a><ul><li>第七次作业-Video Player</li></ul><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/VideoPlayer"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=VideoPlayer&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=VideoPlayer&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/></a>]]></content>
-      
-      
-      <categories>
-          
-          <category> 集锦 </category>
-          
-          <category> Android </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Java </tag>
-            
-            <tag> Android </tag>
-            
-            <tag> 项目 </tag>
-            
-            <tag> 工程 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Android项目 类抖音视频播放器</title>
       <link href="2021/01/04/Android%E9%A1%B9%E7%9B%AE-%E7%B1%BB%E6%8A%96%E9%9F%B3%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8/"/>
       <url>2021/01/04/Android%E9%A1%B9%E7%9B%AE-%E7%B1%BB%E6%8A%96%E9%9F%B3%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8/</url>
@@ -57,9 +24,42 @@
             
             <tag> Java </tag>
             
+            <tag> 工程 </tag>
+            
             <tag> Android </tag>
             
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Android 项目集锦</title>
+      <link href="2021/01/04/Android-%E9%A1%B9%E7%9B%AE%E9%9B%86%E9%94%A6/"/>
+      <url>2021/01/04/Android-%E9%A1%B9%E7%9B%AE%E9%9B%86%E9%94%A6/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>本文是Android项目工程集锦。</strong></p><a id="more"></a><p>这些项目的源码、可执行程序、报告等已经存放于我的Github，欢迎下载查看：</p><ul><li>第一次作业-Hello Word</li></ul><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/HelloWord"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=HelloWord&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=HelloWord&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/></a><ul><li>第二次作业</li></ul><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/homework2"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=homework2&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=homework2&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/></a><ul><li>第三次作业</li></ul><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/Homework3"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=Homework3&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=Homework3&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/></a><ul><li>第四次作业-模拟时钟</li></ul><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/AndroidHomework4-Clock"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=AndroidHomework4-Clock&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=AndroidHomework4-Clock&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/></a><ul><li>第五次作业-注册界面</li></ul><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/Homework5"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=Homework5&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=Homework5&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/></a><ul><li>第六次作业-Todo List</li></ul><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/todolist-1"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=todolist-1&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=todolist-1&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/></a><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/todolist-2"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=todolist-2&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=todolist-2&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/></a><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/todolist-pro-2"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=todolist-pro-2&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=todolist-pro-2&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/></a><ul><li>第七次作业-Video Player</li></ul><a class="ghcard" rel="external nofollow noopener noreferrer" href="https://github.com/666WXY666/VideoPlayer"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=VideoPlayer&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=VideoPlayer&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/></a>]]></content>
+      
+      
+      <categories>
+          
+          <category> 集锦 </category>
+          
+          <category> Android </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
             <tag> 工程 </tag>
+            
+            <tag> Android </tag>
+            
+            <tag> 项目 </tag>
             
         </tags>
       
@@ -489,9 +489,9 @@
       
         <tags>
             
-            <tag> 项目 </tag>
-            
             <tag> 工程 </tag>
+            
+            <tag> 项目 </tag>
             
             <tag> Verilog </tag>
             
@@ -526,9 +526,9 @@
       
         <tags>
             
-            <tag> 项目 </tag>
-            
             <tag> 工程 </tag>
+            
+            <tag> 项目 </tag>
             
             <tag> C++ </tag>
             
@@ -814,9 +814,9 @@
       
         <tags>
             
-            <tag> 项目 </tag>
-            
             <tag> 工程 </tag>
+            
+            <tag> 项目 </tag>
             
             <tag> Python </tag>
             
