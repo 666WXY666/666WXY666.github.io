@@ -138,8 +138,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                       
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href="/shuoshuo/" id="shuoshuo">
-                  <i class="fas fa-comments faa-tada fa-fw"></i>说说
+                <a class="menuitem flat-box faa-parent animated-hover" href="/bb/" id="bb">
+                  <i class="fas fa-comment-dots faa-tada fa-fw"></i>哔哔
                 </a>
                 
               </li>
@@ -149,8 +149,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                       
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href="/bb/" id="bb">
-                  <i class="fas fa-comment-dots faa-tada fa-fw"></i>哔哔
+                <a class="menuitem flat-box faa-parent animated-hover" href="/shuoshuo/" id="shuoshuo">
+                  <i class="fas fa-comments faa-tada fa-fw"></i>说说
                 </a>
                 
               </li>
@@ -539,8 +539,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                       
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href="/shuoshuo/" id="shuoshuo">
-                  <i class="fas fa-comments faa-tada fa-fw"></i>说说
+                <a class="menuitem flat-box faa-parent animated-hover" href="/bb/" id="bb">
+                  <i class="fas fa-comment-dots faa-tada fa-fw"></i>哔哔
                 </a>
                 
               </li>
@@ -550,8 +550,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                       
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href="/bb/" id="bb">
-                  <i class="fas fa-comment-dots faa-tada fa-fw"></i>哔哔
+                <a class="menuitem flat-box faa-parent animated-hover" href="/shuoshuo/" id="shuoshuo">
+                  <i class="fas fa-comments faa-tada fa-fw"></i>说说
                 </a>
                 
               </li>
@@ -888,7 +888,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class="cover-wrapper bbtalk search" style="display: none;">
+        <div id="full" class="cover-wrapper bb search" style="display: none;">
           
             <div id="cover-backstretch"></div>
           
@@ -961,12 +961,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               <i class="fas fa-rss fa-fw"></i><p>博客</p>
             </a>
           
-            <a href="/shuoshuo/" id="shuoshuo">
-              <i class="fas fa-comments fa-fw"></i><p>说说</p>
-            </a>
-          
             <a href="/bb/" id="bb">
               <i class="fas fa-comment-dots faa-tada fa-fw"></i><p>哔哔</p>
+            </a>
+          
+            <a href="/shuoshuo/" id="shuoshuo">
+              <i class="fas fa-comments fa-fw"></i><p>说说</p>
             </a>
           
             <a href="/categories/" id="categories">
@@ -1006,7 +1006,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 
 <div class="l_main">
-  <article class="article post white-box reveal md shadow floatable article-type-bbtalk" id="bbtalk" itemscope itemprop="blogPost">
+    <article class="article post white-box reveal md shadow floatable article-type-bb" id="bb" itemscope itemprop="blogPost">
   
 
 
@@ -1101,6 +1101,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
+    <div id="bbtalk"></div>
+  
   
   
   
@@ -1130,7 +1132,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </aside>
 
 
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/bbtalk@0.1.5/dist/bbtalk.min.js"></script>
+<script>
+bbtalk.init(Object.assign({"js":"https://cdn.jsdelivr.net/npm/bbtalk@0.1.5/dist/bbtalk.min.js","appId":"O2XYIOn9EAIKNr5HayEBixXl-MdYXbMMI","appKey":"g1XtDO1m1wHerH2wbn0A08mk","serverURLs":"https://O2XYIOn9.api.lncldglobal.com"}, {}))
+</script>
 		  
 		  <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
