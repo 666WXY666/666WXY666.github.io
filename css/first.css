@@ -27,14 +27,14 @@
   font-style: 'normal';
 }
 @font-face {
-  font-family: 'FiraCode';
-  src: url("https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/fonts/FiraCode/FiraCode-Regular.ttf");
+  font-family: 'JetBrains Mono Regular Nerd Font Complete Windows Compatible';
+  src: url("https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/fonts/JetBrains-Mono/JetBrains-Mono-Regular-Nerd-Font-Complete-Windows-Compatible.ttf");
   font-weight: 'normal';
   font-style: 'normal';
 }
 @font-face {
-  font-family: 'Mulish';
-  src: url("https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/fonts/Mulish/Mulish-Regular.ttf");
+  font-family: 'Noto Serif SC';
+  src: url("https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/fonts/Noto_Serif_SC/NotoSerifSC-Regular.otf");
   font-weight: 'normal';
   font-style: 'normal';
 }
@@ -69,7 +69,7 @@ html {
   color: var(--color-text);
   width: 100%;
   height: 100%;
-  font-family: "Mulish", "Noto Serif SC", "PingFang SC", "Microsoft Yahei UI", "Microsoft Yahei", sans-serif, Menlo, Monaco, monospace, sans-serif;
+  font-family: "Noto Serif SC", "PingFang SC", "Microsoft Yahei UI", "Microsoft Yahei", sans-serif, Menlo, Monaco, monospace, sans-serif;
   font-size: 16px;
 }
 html >::-webkit-scrollbar {
@@ -532,7 +532,7 @@ th {
   margin-top: 32px;
 }
 .cover-wrapper .cover-body .title {
-  font-family: "Mulish", "Noto Serif SC", "PingFang SC", "Microsoft Yahei UI", "Microsoft Yahei", sans-serif, Helvetica, monospace;
+  font-family: "Noto Serif SC", "PingFang SC", "Microsoft Yahei UI", "Microsoft Yahei", sans-serif, Helvetica, monospace;
   font-size: 3.125rem;
   line-height: 1.2;
   text-shadow: 0 1px 2px rgba(0,0,0,0.1);
@@ -901,7 +901,7 @@ th {
   line-height: 64px;
   padding: 0 24px;
   font-size: 1.25rem;
-  font-family: "Mulish", "Noto Serif SC", "PingFang SC", "Microsoft Yahei UI", "Microsoft Yahei", sans-serif, Helvetica, monospace;
+  font-family: "Noto Serif SC", "PingFang SC", "Microsoft Yahei UI", "Microsoft Yahei", sans-serif, Helvetica, monospace;
 }
 .l_header #wrapper .nav-main .title img {
   height: 64px;
@@ -912,7 +912,7 @@ th {
 }
 .l_header .nav-sub .title {
   font-weight: bold;
-  font-family: "Mulish", "Noto Serif SC", "PingFang SC", "Microsoft Yahei UI", "Microsoft Yahei", sans-serif, Menlo, Monaco, monospace, sans-serif;
+  font-family: "Noto Serif SC", "PingFang SC", "Microsoft Yahei UI", "Microsoft Yahei", sans-serif, Menlo, Monaco, monospace, sans-serif;
   line-height: 1.2;
   max-height: 64px;
   white-space: normal;
