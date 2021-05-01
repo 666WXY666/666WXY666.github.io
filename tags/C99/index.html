@@ -3632,7 +3632,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Sat May 01 2021 16:31:12 GMT+0000 (Coordinated Universal Time)</div>
+            <div id="last-update" style="display: none;">Sat May 01 2021 16:41:18 GMT+0000 (Coordinated Universal Time)</div>
             <div id="last-update-show">2021-05-01 日</div>
           
         </div>
@@ -4345,7 +4345,7 @@ setInterval("createtime()",250);
         
           <li class="option menuOption-Content">
             <span class="vlts-menu opt fix-cursor-default toggle-mode-btn" id="menuDarkBtn">
-              <i class="fa fa-moon fa-fw "></i> 关灯
+              <i class=" fa-fw "></i> 关灯
             </span>
           </li>
         
@@ -4422,18 +4422,6 @@ setInterval("createtime()",250);
   
 
 
-// 检查夜间模式
-function checkNightMode() {
-    var isDarkOrLight = localStorage.getItem("user-color-scheme") || "light";
-    if (isDarkOrLight === 'dark') {
-        $('html').addClass('dark-mode');
-    } else {
-        $('html').removeClass('dark-mode');
-    }
-}
-
-checkNightMode();
-
 <svg aria-hidden="true" style="position: absolute; width: 0px; height: 0px; overflow: hidden;">
     <symbol id="icon-sun-big" viewbox="0 0 1024 1024">
         <path d="M512 170.682c-11.782 0-21.312-9.562-21.312-21.342V21.344C490.688 9.562 500.22 0.016 512 0.016c11.812 0 21.344 9.546 21.344 21.328V149.34c0 11.78-9.532 21.342-21.344 21.342zM512 1023.984s0.032 0 0 0c-11.75 0-21.312-9.562-21.312-21.312v-127.994c0-11.812 9.562-21.376 21.344-21.376 11.782 0 21.312 9.562 21.312 21.376v127.994c0 11.75-9.532 21.312-21.344 21.312z" fill="#F6BB42"/>
@@ -4490,7 +4478,7 @@ const validColorModeKeys = {
 
 const applyCustomDarkModeSettings = (mode) => {
   const currentSetting = mode || getLS(darkModeStorageKey);
-  getCustomDarkMode();
+
   if (currentSetting === getModeFromCSSMediaQuery()) {
     resetRootDarkModeAttributeAndLS();
   } else if (validColorModeKeys[currentSetting]) {
@@ -4508,22 +4496,6 @@ const invertDarkModeObj = {
 /**
  * get target mode
  */
- const getCustomDarkMode = () => {
-  let currentSetting = getLS(darkModeStorageKey);
-  if (validColorModeKeys[currentSetting]) {
-    currentSetting = invertDarkModeObj[currentSetting];
-  } else if (currentSetting === null) {
-    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
-  } else {
-    return;
-  }
-  if(currentSetting=="dark"){
-    volantis.dark.mode="light";
-  }else{
-    volantis.dark.mode="dark";
-  }
-  // console.log(volantis.dark.mode)
-};
 const toggleCustomDarkMode = () => {
   let currentSetting = getLS(darkModeStorageKey);
 
@@ -4558,35 +4530,38 @@ $('<div class="custom-dark-sky"><div class="custom-dark-planet"><svg class="icon
 }
 
 /**
- * 暗黑模式触发器
+ * bind click event for toggle button
  */
-volantis.dark.toggle=()=>{
-  const mode = toggleCustomDarkMode();
-  applyCustomDarkModeSettings(mode);
-  // 使用 volantis.dark.push 方法传入volantis.dark.toggle回调函数 参见layout/_partial/scripts/global.ejs
-  volantis.dark.method.toggle.start();
-  console.log(mode)
-}
-/**
- * bind event for toggle button
- */
-
+var btn=$("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn");
 function bindToggleButton() {
-  var btn= document.querySelectorAll("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn")
-  btn.forEach(function (e) {
-	if(rootElement.getAttribute('data-user-color-scheme', 'dark')) {
-	  $.message({ title: '操作通知', message: '已为您开启日间模式。', time: '5000', type: 'success' });
-	} else {
-	  $.message({ title: '操作通知', message: '已为您开启夜间模式。', time: '5000', type: 'success' });
-	}
-	switchNightMode();
-    volantis.dom.$(e).on('click',volantis.dark.toggle);
-  })
+    btn.on('click',(e) => {
+	  if(rootElement.getAttribute('data-user-color-scheme', 'dark')) {
+	    $.message({ title: '操作通知', message: '已为您开启日间模式。', time: '5000', type: 'success' });
+	  } else {
+	    $.message({ title: '操作通知', message: '已为您开启夜间模式。', time: '5000', type: 'success' });
+	  }
+	  const mode = toggleCustomDarkMode();
+	  applyCustomDarkModeSettings(mode);
+	  switchNightMode();
+    });
 }
+
+    // 检查夜间模式
+    function checkNightMode() {
+        var isDarkOrLight = localStorage.getItem("user-color-scheme") || "light";
+        if (isDarkOrLight === 'dark') {
+            $('html').addClass('dark-mode');
+        } else {
+            $('html').removeClass('dark-mode');
+        }
+    }
 
 applyCustomDarkModeSettings();
 document.addEventListener("DOMContentLoaded", bindToggleButton);
 volantis.pjax.push(bindToggleButton);
+volantis.pjax.send(()=>{
+	btn.unbind('click');
+},'toggle-mode-btn-unbind');
 
 // 自动夜间模式
 
