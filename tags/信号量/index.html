@@ -3632,7 +3632,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Sat May 01 2021 15:24:00 GMT+0000 (Coordinated Universal Time)</div>
+            <div id="last-update" style="display: none;">Sat May 01 2021 16:21:00 GMT+0000 (Coordinated Universal Time)</div>
             <div id="last-update-show">2021-05-01 日</div>
           
         </div>
@@ -4333,7 +4333,7 @@ setInterval("createtime()",250);
         
           <li class="option menuOption-Content">
             <span class="vlts-menu opt fix-cursor-default" id="printHtml">
-              <i class="fa fa-print fa-fw "></i> 打印页面
+              <i class="fa fa-print fa-fw "></i> 打印
             </span>
           </li>  
         
@@ -4553,6 +4553,7 @@ volantis.dark.toggle=()=>{
   applyCustomDarkModeSettings(mode);
   // 使用 volantis.dark.push 方法传入volantis.dark.toggle回调函数 参见layout/_partial/scripts/global.ejs
   volantis.dark.method.toggle.start();
+  console.log(mode)
 }
 /**
  * bind event for toggle button
@@ -4566,8 +4567,8 @@ function bindToggleButton() {
 	} else {
 	  $.message({ title: '操作通知', message: '已为您开启夜间模式。', time: '5000', type: 'success' });
 	}
-    volantis.dom.$(e).on('click',volantis.dark.toggle);
 	switchNightMode();
+    volantis.dom.$(e).on('click',volantis.dark.toggle);
   })
 }
 

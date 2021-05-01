@@ -3561,7 +3561,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-01T15:22:58+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-01T16:20:18+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2021年5月1日</p>
@@ -4401,7 +4401,7 @@ setInterval("createtime()",250);
         
           <li class="option menuOption-Content">
             <span class="vlts-menu opt fix-cursor-default" id="printHtml">
-              <i class="fa fa-print fa-fw "></i> 打印页面
+              <i class="fa fa-print fa-fw "></i> 打印
             </span>
           </li>  
         
@@ -4621,6 +4621,7 @@ volantis.dark.toggle=()=>{
   applyCustomDarkModeSettings(mode);
   // 使用 volantis.dark.push 方法传入volantis.dark.toggle回调函数 参见layout/_partial/scripts/global.ejs
   volantis.dark.method.toggle.start();
+  console.log(mode)
 }
 /**
  * bind event for toggle button
@@ -4634,8 +4635,8 @@ function bindToggleButton() {
 	} else {
 	  $.message({ title: '操作通知', message: '已为您开启夜间模式。', time: '5000', type: 'success' });
 	}
-    volantis.dom.$(e).on('click',volantis.dark.toggle);
 	switchNightMode();
+    volantis.dom.$(e).on('click',volantis.dark.toggle);
   })
 }
 
