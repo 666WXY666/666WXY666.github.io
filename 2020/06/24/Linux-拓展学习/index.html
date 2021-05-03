@@ -2763,25 +2763,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 		
         <!--天气-->
 		
-		  <div id="weather"></div>
-<script src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/weather.js"></script>
-        
 		
 		<!--粒子时钟-->
-        
-          <div style="display: flex;z-index: 1">
-    <canvas id="particleClockCanvas" style="width: 100px;margin-top: 4px;margin-left: 5px;margin-right: 5px;"></canvas>
-</div>
-<script src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/digital_clock.js"></script>
-
-<style>
-    @media screen and (max-width: 768px) {
-        #particleClockCanvas {
-            display: none;
-        }
-    }
-</style>
-
         
 		
       <div class="m_search">
@@ -3664,7 +3647,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-03T15:39:45+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-03T15:58:34+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2021年5月3日</p>
@@ -4730,6 +4713,11 @@ volantis.pjax.push(bindToggleButton);
       e.insertAdjacentHTML("beforebegin", copyHtml)
     });
     clipboard.off("success").on("success", function (e) {
+	  volantis.message(
+          '复制成功',
+          '代码已复制，请遵守相关授权协议。',
+          'success'
+        );
       let $btn = volantis.dom.$(e.trigger);
       $btn.addClass("copied");
       let $icon = volantis.dom.$($btn.find("i"));
@@ -4742,6 +4730,11 @@ volantis.pjax.push(bindToggleButton);
       }, 2000);
     });
     clipboard.off("error").on("error", function (e) {
+	  volantis.message(
+          '复制失败',
+          '代码复制失败，请手动复制并遵守相关授权协议。',
+          'error'
+        );
       e.clearSelection();
       let $btn = volantis.dom.$(e.trigger);
       $btn.addClass("copy-failed");
@@ -5342,6 +5335,29 @@ document.addEventListener("pjax:success", listennSidebarTOC);
 <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
 
 
+<!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+    <div id="loading-bar-wrapper"><script>NProgress.configure({parent:"#loading-bar-wrapper",trickleSpeed: 100})</script></div>
+    <script>
+      window.ShowLoading = function() {
+        NProgress.start();
+      };
+      window.HideLoading = function() {
+        NProgress.done();
+      }
+    </script>
+  
+	<script>
+		volantis.pjax.push(window.HideLoading,'HideLoading');
+		volantis.pjax.send(window.ShowLoading,'ShowLoading');
+		volantis.pjax.error(window.HideLoading,'HideLoading');
+	</script>
+</div>
+
+
 <script>
     var pjax;
     document.addEventListener('DOMContentLoaded', function () {
@@ -5398,14 +5414,8 @@ document.addEventListener("pjax:success", listennSidebarTOC);
 	
 	<!--鼠标点击烟花爆炸效果-->
 	
-      <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
-<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/fireworks.js"></script>
-	
 	<!--Live2D看板娘-->
 	
     <!--浏览器搞笑标题-->
-	
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/FunnyTitle.js"></script>
 	
   <script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
