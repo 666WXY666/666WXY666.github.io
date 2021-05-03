@@ -3547,7 +3547,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-03T17:13:19+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-03T17:17:04+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2021年5月3日</p>
@@ -4571,6 +4571,8 @@ function checkNightMode() {
     }
 }
 
+checkNightMode();
+
 function switchNightMode() {
 const mode = toggleCustomDarkMode();
 console.log(mode);
@@ -4599,6 +4601,7 @@ volantis.dark.toggle=()=>{
   // 使用 volantis.dark.push 方法传入volantis.dark.toggle回调函数 参见layout/_partial/scripts/global.ejs
   volantis.dark.method.toggle.start();
   switchNightMode();
+  checkNightMode();
   if (mode === 'dark') {
       volantis.message('操作通知', '已为您开启夜间模式。', 'success');
   } else {

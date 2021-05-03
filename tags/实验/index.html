@@ -4061,7 +4061,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Mon May 03 2021 17:13:57 GMT+0000 (Coordinated Universal Time)</div>
+            <div id="last-update" style="display: none;">Mon May 03 2021 17:17:34 GMT+0000 (Coordinated Universal Time)</div>
             <div id="last-update-show">2021-05-03 日</div>
           
         </div>
@@ -4946,6 +4946,8 @@ function checkNightMode() {
     }
 }
 
+checkNightMode();
+
 function switchNightMode() {
 const mode = toggleCustomDarkMode();
 console.log(mode);
@@ -4974,6 +4976,7 @@ volantis.dark.toggle=()=>{
   // 使用 volantis.dark.push 方法传入volantis.dark.toggle回调函数 参见layout/_partial/scripts/global.ejs
   volantis.dark.method.toggle.start();
   switchNightMode();
+  checkNightMode();
   if (mode === 'dark') {
       volantis.message('操作通知', '已为您开启夜间模式。', 'success');
   } else {
