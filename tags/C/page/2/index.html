@@ -3949,7 +3949,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Mon May 03 2021 16:46:56 GMT+0000 (Coordinated Universal Time)</div>
+            <div id="last-update" style="display: none;">Mon May 03 2021 17:06:59 GMT+0000 (Coordinated Universal Time)</div>
             <div id="last-update-show">2021-05-03 日</div>
           
         </div>
@@ -4824,14 +4824,26 @@ const toggleCustomDarkMode = () => {
   return currentSetting;
 };
 
+// 检查夜间模式
+function checkNightMode() {
+    const mode = toggleCustomDarkMode();
+    if (mode === 'dark') {
+        $('html').addClass('dark-mode');
+    } else {
+        $('html').removeClass('dark-mode');
+    }
+}
+
 function switchNightMode() {
 const mode = toggleCustomDarkMode();
-$('<div class="custom-dark-sky"><div class="custom-dark-planet"><svg class="icon yueliang" aria-hidden="true"><use xlink:href="#icon-moon-big"></use></svg><svg class="icon taiyang" aria-hidden="true"><use xlink:href="#icon-sun-big"></use></svg></div></div>').appendTo($("body"));
-            setTimeout(function () {
-                if (mode === 'dark') {
-                    setTimeout("$('.taiyang').css('display','none'),$('.yueliang').css('display','block')", 900), console.log('夜间模式开启')
+console.log(mode);
+$('<div class="custom-dark-sky"><div class="custom-dark-planet"><svg class="icon yueliang" aria-hidden="true"><use xlink:href="#icon-moon-big"></use></svg><svg class="icon taiyang" aria-hidden="true"><use xlink:href="#icon-sun-big"></use></svg></div></div>').appendTo($("body"))
+		$(".dark-mode").length > 0 ? ($('.yueliang').css('display', 'block'), $('.taiyang').css('display', 'none')) : ($('.taiyang').css('display', 'block'), $('.yueliang').css('display', 'none')),
+			setTimeout(function () {
+                if (isDarkOrLight === 'dark') {
+                    setTimeout("$('html').addClass('dark-mode'),$('.taiyang').css('display','none'),$('.yueliang').css('display','block')", 900), console.log('夜间模式开启')
                 } else {
-                    setTimeout("$('.yueliang').css('display','none'),$('.taiyang').css('display','block')", 900), console.log('夜间模式关闭')
+                    setTimeout("$('html').removeClass('dark-mode'),$('.yueliang').css('display','none'),$('.taiyang').css('display','block')", 900), console.log('夜间模式关闭')
                 }
                 setTimeout(function () {
                     $(".custom-dark-sky").fadeOut(1e3, function () {
@@ -4850,6 +4862,11 @@ volantis.dark.toggle=()=>{
   // 使用 volantis.dark.push 方法传入volantis.dark.toggle回调函数 参见layout/_partial/scripts/global.ejs
   volantis.dark.method.toggle.start();
   switchNightMode();
+  if (mode === 'dark') {
+      volantis.message('操作通知', '已为您开启夜间模式。', 'success');
+  } else {
+      volantis.message('操作通知', '已为您开启日间模式。', 'success');
+  }
 }
 /**
  * bind event for toggle button
@@ -4949,24 +4966,24 @@ function adjust_time(beginTime, endTime, morningTime, noonTime, afternoonTime, n
       // 判断是否已经开启夜间模式
       if (rootElement.getAttribute('data-user-color-scheme', 'dark')) {
         // 已开启夜间模式，修改按钮状态
-        $.message({ title: '操作通知', message: daytimetitle + '，已自动为您切换为日间模式。<br>' + hitokoto.hitokoto + daytimemessage, type: 'success' });
+        volantis.message('操作通知', daytimetitle + '，已自动为您切换为日间模式。<br>' + hitokoto.hitokoto + daytimemessage, 'success');
         const mode = toggleCustomDarkMode();
         applyCustomDarkModeSettings(mode);
 		volantis.dark.method.toggle.start();
       }
       if (rootElement.getAttribute('data-user-color-scheme', 'light')) {
         // 未开启夜间模式，不执行操作
-        $.message({ title: daytimetitle, message: hitokoto.hitokoto + daytimemessage, type: 'info' });
+        volantis.message(daytimetitle, hitokoto.hitokoto + daytimemessage, 'info');
         return true;
       } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         // 已开启夜间模式，修改按钮状态
-        $.message({ title: '操作通知', message: daytimetitle + '，已自动为您切换为日间模式。<br>' + hitokoto.hitokoto + daytimemessage, type: 'success' });
+        volantis.message('操作通知', daytimetitle + '，已自动为您切换为日间模式。<br>' + hitokoto.hitokoto + daytimemessage, 'success');
         const mode = toggleCustomDarkMode();
         applyCustomDarkModeSettings(mode);
 		volantis.dark.method.toggle.start();
       } else {
         // 未开启夜间模式，不执行操作
-        $.message({ title: daytimetitle, message: hitokoto.hitokoto + daytimemessage, type: 'info' });
+        volantis.message(title: daytimetitle, hitokoto.hitokoto + daytimemessage, 'info');
         return true;
       }
     } else {
@@ -4983,22 +5000,22 @@ function adjust_time(beginTime, endTime, morningTime, noonTime, afternoonTime, n
       // 判断是否已经开启夜间模式
       if (rootElement.getAttribute('data-user-color-scheme', 'light')) {
         // 未开启夜间模式，修改按钮状态
-        $.message({ title: '操作通知', message: nighttitle + '，已自动为您切换为夜间模式。<br>' + hitokoto.hitokoto + nightmessage, type: 'success' });
+        volantis.message('操作通知', nighttitle + '，已自动为您切换为夜间模式。<br>' + hitokoto.hitokoto + nightmessage, 'success');
         const mode = toggleCustomDarkMode();
         applyCustomDarkModeSettings(mode);
 		volantis.dark.method.toggle.start();
       }
       if (rootElement.getAttribute('data-user-color-scheme', 'dark')) {
         // 已开启夜间模式，不执行操作
-        $.message({ title: nighttitle, message: hitokoto.hitokoto + nightmessage, type: 'info' });
+        volantis.message(nighttitle, hitokoto.hitokoto + nightmessage, 'info');
         return true;
       } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         // 已开启夜间模式，不执行操作
-        $.message({ title: nighttitle, message: hitokoto.hitokoto + nightmessage, type: 'info' });
+        volantis.message(nighttitle, hitokoto.hitokoto + nightmessage, 'info');
         return true;
       } else {
         // 未开启夜间模式，修改按钮状态
-        $.message({ title: '操作通知', message: nighttitle + '，已自动为您切换为夜间模式。<br>' + hitokoto.hitokoto + nightmessage, type: 'success' });
+        volantis.message('操作通知', nighttitle + '，已自动为您切换为夜间模式。<br>' + hitokoto.hitokoto + nightmessage, 'success');
         const mode = toggleCustomDarkMode();
         applyCustomDarkModeSettings(mode);
 		volantis.dark.method.toggle.start();
@@ -5008,6 +5025,79 @@ function adjust_time(beginTime, endTime, morningTime, noonTime, afternoonTime, n
 }
 </script>
 
+<style>
+    /* sun and moon */
+    .custom-dark-sky, .custom-dark-sky:before {
+        content: "";
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 88888888
+    }
+
+    .custom-dark-sky {
+        background: linear-gradient(#feb8b0, #fef9db)
+    }
+
+    .custom-dark-sky:before {
+        transition: 2s ease all;
+        opacity: 0;
+        background: linear-gradient(#4c3f6d, #6c62bb, #93b1ed)
+    }
+
+    .dark-mode .custom-dark-sky:before {
+        opacity: 1
+    }
+
+    .custom-dark-planet {
+        z-index: 99999999;
+        position: fixed;
+        left: -50%;
+        top: -50%;
+        width: 200%;
+        height: 200%;
+        -webkit-animation: planet-move 2s cubic-bezier(.7, 0, 0, 1);
+        animation: planet-move 2s cubic-bezier(.7, 0, 0, 1);
+        transform-origin: center bottom
+    }
+
+    @-webkit-keyframes planet-move {
+        0% {
+            transform: rotate(0)
+        }
+        to {
+            transform: rotate(360deg)
+        }
+    }
+
+    @keyframes planet-move {
+        0% {
+            transform: rotate(0)
+        }
+        to {
+            transform: rotate(360deg)
+        }
+    }
+
+    .custom-dark-planet svg {
+        position: absolute;
+        left: 35%;
+        top: 40%;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        content: "";
+    }
+
+    .xuanzhun {
+        -webkit-animation: rotate 3s linear infinite;
+        -moz-animation: rotate 3s linear infinite;
+        -o-animation: rotate 3s linear infinite;
+        animation: rotate 3s linear infinite;
+    }
+</style>
 
 
 <script>
