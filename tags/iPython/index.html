@@ -3632,7 +3632,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Mon May 03 2021 17:07:04 GMT+0000 (Coordinated Universal Time)</div>
+            <div id="last-update" style="display: none;">Mon May 03 2021 17:14:02 GMT+0000 (Coordinated Universal Time)</div>
             <div id="last-update-show">2021-05-03 日</div>
           
         </div>
@@ -4523,7 +4523,7 @@ console.log(mode);
 $('<div class="custom-dark-sky"><div class="custom-dark-planet"><svg class="icon yueliang" aria-hidden="true"><use xlink:href="#icon-moon-big"></use></svg><svg class="icon taiyang" aria-hidden="true"><use xlink:href="#icon-sun-big"></use></svg></div></div>').appendTo($("body"))
 		$(".dark-mode").length > 0 ? ($('.yueliang').css('display', 'block'), $('.taiyang').css('display', 'none')) : ($('.taiyang').css('display', 'block'), $('.yueliang').css('display', 'none')),
 			setTimeout(function () {
-                if (isDarkOrLight === 'dark') {
+                if (mode === 'dark') {
                     setTimeout("$('html').addClass('dark-mode'),$('.taiyang').css('display','none'),$('.yueliang').css('display','block')", 900), console.log('夜间模式开启')
                 } else {
                     setTimeout("$('html').removeClass('dark-mode'),$('.yueliang').css('display','none'),$('.taiyang').css('display','block')", 900), console.log('夜间模式关闭')
