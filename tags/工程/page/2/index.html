@@ -3861,7 +3861,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Mon May 03 2021 17:23:02 GMT+0000 (Coordinated Universal Time)</div>
+            <div id="last-update" style="display: none;">Mon May 03 2021 17:30:14 GMT+0000 (Coordinated Universal Time)</div>
             <div id="last-update-show">2021-05-03 日</div>
           
         </div>
@@ -4742,9 +4742,9 @@ $('<div class="custom-dark-sky"><div class="custom-dark-planet"><svg class="icon
 		$(".dark-mode").length > 0 ? ($('.yueliang').css('display', 'block'), $('.taiyang').css('display', 'none')) : ($('.taiyang').css('display', 'block'), $('.yueliang').css('display', 'none')),
 			setTimeout(function () {
                 if (mode === 'dark') {
-                    setTimeout("$('html').addClass('dark-mode'),$('.taiyang').css('display','none'),$('.yueliang').css('display','block')", 900), console.log('夜间模式开启')
+                    setTimeout($('.taiyang').css('display','none'),$('.yueliang').css('display','block')", 900), console.log('夜间模式开启')
                 } else {
-                    setTimeout("$('html').removeClass('dark-mode'),$('.yueliang').css('display','none'),$('.taiyang').css('display','block')", 900), console.log('夜间模式关闭')
+                    setTimeout($('.yueliang').css('display','none'),$('.taiyang').css('display','block')", 900), console.log('夜间模式关闭')
                 }
                 setTimeout(function () {
                     $(".custom-dark-sky").fadeOut(1e3, function () {
@@ -4760,13 +4760,14 @@ $('<div class="custom-dark-sky"><div class="custom-dark-planet"><svg class="icon
 volantis.dark.toggle=()=>{
   const mode = toggleCustomDarkMode();
   applyCustomDarkModeSettings(mode);
-  // 使用 volantis.dark.push 方法传入volantis.dark.toggle回调函数 参见layout/_partial/scripts/global.ejs
-  volantis.dark.method.toggle.start();
-  if (mode === 'dark') {
+  let currentSetting = getLS(darkModeStorageKey);
+  if (currentSetting == 'dark') {
       volantis.message('操作通知', '已为您开启夜间模式。', 'success');
   } else {
       volantis.message('操作通知', '已为您开启日间模式。', 'success');
   }
+  // 使用 volantis.dark.push 方法传入volantis.dark.toggle回调函数 参见layout/_partial/scripts/global.ejs
+  volantis.dark.method.toggle.start();
 }
 /**
  * bind event for toggle button
