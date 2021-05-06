@@ -1,384 +1,287 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>画廊</title> 
-<style type="text/css">
-html {
-	overflow:hidden; 
-	-ms-touch-action:none;
-	-ms-content-zooming:none;
-}
-body {
-	position:absolute;
-	margin:0px;
-	padding:0px;
-	background:#fff;
-	width:100%;
-	height:100%;
-}
-#canvas {
-	position:absolute;
-	width:100%;
-	height:100%;
-	background:#fff;
-}
-img{
-	width:640px;
-	height:386px
-}
-</style>
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>黄油画廊</title>
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/gallery/ge1doot.js"></script>
-<script type="text/javascript">
+		<link rel="dns-prefetch" href="//fonts.googleapis.com">
+		<link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;900&amp;display=swap" rel="stylesheet" media="all" onload="this.media=&quot;all&quot;">
 
-"use strict";
+		<!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/45921/cdn-public@main/app/gallery/base.min.css" /> -->
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/gallery/main.dev.css" />
 
-(function () {
-	/* ==== definitions ==== */
-	var diapo = [], layers = [], ctx, pointer, scr, camera, light, fps = 0, quality = [1,2],
-	// ---- poly constructor ----
-	Poly = function (parent, face) {
-		this.parent = parent;
-		this.ctx    = ctx;
-		this.color  = face.fill || false;
-		this.points = [];
-		if (!face.img) {
-			// ---- create points ----
-			for (var i = 0; i < 4; i++) {
-				this.points[i] = new ge1doot.transform3D.Point(
-					parent.pc.x + (face.x[i] * parent.normalZ) + (face.z[i] * parent.normalX),
-					parent.pc.y +  face.y[i],
-					parent.pc.z + (face.x[i] * parent.normalX) + (-face.z[i] * parent.normalZ)
-				);
-			}
-			this.points[3].next = false;
-		}
-	},
-	// ---- diapo constructor ----
-	Diapo = function (path, img, structure) {
-		// ---- create image ----
-		this.img = new ge1doot.transform3D.Image(
-			this, path + img.img, 1, {
-				isLoaded: function(img) {
-					img.parent.isLoaded = true;
-					img.parent.loaded(img);
-				}
-			}
-		);
-		this.visible  = false;
-		this.normalX  = img.nx;
-		this.normalZ  = img.nz;
-		// ---- point center ----
-		this.pc = new ge1doot.transform3D.Point(img.x, img.y, img.z);
-		// ---- target positions ----
-		this.tx = img.x + (img.nx * Math.sqrt(camera.focalLength) * 20);
-		this.tz = img.z - (img.nz * Math.sqrt(camera.focalLength) * 20);
-		// ---- create polygons ----
-		this.poly = [];
-		for (var i = -1, p; p = structure[++i];) {
-			layers[i] = (p.img === true ? 1 : 2);
-			this.poly.push(
-				new Poly(this, p)
-			);
-		}
-	},
-	// ---- init section ----
-	init = function (json) {
-		// draw poly primitive
-		Poly.prototype.drawPoly = ge1doot.transform3D.drawPoly;
-		// ---- init screen ----
-		scr = new ge1doot.Screen({
-			container: "canvas"
-		});
-		ctx = scr.ctx;
-		scr.resize();
-		// ---- init pointer ----
-		pointer = new ge1doot.Pointer({
-			tap: function () {
-				if (camera.over) {
-					if (camera.over === camera.target.elem) {
-						// ---- return to the center ----
-						camera.target.x = 0;
-						camera.target.z = 0;
-						camera.target.elem = false;
-					} else {
-						// ---- goto diapo ----
-						camera.target.elem = camera.over;
-						camera.target.x = camera.over.tx;
-						camera.target.z = camera.over.tz;
-						// ---- adapt tesselation level to distance ----
-						for (var i = 0, d; d = diapo[i++];) {
-							var dx = camera.target.x - d.pc.x;
-							var dz = camera.target.z - d.pc.z;
-							var dist = Math.sqrt(dx * dx + dz * dz);
-							var lev = (dist > 1500) ? quality[0] : quality[1];
-							d.img.setLevel(lev);
-						}
-					}
-				}
-			}
-		});
-		// ---- init camera ----
-		camera = new ge1doot.transform3D.Camera({
-			focalLength: Math.sqrt(scr.width) * 10,
-			easeTranslation: 0.025,
-			easeRotation: 0.06,
-			disableRz: true
-		}, {
-			move: function () {
-				this.over = false;
-				// ---- rotation ----
-				if (pointer.isDraging) {
-					this.target.elem = false;
-					this.target.ry = -pointer.Xi * 0.01;
-					this.target.rx = (pointer.Y - scr.height * 0.5) / (scr.height * 0.5);
-				} else {
-					if (this.target.elem) {
-						this.target.ry = Math.atan2(
-							this.target.elem.pc.x - this.x,
-							this.target.elem.pc.z - this.z
-						);
-					}
-				}
-				this.target.rx *= 0.9;
-			}
-		});
-		camera.z  = -10000;
-		camera.py = 0;
-		// ---- create images ----
-		for (var i = 0, img; img = json.imgdata[i++];) {
-			diapo.push(
-				new Diapo(
-					json.options.imagesPath, 
-					img, 
-					json.structure
-				)
-			);
-		}	
-		// ---- start engine ---- >>>
-		setInterval(function() {
-			quality = (fps > 50) ? [2,3] : [1,2];
-			fps = 0;
-		}, 1000);
-		run();
-	},
-	// ---- main loop ----
-	run = function () {
-		// ---- clear screen ----
-		ctx.clearRect(0, 0, scr.width, scr.height);
-		// ---- camera ----
-		camera.move();
-		// ---- draw layers ----
-		for (var k = -1, l; l = layers[++k];) {
-			light = false;
-			for (var i = 0, d; d = diapo[i++];) {
-				(l === 1 && d.draw()) || 
-				(d.visible && d.poly[k].draw());
-			}
-		}
-		// ---- cursor ----
-		if (camera.over && !pointer.isDraging) {
-			scr.setCursor("pointer");
-		} else {
-			scr.setCursor("move");
-		}
-		// ---- loop ----
-		fps++;
-		requestAnimFrame(run);
-	};
-	/* ==== prototypes ==== */
-	Poly.prototype.draw = function () {
-		// ---- color light ----
-		var c = this.color;
-		if (c.light || !light) {
-			var s = c.light ? this.parent.light : 1;
-			// ---- rgba color ----
-			light = "rgba(" + 
-				Math.round(c.r * s) + "," +
-				Math.round(c.g * s) + "," + 
-				Math.round(c.b * s) + "," + (c.a || 1) + ")";
-			ctx.fillStyle = light;
-		}
-		// ---- paint poly ----
-		if (!c.light || this.parent.light < 1) {
-			// ---- projection ----
-			for (
-				var i = 0; 
-				this.points[i++].projection();
-			);
-			this.drawPoly();
-			ctx.fill();
-		}
-	}
-	/* ==== image onload ==== */
-	Diapo.prototype.loaded = function (img) {
-		// ---- create points ----
-		var d = [-1,1,1,-1,1,1,-1,-1];
-		var w = img.texture.width  * 0.5;
-		var h = img.texture.height * 0.5;
-		for (var i = 0; i < 4; i++) {
-			img.points[i] = new ge1doot.transform3D.Point(
-				this.pc.x + (w * this.normalZ * d[i]),
-				this.pc.y + (h * d[i + 4]),
-				this.pc.z + (w * this.normalX * d[i])
-			);
-		}
-	}
-	/* ==== images draw ==== */
-	Diapo.prototype.draw = function () {
-		// ---- visibility ----
-		this.pc.projection();
-		if (this.pc.Z > -(camera.focalLength >> 1) && this.img.transform3D(true)) {
-			// ---- light ----
-			this.light = 0.5 + Math.abs(this.normalZ * camera.cosY - this.normalX * camera.sinY) * 0.6;
-			// ---- draw image ----
-			this.visible = true;
-			this.img.draw();
-			// ---- test pointer inside ----
-			if (pointer.hasMoved || pointer.isDown) {
-				if (
-					this.img.isPointerInside(
-						pointer.X,
-						pointer.Y
-					)
-				) camera.over = this;
-			}
-		} else this.visible = false;
-		return true;
-	}
-	return {
-		// --- load data ----
-		load : function (data) {
-			window.addEventListener('load', function () {
-				ge1doot.loadJS(
-					"https://cdn.jsdelivr.net/gh/666WXY666/cdn@master/js/gallery/imageTransform3D.js",
-					init, data
-				);
-			}, false);
-		}
-	}
-})().load({
-	imgdata:[
-		// north
-		{img:'https://gitee.com/wxy_666/images/raw/master/20210112214440.jpg', x:-1000, y:0, z:2500, nx:0, nz:1},
-		{img:'https://gitee.com/wxy_666/images/raw/master/20210112214701.jpg', x:0,     y:0, z:2500, nx:0, nz:1},
-		{img:'https://gitee.com/wxy_666/images/raw/master/20210112215345.jpg', x:1000,  y:0, z:2500, nx:0, nz:1},
-		// east
-		{img:'https://gitee.com/wxy_666/images/raw/master/20210112215400.png', x:1500,  y:0, z:1000, nx:-1, nz:0},
-		{img:'https://gitee.com/wxy_666/images/raw/master/20210112215409.png', x:1500,  y:0, z:0, nx:-1, nz:0},
-		{img:'https://gitee.com/wxy_666/images/raw/master/20210112215417.jpg', x:1500,  y:0, z:-1000, nx:-1, nz:0},
-		{img:'https://gitee.com/wxy_666/images/raw/master/20210112215424.png', x:1500,  y:0, z:2000, nx:-1, nz:0},
-		// south
-		{img:'https://gitee.com/wxy_666/images/raw/master/20210112215518.jpeg', x:1000,  y:0, z:-1500, nx:0, nz:-1},
-		{img:'https://gitee.com/wxy_666/images/raw/master/20210112215527.jpg', x:0,     y:0, z:-1500, nx:0, nz:-1},
-		{img:'https://gitee.com/wxy_666/images/raw/master/20210112215535.png', x:-1000, y:0, z:-1500, nx:0, nz:-1},
-		// west
-		{img:'https://gitee.com/wxy_666/images/raw/master/20210112215543.png', x:-1500, y:0, z:-1000, nx:1, nz:0},
-		{img:'https://gitee.com/wxy_666/images/raw/master/20210112215552.jpg', x:-1500, y:0, z:0, nx:1, nz:0},
-		{img:'https://gitee.com/wxy_666/images/raw/master/20210112215558.jpg', x:-1500, y:0, z:1000, nx:1, nz:0},
-		{img:'https://gitee.com/wxy_666/images/raw/master/20210112215605.jpg', x:-1500, y:0, z:2000, nx:1, nz:0}	
-	],
-	structure:[
-		{
-			// wall
-			fill: {r:255, g:255, b:255, light:1},
-			x: [-1001,-490,-490,-1001],
-			z: [-500,-500,-500,-500],
-			y: [500,500,-500,-500]
-		},{
-			// wall
-			fill: {r:255, g:255, b:255, light:1},
-			x: [-501,2,2,-500],
-			z: [-500,-500,-500,-500],
-			y: [500,500,-500,-500]
-		},{
-			// wall
-			fill: {r:255, g:255, b:255, light:1},
-			x: [0,502,502,0],
-			z: [-500,-500,-500,-500],
-			y: [500,500,-500,-500]
-		},{
-			// wall
-			fill: {r:255, g:255, b:255, light:1},
-			x: [490,1002,1002,490],
-			z: [-500,-500,-500,-500],
-			y: [500,500,-500,-500]
-		},{
-			// shadow
-			fill: {r:0, g:0, b:0, a:0.2},
-			x: [-420,420,420,-420],
-			z: [-500,-500,-500,-500],
-			y: [150, 150,-320,-320]
-		},{
-			// shadow
-			fill: {r:0, g:0, b:0, a:0.2},
-			x: [-20,20,20,-20],
-			z: [-500,-500,-500,-500],
-			y: [250, 250,150,150]
-		},{
-			// shadow
-			fill: {r:0, g:0, b:0, a:0.2},
-			x: [-20,20,20,-20],
-			z: [-500,-500,-500,-500],
-			y: [-320, -320,-500,-500]
-		},{
-			// shadow
-			fill: {r:0, g:0, b:0, a:0.2},
-			x: [-20,20,10,-10],
-			z: [-500,-500,-100,-100],
-			y: [-500, -500,-500,-500]
-		},{
-			// base
-			fill: {r:32, g:32, b:32},
-			x: [-50,50,50,-50],
-			z: [-150,-150,-50,-50],
-			y: [-500,-500,-500,-500]
-		},{
-			// support
-			fill: {r:16, g:16, b:16},
-			x: [-10,10,10,-10],
-			z: [-100,-100,-100,-100],
-			y: [300,300,-500,-500]
-		},{
-			// frame
-			fill: {r:255, g:255, b:255},
-			x: [-320,-320,-320,-320],
-			z: [0,-20,-20,0],
-			y: [-190,-190,190,190]
-		},{
-			// frame
-			fill: {r:255, g:255, b:255},
-			x: [320,320,320,320],
-			z: [0,-20,-20,0],
-			y: [-190,-190,190,190]
-		},
-		{img:true},
-		{
-			// ceilingLight
-			fill: {r:255, g:128, b:0},
-			x: [-50,50,50,-50],
-			z: [450,450,550,550],
-			y: [500,500,500,500]
-		},{
-			// groundLight
-			fill: {r:255, g:128, b:0},
-			x: [-50,50,50,-50],
-			z: [450,450,550,550],
-			y: [-500,-500,-500,-500]
-		}
-	],
-	options:{
-		imagesPath: ""
-	}
-});
-</script>
 
-</head> 
-<body>
+		<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+	</head>
 
-<canvas id="canvas">你的浏览器不支持HTML5画布技术，请使用谷歌浏览器。</canvas>
+	<body class="loading">
 
-<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
-</div>
-<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
+		<svg class="hidden">
+			<symbol id="icon-arrow" viewBox="0 0 24 24">
+				<title>arrow</title>
+				<polygon points="6.3,12.8 20.9,12.8 20.9,11.2 6.3,11.2 10.2,7.2 9,6 3.1,12 9,18 10.2,16.8 "/>
+			</symbol>
+			<symbol id="icon-drop" viewBox="0 0 24 24">
+				<title>drop</title>
+				<path d="M12,21c-3.6,0-6.6-3-6.6-6.6C5.4,11,10.8,4,11.4,3.2C11.6,3.1,11.8,3,12,3s0.4,0.1,0.6,0.3c0.6,0.8,6.1,7.8,6.1,11.2C18.6,18.1,15.6,21,12,21zM12,4.8c-1.8,2.4-5.2,7.4-5.2,9.6c0,2.9,2.3,5.2,5.2,5.2s5.2-2.3,5.2-5.2C17.2,12.2,13.8,7.3,12,4.8z"/><path d="M12,18.2c-0.4,0-0.7-0.3-0.7-0.7s0.3-0.7,0.7-0.7c1.3,0,2.4-1.1,2.4-2.4c0-0.4,0.3-0.7,0.7-0.7c0.4,0,0.7,0.3,0.7,0.7C15.8,16.5,14.1,18.2,12,18.2z"/>
+			</symbol>
+			<symbol id="icon-cross" viewBox="0 0 24 23">
+				<title>cross</title>
+				<path d="M23.865 3.677c.197-.383.164-.818-.008-1.18.048-.41-.06-.827-.448-1.147L22.323.457c-.636-.524-1.632-.689-2.25 0a155.348 155.348 0 0 1-8.797 9.001C9.011 7.342 6.72 5.255 4.443 3.165c-.8-.734-1.956-.503-2.458.37C1.253 3.9.659 4.374.168 5.182c-.233.386-.215.872 0 1.258 1.47 2.635 4.31 4.951 6.646 7.083-.313.28-.623.562-.942.836-3.146 2.702-5.268 4.416-1.331 7.187.053.037.107.029.161.05.076.036.148.06.232.074.026 0 .05.005.075.003.082.007.16.027.243.011 2.117-.415 4.085-2.074 5.872-3.9 1.74 1.715 3.592 3.353 5.63 4.325.485.232 1.063.097 1.436-.227.626.047 1.197-.342 1.484-.901.042-.026.07-.041.116-.07.91-.569.993-1.701.32-2.482-1.522-1.762-3.138-3.438-4.787-5.084 2.968-2.9 6.674-6.027 8.542-9.667z"/>
+			</symbol>
+		</svg>
+
+		<main>
+			
+			<div class="content">
+				<div class="grid">
+					<a class="grid__item grid__item--noclick" href="#">
+						<div class="box">
+							<h4 class="box__text"><span class="box__text-inner box__text-inner--rotated2 box__text-inner--reverse" onclick="window.open('https://shiraha.cn/')" >Gallery</span></h4>
+							<p class="box__content box__content--main">Shiraha Nanami, a galgame lover.</p>
+							<h3 class="box__title box__title--straight box__title--bottom"><span class="box__title-inner" data-hover="ABOUT">ABOUT</span></h3>
+						</div>
+					</a>
+					<a class="grid__item" href="#preview-1">
+						<div class="box">
+							<div class="box__shadow"></div>
+							<img class="box__img" src="https://7.dusays.com/2021/02/10/98cafc83d73be.png" alt="Kuro"/>
+							<h3 class="box__title"><span class="box__title-inner" data-hover="KURO">KURO</span></h3>
+							<h4 class="box__text"><span class="box__text-inner">Night</span></h4>
+							<div class="box__deco">&#10014;</div>
+							<p class="box__content">"as the Night's, Reincarnation"</p>
+						</div>
+					</a>
+					<a class="grid__item" href="#preview-2">
+						<div class="box">
+							<div class="box__shadow"></div>
+							<img class="box__img" src="https://i.loli.net/2021/02/10/puwq6xlIBO4PNEd.png" alt="yayaya"/>
+							<h3 class="box__title box__title--straight box__title--bottom"><span class="box__title-inner" data-hover="ANZU">ANZU</span></h3>
+							<h4 class="box__text box__text--bottom"><span class="box__text-inner box__text-inner--rotated1">Clover</span></h4>
+							<div class="box__deco box__deco--top">&#10115;</div>
+							<p class="box__content box__content--top">"Looking for a clover day's"</p>
+						</div>
+					</a>
+					<a class="grid__item" href="#preview-3">
+						<div class="box">
+							<div class="box__shadow"></div>
+							<img class="box__img" src="https://7.dusays.com/2021/02/10/288afe01b8163.png" alt="yuuki"/>
+							<h3 class="box__title"><span class="box__title-inner" data-hover="YUUKI">YUUKI</span></h3>
+							<h4 class="box__text box__text--topcloser"><span class="box__text-inner">White</span></h4>
+							<div class="box__deco">&#10032;</div>
+							<p class="box__content">"I believe we can see someday again white eternity..."</p>
+						</div>
+					</a>
+					<a class="grid__item" href="#preview-4">
+						<div class="box">
+							<div class="box__shadow"></div>
+							<img class="box__img" src="https://7.dusays.com/2021/02/10/5c4fdc730c7e9.png" alt="sena"/>
+							<h3 class="box__title"><span class="box__title-inner" data-hover="SENA">SENA</span></h3>
+							<h4 class="box__text box__text--bottom box__text--right"><span class="box__text-inner box__text-inner--rotated3">Letter</span></h4>
+							<p class="box__content box__content--top">"Our first promise and your words I wanted to express that day"</p>
+						</div>
+					</a>
+					<a class="grid__item" href="#preview-5">
+						<div class="box">
+							<div class="box__shadow"></div>
+							<img class="box__img" src="https://7.dusays.com/2021/02/10/8bcbf0358e3e8.png" alt="romi"/>
+							<h3 class="box__title"><span class="box__title-inner" data-hover="ROMI">ROMI</span></h3>
+							<h4 class="box__text box__text--bottomcloser"><span class="box__text-inner">Emotion</span></h4>
+							<p class="box__content box__content--top">"The only source of knowledge is experience."</p>
+						</div>
+					</a>
+					<a class="grid__item" href="#preview-6">
+						<div class="box">
+							<div class="box__shadow"></div>
+							<img class="box__img" src="https://7.dusays.com/2021/02/10/1549657d4e7bb.png" alt="shiroha"/>
+							<h3 class="box__title"><span class="box__title-inner" data-hover="SHIROHA">SHIROHA</span></h3>
+							<h4 class="box__text"><span class="box__text-inner box__text-inner--rotated1">Butterfly</span></h4>
+							<p class="box__content">"Refection Blue"</p>
+						</div>
+					</a>
+					<a class="grid__item" href="#preview-7">
+						<div class="box">
+							<div class="box__shadow"></div>
+							<img class="box__img" src="https://7.dusays.com/2021/02/10/ed7e1d7fb63ea.png" alt="rin"/>
+							<h3 class="box__title box__title--straight box__title--bottom"><span class="box__title-inner" data-hover="RIN">RIN</span></h3>
+							<h4 class="box__text box__title--bottom"><span class="box__text-inner box__text-inner--rotated1">Cherry</span></h4>
+							<p class="box__content box__content--top">"O wende, wende Deinen Lauf Im Thale blüht der Frühling auf!"</p>
+						</div>
+					</a>
+					<a class="grid__item" href="#preview-8">
+						<div class="box">
+							<div class="box__shadow"></div>
+							<img class="box__img" src="https://7.dusays.com/2021/02/10/5c5e2f08704dc.png" alt="hiiro"/>
+							<h3 class="box__title"><span class="box__title-inner" data-hover="HIIRO">HIIRO</span></h3>
+							<h4 class="box__text box__text--bottom"><span class="box__text-inner">Color</span></h4>
+							<p class="box__content box__content--top">"Our times made of dreams and colors"</p>
+							<div class="box__deco">&#10108;</div>
+						</div>
+					</a>
+					<a class="grid__item" href="#preview-9">
+						<div class="box">
+							<div class="box__shadow"></div>
+							<img class="box__img" src="https://i.loli.net/2021/02/10/bYwuLmsrFc3ik5H.png" alt="kukuri"/>
+							<h3 class="box__title"><span class="box__title-inner" data-hover="KUKURI">KUKURI</span></h3>
+							<h4 class="box__text box__text--bottom"><span class="box__text-inner">Apple</span></h4>
+							<p class="box__content box__content--top">"The end of the story promises happy ending"</p>
+						</div>
+					</a>
+					<a class="grid__item" href="#preview-10">
+						<div class="box">
+							<div class="box__shadow"></div>
+							<img class="box__img" src="https://7.dusays.com/2021/02/10/610f3c8d1c630.png" alt="aqua"/>
+							<h3 class="box__title box__title--bottom"><span class="box__title-inner" data-hover="AQUA">AQUA</span></h3>
+							<h4 class="box__text"><span class="box__text-inner box__text-inner--rotated2">Sunflower</span></h4>
+							<p class="box__content">"That's one small step for mankind, one giant leap for a man."</p>
+						</div>
+					</a>
+					<a class="grid__item" href="#preview-11">
+						<div class="box">
+							<div class="box__shadow"></div>
+							<img class="box__img" src="https://7.dusays.com/2021/02/10/717e3e43adbe0.png" alt="mare"/>
+							<h3 class="box__title box__title--straight box__title--left"><span class="box__title-inner" data-hover="MARE">MARE</span></h3>
+							<h4 class="box__text box__text--bottom box__text--right"><span class="box__text-inner box__text-inner--rotated3">STAR</span></h4>
+							<div class="box__deco box__deco--top">&#10153;</div>
+							<p class="box__content" style="left: -2em">"Pray to become starry sky tomorrow..."</p>
+						</div>
+					</a>
+				</div>
+			</div>
+
+			<div class="overlay">
+				<div class="overlay__reveal"></div>
+				<div class="overlay__item" id="preview-1">
+					<div class="box">
+						<div class="box__shadow"></div>
+						<img class="box__img box__img--original" src="https://7.dusays.com/2021/02/10/98cafc83d73be.png" alt="Kuro"/>
+						<h3 class="box__title"><span class="box__title-inner">KURO</span></h3>
+						<h4 class="box__text"><span class="box__text-inner">Night</span></h4>
+						<div class="box__deco">&#10014;</div>
+					</div>
+					<p class="overlay__content">それは、幾千の夜を舞う，さくらと少女たちの物語——</p>
+				</div>
+				<div class="overlay__item" id="preview-2">
+					<div class="box">
+						<div class="box__shadow"></div>
+						<img class="box__img box__img--original" src="https://i.loli.net/2021/02/10/puwq6xlIBO4PNEd.png" alt="yayaya"/>
+						<h3 class="box__title box__title--straight box__title--bottom"><span class="box__title-inner">ANZU</span></h3>
+						<h4 class="box__text box__text--bottom"><span class="box__text-inner box__text-inner--rotated1">Clover</span></h4>
+						<div class="box__deco box__deco--top">&#10115;</div>
+					</div>
+					<p class="overlay__content">それは、忍ぶ想い<br/>それは、永遠の誓い<br/>それは、心からの願い<br/>それは、抱き続けた後悔<br/>そして、幼い日の約束――</p>
+				</div>
+				<div class="overlay__item" id="preview-3">
+					<div class="box">
+						<div class="box__shadow"></div>
+						<img class="box__img box__img--original" src="https://7.dusays.com/2021/02/10/288afe01b8163.png" alt="yuuki"/>
+						<h3 class="box__title"><span class="box__title-inner">YUUKI</span></h3>
+						<h4 class="box__text box__text--topcloser"><span class="box__text-inner">White</span></h4>
+						<div class="box__deco">&#10032;</div>
+					</div>
+					<p class="overlay__content">今日もまだ、春の訪れを予感しながら、冬の想い出を見上げている。</p>
+				</div>
+				<div class="overlay__item" id="preview-4">
+					<div class="box">
+						<div class="box__shadow"></div>
+						<img class="box__img box__img--original" src="https://7.dusays.com/2021/02/10/5c4fdc730c7e9.png" alt="sena"/>
+						<h3 class="box__title"><span class="box__title-inner">SENA</span></h3>
+						<h4 class="box__text box__text--bottom box__text--right"><span class="box__text-inner box__text-inner--rotated3">Letter</span></h4>
+					</div>
+					<p class="overlay__content">私が戻ってきたのはね。もう一度、星の音を聞きためだよ</p>
+				</div>
+				<div class="overlay__item" id="preview-5">
+					<div class="box">
+						<div class="box__shadow"></div>
+						<img class="box__img box__img--original" src="https://7.dusays.com/2021/02/10/8bcbf0358e3e8.png" alt="romi"/>
+						<h3 class="box__title"><span class="box__title-inner">ROMI</span></h3>
+						<h4 class="box__text box__text--bottomcloser"><span class="box__text-inner">Emotion</span></h4>
+					</div>
+					<p class="overlay__content">恋はとこからきて、どこに行くだろう——</p>
+				</div>
+				<div class="overlay__item" id="preview-6">
+					<div class="box">
+						<div class="box__shadow"></div>
+						<img class="box__img box__img--original" src="https://7.dusays.com/2021/02/10/1549657d4e7bb.png" alt="shiroha"/>
+						<h3 class="box__title"><span class="box__title-inner">SHIROHA</span></h3>
+						<h4 class="box__text"><span class="box__text-inner">Butterfly</span></h4>
+					</div>
+					<p class="overlay__content">眩しさだけは、忘れなかった。<br />どんな時も——夏の青さを、覚えていた。</p>
+				</div>
+				<div class="overlay__item" id="preview-7">
+					<div class="box">
+						<div class="box__shadow"></div>
+						<img class="box__img box__img--original" src="https://7.dusays.com/2021/02/10/ed7e1d7fb63ea.png" alt="sakura"/>
+						<h3 class="box__title box__title--straight box__title--bottom"><span class="box__title-inner">SAKURA</span></h3>
+						<h4 class="box__text box__title--bottom"><span class="box__text-inner box__text-inner--rotated1">Cherry</span></h4>
+					</div>
+					<p class="overlay__content">ああ、世界はこんなにも美しい——そんな幸せな景色</p>
+				</div>
+				<div class="overlay__item" id="preview-8">
+					<div class="box">
+						<div class="box__shadow"></div>
+						<img class="box__img box__img--original" src="https://7.dusays.com/2021/02/10/5c5e2f08704dc.png" alt="hiiro"/>
+						<h3 class="box__title"><span class="box__title-inner">HIIRO</span></h3>
+						<h4 class="box__text box__text--bottom"><span class="box__text-inner">Color</span></h4>
+						<div class="box__deco">&#10108;</div>
+					</div>
+					<p class="overlay__content">ともあれ、これが俺たちの青春の１ページ——</p>
+				</div>
+				<div class="overlay__item" id="preview-9">
+					<div class="box">
+						<div class="box__shadow"></div>
+						<img class="box__img box__img--original" src="https://i.loli.net/2021/02/10/bYwuLmsrFc3ik5H.png" alt="kukuri"/>
+						<h3 class="box__title"><span class="box__title-inner">KUKURI</span></h3>
+						<h4 class="box__text box__text--bottom"><span class="box__text-inner">Apple</span></h4>
+					</div>
+					<p class="overlay__content">——ハッピーエンドを約束しよう</p>
+				</div>
+				<div class="overlay__item" id="preview-10">
+					<div class="box">
+						<div class="box__shadow"></div>
+						<img class="box__img box__img--original" src="https://7.dusays.com/2021/02/10/610f3c8d1c630.png" alt="aqua"/>
+						<h3 class="box__title box__title--bottom"><span class="box__title-inner">AQUA</span></h3>
+						<h4 class="box__text"><span class="box__text-inner box__text-inner--rotated2">Sunflower</span></h4>
+					</div>
+					<p class="overlay__content">——この星の空は、<br />何故あおいのだろう——</p>
+				</div>
+				<div class="overlay__item" id="preview-11">
+					<div class="box">
+						<div class="box__shadow"></div>
+						<img class="box__img box__img--original" src="https://7.dusays.com/2021/02/10/717e3e43adbe0.png" alt="mare"/>
+						<h3 class="box__title box__title--straight box__title--left"><span class="box__title-inner">MARE</span></h3>
+						<h4 class="box__text box__text--bottom box__text--right"><span class="box__text-inner box__text-inner--rotated3">STAR</span></h4>
+						<div class="box__deco box__deco--top">&#10153;</div>
+					</div>
+					<p class="overlay__content">変わらない星空の下、俺たちは変わっていく——<br />流れ星に願った夢、叶えようとしてますか——？</p>
+				</div>
+				<button class="overlay__close"><svg class="icon icon--cross"><use xlink:href="#icon-cross"></use></svg></button>
+			</div>
+			
+		</main>
+
+		<div class="footer">
+			<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <span id="busuanzi_container_site_pv">Total visits is <span id="busuanzi_value_site_pv"></span> times for site, and <span id="busuanzi_value_page_pv"></span> times for this page</span><br/>
+			<span>Welcome to <a href="https://shiraha.cn/">my blog</a> !</span><br/><br/>
+			<span>Copyright © 2017-2021 Nanami Shiraha</span>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/gh/45921/cdn-public@main/app/gallery/imagesloaded.pkgd.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/gh/45921/cdn-public@main/app/gallery/TweenMax.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/gh/45921/cdn-public@main/app/gallery/demo.js"></script>
+		
+	</body>
+	<style>
+		.footer {
+			font-size: 1.1em;
+			color: gray;
+			font-family: 'Buenard', serif;
+			text-align: center;
+			position: relative;
+			padding-bottom: 4em;
+		}
+	</style>
+</html>
