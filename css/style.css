@@ -4135,8 +4135,8 @@ svg.loading {
   height: 48px;
   line-height: 48px;
   border-radius: 100%;
-  bottom: 128px;
-  right: 32px;
+  bottom: 80px;
+  right: 80px;
   transform: translateY(100px) scale(0);
   transform-origin: bottom;
   color: var(--color-text);
