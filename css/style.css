@@ -3807,7 +3807,7 @@ footer.footer .copyright p {
   height: 48px;
   line-height: 48px;
   border-radius: 100%;
-  bottom: 128px;
+  bottom: 32px;
   right: 32px;
   transform: translateY(100px) scale(0);
   transform-origin: bottom;
