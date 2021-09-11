@@ -935,6 +935,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 		</div>
 	</div>
   </div>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </header>
 
     <div id="l_body">
@@ -1195,7 +1196,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <img src="https://gitee.com/wxy_666/images/raw/master/20200428220658.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200428220658.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-28_211921" style="zoom:80%;">
 
 <blockquote><p>这俩题都是关于uniq命令的。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">uniq -u</span><br><span class="line">uniq -d</span><br><span class="line">uniq</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">uniq -u
+uniq -d
+uniq</code></pre>
 <p>第一个命令，-u代表unique，只打印没有重复的行；</p>
 <p>第二个命令，-d代表duplicated，只打印重复的行，注意重复的行只打印一次；</p>
 <p>第三个命令，啥也不加就是都打印，但是也是复的行只打印一次；</p>
@@ -1215,7 +1218,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <img src="https://gitee.com/wxy_666/images/raw/master/20200428221942.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200428221942.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-28_212044" style="zoom:80%;">
 
 <blockquote><p>这俩题也不多解释了，od不可打印字符也可以显示，tr是用于翻译，把string1出现的字符替换为string2中对应的字符，ASCII字符0也可以翻译。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tr string1 string2</span><br></pre></td></tr></table></figure></blockquote>
+<pre><code class="shell">tr string1 string2</code></pre>
+</blockquote>
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429095034.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429095034.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-28_212253" style="zoom:80%;">
 
@@ -1225,12 +1229,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h2 id="三、正则表达式"><a href="#三、正则表达式" class="headerlink" title="三、正则表达式"></a>三、正则表达式</h2><img src="https://gitee.com/wxy_666/images/raw/master/20200428222324.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200428222324.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-28_212126" style="zoom:80%;">
 
 <blockquote><p>先说一下正则表达式的**<em>元字符**</em>，有6个，分别是：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">. * [ \ ^ $</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">. * [ \ ^ $</code></pre>
 <p>关于他们各自的含义不多说，自行百度，一定要注意的是]不是元字符，很容易搞错。</p>
 <p>而关于单字符正则表达式，显而易见，就是匹配一个字符呗，不过有特殊的:</p>
 <ul>
 <li><p>\加一个字符构成的转义字符，看做单字符正则表达式；</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\. \* \[ \\ \^ \$</span><br></pre></td></tr></table></figure></li>
+<pre><code class="shell">\. \* \[ \\ \^ \$</code></pre>
+</li>
 <li><p>[]定义的集合也被看做单字符正则表达式;</p>
 </li>
 </ul>
@@ -1240,30 +1245,24 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429091111.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429091111.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-28_212154" style="zoom:80%;">
 
 <blockquote><p>这个题就比较有意思了，先看一下sed命令的基本用法：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed &#x27;s/正则表达式/字符串/g&#x27; 文件名列表</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">sed &#39;s/正则表达式/字符串/g&#39; 文件名列表</code></pre>
 <p>s选项的意思是替换，将文件中匹配第一个//中的正则表达式的内容替换为第二个//中的字符串。</p>
 <p>然后我们在看上题‘’中的正则表达式（也就是第一个//中的内容）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\[[^][]*]</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">\[[^][]*]</code></pre>
 <p>可以分为三部分：</p>
 <ol>
 <li><p>因为[是元字符，加\转义后就变成了真正的[。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\[</span><br></pre></td></tr></table></figure>
-
-
+<pre><code class="shell">\[</code></pre>
 </li>
 </ol>
 <ol start="2">
 <li><p>中间这一部分是一个集合[]，重复一次或多次[]*，集合里面的^代表排除，排除了]和[，意思就是说除]和[外的字符重复一次或多次。那么这就有一个问题，第一个[为什么不与第一个]匹配，反而去和最后一个]匹配呢？个人觉得，因为如果与第一个]匹配，就有了[^]，这显然是错误的正则表达式，那么就继续向后匹配，因此就匹配到了最后面的]。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[^][]*</span><br></pre></td></tr></table></figure>
-
-
+<pre><code class="shell">[^][]*</code></pre>
 </li>
 </ol>
 <ol start="3">
 <li><p>因为]不是元字符，也没有[与它匹配，它就是单纯的一个字符]。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">]</span><br></pre></td></tr></table></figure>
-
-
+<pre><code class="shell">]</code></pre>
 </li>
 </ol>
 <p>综上所述，这个正则表达式可以匹配“[非]和[的字符任意多个]”，类似[参考文献23]这样的，但是如果[]里面还有]和[，就匹配不到了。再看上面的题，第二个//里面是空的，那么就是把匹配到的内容删除，很好理解。</p>
@@ -1272,7 +1271,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h2 id="四、文件比较，文件通配符"><a href="#四、文件比较，文件通配符" class="headerlink" title="四、文件比较，文件通配符"></a>四、文件比较，文件通配符</h2><img src="https://gitee.com/wxy_666/images/raw/master/20200429093945.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429093945.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-28_212239" style="zoom:80%;">
 
 <blockquote><p>vi的基本用法，在命令状态</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">:q      退出（:quit的缩写）</span><br><span class="line">:q!     退出且不保存（:quit!的缩写）</span><br><span class="line">:wq     保存并退出</span><br><span class="line">:wq!    保存并退出即使文件没有写入权限（强制保存退出）</span><br><span class="line">:x      保存并退出（类似:wq，但是只有在有更改的情况下才保存）</span><br><span class="line">:exit   保存并退出（和:x相同）</span><br><span class="line">:qa     退出所有(:quitall的缩写)</span><br><span class="line">:cq     退出且不保存（即便有错误）</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">:q      退出（:quit的缩写）
+:q!     退出且不保存（:quit!的缩写）
+:wq     保存并退出
+:wq!    保存并退出即使文件没有写入权限（强制保存退出）
+:x      保存并退出（类似:wq，但是只有在有更改的情况下才保存）
+:exit   保存并退出（和:x相同）
+:qa     退出所有(:quitall的缩写)
+:cq     退出且不保存（即便有错误）</code></pre>
 <p>另外在“正常模式”下输入“ZZ”来保存并退出Vim（和:x相同），或者“ZQ”不保存并退出（和:q!相同）注意此处ZZ大写和小写是完全不同的。</p>
 </blockquote>
 
@@ -1288,15 +1294,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429101043.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429101043.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-28_212629" style="zoom:80%;">
 
 <blockquote><p>在Linux中，Shell会自动帮你进项一些替换，实际运行的命令其实是：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp src/x.c src/xx.c src/xxx.c src/x.h src/xx.h src/xxx.h……</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">cp src/x.c src/xx.c src/xxx.c src/x.h src/xx.h src/xxx.h……</code></pre>
 <p>如果有好多.c和.h文件（超过两个），cp就会报错：</p>
 <div class="note "><p>cp: target xxx is not a directory</p></div>
 
 <p>但是如果只有两个.c或.h文件，那么就会产生非常严重的后果，实际运行了下面的命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp src/x.c src/y.c</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">cp src/x.c src/y.c</code></pre>
 <p>这是非常危险的，这样y.c的内容会被x.c覆盖，这是我们不愿意看到的。</p>
 <p>那么应该用什么命令来实现题目的要求呢？</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp src/*.[ch] .</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">cp src/*.[ch] .</code></pre>
 <p>我们显示地指定复制到.（当前目录），就不会出现问题了。</p>
 </blockquote>
 
@@ -1379,10 +1385,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-10T09:19:41+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-11T09:00:35+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年6月10日</p>
+    <p>更新于：2021年9月11日</p>
   </a>
 </div>
 
@@ -1471,7 +1477,7 @@ JDK版本： ...</p>
 
 
 如果有什么问题，欢迎到我的Github与我交流。
-</p>
+var video = document.getElementByI...</p>
         </a>
       
     </div>
@@ -1895,6 +1901,8 @@ var loadCSS = function( href, before, media, attributes ){
   
   loadCSS("https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css", window.volantis.loadcss);
   
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/vs2015.css", window.volantis.loadcss);
   
 </script>
 <!-- required -->
@@ -2528,6 +2536,24 @@ $(function () {
 
 
 
+  
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script>hljs.initLineNumbersOnLoad({ singleLine: true });</script>
+
+<script>
+volantis.pjax.push(()=>{
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+      hljs.lineNumbersBlock(block, { singleLine: true });
+    });
+},"highlightjs")
+</script>
+
+
 
 
   <script defer>
@@ -3102,6 +3128,27 @@ checkNightMode();
         animation: rotate 3s linear infinite;
     }
 </style>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/Goopher97/mycdn@1.5/slider.min.js"></script>
+
+  <script>
+    function pjax_slider() {
+        if($('#slider')[0]) {
+            $("#slider").sliderImg({
+                imgs: ["https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-022629@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-022959@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-023228@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/%E5%9B%BE%E6%80%AA%E5%85%BD_c3e24bc3d29796c0593475a22f3a11e0_24823.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/shiyongvolantisgengyouya.png"],
+                link: ["/posts/21510.html", "/posts/50300.html", "/posts/24004.html", "/posts/61617.html", "/posts/16065.html"],
+            });
+        }
+    }
+    $(function () {
+        pjax_slider();
+    });
+    volantis.pjax.push(pjax_slider)
+</script>
+
 
 
 

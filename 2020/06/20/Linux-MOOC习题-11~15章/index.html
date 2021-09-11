@@ -935,6 +935,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 		</div>
 	</div>
   </div>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </header>
 
     <div id="l_body">
@@ -1119,7 +1120,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：3.2k字</p>
+      <p>字数：3.1k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -1256,7 +1257,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>因此我们可以对程序进行如下修改：</p>
 <details><summary> 点击查看代码 </summary>
               <div class="content">
-              <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,status,wait_pid;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;i=%d,pid=%d,ppid=%d\n&quot;</span>, i,getpid(),getppid());</span><br><span class="line">        <span class="keyword">if</span>(fork()&gt;<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            wait_pid = wait(&amp;status);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+              <pre><code class="c">#include &lt;stdio.h&gt;#include &lt;sys/types.h&gt;#include &lt;sys/wait.h&gt;#include &lt;unistd.h&gt;int main(int argc, char const *argv[]){    int i,status,wait_pid;    for (i = 0; i &lt; 4; i++)    {        printf(&quot;i=%d,pid=%d,ppid=%d\n&quot;, i,getpid(),getppid());        if(fork()&gt;0)        {            wait_pid = wait(&amp;status);        }    }    return 0;}</code></pre>
               </div>
             </details>
 
@@ -1273,7 +1274,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <blockquote><p>xsh2.c是一个简易的模拟shell程序。</p>
 <details><summary> 点击查看代码 </summary>
               <div class="content">
-              <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> buf[<span class="number">256</span>], *argv1[<span class="number">256</span>], **p, *cmd2, *argv2[<span class="number">256</span>];</span><br><span class="line">    <span class="keyword">int</span> sv, fd[<span class="number">2</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (;;)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;=&gt; &quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (fgets(buf, <span class="keyword">sizeof</span>(buf), <span class="built_in">stdin</span>) == <span class="literal">NULL</span>)</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> ((cmd2 = <span class="built_in">strstr</span>(buf, <span class="string">&quot;|&quot;</span>)) == <span class="literal">NULL</span>)</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">        *cmd2++ = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (p = &amp;argv1[<span class="number">0</span>], *p = strtok(buf, <span class="string">&quot; \t\n&quot;</span>); *p != <span class="literal">NULL</span>; *++p = strtok(<span class="literal">NULL</span>, <span class="string">&quot; \t\n&quot;</span>))</span><br><span class="line">            ;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (p = &amp;argv2[<span class="number">0</span>], *p = strtok(cmd2, <span class="string">&quot; \t\n&quot;</span>); *p != <span class="literal">NULL</span>; *++p = strtok(<span class="literal">NULL</span>, <span class="string">&quot; \t\n&quot;</span>))</span><br><span class="line">            ;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (argv1[<span class="number">0</span>] == <span class="literal">NULL</span> || argv2[<span class="number">0</span>] == <span class="literal">NULL</span>)</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        pipe(fd);</span><br><span class="line">        <span class="keyword">if</span> (fork() == <span class="number">0</span>)<span class="comment">// | 左边的写端进程</span></span><br><span class="line">        &#123;</span><br><span class="line">            dup2(fd[<span class="number">1</span>], <span class="number">1</span>);</span><br><span class="line">            close(fd[<span class="number">1</span>]);</span><br><span class="line">            close(fd[<span class="number">0</span>]);</span><br><span class="line">            execvp(argv1[<span class="number">0</span>], argv1);</span><br><span class="line">            <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;** bad command 1: %m\n&quot;</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (fork() == <span class="number">0</span>)<span class="comment">// | 右边的读端进程</span></span><br><span class="line">        &#123;</span><br><span class="line">            dup2(fd[<span class="number">0</span>], <span class="number">0</span>);</span><br><span class="line">            close(fd[<span class="number">0</span>]);</span><br><span class="line">            close(fd[<span class="number">1</span>]);<span class="comment">// 和第二题的类似，也不能省略</span></span><br><span class="line">            execvp(argv2[<span class="number">0</span>], argv2);</span><br><span class="line">            <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;** bad command 2: %m\n&quot;</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        close(fd[<span class="number">0</span>]);<span class="comment">// 第一题要省略的操作</span></span><br><span class="line">        close(fd[<span class="number">1</span>]);<span class="comment">// 第二题要省略的操作</span></span><br><span class="line">        wait(&amp;sv);</span><br><span class="line">        wait(&amp;sv);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+              <pre><code class="c">#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;#include &lt;string.h&gt;#include &lt;fcntl.h&gt;#include &lt;unistd.h&gt;#include &lt;sys/wait.h&gt;int main(int argc, char const *argv[]){    char buf[256], *argv1[256], **p, *cmd2, *argv2[256];    int sv, fd[2];    for (;;)    {        printf(&quot;=&gt; &quot;);        if (fgets(buf, sizeof(buf), stdin) == NULL)            exit(0);        if ((cmd2 = strstr(buf, &quot;|&quot;)) == NULL)            exit(0);        *cmd2++ = &#39;\0&#39;;        for (p = &amp;argv1[0], *p = strtok(buf, &quot; \t\n&quot;); *p != NULL; *++p = strtok(NULL, &quot; \t\n&quot;))            ;        for (p = &amp;argv2[0], *p = strtok(cmd2, &quot; \t\n&quot;); *p != NULL; *++p = strtok(NULL, &quot; \t\n&quot;))            ;        if (argv1[0] == NULL || argv2[0] == NULL)            exit(0);        pipe(fd);        if (fork() == 0)// | 左边的写端进程        {            dup2(fd[1], 1);            close(fd[1]);            close(fd[0]);            execvp(argv1[0], argv1);            fprintf(stderr, &quot;** bad command 1: %m\n&quot;);            exit(1);        }        else if (fork() == 0)// | 右边的读端进程        {            dup2(fd[0], 0);            close(fd[0]);            close(fd[1]);// 和第二题的类似，也不能省略            execvp(argv2[0], argv2);            fprintf(stderr, &quot;** bad command 2: %m\n&quot;);            exit(1);        }        close(fd[0]);// 第一题要省略的操作        close(fd[1]);// 第二题要省略的操作        wait(&amp;sv);        wait(&amp;sv);    }    return 0;}</code></pre>
               </div>
             </details>
 
@@ -1424,10 +1425,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-10T09:19:41+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-11T09:00:35+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年6月10日</p>
+    <p>更新于：2021年9月11日</p>
   </a>
 </div>
 
@@ -1990,6 +1991,8 @@ var loadCSS = function( href, before, media, attributes ){
   
   loadCSS("https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css", window.volantis.loadcss);
   
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/vs2015.css", window.volantis.loadcss);
   
 </script>
 <!-- required -->
@@ -2623,6 +2626,24 @@ $(function () {
 
 
 
+  
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script>hljs.initLineNumbersOnLoad({ singleLine: true });</script>
+
+<script>
+volantis.pjax.push(()=>{
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+      hljs.lineNumbersBlock(block, { singleLine: true });
+    });
+},"highlightjs")
+</script>
+
+
 
 
   <script defer>
@@ -3197,6 +3218,27 @@ checkNightMode();
         animation: rotate 3s linear infinite;
     }
 </style>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/Goopher97/mycdn@1.5/slider.min.js"></script>
+
+  <script>
+    function pjax_slider() {
+        if($('#slider')[0]) {
+            $("#slider").sliderImg({
+                imgs: ["https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-022629@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-022959@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-023228@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/%E5%9B%BE%E6%80%AA%E5%85%BD_c3e24bc3d29796c0593475a22f3a11e0_24823.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/shiyongvolantisgengyouya.png"],
+                link: ["/posts/21510.html", "/posts/50300.html", "/posts/24004.html", "/posts/61617.html", "/posts/16065.html"],
+            });
+        }
+    }
+    $(function () {
+        pjax_slider();
+    });
+    volantis.pjax.push(pjax_slider)
+</script>
+
 
 
 

@@ -935,6 +935,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 		</div>
 	</div>
   </div>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </header>
 
     <div id="l_body">
@@ -1160,7 +1161,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <h2 id="一、编译环境："><a href="#一、编译环境：" class="headerlink" title="一、编译环境："></a>一、编译环境：</h2><details><summary> 点击查看 </summary>
               <div class="content">
-              <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">PyCharm 2019.3.4 (Professional Edition)</span><br><span class="line"></span><br><span class="line">Build #PY-193.6911.25, built on March 18, 2020</span><br><span class="line"></span><br><span class="line">Runtime version: 11.0.6+8-b520.43 amd64</span><br><span class="line"></span><br><span class="line">VM: OpenJDK 64-Bit Server VM by JetBrains s.r.o</span><br><span class="line"></span><br><span class="line">Windows 10 10.0</span><br><span class="line"></span><br><span class="line">GC: ParNew, ConcurrentMarkSweep</span><br><span class="line"></span><br><span class="line">Memory: 725M</span><br><span class="line"></span><br><span class="line">Cores: 8</span><br><span class="line"></span><br><span class="line">Registry: ide.balloon.shadow.size&#x3D;0</span><br><span class="line"></span><br><span class="line">Non-Bundled Plugins: </span><br><span class="line"></span><br><span class="line">GrepConsole,Statistic,cn.yiiguxing.plugin.translate,com.chrisrm.idea.MaterialThemeUI,com.notime.intellijPlugin.backgroundImagePlus,com.wakatime.intellij.plugin,izhangzhihao.rainbow.brackets,mobi.hsz.idea.gitignore, net.vektah.codeglance, org.intellij.gitee</span><br><span class="line"></span><br><span class="line">Python Version：3.7（Anaconda3）</span><br><span class="line"></span><br><span class="line">Package：</span><br><span class="line"></span><br><span class="line">scrapy&#x3D;&#x3D;2.0.1</span><br></pre></td></tr></table></figure>
+              <pre><code>PyCharm 2019.3.4 (Professional Edition)Build #PY-193.6911.25, built on March 18, 2020Runtime version: 11.0.6+8-b520.43 amd64VM: OpenJDK 64-Bit Server VM by JetBrains s.r.oWindows 10 10.0GC: ParNew, ConcurrentMarkSweepMemory: 725MCores: 8Registry: ide.balloon.shadow.size=0Non-Bundled Plugins: GrepConsole,Statistic,cn.yiiguxing.plugin.translate,com.chrisrm.idea.MaterialThemeUI,com.notime.intellijPlugin.backgroundImagePlus,com.wakatime.intellij.plugin,izhangzhihao.rainbow.brackets,mobi.hsz.idea.gitignore, net.vektah.codeglance, org.intellij.giteePython Version：3.7（Anaconda3）Package：scrapy==2.0.1</code></pre>
               </div>
             </details>
 
@@ -1175,7 +1176,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p><img src="https://gitee.com/wxy_666/images/raw/master/20200408164806.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408164806.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-08_164744"></p>
 <ol start="3">
 <li><p>在终端里输入</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy startproject myScrapy</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">scrapy startproject myScrapy</code></pre>
 <p>本来是可以在我们刚刚创建的项目里新建一个名为“myScrapy”的scrapy项目的，但是不知道为什么竟然报错了：</p>
 <p><img src="https://gitee.com/wxy_666/images/raw/master/20200408190345.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200408190345.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-08_190330"></p>
 <p>这是什么奇奇怪怪的错误，我都没有“d:\bld\scrapy_1584555997548_h_env\python.exe”这个目录，经过查找相关问题的资料，问题可能是出在Python环境上，因为我上一次新建项目时并没有报错，这一次我直接用的上一个项目的环境，网上还有一种说法是Scrapy的bug，详见</p>
@@ -1186,7 +1187,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li><p>把python环境复制到报错的那个目录（d:\bld\scrapy_1584555997548_h_env\python.exe），然后在创建scrapy项目，但这个解决方法有点愚蠢，就没有采用。</p>
 </li>
 <li><p>在scrapy命令前面添加“python -m”选项：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m scrapy startproject myScrapy</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">python -m scrapy startproject myScrapy</code></pre>
 <p>就可以正常创建了。</p>
 <p>关于Python的-m选项，官方给出的解释是“run library module as a script”，简单来说就是将库中的Python模块当作脚本去运行。</p>
 <p>特别感谢简书的大佬<a href="https://www.jianshu.com/p/323fc9a1d7d2" target="_blank" rel="external nofollow noopener noreferrer">ccw1078</a>提供的解释，很清晰明了，有兴趣的可以去瞅一下，因为和本文的主题爬虫没啥关系，在这里就不赘述了。</p>
@@ -1219,7 +1220,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <h3 id="②开始写代码"><a href="#②开始写代码" class="headerlink" title="②开始写代码"></a>②开始写代码</h3><h4 id="1、先来写items-py。"><a href="#1、先来写items-py。" class="headerlink" title="1、先来写items.py。"></a>1、先来写items.py。</h4><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyscrapyItem</span>(<span class="params">scrapy.Item</span>):</span></span><br><span class="line">    <span class="comment"># define the fields for your item here like:</span></span><br><span class="line">    <span class="comment"># name = scrapy.Field()</span></span><br><span class="line">    school = scrapy.Field()</span><br><span class="line">    num = scrapy.Field()</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+              <pre><code class="python">import scrapyclass MyscrapyItem(scrapy.Item):    # define the fields for your item here like:    # name = scrapy.Field()    school = scrapy.Field()    num = scrapy.Field()    pass</code></pre>
               </div>
             </details>
 
@@ -1227,13 +1228,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <h4 id="3、pipelines-py就很好写了，基本可以当模板来用。"><a href="#3、pipelines-py就很好写了，基本可以当模板来用。" class="headerlink" title="3、pipelines.py就很好写了，基本可以当模板来用。"></a>3、pipelines.py就很好写了，基本可以当模板来用。</h4><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyscrapyPipeline</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">open_spider</span>(<span class="params">self, spider</span>):</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="comment"># 这个就是爬虫生成的文件，可以支持好多种格式，这里使用的是json文件</span></span><br><span class="line">            self.file = <span class="built_in">open</span>(<span class="string">&#x27;MyData.json&#x27;</span>, <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> err:</span><br><span class="line">            print(err)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_item</span>(<span class="params">self, item, spider</span>):</span></span><br><span class="line">        dict_item = <span class="built_in">dict</span>(item)</span><br><span class="line">        json_str = json.dumps(dict_item, ensure_ascii=<span class="literal">False</span>) + <span class="string">&quot;\n&quot;</span></span><br><span class="line">        self.file.write(json_str)</span><br><span class="line">        <span class="keyword">return</span> item</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">close_spider</span>(<span class="params">self, spider</span>):</span></span><br><span class="line">        self.file.close()</span><br></pre></td></tr></table></figure>
+              <pre><code class="python">import jsonclass MyscrapyPipeline(object):    def open_spider(self, spider):        try:            # 这个就是爬虫生成的文件，可以支持好多种格式，这里使用的是json文件            self.file = open(&#39;MyData.json&#39;, &#39;w&#39;, encoding=&quot;utf-8&quot;)        except Exception as err:            print(err)    def process_item(self, item, spider):        dict_item = dict(item)        json_str = json.dumps(dict_item, ensure_ascii=False) + &quot;\n&quot;        self.file.write(json_str)        return item    def close_spider(self, spider):        self.file.close()</code></pre>
               </div>
             </details>
 
 <h4 id="4、spider-py是我们主要写的核心部分。这里需要一些html的xpath相关知识来对项进行定位，可以自行查找相关资料。"><a href="#4、spider-py是我们主要写的核心部分。这里需要一些html的xpath相关知识来对项进行定位，可以自行查找相关资料。" class="headerlink" title="4、spider.py是我们主要写的核心部分。这里需要一些html的xpath相关知识来对项进行定位，可以自行查找相关资料。"></a>4、spider.py是我们主要写的核心部分。这里需要一些html的xpath相关知识来对项进行定位，可以自行查找相关资料。</h4><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">from</span> myScrapy.myScrapy.items <span class="keyword">import</span> MyscrapyItem</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">mySpider</span>(<span class="params">scrapy.spiders.Spider</span>):</span></span><br><span class="line">    <span class="comment"># spider的名字</span></span><br><span class="line">    name = <span class="string">&quot;xuetang&quot;</span></span><br><span class="line">    <span class="comment"># 限制spider爬取的域名</span></span><br><span class="line">    allowed_domains = [<span class="string">&quot;www.xuetangx.com/&quot;</span>]</span><br><span class="line">	<span class="comment"># 爬虫要爬取的网页，是一个列表，按顺序爬取</span></span><br><span class="line">    start_urls = [<span class="string">&quot;http://www.xuetangx.com/partners&quot;</span>]</span><br><span class="line">	<span class="comment"># 这是一种方式，可以爬取网页中所有的项</span></span><br><span class="line">    <span class="comment"># def parse(self, response):</span></span><br><span class="line">    <span class="comment">#     item = MyscrapyItem()</span></span><br><span class="line">    <span class="comment">#     for each in response.xpath(&quot;/html/body/article[1]/section/ul/*&quot;):</span></span><br><span class="line">    <span class="comment">#         item[&#x27;school&#x27;] = each.xpath(&quot;a/div[2]/h3/text()&quot;).extract()</span></span><br><span class="line">    <span class="comment">#         item[&#x27;num&#x27;] = each.xpath(&quot;a/div[2]/p[1]/text()&quot;).extract()</span></span><br><span class="line">    <span class="comment">#         if item[&#x27;num&#x27;]:</span></span><br><span class="line">    <span class="comment">#             item[&#x27;num&#x27;] = re.findall(r&#x27;\d+&#x27;, item[&#x27;num&#x27;][0])</span></span><br><span class="line">    <span class="comment">#         if item[&#x27;school&#x27;] and item[&#x27;num&#x27;]:</span></span><br><span class="line">    <span class="comment">#             yield (item)</span></span><br><span class="line">    <span class="comment"># 这是第二种方式，使用for循环，制定爬取项的数目</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span>(<span class="params">self, response</span>):</span></span><br><span class="line">        item = MyscrapyItem()</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">144</span>):</span><br><span class="line">            item[<span class="string">&#x27;school&#x27;</span>] = response.xpath \</span><br><span class="line">                (<span class="string">&quot;/html/body/article[1]/section/ul/li[&#123;&#125;]/a/div[2]/h3/text()&quot;</span>.<span class="built_in">format</span>(i)).extract()</span><br><span class="line">            item[<span class="string">&#x27;num&#x27;</span>] = response.xpath \</span><br><span class="line">                (<span class="string">&quot;/html/body/article[1]/section/ul/li[&#123;&#125;]/a/div[2]/p[1]/text()&quot;</span>.<span class="built_in">format</span>(i)).extract()</span><br><span class="line">            <span class="comment"># 判断爬取的项目是否为空，把非空的项目提交</span></span><br><span class="line">            <span class="keyword">if</span> item[<span class="string">&#x27;school&#x27;</span>] <span class="keyword">and</span> item[<span class="string">&#x27;num&#x27;</span>]:</span><br><span class="line">                <span class="keyword">yield</span> (item)</span><br></pre></td></tr></table></figure>
+              <pre><code class="python">import scrapyimport refrom myScrapy.myScrapy.items import MyscrapyItemclass mySpider(scrapy.spiders.Spider):    # spider的名字    name = &quot;xuetang&quot;    # 限制spider爬取的域名    allowed_domains = [&quot;www.xuetangx.com/&quot;]    # 爬虫要爬取的网页，是一个列表，按顺序爬取    start_urls = [&quot;http://www.xuetangx.com/partners&quot;]    # 这是一种方式，可以爬取网页中所有的项    # def parse(self, response):    #     item = MyscrapyItem()    #     for each in response.xpath(&quot;/html/body/article[1]/section/ul/*&quot;):    #         item[&#39;school&#39;] = each.xpath(&quot;a/div[2]/h3/text()&quot;).extract()    #         item[&#39;num&#39;] = each.xpath(&quot;a/div[2]/p[1]/text()&quot;).extract()    #         if item[&#39;num&#39;]:    #             item[&#39;num&#39;] = re.findall(r&#39;\d+&#39;, item[&#39;num&#39;][0])    #         if item[&#39;school&#39;] and item[&#39;num&#39;]:    #             yield (item)    # 这是第二种方式，使用for循环，制定爬取项的数目    def parse(self, response):        item = MyscrapyItem()        for i in range(1, 144):            item[&#39;school&#39;] = response.xpath \                (&quot;/html/body/article[1]/section/ul/li[{}]/a/div[2]/h3/text()&quot;.format(i)).extract()            item[&#39;num&#39;] = response.xpath \                (&quot;/html/body/article[1]/section/ul/li[{}]/a/div[2]/p[1]/text()&quot;.format(i)).extract()            # 判断爬取的项目是否为空，把非空的项目提交            if item[&#39;school&#39;] and item[&#39;num&#39;]:                yield (item)</code></pre>
               </div>
             </details>
 
@@ -1241,7 +1242,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <details><summary> 点击查看代码 </summary>
               <div class="content">
-              <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scrapy <span class="keyword">import</span> cmdline</span><br><span class="line"><span class="comment"># &quot;xuetang&quot;是我们上面spider.py中定义的爬虫名</span></span><br><span class="line">cmdline.execute(<span class="string">&quot;scrapy crawl xuetang&quot;</span>.split())</span><br></pre></td></tr></table></figure>
+              <pre><code class="python">from scrapy import cmdline# &quot;xuetang&quot;是我们上面spider.py中定义的爬虫名cmdline.execute(&quot;scrapy crawl xuetang&quot;.split())</code></pre>
               </div>
             </details>
 
@@ -1316,10 +1317,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-10T09:19:41+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-11T09:00:35+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年6月10日</p>
+    <p>更新于：2021年9月11日</p>
   </a>
 </div>
 
@@ -1826,6 +1827,8 @@ var loadCSS = function( href, before, media, attributes ){
   
   loadCSS("https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css", window.volantis.loadcss);
   
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/vs2015.css", window.volantis.loadcss);
   
 </script>
 <!-- required -->
@@ -2459,6 +2462,24 @@ $(function () {
 
 
 
+  
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script>hljs.initLineNumbersOnLoad({ singleLine: true });</script>
+
+<script>
+volantis.pjax.push(()=>{
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+      hljs.lineNumbersBlock(block, { singleLine: true });
+    });
+},"highlightjs")
+</script>
+
+
 
 
   <script defer>
@@ -3033,6 +3054,27 @@ checkNightMode();
         animation: rotate 3s linear infinite;
     }
 </style>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/Goopher97/mycdn@1.5/slider.min.js"></script>
+
+  <script>
+    function pjax_slider() {
+        if($('#slider')[0]) {
+            $("#slider").sliderImg({
+                imgs: ["https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-022629@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-022959@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-023228@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/%E5%9B%BE%E6%80%AA%E5%85%BD_c3e24bc3d29796c0593475a22f3a11e0_24823.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/shiyongvolantisgengyouya.png"],
+                link: ["/posts/21510.html", "/posts/50300.html", "/posts/24004.html", "/posts/61617.html", "/posts/16065.html"],
+            });
+        }
+    }
+    $(function () {
+        pjax_slider();
+    });
+    volantis.pjax.push(pjax_slider)
+</script>
+
 
 
 

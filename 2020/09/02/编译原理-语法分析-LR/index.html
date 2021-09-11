@@ -935,6 +935,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 		</div>
 	</div>
   </div>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </header>
 
     <div id="l_body">
@@ -1217,19 +1218,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h3 id="7、输出形式："><a href="#7、输出形式：" class="headerlink" title="7、输出形式："></a>7、输出形式：</h3><p>先输出该文法的拓广文法，再输出该拓广文法的first集和follow集，再输出SLR0分析表，然后输出用户输入的待分析字符串的分析过程。</p>
 <h2 id="四、变量和函数"><a href="#四、变量和函数" class="headerlink" title="四、变量和函数"></a>四、变量和函数</h2><h3 id="1、类和枚举："><a href="#1、类和枚举：" class="headerlink" title="1、类和枚举："></a>1、类和枚举：</h3><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">RS</span>//动作的枚举</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	shift,<span class="comment">//移进</span></span><br><span class="line">	reduce,<span class="comment">//规约</span></span><br><span class="line">	accept<span class="comment">//接受</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//假定非终结符仅为一个大写字母，终结符仅为一个小写字母和各种符号，且用~代替epsilon</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PF</span>//<span class="title">Production</span> <span class="title">formula</span>,产生式的类</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">char</span> left;<span class="comment">//产生式的左部</span></span><br><span class="line">	<span class="built_in">string</span> right;<span class="comment">//产生式的右部</span></span><br><span class="line">	PF(<span class="keyword">char</span> l, <span class="built_in">string</span> r)<span class="comment">//构造函数</span></span><br><span class="line">	&#123;</span><br><span class="line">		left = l;</span><br><span class="line">		right = r;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ITEM</span>//项目集</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	ITEM();<span class="comment">//默认构造函数</span></span><br><span class="line">	ITEM(<span class="keyword">int</span> NO);<span class="comment">//构造函数</span></span><br><span class="line">	<span class="keyword">int</span> NO;<span class="comment">//项目集编号</span></span><br><span class="line">	<span class="built_in">set</span>&lt;<span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; production;<span class="comment">//项目，第一个int代表产生式编号，第二个int代表.的位置</span></span><br><span class="line">	<span class="built_in">set</span>&lt;<span class="built_in">pair</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt;&gt; go_to;<span class="comment">//该项目集指向的项目集，第一个char代表箭头上的字符，第二个int代表指向的项目集编号</span></span><br><span class="line">	<span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> ITEM&amp; item)<span class="keyword">const</span>;<span class="comment">//重载&lt;操作符，以便使用set</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">action</span>//动作类</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	action(RS rs,<span class="keyword">int</span> num);<span class="comment">//重写构造函数</span></span><br><span class="line">	<span class="function"><span class="built_in">string</span> <span class="title">ret_action</span><span class="params">()</span></span>;<span class="comment">//返回该动作</span></span><br><span class="line">	action();<span class="comment">//初始</span></span><br><span class="line">	RS rs;<span class="comment">//动作</span></span><br><span class="line">	<span class="keyword">int</span> num;<span class="comment">//移进到哪个状态，或者用哪个产生式规约</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+              <pre><code class="c">enum RS//动作的枚举{    shift,//移进    reduce,//规约    accept//接受};//假定非终结符仅为一个大写字母，终结符仅为一个小写字母和各种符号，且用~代替epsilonclass PF//Production formula,产生式的类{public:    char left;//产生式的左部    string right;//产生式的右部    PF(char l, string r)//构造函数    {        left = l;        right = r;    }};class ITEM//项目集{public:    ITEM();//默认构造函数    ITEM(int NO);//构造函数    int NO;//项目集编号    set&lt;pair&lt;int, int&gt;&gt; production;//项目，第一个int代表产生式编号，第二个int代表.的位置    set&lt;pair&lt;char, int&gt;&gt; go_to;//该项目集指向的项目集，第一个char代表箭头上的字符，第二个int代表指向的项目集编号    bool operator&lt;(const ITEM&amp; item)const;//重载&lt;操作符，以便使用set};class action//动作类{public:    action(RS rs,int num);//重写构造函数    string ret_action();//返回该动作    action();//初始    RS rs;//动作    int num;//移进到哪个状态，或者用哪个产生式规约};</code></pre>
               </div>
             </details>
 
 <h3 id="2、全局变量"><a href="#2、全局变量" class="headerlink" title="2、全局变量"></a>2、全局变量</h3><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;PF&gt; PF_vector;<span class="comment">//产生式</span></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">char</span>, <span class="built_in">set</span>&lt;<span class="keyword">char</span>&gt; &gt; first;<span class="comment">//first集</span></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">char</span>, <span class="built_in">set</span>&lt;<span class="keyword">char</span>&gt; &gt; follow;<span class="comment">//follow集</span></span><br><span class="line"><span class="built_in">set</span>&lt;ITEM&gt; DFA;<span class="comment">//DFA项目集规范簇</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">map</span>&lt;<span class="keyword">char</span>, action&gt;&gt; predict_table_action;<span class="comment">//SLR1分析表action</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt;&gt; predict_table_goto;<span class="comment">//SLR1分析表goto</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; A_1;<span class="comment">//符号栈</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; A_2;<span class="comment">//状态栈</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; B;<span class="comment">//剩余串</span></span><br><span class="line"><span class="built_in">set</span>&lt;<span class="keyword">char</span>&gt; terminal;<span class="comment">//所有的终结符+&#x27;$&#x27;</span></span><br><span class="line"><span class="built_in">set</span>&lt;<span class="keyword">char</span>&gt; non_terminal;<span class="comment">//所有的非终结符</span></span><br><span class="line"><span class="keyword">int</span> B_point = <span class="number">0</span>, input_len = <span class="number">0</span>;<span class="comment">//B_point为输入串指针，input_len为输入串长度</span></span><br></pre></td></tr></table></figure>
+              <pre><code class="c">vector&lt;PF&gt; PF_vector;//产生式map&lt;char, set&lt;char&gt; &gt; first;//first集map&lt;char, set&lt;char&gt; &gt; follow;//follow集set&lt;ITEM&gt; DFA;//DFA项目集规范簇vector&lt;map&lt;char, action&gt;&gt; predict_table_action;//SLR1分析表actionvector&lt;map&lt;char, int&gt;&gt; predict_table_goto;//SLR1分析表gotovector&lt;char&gt; A_1;//符号栈vector&lt;int&gt; A_2;//状态栈vector&lt;char&gt; B;//剩余串set&lt;char&gt; terminal;//所有的终结符+&#39;$&#39;set&lt;char&gt; non_terminal;//所有的非终结符int B_point = 0, input_len = 0;//B_point为输入串指针，input_len为输入串长度</code></pre>
               </div>
             </details>
 
 <h3 id="3、函数"><a href="#3、函数" class="headerlink" title="3、函数"></a>3、函数</h3><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">ITEM::ITEM()<span class="comment">//默认构造函数</span></span><br><span class="line">ITEM::ITEM(<span class="keyword">int</span> NO)<span class="comment">//构造函数</span></span><br><span class="line"><span class="keyword">bool</span> ITEM::<span class="keyword">operator</span>&lt;(<span class="keyword">const</span> ITEM&amp; item)<span class="keyword">const</span><span class="comment">//重载&lt;操作符，以便使用set</span></span><br><span class="line">action::action(RS rs, <span class="keyword">int</span> num) <span class="comment">//构造函数</span></span><br><span class="line">action::action()<span class="comment">//默认构造函数</span></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">action::ret_action</span><span class="params">()</span><span class="comment">//返回该动作</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">first_construction</span><span class="params">()</span><span class="comment">//构造并输出first集</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add_follow</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>&amp; ch1, <span class="keyword">const</span> <span class="keyword">char</span>&amp; ch2)</span><span class="comment">//将ch1的follow集加入到ch2的follow集中</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">follow_construction</span><span class="params">()</span><span class="comment">//构造并输出follow集</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFA_construction</span><span class="params">()</span><span class="comment">//构造DFA</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">predict_table_construction</span><span class="params">()</span><span class="comment">//构造并输出SLR1预测分析表</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_A</span><span class="params">()</span><span class="comment">//输出分析栈</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_B</span><span class="params">()</span><span class="comment">//输出剩余串</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">analyse</span><span class="params">()</span><span class="comment">//预测分析控制程序</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+              <pre><code class="c">ITEM::ITEM()//默认构造函数ITEM::ITEM(int NO)//构造函数bool ITEM::operator&lt;(const ITEM&amp; item)const//重载&lt;操作符，以便使用setaction::action(RS rs, int num) //构造函数action::action()//默认构造函数string action::ret_action()//返回该动作void first_construction()//构造并输出first集void add_follow(const char&amp; ch1, const char&amp; ch2)//将ch1的follow集加入到ch2的follow集中void follow_construction()//构造并输出follow集void DFA_construction()//构造DFAvoid predict_table_construction()//构造并输出SLR1预测分析表void print_A()//输出分析栈void print_B()//输出剩余串void analyse()//预测分析控制程序int main()</code></pre>
               </div>
             </details>
 
@@ -1296,10 +1297,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-10T09:19:41+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-11T09:00:35+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年6月10日</p>
+    <p>更新于：2021年9月11日</p>
   </a>
 </div>
 
@@ -1811,6 +1812,8 @@ var loadCSS = function( href, before, media, attributes ){
   
   loadCSS("https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css", window.volantis.loadcss);
   
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/vs2015.css", window.volantis.loadcss);
   
 </script>
 <!-- required -->
@@ -2444,6 +2447,24 @@ $(function () {
 
 
 
+  
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script>hljs.initLineNumbersOnLoad({ singleLine: true });</script>
+
+<script>
+volantis.pjax.push(()=>{
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+      hljs.lineNumbersBlock(block, { singleLine: true });
+    });
+},"highlightjs")
+</script>
+
+
 
 
   <script defer>
@@ -3018,6 +3039,27 @@ checkNightMode();
         animation: rotate 3s linear infinite;
     }
 </style>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/Goopher97/mycdn@1.5/slider.min.js"></script>
+
+  <script>
+    function pjax_slider() {
+        if($('#slider')[0]) {
+            $("#slider").sliderImg({
+                imgs: ["https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-022629@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-022959@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-023228@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/%E5%9B%BE%E6%80%AA%E5%85%BD_c3e24bc3d29796c0593475a22f3a11e0_24823.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/shiyongvolantisgengyouya.png"],
+                link: ["/posts/21510.html", "/posts/50300.html", "/posts/24004.html", "/posts/61617.html", "/posts/16065.html"],
+            });
+        }
+    }
+    $(function () {
+        pjax_slider();
+    });
+    volantis.pjax.push(pjax_slider)
+</script>
+
 
 
 

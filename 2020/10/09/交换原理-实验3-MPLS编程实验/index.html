@@ -935,6 +935,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 		</div>
 	</div>
   </div>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </header>
 
     <div id="l_body">
@@ -1171,11 +1172,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>其中的主要数据结构为：</p>
 <details><summary> 点击查看代码 </summary>
               <div class="content">
-              <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//发送的请求信息包数据结构</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ReqType</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> iFirstNode;   <span class="comment">//请求信息包的源节点</span></span><br><span class="line">    <span class="keyword">int</span> iEndNode;     <span class="comment">//请求信息包的目的节点</span></span><br><span class="line">    <span class="keyword">double</span> ipaddress; <span class="comment">//请求信息包包含的网络层目的IP地址前缀（例如197.42）</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//路由表表项的数据结构</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">routertype</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">double</span> ipaddress; <span class="comment">//网络层目的地址前缀</span></span><br><span class="line">    <span class="keyword">int</span> nexthop;      <span class="comment">//下一跳节点</span></span><br><span class="line">    <span class="keyword">int</span> lasthop;      <span class="comment">//上一跳节点</span></span><br><span class="line">    <span class="keyword">int</span> inpoint;      <span class="comment">//入端口号</span></span><br><span class="line">    <span class="keyword">int</span> outpoint;     <span class="comment">//出端口号</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//标记信息表表项的数据结构</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">libtype</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">double</span> ipaddress; <span class="comment">//网络层目的地址前缀</span></span><br><span class="line">    <span class="keyword">int</span> inpoint;      <span class="comment">//入端口号</span></span><br><span class="line">    <span class="keyword">int</span> outpoint;     <span class="comment">//出端口号</span></span><br><span class="line">    <span class="keyword">int</span> inlabel;      <span class="comment">//入标记值</span></span><br><span class="line">    <span class="keyword">int</span> outlabel;     <span class="comment">//出标记值</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//发送的标记信息包数据结构</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">LabelPack</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> iFirstNode; <span class="comment">//源节点号</span></span><br><span class="line">    <span class="keyword">int</span> iEndNode;   <span class="comment">//目的节点号</span></span><br><span class="line">    <span class="keyword">int</span> labelvalue; <span class="comment">//标签值</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">funcusedtype</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">libtype</span> <span class="title">libinfo</span>;</span>     <span class="comment">//包含的标记信息表项</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LabelPack</span> <span class="title">labelinfo</span>;</span> <span class="comment">//包含的标记信息包数据结构</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//发送的标记分组信息包类型</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">LabelledDataPack</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> iFirstNode;              <span class="comment">//源节点号</span></span><br><span class="line">    <span class="keyword">int</span> iEndNode;                <span class="comment">//目的节点号</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">MessageType</span> <span class="title">DataInfo</span>;</span> <span class="comment">//包含的标记分组类型信息</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//标记分组类型</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">MessageType</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">double</span> ipaddress; <span class="comment">//网络层目的地址前缀</span></span><br><span class="line">    <span class="keyword">int</span> labelvalue; <span class="comment">//输出标签值</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+              <pre><code class="c">//发送的请求信息包数据结构struct ReqType{    int iFirstNode;   //请求信息包的源节点    int iEndNode;     //请求信息包的目的节点    double ipaddress; //请求信息包包含的网络层目的IP地址前缀（例如197.42）};//路由表表项的数据结构struct routertype{    double ipaddress; //网络层目的地址前缀    int nexthop;      //下一跳节点    int lasthop;      //上一跳节点    int inpoint;      //入端口号    int outpoint;     //出端口号};//标记信息表表项的数据结构struct libtype{    double ipaddress; //网络层目的地址前缀    int inpoint;      //入端口号    int outpoint;     //出端口号    int inlabel;      //入标记值    int outlabel;     //出标记值};//发送的标记信息包数据结构struct LabelPack{    int iFirstNode; //源节点号    int iEndNode;   //目的节点号    int labelvalue; //标签值};struct funcusedtype{    struct libtype libinfo;     //包含的标记信息表项    struct LabelPack labelinfo; //包含的标记信息包数据结构};//发送的标记分组信息包类型struct LabelledDataPack{    int iFirstNode;              //源节点号    int iEndNode;                //目的节点号    struct MessageType DataInfo; //包含的标记分组类型信息};//标记分组类型struct MessageType{    double ipaddress; //网络层目的地址前缀    int labelvalue; //输出标签值};</code></pre>
               </div>
             </details>
 
-<h4 id="①标记请求实验："><a href="#①标记请求实验：" class="headerlink" title="①标记请求实验："></a>①标记请求实验：</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span> _declspec(dllexport) <span class="function">struct  ReqType <span class="title">req_process</span><span class="params">(<span class="keyword">int</span> idnow,struct routertype routenow)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">ReqType</span> <span class="title">reqtemp</span>;</span></span><br><span class="line">	<span class="keyword">return</span>  reqtemp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="①标记请求实验："><a href="#①标记请求实验：" class="headerlink" title="①标记请求实验："></a>①标记请求实验：</h4><pre><code class="c">extern &quot;C&quot; _declspec(dllexport) struct  ReqType req_process(int idnow,struct routertype routenow)
+&#123;
+    struct ReqType reqtemp;
+    return  reqtemp;
+&#125;</code></pre>
 <p>参数意义：</p>
 <p>int idnow：当前的节点号；</p>
 <p>struct routertype routenow：当前所指的路由表的表项；</p>
@@ -1183,7 +1188,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>根据提供的当前节点号和路由表表项值产生标记请求包；</p>
 <p>过程描述：</p>
 <p>标记请求包的源节点号由当前节点号提供，目的节点号和ip地址前缀由当前所指的路由表表项的下一跳节点和ip地址前缀提供；</p>
-<h4 id="②标记分配与分发实验："><a href="#②标记分配与分发实验：" class="headerlink" title="②标记分配与分发实验："></a>②标记分配与分发实验：</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span>  <span class="string">&quot;C&quot;</span> _declspec(dllexport) <span class="function">struct  funcusedtype <span class="title">label_process</span><span class="params">(struct routertype routenow,<span class="keyword">int</span> labelout,<span class="keyword">int</span>  idnow)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span>  <span class="title">funcusedtype</span> <span class="title">tempstruct</span>;</span></span><br><span class="line">	<span class="keyword">return</span>  tempstruct;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="②标记分配与分发实验："><a href="#②标记分配与分发实验：" class="headerlink" title="②标记分配与分发实验："></a>②标记分配与分发实验：</h4><pre><code class="c">extern  &quot;C&quot; _declspec(dllexport) struct  funcusedtype label_process(struct routertype routenow,int labelout,int  idnow)
+&#123;
+    struct  funcusedtype tempstruct;
+    return  tempstruct;
+&#125;</code></pre>
 <p>参数意义：</p>
 <p>struct routertype routenow：当前所指的路由表表项；</p>
 <p>int labelout：分配的输出标签号；</p>
@@ -1192,7 +1201,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>该函数要求根据提供的路由表当前表项、分配的输出标签号和当前节点号，构造一funcusedtype信息包。注：各节点的输入标签可以自由选定，但必须是1-9的整数；</p>
 <p>过程描述：</p>
 <p>该funcusedtype信息包的libinfo部分可由当前的路由表表项、当前分配的标签号的有关部分构成；labelinfo部分由当前节点号和当前的路由表表项的有关部分构成；    </p>
-<h4 id="③标记分组转发实验"><a href="#③标记分组转发实验" class="headerlink" title="③标记分组转发实验"></a>③标记分组转发实验</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span> _declspec(dllexport) <span class="function">struct  LabelledDataPack <span class="title">pack_process</span><span class="params">(struct routertype routenow,struct libtype  libnow,<span class="keyword">int</span> idnow)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">LabelledDataPack</span> <span class="title">packtemp</span>;</span></span><br><span class="line">	<span class="keyword">return</span> packtemp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="③标记分组转发实验"><a href="#③标记分组转发实验" class="headerlink" title="③标记分组转发实验"></a>③标记分组转发实验</h4><pre><code class="c">extern &quot;C&quot; _declspec(dllexport) struct  LabelledDataPack pack_process(struct routertype routenow,struct libtype  libnow,int idnow)
+&#123;
+    struct LabelledDataPack packtemp;
+    return packtemp;
+&#125;</code></pre>
 <p>参数意义：</p>
 <p>struct routertype routenow：当前所指的路由表表项；</p>
 <p>struct libtype libnow：当前的标签信息表表项；</p>
@@ -1210,19 +1223,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ol>
 <h2 id="三、源代码"><a href="#三、源代码" class="headerlink" title="三、源代码"></a>三、源代码</h2><h3 id="①标记请求实验：-1"><a href="#①标记请求实验：-1" class="headerlink" title="①标记请求实验："></a>①标记请求实验：</h3><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;mplsconstant.h&quot;</span></span></span><br><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span> _declspec(dllexport) <span class="function">struct ReqType <span class="title">req_process</span><span class="params">(<span class="keyword">int</span> idnow, struct routertype routenow)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ReqType</span> <span class="title">reqtemp</span>;</span></span><br><span class="line">    reqtemp.iFirstNode = idnow;             <span class="comment">//源节点号由当前节点号提供</span></span><br><span class="line">    reqtemp.iEndNode = routenow.nexthop;    <span class="comment">//目的节点号由当前路由表表项的下一跳节点提供</span></span><br><span class="line">    reqtemp.ipaddress = routenow.ipaddress; <span class="comment">//IP地址前缀由当前路由表表项的IP地址前缀提供</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> reqtemp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+              <pre><code class="c">#include &quot;mplsconstant.h&quot;extern &quot;C&quot; _declspec(dllexport) struct ReqType req_process(int idnow, struct routertype routenow){    struct ReqType reqtemp;    reqtemp.iFirstNode = idnow;             //源节点号由当前节点号提供    reqtemp.iEndNode = routenow.nexthop;    //目的节点号由当前路由表表项的下一跳节点提供    reqtemp.ipaddress = routenow.ipaddress; //IP地址前缀由当前路由表表项的IP地址前缀提供    return reqtemp;}</code></pre>
               </div>
             </details>
 
 <h3 id="②标记分配与分发实验：-1"><a href="#②标记分配与分发实验：-1" class="headerlink" title="②标记分配与分发实验："></a>②标记分配与分发实验：</h3><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;mplsconstant.h&quot;</span></span></span><br><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span> _declspec(dllexport) <span class="function">struct funcusedtype <span class="title">label_process</span><span class="params">(struct routertype routenow, <span class="keyword">int</span> labelout, <span class="keyword">int</span> idnow)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">funcusedtype</span> <span class="title">tempstruct</span>;</span></span><br><span class="line">    <span class="comment">//包含的标记信息表项</span></span><br><span class="line">    tempstruct.libinfo.ipaddress = routenow.ipaddress; <span class="comment">//网络层目的地址前缀</span></span><br><span class="line">    tempstruct.libinfo.inpoint = routenow.inpoint;     <span class="comment">//入端口号</span></span><br><span class="line">    tempstruct.libinfo.outpoint = routenow.outpoint;   <span class="comment">//出端口号</span></span><br><span class="line">    tempstruct.libinfo.inlabel = <span class="number">1</span>;                    <span class="comment">//入标记值</span></span><br><span class="line">    tempstruct.libinfo.outlabel = labelout;            <span class="comment">//出标记值</span></span><br><span class="line">    <span class="comment">//包含的标记信息包数据结构</span></span><br><span class="line">    tempstruct.labelinfo.iFirstNode = idnow;          <span class="comment">//当前节点号</span></span><br><span class="line">    tempstruct.labelinfo.iEndNode = routenow.lasthop; <span class="comment">//当前的路由表表项的上一跳节点</span></span><br><span class="line">    tempstruct.labelinfo.labelvalue = <span class="number">1</span>;              <span class="comment">//与tempstruct.libinfo.inlabel保持一致</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> tempstruct;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+              <pre><code class="c">#include &quot;mplsconstant.h&quot;extern &quot;C&quot; _declspec(dllexport) struct funcusedtype label_process(struct routertype routenow, int labelout, int idnow){    struct funcusedtype tempstruct;    //包含的标记信息表项    tempstruct.libinfo.ipaddress = routenow.ipaddress; //网络层目的地址前缀    tempstruct.libinfo.inpoint = routenow.inpoint;     //入端口号    tempstruct.libinfo.outpoint = routenow.outpoint;   //出端口号    tempstruct.libinfo.inlabel = 1;                    //入标记值    tempstruct.libinfo.outlabel = labelout;            //出标记值    //包含的标记信息包数据结构    tempstruct.labelinfo.iFirstNode = idnow;          //当前节点号    tempstruct.labelinfo.iEndNode = routenow.lasthop; //当前的路由表表项的上一跳节点    tempstruct.labelinfo.labelvalue = 1;              //与tempstruct.libinfo.inlabel保持一致    return tempstruct;}</code></pre>
               </div>
             </details>
 
 <h3 id="③标记分组转发实验-1"><a href="#③标记分组转发实验-1" class="headerlink" title="③标记分组转发实验"></a>③标记分组转发实验</h3><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;mplsconstant.h&quot;</span></span></span><br><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span> _declspec(dllexport) <span class="function">struct LabelledDataPack <span class="title">pack_process</span><span class="params">(struct routertype routenow, struct libtype libnow, <span class="keyword">int</span> idnow)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LabelledDataPack</span> <span class="title">packtemp</span>;</span></span><br><span class="line">    packtemp.iFirstNode = idnow;          <span class="comment">//源节点号</span></span><br><span class="line">    packtemp.iEndNode = routenow.nexthop; <span class="comment">//目的节点号</span></span><br><span class="line">    <span class="comment">//包含的标记分组类型信息</span></span><br><span class="line">    packtemp.DataInfo.ipaddress = routenow.ipaddress; <span class="comment">//网络层目的地址前缀</span></span><br><span class="line">    packtemp.DataInfo.labelvalue = libnow.outlabel;   <span class="comment">//输出标签值</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> packtemp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+              <pre><code class="c">#include &quot;mplsconstant.h&quot;extern &quot;C&quot; _declspec(dllexport) struct LabelledDataPack pack_process(struct routertype routenow, struct libtype libnow, int idnow){    struct LabelledDataPack packtemp;    packtemp.iFirstNode = idnow;          //源节点号    packtemp.iEndNode = routenow.nexthop; //目的节点号    //包含的标记分组类型信息    packtemp.DataInfo.ipaddress = routenow.ipaddress; //网络层目的地址前缀    packtemp.DataInfo.labelvalue = libnow.outlabel;   //输出标签值    return packtemp;}</code></pre>
               </div>
             </details>
 
@@ -1285,10 +1298,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-10T09:19:41+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-11T09:00:35+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年6月10日</p>
+    <p>更新于：2021年9月11日</p>
   </a>
 </div>
 
@@ -1798,6 +1811,8 @@ var loadCSS = function( href, before, media, attributes ){
   
   loadCSS("https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css", window.volantis.loadcss);
   
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/vs2015.css", window.volantis.loadcss);
   
 </script>
 <!-- required -->
@@ -2431,6 +2446,24 @@ $(function () {
 
 
 
+  
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script>hljs.initLineNumbersOnLoad({ singleLine: true });</script>
+
+<script>
+volantis.pjax.push(()=>{
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+      hljs.lineNumbersBlock(block, { singleLine: true });
+    });
+},"highlightjs")
+</script>
+
+
 
 
   <script defer>
@@ -3005,6 +3038,27 @@ checkNightMode();
         animation: rotate 3s linear infinite;
     }
 </style>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/Goopher97/mycdn@1.5/slider.min.js"></script>
+
+  <script>
+    function pjax_slider() {
+        if($('#slider')[0]) {
+            $("#slider").sliderImg({
+                imgs: ["https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-022629@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-022959@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-023228@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/%E5%9B%BE%E6%80%AA%E5%85%BD_c3e24bc3d29796c0593475a22f3a11e0_24823.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/shiyongvolantisgengyouya.png"],
+                link: ["/posts/21510.html", "/posts/50300.html", "/posts/24004.html", "/posts/61617.html", "/posts/16065.html"],
+            });
+        }
+    }
+    $(function () {
+        pjax_slider();
+    });
+    volantis.pjax.push(pjax_slider)
+</script>
+
 
 
 

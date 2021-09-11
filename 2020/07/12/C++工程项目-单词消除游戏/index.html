@@ -935,6 +935,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 		</div>
 	</div>
   </div>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </header>
 
     <div id="l_body">
@@ -1296,38 +1297,38 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <h4 id="函数具体功能"><a href="#函数具体功能" class="headerlink" title="函数具体功能"></a>函数具体功能</h4><h5 id="1、Widget"><a href="#1、Widget" class="headerlink" title="1、Widget"></a>1、Widget</h5><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init_UI</span><span class="params">()</span></span>;<span class="comment">//初始化图形界面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">connect_event</span><span class="params">()</span></span>;<span class="comment">//信号，槽函数链接</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">user_registe_show</span><span class="params">()</span></span>;<span class="comment">//显示闯关者注册界面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">creater_registe_show</span><span class="params">()</span></span>;<span class="comment">//显示出题人注册界面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">check_user_show</span><span class="params">()</span></span>;	<span class="comment">//显示查询闯关者界面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">check_creater_show</span><span class="params">()</span></span>;<span class="comment">//显示查询出题人界面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">info_show</span><span class="params">()</span></span>;<span class="comment">//显示用户信息界面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">check_close</span><span class="params">()</span></span>;<span class="comment">//关闭查询界面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">registe_close</span><span class="params">()</span></span>;<span class="comment">//关闭注册界面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">info_close</span><span class="params">()</span></span>;<span class="comment">//关闭用户信息界面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">showEvent</span><span class="params">(QShowEvent *)</span></span>;<span class="comment">//显示界面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">close_Widget</span><span class="params">()</span></span>;<span class="comment">//关闭界面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">type_changed</span><span class="params">()</span></span>;<span class="comment">//闯关者，出题人切换</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init_database</span><span class="params">()</span></span>;<span class="comment">//初始化数据库</span></span><br></pre></td></tr></table></figure>
+              <pre><code class="c++">void init_UI();//初始化图形界面void connect_event();//信号，槽函数链接void user_registe_show();//显示闯关者注册界面void creater_registe_show();//显示出题人注册界面void check_user_show();    //显示查询闯关者界面void check_creater_show();//显示查询出题人界面void info_show();//显示用户信息界面void check_close();//关闭查询界面void registe_close();//关闭注册界面void info_close();//关闭用户信息界面void showEvent(QShowEvent *);//显示界面void close_Widget();//关闭界面void type_changed();//闯关者，出题人切换void init_database();//初始化数据库</code></pre>
               </div>
             </details>
 
 <h5 id="2、user"><a href="#2、user" class="headerlink" title="2、user"></a>2、user</h5><p>player和creater继承于user类，升级函数采用虚函数，分别在各自类中实现。</p>
 <h5 id="3、register"><a href="#3、register" class="headerlink" title="3、register"></a>3、register</h5><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init_UI</span><span class="params">()</span></span>;<span class="comment">//初始化图形界面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">connect_event</span><span class="params">()</span></span>;<span class="comment">//信号，槽函数链接</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">showEvent</span><span class="params">(QShowEvent *)</span></span>;<span class="comment">//显示界面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">close_Widget</span><span class="params">()</span></span>;<span class="comment">//关闭界面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">send_change_signal</span><span class="params">()</span></span>;<span class="comment">//改变界面信号</span></span><br></pre></td></tr></table></figure>
+              <pre><code class="c++">void init_UI();//初始化图形界面void connect_event();//信号，槽函数链接void showEvent(QShowEvent *);//显示界面void close_Widget();//关闭界面void send_change_signal();//改变界面信号</code></pre>
               </div>
             </details>
 
 <h5 id="4、info"><a href="#4、info" class="headerlink" title="4、info"></a>4、info</h5><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init_UI</span><span class="params">()</span></span>;<span class="comment">//初始化图形界面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">connect_event</span><span class="params">()</span></span>;<span class="comment">//信号，槽函数链接</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">showEvent</span><span class="params">(QShowEvent *)</span></span>;<span class="comment">//显示界面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">close_Widget</span><span class="params">()</span></span>;<span class="comment">//关闭界面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">send_change_signal</span><span class="params">()</span></span>;<span class="comment">//改变界面信号</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">game_show</span><span class="params">()</span></span>;<span class="comment">//游戏界面显示</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">game_close</span><span class="params">()</span></span>;<span class="comment">//游戏界面关闭</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">create_show</span><span class="params">()</span></span>;<span class="comment">//出题界面显示    </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">create_close</span><span class="params">()</span></span>;<span class="comment">//出题界面关闭</span></span><br></pre></td></tr></table></figure>
+              <pre><code class="c++">void init_UI();//初始化图形界面void connect_event();//信号，槽函数链接void showEvent(QShowEvent *);//显示界面void close_Widget();//关闭界面void send_change_signal();//改变界面信号void game_show();//游戏界面显示void game_close();//游戏界面关闭void create_show();//出题界面显示    void create_close();//出题界面关闭</code></pre>
               </div>
             </details>
 
 <h5 id="5、game"><a href="#5、game" class="headerlink" title="5、game"></a>5、game</h5><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init_UI</span><span class="params">()</span></span>;<span class="comment">//初始化图形界面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">connect_event</span><span class="params">()</span></span>;<span class="comment">//信号，槽函数链接</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">showEvent</span><span class="params">(QShowEvent *)</span></span>;<span class="comment">//显示界面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">close_Widget</span><span class="params">()</span></span>;<span class="comment">//关闭界面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">send_change_signal</span><span class="params">()</span></span>;<span class="comment">//改变界面信</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init_timer</span><span class="params">()</span></span>;<span class="comment">//计时器初始化</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init_ms_timer</span><span class="params">()</span></span>;<span class="comment">//计时器初始化</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">timeup</span><span class="params">()</span></span>;<span class="comment">//超时</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ms_timeup</span><span class="params">()</span></span>;<span class="comment">//超时</span></span><br></pre></td></tr></table></figure>
+              <pre><code class="c++">void init_UI();//初始化图形界面void connect_event();//信号，槽函数链接void showEvent(QShowEvent *);//显示界面void close_Widget();//关闭界面void send_change_signal();//改变界面信void init_timer();//计时器初始化void init_ms_timer();//计时器初始化void timeup();//超时void ms_timeup();//超时</code></pre>
               </div>
             </details>
 
 <h5 id="6、create"><a href="#6、create" class="headerlink" title="6、create"></a>6、create</h5><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init_UI</span><span class="params">()</span></span>;<span class="comment">//初始化图形界面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">connect_event</span><span class="params">()</span></span>;<span class="comment">//信号，槽函数链接</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">showEvent</span><span class="params">(QShowEvent *)</span></span>;<span class="comment">//显示界面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">close_Widget</span><span class="params">()</span></span>;<span class="comment">//关闭界面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">send_change_signal</span><span class="params">()</span></span>;<span class="comment">//改变界面信号</span></span><br></pre></td></tr></table></figure>
+              <pre><code class="c++">void init_UI();//初始化图形界面void connect_event();//信号，槽函数链接void showEvent(QShowEvent *);//显示界面void close_Widget();//关闭界面void send_change_signal();//改变界面信号</code></pre>
               </div>
             </details>
 
 <h5 id="6、check"><a href="#6、check" class="headerlink" title="6、check"></a>6、check</h5><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init_UI</span><span class="params">()</span></span>;<span class="comment">//初始化图形界面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">connect_event</span><span class="params">()</span></span>;<span class="comment">//信号，槽函数链接</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">showEvent</span><span class="params">(QShowEvent *)</span></span>;<span class="comment">//显示界面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">close_Widget</span><span class="params">()</span></span>;<span class="comment">//关闭界面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">send_change_signal</span><span class="params">()</span></span>;<span class="comment">//改变界面信号</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">search</span><span class="params">()</span></span>;<span class="comment">//搜索信息</span></span><br></pre></td></tr></table></figure>
+              <pre><code class="c++">void init_UI();//初始化图形界面void connect_event();//信号，槽函数链接void showEvent(QShowEvent *);//显示界面void close_Widget();//关闭界面void send_change_signal();//改变界面信号void search();//搜索信息</code></pre>
               </div>
             </details>
 
@@ -1359,12 +1360,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <h4 id="函数具体功能-1"><a href="#函数具体功能-1" class="headerlink" title="函数具体功能"></a>函数具体功能</h4><h5 id="1、Widget-1"><a href="#1、Widget-1" class="headerlink" title="1、Widget"></a>1、Widget</h5><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init_UI</span><span class="params">()</span></span>;<span class="comment">//初始化图形界面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">tcpserver_connect</span><span class="params">()</span></span>;<span class="comment">//tcpserver连接</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">tcpsocket_connect</span><span class="params">()</span></span>;<span class="comment">//tcpsocket连接</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">showEvent</span><span class="params">(QShowEvent *)</span></span>;<span class="comment">//界面显示</span></span><br></pre></td></tr></table></figure>
+              <pre><code class="c++">void init_UI();//初始化图形界面void tcpserver_connect();//tcpserver连接void tcpsocket_connect();//tcpsocket连接void showEvent(QShowEvent *);//界面显示</code></pre>
               </div>
             </details>
 
 <h5 id="2、My-thread"><a href="#2、My-thread" class="headerlink" title="2、My_thread"></a>2、My_thread</h5><p>当收到客户端的请求后，根据客户端发送的字符串判断是什么请求，在屏幕上输出，同时新建线程，在线程中处理这些请求，从而实现并发处理。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init_database</span><span class="params">()</span></span>;<span class="comment">//初始化数据库</span></span><br></pre></td></tr></table></figure>
+<pre><code class="c++">void init_database();//初始化数据库</code></pre>
 <h2 id="五、项目地址"><a href="#五、项目地址" class="headerlink" title="五、项目地址"></a>五、项目地址</h2><p>本项目的源码、可执行程序均已经存放于我的Github，欢迎下载查看：</p>
 <a class="ghcard" rel="external nofollow noopener noreferrer" target="_blank" href="https://github.com/666WXY666/WordGame"><img src="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=WordGame&show_owner=true" class="lazyload" data-srcset="https://github-readme-stats.vercel.app/api/pin/?username=666WXY666&repo=WordGame&show_owner=true" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a>
   
@@ -1423,10 +1424,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-10T09:19:41+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-11T09:00:35+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年6月10日</p>
+    <p>更新于：2021年9月11日</p>
   </a>
 </div>
 
@@ -1934,6 +1935,8 @@ var loadCSS = function( href, before, media, attributes ){
   
   loadCSS("https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css", window.volantis.loadcss);
   
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/vs2015.css", window.volantis.loadcss);
   
 </script>
 <!-- required -->
@@ -2567,6 +2570,24 @@ $(function () {
 
 
 
+  
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script>hljs.initLineNumbersOnLoad({ singleLine: true });</script>
+
+<script>
+volantis.pjax.push(()=>{
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+      hljs.lineNumbersBlock(block, { singleLine: true });
+    });
+},"highlightjs")
+</script>
+
+
 
 
   <script defer>
@@ -3141,6 +3162,27 @@ checkNightMode();
         animation: rotate 3s linear infinite;
     }
 </style>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/Goopher97/mycdn@1.5/slider.min.js"></script>
+
+  <script>
+    function pjax_slider() {
+        if($('#slider')[0]) {
+            $("#slider").sliderImg({
+                imgs: ["https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-022629@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-022959@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-023228@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/%E5%9B%BE%E6%80%AA%E5%85%BD_c3e24bc3d29796c0593475a22f3a11e0_24823.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/shiyongvolantisgengyouya.png"],
+                link: ["/posts/21510.html", "/posts/50300.html", "/posts/24004.html", "/posts/61617.html", "/posts/16065.html"],
+            });
+        }
+    }
+    $(function () {
+        pjax_slider();
+    });
+    volantis.pjax.push(pjax_slider)
+</script>
+
 
 
 

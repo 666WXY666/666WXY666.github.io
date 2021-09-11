@@ -935,6 +935,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 		</div>
 	</div>
   </div>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </header>
 
     <div id="l_body">
@@ -1119,7 +1120,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：1.1k字</p>
+      <p>字数：1k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -1217,9 +1218,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>我们这个交换系统提供了三个周期性调度程度（摘挂机检测程序、脉冲识别程序和位间隔识别程序），它们的调用周期分别为 200ms、10ms 和 100ms，所以我们系统的最小调度时间为 10ms。如图所示，每隔 10ms,我们就会检查这个表的一行，如果该行上某一列为 1，我们就执列所对应的任务，如果为 0，就什么都不做。每当执行到这个表的最后一行，调度任务会返回第一行循环执行。而你所要做的就是按照你的理解来填写这个调度表。</p>
 <h3 id="2、实验主要数据结构"><a href="#2、实验主要数据结构" class="headerlink" title="2、实验主要数据结构"></a>2、实验主要数据结构</h3><p>函数功能：完成调度表的初始化；</p>
 <p>函数原型：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">initSchTable(<span class="keyword">int</span> ScheduleTable[SchTabLen][SchTabWdh])；</span><br></pre></td></tr></table></figure>
+<pre><code class="c">initSchTable(int ScheduleTable[SchTabLen][SchTabWdh])；</code></pre>
 <p>其中 SchTalLen 和 SchTabWdh 为在 bconstant.h 中的宏定义：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SchTabLen 20 <span class="comment">//代表这个调度表为 20 行（相邻行之间的时间间隔为 10ms); </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SchTabWdh 3 <span class="comment">//代表三个周期性调度任务——0：摘挂机检测任务；1：脉冲检测任务；2：位间隔检测任务；</span></span></span><br></pre></td></tr></table></figure>
+<pre><code class="c">#define SchTabLen 20 //代表这个调度表为 20 行（相邻行之间的时间间隔为 10ms); 
+#define SchTabWdh 3 //代表三个周期性调度任务——0：摘挂机检测任务；1：脉冲检测任务；2：位间隔检测任务；</code></pre>
 <h3 id="3、实验效果检验"><a href="#3、实验效果检验" class="headerlink" title="3、实验效果检验"></a>3、实验效果检验</h3><p>当调度表初始化正确时，能够进行正常的通话；如果初始化不正确，可能会造成周期性程序的不正常调用，例如位间隔调度的延迟会造成识别位间隔的延误甚至丢失。</p>
 <h3 id="4、实验步骤"><a href="#4、实验步骤" class="headerlink" title="4、实验步骤"></a>4、实验步骤</h3><ol>
 <li>熟悉实验平台和测试环境；</li>
@@ -1229,7 +1231,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ol>
 <h2 id="三、源代码"><a href="#三、源代码" class="headerlink" title="三、源代码"></a>三、源代码</h2><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;bconstant.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span> _declspec(dllexport) <span class="function"><span class="keyword">void</span> <span class="title">initSchTable</span><span class="params">(intScheduleTable[SchTabLen][SchTabWdh])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i != SchTabLen; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//最小时间间隔为10ms</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//对摘挂机状态进行初始化</span></span><br><span class="line">        <span class="keyword">if</span> (i % <span class="number">20</span> == <span class="number">0</span>) <span class="comment">//因为调度周期为200ms，也就是每隔20个最小间隔执行一次</span></span><br><span class="line">        &#123;</span><br><span class="line">            ScheduleTable[i][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            ScheduleTable[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//对脉冲识别进行初始化</span></span><br><span class="line">        ScheduleTable[i][<span class="number">1</span>] = <span class="number">1</span>; <span class="comment">//因为调度周期为10ms，也就是每个最小间隔都执行一次</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//对为间隔识别进行初始化</span></span><br><span class="line">        <span class="keyword">if</span> (i % <span class="number">10</span> == <span class="number">0</span>) <span class="comment">//因为调度周期为100ms，也就是每隔10个最小间隔执行一次</span></span><br><span class="line">        &#123;</span><br><span class="line">            ScheduleTable[i][<span class="number">2</span>] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            ScheduleTable[i][<span class="number">2</span>] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+              <pre><code class="c">#include &quot;bconstant.h&quot;extern &quot;C&quot; _declspec(dllexport) void initSchTable(intScheduleTable[SchTabLen][SchTabWdh]){    int i;    for (i = 0; i != SchTabLen; i++)    {        //最小时间间隔为10ms        //对摘挂机状态进行初始化        if (i % 20 == 0) //因为调度周期为200ms，也就是每隔20个最小间隔执行一次        {            ScheduleTable[i][0] = 1;        }        else        {            ScheduleTable[i][0] = 0;        }        //对脉冲识别进行初始化        ScheduleTable[i][1] = 1; //因为调度周期为10ms，也就是每个最小间隔都执行一次        //对为间隔识别进行初始化        if (i % 10 == 0) //因为调度周期为100ms，也就是每隔10个最小间隔执行一次        {            ScheduleTable[i][2] = 1;        }        else        {            ScheduleTable[i][2] = 0;        }    }    return;}</code></pre>
               </div>
             </details>
 
@@ -1292,10 +1294,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-10T09:19:41+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-11T09:00:35+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年6月10日</p>
+    <p>更新于：2021年9月11日</p>
   </a>
 </div>
 
@@ -1803,6 +1805,8 @@ var loadCSS = function( href, before, media, attributes ){
   
   loadCSS("https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css", window.volantis.loadcss);
   
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/vs2015.css", window.volantis.loadcss);
   
 </script>
 <!-- required -->
@@ -2436,6 +2440,24 @@ $(function () {
 
 
 
+  
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script>hljs.initLineNumbersOnLoad({ singleLine: true });</script>
+
+<script>
+volantis.pjax.push(()=>{
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+      hljs.lineNumbersBlock(block, { singleLine: true });
+    });
+},"highlightjs")
+</script>
+
+
 
 
   <script defer>
@@ -3010,6 +3032,27 @@ checkNightMode();
         animation: rotate 3s linear infinite;
     }
 </style>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/Goopher97/mycdn@1.5/slider.min.js"></script>
+
+  <script>
+    function pjax_slider() {
+        if($('#slider')[0]) {
+            $("#slider").sliderImg({
+                imgs: ["https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-022629@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-022959@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-023228@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/%E5%9B%BE%E6%80%AA%E5%85%BD_c3e24bc3d29796c0593475a22f3a11e0_24823.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/shiyongvolantisgengyouya.png"],
+                link: ["/posts/21510.html", "/posts/50300.html", "/posts/24004.html", "/posts/61617.html", "/posts/16065.html"],
+            });
+        }
+    }
+    $(function () {
+        pjax_slider();
+    });
+    volantis.pjax.push(pjax_slider)
+</script>
+
 
 
 

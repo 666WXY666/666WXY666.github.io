@@ -935,6 +935,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 		</div>
 	</div>
   </div>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </header>
 
     <div id="l_body">
@@ -1125,7 +1126,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item readtime">
     <a class="notlink">
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：6分钟</p>
+      <p>时长：5分钟</p>
     </a>
   </div>
 
@@ -1209,19 +1210,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h3 id="7、输出形式："><a href="#7、输出形式：" class="headerlink" title="7、输出形式："></a>7、输出形式：</h3><p>先输出该文法的first集和follow集，再输出该文法的LL1预测分析表，最后输出用户输入的待分析字符串的分析过程</p>
 <h2 id="四、变量和函数"><a href="#四、变量和函数" class="headerlink" title="四、变量和函数"></a>四、变量和函数</h2><h3 id="1、类"><a href="#1、类" class="headerlink" title="1、类"></a>1、类</h3><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PF</span>//<span class="title">Production</span> <span class="title">formula</span>,产生式的类</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">string</span> left;<span class="comment">//产生式的左部</span></span><br><span class="line">	<span class="built_in">set</span>&lt;<span class="built_in">string</span>&gt; right;<span class="comment">//产生式的右部</span></span><br><span class="line">	PF(<span class="keyword">char</span> s[])<span class="comment">//构造函数，确定产生式左部</span></span><br><span class="line">	&#123;</span><br><span class="line">		left = s;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">char</span> s[])</span><span class="comment">//插入产生式右部的函数</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		right.insert(s);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+              <pre><code class="c">class PF//Production formula,产生式的类{public:    string left;//产生式的左部    set&lt;string&gt; right;//产生式的右部    PF(char s[])//构造函数，确定产生式左部    {        left = s;    }    void insert(char s[])//插入产生式右部的函数    {        right.insert(s);    }};</code></pre>
               </div>
             </details>
 
 <h3 id="2、全局变量"><a href="#2、全局变量" class="headerlink" title="2、全局变量"></a>2、全局变量</h3><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;PF&gt; PF_vector;<span class="comment">//产生式</span></span><br><span class="line">使用一个<span class="built_in">vector</span>数组，每个元素为PF类的对象，来存放输入的产生式。</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="built_in">set</span>&lt;<span class="keyword">char</span>&gt; &gt; first;<span class="comment">//first集</span></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="built_in">set</span>&lt;<span class="keyword">char</span>&gt; &gt; follow;<span class="comment">//follow集</span></span><br><span class="line">使用了<span class="built_in">map</span>哈希key的类型为<span class="built_in">string</span>，存放产生式的左部，value的类型为<span class="keyword">char</span>的<span class="built_in">set</span>,用来存放对应key的first集和follow集。</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">map</span>&lt;<span class="keyword">char</span>, <span class="built_in">string</span>&gt;&gt; predict_table;<span class="comment">//LL1分析表</span></span><br><span class="line"><span class="comment">//使用一个vector数组，每个元素为一个map，该vector的每一个map分别对应PF_vector中每个产生式的左部的非终结符所在的预测分析表的行，map的key为终结符，value为对应表项中的产生式的右部</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; A;<span class="comment">//分析栈</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; B;<span class="comment">//剩余串</span></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; PF_map;<span class="comment">//存储每个非终结符对应的编号，key为非终结符，value为编号</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; letter;<span class="comment">//所有的终结符,在构造预测分析表的时候创建完毕</span></span><br><span class="line"><span class="keyword">int</span> B_point = <span class="number">0</span>, input_len = <span class="number">0</span>;<span class="comment">//B_point为输入串指针，input_len为输入串长度</span></span><br></pre></td></tr></table></figure>
+              <pre><code class="c">vector&lt;PF&gt; PF_vector;//产生式使用一个vector数组，每个元素为PF类的对象，来存放输入的产生式。map&lt;string, set&lt;char&gt; &gt; first;//first集map&lt;string, set&lt;char&gt; &gt; follow;//follow集使用了map哈希key的类型为string，存放产生式的左部，value的类型为char的set,用来存放对应key的first集和follow集。vector&lt;map&lt;char, string&gt;&gt; predict_table;//LL1分析表//使用一个vector数组，每个元素为一个map，该vector的每一个map分别对应PF_vector中每个产生式的左部的非终结符所在的预测分析表的行，map的key为终结符，value为对应表项中的产生式的右部vector&lt;char&gt; A;//分析栈vector&lt;char&gt; B;//剩余串map&lt;string, int&gt; PF_map;//存储每个非终结符对应的编号，key为非终结符，value为编号vector&lt;char&gt; letter;//所有的终结符,在构造预测分析表的时候创建完毕int B_point = 0, input_len = 0;//B_point为输入串指针，input_len为输入串长度</code></pre>
               </div>
             </details>
 
 <h3 id="3、函数"><a href="#3、函数" class="headerlink" title="3、函数"></a>3、函数</h3><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//first集的构造：</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">first_construction</span><span class="params">()</span> <span class="comment">//构造并输出first集</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> x)</span><span class="comment">//为构造first集深度优先遍历PF，递归调用</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">//follow集的构造：</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">follow_construction</span><span class="params">()</span><span class="comment">//构造并输出follow集</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add_follow</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span>&amp; str1, <span class="keyword">const</span> <span class="built_in">string</span>&amp; str2)</span><span class="comment">//将str1的follow集加入到str2的follow集中</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">//预测分析表的构造：</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">predict_table_construction</span><span class="params">()</span><span class="comment">//构造并输出LL1分析表</span></span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check_first</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span>&amp; str, <span class="keyword">char</span> ch)</span><span class="comment">//检查ch是否属于str的FIRST集合</span></span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check_follow</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span>&amp; str, <span class="keyword">char</span> ch)</span><span class="comment">//检查ch是否属于str的FOLLOW集合</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">//预测分析控制程序：</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">analyse</span><span class="params">()</span><span class="comment">//预测分析控制程序</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_A</span><span class="params">()</span><span class="comment">//输出分析栈</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_B</span><span class="params">()</span><span class="comment">//输出剩余串</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">//主函数：</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+              <pre><code class="c">//first集的构造：void first_construction() //构造并输出first集void DFS(int x)//为构造first集深度优先遍历PF，递归调用//follow集的构造：void follow_construction()//构造并输出follow集void add_follow(const string&amp; str1, const string&amp; str2)//将str1的follow集加入到str2的follow集中//预测分析表的构造：void predict_table_construction()//构造并输出LL1分析表bool check_first(const string&amp; str, char ch)//检查ch是否属于str的FIRST集合bool check_follow(const string&amp; str, char ch)//检查ch是否属于str的FOLLOW集合//预测分析控制程序：void analyse()//预测分析控制程序void print_A()//输出分析栈void print_B()//输出剩余串//主函数：int main()</code></pre>
               </div>
             </details>
 
@@ -1290,10 +1291,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-10T09:19:41+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-11T09:00:35+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年6月10日</p>
+    <p>更新于：2021年9月11日</p>
   </a>
 </div>
 
@@ -1802,6 +1803,8 @@ var loadCSS = function( href, before, media, attributes ){
   
   loadCSS("https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css", window.volantis.loadcss);
   
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/vs2015.css", window.volantis.loadcss);
   
 </script>
 <!-- required -->
@@ -2435,6 +2438,24 @@ $(function () {
 
 
 
+  
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script>hljs.initLineNumbersOnLoad({ singleLine: true });</script>
+
+<script>
+volantis.pjax.push(()=>{
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+      hljs.lineNumbersBlock(block, { singleLine: true });
+    });
+},"highlightjs")
+</script>
+
+
 
 
   <script defer>
@@ -3009,6 +3030,27 @@ checkNightMode();
         animation: rotate 3s linear infinite;
     }
 </style>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/Goopher97/mycdn@1.5/slider.min.js"></script>
+
+  <script>
+    function pjax_slider() {
+        if($('#slider')[0]) {
+            $("#slider").sliderImg({
+                imgs: ["https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-022629@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-022959@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-023228@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/%E5%9B%BE%E6%80%AA%E5%85%BD_c3e24bc3d29796c0593475a22f3a11e0_24823.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/shiyongvolantisgengyouya.png"],
+                link: ["/posts/21510.html", "/posts/50300.html", "/posts/24004.html", "/posts/61617.html", "/posts/16065.html"],
+            });
+        }
+    }
+    $(function () {
+        pjax_slider();
+    });
+    volantis.pjax.push(pjax_slider)
+</script>
+
 
 
 

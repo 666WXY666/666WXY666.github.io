@@ -935,6 +935,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 		</div>
 	</div>
   </div>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </header>
 
     <div id="l_body">
@@ -1273,13 +1274,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h2 id="四、实验遇到的问题"><a href="#四、实验遇到的问题" class="headerlink" title="四、实验遇到的问题"></a>四、实验遇到的问题</h2><p>​        本次实验中遇到了一个问题，如果main到下一个标签（比如loop1）只有一行汇编代码，在载入程序时，loop1的基地址就会和main重合，变为0x00000000，这样就导致loop1被覆盖，使载入的程序与自己编写的汇编程序不符，产生错误或者结果出错。但是如果&gt;=2行汇编代码就不会有问题，我怀疑是MIPSsim程序的bug。</p>
 <h2 id="五、附录"><a href="#五、附录" class="headerlink" title="五、附录"></a>五、附录</h2><h3 id="1、初始的汇编代码"><a href="#1、初始的汇编代码" class="headerlink" title="1、初始的汇编代码"></a>1、初始的汇编代码</h3><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">.text</span><br><span class="line">main:</span><br><span class="line">ADDIU $r1, $r0, 11		# 数组长度n&#x3D;11</span><br><span class="line">ADDIU $r2, $r1, -1		# 外循环i&#x3D;n-1&#x3D;10</span><br><span class="line"></span><br><span class="line">loop1:</span><br><span class="line">ADDIU $r3, $r0, array	# 数组起始地址</span><br><span class="line">ADDIU $r4, $r0, 0		# 内循环j&#x3D;0</span><br><span class="line"></span><br><span class="line">loop2:</span><br><span class="line">LW $r5, 0($r3)			# a[j]</span><br><span class="line">LW $r6, 4($r3)			# a[j+1]</span><br><span class="line">DSUB $r7, $r6, $r5		# a[j+1]-a[j]</span><br><span class="line">BGTZ $r7, pass			# a[j+1]&gt;a[j]，不交换，跳到pass；</span><br><span class="line"></span><br><span class="line">SW $r6, 0($r3)			# a[j+1]&lt;a[j]，交换</span><br><span class="line">SW $r5, 4($r3)</span><br><span class="line"></span><br><span class="line">pass:</span><br><span class="line">ADDIU $r4, $r4, 1		# j++</span><br><span class="line">ADDIU $r3, $r3, 4		# 取数组的下一个元素</span><br><span class="line">DSUB $r8, $r2, $r4		# i-j</span><br><span class="line">BGTZ $r8, loop2			# i&gt;j，跳转到loop2，继续内循环</span><br><span class="line"></span><br><span class="line">ADDIU $r2, $r2, -1		# i--</span><br><span class="line">BGTZ $r2, loop1			# i&gt;0，跳转到loop1，继续外循环</span><br><span class="line"></span><br><span class="line">TEQ $r0, $r0</span><br><span class="line"></span><br><span class="line">.data</span><br><span class="line">array: .word 5,4,11,3,7,1,10,6,8,9,2</span><br></pre></td></tr></table></figure>
+              <pre><code class="assembly">.textmain:ADDIU $r1, $r0, 11        # 数组长度n=11ADDIU $r2, $r1, -1        # 外循环i=n-1=10loop1:ADDIU $r3, $r0, array    # 数组起始地址ADDIU $r4, $r0, 0        # 内循环j=0loop2:LW $r5, 0($r3)            # a[j]LW $r6, 4($r3)            # a[j+1]DSUB $r7, $r6, $r5        # a[j+1]-a[j]BGTZ $r7, pass            # a[j+1]&gt;a[j]，不交换，跳到pass；SW $r6, 0($r3)            # a[j+1]&lt;a[j]，交换SW $r5, 4($r3)pass:ADDIU $r4, $r4, 1        # j++ADDIU $r3, $r3, 4        # 取数组的下一个元素DSUB $r8, $r2, $r4        # i-jBGTZ $r8, loop2            # i&gt;j，跳转到loop2，继续内循环ADDIU $r2, $r2, -1        # i--BGTZ $r2, loop1            # i&gt;0，跳转到loop1，继续外循环TEQ $r0, $r0.dataarray: .word 5,4,11,3,7,1,10,6,8,9,2</code></pre>
               </div>
             </details>
 
 <h3 id="2、经过静态调度后的汇编代码"><a href="#2、经过静态调度后的汇编代码" class="headerlink" title="2、经过静态调度后的汇编代码"></a>2、经过静态调度后的汇编代码</h3><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">.text</span><br><span class="line">main:</span><br><span class="line">ADDIU $r1, $r0, 11		# 数组长度n&#x3D;11</span><br><span class="line">ADDIU $r2, $r1, -1		# 外循环i&#x3D;n-1&#x3D;10</span><br><span class="line"></span><br><span class="line">loop1:</span><br><span class="line">ADDIU $r3, $r0, array	# 数组起始地址</span><br><span class="line">ADDIU $r4, $r0, 0		# 内循环j&#x3D;0</span><br><span class="line"></span><br><span class="line">loop2:</span><br><span class="line">LW $r5, 0($r3)			# a[j]</span><br><span class="line">LW $r6, 4($r3)			# a[j+1]</span><br><span class="line">ADDIU $r4, $r4, 1		# j++</span><br><span class="line">DSUB $r7, $r6, $r5		# a[j+1]-a[j]</span><br><span class="line">DSUB $r8, $r2, $r4		# i-j</span><br><span class="line">BGTZ $r7, pass			# a[j+1]&gt;a[j]，不交换，跳到pass；</span><br><span class="line"></span><br><span class="line">SW $r6, 0($r3)			# a[j+1]&lt;a[j]，交换</span><br><span class="line">SW $r5, 4($r3)</span><br><span class="line"></span><br><span class="line">pass:</span><br><span class="line">ADDIU $r3, $r3, 4		# 取数组的下一个元素</span><br><span class="line">BGTZ $r8, loop2			# i&gt;j，跳转到loop2，继续内循环</span><br><span class="line"></span><br><span class="line">ADDIU $r2, $r2, -1		# i--</span><br><span class="line">BGTZ $r2, loop1			# i&gt;0，跳转到loop1，继续外循环</span><br><span class="line"></span><br><span class="line">TEQ $r0, $r0</span><br><span class="line"></span><br><span class="line">.data</span><br><span class="line">array: .word 5,4,11,3,7,1,10,6,8,9,2</span><br></pre></td></tr></table></figure>
+              <pre><code class="assembly">.textmain:ADDIU $r1, $r0, 11        # 数组长度n=11ADDIU $r2, $r1, -1        # 外循环i=n-1=10loop1:ADDIU $r3, $r0, array    # 数组起始地址ADDIU $r4, $r0, 0        # 内循环j=0loop2:LW $r5, 0($r3)            # a[j]LW $r6, 4($r3)            # a[j+1]ADDIU $r4, $r4, 1        # j++DSUB $r7, $r6, $r5        # a[j+1]-a[j]DSUB $r8, $r2, $r4        # i-jBGTZ $r7, pass            # a[j+1]&gt;a[j]，不交换，跳到pass；SW $r6, 0($r3)            # a[j+1]&lt;a[j]，交换SW $r5, 4($r3)pass:ADDIU $r3, $r3, 4        # 取数组的下一个元素BGTZ $r8, loop2            # i&gt;j，跳转到loop2，继续内循环ADDIU $r2, $r2, -1        # i--BGTZ $r2, loop1            # i&gt;0，跳转到loop1，继续外循环TEQ $r0, $r0.dataarray: .word 5,4,11,3,7,1,10,6,8,9,2</code></pre>
               </div>
             </details>
   
@@ -1338,10 +1339,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-10T09:19:41+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-11T09:00:35+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年6月10日</p>
+    <p>更新于：2021年9月11日</p>
   </a>
 </div>
 
@@ -1904,6 +1905,8 @@ var loadCSS = function( href, before, media, attributes ){
   
   loadCSS("https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css", window.volantis.loadcss);
   
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/vs2015.css", window.volantis.loadcss);
   
 </script>
 <!-- required -->
@@ -2537,6 +2540,24 @@ $(function () {
 
 
 
+  
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script>hljs.initLineNumbersOnLoad({ singleLine: true });</script>
+
+<script>
+volantis.pjax.push(()=>{
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+      hljs.lineNumbersBlock(block, { singleLine: true });
+    });
+},"highlightjs")
+</script>
+
+
 
 
   <script defer>
@@ -3111,6 +3132,27 @@ checkNightMode();
         animation: rotate 3s linear infinite;
     }
 </style>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/Goopher97/mycdn@1.5/slider.min.js"></script>
+
+  <script>
+    function pjax_slider() {
+        if($('#slider')[0]) {
+            $("#slider").sliderImg({
+                imgs: ["https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-022629@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-022959@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-023228@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/%E5%9B%BE%E6%80%AA%E5%85%BD_c3e24bc3d29796c0593475a22f3a11e0_24823.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/shiyongvolantisgengyouya.png"],
+                link: ["/posts/21510.html", "/posts/50300.html", "/posts/24004.html", "/posts/61617.html", "/posts/16065.html"],
+            });
+        }
+    }
+    $(function () {
+        pjax_slider();
+    });
+    volantis.pjax.push(pjax_slider)
+</script>
+
 
 
 

@@ -935,6 +935,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 		</div>
 	</div>
   </div>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </header>
 
     <div id="l_body">
@@ -1221,7 +1222,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <h2 id="六、相关的API-函数"><a href="#六、相关的API-函数" class="headerlink" title="六、相关的API 函数"></a>六、相关的API 函数</h2><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可以通过GetSystemInfo，GlobalMemoryStatus 和VirtualQuery 来查询进程虚空间的状态。主要的信息来源如下：</span></span><br><span class="line">VOID GetSystemInfo （ LPSYSTEM_INFO lpSystemInfo ）;</span><br><span class="line"><span class="comment">//结构SYSTEMINFO 定义如下：</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">SYSTEM_INFO</span> &#123;</span></span><br><span class="line">DWORD dwOemld;</span><br><span class="line">DWORD dwPageSize;</span><br><span class="line">LPVOID lpMinimumApplicationAddress;</span><br><span class="line">LPVOID lpMaximumApplicationAddress;</span><br><span class="line">DWORD dwActiveProcessorMask;</span><br><span class="line">DWORD dwNumberOfProcessors;</span><br><span class="line">DWORD dwProcessorType;</span><br><span class="line">DWORD dwAllocationGranularity;</span><br><span class="line">DWORD dwReserved;</span><br><span class="line">&#125; SYSTEM_INFO, *LPSYSTEM_INFO;</span><br><span class="line"></span><br><span class="line"><span class="comment">//函数</span></span><br><span class="line">VOID GlobalMemoryStatus （LPMEMORYSTATUS lpBuffer）;</span><br><span class="line"><span class="comment">//数据结构MEMORYSTATUS 定义如下：</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _ <span class="title">MEMORYSTATUS</span> &#123;</span></span><br><span class="line">DWORD dwLength;</span><br><span class="line">DWORD dwMemoryLoad;</span><br><span class="line">DWORD dwTotalPhys;</span><br><span class="line">DWORD dwAvailPhys;</span><br><span class="line">DWORD dwTotalPageFile;</span><br><span class="line">DWORD dwAvailPageFile;</span><br><span class="line">DWORD dwTotalVirtual;</span><br><span class="line">DWORD dwAvailVirtual;</span><br><span class="line">&#125; MEMORYSTATUS, * LPMEMORYSTATUS;</span><br><span class="line"></span><br><span class="line">DWORD VirtualQuery （ LPCVOLD lpAddress,</span><br><span class="line">PMEMORY_BASIC_INFORMATION lpBuffer, DWORD dwLength）;</span><br><span class="line"><span class="comment">//主要数据结构MEMORY_BASIC_INFORMATION 定义如下：</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _ <span class="title">MEMORY_BASIC_INFORMATION</span> &#123;</span></span><br><span class="line">PVOID BaseAddress;</span><br><span class="line">PVOID AllocationBase;</span><br><span class="line">DWORD AllocationProtect;</span><br><span class="line">DWORD RegionSize;</span><br><span class="line">DWORD State;</span><br><span class="line">DWORD Protect;</span><br><span class="line">DWORD Type;</span><br><span class="line">&#125; MEMORY_BASIC_INFORMATION;</span><br><span class="line"><span class="keyword">typedef</span> MEMORY_BASIC_INFORMATION * PMEMORY_BASIC_INFORMATION;</span><br><span class="line"><span class="comment">//还有一些函数，例如VirtualAlloc，VirtualAllocEx，VirtualFree 和VirtualFreeEx 等，用于虚拟内存的管理，详情请见Microsoft 的Win32 API Reference Manual。</span></span><br></pre></td></tr></table></figure>
+              <pre><code class="c">//可以通过GetSystemInfo，GlobalMemoryStatus 和VirtualQuery 来查询进程虚空间的状态。主要的信息来源如下：VOID GetSystemInfo （ LPSYSTEM_INFO lpSystemInfo ）;//结构SYSTEMINFO 定义如下：typedef struct _SYSTEM_INFO {DWORD dwOemld;DWORD dwPageSize;LPVOID lpMinimumApplicationAddress;LPVOID lpMaximumApplicationAddress;DWORD dwActiveProcessorMask;DWORD dwNumberOfProcessors;DWORD dwProcessorType;DWORD dwAllocationGranularity;DWORD dwReserved;} SYSTEM_INFO, *LPSYSTEM_INFO;//函数VOID GlobalMemoryStatus （LPMEMORYSTATUS lpBuffer）;//数据结构MEMORYSTATUS 定义如下：typedef struct _ MEMORYSTATUS {DWORD dwLength;DWORD dwMemoryLoad;DWORD dwTotalPhys;DWORD dwAvailPhys;DWORD dwTotalPageFile;DWORD dwAvailPageFile;DWORD dwTotalVirtual;DWORD dwAvailVirtual;} MEMORYSTATUS, * LPMEMORYSTATUS;DWORD VirtualQuery （ LPCVOLD lpAddress,PMEMORY_BASIC_INFORMATION lpBuffer, DWORD dwLength）;//主要数据结构MEMORY_BASIC_INFORMATION 定义如下：typedef struct _ MEMORY_BASIC_INFORMATION {PVOID BaseAddress;PVOID AllocationBase;DWORD AllocationProtect;DWORD RegionSize;DWORD State;DWORD Protect;DWORD Type;} MEMORY_BASIC_INFORMATION;typedef MEMORY_BASIC_INFORMATION * PMEMORY_BASIC_INFORMATION;//还有一些函数，例如VirtualAlloc，VirtualAllocEx，VirtualFree 和VirtualFreeEx 等，用于虚拟内存的管理，详情请见Microsoft 的Win32 API Reference Manual。</code></pre>
               </div>
             </details>
 
@@ -1283,10 +1284,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-10T09:19:41+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-11T09:00:35+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年6月10日</p>
+    <p>更新于：2021年9月11日</p>
   </a>
 </div>
 
@@ -1798,6 +1799,8 @@ var loadCSS = function( href, before, media, attributes ){
   
   loadCSS("https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css", window.volantis.loadcss);
   
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/vs2015.css", window.volantis.loadcss);
   
 </script>
 <!-- required -->
@@ -2431,6 +2434,24 @@ $(function () {
 
 
 
+  
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script>hljs.initLineNumbersOnLoad({ singleLine: true });</script>
+
+<script>
+volantis.pjax.push(()=>{
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+      hljs.lineNumbersBlock(block, { singleLine: true });
+    });
+},"highlightjs")
+</script>
+
+
 
 
   <script defer>
@@ -3005,6 +3026,27 @@ checkNightMode();
         animation: rotate 3s linear infinite;
     }
 </style>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/Goopher97/mycdn@1.5/slider.min.js"></script>
+
+  <script>
+    function pjax_slider() {
+        if($('#slider')[0]) {
+            $("#slider").sliderImg({
+                imgs: ["https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-022629@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-022959@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/QQ20210312-023228@2x.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/%E5%9B%BE%E6%80%AA%E5%85%BD_c3e24bc3d29796c0593475a22f3a11e0_24823.png", "https://cdn.jsdelivr.net/gh/Goopher97/tuchuang@master/img/shiyongvolantisgengyouya.png"],
+                link: ["/posts/21510.html", "/posts/50300.html", "/posts/24004.html", "/posts/61617.html", "/posts/16065.html"],
+            });
+        }
+    }
+    $(function () {
+        pjax_slider();
+    });
+    volantis.pjax.push(pjax_slider)
+</script>
+
 
 
 
