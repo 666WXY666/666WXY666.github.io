@@ -1120,7 +1120,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class="notlink">
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：969字</p>
+      <p>字数：971字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -1192,13 +1192,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ul>
 <h2 id="三、核心算法"><a href="#三、核心算法" class="headerlink" title="三、核心算法"></a>三、核心算法</h2><h3 id="读者优先："><a href="#读者优先：" class="headerlink" title="读者优先："></a>读者优先：</h3><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <pre><code class="c">//信号量：mutex=1;//对read_count的互斥操作RP_Write=1;//保证读者优先，读者与写者互斥//读者：wait(mutex);read_count++;if(read_count==1)    wait(&amp;RP_Write);signal(mutex);读临界区……wait(mutex);read_count--;if(read_count==0)    signal(&amp;RP_Write);signal(mutex);//写者：wait(&amp;RP_Write);写临界区……signal(&amp;RP_Write);</code></pre>
+              <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//信号量：</span></span><br><span class="line">mutex=<span class="number">1</span>;<span class="comment">//对read_count的互斥操作</span></span><br><span class="line">RP_Write=<span class="number">1</span>;<span class="comment">//保证读者优先，读者与写者互斥</span></span><br><span class="line"><span class="comment">//读者：</span></span><br><span class="line">wait(mutex);</span><br><span class="line">read_count++;</span><br><span class="line"><span class="keyword">if</span>(read_count==<span class="number">1</span>)</span><br><span class="line">	wait(&amp;RP_Write);</span><br><span class="line">signal(mutex);</span><br><span class="line">读临界区……</span><br><span class="line">wait(mutex);</span><br><span class="line">read_count--;</span><br><span class="line"><span class="keyword">if</span>(read_count==<span class="number">0</span>)</span><br><span class="line">	signal(&amp;RP_Write);</span><br><span class="line">signal(mutex);</span><br><span class="line"><span class="comment">//写者：</span></span><br><span class="line">wait(&amp;RP_Write);</span><br><span class="line">写临界区……</span><br><span class="line">signal(&amp;RP_Write);</span><br></pre></td></tr></table></figure>
               </div>
             </details>
 
 <h3 id="写者优先："><a href="#写者优先：" class="headerlink" title="写者优先："></a>写者优先：</h3><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <pre><code class="c">//信号量：mutex1=1;//保证每个读者按顺序依次进入临界区mutex2=1;//对read_count的互斥操作mutex3=1;//对write_count的互斥操作cs_Read =1;//保证写者优先，读者与写者互斥cs_Write=1;//保证如果有读者正在读，写者等待当前读者读完后再写//读者：wait(mutex1);wait(&amp;cs_Read);wait(mutex2);read_count++;if(read_count==1)    wait(&amp;cs_Write);signal(mutex2);signal(&amp;cs_Read);signal(mutex1);读临界区……wait(mutex2);read_count--;if(read_count==0)    signal(&amp;cs_Write);signal(mutex2);//写者：wait(mutex3);write_count++;if(write_count==1)    wait(&amp;cs_Read);signal(mutex3);wait(&amp;cs_Write);写临界区……signal(&amp;cs_Write);wait(mutex3);write_count--;if(write_count==0)    signal(&amp;cs_Read);signal(mutex3);</code></pre>
+              <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//信号量：</span></span><br><span class="line">mutex1=<span class="number">1</span>;<span class="comment">//保证每个读者按顺序依次进入临界区</span></span><br><span class="line">mutex2=<span class="number">1</span>;<span class="comment">//对read_count的互斥操作</span></span><br><span class="line">mutex3=<span class="number">1</span>;<span class="comment">//对write_count的互斥操作</span></span><br><span class="line">cs_Read =<span class="number">1</span>;<span class="comment">//保证写者优先，读者与写者互斥</span></span><br><span class="line">cs_Write=<span class="number">1</span>;<span class="comment">//保证如果有读者正在读，写者等待当前读者读完后再写</span></span><br><span class="line"><span class="comment">//读者：</span></span><br><span class="line">wait(mutex1);</span><br><span class="line">wait(&amp;cs_Read);</span><br><span class="line">wait(mutex2);</span><br><span class="line">read_count++;</span><br><span class="line"><span class="keyword">if</span>(read_count==<span class="number">1</span>)</span><br><span class="line">	wait(&amp;cs_Write);</span><br><span class="line">signal(mutex2);</span><br><span class="line">signal(&amp;cs_Read);</span><br><span class="line">signal(mutex1);</span><br><span class="line">读临界区……</span><br><span class="line">wait(mutex2);</span><br><span class="line">read_count--;</span><br><span class="line"><span class="keyword">if</span>(read_count==<span class="number">0</span>)</span><br><span class="line">	signal(&amp;cs_Write);</span><br><span class="line">signal(mutex2);</span><br><span class="line"><span class="comment">//写者：</span></span><br><span class="line">wait(mutex3);</span><br><span class="line">write_count++;</span><br><span class="line"><span class="keyword">if</span>(write_count==<span class="number">1</span>)</span><br><span class="line">	wait(&amp;cs_Read);</span><br><span class="line">signal(mutex3);</span><br><span class="line">wait(&amp;cs_Write);</span><br><span class="line">写临界区……</span><br><span class="line">signal(&amp;cs_Write);</span><br><span class="line">wait(mutex3);</span><br><span class="line">write_count--;</span><br><span class="line"><span class="keyword">if</span>(write_count==<span class="number">0</span>)</span><br><span class="line">	signal(&amp;cs_Read);</span><br><span class="line">signal(mutex3);</span><br></pre></td></tr></table></figure>
               </div>
             </details>
 
@@ -1284,7 +1284,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-11T09:09:30+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-11T09:13:20+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2021年9月11日</p>
@@ -1794,8 +1794,6 @@ var loadCSS = function( href, before, media, attributes ){
   
   loadCSS("https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css", window.volantis.loadcss);
   
-  
-  loadCSS("https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/vs2015.css", window.volantis.loadcss);
   
 </script>
 <!-- required -->
@@ -2427,24 +2425,6 @@ $(function () {
 <script src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/comment_typing.js"></script>
 
 
-
-
-  
-
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-<script>hljs.initLineNumbersOnLoad({ singleLine: true });</script>
-
-<script>
-volantis.pjax.push(()=>{
-    document.querySelectorAll('pre code').forEach((block) => {
-      hljs.highlightBlock(block);
-      hljs.lineNumbersBlock(block, { singleLine: true });
-    });
-},"highlightjs")
-</script>
 
 
 

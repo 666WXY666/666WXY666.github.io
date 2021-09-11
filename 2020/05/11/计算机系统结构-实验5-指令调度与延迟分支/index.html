@@ -1201,7 +1201,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>schedule.s：</p>
 <details><summary> 点击查看代码 </summary>
               <div class="content">
-              <pre><code class="assembly">.textmain:ADDIU  $r1,$r0,A        # 1-1LW     $r2,0($r1)        # 2-1ADD    $r4,$r0,$r2        # 2-2SW     $r4,0($r1)        # 2-3LW     $r6,4($r1)        # 3-1ADD    $r8,$r6,$r1        # 3-2MUL    $r12,$r10,$r1    # 4-1ADD    $r16,$r12,$r1    # 4-2ADD    $r18,$r16,$r1    # 4-3SW     $r18,16($r1)        # 4-4LW     $r20,8($r1)        # 5-1MUL    $r22,$r20,$r14    # 5-2MUL    $r24,$r26,$r14    # 6-1TEQ    $r0,$r0            # 7-1.dataA: .word 4,6,8</code></pre><p>​         </p>
+                <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">.text</span><br><span class="line">main:</span><br><span class="line">ADDIU  $r1,$r0,A		# 1-1</span><br><span class="line"></span><br><span class="line">LW     $r2,0($r1)		# 2-1</span><br><span class="line">ADD    $r4,$r0,$r2		# 2-2</span><br><span class="line">SW     $r4,0($r1)		# 2-3</span><br><span class="line"></span><br><span class="line">LW     $r6,4($r1)		# 3-1</span><br><span class="line">ADD    $r8,$r6,$r1		# 3-2</span><br><span class="line"></span><br><span class="line">MUL    $r12,$r10,$r1	# 4-1</span><br><span class="line">ADD    $r16,$r12,$r1	# 4-2</span><br><span class="line">ADD    $r18,$r16,$r1	# 4-3</span><br><span class="line">SW     $r18,16($r1)		# 4-4</span><br><span class="line"></span><br><span class="line">LW     $r20,8($r1)		# 5-1</span><br><span class="line">MUL    $r22,$r20,$r14	# 5-2</span><br><span class="line"></span><br><span class="line">MUL    $r24,$r26,$r14	# 6-1</span><br><span class="line"></span><br><span class="line">TEQ    $r0,$r0			# 7-1</span><br><span class="line"></span><br><span class="line">.data</span><br><span class="line">A: </span><br><span class="line">.word 4,6,8</span><br></pre></td></tr></table></figure><p>​         </p>
               </div>
             </details>
 </li>
@@ -1261,7 +1261,7 @@ $$
 <p>branch.s：</p>
 <details><summary> 点击查看代码 </summary>
               <div class="content">
-              <pre><code> ```assembly .text main: ADDI  $r2,$r0,1024    # 1-1 ADD   $r3,$r0,$r0    # 1-2 ADDI  $r4,$r0,8        # 1-3 loop:   LW    $r1,0($r2)    # 2-1 ADDI  $r1,$r1,1        # 2-2 SW    $r1,0($r2)    # 2-3 ADDI  $r3,$r3,4        # 3-1 SUB   $r5,$r4,$r3    # 3-2 BGTZ  $r5,loop        # 3-3 ADD   $r7,$r0,$r6    # 4-1 TEQ   $r0,$r0        # 5-1 ```</code></pre><p>​                  </p>
+              <pre><code> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">.text</span><br><span class="line">main:</span><br><span class="line">ADDI  $r2,$r0,1024	# 1-1</span><br><span class="line">ADD   $r3,$r0,$r0	# 1-2</span><br><span class="line">ADDI  $r4,$r0,8		# 1-3</span><br><span class="line"></span><br><span class="line">loop:  </span><br><span class="line">LW    $r1,0($r2)	# 2-1</span><br><span class="line">ADDI  $r1,$r1,1		# 2-2</span><br><span class="line">SW    $r1,0($r2)	# 2-3</span><br><span class="line"></span><br><span class="line">ADDI  $r3,$r3,4		# 3-1</span><br><span class="line">SUB   $r5,$r4,$r3	# 3-2</span><br><span class="line">BGTZ  $r5,loop		# 3-3</span><br><span class="line"></span><br><span class="line">ADD   $r7,$r0,$r6	# 4-1</span><br><span class="line"></span><br><span class="line">TEQ   $r0,$r0		# 5-1</span><br></pre></td></tr></table></figure></code></pre><p>​                  </p>
               </div>
             </details>
 </li>
@@ -1301,13 +1301,13 @@ $$
 <p>​        在查看延迟分支技术的统计信息时，发现使用延迟分支技术比不使用延迟分支技术多执行了一条指令，可能是由于分支取消机制当分支的实际执行方向和事先所预测的一样时，执行分支延迟槽中的指令，否则就将分支延迟槽中的指令转化成一个空操作，这条指令确实已经执行了，只是分支条件判断完后发现不该执行，然后就将执行的回滚，因此比不使用延迟分支技术多执行了一条指令。</p>
 <h2 id="五、附录"><a href="#五、附录" class="headerlink" title="五、附录"></a>五、附录</h2><h3 id="1、after-schedule-s"><a href="#1、after-schedule-s" class="headerlink" title="1、after-schedule.s"></a>1、after-schedule.s</h3><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <pre><code class="assembly">.textmain:ADDIU  $r1,$r0,A        # 1-1MUL    $r24,$r26,$r14    # 6-1MUL    $r12,$r10,$r1    # 4-1LW     $r2,0($r1)        # 2-1LW     $r6,4($r1)        # 3-1ADD    $r16,$r12,$r1    # 4-2ADD    $r4,$r0,$r2        # 2-2LW     $r20,8($r1)        # 5-1ADD    $r18,$r16,$r1    # 4-3SW     $r4,0($r1)        # 2-3MUL    $r22,$r20,$r14    # 5-2SW     $r18,16($r1)        # 4-4ADD    $r8,$r6,$r1        # 3-2TEQ    $r0,$r0            # 7-1.dataA: .word 4,6,8</code></pre>
+              <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">.text</span><br><span class="line">main:</span><br><span class="line">ADDIU  $r1,$r0,A		# 1-1</span><br><span class="line">MUL    $r24,$r26,$r14	# 6-1</span><br><span class="line"></span><br><span class="line">MUL    $r12,$r10,$r1	# 4-1</span><br><span class="line">LW     $r2,0($r1)		# 2-1</span><br><span class="line">LW     $r6,4($r1)		# 3-1</span><br><span class="line"></span><br><span class="line">ADD    $r16,$r12,$r1	# 4-2</span><br><span class="line">ADD    $r4,$r0,$r2		# 2-2</span><br><span class="line">LW     $r20,8($r1)		# 5-1</span><br><span class="line"></span><br><span class="line">ADD    $r18,$r16,$r1	# 4-3</span><br><span class="line">SW     $r4,0($r1)		# 2-3</span><br><span class="line">MUL    $r22,$r20,$r14	# 5-2</span><br><span class="line"></span><br><span class="line">SW     $r18,16($r1)		# 4-4</span><br><span class="line">ADD    $r8,$r6,$r1		# 3-2</span><br><span class="line">TEQ    $r0,$r0			# 7-1</span><br><span class="line"></span><br><span class="line">.data</span><br><span class="line">A: </span><br><span class="line">.word 4,6,8</span><br></pre></td></tr></table></figure>
               </div>
             </details>
 
 <h3 id="2、delay-branch-s"><a href="#2、delay-branch-s" class="headerlink" title="2、delay-branch.s"></a>2、delay-branch.s</h3><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <pre><code class="assembly">.textmain:ADDI  $r2,$r0,1024    # 1-1ADD   $r3,$r0,$r0    # 1-2ADDI  $r4,$r0,8        # 1-3loop:  LW    $r1,0($r2)    # 2-1ADDI  $r3,$r3,4        # 3-1ADDI  $r1,$r1,1        # 2-2SUB   $r5,$r4,$r3    # 3-2SW    $r1,0($r2)    # 2-3BGTZ  $r5,loop        # 3-3ADD   $r7,$r0,$r6    # 4-1TEQ   $r0,$r0        # 5-1</code></pre>
+              <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">.text</span><br><span class="line">main:</span><br><span class="line">ADDI  $r2,$r0,1024	# 1-1</span><br><span class="line">ADD   $r3,$r0,$r0	# 1-2</span><br><span class="line">ADDI  $r4,$r0,8		# 1-3</span><br><span class="line"></span><br><span class="line">loop:  </span><br><span class="line">LW    $r1,0($r2)	# 2-1</span><br><span class="line">ADDI  $r3,$r3,4		# 3-1</span><br><span class="line">ADDI  $r1,$r1,1		# 2-2</span><br><span class="line">SUB   $r5,$r4,$r3	# 3-2</span><br><span class="line">SW    $r1,0($r2)	# 2-3</span><br><span class="line">BGTZ  $r5,loop		# 3-3</span><br><span class="line"></span><br><span class="line">ADD   $r7,$r0,$r6	# 4-1</span><br><span class="line"></span><br><span class="line">TEQ   $r0,$r0		# 5-1</span><br></pre></td></tr></table></figure>
               </div>
             </details>
   
@@ -1366,7 +1366,7 @@ $$
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-11T09:09:30+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-11T09:13:20+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2021年9月11日</p>
@@ -1931,8 +1931,6 @@ var loadCSS = function( href, before, media, attributes ){
   
   loadCSS("https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css", window.volantis.loadcss);
   
-  
-  loadCSS("https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/vs2015.css", window.volantis.loadcss);
   
 </script>
 <!-- required -->
@@ -2564,24 +2562,6 @@ $(function () {
 <script src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/comment_typing.js"></script>
 
 
-
-
-  
-
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-<script>hljs.initLineNumbersOnLoad({ singleLine: true });</script>
-
-<script>
-volantis.pjax.push(()=>{
-    document.querySelectorAll('pre code').forEach((block) => {
-      hljs.highlightBlock(block);
-      hljs.lineNumbersBlock(block, { singleLine: true });
-    });
-},"highlightjs")
-</script>
 
 
 

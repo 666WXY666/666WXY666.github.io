@@ -1162,7 +1162,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h2 id="一、命令的参数"><a href="#一、命令的参数" class="headerlink" title="一、命令的参数"></a>一、命令的参数</h2><p>编写一个小程序，可以显示命令的选项和参数</p>
 <details><summary> 点击查看代码 </summary>
               <div class="content">
-              <pre><code class="c">#include &lt;stdio.h&gt;int main(int argc, char const *argv[]){    int i;    for (i = 0; i &lt; argc; i++)    {        printf(&quot;%d:%p [%s]\n&quot;, i, argv[i], argv[i]);    }    return 0;}</code></pre>
+              <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; argc; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d:%p [%s]\n&quot;</span>, i, argv[i], argv[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
               </div>
             </details>
 
@@ -1173,11 +1173,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429204547.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429204547.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="图片1" style="zoom:80%;">
 
 <p>可以通过</p>
-<pre><code class="c">\033[</code></pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\<span class="number">033</span>[</span><br></pre></td></tr></table></figure>
 <p>来控制printf输出的颜色，格式为：</p>
-<pre><code class="c">printf(&quot;\033[字背景颜色;字体颜色m 字符串 \033[0m&quot; );</code></pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;\033[字背景颜色;字体颜色m 字符串 \033[0m&quot;</span> );</span><br></pre></td></tr></table></figure>
 <p>注意，一定要在printf最后使用</p>
-<pre><code class="c">\033[0m</code></pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\<span class="number">033</span>[<span class="number">0</span>m</span><br></pre></td></tr></table></figure>
 <p>来消除前面的作用，否则前面的设置对后面的printf都有效果。</p>
 <table>
 <thead>
@@ -1298,7 +1298,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>小程序具体代码：</p>
 <details><summary> 点击查看代码 </summary>
               <div class="content">
-              <pre><code class="c">#define NONE &quot;\e[0m&quot;#define RED &quot;\e[0;31m&quot;#define CYAN &quot;\e[0;36m&quot;#include &lt;stdio.h&gt;int main(int argc, char const *argv[]){    printf(RED &quot;Hello &quot; CYAN &quot;World!\n&quot; NONE);    printf(&quot;\e[0;31mHello \e[0;36mWorld!\n\e[0m&quot;);    return 0;}</code></pre>
+              <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NONE <span class="meta-string">&quot;\e[0m&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RED <span class="meta-string">&quot;\e[0;31m&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CYAN <span class="meta-string">&quot;\e[0;36m&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(RED <span class="string">&quot;Hello &quot;</span> CYAN <span class="string">&quot;World!\n&quot;</span> NONE);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\e[0;31mHello \e[0;36mWorld!\n\e[0m&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
               </div>
             </details>
 
@@ -1308,42 +1308,35 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429211041.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429211041.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-29_210711">
 
 <h2 id="三、关于Linux中bash的变量、替换和元字符"><a href="#三、关于Linux中bash的变量、替换和元字符" class="headerlink" title="三、关于Linux中bash的变量、替换和元字符"></a>三、关于Linux中bash的变量、替换和元字符</h2><p>要求只列出所有bash进程的状态，使用命令</p>
-<pre><code class="shell">ps -ef | grep bash</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep bash</span><br></pre></td></tr></table></figure>
 <p>但grep进程自身也被输出了：</p>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429211423.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429211423.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-29_211412" style="zoom:80%;">
 
 <p>使用以下的命令：</p>
-<pre><code class="shell">ps -ef | grep [b]ash
-ps -ef | grep \\bash
-ps -ef | grep b\\ash
-ps -ef | grep b\ash
-ps -ef | grep ba\\sh</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep [b]ash</span><br><span class="line">ps -ef | grep \\bash</span><br><span class="line">ps -ef | grep b\\ash</span><br><span class="line">ps -ef | grep b\ash</span><br><span class="line">ps -ef | grep ba\\sh</span><br></pre></td></tr></table></figure>
 <ol>
 <li><p>可以</p>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429211802.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429211802.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-29_211631" style="zoom:80%;">
 
 <p>上面这5个命令的核心目的其实是改变grep在</p>
-<pre><code class="shell">ps -ef</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef</span><br></pre></td></tr></table></figure>
 <p>命令中的显示形式，例如这一个，我们使用三通（tee）命令将在grep命令过滤之前的输出定向到一个文件中。</p>
 <p>先将原命令试一下：</p>
-<pre><code class="shell">ps -ef | tee 1.txt | grep bash
-cat 1.txt</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | tee 1.txt | grep bash</span><br><span class="line">cat 1.txt</span><br></pre></td></tr></table></figure>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429214710.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429214710.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-29_214703" style="zoom:80%;">
 
 <p>与1这个命令进行一下对比：</p>
-<pre><code class="shell">ps -ef | tee 1.txt | grep [b]ash
-cat 1.txt</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | tee 1.txt | grep [b]ash</span><br><span class="line">cat 1.txt</span><br></pre></td></tr></table></figure>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429212708.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429212708.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-29_212451" style="zoom:80%;">
 
 <p>我们可以很明显的看到，grep命令确实改变了，因为正则表达式</p>
-<pre><code>[b]ash</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[b]ash</span><br></pre></td></tr></table></figure>
 <p>是可以匹配bash的，但是却不能匹配[b]ash，因此第一行的-bash这一行被取了出来，而最后grep这一行，由于不匹配[b]ash，就取不出来了，刚好实现了我们只列出所有bash进程的状态的目的，下面的几个命令大同小异。</p>
 </li>
 <li><p>不可以</p>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429211917.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429211917.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-29_211651" style="zoom:80%;">
 
-<pre><code class="shell">ps -ef | tee 1.txt | grep \\bash
-cat 1.txt</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | tee 1.txt | grep \\bash</span><br><span class="line">cat 1.txt</span><br></pre></td></tr></table></figure>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429213025.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429213025.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-29_213015" style="zoom:80%;">
 
 <p>首先，\是Shell的元字符，先被\转义为真正的单个字符\，因此传给grep的正则表达式其实是\bash，而在正则表达式中，\b有特殊含义，是单词边界，因此就连bash和\bash全部都没有匹配到。</p>
@@ -1351,8 +1344,7 @@ cat 1.txt</code></pre>
 <li><p>可以</p>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429211852.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429211852.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-29_211709" style="zoom:80%;">
 
-<pre><code class="shell">ps -ef | tee 1.txt | grep b\\ash
-cat 1.txt</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | tee 1.txt | grep b\\ash</span><br><span class="line">cat 1.txt</span><br></pre></td></tr></table></figure>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429213823.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429213823.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-29_213811" style="zoom:80%;">
 
 <p>和2一样，传给grep的正则表达式为b\ash，在正则表达式中\a是没有意义的，因此\被丢弃，正则表达式其实就是bash，所以第一行的-bash这一行被取了出来，而最后grep这一行，由于不匹配b\ash，就取不出来了。</p>
@@ -1360,23 +1352,21 @@ cat 1.txt</code></pre>
 <li><p>不可以</p>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429212003.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429212003.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-29_211730" style="zoom:80%;">
 
-<pre><code class="shell">ps -ef | tee 1.txt | grep b\ash
-cat 1.txt</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | tee 1.txt | grep b\ash</span><br><span class="line">cat 1.txt</span><br></pre></td></tr></table></figure>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429214303.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429214303.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-29_214256" style="zoom:80%;">
 
 <p>首先，\a先经过Shell的替换，因\a是没有特殊含义的，因此\被直接丢掉，传给grep的正则表达式为bash，这就和使用这个命令是一样的：</p>
-<pre><code class="shell">ps -ef | grep bash</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep bash</span><br></pre></td></tr></table></figure>
 <p>显然是不能实现目的。</p>
 </li>
 <li><p>不可以</p>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429212010.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429212010.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-29_211747" style="zoom:80%;">
 
-<pre><code class="shell">ps -ef | tee 1.txt | grep ba\\sh
-cat 1.txt</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | tee 1.txt | grep ba\\sh</span><br><span class="line">cat 1.txt</span><br></pre></td></tr></table></figure>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200429214922.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200429214922.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-04-29_214914" style="zoom:80%;">
 
 <p>这个和2基本是一样的，和3唯一的区别就是，第3个中\a对正则表达式而言是没有特殊含义的，但是\s对正则表达式而言是有特殊含义的，\s代表空白字符（可能是空格、制表符、其他空白），也就是说，grep匹配到的应该是类似于：</p>
-<pre><code class="shell">ba h</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ba h</span><br></pre></td></tr></table></figure>
 <p>这种的字符串，显然-bash和ba\sh都不符合，因此就什么都没取到。</p>
 </li>
 </ol>
@@ -1437,7 +1427,7 @@ cat 1.txt</code></pre>
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-11T09:09:30+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-11T09:13:20+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2021年9月11日</p>
@@ -1949,8 +1939,6 @@ var loadCSS = function( href, before, media, attributes ){
   
   loadCSS("https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css", window.volantis.loadcss);
   
-  
-  loadCSS("https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/vs2015.css", window.volantis.loadcss);
   
 </script>
 <!-- required -->
@@ -2582,24 +2570,6 @@ $(function () {
 <script src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/comment_typing.js"></script>
 
 
-
-
-  
-
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-<script>hljs.initLineNumbersOnLoad({ singleLine: true });</script>
-
-<script>
-volantis.pjax.push(()=>{
-    document.querySelectorAll('pre code').forEach((block) => {
-      hljs.highlightBlock(block);
-      hljs.lineNumbersBlock(block, { singleLine: true });
-    });
-},"highlightjs")
-</script>
 
 
 

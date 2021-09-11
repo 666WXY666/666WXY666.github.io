@@ -1194,18 +1194,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li><p>标识符：字母或“_”开头，后跟字母或数字或“_”组成的符号串</p>
 </li>
 <li><p>关键字：标识符集合的子集。C语言有32个关键字，分别为：</p>
-<pre><code class="c">&quot;do&quot;,&quot;double&quot;,&quot;auto&quot;,&quot;break&quot;,&quot;case&quot;,&quot;char&quot;,&quot;const&quot;,&quot;continue&quot;,&quot;default&quot;,&quot;else&quot;,&quot;enum&quot;,&quot;extern&quot;,
-&quot;float&quot;,&quot;for&quot;,&quot;goto&quot;,&quot;if&quot;,&quot;int&quot;,&quot;long&quot;,&quot;register&quot;,&quot;return&quot;,&quot;struct&quot;,&quot;switch&quot;,&quot;typedef&quot;,&quot;short&quot;,
-&quot;signed&quot;,&quot;sizeof&quot;,&quot;static&quot;,&quot;union&quot;,&quot;unsigned&quot;,&quot;void&quot;,&quot;volatile&quot;,&quot;while&quot; </code></pre>
-</li>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;do&quot;</span>,<span class="string">&quot;double&quot;</span>,<span class="string">&quot;auto&quot;</span>,<span class="string">&quot;break&quot;</span>,<span class="string">&quot;case&quot;</span>,<span class="string">&quot;char&quot;</span>,<span class="string">&quot;const&quot;</span>,<span class="string">&quot;continue&quot;</span>,<span class="string">&quot;default&quot;</span>,<span class="string">&quot;else&quot;</span>,<span class="string">&quot;enum&quot;</span>,<span class="string">&quot;extern&quot;</span>,</span><br><span class="line"><span class="string">&quot;float&quot;</span>,<span class="string">&quot;for&quot;</span>,<span class="string">&quot;goto&quot;</span>,<span class="string">&quot;if&quot;</span>,<span class="string">&quot;int&quot;</span>,<span class="string">&quot;long&quot;</span>,<span class="string">&quot;register&quot;</span>,<span class="string">&quot;return&quot;</span>,<span class="string">&quot;struct&quot;</span>,<span class="string">&quot;switch&quot;</span>,<span class="string">&quot;typedef&quot;</span>,<span class="string">&quot;short&quot;</span>,</span><br><span class="line"><span class="string">&quot;signed&quot;</span>,<span class="string">&quot;sizeof&quot;</span>,<span class="string">&quot;static&quot;</span>,<span class="string">&quot;union&quot;</span>,<span class="string">&quot;unsigned&quot;</span>,<span class="string">&quot;void&quot;</span>,<span class="string">&quot;volatile&quot;</span>,<span class="string">&quot;while&quot;</span> </span><br></pre></td></tr></table></figure></li>
 <li><p>数字：由整数部分、可选小数部分和可选整数部分构成</p>
 </li>
 <li><p>运算符：</p>
-<pre><code class="c">. ( ) ~ &amp; ^ % &lt;= &lt;&lt; &lt; &gt;= &gt;&gt; &gt; = == / != ! &amp;&amp; &amp; || | -&gt; - : ?</code></pre>
-</li>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">. ( ) ~ &amp; ^ % &lt;= &lt;&lt; &lt; &gt;= &gt;&gt; &gt; = == / != ! &amp;&amp; &amp; || | -&gt; - : ?</span><br></pre></td></tr></table></figure></li>
 <li><p>分隔符：</p>
-<pre><code class="c">; # ’ ” [ ] &#123; &#125; , </code></pre>
-</li>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">; # ’ ” [ ] &#123; &#125; , </span><br></pre></td></tr></table></figure></li>
 <li><p>转义符：\</p>
 </li>
 </ol>
@@ -1217,7 +1212,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h3 id="输出形式："><a href="#输出形式：" class="headerlink" title="输出形式："></a>输出形式：</h3><p>分两部分：文件输出和屏幕输出。文件输出分析内容，分四部分：按文件顺序输出类型和表达式，每种表达式数量统计，每种类型数量统计，行数、单词数、字符数统计；屏幕输出错误。详见输出样例部分。</p>
 <h2 id="四、变量和函数"><a href="#四、变量和函数" class="headerlink" title="四、变量和函数"></a>四、变量和函数</h2><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <pre><code class="c">int start = 0, over = 0, first = 0;//指针int letters = 0, lines = 0, words = 0;//统计单词数，行数和字符数的变量int state;//状态变量class str//单词类{public:    int linenum;//行号    string Str;//单词       };//输出文件名string file_name;//返回单词或符号,从位置i开始查找，引用参数j返回这个单词最后一个字符在str的位置。string GetWord(string str, int i, int&amp; j);//除去字符串中连续的空格和换行。第一个参数为目标字符串，第二个参数为开始位置。返回值为第一个有效字符在字符串的位置int get_nbc(string str, int i);//文件输出函数，成功输出返回true，失败返回falsebool Output(vector&lt;pair&lt;string, string&gt; &gt; v);//词法分析主要算法函数，返回一个pair型数组vector&lt;pair&lt;string, string&gt; &gt; analyse(vector&lt;str&gt;&amp; vec);//此函数判断str是否为关键字，是的话，返回真，反之返回假bool IsKey(string str);//此函数判断C是否为字母，是的话，返回真，反之返回假bool letter(char C);//此函数判断C是否为数字，是的话，返回真，反之返回假bool digit(char C);</code></pre>
+              <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> start = <span class="number">0</span>, over = <span class="number">0</span>, first = <span class="number">0</span>;<span class="comment">//指针</span></span><br><span class="line"><span class="keyword">int</span> letters = <span class="number">0</span>, lines = <span class="number">0</span>, words = <span class="number">0</span>;<span class="comment">//统计单词数，行数和字符数的变量</span></span><br><span class="line"><span class="keyword">int</span> state;<span class="comment">//状态变量</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">str</span>//单词类</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">int</span> linenum;<span class="comment">//行号</span></span><br><span class="line">	<span class="built_in">string</span> Str;<span class="comment">//单词       </span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出文件名</span></span><br><span class="line"><span class="built_in">string</span> file_name;</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回单词或符号,从位置i开始查找，引用参数j返回这个单词最后一个字符在str的位置。</span></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">GetWord</span><span class="params">(<span class="built_in">string</span> str, <span class="keyword">int</span> i, <span class="keyword">int</span>&amp; j)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//除去字符串中连续的空格和换行。第一个参数为目标字符串，第二个参数为开始位置。返回值为第一个有效字符在字符串的位置</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get_nbc</span><span class="params">(<span class="built_in">string</span> str, <span class="keyword">int</span> i)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//文件输出函数，成功输出返回true，失败返回false</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Output</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">pair</span>&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; &gt; v)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//词法分析主要算法函数，返回一个pair型数组</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">pair</span>&lt;<span class="built_in">string</span>, <span class="built_in">string</span>&gt; &gt; analyse(<span class="built_in">vector</span>&lt;str&gt;&amp; vec);</span><br><span class="line"></span><br><span class="line"><span class="comment">//此函数判断str是否为关键字，是的话，返回真，反之返回假</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsKey</span><span class="params">(<span class="built_in">string</span> str)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//此函数判断C是否为字母，是的话，返回真，反之返回假</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">letter</span><span class="params">(<span class="keyword">char</span> C)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//此函数判断C是否为数字，是的话，返回真，反之返回假</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">digit</span><span class="params">(<span class="keyword">char</span> C)</span></span>;</span><br></pre></td></tr></table></figure>
               </div>
             </details>
 
@@ -1286,7 +1281,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-11T09:09:30+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-11T09:13:20+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2021年9月11日</p>
@@ -1801,8 +1796,6 @@ var loadCSS = function( href, before, media, attributes ){
   
   loadCSS("https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css", window.volantis.loadcss);
   
-  
-  loadCSS("https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/vs2015.css", window.volantis.loadcss);
   
 </script>
 <!-- required -->
@@ -2434,24 +2427,6 @@ $(function () {
 <script src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/comment_typing.js"></script>
 
 
-
-
-  
-
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-<script>hljs.initLineNumbersOnLoad({ singleLine: true });</script>
-
-<script>
-volantis.pjax.push(()=>{
-    document.querySelectorAll('pre code').forEach((block) => {
-      hljs.highlightBlock(block);
-      hljs.lineNumbersBlock(block, { singleLine: true });
-    });
-},"highlightjs")
-</script>
 
 
 

@@ -1170,11 +1170,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <img src="https://gitee.com/wxy_666/images/raw/master/20200331203429.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203429.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="3" style="zoom:33%;">
 </li>
 <li><p>使用**<em>wget**</em>命令获取该网页：</p>
-<pre><code class="shell">wget http://www.pm25.com/city/beijing.html</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.pm25.com/city/beijing.html</span><br></pre></td></tr></table></figure>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200331203525.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203525.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="4" style="zoom: 80%;">
 </li>
 <li><p>使用**<em>cat**</em>命令查看该网页的内容：</p>
-<pre><code class="shell">cat beijing.html | more</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | more</span><br></pre></td></tr></table></figure>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200331203554.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203554.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="5" style="zoom:80%;">
 
 <p>我们关注的内容：</p>
@@ -1185,10 +1185,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <img src="https://gitee.com/wxy_666/images/raw/master/20200331203617.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203617.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="7" style="zoom:50%;">
 </li>
 <li><p>发现时间的地方有个*<strong>“更新时间：”**<em>，监测点名称的地方都有</em></strong>“pjadt_location”*<strong>，而PM2.5浓度的地方都有**<em>“pjadt_pm25”</em></strong>。根据这个特性，先使用*<strong>awk**<em>命令将需要的行保留下来。下面先进行编写</em></strong>1.awk***：</p>
-<pre><code class="shell">vim 1.awk</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim 1.awk</span><br></pre></td></tr></table></figure>
 <p><img src="https://gitee.com/wxy_666/images/raw/master/20200331203629.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203629.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="8"></p>
 <p>运行以下命令，对所需行进行过滤：</p>
-<pre><code class="shell">cat beijing.html | awk -f 1.awk | more</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | more</span><br></pre></td></tr></table></figure>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200331203639.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203639.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="9" style="zoom:50%;">
 
 <p>发现除了我们想要的行还多出了这几行：</p>
@@ -1199,34 +1199,33 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>我们重新对*<strong>“1.awk”**<em>进行编辑，直接将</em></strong>“监测站点”*<strong>这一行排除，并且对**<em>“PM2.5”</em></strong>浓度这一行采用额外的过滤规则:</p>
 <p><img src="https://gitee.com/wxy_666/images/raw/master/20200331203718.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203718.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="12"></p>
 <p>重新运行以下命令，对所需行进行过滤：</p>
-<pre><code class="shell">cat beijing.html | awk -f 1.awk | more</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | more</span><br></pre></td></tr></table></figure>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200331203729.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203729.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="13" style="zoom:50%;">
 
 <p>发现已经筛选出了所需要的行。</p>
 </li>
 <li><p>现在再利用*<strong>sed**<em>命令将</em></strong>html标签”&lt;&gt;“*<strong>中的内容和**<em>“更新时间：”</em></strong>这个无用的信息删除：</p>
-<pre><code class="shell">cat beijing.html | awk -f 1.awk | sed -e &#39;s/&lt;[^&lt;&gt;]*&gt;//g&#39; -e &#39;s/更新时间：//g&#39; | more</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | sed -e &#x27;s/&lt;[^&lt;&gt;]*&gt;//g&#x27; -e &#x27;s/更新时间：//g&#x27; | more</span><br></pre></td></tr></table></figure>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200331203744.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203744.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="14" style="zoom:50%;">
 
 <p>发现已经只剩余我们想要的数据。</p>
 </li>
 <li><p>但是这些数据不在同一行，且没有明显特征，无法进行*<strong>awk**<em>命令，因此先使用</em></strong>tr***命令将这些行合并为一行，以空格分隔：</p>
-<pre><code class="shell">cat beijing.html | awk -f 1.awk | sed -e &#39;s/&lt;[^&lt;&gt;]*&gt;//g&#39; -e &#39;s/更新时间：//g&#39; | tr &#39;\n&#39; &#39; &#39; | more</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | sed -e &#x27;s/&lt;[^&lt;&gt;]*&gt;//g&#x27; -e &#x27;s/更新时间：//g&#x27; | tr &#x27;\n&#x27; &#x27; &#x27; | more</span><br></pre></td></tr></table></figure>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200331203757.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203757.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="15" style="zoom:50%;">
 </li>
 <li><p>最后利用*<strong>awk**<em>命令将所需内容规格化输出即可，先编辑</em></strong>“2.awk”***：</p>
-<pre><code class="shell">vim 2.awk</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim 2.awk</span><br></pre></td></tr></table></figure>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200331203807.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203807.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="16" style="zoom:80%;">
 
 <p>利用*<strong>for**<em>循环输出，</em></strong>NF*<strong>为列数，刚好循环$$(NF-2)/4$$次，第一个**<em>%s</em></strong>为*<strong>日期**<em>，第二个</em></strong>%s*<strong>为**<em>时间</em></strong>，第三个*<strong>%s**<em>为</em></strong>监测点名称*<strong>，第四个**<em>%s</em></strong>为*<strong>PM2.5浓度**<em>，再运行以下</em></strong>awk***命令，即可得到格式化的输出：</p>
-<pre><code class="shell">cat beijing.html | awk -f 1.awk | sed -e &#39;s/&lt;[^&lt;&gt;]*&gt;//g&#39; -e &#39;s/更新时间：//g&#39; | tr &#39;\n&#39; &#39; &#39; | awk -f 2.awk  | more</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | sed -e &#x27;s/&lt;[^&lt;&gt;]*&gt;//g&#x27; -e &#x27;s/更新时间：//g&#x27; | tr &#x27;\n&#x27; &#x27; &#x27; | awk -f 2.awk  | more</span><br></pre></td></tr></table></figure>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200331203819.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203819.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="17" style="zoom: 50%;">
 
 <p>发现输出已经符合题目要求。</p>
 </li>
 <li><p>将结果重定向到文件**<em>“beijing.csv”**</em>：</p>
-<pre><code class="shell">cat beijing.html | awk -f 1.awk | sed -e &#39;s/&lt;[^&lt;&gt;]*&gt;//g&#39; -e &#39;s/更新时间：//g&#39; | tr &#39;\n&#39; &#39; &#39; | awk -f 2.awk  &gt; beijing.csv
-vim beijing.csv</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat beijing.html | awk -f 1.awk | sed -e &#x27;s/&lt;[^&lt;&gt;]*&gt;//g&#x27; -e &#x27;s/更新时间：//g&#x27; | tr &#x27;\n&#x27; &#x27; &#x27; | awk -f 2.awk  &gt; beijing.csv</span><br><span class="line">vim beijing.csv</span><br></pre></td></tr></table></figure>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200331203839.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203839.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="18" style="zoom:50%;">
 
 <img src="https://gitee.com/wxy_666/images/raw/master/20200331203853.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203853.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="19" style="zoom:80%;">
@@ -1238,8 +1237,7 @@ vim beijing.csv</code></pre>
 
 <ol start="11">
 <li><p>由于不同时间的数据有所不同，因此我的过滤语句考虑了不同时间点的情况*<strong>（北京一共有12个监测点，有时有的监测点没有数据，因此是只有11个监测点的数据）**<em>，直接运行以下命令就可以直接将数据导出为</em></strong>beijing.csv***，以下为另一时间点的数据情况：</p>
-<pre><code class="shell">wget http://www.pm25.com/city/beijing.html
-cat beijing.html | awk -f 1.awk | sed -e &#39;s/&lt;[^&lt;&gt;]*&gt;//g&#39; -e &#39;s/更新时间：//g&#39; | tr &#39;\n&#39; &#39; &#39; | awk -f 2.awk  &gt; beijing.csv</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.pm25.com/city/beijing.html</span><br><span class="line">cat beijing.html | awk -f 1.awk | sed -e &#x27;s/&lt;[^&lt;&gt;]*&gt;//g&#x27; -e &#x27;s/更新时间：//g&#x27; | tr &#x27;\n&#x27; &#x27; &#x27; | awk -f 2.awk  &gt; beijing.csv</span><br></pre></td></tr></table></figure>
 <img src="https://gitee.com/wxy_666/images/raw/master/20200331203916.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200331203916.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="21" style="zoom:67%;">
 
 </li>
@@ -1302,7 +1300,7 @@ cat beijing.html | awk -f 1.awk | sed -e &#39;s/&lt;[^&lt;&gt;]*&gt;//g&#39; -e 
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-11T09:09:30+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-11T09:13:20+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2021年9月11日</p>
@@ -1817,8 +1815,6 @@ var loadCSS = function( href, before, media, attributes ){
   
   loadCSS("https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css", window.volantis.loadcss);
   
-  
-  loadCSS("https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/vs2015.css", window.volantis.loadcss);
   
 </script>
 <!-- required -->
@@ -2450,24 +2446,6 @@ $(function () {
 <script src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/comment_typing.js"></script>
 
 
-
-
-  
-
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-<script>hljs.initLineNumbersOnLoad({ singleLine: true });</script>
-
-<script>
-volantis.pjax.push(()=>{
-    document.querySelectorAll('pre code').forEach((block) => {
-      hljs.highlightBlock(block);
-      hljs.lineNumbersBlock(block, { singleLine: true });
-    });
-},"highlightjs")
-</script>
 
 
 

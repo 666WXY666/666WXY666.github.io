@@ -1262,13 +1262,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>  $$<br>  加速比S_2=\frac{102\times{5\Delta{t}}}{115\Delta{t}}\approx{4.43}<br>  $$<br>  吞吐率和加速比是没有静态调度和定向技术时的$\frac{187}{115}\approx{1.63}$倍。</p>
 <h2 id="四、附录"><a href="#四、附录" class="headerlink" title="四、附录"></a>四、附录</h2><h3 id="1、初始的汇编代码"><a href="#1、初始的汇编代码" class="headerlink" title="1、初始的汇编代码"></a>1、初始的汇编代码</h3><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <pre><code class="assembly">.textmain:ADDIU $r1,$r0,array1ADDIU $r2,$r0,array2ADDIU $r3,$r0,12ADDIU $r7,$r0,0loop:LW $r4,0($r1)LW $r5,0($r2)MUL $r6,$r4,$r5ADD $r7,$r7,$r6ADDI $r1,$r1,4ADDI $r2,$r2,4ADDI $r3,$r3,-1BGTZ $r3,loopTEQ $r0,$r0.dataarray1: .word 1,2,3,4,5,6,7,8,9,10,11,12array2: .word 1,2,3,4,5,6,7,8,9,10,11,12</code></pre>
+              <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">.text</span><br><span class="line">main:</span><br><span class="line">ADDIU $r1,$r0,array1</span><br><span class="line">ADDIU $r2,$r0,array2</span><br><span class="line">ADDIU $r3,$r0,12</span><br><span class="line">ADDIU $r7,$r0,0</span><br><span class="line">loop:</span><br><span class="line">LW $r4,0($r1)</span><br><span class="line">LW $r5,0($r2)</span><br><span class="line">MUL $r6,$r4,$r5</span><br><span class="line">ADD $r7,$r7,$r6</span><br><span class="line">ADDI $r1,$r1,4</span><br><span class="line">ADDI $r2,$r2,4</span><br><span class="line">ADDI $r3,$r3,-1</span><br><span class="line">BGTZ $r3,loop</span><br><span class="line">TEQ $r0,$r0</span><br><span class="line">.data</span><br><span class="line">array1: .word 1,2,3,4,5,6,7,8,9,10,11,12</span><br><span class="line">array2: .word 1,2,3,4,5,6,7,8,9,10,11,12</span><br></pre></td></tr></table></figure>
               </div>
             </details>
 
 <h3 id="2、经过静态调度后的汇编代码"><a href="#2、经过静态调度后的汇编代码" class="headerlink" title="2、经过静态调度后的汇编代码"></a>2、经过静态调度后的汇编代码</h3><details><summary> 点击查看代码 </summary>
               <div class="content">
-              <pre><code class="assembly">.textmain:ADDIU $r1,$r0,array1ADDIU $r2,$r0,array2ADDIU $r3,$r0,12ADDIU $r7,$r0,0loop:LW $r4,0($r1)LW $r5,0($r2)ADDI $r1,$r1,4ADDI $r2,$r2,4MUL $r6,$r4,$r5ADDI $r3,$r3,-1ADD $r7,$r7,$r6BGTZ $r3,loopTEQ $r0,$r0.dataarray1: .word 1,2,3,4,5,6,7,8,9,10,11,12array2: .word 1,2,3,4,5,6,7,8,9,10,11,12</code></pre>
+              <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">.text</span><br><span class="line">main:</span><br><span class="line">ADDIU $r1,$r0,array1</span><br><span class="line">ADDIU $r2,$r0,array2</span><br><span class="line">ADDIU $r3,$r0,12</span><br><span class="line">ADDIU $r7,$r0,0</span><br><span class="line">loop:</span><br><span class="line">LW $r4,0($r1)</span><br><span class="line">LW $r5,0($r2)</span><br><span class="line">ADDI $r1,$r1,4</span><br><span class="line">ADDI $r2,$r2,4</span><br><span class="line">MUL $r6,$r4,$r5</span><br><span class="line">ADDI $r3,$r3,-1</span><br><span class="line">ADD $r7,$r7,$r6</span><br><span class="line">BGTZ $r3,loop</span><br><span class="line">TEQ $r0,$r0</span><br><span class="line">.data</span><br><span class="line">array1: .word 1,2,3,4,5,6,7,8,9,10,11,12</span><br><span class="line">array2: .word 1,2,3,4,5,6,7,8,9,10,11,12</span><br></pre></td></tr></table></figure>
               </div>
             </details>
   
@@ -1327,7 +1327,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-11T09:09:30+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-11T09:13:20+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2021年9月11日</p>
@@ -1894,8 +1894,6 @@ var loadCSS = function( href, before, media, attributes ){
   
   loadCSS("https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css", window.volantis.loadcss);
   
-  
-  loadCSS("https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/vs2015.css", window.volantis.loadcss);
   
 </script>
 <!-- required -->
@@ -2527,24 +2525,6 @@ $(function () {
 <script src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/comment_typing.js"></script>
 
 
-
-
-  
-
-<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-<script>hljs.initLineNumbersOnLoad({ singleLine: true });</script>
-
-<script>
-volantis.pjax.push(()=>{
-    document.querySelectorAll('pre code').forEach((block) => {
-      hljs.highlightBlock(block);
-      hljs.lineNumbersBlock(block, { singleLine: true });
-    });
-},"highlightjs")
-</script>
 
 
 
