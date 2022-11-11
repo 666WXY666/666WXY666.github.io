@@ -1174,25 +1174,25 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ol>
 <p>要求数组长度不得小于10</p>
 <p><strong><em>PS：汇编程序见附录。</em></strong></p>
-<h3 id="2、启动-MIPSsim。"><a href="#2、启动-MIPSsim。" class="headerlink" title="2、启动 MIPSsim。"></a>2、启动 MIPSsim。</h3><img src="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-07_175631" style="zoom: 50%;">
+<h3 id="2、启动-MIPSsim。"><a href="#2、启动-MIPSsim。" class="headerlink" title="2、启动 MIPSsim。"></a>2、启动 MIPSsim。</h3><img src="https://cdn.jsdelivr.net/gh/666wxy666/images/20200507175654.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666wxy666/images/20200507175654.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-07_175631" style="zoom: 50%;">
 
 <h3 id="3、载入自己编写的程序，观察流水线输出结果。"><a href="#3、载入自己编写的程序，观察流水线输出结果。" class="headerlink" title="3、载入自己编写的程序，观察流水线输出结果。"></a>3、载入自己编写的程序，观察流水线输出结果。</h3><p>载入的代码：</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200514192648.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200514192648.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-14_192636" style="zoom:80%;">
+<img src="https://cdn.jsdelivr.net/gh/666wxy666/images/20200514192648.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666wxy666/images/20200514192648.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-14_192636" style="zoom:80%;">
 
 <p>执行结果：</p>
 <ul>
 <li><p>内存中的数组</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200514192757.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200514192757.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-14_192747" style="zoom:80%;">
+<img src="https://cdn.jsdelivr.net/gh/666wxy666/images/20200514192757.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666wxy666/images/20200514192757.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-14_192747" style="zoom:80%;">
 
 <p>原数组是{5,4,11,3,7,1,10,6,8,9,2}，排序后是{1,2,3,4,5,6,7,8,9,10,11}，结果符合预期，说明编写的汇编程序正确。</p>
 </li>
 <li><p>部分时钟周期图</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200514211749.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200514211749.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-14_193022" style="zoom:80%;">
+<img src="https://cdn.jsdelivr.net/gh/666wxy666/images/20200514211749.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666wxy666/images/20200514211749.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-14_193022" style="zoom:80%;">
 
 <p>可以看到有非常多的停顿，主要是DSUB命令与BGTZ命令的RAW停顿，还有一些控制停顿。</p>
 </li>
 <li><p>统计</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200514211802.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200514211802.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-14_193232" style="zoom:80%;">
+<img src="https://cdn.jsdelivr.net/gh/666wxy666/images/20200514211802.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666wxy666/images/20200514211802.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-14_193232" style="zoom:80%;">
 
 <p>发现RAW停顿有417个周期，停顿次数非常多，可以进行优化。共执行了1076个周期，RAW停顿占周期总数的百分比为38.75465%，所有的停顿为537个周期，占周期总数的百分比为49.90706%，效率很低。<br>$$<br>吞吐率TP_1=\frac{538}{1076\Delta{t}}<br>$$</p>
 <p>$$<br>加速比S_1=\frac{538\times{5\Delta{t}}}{1076\Delta{t}}={2.5}<br>$$</p>
@@ -1200,17 +1200,17 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ul>
 <h3 id="4、使用定向功能再次执行代码，与刚才执行结果进行比较，观察执行效率的不同。"><a href="#4、使用定向功能再次执行代码，与刚才执行结果进行比较，观察执行效率的不同。" class="headerlink" title="4、使用定向功能再次执行代码，与刚才执行结果进行比较，观察执行效率的不同。"></a>4、使用定向功能再次执行代码，与刚才执行结果进行比较，观察执行效率的不同。</h3><ul>
 <li><p>内存中的数组</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200514193632.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200514193632.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-14_193627" style="zoom:80%;">
+<img src="https://cdn.jsdelivr.net/gh/666wxy666/images/20200514193632.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666wxy666/images/20200514193632.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-14_193627" style="zoom:80%;">
 
 <p>结果正确。</p>
 </li>
 <li><p>部分时钟周期图</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200514211946.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200514211946.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-14_193708" style="zoom:80%;">
+<img src="https://cdn.jsdelivr.net/gh/666wxy666/images/20200514211946.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666wxy666/images/20200514211946.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-14_193708" style="zoom:80%;">
 
 <p>在使用定向技术后，发现停顿明显减少。</p>
 </li>
 <li><p>统计</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200514211954.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200514211954.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-14_194050" style="zoom:80%;">
+<img src="https://cdn.jsdelivr.net/gh/666wxy666/images/20200514211954.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666wxy666/images/20200514211954.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-14_194050" style="zoom:80%;">
 
 <p>发现RAW停顿有175个周期，停顿周期数比没有定向技术时的417个少了很多；</p>
 <p>共执行了834个周期，比没有定向技术时的1076个也少了很多；</p>
@@ -1224,20 +1224,20 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p><strong><em>PS：静态调度后的汇编程序见附录。</em></strong></p>
 <ul>
 <li><p>载入代码</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200514205322.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200514205322.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-14_205303" style="zoom:80%;">
+<img src="https://cdn.jsdelivr.net/gh/666wxy666/images/20200514205322.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666wxy666/images/20200514205322.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-14_205303" style="zoom:80%;">
 </li>
 <li><p>内存中的数组</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200514205458.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200514205458.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-14_205419" style="zoom:80%;">
+<img src="https://cdn.jsdelivr.net/gh/666wxy666/images/20200514205458.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666wxy666/images/20200514205458.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-14_205419" style="zoom:80%;">
 
 <p>结果正确。</p>
 </li>
 <li><p>部分时钟周期图</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200514212233.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200514212233.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-14_211607" style="zoom:80%;">
+<img src="https://cdn.jsdelivr.net/gh/666wxy666/images/20200514212233.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666wxy666/images/20200514212233.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-14_211607" style="zoom:80%;">
 
 <p>在使用静态调度后，发现停顿少了很多。</p>
 </li>
 <li><p>统计</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200514212255.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200514212255.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-14_211624" style="zoom:80%;">
+<img src="https://cdn.jsdelivr.net/gh/666wxy666/images/20200514212255.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666wxy666/images/20200514212255.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-14_211624" style="zoom:80%;">
 
 <p>发现RAW停顿有142个周期，停顿周期数比没有静态调度时的417个少了很多；</p>
 <p>共执行了801个周期，比没有静态调度时的1076个也少了很多；</p>
@@ -1250,17 +1250,17 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ul>
 <h3 id="6、对优化后的程序使用定向功能执行，与刚才执行结果进行比较，观察执行效率的不同。"><a href="#6、对优化后的程序使用定向功能执行，与刚才执行结果进行比较，观察执行效率的不同。" class="headerlink" title="6、对优化后的程序使用定向功能执行，与刚才执行结果进行比较，观察执行效率的不同。"></a>6、对优化后的程序使用定向功能执行，与刚才执行结果进行比较，观察执行效率的不同。</h3><ul>
 <li><p>内存中的数组</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200514205458.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200514205458.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-14_205419" style="zoom:80%;">
+<img src="https://cdn.jsdelivr.net/gh/666wxy666/images/20200514205458.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666wxy666/images/20200514205458.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-14_205419" style="zoom:80%;">
 
 <p>结果正确。</p>
 </li>
 <li><p>部分时钟周期图</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200514212858.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200514212858.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-14_211701" style="zoom:80%;">
+<img src="https://cdn.jsdelivr.net/gh/666wxy666/images/20200514212858.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666wxy666/images/20200514212858.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-14_211701" style="zoom:80%;">
 
 <p>在使用静态调度和定向技术后，发现所有的RAW停顿几乎没有了，几乎只剩下了控制停顿。</p>
 </li>
 <li><p>统计</p>
-<img src="https://gitee.com/wxy_666/images/raw/master/20200514212914.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200514212914.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-14_211714" style="zoom:80%;">
+<img src="https://cdn.jsdelivr.net/gh/666wxy666/images/20200514212914.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666wxy666/images/20200514212914.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2020-05-14_211714" style="zoom:80%;">
 
 <p>发现RAW停顿有10个周期，停顿周期数比没有静态调度和定向技术时的417个少了非常多；</p>
 <p>共执行了669个周期，比没有静态调度和定向技术时的1076个也少了非常多；</p>
@@ -1295,7 +1295,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>相关文章</span>
     </section>
     <section class="body">
-      <div class="vlts-rps"><a class="item" href="/2020/03/26/计算机系统结构-实验1&2/" title="计算机系统结构 实验1&2" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200419150741.png" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200419150741.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">计算机系统结构 实验1&2</span><span class="excerpt">本文是关于计算机系统结构实验一（MIPS指令系统和MIPS体系结构）和实验二（流水线及流水线中的冲突），遇到的一些问题。</span></a><a class="item" href="/2020/04/25/计算机系统结构-实验3-使用MIPS指令实现求两个数组的点积/" title="计算机系统结构 实验3 使用MIPS指令实现求两个数组的点积" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">计算机系统结构 实验3 使用MIPS指令实现求两个数组的点积</span><span class="excerpt">本文是关于计算机系统结构实验三，使用MIPS指令实现求两个数组的点积。</span></a><a class="item" href="/2020/05/11/计算机系统结构-实验5-指令调度与延迟分支/" title="计算机系统结构 实验5 指令调度与延迟分支" rel="bookmark "><img src="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" class="lazyload" data-srcset="https://gitee.com/wxy_666/images/raw/master/20200507175654.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">计算机系统结构 实验5 指令调度与延迟分支</span><span class="excerpt">本文是关于计算机系统结构实验五，指令调度与延迟分支。</span></a><a class="item" href="/2020/10/09/交换原理-实验3-MPLS编程实验/" title="现代交换原理 实验3 MPLS编程实验" rel="bookmark "><img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" class="lazyload" data-srcset="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">现代交换原理 实验3 MPLS编程实验</span><span class="excerpt">本文是关于交换原理实验三——MPLS编程实验报告记录。</span></a></div></section></div>
+      <div class="vlts-rps"><a class="item" href="/2020/03/26/计算机系统结构-实验1&2/" title="计算机系统结构 实验1&2" rel="bookmark "><img src="https://cdn.jsdelivr.net/gh/666wxy666/images/20200419150741.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666wxy666/images/20200419150741.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">计算机系统结构 实验1&2</span><span class="excerpt">本文是关于计算机系统结构实验一（MIPS指令系统和MIPS体系结构）和实验二（流水线及流水线中的冲突），遇到的一些问题。</span></a><a class="item" href="/2020/04/25/计算机系统结构-实验3-使用MIPS指令实现求两个数组的点积/" title="计算机系统结构 实验3 使用MIPS指令实现求两个数组的点积" rel="bookmark "><img src="https://cdn.jsdelivr.net/gh/666wxy666/images/20200507175654.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666wxy666/images/20200507175654.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">计算机系统结构 实验3 使用MIPS指令实现求两个数组的点积</span><span class="excerpt">本文是关于计算机系统结构实验三，使用MIPS指令实现求两个数组的点积。</span></a><a class="item" href="/2020/05/11/计算机系统结构-实验5-指令调度与延迟分支/" title="计算机系统结构 实验5 指令调度与延迟分支" rel="bookmark "><img src="https://cdn.jsdelivr.net/gh/666wxy666/images/20200507175654.jpg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/666wxy666/images/20200507175654.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">计算机系统结构 实验5 指令调度与延迟分支</span><span class="excerpt">本文是关于计算机系统结构实验五，指令调度与延迟分支。</span></a><a class="item" href="/2020/10/09/交换原理-实验3-MPLS编程实验/" title="现代交换原理 实验3 MPLS编程实验" rel="bookmark "><img src="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" class="lazyload" data-srcset="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><span class="title">现代交换原理 实验3 MPLS编程实验</span><span class="excerpt">本文是关于交换原理实验三——MPLS编程实验报告记录。</span></a></div></section></div>
       
       
         <div class="copyright">
@@ -1339,7 +1339,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-11-11T07:41:22+00:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-11-11T07:54:59+00:00">
   <a class="notlink">
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2022年11月11日</p>
